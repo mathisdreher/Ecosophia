@@ -88,6 +88,7 @@ async function waitFor(check, { until, child, what, logFile }) {
   for (;;) {
     const got = check();
     if (got) return got;
+    if (child.spawnError) throw new Error(`MiroFish could not be started: ${child.spawnError.message}`);
     if (child.exitCode != null) throw new Error(`MiroFish stopped (exit ${child.exitCode}) before ${what}.\n${tail(logFile)}`);
     if (Date.now() > until) throw new Error(`Timed out waiting for ${what}.\n${tail(logFile)}`);
     await sleep(500);
@@ -189,6 +190,9 @@ async function main() {
     // The bridge queues calls above its concurrency limit: give a queued call
     // time to be served instead of letting the engine time out and send it again.
     MODEL_TIMEOUT: '1800',
+    // Where OASIS looks up follower counts. Without it the library creates a
+    // data folder inside its own installation.
+    OASIS_DB_PATH: path.join(sim, 'reddit_simulation.db'),
     PYTHONUNBUFFERED: '1',
     PYTHONIOENCODING: 'utf-8',
     NO_PROXY: '127.0.0.1,localhost',
@@ -215,7 +219,7 @@ async function main() {
   child.stderr.pipe(logStream, { end: false });
   const exited = new Promise((resolve) => child.once('close', resolve));
   child.once('error', (e) => {
-    console.error(`clearing: could not start ${opt.python}: ${e.message}`);
+    child.spawnError = e;
   });
 
   const wait = { until: Date.now() + opt.timeoutMs, child, logFile };
