@@ -36,6 +36,7 @@ const transcript = record?.transcript ?? [];
 const rounds = [...new Set(transcript.map((e) => e.round))].sort((a, b) => a - b);
 const lines = (round) => transcript.filter((e) => e.round === round && ['post', 'comment', 'like', 'dislike'].includes(e.type));
 const prompts = record?.prompts ?? null;
+const agentPrompts = Object.entries(prompts?.agents ?? {}).filter(([, text]) => text);
 ---
 
 <Base lang={lang} view="run" id={id} title={`${t('clearing.runTitle', { id: run.runId })}: ${L(run.claim, lang)}`} description={L(run.summary, lang)} noindex={draft}>
@@ -109,14 +110,19 @@ const prompts = record?.prompts ?? null;
             <summary>{t('clearing.interview')}</summary>
             <pre lang="en">{prompts.interview}</pre>
           </details>
-          {Object.entries(prompts.agents)
-            .filter(([, text]) => text)
-            .map(([authorId, text]) => (
-              <details>
-                <summary>{t('clearing.agentPrompt', { name: name(authorId) })}</summary>
-                <pre lang="en">{text}</pre>
-              </details>
-            ))}
+          <details>
+            <summary>
+              {t('clearing.agentPrompts')} <span class="eco-meta">({agentPrompts.length})</span>
+            </summary>
+            <div class="nested">
+              {agentPrompts.map(([authorId, text]) => (
+                <details>
+                  <summary>{t('clearing.agentPrompt', { name: name(authorId) })}</summary>
+                  <pre lang="en">{text}</pre>
+                </details>
+              ))}
+            </div>
+          </details>
         </div>
       )
     }
@@ -194,6 +200,12 @@ const prompts = record?.prompts ?? null;
   details {
     border-top: 1px solid var(--line);
     padding: var(--space-2) 0;
+  }
+  .nested {
+    padding-left: var(--space-4);
+  }
+  .nested summary {
+    font-weight: 400;
   }
   summary {
     cursor: pointer;
