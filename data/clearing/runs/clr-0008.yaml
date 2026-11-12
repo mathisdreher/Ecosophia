@@ -1,0 +1,361 @@
+# Clearing run clr-0008. Simulated: nothing below is a statement by any author named.
+# Written by clearing/run.mjs. The transcript and the prompts are in the file next to this one.
+id: clr-0008
+runId: clr-0008
+status: draft
+date: 2026-11-12
+claim:
+  en: Rich countries owe a climate debt to the Global South and should pay it.
+  fr: Les pays riches ont une dette climatique envers les pays du Sud et devraient la payer.
+question:
+  id: dette-climatique
+  kind: axiom
+  measures: []
+summary:
+  en: "Nearly every agent accepted helping the South; the division ran over what repayment should buy: abundant energy and growth, or an exit from extraction and from catch-up development. The Conservatives split: the Pope Francis agent endorsed the debt at 90, and the Roger Scruton agent rejected it at 25."
+  fr: "Presque tous les agents acceptaient d'aider le Sud; le clivage portait sur ce que la réparation doit financer : énergie abondante et croissance, ou sortie de l'extraction et du développement de rattrapage. La branche Conservateurs s'est divisée : l'agent Pape François a soutenu la dette à 90, l'agent Roger Scruton l'a rejetée à 25."
+engine:
+  name: MiroFish
+  commit: 7657031ac01184afe2cb220f5ee3545573b5e843
+  platform: reddit
+  packages:
+    - camel-oasis==0.2.5
+    - camel-ai==0.2.78
+model:
+  requested: claude-opus-5-5
+  served:
+    - claude-opus-5-5
+  effort: medium
+settings:
+  rounds: 2
+  agents: 26
+  selection: auto
+  budgetUsd: 3
+  estimateUsd: 1.99
+plan:
+  model: claude-opus-5-5
+  note: The core dispute pits historical-responsibility arguments from ecological economics, decolonial and ecosocialist authors against cost-benefit, ecomodernist and conservative objections, with every branch represented. Two rounds let the camps answer each other at about 2 USD.
+  rounds: 2
+  ranked: 26
+  trimmed: false
+  reasons:
+    joan-martinez-alier: Theorist of ecological debt and environmentalism of the poor, the core concept of the claim.
+    bjorn-lomborg: Cost-benefit priorities argue against large climate transfers as poor value for the poor.
+    jason-hickel: Quantifies rich countries' overshoot of fair shares and unequal exchange, giving a measure for the debt.
+    ted-nordhaus: Ecomodernist who stresses energy access and growth in the South over reparative framing.
+    nnimmo-bassey: Campaigner who has pressed climate and ecological debt claims from the Niger Delta.
+    andreas-malm: Fossil Capital traces emissions to specific historical owners, which bears on who owes what.
+    william-nordhaus: Optimal carbon pricing and discounting frame climate policy without historical liability.
+    roger-scruton: Conservative oikophilia questions abstract global obligations and inherited national guilt.
+    pope-francis: Laudato si' explicitly names an ecological debt between North and South.
+    pascal-bruckner: Critiques ecological guilt and Western self-accusation, a direct challenge to the claim.
+    alberto-acosta: Behind the Yasuni-ITT proposal asking the world to compensate for leaving oil underground.
+    vandana-shiva: Maldevelopment and biopiracy describe Northern appropriation of Southern resources.
+    hans-jonas: Imperative of responsibility grounds duties across time and distance, relevant to historical liability.
+    pierre-charbonnier: Links Northern freedoms to appropriated abundance, a historical basis for debt.
+    baird-callicott: Has written on climate ethics from the land ethic, bringing a nonhuman-centred view.
+    leonardo-boff: Joins the cry of the poor and the cry of the Earth from Latin American liberation theology.
+    murray-bookchin: Social ecology may doubt state-to-state payments that leave hierarchies intact.
+    timothy-morton: Hyperobjects frame climate as diffuse in a way that complicates assigning responsibility.
+    eduardo-gudynas: Neo-extractivism shows Southern governments sharing in the damage, complicating a North-South ledger.
+    michael-shellenberger: Ecomodernist who argues that cheap energy and development, not guilt, help the poor.
+    amitav-ghosh: The Nutmeg's Curse ties the climate crisis to colonial terraforming.
+    kohei-saito: Degrowth communism and imperial mode of living connect Northern consumption to Southern costs.
+    maria-mies: Analysed accumulation resting on unpaid extraction from colonies, women and peasants.
+    ramachandra-guha: Environmentalism of the poor and critique of Northern environmentalism from India.
+    julian-simon: Cornucopian view that growth enriches all, which weakens the case for debt.
+    serge-latouche: Decolonising the imaginary doubts that money transfers within the development frame repair harm.
+counts:
+  turns: 52
+  comments: 68
+  reactions: 86
+  interviews: 26
+  declined: 0
+  failed: 0
+  tokensIn: 639711
+  tokensOut: 38145
+  costUsd: 2.33
+positions:
+  - branch: technocritique
+    score: 70
+    min: 70
+    max: 70
+    agents: 1
+  - branch: degrowth
+    score: 89
+    min: 85
+    max: 92
+    agents: 2
+  - branch: social-ecology
+    score: 68
+    min: 68
+    max: 68
+    agents: 1
+  - branch: ecosocialism
+    score: 87
+    min: 85
+    max: 88
+    agents: 2
+  - branch: deep-ecology
+    score: 68
+    min: 68
+    max: 68
+    agents: 1
+  - branch: ecosophy
+    score: 90
+    min: 90
+    max: 90
+    agents: 1
+  - branch: anthropocene
+    score: 80
+    min: 80
+    max: 80
+    agents: 1
+  - branch: political-ecology
+    score: 92
+    min: 92
+    max: 92
+    agents: 1
+  - branch: decolonial
+    score: 88
+    min: 80
+    max: 95
+    agents: 5
+  - branch: ecofeminism
+    score: 88
+    min: 85
+    max: 90
+    agents: 2
+  - branch: queer-ecology
+    score: 82
+    min: 82
+    max: 82
+    agents: 1
+  - branch: counterpoint
+    score: 28
+    min: 25
+    max: 30
+    agents: 2
+  - branch: market
+    score: 21
+    min: 15
+    max: 35
+    agents: 4
+  - branch: conservative
+    score: 58
+    min: 25
+    max: 90
+    agents: 2
+alliances:
+  - title:
+      en: For, as a historical drain
+      fr: Pour, au nom d'une ponction historique
+    text:
+      en: The debt stems from centuries of taking land, labour and atmosphere, and repaying it must not finance the same growth model. The Pope Francis agent joins here, apart from its Conservative branch.
+      fr: La dette naît de siècles d'appropriation des terres, du travail et de l'atmosphère, et la rembourser ne doit pas financer le même modèle de croissance. L'agent Pape François s'y range, loin de sa branche Conservateurs.
+    authors:
+      - jason-hickel
+      - serge-latouche
+      - kohei-saito
+      - alberto-acosta
+      - vandana-shiva
+      - maria-mies
+      - pierre-charbonnier
+      - amitav-ghosh
+      - leonardo-boff
+      - pope-francis
+      - baird-callicott
+      - timothy-morton
+  - title:
+      en: For, if it bypasses state elites
+      fr: Pour, à condition d'éviter les élites
+    text:
+      en: Payment should be collected from fossil capital or ruling classes and reach affected communities and their claims to land, water and refusal of extraction, not treasuries.
+      fr: Le paiement doit être prélevé sur le capital fossile ou les classes dirigeantes et parvenir aux communautés touchées, à leurs droits sur la terre et l'eau, et non aux trésors publics.
+    authors:
+      - andreas-malm
+      - murray-bookchin
+      - ramachandra-guha
+      - eduardo-gudynas
+      - joan-martinez-alier
+      - nnimmo-bassey
+  - title:
+      en: A duty that looks forward
+      fr: Un devoir tourné vers l'avenir
+    text:
+      en: "Both agents set historical repayment aside for duties from now on: the Hans Jonas agent a care for the unborn at 70, the William Nordhaus agent a rising carbon price at 35."
+      fr: "Les deux agents écartent le remboursement du passé au profit d'obligations à venir : l'agent Hans Jonas, un soin dû aux générations futures, à 70; l'agent William Nordhaus, un prix croissant du carbone, à 35."
+    authors:
+      - hans-jonas
+      - william-nordhaus
+  - title:
+      en: Against guilt, for help
+      fr: Contre la culpabilité, pour l'aide
+    text:
+      en: The debt framing breeds guilt and penance; help is justified when it brings energy, growth and health. The Roger Scruton agent wants it to secure local land tenure instead.
+      fr: Le cadre de la dette entretient la culpabilité et la pénitence; l'aide se justifie si elle apporte énergie, croissance et santé. L'agent Roger Scruton veut plutôt qu'elle garantisse la sécurité foncière locale.
+    authors:
+      - bjorn-lomborg
+      - ted-nordhaus
+      - michael-shellenberger
+      - julian-simon
+      - pascal-bruckner
+      - roger-scruton
+voices:
+  - author: julian-simon
+    position: 15
+    work: simon-1981
+    text:
+      en: Northern growth produced knowledge, medicine and cheaper resources that poor countries now share, so it is closer to a gift than a debt. Growth, open markets and ingenuity serve the South better than transfers or degrowth. Climate debt as such lies outside the work.
+      fr: "La croissance du Nord a produit des savoirs, des médicaments et des ressources moins chères dont profitent aujourd'hui les pays pauvres : c'est plus proche d'un don que d'une dette. La croissance, l'ouverture des marchés et l'ingéniosité servent mieux le Sud que les transferts ou la décroissance. La dette climatique en tant que telle sort du champ de l'œuvre."
+  - author: pascal-bruckner
+    position: 20
+    work: bruckner-2011
+    text:
+      en: Climate debt turns history into inherited sin and policy into penance. Guilt freezes the rich in self-accusation and casts the South as a permanent victim. Helping poorer countries reach energy, growth and abundance is worth doing. Atonement and Northern self-punishment are not.
+      fr: La dette climatique fait de l'histoire un péché hérité et de la politique une pénitence. La culpabilité fige les riches dans l'autoaccusation et fait du Sud une victime perpétuelle. Aider les pays plus pauvres à accéder à l'énergie, à la croissance et à l'abondance en vaut la peine. L'expiation et l'autopunition du Nord, non.
+  - author: bjorn-lomborg
+    position: 22
+    work: lomborg-2001
+    text:
+      en: "Debt is the wrong frame. Help for poorer countries is justified, but it should go where each euro does the most good: nutrition, health, clean water and growth. Expensive emission cuts and Northern degrowth rank low as ways to improve lives in the South."
+      fr: "La dette n'est pas le bon cadre. L'aide aux pays plus pauvres se justifie, mais elle doit aller là où chaque euro fait le plus de bien : nutrition, santé, eau potable et croissance. Les réductions d'émissions coûteuses et la décroissance du Nord arrivent loin derrière pour améliorer la vie au Sud."
+  - author: roger-scruton
+    position: 25
+    work: scruton-2012
+    text:
+      en: Framing ecology as a debt turns care into guilt and into transfers between states run by unaccountable global bodies. Help is justified when it secures local tenure and stewardship, because people protect land they love as home.
+      fr: Penser l'écologie comme une dette change le soin en culpabilité et en transferts entre États gérés par des instances mondiales qui ne rendent de comptes à personne. L'aide se justifie quand elle garantit aux communautés locales la sécurité foncière et la garde de leurs terres, car on protège la terre que l'on aime comme sa maison.
+  - author: michael-shellenberger
+    position: 25
+    work: shellenberger-2020
+    text:
+      en: The debt framing is rejected, though helping poor nations is not. The Global South needs abundant, cheap energy and infrastructure to industrialize. Finance tied to guilt and restraint keeps people poor, and prosperity is what makes societies resilient and spares nature.
+      fr: Le cadre de la dette est rejeté, mais pas l'aide aux nations pauvres. Les pays du Sud ont besoin d'une énergie abondante et bon marché et d'infrastructures pour s'industrialiser. Une aide liée à la culpabilité et à la restriction maintient les gens dans la pauvreté, et c'est la prospérité qui rend les sociétés résilientes et épargne la nature.
+  - author: ted-nordhaus
+    position: 30
+    work: nordhaus-2004
+    text:
+      en: Rich countries should finance cheap clean energy, modern farming and infrastructure in poorer countries, but as shared investment in prosperity. Framing it as debt and guilt is a politics of blame that cannot win majorities and too often ties aid to restraint.
+      fr: Les pays riches devraient financer une énergie propre bon marché, une agriculture moderne et des infrastructures dans les pays plus pauvres, mais comme un investissement partagé dans la prospérité. Parler de dette et de culpabilité relève d'une politique du reproche qui ne peut pas rallier de majorités et lie trop souvent l'aide à la restriction.
+  - author: william-nordhaus
+    position: 35
+    work: w-nordhaus-2008
+    text:
+      en: Climate change is best treated as damage to be priced, not as a historical debt to be settled. A carbon price that rises along an optimal path charges every tonne emitted from now on. Transfers may help fairness, but they cannot replace that price.
+      fr: Le changement climatique se traite mieux comme un dommage à tarifer que comme une dette historique à solder. Un prix du carbone qui augmente selon une trajectoire optimale fait payer chaque tonne émise à partir de maintenant. Les transferts peuvent servir l'équité, mais ils ne remplacent pas ce prix.
+  - author: baird-callicott
+    position: 68
+    work: callicott-1989
+    text:
+      en: The land ethic adds to duties toward human communities without replacing them, so a climate debt between nations can stand. Repayment fails if it pays for extractive growth that harms the biotic community. Without that limit, the debt only grows.
+      fr: L'éthique de la terre s'ajoute aux devoirs envers les communautés humaines sans les remplacer, de sorte qu'une dette climatique entre nations peut tenir. Le remboursement échoue s'il finance une croissance extractive qui nuit à la communauté biotique. Sans cette limite, la dette ne fait que croître.
+  - author: murray-bookchin
+    position: 68
+    work: bookchin-1982
+    text:
+      en: The grievance is real, but the debt is owed by firms and ruling classes, not nations, and it is owed to peoples rather than states. Repair should go to federated, self-governing community assemblies, or state elites will capture it and it will build new hierarchies.
+      fr: Le grief est fondé, mais la dette est due par des entreprises et des classes dirigeantes, non par des nations, et elle est due à des peuples plutôt qu'à des États. La réparation doit aller à des assemblées communales autonomes et fédérées, sinon les élites d'État s'en empareront et elle servira à bâtir de nouvelles hiérarchies.
+  - author: hans-jonas
+    position: 70
+    work: jonas-1979
+    text:
+      en: Responsibility grows with power. Rich countries have the technology to change the conditions of life, so they bear a duty of care toward the vulnerable and the unborn. This is better understood as a forward-looking duty to protect the future than as repayment of a past debt.
+      fr: La responsabilité croît avec le pouvoir. Les pays riches disposent de la technique capable de modifier les conditions de la vie, ils ont donc un devoir de soin envers les vulnérables et les générations à naître. Mieux vaut y voir un devoir tourné vers l'avenir, la protection du futur, que le remboursement d'une dette passée.
+  - author: pierre-charbonnier
+    position: 80
+    work: charbonnier-2020
+    text:
+      en: The debt is real because modern freedoms in rich countries were built on abundance taken from colonial land and coal. Paying in money for more growth repeats that pact. Repayment also means finding a freedom that no longer depends on drawing down others' ground.
+      fr: La dette est réelle, car les libertés modernes des pays riches se sont bâties sur une abondance tirée des terres coloniales et du charbon. Payer en argent pour plus de croissance reconduit ce pacte. Rembourser, c'est aussi trouver une liberté qui ne dépende plus de l'épuisement du sol des autres.
+  - author: eduardo-gudynas
+    position: 80
+    work: gudynas-2015
+    text:
+      en: The climate debt is real and should be paid. But payment spent inside the extractive export model repeats it. Repair must reach affected communities and support a way out of extraction toward alternatives such as buen vivir.
+      fr: La dette climatique est réelle et doit être payée. Mais un paiement dépensé dans le modèle extractif exportateur ne fait que le reconduire. La réparation doit atteindre les communautés touchées et soutenir une sortie de l'extraction vers des alternatives comme le buen vivir.
+  - author: timothy-morton
+    position: 82
+    work: morton-2013
+    text:
+      en: "Global warming is a hyperobject: everyone is inside it, but its causes have a history. Carbon burned by rich industrial economies returns as harm elsewhere, often hardest where little was burned. Sharing the hyperobject does not erase that origin, so the debt stands."
+      fr: "Le réchauffement climatique est un hyperobjet : nous sommes tous dedans, mais ses causes ont une histoire. Le carbone brûlé par les riches économies industrielles revient sous forme de dommages ailleurs, souvent plus durement là où l'on a peu brûlé. Partager l'hyperobjet n'efface pas cette origine, la dette tient donc."
+  - author: ramachandra-guha
+    position: 82
+    work: guha-1997
+    text:
+      en: The debt is real, because rich-country omnivores used the atmosphere as their own sink. Repayment has to reach the ecosystem people who bear the cost, through control over forests, water and grazing land, and must not be captured by Southern elites or spent on displacing development.
+      fr: La dette est réelle, car les omnivores des pays riches ont utilisé l'atmosphère comme leur propre puits. Le remboursement doit atteindre les peuples des écosystèmes qui en supportent le coût, par la maîtrise des forêts, de l'eau et des pâturages, sans être capté par les élites du Sud ni dépensé dans un développement qui déplace les populations.
+  - author: andreas-malm
+    position: 85
+    work: malm-2016
+    text:
+      en: The climate debt is real, but it is owed by a class of fossil capital owners who chose coal to command labour, not by humanity or by Northern workers. It should be collected from fossil profits and used to fund public renewable power in the South.
+      fr: La dette climatique est réelle, mais elle est due par une classe de propriétaires du capital fossile qui ont choisi le charbon pour commander le travail, non par l'humanité ni par les travailleurs du Nord. Elle doit être prélevée sur les profits fossiles et financer une électricité renouvelable publique au Sud.
+  - author: maria-mies
+    position: 85
+    work: mies-1986
+    text:
+      en: The debt is real. Northern wealth rests on treating colonies, peasants, women's unpaid work and the atmosphere as free resources. Repayment should end that extraction and protect subsistence production, not finance a catching-up development that cannot be generalised.
+      fr: La dette est réelle. La richesse du Nord repose sur le fait de traiter les colonies, les paysans, le travail non rémunéré des femmes et l'atmosphère comme des ressources gratuites. Le remboursement doit mettre fin à cette extraction et protéger la production de subsistance, non financer un développement de rattrapage impossible à généraliser.
+  - author: serge-latouche
+    position: 85
+    work: latouche-1989
+    text:
+      en: "The ecological debt is real: Northern prosperity rests on a footprint taken from the South. Paying it as development aid would repeat the westernisation of the world, so the first repayment is degrowth in the North, which leaves Southern societies free to find their own paths."
+      fr: "La dette écologique est réelle : la prospérité du Nord repose sur une empreinte prélevée sur le Sud. La payer sous forme d'aide au développement reconduirait l'occidentalisation du monde; le premier remboursement est donc la décroissance au Nord, qui laisse les sociétés du Sud libres de trouver leurs propres voies."
+  - author: alberto-acosta
+    position: 88
+    work: acosta-2012
+    text:
+      en: The ecological debt from centuries of extraction is real and must be paid. Repayment should not finance more of the same development. It should support buen vivir, the rights of nature and leaving fossil fuels underground, so communities can choose alternatives to development.
+      fr: La dette écologique née de siècles d'extraction est réelle et doit être payée. Le remboursement ne doit pas financer davantage du même développement. Il doit soutenir le buen vivir, les droits de la nature et le maintien des combustibles fossiles sous terre, pour que les communautés puissent choisir des alternatives au développement.
+  - author: kohei-saito
+    position: 88
+    work: saito-2022
+    text:
+      en: The metabolic rift has a geography. The core drained soil, minerals and carbon sinks from the periphery, so the debt is real. Paying it should build commons and free time rather than fund more accumulation, and degrowth in the North is part of the repayment.
+      fr: La rupture métabolique a une géographie. Le centre a drainé les sols, les minerais et les puits de carbone de la périphérie, la dette est donc réelle. La payer doit servir à bâtir des communs et du temps libre plutôt qu'à financer davantage d'accumulation, et la décroissance au Nord fait partie du remboursement.
+  - author: pope-francis
+    position: 90
+    work: francis-2015
+    text:
+      en: A true ecological debt exists between North and South, built on unequal trade and the disproportionate use of shared resources. Paying it is justice, not charity, and it requires the rich to change how they live, not only to transfer money.
+      fr: Il existe une véritable dette écologique entre le Nord et le Sud, fondée sur un commerce inégal et un usage disproportionné des ressources communes. La payer relève de la justice, non de la charité, et exige que les riches changent leur manière de vivre, et pas seulement qu'ils transfèrent de l'argent.
+  - author: vandana-shiva
+    position: 90
+    work: shiva-1988
+    text:
+      en: The debt is real. Northern growth took Southern forests, seeds, knowledge and atmosphere as free inputs and treated women's subsistence work as worthless. Repayment must restore commons and local food systems, not fund more maldevelopment or patented, input-dependent agriculture.
+      fr: La dette est réelle. La croissance du Nord a pris les forêts, les semences, les savoirs et l'atmosphère du Sud comme des intrants gratuits et a tenu pour rien le travail de subsistance des femmes. Le remboursement doit restaurer les communs et les systèmes alimentaires locaux, non financer davantage de mal-développement ou une agriculture brevetée et dépendante des intrants.
+  - author: leonardo-boff
+    position: 90
+    work: boff-1995
+    text:
+      en: The climate debt is real and should be paid as justice, not charity, because the logic that plunders the Earth also impoverishes the South. Payment alone is not liberation. The model that exploits both the poor and the Earth must change.
+      fr: La dette climatique est réelle et doit être payée au titre de la justice, non de la charité, car la logique qui pille la Terre appauvrit aussi le Sud. Le paiement seul n'est pas une libération. Le modèle qui exploite à la fois les pauvres et la Terre doit changer.
+  - author: amitav-ghosh
+    position: 90
+    work: ghosh-2021
+    text:
+      en: The climate debt is real because the planetary crisis began with colonial conquest that remade landscapes for single crops and treated land and peoples as inert resources. Paying it requires money and also giving up the extractive view of the earth.
+      fr: La dette climatique est réelle, car la crise planétaire a commencé avec la conquête coloniale, qui a remodelé des paysages pour la monoculture et traité les terres et les peuples comme des ressources inertes. La payer exige de l'argent, mais aussi de renoncer au regard extractif porté sur la terre.
+  - author: joan-martinez-alier
+    position: 92
+    work: martinez-alier-2002
+    text:
+      en: The North owes the South an ecological debt for resources taken cheaply and for overusing the atmosphere. Paying it means compensation and ending unequal ecological trade. It also means backing the communities that resist extraction, not only transfers from state to state.
+      fr: Le Nord doit au Sud une dette écologique, pour les ressources prises à bas prix et pour l'usage excessif de l'atmosphère. La payer suppose des compensations et la fin de l'échange écologique inégal. Cela suppose aussi de soutenir les communautés qui résistent à l'extraction, et pas seulement des transferts d'État à État.
+  - author: jason-hickel
+    position: 92
+    work: hickel-2017
+    text:
+      en: The debt is real. Rich countries used most of the carbon budget and still draw cheap labour and resources from the South through unequal exchange. Repayment means reparations and finance, and also degrowth in the North so the South has room to develop.
+      fr: La dette est réelle. Les pays riches ont consommé l'essentiel du budget carbone et tirent encore du Sud une main-d'œuvre et des ressources bon marché par l'échange inégal. La rembourser, ce sont des réparations et des financements, mais aussi la décroissance au Nord, pour laisser au Sud la place de se développer.
+  - author: nnimmo-bassey
+    position: 95
+    work: bassey-2012
+    text:
+      en: Rich countries owe a climate debt because Africa is cooked twice, first by the extraction of its oil and minerals and then by the warming that this extraction feeds. Repayment means reparations and leaving fossil fuels in the ground, not new loans.
+      fr: "Les pays riches ont une dette climatique, car l'Afrique est cuite deux fois : d'abord par l'extraction de son pétrole et de ses minerais, puis par le réchauffement que cette extraction alimente. La rembourser, ce sont des réparations et des combustibles fossiles laissés sous terre, pas de nouveaux prêts."
+silent: []
