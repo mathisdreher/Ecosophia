@@ -146,6 +146,26 @@ export function loadClearing() {
   return { specimen, runs, published: runs.filter((r) => r.status === 'published') };
 }
 
+/**
+ * Portraits (data/portraits.yaml): which authors have a drawn portrait in
+ * public/portraits. Everyone else gets one of two placeholders.
+ */
+export function loadPortraits() {
+  const file = path.join(DATA, 'portraits.yaml');
+  const list = fs.existsSync(file) ? (readYaml('portraits.yaml') ?? []) : [];
+  return new Map(list.map((p) => [p.id, p]));
+}
+
+/** The image to show for an author: {src, drawn, model} (src is site-relative). */
+export function portraitOf(author, portraits = loadPortraits()) {
+  const p = portraits.get(author.id);
+  if (author.portrait !== false && p?.status === 'drawn') return { src: `/portraits/${author.id}.webp`, drawn: true, model: p.model };
+  const n = [...author.id].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) >>> 0, 7) % 2;
+  const placeholder = `/portraits/_placeholder-${n + 1}.webp`;
+  const exists = fs.existsSync(path.join(ROOT, 'public', placeholder));
+  return { src: exists ? placeholder : null, drawn: false, model: null };
+}
+
 /** Claims taken from party programmes (data/clearing/claims.yaml). */
 export function loadClaims() {
   const file = path.join(DATA, 'clearing', 'claims.yaml');

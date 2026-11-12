@@ -1,0 +1,100 @@
+# Draws the authors' pencil portraits with the Gemini image API and stores
+# them in public/portraits, then rebuilds the site.
+#
+# One-time setup: a repository secret named GEMINI_API_KEY (an API key from
+# Google AI Studio). Start from Actions > Portraits > Run workflow.
+name: Portraits
+
+on:
+  workflow_dispatch:
+    inputs:
+      authors:
+        description: "missing (authors without a portrait), all, or author and branch ids separated by commas"
+        default: missing
+        type: string
+      limit:
+        description: "Draw at most this many (0 = no limit). Try 5 first to check the style"
+        default: "5"
+        type: string
+      model:
+        description: "Gemini image model"
+        default: gemini-3.1-flash-image
+        type: string
+      placeholders:
+        description: "Redraw the two placeholder images (they are drawn once automatically)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: portraits
+  cancel-in-progress: false
+
+jobs:
+  draw:
+    name: Draw and store
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+      actions: write
+    env:
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Draw
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          AUTHORS: ${{ inputs.authors }}
+          LIMIT: ${{ inputs.limit }}
+          MODEL: ${{ inputs.model }}
+          PLACEHOLDERS: ${{ inputs.placeholders }}
+        run: |
+          if [ -z "$GEMINI_API_KEY" ]; then
+            echo "::error title=No API key::Add a repository secret named GEMINI_API_KEY (from Google AI Studio) in Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          args=(--authors "$AUTHORS" --limit "$LIMIT" --model "$MODEL")
+          if [ "$PLACEHOLDERS" = "true" ]; then args+=(--placeholders); fi
+          node scripts/portraits.mjs "${args[@]}"
+
+      - name: Keep the raw images for review
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: portraits-raw
+          path: .cache/portraits
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Check the corpus and build the site
+        run: npm run build
+
+      - name: Commit the portraits
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/portraits data/portraits.yaml
+          if git diff --cached --quiet; then echo "Nothing new."; exit 0; fi
+          git commit -m "Portraits: $(git diff --cached --name-only -- public/portraits | wc -l) image(s)"
+          git push origin "HEAD:$DEFAULT_BRANCH"
+
+      - name: Rebuild the site
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref "$DEFAULT_BRANCH"

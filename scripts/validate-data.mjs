@@ -1,7 +1,9 @@
 // Checks the corpus before every build: references, bilingual fields and the
 // editorial rules of the brand book (design/brand.md). Errors fail the build;
 // warnings list what is still missing.
-import { loadCorpus, loadClearing, loadClaims, loadQuestions, loadTranscript, LINK_TYPES, LAYERS, WORK_KINDS } from '../src/lib/corpus.mjs';
+import fs from 'node:fs';
+import path from 'node:path';
+import { loadCorpus, loadClearing, loadClaims, loadQuestions, loadPortraits, loadTranscript, LINK_TYPES, LAYERS, WORK_KINDS } from '../src/lib/corpus.mjs';
 import { wordCount } from '../src/lib/text.mjs';
 
 const c = loadCorpus();
@@ -128,6 +130,14 @@ for (const t of c.trunk) {
   if (!t.source) err(`trunk: unknown work "${t.work}"`);
   bilingual(t.text, `trunk ${t.work}.text`);
 }
+
+// Portraits
+for (const [id, p] of loadPortraits()) {
+  if (!c.authorById[id]) err(`portrait ${id}: no such author`);
+  if (!['drawn', 'refused'].includes(p.status)) err(`portrait ${id}: status must be drawn or refused`);
+  if (p.status === 'drawn' && !fs.existsSync(path.join(process.cwd(), 'public', 'portraits', `${id}.webp`))) err(`portrait ${id}: public/portraits/${id}.webp is missing`);
+}
+for (const a of c.authors) if (a.portrait != null && typeof a.portrait !== 'boolean') err(`${a.name}: portrait must be true or false`);
 
 // Clearing: the hand-written specimen
 const clearing = loadClearing();

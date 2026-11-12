@@ -7,9 +7,9 @@ import AuthorChips from '../components/AuthorChips.astro';
 import SeedTag from '../components/SeedTag.astro';
 import Thread from '../components/Thread.astro';
 import { useUi } from '../i18n/ui.mjs';
-import { href } from '../lib/site.mjs';
+import { href, withBase } from '../lib/site.mjs';
 import { L, citeHtml, titleHtml, yearLabel, typo } from '../lib/text.mjs';
-import { loadCorpus, loadClearing, lifespan, placeLabel } from '../lib/corpus.mjs';
+import { loadCorpus, loadClearing, lifespan, placeLabel, portraitOf } from '../lib/corpus.mjs';
 import { SITE } from '../site.config.mjs';
 
 const { lang, id } = Astro.props;
@@ -63,6 +63,7 @@ const jsonLd = {
 };
 const reportUrl = `${SITE.repoUrl}/issues/new?template=correction.yml&title=${encodeURIComponent(`${a.name}: `)}&page=${encodeURIComponent(a.name)}`;
 const seedsTitle = t(`author.seeds.${seeds.length}`);
+const portrait = portraitOf(a);
 // Published Clearing runs in which an agent built from this record took part.
 const runs = loadClearing().published.filter((r) => r.voices.some((v) => v.author === a.id));
 ---
@@ -131,8 +132,22 @@ const runs = loadClearing().published.filter((r) => r.voices.some((v) => v.autho
 
     <aside class="side">
       <div class="portrait-block">
-        <div class="portrait" role="img" aria-label={t('author.portrait', { initials: a.initials })}>{a.initials}</div>
-        <span class="eco-meta">{t('author.noPortrait')}</span>
+        {
+          portrait.src ? (
+            <img
+              class:list={['portrait', 'drawn', { placeholder: !portrait.drawn }]}
+              src={withBase(portrait.src)}
+              width="1200"
+              height="800"
+              alt={portrait.drawn ? t('author.portraitAlt', { name: a.name }) : ''}
+              loading="eager"
+              decoding="async"
+            />
+          ) : (
+            <div class="portrait" role="img" aria-label={t('author.portrait', { initials: a.initials })}>{a.initials}</div>
+          )
+        }
+        <span class="eco-meta">{portrait.drawn ? t('author.portraitNote') : t('author.noPortrait')}</span>
       </div>
       {
         works.length > 0 && (
@@ -302,6 +317,17 @@ const runs = loadClearing().published.filter((r) => r.voices.some((v) => v.autho
     letter-spacing: -0.02em;
     color: var(--moss);
   }
+  img.portrait {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center 30%;
+    background: #f3eee3;
+  }
+  img.portrait.placeholder {
+    opacity: 0.75;
+  }
   .works {
     display: flex;
     flex-direction: column;
@@ -352,7 +378,8 @@ const runs = loadClearing().published.filter((r) => r.voices.some((v) => v.autho
       padding-top: var(--space-12);
       padding-bottom: var(--space-12);
     }
-    .portrait {
+    .portrait,
+    img.portrait {
       height: 200px;
       font-size: 88px;
     }
