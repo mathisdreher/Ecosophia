@@ -19,6 +19,7 @@ The site is bilingual (English and French) and static. Everything runs in GitHub
 | Draw logo concepts to choose from | Actions › **Logo concepts** | Secret `GEMINI_API_KEY` |
 | Run a debate in the Clearing | Actions › **Clearing run** | Secret `ANTHROPIC_API_KEY` |
 | Publish, unpublish or delete a run | Actions › **Clearing run status** | Nothing |
+| Store a run whose simulation succeeded but whose storing failed | Actions › **Clearing run recovery**, with the failed run's number | Nothing; nothing is spent again |
 
 Secrets go in Settings › Secrets and variables › Actions › New repository secret. Each one is used by a single workflow and never reaches the site.
 
@@ -49,6 +50,8 @@ A run takes one question, chooses agents among the authors, lets them discuss in
 | All 80 agents, 3 rounds | 19 USD | 10 USD | 0.50 USD |
 
 A sensible routine: draft each question with `auto` and Sonnet, then rerun on Opus the ones worth publishing.
+
+**Several runs at once.** Runs queue one behind the other. Each one numbers itself from the runs stored when it was started, so two runs started together count from the same number; the second one stored takes the next free number.
 
 **Questions, not variants.** `data/clearing/claims.yaml` keeps every quoted party measure (LFI, PCF, Les Écologistes, PS, Ensemble, LR, RN), with its exact wording, document and page. `data/clearing/questions.yaml` gathers the measures that answer the same question, so one run covers all the parties. The run page shows each party's measure and stance next to the agents' positions; the agents themselves only see the question, never a party name.
 
@@ -213,6 +216,7 @@ Ecosophia cartographie les penseuses et penseurs de l'écologie politique comme 
 | Dessiner des pistes de logo | Actions › **Logo concepts** | Secret `GEMINI_API_KEY` |
 | Lancer un débat dans la Clairière | Actions › **Clearing run** | Secret `ANTHROPIC_API_KEY` |
 | Publier, dépublier ou supprimer une simulation | Actions › **Clearing run status** | Rien |
+| Enregistrer une simulation réussie dont l'enregistrement a échoué | Actions › **Clearing run recovery**, avec le numéro de l'exécution en échec | Rien ; rien n'est dépensé à nouveau |
 
 **Lancer un débat.** Dans le champ `claim`, saisir l'identifiant d'une question de programme (`nouveau-nucleaire`, `eolien-solaire`, `pesticides`, `voitures-thermiques-2035`, `rail-avion`, `leasing-social`), d'un axiome qui divise les écoles entre elles (`croissance-verte`, `moitie-terre`, `sabotage`, `geoingenierie`, `villes-denses`, etc.) ou une affirmation en une phrase. Par défaut, Opus choisit les agents et le nombre de tours, et le plan est réduit pour tenir dans un budget de 3 USD. Coût indicatif : 12 agents sur 2 tours, environ 0,90 USD avec Opus, 0,45 USD avec Sonnet, 0,03 USD avec Haiku. La simulation est enregistrée comme brouillon ; après relecture, Actions › **Clearing run status** la publie.
 

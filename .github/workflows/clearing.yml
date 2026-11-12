@@ -179,7 +179,6 @@ jobs:
       contents: write
       actions: write
     env:
-      RUN_ID: ${{ needs.simulate.outputs.run_id }}
       DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
     steps:
       - name: Check out the default branch
@@ -202,17 +201,18 @@ jobs:
           name: clearing-run
           path: ${{ runner.temp }}/clearing-run
 
+      # Takes the next free number if another run was stored since this one
+      # started (both counted from the same commit).
       - name: Put the run in the corpus
-        run: |
-          case "$RUN_ID" in clr-[0-9][0-9][0-9][0-9]) ;; *) echo "::error::Unexpected run id: $RUN_ID"; exit 1 ;; esac
-          mkdir -p data/clearing/runs
-          if [ -e "data/clearing/runs/$RUN_ID.yaml" ]; then echo "::error::$RUN_ID already exists"; exit 1; fi
-          cp "$RUNNER_TEMP/clearing-run/$RUN_ID.yaml" "$RUNNER_TEMP/clearing-run/$RUN_ID.transcript.json" data/clearing/runs/
+        id: store
+        run: node clearing/store.mjs "$RUNNER_TEMP/clearing-run"
 
       - name: Check the corpus and build the site
         run: npm run build
 
       - name: Commit the run
+        env:
+          RUN_ID: ${{ steps.store.outputs.run_id }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

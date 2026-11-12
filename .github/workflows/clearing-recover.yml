@@ -1,0 +1,83 @@
+# Stores a Clearing run whose simulation succeeded but whose "Store the run"
+# job failed. The simulation is not run again and nothing is spent: the run is
+# read from the artifact that the failed workflow run kept (30 days).
+#
+# Start it from Actions > Clearing run recovery > Run workflow, with the number
+# at the end of the failed run's address (.../actions/runs/<number>).
+name: Clearing run recovery
+
+on:
+  workflow_dispatch:
+    inputs:
+      source_run:
+        description: "Workflow run number of the failed Clearing run (from its address, .../actions/runs/<number>)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: clearing-run
+  cancel-in-progress: false
+
+jobs:
+  store:
+    name: Store the run
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: write
+    env:
+      SOURCE_RUN: ${{ inputs.source_run }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+    steps:
+      - name: Check the input
+        run: |
+          case "$SOURCE_RUN" in ''|*[!0-9]*) echo "::error::source_run must be a number"; exit 1 ;; esac
+
+      - name: Check out the default branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch the run from the failed workflow run
+        uses: actions/download-artifact@v8
+        with:
+          name: clearing-run
+          path: ${{ runner.temp }}/clearing-run
+          run-id: ${{ inputs.source_run }}
+          github-token: ${{ github.token }}
+
+      - name: Put the run in the corpus
+        id: store
+        run: node clearing/store.mjs "$RUNNER_TEMP/clearing-run"
+
+      - name: Check the corpus and build the site
+        run: npm run build
+
+      - name: Commit the run
+        env:
+          RUN_ID: ${{ steps.store.outputs.run_id }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/clearing/runs
+          git commit -m "Add Clearing run $RUN_ID (recovered from workflow run $SOURCE_RUN)"
+          git pull --rebase origin "$DEFAULT_BRANCH"
+          git push origin "HEAD:$DEFAULT_BRANCH"
+
+      - name: Rebuild the site
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref "$DEFAULT_BRANCH"
