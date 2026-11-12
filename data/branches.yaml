@@ -89,6 +89,22 @@
     en: "What counts as natural, and who decides? Queer ecology shows how ideas of nature have policed sexuality, and proposes ecologies that do without the norms of purity, family and reproduction."
     fr: "Qu'est-ce qui passe pour naturel, et qui en décide ? L'écologie queer montre comment les idées de nature ont servi à policer la sexualité, et propose des écologies qui se passent des normes de pureté, de famille et de reproduction."
 
+- id: democracy
+  token: branch-democracy
+  name: {en: Ecological democracy, fr: Démocratie écologique}
+  full: {en: Ecological democracy and green populism, fr: Démocratie écologique et populisme vert}
+  summary:
+    en: "Who decides, and how is a majority built? Deliberative theorists ask which institutions can listen to ecosystems and to the future; Laclau and Mouffe answer that ecology must become a democratic conflict between adversaries, able to build a people rather than a consensus of experts."
+    fr: "Qui décide, et comment se construit une majorité ? Les théoriciens délibératifs cherchent quelles institutions peuvent écouter les écosystèmes et l'avenir ; Laclau et Mouffe répondent que l'écologie doit devenir un conflit démocratique entre adversaires, capable de construire un peuple plutôt qu'un consensus d'experts."
+
+- id: collapse
+  token: branch-collapse
+  name: {en: Collapse and transition, fr: Effondrement et transition}
+  full: {en: Collapse studies, peak oil and transition, fr: Collapsologie, pic pétrolier et transition}
+  summary:
+    en: "From Hubbert's curve and The Limits to Growth: cheap energy is ending, complex societies fall faster than they rise, and the choice is between preparing, adapting and rebuilding locally, or suffering the descent. Critics call it fatalism; its authors call it lucidity."
+    fr: "Depuis la courbe de Hubbert et Les Limites à la croissance : l'énergie bon marché s'achève, les sociétés complexes tombent plus vite qu'elles ne s'élèvent, et le choix est entre se préparer, s'adapter et reconstruire localement, ou subir la descente. Ses critiques y voient du fatalisme ; ses auteurs, de la lucidité."
+
 - id: counterpoint
   token: branch-counterpoint
   graft: true

@@ -780,3 +780,74 @@
     en: "De Benoist takes the word degrowth from Latouche's circle and turns it towards rooted communities; Latouche rejects the reading."
     fr: "De Benoist reprend le mot décroissance au cercle de Latouche et le tourne vers les communautés enracinées ; Latouche récuse cette lecture."
   source: debenoist-2007
+
+# --- Ecological democracy, collapse and transition ------------------------------
+- from: ernesto-laclau
+  to: chantal-mouffe
+  type: dialogue
+  note:
+    en: "Co-authors of Hegemony and Socialist Strategy; Mouffe carries their theory of hegemony into a green populism."
+    fr: "Coauteurs d'Hégémonie et stratégie socialiste ; Mouffe prolonge leur théorie de l'hégémonie en un populisme vert."
+  source: laclau-1985
+- from: m-king-hubbert
+  to: richard-heinberg
+  type: influenced
+  note:
+    en: "Heinberg builds the case for peak oil on Hubbert's curve."
+    fr: "Heinberg fonde sa thèse du pic pétrolier sur la courbe de Hubbert."
+  source: heinberg-2003
+- from: donella-meadows
+  to: ugo-bardi
+  type: influenced
+  note:
+    en: "Bardi defends The Limits to Growth against thirty years of critics and reruns its argument."
+    fr: "Bardi défend Les Limites à la croissance contre trente ans de critiques et en reprend l'argument."
+  source: bardi-2011
+- from: m-king-hubbert
+  to: ugo-bardi
+  type: influenced
+  status: to-verify
+  note:
+    en: "The Seneca curve is an asymmetric version of Hubbert's bell curve."
+    fr: "La courbe de Sénèque est une version asymétrique de la courbe en cloche de Hubbert."
+  source: bardi-2017
+- from: joseph-tainter
+  to: jared-diamond
+  type: influenced
+  status: to-verify
+  note:
+    en: "Diamond discusses Tainter's theory of complexity and gives more weight to environmental choices."
+    fr: "Diamond discute la théorie de la complexité de Tainter et donne plus de poids aux choix environnementaux."
+  source: diamond-2005
+- from: richard-heinberg
+  to: rob-hopkins
+  type: influenced
+  status: to-verify
+  note:
+    en: "Transition towns start from peak oil as Heinberg describes it and plan an energy descent."
+    fr: "Les villes en transition partent du pic pétrolier tel que le décrit Heinberg et planifient une descente énergétique."
+  source: hopkins-2008
+- from: hans-jonas
+  to: dominique-bourg
+  type: influenced
+  status: to-verify
+  note:
+    en: "Bourg takes from Jonas the duty to the future and turns it into institutions."
+    fr: "Bourg reprend à Jonas le devoir envers l'avenir et le traduit en institutions."
+  source: bourg-2010
+- from: robyn-eckersley
+  to: john-dryzek
+  type: dialogue
+  status: to-verify
+  note:
+    en: "The two main theorists of green democracy answer each other on the state and on deliberation."
+    fr: "Les deux principaux théoriciens de la démocratie verte se répondent sur l'État et la délibération."
+  source: dryzek-1997
+- from: arne-naess
+  to: andrew-dobson
+  type: critiqued
+  status: to-verify
+  note:
+    en: "Dobson separates ecologism from deep ecology's identification with nature and grounds it in politics."
+    fr: "Dobson sépare l'écologisme de l'identification à la nature propre à l'écologie profonde et le fonde dans la politique."
+  source: dobson-1990

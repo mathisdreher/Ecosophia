@@ -203,3 +203,52 @@
   nature: [55, debenoist-2007, {en: "Ecology as a limit on human hubris, read through rooted peoples.", fr: "L'écologie comme limite à la démesure humaine, lue à travers les peuples enracinés."}]
   change: [75, debenoist-2007, {en: "Break with the market society and its growth, from the right.", fr: "Rompre avec la société de marché et sa croissance, depuis la droite."}]
   power: [70, debenoist-2007, {en: "Rooted local and regional communities rather than the universal state.", fr: "Des communautés locales et régionales enracinées plutôt que l'État universel."}]
+
+# Ecological democracy
+- author: chantal-mouffe
+  nature: [30, mouffe-2022, {en: "Ecology is a matter of protecting people and their conditions of life, framed as a democratic demand.", fr: "L'écologie est affaire de protection des gens et de leurs conditions de vie, formulée comme une demande démocratique."}]
+  change: [55, mouffe-2022, {en: "A green democratic revolution, but through elections and institutions won by a popular majority.", fr: "Une révolution démocratique verte, mais par les élections et des institutions conquises par une majorité populaire."}]
+  power: [35, mouffe-2022, {en: "The state is to be won, not dissolved; hegemony over its institutions.", fr: "L'État est à conquérir, non à dissoudre ; l'hégémonie sur ses institutions."}]
+- author: ernesto-laclau
+  change: [55, laclau-2005, {en: "A new hegemony built by a people, within democratic institutions.", fr: "Une nouvelle hégémonie construite par un peuple, dans les institutions démocratiques."}]
+  power: [35, laclau-2005, {en: "The populist leader and the state as the place where a people takes form.", fr: "Le leader populiste et l'État comme lieu où un peuple prend forme."}]
+- author: john-dryzek
+  nature: [50, dryzek-1987, {en: "Institutions must listen to ecosystems as partners in communication, not only as resources.", fr: "Les institutions doivent écouter les écosystèmes comme des partenaires de communication, pas seulement comme des ressources."}]
+  change: [45, dryzek-1997, {en: "Deliberative reform of institutions rather than revolution.", fr: "Une réforme délibérative des institutions plutôt qu'une révolution."}]
+  power: [60, dryzek-1987, {en: "Decentralised, deliberative forums over hierarchy and markets.", fr: "Des forums délibératifs décentralisés plutôt que la hiérarchie et le marché."}]
+- author: andrew-dobson
+  nature: [45, dobson-1990, {en: "Ecologism takes nature's limits seriously without requiring identification with nature.", fr: "L'écologisme prend au sérieux les limites de la nature sans exiger de s'identifier à elle."}]
+  change: [55, dobson-1990, {en: "Ecologism, unlike environmentalism, calls for a change of society.", fr: "L'écologisme, contrairement à l'environnementalisme, appelle à changer de société."}]
+  power: [45, dobson-2003, {en: "Duties of citizenship across borders, with the state among their guarantors.", fr: "Des devoirs de citoyenneté par-delà les frontières, avec l'État parmi leurs garants."}]
+- author: dominique-bourg
+  nature: [55, bourg-2010, {en: "Limits of the biosphere come before individual preferences.", fr: "Les limites de la biosphère passent avant les préférences individuelles."}]
+  change: [55, bourg-2010, {en: "Deep institutional change, by constitutional reform rather than rupture.", fr: "Un changement institutionnel profond, par réforme constitutionnelle plutôt que par rupture."}]
+  power: [30, bourg-2010, {en: "New state institutions for the long term, such as a chamber of the future.", fr: "De nouvelles institutions d'État pour le long terme, comme une chambre du futur."}]
+
+# Collapse and transition
+- author: ugo-bardi
+  nature: [50, bardi-2017, {en: "Physical stocks and their depletion set the terms; human plans follow.", fr: "Les stocks physiques et leur épuisement fixent les termes ; les projets humains suivent."}]
+  change: [70, bardi-2017, {en: "Collapse is coming; the question is how to fall less hard.", fr: "L'effondrement vient ; la question est de tomber moins durement."}]
+- author: joseph-tainter
+  nature: [30, tainter-1988, {en: "Energy and resources matter as the base of social complexity.", fr: "L'énergie et les ressources comptent comme base de la complexité sociale."}]
+  change: [50, tainter-1988, {en: "Collapse is a simplification, not a choice of rupture.", fr: "L'effondrement est une simplification, non un choix de rupture."}]
+- author: jared-diamond
+  nature: [35, diamond-2005, {en: "The environment matters through what its degradation does to societies.", fr: "L'environnement compte par ce que sa dégradation fait aux sociétés."}]
+  change: [30, diamond-2005, {en: "Societies can choose better policies, including with business, without rupture.", fr: "Les sociétés peuvent choisir de meilleures politiques, y compris avec les entreprises, sans rupture."}]
+  power: [40, diamond-2005, {en: "Elites, governments and firms decide; their choices are decisive.", fr: "Élites, gouvernements et entreprises décident ; leurs choix sont décisifs."}]
+- author: richard-heinberg
+  nature: [55, heinberg-2003, {en: "Industrial society lives on a one-time gift of fossil energy.", fr: "La société industrielle vit d'un don unique d'énergie fossile."}]
+  change: [75, heinberg-2003, {en: "A planned power-down, a deliberate break with growth.", fr: "Une descente énergétique planifiée, une rupture délibérée avec la croissance."}]
+  power: [65, heinberg-2003, {en: "Local communities preparing their own descent.", fr: "Des communautés locales préparant leur propre descente."}]
+- author: rob-hopkins
+  nature: [55, hopkins-2008, {en: "Permaculture: design with ecosystems rather than against them.", fr: "La permaculture : concevoir avec les écosystèmes plutôt que contre eux."}]
+  change: [60, hopkins-2008, {en: "Rebuild local economies now, a positive transition rather than a revolt.", fr: "Reconstruire dès maintenant des économies locales, une transition positive plutôt qu'une révolte."}]
+  power: [85, hopkins-2008, {en: "Towns and neighbourhoods act without waiting for the state.", fr: "Les villes et les quartiers agissent sans attendre l'État."}]
+- author: jem-bendell
+  nature: [55, bendell-2018, {en: "Climate tragedy calls for humility before forces humans cannot control.", fr: "La tragédie climatique appelle à l'humilité devant des forces que les humains ne maîtrisent pas."}]
+  change: [85, bendell-2018, {en: "Collapse is likely; let go of the hope of continuity.", fr: "L'effondrement est probable ; renoncer à l'espoir de la continuité."}]
+  power: [75, bendell-2018, {en: "Communities and personal practice rather than state programmes.", fr: "Les communautés et la pratique personnelle plutôt que les programmes d'État."}]
+- author: yves-cochet
+  nature: [60, cochet-2019, {en: "Thermodynamic and ecological limits govern the economy.", fr: "Les limites thermodynamiques et écologiques gouvernent l'économie."}]
+  change: [85, cochet-2019, {en: "Collapse is near; degrowth and rationing, not reform.", fr: "L'effondrement est proche ; décroissance et rationnement, non réforme."}]
+  power: [40, cochet-2005, {en: "The state should organise rationing, alongside local resilience.", fr: "L'État devrait organiser le rationnement, avec la résilience locale."}]

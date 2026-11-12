@@ -417,3 +417,24 @@
   works:
     - {id: soddy-1922, year: 1922, title: "Cartesian Economics: The Bearing of Physical Science upon State Stewardship"}
     - {id: soddy-1926, year: 1926, title: "Wealth, Virtual Wealth and Debt"}
+
+- id: m-king-hubbert
+  name: M. King Hubbert
+  sort: Hubbert
+  layer: root
+  root: energetics
+  born: 1903
+  died: 1989
+  place: {city: {en: "San Saba, Texas", fr: "San Saba (Texas)"}, country: {en: United States, fr: États-Unis}, lat: 31.20, lon: -98.72}
+  lede:
+    en: "American geophysicist at Shell. In 1956 he predicted that oil production in the United States would peak around 1970, which it did: the bell-shaped Hubbert curve became the basis of every later argument about peak oil and the end of cheap energy."
+    fr: "Géophysicien américain chez Shell. En 1956, il prévoit que la production pétrolière des États-Unis culminera vers 1970, ce qui arrive : la courbe en cloche de Hubbert devient la base de tous les débats ultérieurs sur le pic pétrolier et la fin de l'énergie bon marché."
+  seeds:
+    - seed: hubbert-peak
+      text:
+        en: "The extraction of a finite resource rises, peaks and declines along a bell curve that can be forecast."
+        fr: "L'extraction d'une ressource finie croît, culmine et décline selon une courbe en cloche qu'on peut prévoir."
+      source: hubbert-1956
+  works:
+    - {id: hubbert-1956, year: 1956, title: Nuclear Energy and the Fossil Fuels, kind: article}
+

@@ -189,6 +189,7 @@
   sort: Eckersley
   layer: leaf
   branch: political-ecology
+  also: [democracy]
   born: 1958
   place: {city: {en: Perth, fr: Perth}, country: {en: Australia, fr: Australie}, lat: -31.96, lon: 115.86}
   wikidata: Q4945654

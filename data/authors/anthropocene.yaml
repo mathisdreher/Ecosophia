@@ -5,6 +5,7 @@
   sort: Latour
   layer: leaf
   branch: anthropocene
+  also: [democracy]
   born: 1947
   died: 2022
   place: {city: {en: Beaune, fr: Beaune}, country: {en: France, fr: France}, lat: 47.02, lon: 4.84}
@@ -254,6 +255,7 @@
   sort: Servigne
   layer: leaf
   branch: anthropocene
+  also: [collapse]
   born: 1978
   place: {city: {en: Versailles, fr: Versailles}, country: {en: France, fr: France}, lat: 48.80, lon: 2.13}
   wikidata: Q24934340
