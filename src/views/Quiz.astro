@@ -1,0 +1,430 @@
+---
+// The quiz: rounds of ten questions drawn from the sourced corpus (portraits,
+// seeds, schools, works, threads, Canopy readings, sourced quotations). Every
+// answer comes with its explanation and a link to the leaf. Nothing here is
+// simulated; the questions are built in the browser from the data below.
+import Base from '../layouts/Base.astro';
+import { href, withBase } from '../lib/site.mjs';
+import { L, typo, citeText } from '../lib/text.mjs';
+import { loadCorpus, loadCanopy, loadPortraits } from '../lib/corpus.mjs';
+
+const { lang } = Astro.props;
+const T = (en, fr) => typo(lang === 'fr' ? fr : en, lang);
+const c = loadCorpus();
+const portraits = loadPortraits();
+const canopy = loadCanopy();
+const nature = Object.fromEntries(canopy.filter((p) => p.axis === 'nature').map((p) => [p.author, { score: p.score, note: L(p.note, lang) }]));
+const groupName = (a) => (a.layer === 'leaf' ? L(c.branchById[a.branch].name, lang) : a.layer === 'root' ? (lang === 'fr' ? 'Précurseurs' : 'Precursors') : (lang === 'fr' ? 'Tronc' : 'Trunk'));
+const data = {
+  lang,
+  authors: c.authors.map((a) => ({
+    id: a.id,
+    name: a.name,
+    group: a.layer === 'leaf' ? a.branch : a.layer,
+    groupName: groupName(a),
+    token: a.token,
+    url: href(lang, 'author', a.id),
+    face: a.portrait !== false && portraits.get(a.id)?.status === 'drawn' ? withBase(`/portraits/${a.id}.webp`) : null,
+    seeds: a.seeds.map((s) => ({ name: L(c.seeds[s.seed].name, lang), text: L(s.text, lang) })),
+    works: a.works.filter((w) => w.title).map((w) => ({ title: w.title, year: w.year })),
+    quote: a.quote ? { text: a.quote.text, cite: citeText(c.sources.get(a.quote.source), lang, { withAuthor: false }) } : null,
+    nature: nature[a.id] ?? null,
+  })),
+  groups: [
+    { id: 'root', name: lang === 'fr' ? 'Précurseurs' : 'Precursors' },
+    { id: 'trunk', name: lang === 'fr' ? 'Tronc' : 'Trunk' },
+    ...c.branches.map((b) => ({ id: b.id, name: L(b.name, lang) })),
+  ],
+  links: c.sourcedLinks.map((l) => ({ from: l.from, to: l.to, type: l.type, note: L(l.note, lang) })),
+};
+const modes = [
+  ['all', T('Everything', 'Tout')],
+  ['faces', T('Faces', 'Visages')],
+  ['ideas', T('Ideas and works', 'Idées et œuvres')],
+  ['schools', T('Schools and quarrels', 'Écoles et querelles')],
+];
+---
+
+<Base lang={lang} view="quiz" title={T('Quiz', 'Quiz')} description={T('Ten questions to discover the thinkers of political ecology, their ideas, their schools and their quarrels.', 'Dix questions pour découvrir les penseurs de l’écologie politique, leurs idées, leurs écoles et leurs querelles.')}>
+  <section class="page-head">
+    <h1 class="t-title">{T('Quiz', 'Quiz')}</h1>
+    <p class="t-lede">{T('Ten questions drawn from the map: who is this, who carried this idea, who wrote this book, who answered whom. Each answer comes with its source and a way into the leaf.', 'Dix questions tirées de la carte : qui est-ce, qui a porté cette idée, qui a écrit ce livre, qui a répondu à qui. Chaque réponse vient avec sa source et un chemin vers la fiche.')}</p>
+  </section>
+
+  <section class="page-body" data-quiz>
+    <script type="application/json" data-quiz-data set:html={JSON.stringify(data)} />
+    <div class="start" data-start>
+      <span class="label t-muted">{T('Choose a round', 'Choisir une partie')}</span>
+      <div class="modes">
+        {modes.map(([id, label]) => <button type="button" class="eco-btn mode" data-mode={id}>{label}</button>)}
+      </div>
+      <p class="t-small t-muted">{T('Portraits are generated drawings, not photographs.', 'Les portraits sont des dessins générés, non des photographies.')}</p>
+    </div>
+
+    <div class="game" data-game hidden>
+      <div class="progress"><span data-bar></span></div>
+      <div class="meta eco-meta"><span data-step></span><span data-score></span></div>
+      <article class="q">
+        <span class="label t-muted" data-kind></span>
+        <img class="q-face" data-face alt="" width="220" height="220" hidden />
+        <blockquote class="q-quote" data-quote hidden></blockquote>
+        <h2 class="t-heading q-text" data-question></h2>
+        <div class="options" data-options></div>
+        <div class="feedback" data-feedback hidden>
+          <p data-verdict class="verdict"></p>
+          <p data-explain class="t-small"></p>
+          <div class="row">
+            <a class="link t-small" data-learn target="_blank" rel="noopener">{T('Open the leaf', 'Ouvrir la fiche')}</a>
+            <button type="button" class="eco-btn" data-next>{T('Next', 'Suivante')}</button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="end" data-end hidden>
+      <h2 class="t-title" data-final></h2>
+      <p class="t-lede" data-final-text></p>
+      <ul class="met" data-met></ul>
+      <button type="button" class="eco-btn" data-again>{T('Play again', 'Rejouer')}</button>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-quiz]');
+  if (root) {
+    const D = JSON.parse(root.querySelector('[data-quiz-data]')!.textContent!);
+    const fr = D.lang === 'fr';
+    const C = fr ? '\u00a0: ' : ': ';
+    const $ = <T extends HTMLElement>(s: string) => root.querySelector<T>(s)!;
+    const byId = new Map(D.authors.map((a: any) => [a.id, a]));
+    const groupName = new Map(D.groups.map((g: any) => [g.id, g.name]));
+    const pick = <T,>(xs: T[]) => xs[Math.floor(Math.random() * xs.length)];
+    const shuffle = <T,>(xs: T[]) => xs.map((x) => [Math.random(), x] as const).sort((a, b) => a[0] - b[0]).map(([, x]) => x);
+    const others = (a: any, n: number, same = false) =>
+      shuffle(D.authors.filter((b: any) => b.id !== a.id && (!same || b.group === a.group))).slice(0, n);
+    const distract = (a: any, n = 3) => {
+      const near = others(a, 2, true);
+      return [...near, ...others(a, 10).filter((b: any) => !near.includes(b))].slice(0, n);
+    };
+
+    type Q = { kind: string; text: string; options: string[]; answer: string; explain: string; learn: string; face?: string; quote?: string; seen: string[] };
+    const makers: Record<string, () => Q | null> = {
+      face() {
+        const a = pick(D.authors.filter((x: any) => x.face));
+        const opts = shuffle([a, ...distract(a)]);
+        return { kind: fr ? 'Qui est-ce ?' : 'Who is this?', text: fr ? 'Ce portrait dessiné représente…' : 'This drawn portrait shows…', face: a.face, options: opts.map((o: any) => o.name), answer: a.name, explain: `${a.name} · ${a.groupName}.`, learn: a.url, seen: [a.id] };
+      },
+      seed() {
+        const a = pick(D.authors.filter((x: any) => x.seeds.length));
+        const s = pick(a.seeds);
+        const opts = shuffle([a, ...distract(a)]);
+        return { kind: fr ? 'Une idée' : 'An idea', text: `${s.name}. ${s.text} ${fr ? 'Qui porte cette idée ?' : 'Who carries this idea?'}`, options: opts.map((o: any) => o.name), answer: a.name, explain: `${s.name}${C}${a.name} (${a.groupName}).`, learn: a.url, seen: [a.id] };
+      },
+      work() {
+        const a = pick(D.authors.filter((x: any) => x.works.length));
+        const w = pick(a.works);
+        const opts = shuffle([a, ...distract(a)]);
+        return { kind: fr ? 'Une œuvre' : 'A work', text: fr ? `Qui a écrit « ${w.title} » (${w.year}) ?` : `Who wrote ${w.title} (${w.year})?`, options: opts.map((o: any) => o.name), answer: a.name, explain: `${w.title} (${w.year})${C}${a.name}.`, learn: a.url, seen: [a.id] };
+      },
+      quote() {
+        const a = pick(D.authors.filter((x: any) => x.quote));
+        if (!a) return null;
+        const opts = shuffle([a, ...distract(a)]);
+        return { kind: fr ? 'Une citation sourcée' : 'A sourced quotation', text: fr ? 'Qui a écrit ces mots ?' : 'Who wrote these words?', quote: a.quote.text, options: opts.map((o: any) => o.name), answer: a.name, explain: `${a.name}, ${a.quote.cite}.`, learn: a.url, seen: [a.id] };
+      },
+      school() {
+        const a = pick(D.authors.filter((x: any) => x.group !== 'root' && x.group !== 'trunk'));
+        const wrong = shuffle(D.groups.filter((g: any) => g.id !== a.group && g.id !== 'root' && g.id !== 'trunk')).slice(0, 3);
+        const opts = shuffle([groupName.get(a.group), ...wrong.map((g: any) => g.name)]);
+        return { kind: fr ? 'Une école' : 'A school', text: fr ? `Sur quelle branche se trouve ${a.name} ?` : `On which branch is ${a.name}?`, options: opts, answer: a.groupName, explain: `${a.name}${C}${a.groupName}.`, learn: a.url, seen: [a.id] };
+      },
+      thread() {
+        const l = pick(D.links.filter((x: any) => x.type !== 'dialogue'));
+        const from: any = byId.get(l.from);
+        const to: any = byId.get(l.to);
+        const verb = l.type === 'critiqued' ? (fr ? 'a été critiqué par' : 'was critiqued by') : fr ? 'a influencé' : 'influenced';
+        const opts = shuffle([to, ...distract(to)]);
+        return { kind: l.type === 'critiqued' ? (fr ? 'Une querelle' : 'A quarrel') : fr ? 'Une influence' : 'An influence', text: `${from.name} ${verb}…`, options: opts.map((o: any) => o.name), answer: to.name, explain: l.note, learn: to.url, seen: [from.id, to.id] };
+      },
+      canopy() {
+        const placed = D.authors.filter((x: any) => x.nature);
+        for (let i = 0; i < 30; i += 1) {
+          const a = pick(placed);
+          const b = pick(placed);
+          if (Math.abs(a.nature.score - b.nature.score) < 35) continue;
+          const hi = a.nature.score > b.nature.score ? a : b;
+          return { kind: fr ? 'La Canopée' : 'The Canopy', text: fr ? 'Lequel des deux donne le plus de valeur à la nature en elle-même ?' : 'Which of the two gives nature more value in itself?', options: shuffle([a.name, b.name]), answer: hi.name, explain: `${hi.name}${C}${hi.nature.note} (${fr ? 'lecture proposée' : 'proposed reading'})`, learn: hi.url, seen: [a.id, b.id] };
+        }
+        return null;
+      },
+    };
+    const MODES: Record<string, string[]> = {
+      all: ['face', 'seed', 'work', 'quote', 'school', 'thread', 'canopy', 'face', 'seed', 'thread'],
+      faces: ['face'],
+      ideas: ['seed', 'work', 'quote'],
+      schools: ['school', 'thread', 'canopy'],
+    };
+
+    let questions: Q[] = [];
+    let i = 0;
+    let score = 0;
+    const met = new Set<string>();
+
+    const build = (mode: string) => {
+      const kinds = MODES[mode];
+      const out: Q[] = [];
+      const used = new Set<string>();
+      let guard = 0;
+      while (out.length < 10 && guard < 200) {
+        guard += 1;
+        const q = makers[mode === 'all' ? kinds[out.length % kinds.length] : pick(kinds)]();
+        if (!q || used.has(q.text + q.answer)) continue;
+        used.add(q.text + q.answer);
+        out.push(q);
+      }
+      return out;
+    };
+
+    const render = () => {
+      const q = questions[i];
+      $('[data-bar]').style.width = `${(i / questions.length) * 100}%`;
+      $('[data-step]').textContent = `${i + 1} / ${questions.length}`;
+      $('[data-score]').textContent = `${fr ? 'Score' : 'Score'} ${score}`;
+      $('[data-kind]').textContent = q.kind;
+      $('[data-question]').textContent = q.text;
+      const face = $<HTMLImageElement>('[data-face]');
+      face.hidden = !q.face;
+      if (q.face) face.src = q.face;
+      const quote = $('[data-quote]');
+      quote.hidden = !q.quote;
+      quote.textContent = q.quote ?? '';
+      const box = $('[data-options]');
+      box.replaceChildren();
+      for (const o of q.options) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'opt';
+        b.textContent = o;
+        b.addEventListener('click', () => answer(b, o));
+        box.append(b);
+      }
+      $('[data-feedback]').hidden = true;
+    };
+
+    const answer = (btn: HTMLButtonElement, o: string) => {
+      const q = questions[i];
+      const ok = o === q.answer;
+      if (ok) score += 1;
+      q.seen.forEach((id) => met.add(id));
+      for (const b of root.querySelectorAll<HTMLButtonElement>('.opt')) {
+        b.disabled = true;
+        if (b.textContent === q.answer) b.classList.add('right');
+      }
+      if (!ok) btn.classList.add('wrong');
+      $('[data-verdict]').textContent = ok ? (fr ? 'Juste.' : 'Right.') : fr ? `Non\u00a0: ${q.answer}.` : `No: ${q.answer}.`;
+      $('[data-verdict]').className = `verdict ${ok ? 'ok' : 'ko'}`;
+      $('[data-explain]').textContent = q.explain;
+      $<HTMLAnchorElement>('[data-learn]').href = q.learn;
+      $('[data-score]').textContent = `Score ${score}`;
+      $('[data-feedback]').hidden = false;
+      $<HTMLButtonElement>('[data-next]').focus();
+    };
+
+    const finish = () => {
+      $('[data-game]').hidden = true;
+      $('[data-end]').hidden = false;
+      $('[data-final]').textContent = `${score} / ${questions.length}`;
+      $('[data-final-text]').textContent =
+        score >= 8 ? (fr ? 'Vous connaissez bien la forêt.' : 'You know the forest well.') : score >= 5 ? (fr ? 'Une bonne promenade sous la canopée.' : 'A good walk under the canopy.') : fr ? 'Chaque feuille est une porte : en voici quelques-unes à ouvrir.' : 'Every leaf is a door: here are a few to open.';
+      const ul = $('[data-met]');
+      ul.replaceChildren();
+      for (const id of [...met].slice(0, 12)) {
+        const a: any = byId.get(id);
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.href = a.url;
+        link.className = 'met-card';
+        if (a.face) {
+          const img = document.createElement('img');
+          img.src = a.face;
+          img.alt = '';
+          img.width = 48;
+          img.height = 48;
+          link.append(img);
+        }
+        const span = document.createElement('span');
+        span.textContent = a.name;
+        link.append(span);
+        li.append(link);
+        ul.append(li);
+      }
+    };
+
+    const start = (mode: string) => {
+      questions = build(mode);
+      i = 0;
+      score = 0;
+      met.clear();
+      $('[data-start]').hidden = true;
+      $('[data-end]').hidden = true;
+      $('[data-game]').hidden = false;
+      render();
+    };
+
+    root.querySelectorAll<HTMLButtonElement>('[data-mode]').forEach((b) => b.addEventListener('click', () => start(b.dataset.mode!)));
+    $('[data-next]').addEventListener('click', () => {
+      i += 1;
+      if (i >= questions.length) finish();
+      else render();
+    });
+    $('[data-again]').addEventListener('click', () => {
+      $('[data-end]').hidden = true;
+      $('[data-start]').hidden = false;
+    });
+  }
+</script>
+
+<style>
+  .start,
+  .end {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    max-width: 760px;
+  }
+  .modes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  [hidden] {
+    display: none !important;
+  }
+  .game {
+    max-width: 760px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .progress {
+    height: 6px;
+    border-radius: var(--radius-pill);
+    background: var(--line);
+    overflow: hidden;
+  }
+  .progress span {
+    display: block;
+    height: 100%;
+    background: var(--moss);
+    transition: width 240ms ease-out;
+  }
+  .meta {
+    display: flex;
+    justify-content: space-between;
+  }
+  .q {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    border: 1px solid var(--line);
+    border-radius: 0 24px 0 24px;
+    background: var(--paper-raised);
+  }
+  .q-face {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    object-position: 50% 30%;
+    border-radius: 0 24px 0 24px;
+    border: 2px solid var(--line);
+  }
+  .q-quote {
+    margin: 0;
+    font: italic 400 22px/30px var(--font-display);
+    border-left: 3px solid var(--moss);
+    padding-left: var(--space-4);
+  }
+  .q-text {
+    margin: 0;
+  }
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: var(--space-3);
+    width: 100%;
+  }
+  .options :global(.opt) {
+    min-height: 48px;
+    padding: var(--space-3) var(--space-4);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--paper);
+    color: var(--ink);
+    font: 500 16px/22px var(--font-sans);
+    text-align: left;
+    cursor: pointer;
+  }
+  .options :global(.opt:hover:not(:disabled)) {
+    border-color: var(--moss);
+  }
+  .options :global(.opt.right) {
+    border-color: var(--moss);
+    background: var(--moss-soft);
+    font-weight: 600;
+  }
+  .options :global(.opt.wrong) {
+    border-color: var(--branch-ecosocialism);
+    text-decoration: line-through;
+  }
+  .feedback {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    width: 100%;
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--line);
+  }
+  .verdict {
+    margin: 0;
+    font: 600 18px/24px var(--font-display);
+  }
+  .verdict.ok {
+    color: var(--moss);
+  }
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  .met {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+  .met :global(.met-card) {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3) var(--space-1) var(--space-1);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    color: var(--ink);
+    text-decoration: none;
+    font: 500 14px/1 var(--font-sans);
+  }
+  .met :global(.met-card img) {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 30%;
+  }
+</style>

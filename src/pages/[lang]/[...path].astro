@@ -20,6 +20,7 @@ import Run from '../../views/Run.astro';
 import Method from '../../views/Method.astro';
 import Data from '../../views/Data.astro';
 import Brand from '../../views/Brand.astro';
+import Quiz from '../../views/Quiz.astro';
 
 export function getStaticPaths() {
   return allRoutes(loadCorpus(), loadClearing()).map((r) => ({
@@ -48,6 +49,7 @@ const VIEWS = {
   method: Method,
   data: Data,
   brand: Brand,
+  quiz: Quiz,
 };
 const View = VIEWS[view];
 ---
