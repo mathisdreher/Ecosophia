@@ -5,6 +5,7 @@
 import '@fontsource-variable/fraunces/opsz.css';
 import '@fontsource-variable/fraunces/opsz-italic.css';
 import '@fontsource-variable/instrument-sans/index.css';
+import '@fontsource-variable/instrument-sans/wght-italic.css';
 import '@fontsource/ibm-plex-mono/400.css';
 import '../styles/tokens.css';
 import '../styles/global.css';
@@ -86,13 +87,17 @@ const suggestUrl = `${SITE.repoUrl}/issues/new?template=author.yml&title=${encod
 
     <main id="content">
       <slot />
+      <hr class="eco-ground" />
+      {Astro.slots.has('below') && (
+        <div class="eco-below">
+          <slot name="below" />
+        </div>
+      )}
     </main>
 
-    <hr class="eco-ground" />
-    <div class="eco-below">
-      <slot name="below" />
+    <footer class="eco-below">
       {Astro.slots.has('below') && <hr class="footer-rule" />}
-      <footer class="site-footer">
+      <div class="site-footer">
         <nav aria-label={lang === 'fr' ? 'Pied de page' : 'Footer'}>
           <a class="link" href={href(lang, 'method')}>{t('footer.method')}</a>
           <a class="link" href={href(lang, 'data')}>{t('footer.data')}</a>
@@ -103,8 +108,8 @@ const suggestUrl = `${SITE.repoUrl}/issues/new?template=author.yml&title=${encod
           {SITE.repoPublic && <a class="link" href={suggestUrl} rel="noopener">{t('footer.suggest')}</a>}
         </nav>
         <span class="line">{t('footer.line')}</span>
-      </footer>
-    </div>
+      </div>
+    </footer>
 
     <script>
       const btn = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
