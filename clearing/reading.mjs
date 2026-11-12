@@ -53,7 +53,7 @@ export const interviewPrompt = (claim) =>
     '',
     'Do not call any tool. Answer in text, with one JSON object and nothing else, no code fence:',
     '{"position": <integer from 0 to 100: 0 opposes the claim outright, 50 is neutral or undecided, 100 endorses it outright>,',
-    ` "reaction": "<your position in one or two plain sentences, at most ${LIMITS.reactionWords} words, in English, stated directly as the argument this body of work makes, with no quotation marks and no mention of being an agent>",`,
+    ` "reaction": "<the position in one or two plain sentences, written impersonally (no I, no we), as a summary of the argument and not as a statement by anyone,, at most ${LIMITS.reactionWords} words, in English, stated directly as the argument this body of work makes, with no quotation marks and no mention of being an agent>",`,
     ' "work": "<the id, as given between braces in your record, of the one work that best grounds this position, or null>"}',
   ].join('\n');
 
