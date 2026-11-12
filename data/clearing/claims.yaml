@@ -22,6 +22,17 @@
   topic: energy
   checked: "2026-11-12"
 
+- id: lfi-2026-location-publique
+  party: {short: LFI, name: La France insoumise}
+  programme: {title: "L'Avenir en commun – Plan d'investissement Automobile (présidentielle 2027)", year: 2026, url: "https://melenchon2027.fr/programme/plans-investissement/automobile/"}
+  locator: "« Les besoins et objectifs associés », section « Mettre en place un service public de la location abordable »"
+  quote: "nous mettrons en place un véritable service public de la location abordable grâce à la constitution d’un parc public de véhicules via des investissements du pôle public bancaire."
+  claim:
+    fr: "L’État devrait remplacer le leasing social actuel par un service public de location abordable, adossé à un parc public de voitures électriques financé par un pôle public bancaire."
+    en: "The state should replace the current social leasing scheme with a public service of affordable leasing, built on a public fleet of electric cars funded by a public banking pole."
+  topic: transport
+  checked: "2026-11-12"
+
 - id: lfi-2026-renouvelables
   party: {short: LFI, name: La France insoumise}
   programme: {title: "L'Avenir en commun – Le programme de la Nouvelle France (édition 2027)", year: 2026, url: "https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3/"}

@@ -8,7 +8,7 @@
 #   for, against, or partly (supports part of it, or says it less sharply).
 # The quotation is shown next to it, so the reading can be checked.
 # Measures with no counterpart in another party are left out on purpose:
-# ps-2026-fiscalite-carbone, pcf-2022-plan-emploi-climat, ens-2024-leasing-social.
+# ps-2026-fiscalite-carbone, pcf-2022-plan-emploi-climat.
 
 - id: nouveau-nucleaire
   claim:
@@ -66,6 +66,7 @@
     fr: "L'État devrait financer des voitures électriques en leasing social pour les ménages modestes et des classes moyennes."
   measures:
     - {id: ens-2024-leasing-social, stance: for}
+    - {id: lfi-2026-location-publique, stance: partly}
 
 # --- Axioms -----------------------------------------------------------------
 # Questions that divide the authors themselves rather than the parties. They
