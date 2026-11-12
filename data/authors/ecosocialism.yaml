@@ -76,7 +76,7 @@
   branch: ecosocialism
   also: [degrowth]
   born: 1987
-  place: {country: {en: Japan, fr: Japon}}
+  place: {city: {en: Tokyo, fr: Tokyo}, country: {en: Japan, fr: Japon}, lat: 35.69, lon: 139.69}
   wikidata: Q26043406
   lede:
     en: "Japanese philosopher at the University of Tokyo. From Marx's late notebooks on the natural sciences he argues that Marx gave up productivism, and he proposes a degrowth communism."
