@@ -29,6 +29,8 @@ reading.mjs: alliances, summary, French ─► data/clearing/runs/<id>.yaml
 | `run.mjs` | Runs everything in order and writes the run |
 | `reading.mjs` | Prepares the claim in both languages; after the run, groups agents into alliances and writes the French |
 | `mock.mjs` | A stand-in model for dry runs and tests |
+| `planner.mjs` | With `--agents auto`: one call to Opus that ranks the agents worth hearing on the question and proposes the number of rounds, with a reason per agent, published with the run |
+| `estimate.mjs` | Estimates the cost of a plan before the run and cuts it to the budget |
 | `status.mjs`, `withdraw.mjs` | Publish, unpublish or delete a run; remove an author's agent from stored runs |
 | `test/` | Tests, and a double of the MiroFish runner that follows the same file protocol |
 
@@ -49,6 +51,10 @@ reading.mjs: alliances, summary, French ─► data/clearing/runs/<id>.yaml
 **The key stays out of reach of third-party code.** In the workflow, MiroFish and its dependencies run under a separate system account with a clean environment. They can reach the bridge on localhost and nothing else of the job. The job that runs them has read-only access to the repository; another job stores the result.
 
 **A run is refused rather than patched.** If more than one call in ten fails, if fewer than half of the agents give a position, or if nobody comments, nothing is stored.
+
+**Questions, not variants.** `data/clearing/claims.yaml` keeps every quoted party measure. `data/clearing/questions.yaml` gathers the measures that answer the same question (new reactors: LFI and Les Écologistes against, PS and PCF in part, Ensemble, RN and LR for), so one run covers all the parties. The run page shows each measure with Ecosophia's reading of its stance and the quotation; the agents see the question only.
+
+**Planning and budget.** Choosing agents is where a run's cost is decided, and also where it could be biased. The planner is told to choose for the range of arguments, to include the agents likely to disagree, and to keep every branch; its ranking and its reasons are published with the run. The budget is enforced by code, not by the planner: the estimate cuts the plan before the run, and the bridge refuses calls past 1.5 times the budget.
 
 ## On your own machine
 
@@ -74,7 +80,7 @@ npm run clearing -- --dry-run --claim "Nuclear power should count as green inves
 
 A real run needs `ANTHROPIC_API_KEY` in the environment and no `--dry-run`. It writes `data/clearing/runs/clr-NNNN.yaml` as a draft; `npm run dev` then shows it at `/en/clearing/clr-NNNN/`.
 
-Options of `run.mjs`: `--claim`, `--agents` (default `all`), `--rounds` (default 3), `--model` (default `claude-opus-5-5`), `--effort` (default `medium`), `--status draft|published`, `--dry-run`, `--engine`, `--python`, `--concurrency` (default 6), `--run-as <system account>`, `--work`, `--out`, `--timeout-minutes`.
+Options of `run.mjs`: `--claim` (a question id, a measure id or a sentence), `--agents` (default `auto`), `--rounds` (default `auto`), `--budget-usd` (default 3, 0 for none), `--planner-model` (default `claude-opus-5-5`), `--model` (default `claude-opus-5-5`), `--effort` (default `medium`), `--status draft|published`, `--dry-run`, `--engine`, `--python`, `--concurrency` (default 6), `--run-as <system account>`, `--work`, `--out`, `--timeout-minutes`.
 
 Tests, which need neither MiroFish nor a key:
 

@@ -18,6 +18,12 @@ export const ENGINE = {
 
 export const DEFAULTS = {
   model: 'claude-opus-5-5',
+  // The planner chooses agents and rounds when agents is 'auto': one call.
+  plannerModel: 'claude-opus-5-5',
+  // Spending limit of a run, in USD at list prices. The plan is cut to fit it
+  // before the run starts, and the bridge stops calling the model beyond 1.5 times it.
+  budgetUsd: 3,
+  maxAutoAgents: 30,
   effort: 'medium',
   rounds: 3,
   // Calls to the model that may run at the same time. MiroFish itself allows

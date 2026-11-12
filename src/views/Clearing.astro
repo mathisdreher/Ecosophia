@@ -6,10 +6,11 @@ import Base from '../layouts/Base.astro';
 import RunBoard from '../components/RunBoard.astro';
 import VoiceCard from '../components/VoiceCard.astro';
 import ClaimSource from '../components/ClaimSource.astro';
+import QuestionPositions from '../components/QuestionPositions.astro';
 import { useUi } from '../i18n/ui.mjs';
 import { href } from '../lib/site.mjs';
 import { L } from '../lib/text.mjs';
-import { loadClearing, loadClaims } from '../lib/corpus.mjs';
+import { loadClearing, loadQuestions } from '../lib/corpus.mjs';
 import { spreadVoices, runDate } from '../lib/clearing.mjs';
 import { SITE } from '../site.config.mjs';
 
@@ -17,8 +18,9 @@ const { lang } = Astro.props;
 const { t } = useUi(lang);
 const { specimen, published } = loadClearing();
 const latest = published[0] ?? null;
-const claims = loadClaims();
-const runsOf = (claimId) => published.filter((r) => r.claimSource?.id === claimId);
+const questions = loadQuestions();
+const runsOf = (id) => published.filter((r) => r.question?.id === id || r.claimSource?.id === id);
+const asMeasures = (q) => q.measures.map((m) => ({ stance: m.stance, party: m.claim.party, programme: m.claim.programme, locator: m.claim.locator, quote: m.claim.quote }));
 const run = latest ?? specimen;
 const voices = latest ? spreadVoices(latest.voices, 6) : run.voices;
 const metaOf = (r) => t('clearing.runMeta', { agents: r.settings.agents, rounds: r.settings.rounds, comments: r.counts.comments, date: runDate(r, lang) });
@@ -66,6 +68,7 @@ const metaOf = (r) => t('clearing.runMeta', { agents: r.settings.agents, rounds:
           <p class="t-lede summary">{L(latest.summary, lang)}</p>
           <span class="eco-meta">{metaOf(latest)}</span>
           {latest.claimSource && <ClaimSource source={latest.claimSource} lang={lang} />}
+          {latest.question && <QuestionPositions measures={latest.question.measures} lang={lang} />}
         </div>
       ) : (
         <div class="notice lichen">
@@ -143,28 +146,28 @@ const metaOf = (r) => t('clearing.runMeta', { agents: r.settings.agents, rounds:
       <a class="link t-small" href={href(lang, 'method', undefined, 'simulated')}>{t('clearing.readMethod')}</a>
     </div>
     {
-      claims.length > 0 && (
+      questions.length > 0 && (
         <div class="below-col wide claims">
           <div class="below-head">
             <span class="label humus">{t('clearing.claimsLabel')}</span>
-            <h2 class="t-heading">{t('clearing.claimsTitle')}</h2>
+            <h2 class="t-heading">{t('clearing.questionsTitle')}</h2>
           </div>
-          <p class="text">{t('clearing.claims')}</p>
+          <p class="text">{t('clearing.questions')}</p>
           <ul>
-            {claims.map((k) => (
+            {questions.map((q) => (
               <li>
-                <span class="text">{L(k.claim, lang)}</span>
-                <span class="eco-meta">
-                  {k.party.short} · <a href={k.programme.url} rel="noopener">{k.programme.title}</a> ({k.programme.year}) · <code>{k.id}</code>
-                  {runsOf(k.id).length > 0 && (
-                    <>
+                <span class="text">
+                  {L(q.claim, lang)} <code class="eco-meta">{q.id}</code>
+                  {runsOf(q.id).length > 0 && (
+                    <span class="eco-meta">
                       {' '}· {t('clearing.claimsRun')}{' '}
-                      {runsOf(k.id).map((r) => (
+                      {runsOf(q.id).map((r) => (
                         <a href={href(lang, 'run', r.id)}>{r.runId}</a>
                       ))}
-                    </>
+                    </span>
                   )}
                 </span>
+                <QuestionPositions measures={asMeasures(q)} lang={lang} />
               </li>
             ))}
           </ul>

@@ -1,0 +1,61 @@
+# Questions for the Clearing. Each one gathers the party measures of
+# claims.yaml that answer the same question, so that one run covers them
+# all: run the question, not each variant.
+#
+#   Actions > Clearing run > claim: nouveau-nucleaire
+#
+# stance is Ecosophia's reading of each quoted measure against the question:
+#   for, against, or partly (supports part of it, or says it less sharply).
+# The quotation is shown next to it, so the reading can be checked.
+# Measures with no counterpart in another party are left out on purpose:
+# ps-2026-fiscalite-carbone, pcf-2022-plan-emploi-climat, ens-2024-leasing-social.
+
+- id: nouveau-nucleaire
+  claim:
+    en: "France should build new nuclear reactors."
+    fr: "La France devrait construire de nouveaux réacteurs nucléaires."
+  measures:
+    - {id: lfi-2026-nucleaire, stance: against}
+    - {id: eco-2026-nucleaire, stance: against}
+    - {id: ps-2026-nucleaire, stance: partly}
+    - {id: pcf-2022-mix-energetique, stance: partly}
+    - {id: ens-2024-nouveaux-reacteurs, stance: for}
+    - {id: rn-2024-relance-nucleaire, stance: for}
+    - {id: lr-2026-nucleaire-80-ans, stance: for}
+
+- id: eolien-solaire
+  claim:
+    en: "France should keep expanding wind and solar power."
+    fr: "La France devrait continuer à développer l'éolien et le solaire."
+  measures:
+    - {id: lfi-2026-renouvelables, stance: for}
+    - {id: ps-2026-nucleaire, stance: for}
+    - {id: pcf-2022-mix-energetique, stance: for}
+    - {id: rn-2022-moratoire-eolien, stance: against}
+    - {id: lr-2026-fin-appels-offres-renouvelables, stance: against}
+
+- id: pesticides
+  claim:
+    en: "France should set binding targets to reduce the use of synthetic pesticides."
+    fr: "La France devrait se fixer des objectifs contraignants de réduction des pesticides de synthèse."
+  measures:
+    - {id: eco-2026-pesticides, stance: for}
+    - {id: ps-2026-glyphosate, stance: for}
+    - {id: ens-2024-pesticides, stance: for}
+    - {id: lr-2026-phytosanitaires, stance: against}
+
+- id: voitures-thermiques-2035
+  claim:
+    en: "The end of sales of new combustion-engine cars in 2035 should be kept."
+    fr: "La fin de la vente des voitures neuves à moteur thermique en 2035 devrait être maintenue."
+  measures:
+    - {id: eco-2026-vehicules-2035, stance: for}
+    - {id: rn-2024-voitures-thermiques, stance: against}
+
+- id: rail-avion
+  claim:
+    en: "Rail and public transport should take over from short domestic flights, with public money."
+    fr: "Le rail et les transports publics devraient remplacer les vols intérieurs courts, avec de l'argent public."
+  measures:
+    - {id: lfi-2026-vols-interieurs, stance: for}
+    - {id: pcf-2022-petites-lignes-transports-gratuits, stance: partly}

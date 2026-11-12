@@ -1,0 +1,81 @@
+---
+// The party measures behind a question, each with Ecosophia's reading of its
+// stance and the party's own words. Sourced material, never simulated.
+import { useUi } from '../i18n/ui.mjs';
+import { typo } from '../lib/text.mjs';
+
+const { measures, lang, open = false } = Astro.props;
+const { t } = useUi(lang);
+const order = { against: 0, partly: 1, for: 2 };
+const sorted = [...measures].sort((a, b) => order[a.stance] - order[b.stance]);
+---
+
+<details class="positions" open={open}>
+  <summary>
+    <span class="eco-mark sourced">{t('common.sourced')}</span>
+    {t('clearing.partyPositions', { n: measures.length })}
+  </summary>
+  <p class="t-small t-muted">{t('clearing.stanceNote')}</p>
+  <ul>
+    {
+      sorted.map((m) => (
+        <li>
+          <span class:list={['stance', m.stance]}>{t(`clearing.stance.${m.stance}`)}</span>
+          <div>
+            <b>{m.party.short}</b>
+            <q lang="fr">{typo(m.quote, 'fr')}</q>
+            <span class="eco-meta">
+              <a href={m.programme.url} rel="noopener">{m.programme.title}</a> ({m.programme.year}), {typo(m.locator, 'fr')}
+            </span>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</details>
+
+<style>
+  .positions {
+    max-width: var(--measure);
+  }
+  summary {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-weight: 600;
+    font-size: 15px;
+  }
+  ul {
+    list-style: none;
+    margin: var(--space-2) 0 0;
+    padding: 0;
+  }
+  li {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: var(--space-3);
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--line);
+    font-size: 15px;
+    line-height: 22px;
+  }
+  li div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  q {
+    quotes: '« ' ' »';
+  }
+  .stance {
+    align-self: start;
+    font: 600 12px/18px var(--font-sans);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .stance.for {
+    color: var(--moss);
+  }
+</style>

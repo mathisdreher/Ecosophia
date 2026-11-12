@@ -12,9 +12,11 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { parseArgs } from 'node:util';
 import YAML from 'yaml';
-import { loadCorpus, loadClaims } from '../src/lib/corpus.mjs';
+import { loadCorpus, loadClaims, loadQuestions } from '../src/lib/corpus.mjs';
 import { ENGINE, DEFAULTS, LIMITS, EFFORTS, estimateCost } from './config.mjs';
 import { selectAgents, buildSimulation } from './seed.mjs';
+import { planRun } from './planner.mjs';
+import { estimateRun, fitBudget } from './estimate.mjs';
 import { startBridge } from './bridge.mjs';
 import { prepareClaim, readRun, parseStance, interviewPrompt } from './reading.mjs';
 
@@ -27,8 +29,10 @@ function options() {
   const { values } = parseArgs({
     options: {
       claim: { type: 'string' },
-      agents: { type: 'string', default: 'all' },
-      rounds: { type: 'string', default: String(DEFAULTS.rounds) },
+      agents: { type: 'string', default: 'auto' },
+      rounds: { type: 'string', default: 'auto' },
+      'budget-usd': { type: 'string', default: String(DEFAULTS.budgetUsd) },
+      'planner-model': { type: 'string', default: DEFAULTS.plannerModel },
       model: { type: 'string', default: DEFAULTS.model },
       'reader-model': { type: 'string', default: '' },
       effort: { type: 'string', default: DEFAULTS.effort },
@@ -47,9 +51,12 @@ function options() {
     console.error(`clearing: ${msg}`);
     process.exit(2);
   };
-  const rounds = Number(values.rounds);
+  const autoRounds = values.rounds.trim() === 'auto';
+  const rounds = autoRounds ? null : Number(values.rounds);
   if (!values.claim?.trim()) fail('give the claim to discuss with --claim "..."');
-  if (!Number.isInteger(rounds) || rounds < LIMITS.rounds.min || rounds > LIMITS.rounds.max) fail(`--rounds must be a whole number from ${LIMITS.rounds.min} to ${LIMITS.rounds.max}`);
+  if (!autoRounds && (!Number.isInteger(rounds) || rounds < LIMITS.rounds.min || rounds > LIMITS.rounds.max)) fail(`--rounds must be auto or a whole number from ${LIMITS.rounds.min} to ${LIMITS.rounds.max}`);
+  const budget = Number(values['budget-usd']);
+  if (!Number.isFinite(budget) || budget < 0) fail('--budget-usd must be a number of USD (0 for no limit)');
   if (!EFFORTS.includes(values.effort)) fail(`--effort must be one of ${EFFORTS.join(', ')}`);
   if (!['draft', 'published'].includes(values.status)) fail('--status must be draft or published');
   if (!values.engine) fail('give the path of a MiroFish checkout with --engine (or MIROFISH_DIR)');
@@ -59,8 +66,10 @@ function options() {
   if (!dry && !process.env.ANTHROPIC_API_KEY) fail('ANTHROPIC_API_KEY is not set. Add it, or use --dry-run to test the pipeline with a stand-in model.');
   return {
     claim: values.claim,
-    agents: values.agents,
+    agents: values.agents.trim() || 'auto',
     rounds,
+    budgetUsd: budget > 0 ? budget : null,
+    plannerModel: values['planner-model'].trim(),
     model: values.model.trim(),
     readerModel: values['reader-model'].trim() || values.model.trim(),
     effort: values.effort,
@@ -158,7 +167,6 @@ const median = (xs) => {
 async function main() {
   const opt = options();
   const corpus = loadCorpus();
-  const { agents, withdrawn } = selectAgents(corpus, opt.agents);
   const runId = nextRunId(opt.dry);
   const work = opt.work ?? path.join(ROOT, '.cache', 'clearing', runId);
   const sim = path.join(work, 'sim');
@@ -174,17 +182,74 @@ async function main() {
     tokens.output += u?.output_tokens ?? 0;
   };
 
-  say(`${runId}: ${agents.length} agents, ${opt.rounds} rounds, ${opt.dry ? 'stand-in model (dry run)' : `${opt.model}, effort ${opt.effort}`}`);
-  if (withdrawn.length) say(`withdrawn agents left out: ${withdrawn.map((a) => a.name).join(', ')}`);
-
-  // A claim id from data/clearing/claims.yaml brings its own wording in both
-  // languages and its source; anything else is a claim typed by hand.
-  const fromProgramme = loadClaims().find((k) => k.id === opt.claim.trim()) ?? null;
-  const claim = fromProgramme ? { en: fromProgramme.claim.en, fr: fromProgramme.claim.fr } : await prepareClaim({ raw: opt.claim, model: opt.readerModel, effort: opt.effort, mock: opt.dry, usage: count });
+  // A question id (data/clearing/questions.yaml) or a measure id
+  // (data/clearing/claims.yaml) brings its own wording in both languages and
+  // its sources; anything else is a claim typed by hand.
+  const question = loadQuestions(loadClaims()).find((q) => q.id === opt.claim.trim()) ?? null;
+  const fromProgramme = question ? null : (loadClaims().find((k) => k.id === opt.claim.trim()) ?? null);
+  const fixed = question ?? fromProgramme;
+  const claim = fixed ? { en: fixed.claim.en, fr: fixed.claim.fr } : await prepareClaim({ raw: opt.claim, model: opt.readerModel, effort: opt.effort, mock: opt.dry, usage: count });
   say(`claim: ${claim.en}`);
 
-  const { map } = buildSimulation({ corpus, claim: claim.en, agents, rounds: opt.rounds, dir: sim, runId, model: opt.model });
-  const bridge = await startBridge({ model: opt.model, effort: opt.effort, concurrency: opt.concurrency, mock: opt.dry, logFile: path.join(work, 'bridge.jsonl') });
+  // Who takes part, and for how many rounds: chosen by the planner when
+  // agents is auto, then cut to the budget.
+  const planTokens = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 };
+  const countPlan = (u) => {
+    planTokens.input += u?.input_tokens ?? 0;
+    planTokens.output += u?.output_tokens ?? 0;
+  };
+  const auto = opt.agents === 'auto';
+  const pool = selectAgents(corpus, auto ? 'all' : opt.agents);
+  if (pool.withdrawn.length) say(`withdrawn agents left out: ${pool.withdrawn.map((a) => a.name).join(', ')}`);
+  let plan = null;
+  let ranked = pool.agents.map((a) => a.id);
+  let rounds = opt.rounds ?? 2;
+  if (auto) {
+    say(`planning with ${opt.dry ? 'a stand-in planner' : opt.plannerModel}…`);
+    plan = await planRun({
+      claim,
+      corpus,
+      candidates: pool.agents,
+      maxAgents: DEFAULTS.maxAutoAgents,
+      maxRounds: opt.rounds ?? DEFAULTS.rounds,
+      budgetUsd: opt.budgetUsd,
+      model: opt.plannerModel,
+      effort: opt.effort,
+      mock: opt.dry,
+      usage: countPlan,
+    });
+    ranked = plan.ranked;
+    rounds = plan.rounds;
+  }
+  const branchOf = (id) => corpus.authorById[id].branch;
+  const fitted = auto
+    ? fitBudget({ ranked, rounds, budgetUsd: opt.budgetUsd, model: opt.model, readerModel: opt.readerModel, branchOf, minAgents: LIMITS.agents.min })
+    : { agents: ranked, rounds, trimmed: false };
+  rounds = fitted.rounds;
+  const estimate = estimateRun({ agents: fitted.agents.length, rounds, model: opt.model, readerModel: opt.readerModel });
+  if (!opt.dry && opt.budgetUsd != null && estimate.costUsd != null && estimate.costUsd > opt.budgetUsd) {
+    throw new Error(
+      `Estimated cost ${estimate.costUsd.toFixed(2)} USD is above the budget of ${opt.budgetUsd} USD (${fitted.agents.length} agents, ${rounds} rounds, ${opt.model}). Choose fewer agents or rounds, a cheaper model, agents: auto, or a higher budget.`,
+    );
+  }
+  const agents = fitted.agents.map((id) => corpus.authorById[id]);
+  if (agents.length < LIMITS.agents.min) throw new Error(`A run needs at least ${LIMITS.agents.min} agents.`);
+  say(
+    `${runId}: ${agents.length} agents, ${rounds} rounds, ${opt.dry ? 'stand-in model (dry run)' : `${opt.model}, effort ${opt.effort}`}` +
+      (estimate.costUsd != null && !opt.dry ? `, estimated ${estimate.costUsd.toFixed(2)} USD` : '') +
+      (fitted.trimmed ? ' (plan cut to the budget)' : ''),
+  );
+
+  const { map } = buildSimulation({ corpus, claim: claim.en, agents, rounds, dir: sim, runId, model: opt.model });
+  const bridge = await startBridge({
+    model: opt.model,
+    effort: opt.effort,
+    concurrency: opt.concurrency,
+    mock: opt.dry,
+    logFile: path.join(work, 'bridge.jsonl'),
+    // A safety net above the estimate: past it, the bridge stops calling the model.
+    maxCostUsd: opt.budgetUsd == null ? null : opt.budgetUsd * 1.5,
+  });
   const logFile = path.join(work, 'mirofish.log');
   const logStream = fs.createWriteStream(logFile);
 
@@ -206,7 +271,7 @@ async function main() {
     NO_PROXY: '127.0.0.1,localhost',
     no_proxy: '127.0.0.1,localhost',
   };
-  const engineArgs = [opt.runner, '--config', path.join(sim, 'simulation_config.json'), '--reddit-only', '--max-rounds', String(opt.rounds)];
+  const engineArgs = [opt.runner, '--config', path.join(sim, 'simulation_config.json'), '--reddit-only', '--max-rounds', String(rounds)];
   let child;
   if (opt.runAs) {
     // The engine and its dependencies are third-party code. Under another
@@ -284,7 +349,8 @@ async function main() {
 
   const agentCost = estimateCost(opt.model, stats.tokens);
   const readerCost = estimateCost(opt.readerModel, tokens);
-  const cost = opt.dry || agentCost == null || readerCost == null ? null : agentCost + readerCost;
+  const planCost = plan && !opt.dry ? estimateCost(opt.plannerModel, planTokens) : 0;
+  const cost = opt.dry || agentCost == null || readerCost == null || planCost == null ? null : agentCost + readerCost + planCost;
 
   const run = {
     id: runId,
@@ -293,6 +359,14 @@ async function main() {
     ...(opt.dry ? { dryRun: true } : {}),
     date: new Date().toISOString().slice(0, 10),
     claim,
+    ...(question
+      ? {
+          question: {
+            id: question.id,
+            measures: question.measures.map((m) => ({ id: m.id, stance: m.stance, party: m.claim.party, programme: m.claim.programme, locator: m.claim.locator, quote: m.claim.quote })),
+          },
+        }
+      : {}),
     ...(fromProgramme
       ? {
           claimSource: {
@@ -312,7 +386,19 @@ async function main() {
       served: Object.keys(stats.servedBy),
       effort: opt.dry ? null : opt.effort,
     },
-    settings: { rounds: opt.rounds, agents: agents.length, selection: opt.agents },
+    settings: { rounds, agents: agents.length, selection: opt.agents, ...(opt.budgetUsd != null ? { budgetUsd: opt.budgetUsd } : {}), estimateUsd: estimate.costUsd == null ? null : Math.round(estimate.costUsd * 100) / 100 },
+    ...(plan
+      ? {
+          plan: {
+            model: plan.model,
+            note: plan.note,
+            rounds: plan.rounds,
+            ranked: plan.ranked.length,
+            trimmed: fitted.trimmed,
+            reasons: Object.fromEntries(agents.map((a) => [a.id, plan.reasons[a.id] ?? ''])),
+          },
+        }
+      : {}),
     counts: {
       turns: stats.actions,
       comments,
@@ -377,7 +463,9 @@ async function main() {
         `| | |`,
         `|---|---|`,
         `| Agents | ${agents.length} |`,
-        `| Rounds | ${opt.rounds} |`,
+        `| Rounds | ${rounds}${plan ? ` (planner: ${plan.rounds})` : ''} |`,
+        `| Selection | ${plan ? `chosen by ${plan.model}${fitted.trimmed ? ', cut to the budget' : ''}` : opt.agents} |`,
+        `| Estimate before the run | ${estimate.costUsd == null || opt.dry ? 'n/a' : `${estimate.costUsd.toFixed(2)} USD`}${opt.budgetUsd != null ? ` (budget ${opt.budgetUsd} USD)` : ''} |`,
         `| Model | ${opt.dry ? 'stand-in' : `${run.model.served.join(', ')} (effort ${opt.effort})${opt.readerModel !== opt.model ? `, reading by ${opt.readerModel}` : ''}`} |`,
         `| Agent turns | ${run.counts.turns} |`,
         `| Comments | ${run.counts.comments} |`,

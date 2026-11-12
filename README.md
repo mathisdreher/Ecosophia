@@ -126,9 +126,10 @@ A run takes a claim, turns every leaf of the tree into an agent, lets the agents
 
 | Input | Default | Meaning |
 |---|---|---|
-| `claim` | | One sentence that can be endorsed or opposed, in English or French |
-| `agents` | `all` | `all` leaves, or author ids and branch ids separated by commas, for example `degrowth, counterpoint, james-lovelock` |
-| `rounds` | `3` | Rounds of discussion, 1 to 8. Every agent is offered a turn in every round |
+| `claim` | | A question id from `data/clearing/questions.yaml` (`nouveau-nucleaire`, `eolien-solaire`, `pesticides`, `voitures-thermiques-2035`, `rail-avion`), or one sentence in English or French |
+| `agents` | `auto` | `auto`: one Opus call reads the question and the list of authors, and ranks the agents worth hearing (at least one per branch, at most 30). Or `all`, or author and branch ids separated by commas |
+| `rounds` | `auto` | Chosen with the agents (1 to 3), or a number from 1 to 8. Every agent is offered a turn in every round |
+| `budget_usd` | `3` | Spending limit at list prices. An automatic plan is cut to fit it (rounds first, then agents from the end of the ranking, never the last of a branch); a manual choice above it is refused before anything is spent; the run stops calling the model at 1.5 times it. `0` for no limit |
 | `model` | `claude-opus-5-5` | The Claude model that plays the agents and reads the run |
 | `effort` | `medium` | How hard the model thinks on each turn |
 | `status` | `draft` | `draft` gives the run its own page and lists it nowhere; `published` shows it on the Clearing |
@@ -136,7 +137,15 @@ A run takes a claim, turns every leaf of the tree into an agent, lets the agents
 
 The workflow commits the run to `data/clearing/runs/` and rebuilds the site. A draft is at `/en/clearing/<run>/`; read it, then publish it with Actions › **Clearing run status** (which can also take a run back to draft or delete it). A draft is unlisted, not private: the repository is public.
 
-**Cost and time.** Cost grows with the number of agents times the number of rounds, and each agent rereads the growing discussion. As an order of magnitude, not a quote: the full cast (46 agents) for 3 rounds is a few hundred model calls and around two million tokens read, which on the default model is roughly 5 to 15 USD, and takes 10 to 25 minutes. A subset such as two or three branches costs a fraction of that. Every run reports its real token counts in the workflow summary and on its page.
+**Cost and time.** Cost grows faster than the number of agents, because each agent rereads the whole discussion every round. Estimates at list prices (`clearing/estimate.mjs`, an order of magnitude, not a quote):
+
+| Run | Opus 5.5 | Sonnet 5.5 | Haiku 5.5 |
+|---|---|---|---|
+| 12 agents, 2 rounds | 0.9 USD | 0.45 USD | 0.03 USD |
+| 24 agents, 2 rounds | 1.8 USD | 0.9 USD | 0.05 USD |
+| 80 agents (all), 3 rounds | 19 USD | 10 USD | 0.50 USD |
+
+Every run prints its estimate before it starts, and reports its real token count and cost in the workflow summary and on its page.
 
 **What an agent is.** An agent receives the Ecosophia record of its author (summary, seeds, works, sourced threads) and rules: argue from the record, say when the work is silent, never use quotation marks, never speak as the author. It does not read the books, and the model also draws on what it already knows. Every prompt is published with the run. An author with `agent: false` in `data/authors/*.yaml` takes no part; `node clearing/withdraw.mjs <author-id>` removes an agent from stored runs.
 

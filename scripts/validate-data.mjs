@@ -1,7 +1,7 @@
 // Checks the corpus before every build: references, bilingual fields and the
 // editorial rules of the brand book (design/brand.md). Errors fail the build;
 // warnings list what is still missing.
-import { loadCorpus, loadClearing, loadClaims, loadTranscript, LINK_TYPES, LAYERS, WORK_KINDS } from '../src/lib/corpus.mjs';
+import { loadCorpus, loadClearing, loadClaims, loadQuestions, loadTranscript, LINK_TYPES, LAYERS, WORK_KINDS } from '../src/lib/corpus.mjs';
 import { wordCount } from '../src/lib/text.mjs';
 
 const c = loadCorpus();
@@ -169,6 +169,22 @@ for (const k of claims) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(String(k.checked))) err(`${kt}: checked must be the date the quotation was read (YYYY-MM-DD)`);
 }
 
+// Clearing: questions that gather the measures
+const questions = loadQuestions(claims);
+const questionIds = new Set();
+for (const q of questions) {
+  const qt = `question ${q.id}`;
+  if (!/^[a-z0-9-]+$/.test(String(q.id))) err(`${qt}: an id is lowercase ascii with dashes`);
+  if (questionIds.has(q.id) || claimIds.has(q.id)) err(`${qt}: the id is already used by a question or a claim`);
+  questionIds.add(q.id);
+  bilingual(q.claim, `${qt}.claim`);
+  if (!(q.measures?.length > 0)) err(`${qt}: no measure`);
+  for (const m of q.measures ?? []) {
+    if (!m.claim) err(`${qt}: unknown measure "${m.id}" (not in claims.yaml)`);
+    if (!['for', 'against', 'partly'].includes(m.stance)) err(`${qt}: stance of ${m.id} must be for, against or partly`);
+  }
+}
+
 // Clearing: runs written by clearing/run.mjs
 const inRange = (n) => Number.isInteger(n) && n >= 0 && n <= 100;
 for (const run of clearing.runs) {
@@ -241,7 +257,7 @@ const summary = [
   `${c.links.length - c.sourcedLinks.length} to verify`,
   `${c.sources.size} sources`,
   `${clearing.runs.length} Clearing runs (${clearing.published.length} published)`,
-  `${claims.length} programme claims`,
+  `${claims.length} programme measures in ${questions.length} questions`,
 ].join(' · ');
 
 if (process.argv.includes('--quiet') === false && warnings.length) {

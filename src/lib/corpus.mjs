@@ -152,6 +152,17 @@ export function loadClaims() {
   return fs.existsSync(file) ? (readYaml(path.join('clearing', 'claims.yaml')) ?? []) : [];
 }
 
+/**
+ * Questions (data/clearing/questions.yaml): one claim each, with the party
+ * measures that answer it and Ecosophia's reading of their stance.
+ */
+export function loadQuestions(claims = loadClaims()) {
+  const file = path.join(DATA, 'clearing', 'questions.yaml');
+  const byId = new Map(claims.map((k) => [k.id, k]));
+  const list = fs.existsSync(file) ? (readYaml(path.join('clearing', 'questions.yaml')) ?? []) : [];
+  return list.map((q) => ({ ...q, measures: (q.measures ?? []).map((m) => ({ ...m, claim: byId.get(m.id) ?? null })) }));
+}
+
 /** The prompts, the transcript and the closing interviews of one run, or null. */
 export function loadTranscript(runId) {
   const file = path.join(DATA, 'clearing', 'runs', `${runId}.transcript.json`);

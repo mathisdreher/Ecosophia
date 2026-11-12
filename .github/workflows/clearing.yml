@@ -16,15 +16,19 @@ on:
   workflow_dispatch:
     inputs:
       claim:
-        description: "Claim to discuss: one sentence in English or French, or the id of a claim in data/clearing/claims.yaml (e.g. lfi-2026-nucleaire)"
+        description: "Question id from data/clearing/questions.yaml (nouveau-nucleaire, eolien-solaire, pesticides, voitures-thermiques-2035, rail-avion), or a claim in one sentence"
         required: true
         type: string
       agents:
-        description: "Who takes part: all, or author ids and branch ids separated by commas"
-        default: all
+        description: "auto: Opus chooses the agents for the question; or all; or author and branch ids separated by commas"
+        default: auto
         type: string
       rounds:
-        description: "Rounds of discussion, 1 to 8"
+        description: "auto (chosen with the agents, at most 3), or a number from 1 to 8"
+        default: auto
+        type: string
+      budget_usd:
+        description: "Spending limit in USD at list prices. The plan is cut to fit it; a manual choice above it is refused. 0 = no limit"
         default: "3"
         type: string
       model:
@@ -124,6 +128,7 @@ jobs:
           CLAIM: ${{ inputs.claim }}
           AGENTS: ${{ inputs.agents }}
           ROUNDS: ${{ inputs.rounds }}
+          BUDGET_USD: ${{ inputs.budget_usd }}
           MODEL: ${{ inputs.model }}
           READER_MODEL: ${{ inputs.reader_model }}
           EFFORT: ${{ inputs.effort }}
@@ -134,7 +139,7 @@ jobs:
             echo "::error title=No API key::Add a repository secret named ANTHROPIC_API_KEY in Settings > Secrets and variables > Actions, or tick dry_run to test the pipeline without one."
             exit 1
           fi
-          args=(--claim "$CLAIM" --agents "$AGENTS" --rounds "$ROUNDS" --model "$MODEL" --reader-model "$READER_MODEL" --effort "$EFFORT" --status "$STATUS")
+          args=(--claim "$CLAIM" --agents "$AGENTS" --rounds "$ROUNDS" --model "$MODEL" --reader-model "$READER_MODEL" --effort "$EFFORT" --status "$STATUS" --budget-usd "$BUDGET_USD")
           args+=(--engine "$ENGINE_DIR" --python "$ENGINE_DIR/backend/.venv/bin/python" --run-as "$ENGINE_USER")
           args+=(--work /tmp/clearing-work --out "$RUNNER_TEMP/clearing-out")
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi

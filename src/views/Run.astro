@@ -7,6 +7,7 @@ import Base from '../layouts/Base.astro';
 import RunBoard from '../components/RunBoard.astro';
 import VoiceCard from '../components/VoiceCard.astro';
 import ClaimSource from '../components/ClaimSource.astro';
+import QuestionPositions from '../components/QuestionPositions.astro';
 import { useUi } from '../i18n/ui.mjs';
 import { href, withBase } from '../lib/site.mjs';
 import { L } from '../lib/text.mjs';
@@ -54,6 +55,7 @@ const agentPrompts = Object.entries(prompts?.agents ?? {}).filter(([, text]) => 
       {run.runId} · {meta}
     </span>
     {run.claimSource && <ClaimSource source={run.claimSource} lang={lang} />}
+    {run.question && <QuestionPositions measures={run.question.measures} lang={lang} open />}
     {
       draft && (
         <div class="notice lichen">
@@ -96,6 +98,26 @@ const agentPrompts = Object.entries(prompts?.agents ?? {}).filter(([, text]) => 
       </div>
     </div>
 
+    {
+      run.plan && (
+        <div class="below-col">
+          <div class="below-head">
+            <span class="label humus">{t('clearing.engineLabel')}</span>
+            <h2 class="t-heading">{t('clearing.planTitle')}</h2>
+          </div>
+          <p class="text">
+            {t('clearing.plan', { model: run.plan.model, budget: run.settings.budgetUsd ? `${run.settings.budgetUsd} USD` : t('clearing.noBudget') })} {run.plan.note}
+          </p>
+          <ul class="reasons t-small">
+            {Object.entries(run.plan.reasons).map(([id, why]) => (
+              <li>
+                <b>{name(id)}</b> {why}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
     {
       prompts && (
         <div class="below-col">
@@ -198,6 +220,13 @@ const agentPrompts = Object.entries(prompts?.agents ?? {}).filter(([, text]) => 
   .evidence .wide {
     grid-column: 1 / -1;
     max-width: 900px;
+  }
+  .reasons {
+    margin: 0;
+    padding-left: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
   }
   details {
     border-top: 1px solid var(--line);

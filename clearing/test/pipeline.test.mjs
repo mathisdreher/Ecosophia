@@ -169,3 +169,25 @@ test('a dry run goes from claim to run files', () => {
     fs.rmSync(tmp, { recursive: true, force: true });
   }
 });
+
+test('a plan is cut to the budget without losing a branch', async () => {
+  const { estimateRun, fitBudget } = await import('../estimate.mjs');
+  const small = estimateRun({ agents: 10, rounds: 2, model: 'claude-opus-5-5' }).costUsd;
+  const big = estimateRun({ agents: 40, rounds: 3, model: 'claude-opus-5-5' }).costUsd;
+  assert.ok(big > small * 4, 'cost grows faster than the number of agents');
+  assert.ok(estimateRun({ agents: 40, rounds: 3, model: 'claude-haiku-5-5' }).costUsd < big / 20);
+  const ranked = corpus.authors.filter((a) => a.layer === 'leaf').map((a) => a.id).slice(0, 40);
+  const branches = new Set(ranked.map((id) => corpus.authorById[id].branch));
+  const fit = fitBudget({ ranked, rounds: 3, budgetUsd: 2, model: 'claude-opus-5-5', branchOf: (id) => corpus.authorById[id].branch });
+  assert.ok(fit.costUsd <= 2 || fit.overBudget);
+  assert.equal(fit.rounds, 1, 'rounds go first');
+  assert.equal(new Set(fit.agents.map((id) => corpus.authorById[id].branch)).size, branches.size, 'every branch keeps an agent');
+  assert.deepEqual(fit.agents, ranked.filter((id) => fit.agents.includes(id)), 'the ranking is kept');
+});
+
+test('every question gathers known measures', async () => {
+  const { loadQuestions } = await import('../../src/lib/corpus.mjs');
+  const qs = loadQuestions();
+  assert.ok(qs.length >= 1);
+  for (const q of qs) for (const m of q.measures) assert.ok(m.claim, `${q.id}: ${m.id}`);
+});

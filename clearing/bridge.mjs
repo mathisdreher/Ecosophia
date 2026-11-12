@@ -11,7 +11,7 @@ import http from 'node:http';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
 import Anthropic from '@anthropic-ai/sdk';
-import { DEFAULTS } from './config.mjs';
+import { DEFAULTS, estimateCost } from './config.mjs';
 import { mockAnswer } from './mock.mjs';
 
 // The engine's profile template ends every persona with a sentence built from
@@ -195,6 +195,7 @@ export async function startBridge({
   maxTokens = DEFAULTS.maxTokens,
   mock = false,
   logFile = null,
+  maxCostUsd = null,
 } = {}) {
   // The SDK reads ANTHROPIC_API_KEY from the environment and retries rate
   // limits and overloads with backoff.
@@ -252,6 +253,13 @@ export async function startBridge({
         ...(request.tools ? { tools: request.tools } : {}),
         ...extra,
       });
+
+    const spent = estimateCost(model, stats.tokens);
+    if (!mock && maxCostUsd != null && spent != null && spent > maxCostUsd) {
+      const err = new Error(`Budget exhausted: about ${spent.toFixed(2)} USD spent, limit ${maxCostUsd.toFixed(2)} USD. No more calls to the model in this run.`);
+      err.status = 402;
+      throw err;
+    }
 
     let message;
     if (mock) {

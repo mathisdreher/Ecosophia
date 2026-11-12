@@ -10,7 +10,7 @@ export const unquote = (s) => String(s ?? '').replace(/["“”«»„‟]/g, ''
 
 const noDash = (s) => String(s ?? '').replace(/\s*—\s*/g, ', ');
 
-function firstJson(text) {
+export function firstJson(text) {
   const start = text.indexOf('{');
   if (start === -1) throw new Error('no JSON object in the answer');
   let depth = 0;
