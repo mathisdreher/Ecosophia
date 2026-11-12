@@ -1,0 +1,444 @@
+# Clearing run clr-0004. Simulated: nothing below is a statement by any author named.
+# Written by clearing/run.mjs. The transcript and the prompts are in the file next to this one.
+id: clr-0004
+runId: clr-0004
+status: draft
+date: 2026-11-12
+claim:
+  en: France should build new nuclear reactors.
+  fr: La France devrait construire de nouveaux réacteurs nucléaires.
+question:
+  id: nouveau-nucleaire
+  measures:
+    - id: lfi-2026-nucleaire
+      stance: against
+      party:
+        short: LFI
+        name: La France insoumise
+      programme:
+        title: L'Avenir en commun – Le programme de la Nouvelle France (édition 2027)
+        year: 2026
+        url: https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3/
+      locator: Partie 1, chapitre 3, « Organiser le 100 % d’énergies renouvelables »
+      quote: Planifier la fermeture progressive des centrales nucléaires existantes en ne prolongeant pas au-delà de 60 ans leur durée de vie et arrêter le programme de nouveau nucléaire (EPR2)
+    - id: eco-2026-nucleaire
+      stance: against
+      party:
+        short: Les Écologistes
+        name: Les Écologistes (Europe Écologie Les Verts)
+      programme:
+        title: Pour une prospérité écologique – Le nouveau programme des Écologistes (Projet 2027)
+        year: 2026
+        url: https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
+      locator: I. Garantir un monde habitable, chapitre 1 « Gagner la bataille du climat », proposition 7
+      quote: Planifier la sortie du nucléaire. Mettre fin aux nouveaux programmes EPR-2 et SMR extrêmement dispendieux. Planifier l’arrêt progressif du parc constitué de centrales vieillissantes dont la mise hors service doit être étalée sur une vingtaine d’années.
+    - id: ps-2026-nucleaire
+      stance: partly
+      party:
+        short: PS
+        name: Parti socialiste
+      programme:
+        title: Le Projet socialiste – Vivre libres
+        year: 2026
+        url: https://projet-socialiste.fr/projet/vivre-libres/
+      locator: Vivre libres, chapitre 3, « Produire de l’énergie propre, sûre et bon marché »
+      quote: Ce mix devra s’appuyer sur le parc nucléaire historique, qui sera partiellement renouvelé, ainsi que sur le développement des énergies renouvelables.
+    - id: pcf-2022-mix-energetique
+      stance: partly
+      party:
+        short: PCF
+        name: Parti communiste français
+      programme:
+        title: Fabien Roussel – La France des Jours heureux, le programme (document 8 pages, présidentielle 2022)
+        year: 2022
+        url: https://assets.nationbuilder.com/pcf/pages/13815/attachments/original/1643123394/document_-_exe_8p_programme_stc.pdf?1643123394
+      locator: Objectifs pour l’humain et la planète d’abord, 4 « Pour l’emploi et le climat, je lancerai un grand plan de réindustrialisation de la France » (p. 3 du PDF)
+      quote: Un mix énergétique nucléaire et renouvelable ; un service public avec EDF et Engie renationalisés.
+    - id: ens-2024-nouveaux-reacteurs
+      stance: for
+      party:
+        short: Ensemble
+        name: Renaissance (Ensemble pour la République)
+      programme:
+        title: Ensemble pour la République – Notre projet (législatives 2024)
+        year: 2024
+        url: https://doc.ensemble-2024.fr/programme-legislatives-24.pdf
+      locator: « Ensemble pour protéger l’environnement ! » (p. 10 du PDF)
+      quote: Nous mettrons en chantier 14 nouveaux réacteurs nucléaires pour assurer l’indépendance énergétique de la France et aller vers une économie sans carbone.
+    - id: rn-2024-relance-nucleaire
+      stance: for
+      party:
+        short: RN
+        name: Rassemblement national
+      programme:
+        title: Bardella Premier ministre – Un projet, une méthode (législatives 2024)
+        year: 2024
+        url: https://rassemblementnational.fr/documents/202406-programme.pdf
+      locator: Le besoin de projection, 2 « Refaire de la France un paradis énergétique respectant la trajectoire de l’accord de Paris »
+      quote: Lancer le plan Marie Curie de relance du nucléaire (EPR, SMR, réacteurs à neutrons rapides)
+    - id: lr-2026-nucleaire-80-ans
+      stance: for
+      party:
+        short: LR
+        name: Les Républicains
+      programme:
+        title: "Nos propositions pour la France – Électricité : baisser la facture des Français, c’est possible !"
+        year: 2026
+        url: https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf
+      locator: 01 « L’urgence de consolider nos atouts stratégiques », axe « Conserver une électricité décarbonée en consolidant nos atouts stratégiques » (propositions 1 et 2)
+      quote: en inscrivant les réacteurs existants dans une trajectoire d’exploitation à 80 ans (proposition 1), en assurant un pilotage rigoureux de la construction des nouveaux EPR2 dans le respect des délais et des coûts
+summary:
+  en: The line ran between agents judging reactors by carbon and land saved and agents judging them by who controls them and who bears the mines and waste, with a wide middle awaiting a prior condition. The Anthropocene branch split, with the Lovelock agent at 90 and the Fressoz and Latour agents at 50.
+  fr: "La ligne de partage séparait les agents qui jugeaient les réacteurs au carbone et au sol épargnés de ceux qui les jugeaient à leur contrôle et au poids des mines et des déchets, avec un large centre suspendu à une condition préalable. La branche Anthropocène s'est scindée : l'agent Lovelock à 90, les agents Fressoz et Latour à 50."
+engine:
+  name: MiroFish
+  commit: 7657031ac01184afe2cb220f5ee3545573b5e843
+  platform: reddit
+  packages:
+    - camel-oasis==0.2.5
+    - camel-ai==0.2.78
+model:
+  requested: claude-opus-5-5
+  served:
+    - claude-opus-5-5
+  effort: medium
+settings:
+  rounds: 2
+  agents: 26
+  selection: auto
+  budgetUsd: 3
+  estimateUsd: 1.99
+plan:
+  model: claude-opus-5-5
+  note: The panel sets the main pro-nuclear voices against technocritical, anti-nuclear, degrowth and extractivism critics, with every branch represented early in the ranking. Two rounds let climate arguments and arguments about risk, democracy and extraction answer each other while keeping cost near 2 USD.
+  rounds: 2
+  ranked: 26
+  trimmed: false
+  reasons:
+    michael-shellenberger: Leading campaigner for nuclear power and co-author of the Ecomodernist Manifesto.
+    andre-gorz: Wrote against the French nuclear programme as a technology that imposes centralised, technocratic power.
+    james-lovelock: Gaia theorist who publicly backed nuclear power as the answer to global warming.
+    francoise-deaubonne: French ecofeminist and anti-nuclear activist who tied nuclear power to patriarchal domination.
+    jean-baptiste-fressoz: Historian who argues energy sources add up rather than replace each other, which bears on nuclear as a transition tool.
+    william-nordhaus: Climate economist whose carbon pricing framework judges low-carbon sources on cost.
+    murray-bookchin: Opposed nuclear power as centralised and hierarchical, against decentralised municipal energy.
+    hans-jonas: His imperative of responsibility addresses technologies with irreversible, long-term risks such as nuclear waste.
+    michael-lowy: Paris-based ecosocialist who rejects nuclear power within democratic ecological planning.
+    jason-hickel: Degrowth economist who argues for cutting energy use in rich countries rather than expanding supply.
+    malcom-ferdinand: French CNRS researcher on colonial inhabitation, relevant to uranium mining and nuclear tests in former colonies.
+    robyn-eckersley: Theorist of the green state, relevant to state-led energy projects like the French nuclear fleet.
+    timothy-morton: Uses radioactive waste as a central example of a hyperobject outlasting human time.
+    arne-naess: Founder of deep ecology who questioned large energy systems and growth in energy demand.
+    pope-francis: Laudato si condemns the technocratic paradigm while urging rapid decarbonisation.
+    edward-o-wilson: Half-Earth gives a land-use angle where compact energy sources may spare habitat.
+    stewart-brand: Former environmentalist who asked the movement to reverse its opposition to nuclear power.
+    gunther-anders: Philosopher of the nuclear age and the Promethean gap between human power and imagination.
+    jacques-ellul: French critic of the technological system and its self-justifying growth, including nuclear.
+    starhawk: Activist of the anti-nuclear blockades of the 1980s.
+    bruno-latour: French thinker of Gaia and the terrestrial, bearing on how to compose large technical choices.
+    andreas-malm: Analyst of fossil capital who prioritises speed of decarbonisation over energy purity.
+    pascal-bruckner: French essayist who defends progress and attacks anti-nuclear catastrophism.
+    joan-martinez-alier: Documents ecological distribution conflicts, including over uranium mining and waste sites.
+    eduardo-gudynas: Theorist of extractivism, relevant to the uranium supply chain in the Global South.
+    roger-scruton: Conservative view of rooted, local care for the home, relevant to siting and national energy.
+counts:
+  turns: 52
+  comments: 79
+  reactions: 92
+  interviews: 26
+  declined: 0
+  failed: 0
+  tokensIn: 648878
+  tokensOut: 43672
+  costUsd: 2.48
+positions:
+  - branch: technocritique
+    score: 12
+    min: 8
+    max: 30
+    agents: 4
+  - branch: degrowth
+    score: 35
+    min: 35
+    max: 35
+    agents: 1
+  - branch: social-ecology
+    score: 12
+    min: 12
+    max: 12
+    agents: 1
+  - branch: ecosocialism
+    score: 36
+    min: 22
+    max: 50
+    agents: 2
+  - branch: deep-ecology
+    score: 65
+    min: 65
+    max: 65
+    agents: 1
+  - branch: ecosophy
+    score: 22
+    min: 22
+    max: 22
+    agents: 1
+  - branch: anthropocene
+    score: 50
+    min: 50
+    max: 90
+    agents: 3
+  - branch: political-ecology
+    score: 30
+    min: 25
+    max: 35
+    agents: 2
+  - branch: decolonial
+    score: 23
+    min: 20
+    max: 25
+    agents: 2
+  - branch: ecofeminism
+    score: 10
+    min: 8
+    max: 12
+    agents: 2
+  - branch: queer-ecology
+    score: 50
+    min: 50
+    max: 50
+    agents: 1
+  - branch: counterpoint
+    score: 90
+    min: 88
+    max: 92
+    agents: 2
+  - branch: market
+    score: 74
+    min: 62
+    max: 85
+    agents: 2
+  - branch: conservative
+    score: 54
+    min: 40
+    max: 68
+    agents: 2
+alliances:
+  - title:
+      en: For, on dense low-carbon power
+      fr: Pour une énergie dense et décarbonée
+    text:
+      en: Abundant, steady, low-carbon power on little land comes first, and fear of the atom does more harm than the waste. The Lovelock agent breaks from its Anthropocene branch, while still demanding fossil cuts.
+      fr: Une énergie abondante, stable et bas carbone sur peu de terrain prime, et la peur de l'atome nuit davantage que les déchets. L'agent Lovelock rompt avec sa branche Anthropocène, tout en exigeant la baisse des fossiles.
+    authors:
+      - michael-shellenberger
+      - stewart-brand
+      - james-lovelock
+      - pascal-bruckner
+  - title:
+      en: Conditional yes, land or price
+      fr: Oui sous condition, sol ou prix
+    text:
+      en: "Reactors are accepted only under a condition: protected wild reserves, consent of host towns, or a rising carbon price. The Nordhaus agent stands apart here from the Bruckner agent of its Market liberals branch."
+      fr: "Les réacteurs ne sont admis que sous condition : réserves sauvages protégées, accord des communes d'accueil ou prix du carbone croissant. L'agent Nordhaus se distingue ici de l'agent Bruckner, de sa branche Libéraux."
+    authors:
+      - roger-scruton
+      - edward-o-wilson
+      - william-nordhaus
+  - title:
+      en: Undecided until a prior condition
+      fr: Suspendus à une condition préalable
+    text:
+      en: The reactor question comes second, after a deliberate cut in fossil combustion, lower demand or open deliberation. The Malm agent breaks from the Löwy agent of its Ecosocialism branch.
+      fr: La question des réacteurs vient après une baisse délibérée de la combustion fossile, une demande réduite ou une délibération ouverte. L'agent Malm se démarque de l'agent Löwy, de sa branche Écosocialisme.
+    authors:
+      - jean-baptiste-fressoz
+      - andreas-malm
+      - bruno-latour
+      - timothy-morton
+      - pope-francis
+      - robyn-eckersley
+      - jason-hickel
+  - title:
+      en: Against, on centralised control
+      fr: Contre le pouvoir centralisé
+    text:
+      en: A reactor fleet binds energy to a centralised, secretive, expert-run apparatus whose waste and risks outrun human control and consent. Sufficiency and local scale must come first.
+      fr: Un parc de réacteurs lie l'énergie à un appareil centralisé, opaque et piloté par des experts, dont les déchets et les risques échappent au contrôle et au consentement. La sobriété et l'échelle locale passent d'abord.
+    authors:
+      - andre-gorz
+      - francoise-deaubonne
+      - murray-bookchin
+      - michael-lowy
+      - arne-naess
+      - gunther-anders
+      - jacques-ellul
+      - starhawk
+      - hans-jonas
+  - title:
+      en: Against, on mines abroad
+      fr: Contre, au nom des mines lointaines
+    text:
+      en: The low-carbon footprint is counted only inside France. It leaves out the uranium mines in Niger and Gabon, the tailings and the test atolls, so the costs fall on others.
+      fr: L'empreinte bas carbone n'est comptée qu'en France. Les mines d'uranium du Niger et du Gabon, leurs résidus et les atolls des essais restent hors du compte, aux dépens des autres.
+    authors:
+      - malcom-ferdinand
+      - joan-martinez-alier
+      - eduardo-gudynas
+voices:
+  - author: francoise-deaubonne
+    position: 8
+    work: eaubonne-1974
+    text:
+      en: Opposed. New reactors extend the patriarchal logic of limitless production that exhausts the earth just as it subjugates women. The remedy is less production, less centralized power and control over fertility taken back by those who carry life, not a bigger machine.
+      fr: Contre. Les nouveaux réacteurs prolongent la logique patriarcale de la production illimitée qui épuise la terre comme elle asservit les femmes. Le remède, c'est moins de production, moins de pouvoir centralisé et la maîtrise de la fécondité reprise par celles qui portent la vie, non une machine plus grosse.
+  - author: gunther-anders
+    position: 8
+    work: anders-1956
+    text:
+      en: Opposed. Reactors are products whose consequences, such as waste outlasting any state and accidents beyond any town, outrun human capacity to imagine and feel. Civil and military atoms are one technology. Building more widens the Promethean gap, and fear of the atom shows foresight, not excess.
+      fr: Contre. Les réacteurs sont des produits dont les conséquences, des déchets qui survivent à tout État et des accidents qui débordent toute ville, dépassent notre capacité d'imaginer et de ressentir. Atome civil et atome militaire sont une seule et même technique. En construire davantage creuse le décalage prométhéen, et la peur de l'atome relève de la prévoyance, non de l'excès.
+  - author: andre-gorz
+    position: 12
+    work: gorz-1975
+    text:
+      en: New reactors lock energy choices into a centralized, secretive, expert-run apparatus that citizens cannot understand or control. Abundant power without a shared norm of sufficiency only feeds capitalist growth. The first question is how much energy is enough, and who decides.
+      fr: Les nouveaux réacteurs enferment les choix énergétiques dans un appareil centralisé, opaque et dirigé par des experts, que les citoyens ne peuvent ni comprendre ni contrôler. Une énergie abondante sans norme commune de suffisance ne fait qu'alimenter la croissance capitaliste. La première question est de savoir combien d'énergie suffit, et qui en décide.
+  - author: murray-bookchin
+    position: 12
+    work: bookchin-1971
+    text:
+      en: Nuclear power ties energy to a centralized state, an expert caste and secrecy that no citizens' assembly can govern. The crisis comes from hierarchy and a grow-or-die economy. The remedy is human-scale renewable technics run by federated municipalities.
+      fr: Le nucléaire lie l'énergie à un État centralisé, à une caste d'experts et à un secret qu'aucune assemblée de citoyens ne peut gouverner. La crise naît de la hiérarchie et d'une économie qui doit croître ou mourir. Le remède, ce sont des techniques renouvelables à taille humaine, gérées par des municipalités fédérées.
+  - author: jacques-ellul
+    position: 12
+    work: ellul-1988
+    text:
+      en: A reactor fleet is a choice of system, not of tool. It brings centralisation, experts, secrecy, policing and waste that lasts for millennia. Politics then adapts to the system. Counting only the carbon saved hides the new problems that each technical fix creates.
+      fr: Un parc de réacteurs est le choix d'un système, non d'un outil. Il entraîne centralisation, experts, secret, surveillance policière et déchets qui durent des millénaires. La politique s'adapte alors au système. Ne compter que le carbone économisé masque les problèmes nouveaux que crée chaque solution technique.
+  - author: starhawk
+    position: 12
+    work: starhawk-1987
+    text:
+      en: "New reactors would extend power-over: centralized, secretive, expert-run energy imposed on communities without their consent. Energy should come from power-within and power-with, local and shared systems that people can understand, govern and refuse."
+      fr: "De nouveaux réacteurs prolongeraient le pouvoir-sur : une énergie centralisée, opaque, pilotée par des experts et imposée aux communautés sans leur consentement. L'énergie devrait naître du pouvoir-du-dedans et du pouvoir-avec, de systèmes locaux et partagés que chacun peut comprendre, gouverner et refuser."
+  - author: malcom-ferdinand
+    position: 20
+    work: ferdinand-2019
+    text:
+      en: The case against rests on analogy, not on anything this work says about reactors. A French fleet runs on uranium mined in Niger and Gabon and carries a legacy of atomic tests in Polynesia. Low-carbon power for the metropole that pushes the costs onto others is still colonial inhabitation.
+      fr: L'opposition repose sur une analogie, non sur ce que cette œuvre dit des réacteurs. Un parc français fonctionne avec de l'uranium extrait au Niger et au Gabon et porte l'héritage des essais atomiques en Polynésie. Une énergie bas carbone pour la métropole qui reporte ses coûts sur d'autres reste une habitation coloniale.
+  - author: michael-lowy
+    position: 22
+    work: lowy-2011
+    text:
+      en: Opposed. New reactors keep productivism and centralised technocratic control intact. The emergency brake means cutting useless production first. Energy needs should be set by democratic ecological planning according to real needs, not locked in by the state and industry for profit.
+      fr: Contre. Les nouveaux réacteurs préservent le productivisme et le contrôle technocratique centralisé. Le frein d'urgence suppose de supprimer d'abord la production inutile. Les besoins énergétiques doivent être fixés par une planification écologique démocratique selon les besoins réels, non figés par l'État et l'industrie au nom du profit.
+  - author: arne-naess
+    position: 22
+    work: naess-1973
+    text:
+      en: New reactors answer only the shallow question of how to supply growing demand with less carbon. The deep question is why rich societies need so much energy. Reducing consumption and keeping technology local and on a human scale come before any new centralised, high-risk plants.
+      fr: "Les nouveaux réacteurs ne répondent qu'à la question superficielle : comment satisfaire une demande croissante avec moins de carbone. La question profonde est de savoir pourquoi les sociétés riches ont besoin de tant d'énergie. Réduire la consommation et garder des techniques locales, à échelle humaine, passe avant toute nouvelle centrale centralisée à haut risque."
+  - author: joan-martinez-alier
+    position: 25
+    work: martinez-alier-2002
+    text:
+      en: Opposed as framed. Judging reactors by carbon and kilowatt-hours alone hides the ecological distribution conflicts at the uranium mines and waste sites. Communities in places like Niger carry those burdens. Their languages of value and France's ecological debt must count before anything is built.
+      fr: Contre, telle que la question est posée. Juger les réacteurs au seul carbone et aux kilowattheures masque les conflits écologiques distributifs autour des mines d'uranium et des sites de déchets. Des communautés, au Niger par exemple, en portent le poids. Leurs langages de valorisation et la dette écologique de la France doivent compter avant toute construction.
+  - author: eduardo-gudynas
+    position: 25
+    work: gudynas-2015
+    text:
+      en: Opposed unless the whole chain is counted. French reactors rest on uranium exported raw from places like Niger, which is extractivism that shapes the exporting society. Low-carbon claims and small land footprints leave out the mines, so the case for new reactors is incomplete.
+      fr: Contre, à moins de compter toute la chaîne. Les réacteurs français reposent sur de l'uranium exporté brut depuis des pays comme le Niger, un extractivisme qui façonne la société exportatrice. Les arguments bas carbone et les faibles emprises au sol oublient les mines, si bien que le plaidoyer pour de nouveaux réacteurs reste incomplet.
+  - author: hans-jonas
+    position: 30
+    work: jonas-1979
+    text:
+      en: Technology able to change the conditions of life calls for weighting the bad prognosis over the good. Reactors leave millennial waste to people who cannot consent. Climate risk cuts both ways, but swapping one irreversible danger for another is not responsibility.
+      fr: Une technique capable de modifier les conditions de la vie impose de donner plus de poids au pronostic défavorable qu'au favorable. Les réacteurs laissent des déchets millénaires à des générations qui ne peuvent y consentir. Le risque climatique joue dans les deux sens, mais troquer un danger irréversible contre un autre n'est pas faire preuve de responsabilité.
+  - author: jason-hickel
+    position: 35
+    work: hickel-2020
+    text:
+      en: Reactors answer the wrong question first. A rich country already over its fair share of planetary boundaries should cut less necessary production and energy demand. That speeds decarbonisation, needs fewer new plants, and takes fewer resources from the South. Green growth through clean supply alone is not supported by evidence.
+      fr: Les réacteurs répondent d'abord à la mauvaise question. Un pays riche qui dépasse déjà sa juste part des limites planétaires devrait réduire la production et la demande d'énergie les moins nécessaires. Cela accélère la décarbonation, exige moins de nouvelles centrales et prélève moins de ressources au Sud. Rien ne vient étayer une croissance verte fondée sur la seule offre propre.
+  - author: robyn-eckersley
+    position: 35
+    work: eckersley-2004
+    text:
+      en: New reactors are acceptable only if decided through transparent, precautionary, transboundary deliberation that answers to everyone affected, including future generations who inherit the waste. A closed technocratic build programme fails that democratic test. The state must be transformed, not bypassed, to carry such long-lived burdens.
+      fr: De nouveaux réacteurs ne sont acceptables que s'ils sont décidés au terme d'une délibération transparente, prudente et transfrontalière, qui rende compte à tous les concernés, y compris aux générations futures qui hériteront des déchets. Un programme de construction technocratique et fermé échoue à cette épreuve démocratique. Il faut transformer l'État, non le contourner, pour qu'il porte des charges aussi durables.
+  - author: pope-francis
+    position: 40
+    work: francis-2015
+    text:
+      en: Leaving fossil fuels is urgent, but new reactors are no substitute for sobriety and changed lifestyles. They can be accepted only with transparent dialogue, precaution about waste left to future generations, and justice for the poor communities that mine uranium.
+      fr: Sortir des énergies fossiles est urgent, mais de nouveaux réacteurs ne remplacent ni la sobriété ni le changement des modes de vie. Ils ne peuvent être acceptés qu'avec un dialogue transparent, de la précaution quant aux déchets laissés aux générations futures et de la justice pour les communautés pauvres qui extraient l'uranium.
+  - author: jean-baptiste-fressoz
+    position: 50
+    work: fressoz-2024
+    text:
+      en: New reactors are neither the answer nor the problem on their own. Energy sources have always added to one another rather than replaced each other, so nuclear only matters if fossil combustion is cut on purpose. Without that cut, nuclear is one more layer on the pile.
+      fr: Les nouveaux réacteurs ne sont en eux-mêmes ni la solution ni le problème. Les sources d'énergie se sont toujours additionnées au lieu de se remplacer, si bien que le nucléaire ne compte que si l'on réduit délibérément la combustion fossile. Sans cette réduction, il n'est qu'une couche de plus sur la pile.
+  - author: timothy-morton
+    position: 50
+    work: morton-2013
+    text:
+      en: Spent fuel and global warming are both hyperobjects, vast in time, and neither can be thrown away. The choice is not between dirty power and a pristine Nature. It is a choice about which hyperobjects to live inside, so no outright endorsement or opposition follows.
+      fr: Le combustible usé et le réchauffement climatique sont deux hyperobjets, immenses dans le temps, et aucun des deux ne peut être jeté. Le choix ne se fait pas entre une énergie sale et une Nature intacte. Il porte sur les hyperobjets dans lesquels vivre, si bien qu'il n'en découle ni adhésion ni opposition franche.
+  - author: bruno-latour
+    position: 50
+    work: latour-1999
+    text:
+      en: "Reactors are neither salvation nor sin. Once built, they must be cared for, not abandoned. The decision should give a voice to everything they bind France to: the mines, the rivers that cool them, and the waste. The test is whether they keep the country attached to a habitable ground."
+      fr: "Les réacteurs ne sont ni un salut ni un péché. Une fois construits, il faut en prendre soin, non les abandonner. La décision doit donner voix à tout ce à quoi ils lient la France : les mines, les rivières qui les refroidissent et les déchets. Le critère est de savoir s'ils maintiennent le pays attaché à un sol habitable."
+  - author: andreas-malm
+    position: 50
+    work: malm-2016
+    text:
+      en: Neutral by analogy, since the work does not address nuclear power. What matters is dismantling fossil capital. New reactors count only if they actually push fossil combustion out of transport, heating and industry. If they are simply added on top, they fail that test.
+      fr: Neutre par analogie, puisque l'œuvre ne traite pas du nucléaire. Ce qui compte, c'est de démanteler le capital fossile. Les nouveaux réacteurs ne valent que s'ils chassent réellement la combustion fossile des transports, du chauffage et de l'industrie. S'ils viennent simplement s'y ajouter, ils échouent à ce critère.
+  - author: william-nordhaus
+    position: 62
+    work: w-nordhaus-2008
+    text:
+      en: New reactors are justified only if they cut emissions more cheaply than the alternatives under a carbon price that rises with marginal damage. Without that price, extra supply just adds to fossil use. A blanket mandate or ban skips the cost-benefit balance.
+      fr: Les nouveaux réacteurs ne se justifient que s'ils réduisent les émissions à moindre coût que les autres options, sous un prix du carbone qui suit le dommage marginal. Sans ce prix, l'offre supplémentaire s'ajoute simplement aux fossiles. Une obligation ou une interdiction générale court-circuite la pesée des coûts et des bénéfices.
+  - author: edward-o-wilson
+    position: 65
+    work: wilson-2016
+    text:
+      en: Conditional endorsement, reasoned by analogy. Reactors make a lot of power on little land, and habitat loss drives extinction. The land they spare only helps other species if it is legally protected as large, connected wild reserves.
+      fr: Adhésion conditionnelle, raisonnée par analogie. Les réacteurs produisent beaucoup d'énergie sur peu de terrain, et la perte d'habitat est le moteur des extinctions. Le terrain épargné ne profite aux autres espèces que s'il est protégé par la loi sous forme de grandes réserves sauvages reliées entre elles.
+  - author: roger-scruton
+    position: 68
+    work: scruton-2012
+    text:
+      en: New reactors are acceptable, reasoning by analogy. They take little land and spare the loved countryside that wind farms would cover. They must be built with the consent of their host towns, not imposed by a central plan.
+      fr: De nouveaux réacteurs sont acceptables, par analogie. Ils occupent peu de terrain et épargnent la campagne aimée que couvriraient les éoliennes. Ils doivent être construits avec l'accord des communes qui les accueillent, non imposés par un plan central.
+  - author: pascal-bruckner
+    position: 85
+    work: bruckner-2011
+    text:
+      en: New reactors should be endorsed. Fear of the atom is catastrophism that treats every risk as an apocalypse, and calls for sobriety turn ecology into penance. Abundant low-carbon power is progress that serves human emancipation, and rich and poor societies alike benefit from it.
+      fr: Il faut soutenir les nouveaux réacteurs. La peur de l'atome est un catastrophisme qui fait de chaque risque une apocalypse, et les appels à la sobriété transforment l'écologie en pénitence. Une énergie abondante et bas carbone est un progrès au service de l'émancipation humaine, dont profitent les sociétés riches comme les pauvres.
+  - author: stewart-brand
+    position: 88
+    work: brand-2009
+    text:
+      en: Energy sources should be judged by their measured effects on the climate, not by their reputation. Reactors provide steady, low-carbon power on little land. France's grid has already shown that they can displace fossil fuels, so building more reactors is the right course.
+      fr: Il faut juger les sources d'énergie à leurs effets mesurés sur le climat, non à leur réputation. Les réacteurs fournissent une électricité stable et bas carbone sur peu de terrain. Le réseau français a déjà montré qu'ils peuvent évincer les fossiles; construire davantage de réacteurs est donc la bonne voie.
+  - author: james-lovelock
+    position: 90
+    work: lovelock-2006
+    text:
+      en: France should build new reactors because carbon already in the air is the larger and more lasting danger. A planned retreat needs dense, steady, low-carbon power. That power must replace fossil fuel use, not add to it, and waste that can be contained is the lesser burden.
+      fr: La France devrait construire de nouveaux réacteurs, car le carbone déjà présent dans l'air est le danger le plus grand et le plus durable. Une retraite planifiée exige une énergie dense, stable et bas carbone. Cette énergie doit remplacer les usages fossiles, non s'y ajouter, et des déchets que l'on peut confiner sont le moindre fardeau.
+  - author: michael-shellenberger
+    position: 92
+    work: shellenberger-2020
+    text:
+      en: New French reactors should be built. Nuclear power supplies abundant, reliable, low-carbon energy on little land, and France's grid shows it displaces fossil fuels. Fear of waste and accidents is alarmism that keeps deadlier fossil plants running. Prosperity through technology, not restraint, protects nature.
+      fr: Il faut construire de nouveaux réacteurs en France. Le nucléaire fournit une énergie abondante, fiable et bas carbone sur peu de terrain, et le réseau français montre qu'il évince les fossiles. La peur des déchets et des accidents relève d'un alarmisme qui maintient en service des centrales fossiles plus meurtrières. C'est la prospérité par la technique, non la restriction, qui protège la nature.
+silent: []
