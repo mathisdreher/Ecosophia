@@ -15,6 +15,12 @@ const seeds = Object.values(c.seeds)
   .filter((s) => s.carriers.length > 0)
   .map((s) => ({ ...s, label: L(s.name, lang) }))
   .sort((x, y) => collator.compare(x.label, y.label));
+const groupOf = (a) => (a.layer === 'leaf' ? a.branch : a.layer === 'root' ? 'roots' : 'trunk');
+const filterGroups = [
+  { id: 'roots', label: t('common.precursors') },
+  { id: 'trunk', label: t('common.trunk') },
+  ...c.branches.map((b) => ({ id: b.id, label: L(b.name, lang) })),
+];
 const letters = [...new Set(seeds.map((s) => fold(s.label)[0].toUpperCase()))];
 const firstOfLetter = new Map();
 for (const s of seeds) {
@@ -38,10 +44,29 @@ for (const s of seeds) {
     </nav>
   </section>
   <section class="page-body">
+    <div class="tools" data-seed-filter>
+      <label>
+        <span class="label t-muted">{lang === 'fr' ? 'Chercher' : 'Find'}</span>
+        <input type="search" data-q placeholder={lang === 'fr' ? 'Concept, auteur, mot…' : 'Concept, author, word…'} />
+      </label>
+      <label>
+        <span class="label t-muted">{lang === 'fr' ? 'École' : 'School'}</span>
+        <select data-g>
+          <option value="">{lang === 'fr' ? 'Toutes' : 'All'}</option>
+          {filterGroups.map((g) => <option value={g.id}>{g.label}</option>)}
+        </select>
+      </label>
+      <span class="eco-meta" data-count>{seeds.length}</span>
+    </div>
     <div class="seeds">
       {
         seeds.map((s) => (
-          <article id={s.id} class:list={{ shared: s.carriers.length > 1 }}>
+          <article
+            id={s.id}
+            class:list={{ shared: s.carriers.length > 1 }}
+            data-groups={[...new Set(s.carriers.map((k) => groupOf(c.authorById[k.author])))].join(' ')}
+            data-text={fold(`${s.label} ${s.carriers.map((k) => `${c.authorById[k.author].name} ${L(k.text, lang)}`).join(' ')}`).toLowerCase()}
+          >
             <h2>
               <span class="eco-seed">{s.label}</span>
             </h2>
@@ -67,7 +92,58 @@ for (const s of seeds) {
   </section>
 </Base>
 
+<script>
+  const tools = document.querySelector<HTMLElement>('[data-seed-filter]');
+  if (tools) {
+    const q = tools.querySelector<HTMLInputElement>('[data-q]')!;
+    const g = tools.querySelector<HTMLSelectElement>('[data-g]')!;
+    const count = tools.querySelector<HTMLElement>('[data-count]')!;
+    const items = [...document.querySelectorAll<HTMLElement>('.seeds article')];
+    const fold = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const apply = () => {
+      const term = fold(q.value.trim());
+      let n = 0;
+      for (const el of items) {
+        const ok = (!term || el.dataset.text!.includes(term)) && (!g.value || el.dataset.groups!.split(' ').includes(g.value));
+        el.hidden = !ok;
+        if (ok) n += 1;
+      }
+      count.textContent = String(n);
+    };
+    q.addEventListener('input', apply);
+    g.addEventListener('change', apply);
+  }
+</script>
+
 <style>
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--space-4) var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+  .tools label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  .tools input,
+  .tools select {
+    min-height: 40px;
+    padding: 0 var(--space-3);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--paper-raised);
+    color: var(--ink);
+    font: 400 15px/1 var(--font-sans);
+  }
+  .tools input {
+    width: min(320px, 80vw);
+  }
+  .seeds article[hidden] {
+    display: none;
+  }
   .letters {
     display: flex;
     flex-wrap: wrap;
