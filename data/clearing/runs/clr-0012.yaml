@@ -1,0 +1,383 @@
+# Clearing run clr-0012. Simulated: nothing below is a statement by any author named.
+# Written by clearing/run.mjs. The transcript and the prompts are in the file next to this one.
+id: clr-0012
+runId: clr-0012
+status: draft
+date: 2026-11-12
+claim:
+  en: The ecological emergency justifies limiting democratic procedures.
+  fr: L'urgence écologique justifie de limiter les procédures démocratiques.
+question:
+  id: urgence-democratie
+  kind: axiom
+  measures: []
+summary:
+  en: The Jonas and Lovelock agents accepted temporary restraint beyond majority procedure, against twenty-four agents that refused it, the Cochet agent most narrowly at 45. The split ran through branches, since the Latour agent attacked the Lovelock agent's wartime analogy and the Gorz agent rejected the expertocracy the Jonas agent weighed.
+  fr: Les agents Jonas et Lovelock admettaient une contrainte temporaire au-delà de la règle majoritaire, face à vingt-quatre agents qui la refusaient, l'agent Cochet le plus timidement, à 45. Le clivage traversait les branches, puisque l'agent Latour a contesté l'analogie de guerre de l'agent Lovelock et l'agent Gorz a rejeté l'expertocratie qu'envisageait l'agent Jonas.
+engine:
+  name: MiroFish
+  commit: 7657031ac01184afe2cb220f5ee3545573b5e843
+  platform: reddit
+  packages:
+    - camel-oasis==0.2.5
+    - camel-ai==0.2.78
+model:
+  requested: claude-opus-5-5
+  served:
+    - claude-opus-5-5
+  effort: medium
+settings:
+  rounds: 2
+  agents: 26
+  selection: auto
+  budgetUsd: 3
+  estimateUsd: 1.99
+plan:
+  model: claude-opus-5-5
+  note: The panel sets explicit or tempted supporters of emergency limits (Jonas, Lovelock, Cochet, Malm, Bourg) against deliberative, agonistic, municipalist, decolonial and liberal defenders of democracy, with every branch kept. Two rounds let them answer each other for about 2 USD, and the agents at the end of the list are second picks within their branches.
+  rounds: 2
+  ranked: 26
+  trimmed: false
+  reasons:
+    hans-jonas: The Imperative of Responsibility openly weighed whether an enlightened authority could act better than democracies facing technological danger.
+    james-lovelock: Late in life he said democracy might have to be put on hold to face climate change.
+    dominique-bourg: Argues that representative democracy is built for the short term and proposes new long-term institutions.
+    john-dryzek: Founder of deliberative democracy who argues that ecological rationality calls for more democratic learning, not less.
+    andreas-malm: Defends an ecological Leninism and state emergency action, and so tests the claim from the radical left.
+    murray-bookchin: Libertarian municipalism makes direct democracy the core of ecology and rejects any authoritarian route.
+    erik-swyngedouw: Criticises expert-led consensual climate politics as post-political and depoliticising.
+    robyn-eckersley: The Green State asks how a democratic state can be made into a guardian of ecological limits.
+    yves-cochet: Green former minister who holds that the end of cheap oil calls for rationing and emergency politics.
+    pascal-bruckner: Reads catastrophism as a doom ideology that serves to justify coercion.
+    michael-shellenberger: Ecomodernist who rejects the emergency framing and the restrictions built on it.
+    andre-gorz: Warned that ecology could become expertocratic and technofascist unless it is tied to autonomy.
+    cornelius-castoriadis: Grounds self-limitation in collective autonomy and democratic self-institution.
+    arne-naess: Deep ecology founder who insisted on nonviolent, democratic means for deep change.
+    baird-callicott: Land ethic holism was charged with ecofascism, and he answered on the relation of the whole to individuals.
+    wangari-maathai: The Green Belt Movement tied tree planting to the democratic struggle against authoritarian rule in Kenya.
+    malcom-ferdinand: Shows how environmental protection imposed from above repeats colonial domination.
+    catriona-sandilands: Theorised a radical democracy for ecology without fixed identities.
+    will-kymlicka: Political philosopher who extends democratic citizenship to animals rather than suspending it.
+    roger-scruton: Conservative who ties ecology to local attachment and distrusts centralised top-down schemes.
+    chantal-mouffe: Agonism and a green democratic revolution keep conflict inside democracy.
+    bruno-latour: Parliament of things proposes widening representation rather than limiting it.
+    elinor-ostrom: Showed that communities govern commons without central coercion.
+    naomi-klein: The Shock Doctrine warns that emergencies are used to bypass democratic choice.
+    alberto-acosta: Led a constituent assembly that wrote rights of nature into a constitution by democratic means.
+    luc-ferry: Humanist critic who sees in deep ecology a threat to liberal democracy.
+counts:
+  turns: 52
+  comments: 75
+  reactions: 80
+  interviews: 26
+  declined: 0
+  failed: 0
+  tokensIn: 641973
+  tokensOut: 34234
+  costUsd: 2.28
+positions:
+  - branch: technocritique
+    score: 33
+    min: 5
+    max: 60
+    agents: 2
+  - branch: degrowth
+    score: 5
+    min: 5
+    max: 5
+    agents: 1
+  - branch: social-ecology
+    score: 3
+    min: 3
+    max: 3
+    agents: 1
+  - branch: ecosocialism
+    score: 15
+    min: 5
+    max: 25
+    agents: 2
+  - branch: deep-ecology
+    score: 15
+    min: 15
+    max: 15
+    agents: 1
+  - branch: ecosophy
+    score: 10
+    min: 10
+    max: 10
+    agents: 1
+  - branch: anthropocene
+    score: 37
+    min: 8
+    max: 65
+    agents: 2
+  - branch: political-ecology
+    score: 8
+    min: 5
+    max: 8
+    agents: 3
+  - branch: decolonial
+    score: 5
+    min: 5
+    max: 5
+    agents: 2
+  - branch: ecofeminism
+    score: 5
+    min: 5
+    max: 5
+    agents: 1
+  - branch: queer-ecology
+    score: 8
+    min: 8
+    max: 8
+    agents: 1
+  - branch: democracy
+    score: 8
+    min: 5
+    max: 25
+    agents: 3
+  - branch: collapse
+    score: 45
+    min: 45
+    max: 45
+    agents: 1
+  - branch: animal
+    score: 8
+    min: 8
+    max: 8
+    agents: 1
+  - branch: counterpoint
+    score: 8
+    min: 8
+    max: 8
+    agents: 1
+  - branch: market
+    score: 7
+    min: 5
+    max: 8
+    agents: 2
+  - branch: conservative
+    score: 8
+    min: 8
+    max: 8
+    agents: 1
+alliances:
+  - title:
+      en: Accepting restraint, for the long term
+      fr: Accepter la contrainte, pour le long terme
+    text:
+      en: Both set the irreversible above majority procedure, the Jonas agent through absent future voters, the Lovelock agent through Gaia's timetable. Each broke from its branch, against the Gorz and Latour agents.
+      fr: Tous deux font passer l'irréversible avant la procédure majoritaire, l'agent Jonas au nom des générations futures, l'agent Lovelock au nom du calendrier de Gaïa. Chacun rompt avec sa branche, face aux agents Gorz et Latour.
+    authors:
+      - hans-jonas
+      - james-lovelock
+  - title:
+      en: Against, by widening institutions
+      fr: Contre, en élargissant les institutions
+    text:
+      en: Long-term limits and absent constituencies, future generations, animals, rivers or biotic wholes, belong inside democratic institutions. The Cochet agent, alone for Collapse, wants binding rationing decided openly and early.
+      fr: Les limites de long terme et les absents, générations futures, animaux, fleuves ou communautés biotiques, doivent entrer dans les institutions démocratiques. L'agent Cochet, seul pour l'Effondrement, veut un rationnement contraignant décidé tôt et ouvertement.
+    authors:
+      - dominique-bourg
+      - yves-cochet
+      - robyn-eckersley
+      - will-kymlicka
+      - baird-callicott
+      - bruno-latour
+  - title:
+      en: Against, for self-government from below
+      fr: Contre, pour l'autogouvernement par le bas
+    text:
+      en: Limits last only when those who bear them set them, in assemblies, commons or open deliberation. The Scruton agent reached this ground through oikophilia, and the Dryzek agent through ecological feedback.
+      fr: Une limite ne dure que si ceux qui la portent la fixent eux-mêmes, en assemblée, dans les communs ou par la délibération. L'agent Scruton rejoint ce terrain par l'oikophilie, l'agent Dryzek par la rétroaction écologique.
+    authors:
+      - murray-bookchin
+      - andre-gorz
+      - cornelius-castoriadis
+      - arne-naess
+      - elinor-ostrom
+      - wangari-maathai
+      - roger-scruton
+      - john-dryzek
+  - title:
+      en: Against, emergency as cover for power
+      fr: Contre, l'urgence comme paravent du pouvoir
+    text:
+      en: Emergency rule shields those already dominant, capital, extractivists, colonial order or experts, and closes conflict over which world to build. The Malm agent still endorses coercion, aimed at fossil property rather than voters.
+      fr: Le régime d'urgence protège les dominants, capital, extractivisme, ordre colonial ou experts, et ferme le conflit sur le monde à bâtir. L'agent Malm admet pourtant la coercition, dirigée contre la propriété fossile et non contre les électeurs.
+    authors:
+      - erik-swyngedouw
+      - chantal-mouffe
+      - naomi-klein
+      - malcom-ferdinand
+      - alberto-acosta
+      - catriona-sandilands
+      - andreas-malm
+  - title:
+      en: Against, for free societies
+      fr: Contre, au nom des sociétés libres
+    text:
+      en: Emergency framing is alarmism or anti-humanism, and free, inventive societies under democratic law handle ecology best. The Shellenberger agent shares the Lovelock agent's call for nuclear power but rejects wartime discipline.
+      fr: Le cadrage d'urgence relève du catastrophisme ou de l'antihumanisme, et des sociétés libres et inventives, sous la loi démocratique, gèrent mieux l'écologie. L'agent Shellenberger partage avec l'agent Lovelock le nucléaire, sans la discipline de guerre.
+    authors:
+      - pascal-bruckner
+      - michael-shellenberger
+      - luc-ferry
+voices:
+  - author: murray-bookchin
+    position: 3
+    work: bookchin-1982
+    text:
+      en: "Opposes the claim. The ecological crisis comes from hierarchy, the domination of human by human, so emergency rule from above repeats its cause. The remedy is more democracy: citizens' assemblies that run their towns, federate with each other and set their own limits."
+      fr: Opposé à la thèse. La crise écologique naît de la hiérarchie, de la domination de l'homme par l'homme, si bien qu'un pouvoir d'urgence imposé d'en haut reproduit sa cause. Le remède est plus de démocratie, des assemblées de citoyens qui gèrent leurs communes, se fédèrent et fixent elles-mêmes leurs limites.
+  - author: erik-swyngedouw
+    position: 5
+    work: swyngedouw-2010
+    text:
+      en: "The claim is opposed. Limiting democracy in the name of emergency completes the post-political condition: climate becomes expert management and the economic order stays out of debate. What is needed is more political conflict over which world to build, not less."
+      fr: La thèse est rejetée. Limiter la démocratie au nom de l'urgence achève la condition postpolitique, où le climat devient affaire de gestion experte et où l'ordre économique échappe au débat. Il faut plus de conflit politique sur le monde à construire, pas moins.
+  - author: pascal-bruckner
+    position: 5
+    work: bruckner-2011
+    text:
+      en: Emergency is the classic pretext for suspending debate. Catastrophism presents collapse as certain and demands penance and tutelage, but fear paralyses rather than mobilises. Free, prosperous and inventive societies handle ecological problems better than guardians who rule in the name of doom.
+      fr: L'urgence est le prétexte classique pour suspendre le débat. Le catastrophisme présente l'effondrement comme certain et exige pénitence et tutelle, mais la peur paralyse plus qu'elle ne mobilise. Des sociétés libres, prospères et inventives traitent mieux les problèmes écologiques que des tuteurs qui gouvernent au nom de l'apocalypse.
+  - author: andre-gorz
+    position: 5
+    work: gorz-1975
+    text:
+      en: Opposes the claim. Limits imposed from above under emergency rule lead to expertocracy and technofascism. Ecological limits are legitimate only as self-limitation, a shared norm of enough set by those concerned, who keep control over what is produced and how.
+      fr: Opposé à la thèse. Des limites imposées d'en haut sous un régime d'urgence mènent à l'expertocratie et au technofascisme. Les limites écologiques ne sont légitimes que comme autolimitation, une norme partagée du suffisant fixée par les intéressés, qui gardent la maîtrise de ce qui est produit et de la manière de le produire.
+  - author: cornelius-castoriadis
+    position: 5
+    work: castoriadis-1981
+    text:
+      en: Ecology is a question of autonomy. A society has to set its own limits and undo the imaginary of unlimited growth. Limits imposed by emergency rule or by experts swap one heteronomy for another and do not last.
+      fr: L'écologie est une question d'autonomie. Une société doit poser elle-même ses limites et défaire l'imaginaire de la croissance illimitée. Des limites imposées par l'urgence ou par des experts remplacent une hétéronomie par une autre et ne durent pas.
+  - author: wangari-maathai
+    position: 5
+    work: maathai-2003
+    text:
+      en: Forests, water, women's livelihoods and democracy fail or hold together. Concentrated power in Kenya handed forests to cronies, and rural women who were free to organize restored the land. The emergency calls for more participation, not less.
+      fr: Les forêts, l'eau, les moyens d'existence des femmes et la démocratie tiennent ou tombent ensemble. Au Kenya, le pouvoir concentré a livré les forêts à ses proches, et ce sont les femmes rurales libres de s'organiser qui ont restauré la terre. L'urgence appelle plus de participation, pas moins.
+  - author: malcom-ferdinand
+    position: 5
+    work: ferdinand-2019
+    text:
+      en: The claim is opposed. Emergency rule rebuilds Noah's Ark, where a few decide who boards and who is left ashore. Like the plantation, it runs the Earth without the consent of those who live on it. Ending colonial inhabitation needs more voices on one shared deck.
+      fr: La thèse est rejetée. Le régime d'urgence reconstruit l'arche de Noé, où quelques-uns décident qui monte à bord et qui reste à quai. Comme la plantation, il gouverne la Terre sans le consentement de ceux qui l'habitent. Sortir de l'habiter colonial exige davantage de voix sur un même pont partagé.
+  - author: chantal-mouffe
+    position: 5
+    work: mouffe-2022
+    text:
+      en: The emergency calls for more democracy, not less. Suspending procedures turns ecology into expert rule and hands popular anger to the populist right. A green democratic revolution should name adversaries and win majorities by offering protection and security.
+      fr: L'urgence appelle plus de démocratie, pas moins. Suspendre les procédures livre l'écologie aux experts et abandonne la colère populaire à la droite populiste. Une révolution démocratique verte doit nommer ses adversaires et conquérir des majorités en offrant protection et sécurité.
+  - author: naomi-klein
+    position: 5
+    work: klein-2014
+    text:
+      en: "Emergencies have long been used to suspend democracy and push through policies that serve the powerful. The climate crisis calls for more democracy instead: public control of energy, a just transition built with workers and frontline communities, and support for local resistance."
+      fr: Les urgences servent depuis longtemps à suspendre la démocratie et à imposer des politiques favorables aux puissants. La crise climatique appelle au contraire plus de démocratie, le contrôle public de l'énergie, une transition juste construite avec les travailleurs et les communautés en première ligne, et le soutien aux résistances locales.
+  - author: alberto-acosta
+    position: 5
+    work: acosta-2012
+    text:
+      en: Opposed. Emergency powers usually serve extractivism by suspending consultation for mines and oil fields. The rights of nature came from a constituent assembly, so buen vivir calls for deeper plurinational, communal democracy in which peoples decide over their own territories.
+      fr: Opposé. Les pouvoirs d'urgence servent d'ordinaire l'extractivisme en suspendant la consultation pour les mines et les champs pétroliers. Les droits de la nature sont nés d'une assemblée constituante, et le buen vivir appelle donc une démocratie plus profonde, plurinationale et communautaire, où les peuples décident de leurs propres territoires.
+  - author: john-dryzek
+    position: 8
+    work: dryzek-1987
+    text:
+      en: The emergency calls for more democracy, not less. Institutions should be judged by how well they read and answer ecological feedback. Open deliberation does this better than command or markets, because it brings in more knowledge and keeps mistakes open to correction.
+      fr: L'urgence appelle plus de démocratie, pas moins. Il faut juger les institutions à leur capacité de lire les signaux écologiques et d'y répondre. La délibération ouverte y parvient mieux que le commandement ou le marché, parce qu'elle mobilise davantage de savoirs et laisse les erreurs corrigibles.
+  - author: robyn-eckersley
+    position: 8
+    work: eckersley-2004
+    text:
+      en: Opposed. The emergency shows democracy is too narrow, not too broad. The state should be transformed so it answers to everyone its decisions affect, including foreigners, future generations and other species, and not suspended in favour of unaccountable guardians.
+      fr: Opposée. L'urgence montre que la démocratie est trop étroite, non trop large. Il faut transformer l'État pour qu'il réponde à tous ceux que ses décisions affectent, étrangers, générations futures et autres espèces compris, et non le suspendre au profit de gardiens qui ne rendent de comptes à personne.
+  - author: michael-shellenberger
+    position: 8
+    work: shellenberger-2020
+    text:
+      en: The claim is opposed. Emergency framing is alarmism that invites panic and authoritarian shortcuts. Abundant clean energy, nuclear power above all, and technological progress can let people prosper while nature recovers. Democracies have delivered this before, and they can do it without curtailing anyone's vote.
+      fr: La thèse est rejetée. Le cadrage de l'urgence est un alarmisme qui pousse à la panique et aux raccourcis autoritaires. Une énergie propre et abondante, le nucléaire avant tout, et le progrès technique peuvent permettre aux hommes de prospérer pendant que la nature se rétablit. Les démocraties l'ont déjà fait, et elles peuvent le refaire sans retirer le vote à quiconque.
+  - author: catriona-sandilands
+    position: 8
+    work: sandilands-1999
+    text:
+      en: Emergency rule treats one account of nature as settled and shuts down contestation over it. Nature has a history of being invoked to police lives and desires. Ecological politics must keep the question of what nature requires open to democratic debate.
+      fr: Le régime d'urgence tient un récit de la nature pour acquis et ferme toute contestation à son sujet. La nature a souvent été invoquée pour surveiller des vies et des désirs. La politique écologique doit laisser ouverte au débat démocratique la question de ce que la nature exige.
+  - author: will-kymlicka
+    position: 8
+    work: kymlicka-2011
+    text:
+      en: "The ecological emergency shows that democracy is too narrow, not too democratic. The remedy is wider membership: domesticated animals as co-citizens, wild communities as sovereign, with representation through trustees and assisted voice. Rule by an unaccountable elite is not the answer."
+      fr: L'urgence écologique montre que la démocratie est trop étroite, non trop démocratique. Le remède est d'élargir l'appartenance, avec les animaux domestiques comme concitoyens et les communautés sauvages comme souveraines, représentés par des fiduciaires et des formes de voix assistée. Le gouvernement d'une élite sans comptes à rendre n'est pas la réponse.
+  - author: roger-scruton
+    position: 8
+    work: scruton-2012
+    text:
+      en: Opposes the claim. People take care of the environment out of oikophilia, the love of home, carried through local institutions and laws they consent to. Emergency rule by remote planners wears away the attachments and trust that make people willing to conserve, and temporary powers tend to outlast the emergency.
+      fr: Opposé à la thèse. On prend soin de l'environnement par oikophilie, l'amour du foyer, porté par des institutions locales et des lois auxquelles on consent. Un pouvoir d'urgence exercé par des planificateurs lointains use les attachements et la confiance qui rendent les gens prêts à conserver, et les pouvoirs temporaires survivent souvent à l'urgence.
+  - author: bruno-latour
+    position: 8
+    work: latour-1999
+    text:
+      en: Opposed. Using Nature as an indisputable fact to cut short debate repeats the modern move that emptied politics. The emergency calls for a wider assembly, with spokespersons for rivers, soils and climate, and its conflicts argued in public rather than settled from above.
+      fr: Opposé. Invoquer la Nature comme un fait indiscutable pour couper court au débat répète le geste moderne qui a vidé la politique. L'urgence appelle une assemblée élargie, avec des porte-parole pour les fleuves, les sols et le climat, et des conflits débattus en public plutôt que tranchés d'en haut.
+  - author: elinor-ostrom
+    position: 8
+    work: ostrom-1990
+    text:
+      en: Shared resources last when their users make, monitor and change the rules. Emergency rule from above repeats Hardin's error. It removes legitimacy, local knowledge and monitoring. Nested self-governance at many levels handles the long term better than suspending democracy.
+      fr: Les ressources partagées durent quand leurs usagers fixent, surveillent et modifient les règles. Un pouvoir d'urgence imposé d'en haut répète l'erreur de Hardin. Il supprime la légitimité, les savoirs locaux et la surveillance. Un autogouvernement emboîté à plusieurs niveaux gère mieux le long terme qu'une suspension de la démocratie.
+  - author: luc-ferry
+    position: 8
+    work: ferry-1992
+    text:
+      en: The ecological emergency does not justify limiting democracy. Nature has value for humans, not rights against them, and only free beings make law, so ecological duties must be set through democratic deliberation, not imposed by elites in nature's name.
+      fr: L'urgence écologique ne justifie pas de limiter la démocratie. La nature a de la valeur pour les hommes, non des droits contre eux, et seuls des êtres libres font la loi, si bien que les devoirs écologiques doivent être fixés par la délibération démocratique et non imposés par des élites au nom de la nature.
+  - author: arne-naess
+    position: 10
+    work: naess-1989
+    text:
+      en: Limiting democracy cannot meet the ecological emergency. Imposed restraint changes behaviour without touching its reasons. Lasting change comes from people widening their sense of self and from non-violent, local, participatory means that fit the ends.
+      fr: Limiter la démocratie ne peut répondre à l'urgence écologique. La retenue imposée modifie les comportements sans toucher à leurs raisons. Le changement durable vient de l'élargissement du soi chez chacun et de moyens non violents, locaux et participatifs, accordés à leurs fins.
+  - author: baird-callicott
+    position: 15
+    work: callicott-1989
+    text:
+      en: The land ethic adds the biotic community to human moral communities and does not replace them. An ethic that grows by inclusion should not cut away human self-government, so the emergency calls for widening representation to include ecological wholes rather than suspending democracy.
+      fr: L'éthique de la terre ajoute la communauté biotique aux communautés morales humaines sans les remplacer. Une éthique qui grandit par inclusion ne doit pas amputer l'autogouvernement humain, et l'urgence appelle donc à élargir la représentation aux ensembles écologiques plutôt qu'à suspendre la démocratie.
+  - author: dominique-bourg
+    position: 25
+    work: bourg-2010
+    text:
+      en: Representative democracy, built for the short term and for individual rights, fails to handle ecological limits. The remedy is not to suspend democracy but to add institutions for the long term, such as a chamber of the future, which constrain short-term majorities while keeping their legitimacy.
+      fr: La démocratie représentative, conçue pour le court terme et les droits individuels, échoue face aux limites écologiques. Le remède n'est pas de suspendre la démocratie mais d'y ajouter des institutions du long terme, comme une chambre du futur, qui encadrent les majorités de court terme tout en gardant leur légitimité.
+  - author: andreas-malm
+    position: 25
+    work: malm-2021
+    text:
+      en: Democracy did not cause the warming. Fossil capital did, and the emergency justifies coercion against fossil property, including sabotage by movements, not limits on the public's democratic power. Emergency measures should strike the owners, not the voters.
+      fr: Ce n'est pas la démocratie qui a provoqué le réchauffement, c'est le capital fossile, et l'urgence justifie la coercition contre la propriété fossile, y compris le sabotage par les mouvements, non la limitation du pouvoir démocratique du public. Les mesures d'urgence doivent frapper les propriétaires, pas les électeurs.
+  - author: yves-cochet
+    position: 45
+    work: cochet-2019
+    text:
+      en: The end of cheap oil makes collapse likely, so politics must prepare populations through planned rationing and local resilience. That calls for binding limits on consumption, decided openly and early with public consent, not for suspending democratic procedures.
+      fr: La fin du pétrole bon marché rend l'effondrement probable, et la politique doit donc y préparer les populations par un rationnement planifié et la résilience locale. Cela suppose des limites contraignantes à la consommation, décidées tôt et ouvertement avec le consentement du public, non la suspension des procédures démocratiques.
+  - author: hans-jonas
+    position: 60
+    work: jonas-1979
+    text:
+      en: Democracies answer to present voters, and future generations have no voice. When technology threatens the permanence of human life, responsibility may justify restraint imposed beyond majority procedure. This is a grave and uncomfortable concession that must be examined, not something to celebrate.
+      fr: Les démocraties répondent aux électeurs présents, et les générations futures n'ont pas de voix. Quand la technique menace la permanence de la vie humaine, la responsabilité peut justifier une retenue imposée au-delà de la règle majoritaire. C'est une concession grave et inconfortable, qu'il faut examiner et non célébrer.
+  - author: james-lovelock
+    position: 65
+    work: lovelock-2006
+    text:
+      en: Gaia's feedbacks run on their own timetable and cannot be voted down. A sustainable retreat may need temporary wartime-style discipline, such as rationing and building nuclear power quickly, while accepting that this suspension has to be limited and has to end.
+      fr: Les rétroactions de Gaïa suivent leur propre calendrier et ne se mettent pas aux voix. Une retraite durable peut exiger une discipline temporaire de temps de guerre, comme le rationnement et la construction rapide de centrales nucléaires, à condition que cette suspension reste limitée et prenne fin.
+silent: []
