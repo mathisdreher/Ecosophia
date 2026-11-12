@@ -6,7 +6,7 @@
 // underneath everything. Everything is computed here; the browser gets SVG.
 import { influenceReceived } from './corpus.mjs';
 
-export const GRAPH_SIZE = 920;
+export const GRAPH_SIZE = 980;
 const C = GRAPH_SIZE / 2;
 const R = 318;
 const GAP = 3; // empty slots between two groups
@@ -72,8 +72,9 @@ export function layoutRing(corpus) {
       id: g,
       band: arcPath(a0 - step * 0.4, a1 + step * 0.4, R - 16),
       // The label needs room even for a group of two or three leaves.
-      // Neighbouring labels alternate between two radii so they never overlap.
-      text: arcPath(mid - Math.max((a1 - a0) / 2 + step, 0.3), mid + Math.max((a1 - a0) / 2 + step, 0.3), (bottom ? R - 40 : R - 30) - (gi % 2) * 16, bottom),
+      // The group name sits outside the ring, beyond the names of its leaves;
+      // neighbouring names alternate between two radii so they never overlap.
+      text: arcPath(mid - Math.max((a1 - a0) / 2, 0.26), mid + Math.max((a1 - a0) / 2, 0.26), (bottom ? R + 134 : R + 122) + (gi % 2) * 14, bottom),
     });
     angle += GAP * step;
   }
@@ -88,7 +89,7 @@ export function layoutRing(corpus) {
     const c2 = [C + (b.x - C) * k, C + (b.y - C) * k];
     // Threads stop inside the coloured arc of each school, so the arrowheads
     // sit in the open, just before the arc, never under it or under a leaf.
-    const inner = R - 25;
+    const inner = R - 36; // the arrowhead stops a few units short of the arc
     const start = at(a.angle, inner);
     const end = at(b.angle, inner);
     const curve = `M${round(start[0])} ${round(start[1])}C${round(c1[0])} ${round(c1[1])} ${round(c2[0])} ${round(c2[1])} ${round(end[0])} ${round(end[1])}`;
