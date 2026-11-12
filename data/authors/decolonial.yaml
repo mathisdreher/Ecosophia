@@ -206,7 +206,8 @@
   sort: Gudynas
   layer: leaf
   branch: decolonial
-  place: {country: {en: Uruguay, fr: Uruguay}}
+  born: 1960
+  place: {city: {en: Montevideo, fr: Montevideo}, country: {en: Uruguay, fr: Uruguay}, lat: -34.91, lon: -56.19}
   wikidata: Q42397087
   lede:
     en: "Uruguayan analyst at the Latin American Centre of Social Ecology in Montevideo. He named neo-extractivism: the progressive governments of Latin America kept mining and oil at the centre of their economies and spent the proceeds on social programmes."
@@ -233,7 +234,7 @@
   layer: leaf
   branch: decolonial
   born: 1961
-  place: {country: {en: Argentina, fr: Argentine}}
+  place: {city: {en: Allen, fr: Allen}, country: {en: Argentina, fr: Argentine}, lat: -38.98, lon: -67.83}
   wikidata: Q5999391
   lede:
     en: "Argentine sociologist and writer. She described the commodities consensus that bound Latin American governments of left and right to the export of raw materials, and the eco-territorial turn of the struggles that oppose it."
@@ -253,6 +254,7 @@
   layer: leaf
   branch: decolonial
   also: [political-ecology]
+  born: 1962
   place: {country: {en: United States, fr: États-Unis}}
   wikidata: Q61951480
   lede:
@@ -275,6 +277,7 @@
   born: 1949
   died: 1987
   place: {city: {en: Yako, fr: Yako}, country: {en: Burkina Faso, fr: Burkina Faso}, lat: 12.96, lon: -2.26}
+  wikidata: Q202155
   lede:
     en: "President of Burkina Faso from 1983 until his assassination in 1987. His government planted millions of trees against the advance of the Sahel and fought bushfires and unregulated woodcutting, as part of a politics of self-reliance against debt and dependency."
     fr: "Président du Burkina Faso de 1983 à son assassinat en 1987. Son gouvernement fait planter des millions d'arbres contre l'avancée du Sahel et combat les feux de brousse et la coupe abusive du bois, dans une politique d'autonomie contre la dette et la dépendance."
@@ -295,6 +298,7 @@
   born: 1941
   died: 1995
   place: {city: {en: Bori, fr: Bori}, country: {en: Nigeria, fr: Nigeria}, lat: 4.67, lon: 7.37}
+  wikidata: Q316292
   lede:
     en: "Nigerian writer and television producer who led the Movement for the Survival of the Ogoni People against the damage done by oil extraction in the Niger Delta. The military regime hanged him with eight other Ogoni leaders in 1995."
     fr: "Écrivain et producteur de télévision nigérian, à la tête du Mouvement pour la survie du peuple ogoni contre les dégâts de l'extraction pétrolière dans le delta du Niger. Le régime militaire le fait pendre avec huit autres dirigeants ogonis en 1995."
@@ -314,6 +318,7 @@
   branch: decolonial
   born: 1958
   place: {country: {en: Nigeria, fr: Nigeria}}
+  wikidata: Q472575
   lede:
     en: "Nigerian architect, poet and environmental campaigner, founder of the Health of Mother Earth Foundation and former chair of Friends of the Earth International. He describes Africa as the continent that bears the extraction and the heat of a climate it did little to change."
     fr: "Architecte, poète et militant écologiste nigérian, fondateur de la Health of Mother Earth Foundation et ancien président des Amis de la Terre International. Il décrit l'Afrique comme le continent qui subit l'extraction et la chaleur d'un climat qu'il a peu contribué à changer."
@@ -334,6 +339,7 @@
   also: [degrowth]
   born: 1972
   place: {city: {en: Niodior, fr: Niodior}, country: {en: Senegal, fr: Sénégal}, lat: 13.99, lon: -16.76}
+  wikidata: Q16635979
   lede:
     en: "Senegalese economist, writer and musician. Afrotopia asks Africa to stop measuring itself against a development drawn elsewhere and to set its own ends, drawing on its cultures and its relations to living things."
     fr: "Économiste, écrivain et musicien sénégalais. Afrotopia invite l'Afrique à cesser de se mesurer à un développement dessiné ailleurs et à fixer ses propres fins, à partir de ses cultures et de ses rapports au vivant."
@@ -353,6 +359,7 @@
   branch: decolonial
   born: 1953
   place: {city: {en: "Itabirinha, Minas Gerais", fr: "Itabirinha (Minas Gerais)"}, country: {en: Brazil, fr: Brésil}, lat: -18.57, lon: -41.23}
+  wikidata: Q16144697
   lede:
     en: "Indigenous leader and writer of the Krenak people of the Doce river valley in Brazil, active in the movement that secured Indigenous rights in the 1988 constitution. His short books question the idea of a humanity set apart from the Earth."
     fr: "Dirigeant et écrivain autochtone du peuple krenak, de la vallée du rio Doce au Brésil, engagé dans le mouvement qui a fait inscrire les droits autochtones dans la constitution de 1988. Ses courts livres interrogent l'idée d'une humanité séparée de la Terre."
@@ -372,6 +379,7 @@
   branch: decolonial
   also: [anthropocene]
   place: {country: {en: Brazil, fr: Brésil}}
+  wikidata: Q1173446
   lede:
     en: "Yanomami shaman and spokesman, who led the campaign that won the demarcation of Yanomami territory in 1992. With the anthropologist Bruce Albert he wrote The Falling Sky, a shaman's account of the world and of the people of merchandise."
     fr: "Chamane et porte-parole yanomami, qui a conduit la campagne obtenant la démarcation du territoire yanomami en 1992. Avec l'anthropologue Bruce Albert, il écrit La Chute du ciel, récit d'un chamane sur le monde et sur le peuple de la marchandise."
@@ -397,6 +405,7 @@
   born: 1971
   died: 2016
   place: {city: {en: La Esperanza, fr: La Esperanza}, country: {en: Honduras, fr: Honduras}, lat: 14.31, lon: -88.18}
+  wikidata: Q22999106
   lede:
     en: "Lenca leader from Honduras, co-founder of the Civic Council of Popular and Indigenous Organizations of Honduras. She led the campaign against the Agua Zarca dam on the Gualcarque river, received the Goldman Prize in 2015 and was murdered in 2016."
     fr: "Dirigeante lenca du Honduras, cofondatrice du Conseil civique des organisations populaires et autochtones du Honduras. Elle mène la campagne contre le barrage d'Agua Zarca sur le fleuve Gualcarque, reçoit le prix Goldman en 2015 et est assassinée en 2016."
@@ -415,6 +424,7 @@
   layer: leaf
   branch: decolonial
   born: 1976
+  wikidata: Q75223030
   lede:
     en: "French political scientist and activist, co-founder of the Front de mères, a union of parents in working-class neighbourhoods. Pour une écologie pirate argues that the banlieues are not outside ecology but a place from which to rethink it, against an ecology that polices them."
     fr: "Politologue et militante française, cofondatrice du Front de mères, syndicat de parents des quartiers populaires. Pour une écologie pirate soutient que les banlieues ne sont pas hors de l'écologie mais un lieu d'où la repenser, contre une écologie qui les police."

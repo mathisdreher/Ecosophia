@@ -157,7 +157,7 @@
   layer: trunk
   born: 1937
   died: 2021
-  place: {country: {en: United States, fr: États-Unis}}
+  place: {city: {en: New York, fr: New York}, country: {en: United States, fr: États-Unis}, lat: 40.71, lon: -74.01}
   wikidata: Q112438509
   lede:
     en: "American law professor at the University of Southern California. His article of 1972 asked whether forests, rivers and oceans could be parties to a lawsuit, and became the founding text of the rights of nature."

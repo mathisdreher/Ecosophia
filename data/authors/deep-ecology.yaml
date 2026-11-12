@@ -130,7 +130,7 @@
   layer: leaf
   branch: deep-ecology
   born: 1941
-  place: {country: {en: United States, fr: États-Unis}}
+  place: {city: {en: Memphis, fr: Memphis}, country: {en: United States, fr: États-Unis}, lat: 35.15, lon: -90.05}
   wikidata: Q3180977
   lede:
     en: "American philosopher who taught one of the first university courses in environmental ethics. He made Aldo Leopold's land ethic into a philosophical position: the community of life, not the single organism, is what counts morally."

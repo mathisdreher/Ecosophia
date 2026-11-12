@@ -122,7 +122,8 @@
   sort: Cadena
   layer: leaf
   branch: political-ecology
-  place: {country: {en: Peru, fr: Pérou}}
+  born: 1957
+  place: {city: {en: Lima, fr: Lima}, country: {en: Peru, fr: Pérou}, lat: -12.06, lon: -77.04}
   wikidata: Q51237954
   lede:
     en: "Peruvian anthropologist, professor at the University of California, Davis. From long conversations with two Quechua men near Cuzco, she shows mountains entering Andean politics as earth-beings, and asks what politics becomes when it must include them."
@@ -168,6 +169,7 @@
   sort: Swyngedouw
   layer: leaf
   branch: political-ecology
+  born: 1956
   place: {country: {en: Belgium, fr: Belgique}}
   wikidata: Q1107767
   lede:
@@ -187,7 +189,8 @@
   sort: Eckersley
   layer: leaf
   branch: political-ecology
-  place: {country: {en: Australia, fr: Australie}}
+  born: 1958
+  place: {city: {en: Perth, fr: Perth}, country: {en: Australia, fr: Australie}, lat: -31.96, lon: 115.86}
   wikidata: Q4945654
   lede:
     en: "Australian political theorist at the University of Melbourne. The Green State asks whether the state, built for war and growth, can become the guardian of ecological democracy, and answers that it must be transformed rather than bypassed."
@@ -210,6 +213,7 @@
   born: 1944
   died: 1988
   place: {city: {en: "Xapuri, Acre", fr: "Xapuri (Acre)"}, country: {en: Brazil, fr: Brésil}, lat: -10.65, lon: -68.50}
+  wikidata: Q550176
   lede:
     en: "Brazilian rubber tapper and union leader in Acre. He organised the empates, blockades in which tappers stood between the chainsaws and the forest, and won the idea of extractive reserves before he was murdered in 1988."
     fr: "Seringueiro et syndicaliste brésilien de l'Acre. Il organise les empates, blocages où les récolteurs de caoutchouc s'interposent entre les tronçonneuses et la forêt, et fait admettre l'idée de réserves extractivistes avant d'être assassiné en 1988."
@@ -230,6 +234,7 @@
   also: [anthropocene]
   born: 1951
   place: {city: {en: Rio de Janeiro, fr: Rio de Janeiro}, country: {en: Brazil, fr: Brésil}, lat: -22.91, lon: -43.17}
+  wikidata: Q3048398
   lede:
     en: "Brazilian anthropologist at the National Museum in Rio de Janeiro. His Amerindian perspectivism reverses the modern scheme: one shared culture, the human, and many natures, as each kind of being sees itself as a person."
     fr: "Anthropologue brésilien du Musée national de Rio de Janeiro. Son perspectivisme amérindien renverse le schéma moderne : une seule culture partagée, l'humaine, et de multiples natures, chaque espèce d'êtres se voyant elle-même comme une personne."
@@ -254,6 +259,7 @@
   branch: political-ecology
   born: 1946
   place: {city: {en: Mexico City, fr: Mexico}, country: {en: Mexico, fr: Mexique}, lat: 19.43, lon: -99.13}
+  wikidata: Q16242500
   lede:
     en: "Mexican environmental sociologist at the National Autonomous University of Mexico, a founder of Latin American political ecology. He argues that the crisis is one of knowledge: economic rationality has to give way to an environmental rationality rooted in places and cultures."
     fr: "Sociologue mexicain de l'environnement à l'université nationale autonome du Mexique, l'un des fondateurs de l'écologie politique latino-américaine. Il soutient que la crise est une crise du savoir : la rationalité économique doit céder la place à une rationalité environnementale ancrée dans les lieux et les cultures."

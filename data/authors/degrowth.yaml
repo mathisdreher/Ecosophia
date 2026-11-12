@@ -115,7 +115,7 @@
   branch: degrowth
   also: [decolonial]
   born: 1982
-  place: {country: {en: Eswatini, fr: Eswatini}}
+  place: {country: {en: Eswatini, fr: Eswatini}, lat: -26.48, lon: 31.43}
   wikidata: Q79783723
   lede:
     en: "Economic anthropologist born in Eswatini, professor at the Autonomous University of Barcelona. He measures how far rich countries exceed their fair share of planetary boundaries, and argues for degrowth in the global North as a matter of justice toward the South."
@@ -183,7 +183,7 @@
   also: [decolonial]
   born: 1926
   died: 1987
-  place: {country: {en: France, fr: France}}
+  place: {city: {en: Valréas, fr: Valréas}, country: {en: France, fr: France}, lat: 44.38, lon: 4.99}
   wikidata: Q439997
   lede:
     en: "French banker who worked for development in Madagascar and elsewhere, then turned against it. La Fin du développement described development as the extension of one economic system to the whole world, and announced its exhaustion."
@@ -224,6 +224,7 @@
   branch: degrowth
   born: 1956
   place: {city: {en: Madrid, fr: Madrid}, country: {en: Spain, fr: Espagne}, lat: 40.42, lon: -3.70}
+  wikidata: Q3394378
   lede:
     en: "Spanish political scientist and essayist, professor at the Autonomous University of Madrid, close to the libertarian tradition. He brought degrowth into Spanish debate and later wrote on the possible collapse of industrial society."
     fr: "Politiste et essayiste espagnol, professeur à l'université autonome de Madrid, proche de la tradition libertaire. Il introduit la décroissance dans le débat espagnol et écrit plus tard sur l'effondrement possible de la société industrielle."
@@ -244,6 +245,7 @@
   born: 1947
   died: 2011
   place: {city: {en: Madrid, fr: Madrid}, country: {en: Spain, fr: Espagne}, lat: 40.42, lon: -3.70}
+  wikidata: Q9066390
   lede:
     en: "Spanish engineer and urbanist, a founder of Ecologistas en Acción. His last books describe global capitalism running into the decline of cheap fossil energy, and a long breakdown of the industrial order over the century."
     fr: "Ingénieur et urbaniste espagnol, l'un des fondateurs d'Ecologistas en Acción. Ses derniers livres décrivent un capitalisme mondial qui se heurte au déclin de l'énergie fossile bon marché, et un long effondrement de l'ordre industriel au cours du siècle."

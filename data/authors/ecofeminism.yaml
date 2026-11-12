@@ -186,6 +186,8 @@
   layer: leaf
   branch: ecofeminism
   also: [ecosocialism]
+  born: 1968
+  place: {city: {en: Naples, fr: Naples}, country: {en: Italy, fr: Italie}, lat: 40.84, lon: 14.25}
   wikidata: Q137996782
   lede:
     en: "Italian environmental historian. Forces of Reproduction reads the Anthropocene from the side of those who care for bodies and land, women, peasants, Indigenous peoples and workers, and makes them the subjects of an ecological politics."
@@ -249,6 +251,7 @@
   branch: ecofeminism
   born: 1965
   place: {city: {en: Madrid, fr: Madrid}, country: {en: Spain, fr: Espagne}, lat: 40.42, lon: -3.70}
+  wikidata: Q28057718
   lede:
     en: "Spanish anthropologist, engineer and educator, long a coordinator of Ecologistas en Acción. Her ecofeminism shows an economy that depends on two things it does not count: the ecosystems that sustain it and the care work, mostly done by women, that keeps people alive."
     fr: "Anthropologue, ingénieure et éducatrice espagnole, longtemps coordinatrice d'Ecologistas en Acción. Son écoféminisme montre une économie qui dépend de deux choses qu'elle ne compte pas : les écosystèmes qui la portent et le travail du soin, surtout fait par des femmes, qui maintient les gens en vie."
