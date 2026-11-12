@@ -202,6 +202,7 @@
   sort: Berry
   layer: leaf
   branch: technocritique
+  also: [conservative]
   born: 1934
   died: 2026
   place: {city: {en: "Henry County, Kentucky", fr: "comté de Henry (Kentucky)"}, country: {en: United States, fr: États-Unis}, lat: 38.45, lon: -85.12}
@@ -223,7 +224,7 @@
   sort: Jonas
   layer: leaf
   branch: technocritique
-  also: [deep-ecology]
+  also: [deep-ecology, conservative]
   born: 1903
   died: 1993
   place: {city: {en: Mönchengladbach, fr: Mönchengladbach}, country: {en: Germany, fr: Allemagne}, lat: 51.19, lon: 6.44}

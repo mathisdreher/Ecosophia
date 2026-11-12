@@ -33,7 +33,7 @@ const drawOrder = [...cols].sort((a, b) => b.d - a.d);
 
 const trunkAuthors = [...new Set(c.trunk.map((tk) => c.authorById[tk.source.authorId].short))];
 const trunkYears = `${Math.min(...c.trunk.map((tk) => tk.source.year >= 1962 ? tk.source.year : 1962))}–${Math.max(...c.trunk.map((tk) => tk.source.year))}`;
-const graft = c.graftBranches[0];
+const grafts = c.graftBranches;
 ---
 
 <div class="tree-wide" role="group" aria-label={t('home.treeLabel')}>
@@ -63,9 +63,9 @@ const graft = c.graftBranches[0];
       {t('home.how')}
     </div>
     {
-      graft && (
-        <div class="note graft" style={`--chip: var(--${graft.token})`}>
-          <BranchChip branch={graft} lang={lang} />
+      grafts.length > 0 && (
+        <div class="note graft">
+          <span class="grafts">{grafts.map((g) => <BranchChip branch={g} lang={lang} />)}</span>
           <span>{t('home.graft')}</span>
         </div>
       )
@@ -97,12 +97,19 @@ const graft = c.graftBranches[0];
       ))
     }
     {
-      graft && (
-        <li class="graft" style={`--chip: var(--${graft.token})`}>
-          <BranchChip branch={graft} lang={lang} />
-          <span class="names t-muted">{t('home.graft')}</span>
+      grafts.map((g) => (
+        <li class="graft" style={`--chip: var(--${g.token})`}>
+          <BranchChip branch={g} lang={lang} />
+          <span class="names t-muted">
+            {g.authors.slice(0, 3).map((a, i) => (
+              <>
+                {i > 0 && <span aria-hidden="true"> · </span>}
+                <a href={href(lang, 'author', a.id)}>{a.name}</a>
+              </>
+            ))}
+          </span>
         </li>
-      )
+      ))
     }
     <li class="trunk-item">
       <b class="label">
@@ -195,7 +202,7 @@ const graft = c.graftBranches[0];
   .note.graft {
     right: calc(50% + 32px);
     top: 484px;
-    width: 190px;
+    width: 230px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -211,7 +218,13 @@ const graft = c.graftBranches[0];
     left: 100%;
     top: 12px;
     width: 28px;
-    border-top: var(--stroke-thread) dashed var(--chip);
+    border-top: var(--stroke-thread) dashed var(--ink-muted);
+  }
+  .grafts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: var(--space-1);
   }
 
   /* Stacked version */

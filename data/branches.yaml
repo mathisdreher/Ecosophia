@@ -92,8 +92,26 @@
 - id: counterpoint
   token: branch-counterpoint
   graft: true
-  name: {en: Counterpoint, fr: Contrepoint}
+  name: {en: Ecomodernists, fr: Écomodernistes}
   full: {en: "Counterpoints: ecomodernism and green growth", fr: "Contrepoints : écomodernisme et croissance verte"}
   summary:
     en: "Not a branch of the field but its opponents from within environmentalism: ecomodernists hold that technology, cities and nuclear power can decouple prosperity from its footprint. They are grafted onto the tree because the field defines itself against them."
     fr: "Non pas une branche du champ, mais ses contradicteurs venus de l'environnementalisme : les écomodernistes soutiennent que la technique, les villes et le nucléaire peuvent découpler la prospérité de son empreinte. Ils sont greffés sur l'arbre parce que le champ se définit contre eux."
+
+- id: market
+  token: branch-market
+  graft: true
+  name: {en: Market liberals, fr: Libéraux}
+  full: {en: "Counterpoints: market environmentalism and liberal critics", fr: "Contrepoints : environnementalisme de marché et critiques libéraux"}
+  summary:
+    en: "Price nature rather than limit growth. From Pigou's tax and Coase's property rights to Nordhaus's carbon price, economists answer pollution with markets; Simon and Lomborg dispute the diagnosis of scarcity, and Ferry and Bruckner defend humanism and progress against political ecology itself."
+    fr: "Donner un prix à la nature plutôt que limiter la croissance. De la taxe de Pigou et des droits de propriété de Coase au prix du carbone de Nordhaus, des économistes répondent à la pollution par le marché ; Simon et Lomborg contestent le diagnostic de la rareté, et Ferry et Bruckner défendent l'humanisme et le progrès contre l'écologie politique elle-même."
+
+- id: conservative
+  token: branch-conservative
+  graft: true
+  name: {en: Conservatives, fr: Conservateurs}
+  full: {en: "Counterpoints: conservative, traditionalist and religious ecology", fr: "Contrepoints : écologie conservatrice, traditionaliste et religieuse"}
+  summary:
+    en: "Conserve, as in conservative. Scruton grounds ecology in the love of home, Goldsmith in traditional societies, Laudato si' in creation, and the Nouvelle Droite of de Benoist in rooted peoples. They share the field's critique of the market and of technique, and reject its project of emancipation."
+    fr: "Conserver, comme dans conservateur. Scruton fonde l'écologie sur l'amour du chez-soi, Goldsmith sur les sociétés traditionnelles, Laudato si' sur la création, et la Nouvelle Droite de de Benoist sur les peuples enracinés. Ils partagent la critique du marché et de la technique que porte le champ, et rejettent son projet d'émancipation."

@@ -1,0 +1,88 @@
+# Counterpoints: conservative, traditionalist and religious ecology. Grafted
+# onto the tree for debate, never a branch of the field: thinkers who defend
+# nature in the name of home, tradition or creation rather than emancipation.
+
+- id: roger-scruton
+  name: Roger Scruton
+  sort: Scruton
+  layer: leaf
+  branch: conservative
+  born: 1944
+  died: 2020
+  place: {city: {en: Buslingthorpe, fr: Buslingthorpe}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 53.37, lon: -0.40}
+  lede:
+    en: "English conservative philosopher. Green Philosophy argues that environmental care belongs to the right: it grows from oikophilia, the love of home, and from local institutions, not from global plans and activist campaigns."
+    fr: "Philosophe conservateur anglais. Green Philosophy soutient que le souci de l'environnement appartient à la droite : il naît de l'oikophilie, l'amour du chez-soi, et des institutions locales, non des plans mondiaux et des campagnes militantes."
+  seeds:
+    - seed: oikophilia
+      text:
+        en: "People protect what they love as home; ecology should rest on that attachment rather than on guilt or global targets."
+        fr: "On protège ce qu'on aime comme son chez-soi ; l'écologie devrait reposer sur cet attachement plutôt que sur la culpabilité ou des objectifs mondiaux."
+      source: scruton-2012
+  works:
+    - {id: scruton-2012, year: 2012, title: "Green Philosophy: How to Think Seriously About the Planet"}
+
+- id: edward-goldsmith
+  name: Edward Goldsmith
+  sort: Goldsmith
+  layer: leaf
+  branch: conservative
+  born: 1928
+  died: 2009
+  place: {city: {en: Paris, fr: Paris}, country: {en: France, fr: France}, lat: 48.86, lon: 2.35}
+  lede:
+    en: "Anglo-French founder of The Ecologist in 1969. A Blueprint for Survival called for small, decentralised communities, and his later work holds up traditional societies, bound to their ecosystems by custom and religion, against industrial modernity."
+    fr: "Fondateur franco-britannique de The Ecologist en 1969. A Blueprint for Survival appelle à de petites communautés décentralisées, et son œuvre ultérieure oppose à la modernité industrielle les sociétés traditionnelles, liées à leurs écosystèmes par la coutume et la religion."
+  seeds:
+    - seed: ecological-tradition
+      text:
+        en: "Traditional societies, held together by custom, are the ecological norm; industrial modernity is the deviation."
+        fr: "Les sociétés traditionnelles, tenues par la coutume, sont la norme écologique ; la modernité industrielle est l'écart."
+      source: goldsmith-1992
+  works:
+    - id: goldsmith-1972
+      year: 1972
+      title: A Blueprint for Survival
+      kind: report
+      by: {en: Goldsmith and Allen, fr: Goldsmith et Allen}
+      note: {en: with Robert Allen, in The Ecologist, fr: avec Robert Allen, dans The Ecologist}
+    - {id: goldsmith-1992, year: 1992, title: "The Way: An Ecological World-View"}
+
+- id: pope-francis
+  name: Pope Francis
+  sort: Francis
+  layer: leaf
+  branch: conservative
+  born: 1936
+  died: 2025
+  place: {city: {en: Buenos Aires, fr: Buenos Aires}, country: {en: Argentina, fr: Argentine}, lat: -34.60, lon: -58.38}
+  lede:
+    en: "Jorge Mario Bergoglio, pope from 2013 to 2025. Laudato si' speaks from Catholic tradition and creation, and condemns the technocratic paradigm and the throwaway culture; claimed by the left for its critique and by conservatives for its integral ecology. Grafted here for the tradition he speaks from."
+    fr: "Jorge Mario Bergoglio, pape de 2013 à 2025. Laudato si' parle depuis la tradition catholique et la création, et condamne le paradigme technocratique et la culture du déchet ; la gauche s'en réclame pour sa critique, les conservateurs pour son écologie intégrale. Greffé ici pour la tradition depuis laquelle il parle."
+  seeds:
+    - seed: integral-ecology
+      text:
+        en: "The cry of the earth and the cry of the poor are one cry: care for creation and justice cannot be separated."
+        fr: "La clameur de la terre et la clameur des pauvres ne font qu'une : le soin de la création et la justice ne se séparent pas."
+      source: francis-2015
+  works:
+    - {id: francis-2015, year: 2015, title: "Laudato si' : sur la sauvegarde de la maison commune", kind: report}
+
+- id: alain-de-benoist
+  name: Alain de Benoist
+  sort: Benoist
+  layer: leaf
+  branch: conservative
+  born: 1943
+  place: {country: {en: France, fr: France}}
+  lede:
+    en: "French essayist, the leading thinker of the Nouvelle Droite. Demain, la décroissance ! takes up degrowth from the right: ecology as the defence of rooted, local communities and their differences against the uniform world of the market. Mapped here because the far right now claims an ecology of its own."
+    fr: "Essayiste français, principal penseur de la Nouvelle Droite. Demain, la décroissance ! reprend la décroissance depuis la droite : l'écologie comme défense des communautés enracinées et locales, et de leurs différences, contre le monde uniforme du marché. Cartographié ici parce que l'extrême droite revendique désormais une écologie à elle."
+  seeds:
+    - seed: rooted-localism
+      text:
+        en: "Degrowth is a defence of rooted peoples and places against the uniformity of the global market."
+        fr: "La décroissance est une défense des peuples et des lieux enracinés contre l'uniformité du marché mondial."
+      source: debenoist-2007
+  works:
+    - {id: debenoist-2007, year: 2007, title: "Demain, la décroissance ! Penser l'écologie jusqu'au bout"}

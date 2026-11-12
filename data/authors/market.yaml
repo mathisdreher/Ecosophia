@@ -1,0 +1,164 @@
+# Counterpoints: market liberals. Grafted onto the tree for debate, never a
+# branch of the field: economists who price nature rather than limit growth,
+# and liberal critics of political ecology.
+
+- id: arthur-cecil-pigou
+  name: Arthur Cecil Pigou
+  sort: Pigou
+  layer: leaf
+  branch: market
+  born: 1877
+  died: 1959
+  place: {city: {en: Ryde, fr: Ryde}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 50.73, lon: -1.16}
+  lede:
+    en: "English economist at Cambridge. The Economics of Welfare names the gap between private and social cost, and proposes that the state close it with a tax: the root of every carbon tax since."
+    fr: "Économiste anglais, à Cambridge. The Economics of Welfare nomme l'écart entre coût privé et coût social, et propose que l'État le comble par une taxe : la racine de toutes les taxes carbone depuis."
+  seeds:
+    - seed: pigouvian-tax
+      text:
+        en: "When an activity harms third parties, a tax equal to the harm brings its private cost back to its social cost."
+        fr: "Quand une activité nuit à des tiers, une taxe égale au dommage ramène son coût privé à son coût social."
+      source: pigou-1920
+  works:
+    - {id: pigou-1920, year: 1920, title: The Economics of Welfare}
+
+- id: ronald-coase
+  name: Ronald Coase
+  sort: Coase
+  layer: leaf
+  branch: market
+  born: 1910
+  died: 2013
+  place: {city: {en: Willesden, fr: Willesden}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 51.55, lon: -0.23}
+  lede:
+    en: "British economist at Chicago, Nobel prize 1991. The Problem of Social Cost answers Pigou: where property rights are clear and bargaining is cheap, polluter and victim can settle the harm between themselves, without a tax."
+    fr: "Économiste britannique à Chicago, prix Nobel 1991. The Problem of Social Cost répond à Pigou : quand les droits de propriété sont clairs et la négociation peu coûteuse, pollueur et victime peuvent régler le dommage entre eux, sans taxe."
+  seeds:
+    - seed: coase-bargaining
+      text:
+        en: "Harm is reciprocal: define who holds the right, and the parties will bargain to the efficient outcome."
+        fr: "Le dommage est réciproque : définir qui détient le droit, et les parties négocieront jusqu'à l'issue efficace."
+      source: coase-1960
+  works:
+    - {id: coase-1960, year: 1960, title: The Problem of Social Cost, kind: article}
+
+- id: julian-simon
+  name: Julian Simon
+  sort: Simon
+  layer: leaf
+  branch: market
+  born: 1932
+  died: 1998
+  place: {city: {en: "Newark, New Jersey", fr: "Newark (New Jersey)"}, country: {en: United States, fr: États-Unis}, lat: 40.74, lon: -74.17}
+  lede:
+    en: "American economist, the leading cornucopian. Against Ehrlich he held that population and growth enrich rather than exhaust, and in 1980 he bet Ehrlich that five metals would be cheaper ten years later. He won."
+    fr: "Économiste américain, chef de file des cornucopiens. Contre Ehrlich, il soutient que la population et la croissance enrichissent au lieu d'épuiser, et parie en 1980 avec Ehrlich que cinq métaux seront moins chers dix ans plus tard. Il gagne."
+  seeds:
+    - seed: ultimate-resource
+      text:
+        en: "The ultimate resource is human ingenuity: scarcity raises prices, and prices call forth substitutes and inventions."
+        fr: "La ressource ultime est l'ingéniosité humaine : la rareté fait monter les prix, et les prix suscitent substituts et inventions."
+      source: simon-1981
+  works:
+    - {id: simon-1981, year: 1981, title: The Ultimate Resource}
+
+- id: terry-anderson
+  name: Terry L. Anderson
+  sort: Anderson
+  layer: leaf
+  branch: market
+  born: 1946
+  place: {country: {en: United States, fr: États-Unis}}
+  lede:
+    en: "American economist, founder of the Property and Environment Research Center in Montana. With Donald Leal he gave a name to free-market environmentalism: protect nature by owning it."
+    fr: "Économiste américain, fondateur du Property and Environment Research Center, dans le Montana. Avec Donald Leal, il donne son nom à l'environnementalisme de marché : protéger la nature en la possédant."
+  seeds:
+    - seed: free-market-environmentalism
+      text:
+        en: "Owners bear the cost of their neglect, so property rights and markets guard resources better than regulators do."
+        fr: "Le propriétaire paie le prix de sa négligence : droits de propriété et marchés protègent donc mieux les ressources que les régulateurs."
+      source: anderson-1991
+  works:
+    - id: anderson-1991
+      year: 1991
+      title: Free Market Environmentalism
+      by: {en: Anderson and Leal, fr: Anderson et Leal}
+      note: {en: with Donald R. Leal, fr: avec Donald R. Leal}
+
+- id: william-nordhaus
+  name: William Nordhaus
+  sort: Nordhaus
+  layer: leaf
+  branch: market
+  born: 1941
+  place: {city: {en: "Albuquerque, New Mexico", fr: "Albuquerque (Nouveau-Mexique)"}, country: {en: United States, fr: États-Unis}, lat: 35.08, lon: -106.65}
+  lede:
+    en: "American economist at Yale, Nobel prize 2018 for putting the climate into growth models. He criticised The Limits to Growth from the start, and argues for a carbon price that rises along an optimal path, weighing damage avoided against the cost of cutting."
+    fr: "Économiste américain à Yale, prix Nobel 2018 pour avoir introduit le climat dans les modèles de croissance. Il critique Les Limites à la croissance dès sa parution, et défend un prix du carbone qui monte selon une trajectoire optimale, en pesant le dommage évité contre le coût de la réduction."
+  seeds:
+    - seed: optimal-carbon-price
+      text:
+        en: "Price carbon at the damage it does, and let the price rise as fast as the balance of costs and benefits allows."
+        fr: "Fixer le prix du carbone au dommage qu'il cause, et le laisser monter aussi vite que le permet l'équilibre des coûts et des bénéfices."
+      source: w-nordhaus-2008
+  works:
+    - {id: w-nordhaus-1992, year: 1992, title: "Lethal Model 2: The Limits to Growth Revisited", kind: article}
+    - {id: w-nordhaus-2008, year: 2008, title: "A Question of Balance: Weighing the Options on Global Warming Policies"}
+    - {id: w-nordhaus-2013, year: 2013, title: "The Climate Casino: Risk, Uncertainty, and Economics for a Warming World"}
+
+- id: bjorn-lomborg
+  name: Bjørn Lomborg
+  sort: Lomborg
+  layer: leaf
+  branch: market
+  born: 1965
+  place: {city: {en: Frederiksberg, fr: Frederiksberg}, country: {en: Denmark, fr: Danemark}, lat: 55.68, lon: 12.53}
+  lede:
+    en: "Danish political scientist. He set out to refute Julian Simon and ended by agreeing with him: The Skeptical Environmentalist argues that most environmental indicators are improving, and his Copenhagen Consensus ranks remedies by cost and benefit."
+    fr: "Politiste danois. Parti pour réfuter Julian Simon, il finit par lui donner raison : L'Écologiste sceptique soutient que la plupart des indicateurs environnementaux s'améliorent, et son Consensus de Copenhague classe les remèdes selon leurs coûts et leurs bénéfices."
+  seeds:
+    - seed: cost-benefit-priorities
+      text:
+        en: "Spend first where each euro does most good; deep emission cuts rarely come first on that list."
+        fr: "Dépenser d'abord là où chaque euro fait le plus de bien ; les réductions massives d'émissions viennent rarement en tête de cette liste."
+      source: lomborg-2001
+  works:
+    - {id: lomborg-2001, year: 2001, title: "The Skeptical Environmentalist: Measuring the Real State of the World"}
+
+- id: luc-ferry
+  name: Luc Ferry
+  sort: Ferry
+  layer: leaf
+  branch: market
+  born: 1951
+  place: {city: {en: Colombes, fr: Colombes}, country: {en: France, fr: France}, lat: 48.92, lon: 2.25}
+  lede:
+    en: "French philosopher, minister of education from 2002 to 2004. Le Nouvel Ordre écologique attacks deep ecology in the name of humanism: to grant rights to nature is to forget that only a being capable of freedom can hold them."
+    fr: "Philosophe français, ministre de l'Éducation de 2002 à 2004. Le Nouvel Ordre écologique attaque l'écologie profonde au nom de l'humanisme : accorder des droits à la nature, c'est oublier que seul un être capable de liberté peut en être titulaire."
+  seeds:
+    - seed: humanist-critique
+      text:
+        en: "Nature has value for us, not rights against us: a democratic ecology must stay humanist."
+        fr: "La nature a une valeur pour nous, non des droits contre nous : une écologie démocratique doit rester humaniste."
+      source: ferry-1992
+  works:
+    - {id: ferry-1992, year: 1992, title: "Le Nouvel Ordre écologique : l'arbre, l'animal et l'homme"}
+
+- id: pascal-bruckner
+  name: Pascal Bruckner
+  sort: Bruckner
+  layer: leaf
+  branch: market
+  born: 1948
+  place: {city: {en: Paris, fr: Paris}, country: {en: France, fr: France}, lat: 48.86, lon: 2.35}
+  lede:
+    en: "French essayist. Le Fanatisme de l'apocalypse reads political ecology as a secular religion of doom that cultivates guilt and fear, and defends progress and abundance against it."
+    fr: "Essayiste français. Le Fanatisme de l'apocalypse lit l'écologie politique comme une religion laïque de la fin du monde, qui cultive la culpabilité et la peur, et défend contre elle le progrès et l'abondance."
+  seeds:
+    - seed: catastrophism
+      text:
+        en: "Prophecies of collapse paralyse more than they mobilise, and turn ecology into a morality of penance."
+        fr: "Les prophéties d'effondrement paralysent plus qu'elles ne mobilisent, et font de l'écologie une morale de la pénitence."
+      source: bruckner-2011
+  works:
+    - {id: bruckner-2011, year: 2011, title: "Le Fanatisme de l'apocalypse : sauver la Terre, punir l'Homme"}

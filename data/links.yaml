@@ -711,3 +711,72 @@
     fr: "La lutte des seringueiros est l'un des cas fondateurs de l'écologisme des pauvres."
   source: martinez-alier-2002
   status: to-verify
+
+# --- Counterpoints: market liberals and conservatives -----------------------
+- from: arthur-cecil-pigou
+  to: ronald-coase
+  type: critiqued
+  note:
+    en: "Coase writes The Problem of Social Cost against the Pigouvian tax: harm is reciprocal, and bargaining can settle it."
+    fr: "Coase écrit The Problem of Social Cost contre la taxe pigouvienne : le dommage est réciproque, et la négociation peut le régler."
+  source: coase-1960
+- from: paul-ehrlich
+  to: julian-simon
+  type: critiqued
+  note:
+    en: "Simon answers Ehrlich's population bomb point by point, and bets him that scarcity will fall."
+    fr: "Simon répond point par point à la bombe démographique d'Ehrlich, et parie avec lui que la rareté reculera."
+  source: simon-1981
+- from: julian-simon
+  to: bjorn-lomborg
+  type: influenced
+  note:
+    en: "Lomborg sets out to refute Simon's claims and ends by confirming most of them."
+    fr: "Lomborg entreprend de réfuter les thèses de Simon et finit par en confirmer la plupart."
+  source: lomborg-2001
+- from: donella-meadows
+  to: william-nordhaus
+  type: critiqued
+  note:
+    en: "Nordhaus reruns the world model of The Limits to Growth and argues that it leaves out prices and technical change."
+    fr: "Nordhaus refait tourner le modèle mondial des Limites à la croissance et soutient qu'il ignore les prix et le progrès technique."
+  source: w-nordhaus-1992
+- from: arne-naess
+  to: luc-ferry
+  type: critiqued
+  note:
+    en: "Ferry reads deep ecology as an anti-humanism and defends against it a democratic, human-centred ecology."
+    fr: "Ferry lit l'écologie profonde comme un anti-humanisme et lui oppose une écologie démocratique, centrée sur l'humain."
+  source: ferry-1992
+- from: ronald-coase
+  to: terry-anderson
+  type: influenced
+  status: to-verify
+  note:
+    en: "Free-market environmentalism builds on Coase: clear property rights let owners and users bargain over resources."
+    fr: "L'environnementalisme de marché s'appuie sur Coase : des droits de propriété clairs permettent aux propriétaires et aux usagers de négocier sur les ressources."
+  source: anderson-1991
+- from: hans-jonas
+  to: pascal-bruckner
+  type: critiqued
+  status: to-verify
+  note:
+    en: "Bruckner targets the heuristics of fear as the founding text of an ecology of guilt."
+    fr: "Bruckner vise l'heuristique de la peur comme texte fondateur d'une écologie de la culpabilité."
+  source: bruckner-2011
+- from: leonardo-boff
+  to: pope-francis
+  type: influenced
+  status: to-verify
+  note:
+    en: "The cry of the earth and the cry of the poor, joined in Boff's theology, return in Laudato si'."
+    fr: "La clameur de la terre et la clameur des pauvres, liées dans la théologie de Boff, reviennent dans Laudato si'."
+  source: francis-2015
+- from: serge-latouche
+  to: alain-de-benoist
+  type: influenced
+  status: to-verify
+  note:
+    en: "De Benoist takes the word degrowth from Latouche's circle and turns it towards rooted communities; Latouche rejects the reading."
+    fr: "De Benoist reprend le mot décroissance au cercle de Latouche et le tourne vers les communautés enracinées ; Latouche récuse cette lecture."
+  source: debenoist-2007

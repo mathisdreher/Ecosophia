@@ -152,3 +152,54 @@
 - author: michael-shellenberger
   nature: [15, shellenberger-2020, {en: "Human prosperity first; environmental alarmism does harm.", fr: "La prospérité humaine d'abord ; l'alarmisme environnemental fait du tort."}]
   change: [10, shellenberger-2020, {en: "Keep the existing path of development, with more nuclear power.", fr: "Garder la voie de développement existante, avec plus de nucléaire."}]
+
+# Counterpoints: market liberals
+- author: arthur-cecil-pigou
+  nature: [15, pigou-1920, {en: "Nature counts through the welfare it brings: the harm a polluter does is a cost to other people.", fr: "La nature compte par le bien-être qu'elle apporte : le dommage d'un pollueur est un coût pour d'autres personnes."}]
+  change: [15, pigou-1920, {en: "A tax corrects the market from within; nothing in the institutions needs to change.", fr: "Une taxe corrige le marché de l'intérieur ; rien dans les institutions n'a besoin de changer."}]
+  power: [15, pigou-1920, {en: "The state measures the harm and levies the tax.", fr: "L'État mesure le dommage et lève la taxe."}]
+- author: ronald-coase
+  nature: [10, coase-1960, {en: "Pollution is a conflict between uses, valued like any other cost.", fr: "La pollution est un conflit entre usages, évalué comme n'importe quel coût."}]
+  change: [10, coase-1960, {en: "Clarify property rights and let existing markets work.", fr: "Clarifier les droits de propriété et laisser travailler les marchés existants."}]
+  power: [60, coase-1960, {en: "The parties settle between themselves rather than through the state; autonomy here means owners, not the commune.", fr: "Les parties règlent entre elles plutôt que par l'État ; l'autonomie est ici celle des propriétaires, non de la commune."}]
+- author: julian-simon
+  nature: [5, simon-1981, {en: "Resources are what human ingenuity makes of matter.", fr: "Les ressources sont ce que l'ingéniosité humaine fait de la matière."}]
+  change: [5, simon-1981, {en: "Growth and population already solve scarcity; nothing needs to break.", fr: "La croissance et la population résolvent déjà la rareté ; rien n'a besoin de rompre."}]
+  power: [65, simon-1981, {en: "Prices and free individuals, not planners, find the substitutes.", fr: "Les prix et des individus libres, non des planificateurs, trouvent les substituts."}]
+- author: terry-anderson
+  nature: [15, anderson-1991, {en: "Nature is protected as an asset its owner has reason to keep.", fr: "La nature est protégée comme un actif que son propriétaire a intérêt à garder."}]
+  change: [15, anderson-1991, {en: "Extend property and markets, which already exist, to the environment.", fr: "Étendre à l'environnement la propriété et les marchés, qui existent déjà."}]
+  power: [75, anderson-1991, {en: "Owners and voluntary groups rather than regulators decide; autonomy of property, not of the commune.", fr: "Propriétaires et associations volontaires plutôt que régulateurs décident ; autonomie de la propriété, non de la commune."}]
+- author: william-nordhaus
+  nature: [10, w-nordhaus-2008, {en: "Climate damage is weighed in money against the cost of avoiding it.", fr: "Le dommage climatique est pesé en monnaie contre le coût de l'éviter."}]
+  change: [10, w-nordhaus-2008, {en: "A carbon price fits growth models and existing institutions.", fr: "Un prix du carbone s'insère dans les modèles de croissance et les institutions existantes."}]
+  power: [25, w-nordhaus-2013, {en: "Governments, ideally in a climate club, set the price.", fr: "Les gouvernements, idéalement dans un club climatique, fixent le prix."}]
+- author: bjorn-lomborg
+  nature: [10, lomborg-2001, {en: "Environmental goods are ranked by what they bring to human welfare.", fr: "Les biens environnementaux sont classés selon ce qu'ils apportent au bien-être humain."}]
+  change: [5, lomborg-2001, {en: "The state of the world is improving; spend wisely within current institutions.", fr: "L'état du monde s'améliore ; il suffit de dépenser avec discernement dans les institutions actuelles."}]
+  power: [35, lomborg-2001, {en: "Governments and donors allocate budgets by cost-benefit ranking.", fr: "Gouvernements et donateurs répartissent les budgets selon un classement coûts-bénéfices."}]
+- author: luc-ferry
+  nature: [5, ferry-1992, {en: "Only beings capable of freedom hold rights; nature has value for us.", fr: "Seuls des êtres capables de liberté ont des droits ; la nature a une valeur pour nous."}]
+  change: [10, ferry-1992, {en: "A reformist, democratic ecology within liberal institutions.", fr: "Une écologie réformiste et démocratique dans les institutions libérales."}]
+  power: [30, ferry-1992, {en: "Liberal democracy and its state, against ecological radicalism.", fr: "La démocratie libérale et son État, contre le radicalisme écologique."}]
+- author: pascal-bruckner
+  nature: [5, bruckner-2011, {en: "Humanity is not the planet's culprit; human progress comes first.", fr: "L'humanité n'est pas la coupable de la planète ; le progrès humain passe d'abord."}]
+  change: [5, bruckner-2011, {en: "Progress and abundance, not penance or rupture.", fr: "Le progrès et l'abondance, non la pénitence ni la rupture."}]
+
+# Counterpoints: conservatives
+- author: roger-scruton
+  nature: [40, scruton-2012, {en: "Nature is loved as home and landscape, a trust held for the dead and the unborn.", fr: "La nature est aimée comme chez-soi et paysage, un dépôt tenu pour les morts et les générations à naître."}]
+  change: [5, scruton-2012, {en: "Conserve institutions and attachments; distrust revolutionary plans.", fr: "Conserver les institutions et les attachements ; se défier des plans révolutionnaires."}]
+  power: [75, scruton-2012, {en: "Local associations and civil society rather than the state or global bodies.", fr: "Les associations locales et la société civile plutôt que l'État ou les instances mondiales."}]
+- author: edward-goldsmith
+  nature: [75, goldsmith-1992, {en: "The ecosphere is an ordered whole to which societies must conform.", fr: "L'écosphère est un tout ordonné auquel les sociétés doivent se conformer."}]
+  change: [80, goldsmith-1992, {en: "Undo industrial modernity and return to traditional ways of life.", fr: "Défaire la modernité industrielle et revenir aux modes de vie traditionnels."}]
+  power: [85, goldsmith-1972, {en: "Small, decentralised, self-sufficient communities.", fr: "De petites communautés décentralisées et autosuffisantes."}]
+- author: pope-francis
+  nature: [60, francis-2015, {en: "Creatures have a value of their own before God, not only as useful to us.", fr: "Les créatures ont une valeur propre devant Dieu, non seulement par leur utilité pour nous."}]
+  change: [65, francis-2015, {en: "Calls for a bold cultural revolution against the technocratic paradigm.", fr: "Appelle à une révolution culturelle courageuse contre le paradigme technocratique."}]
+  power: [35, francis-2015, {en: "Asks for stronger politics and international agreements, alongside local action.", fr: "Demande une politique plus forte et des accords internationaux, avec l'action locale."}]
+- author: alain-de-benoist
+  nature: [55, debenoist-2007, {en: "Ecology as a limit on human hubris, read through rooted peoples.", fr: "L'écologie comme limite à la démesure humaine, lue à travers les peuples enracinés."}]
+  change: [75, debenoist-2007, {en: "Break with the market society and its growth, from the right.", fr: "Rompre avec la société de marché et sa croissance, depuis la droite."}]
+  power: [70, debenoist-2007, {en: "Rooted local and regional communities rather than the universal state.", fr: "Des communautés locales et régionales enracinées plutôt que l'État universel."}]

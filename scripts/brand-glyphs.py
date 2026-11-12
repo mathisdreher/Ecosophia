@@ -37,7 +37,9 @@ BRANCHES = {
     'anthropocene': ('Anthropocene: the strata', P('M4 5h16v14H4z') + P('M4 9.5c3 1 5-1 8 0s5 1 8 0M4 14c3 1 5-1 8 0s5 1 8 0')),
     'technocritique': ('Technocritique: the gear and the leaf', C(12, 12, 6) + P('M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1') + P('M9.8 14.2c0-2.8 1.8-4.6 4.6-4.6 0 2.8-1.8 4.6-4.6 4.6zM9.8 14.2l2.6-2.6')),
     'queer-ecology': ('Queer ecology: the fungus', P('M4 12a8 7 0 0 1 16 0z') + P('M10 12v6.5a2 2 0 0 0 4 0V12') + C(9, 9, 0.9, FILL) + C(14.5, 8, 0.9, FILL)),
-    'counterpoint': ('Counterpoint: the reply', P('M4 9h13M13.5 5.5 17 9l-3.5 3.5') + P('M20 15H7M10.5 11.5 7 15l3.5 3.5')),
+    'market': ('Market liberals: the price tag', P('M4 4.5h8l8.5 8.5-7.5 7.5L4.5 12z') + C(8.5, 8.8, 1.6)),
+    'conservative': ('Conservatives: the home and its tree', P('M4 11 12 4.5 20 11v9H4z') + P('M12 20v-4.5') + P('M12 15.5c-1.9 0-3.1-1.3-3.1-2.8s1.3-2.6 3.1-2.6 3.1 1.1 3.1 2.6-1.2 2.8-3.1 2.8z')),
+    'counterpoint': ('Ecomodernists: the reply', P('M4 9h13M13.5 5.5 17 9l-3.5 3.5') + P('M20 15H7M10.5 11.5 7 15l3.5 3.5')),
 }
 (ROOT / 'public/glyphs/branches').mkdir(parents=True, exist_ok=True)
 for k, (t, b) in GLYPHS.items():
