@@ -1,0 +1,10 @@
+---
+import { L } from '../lib/text.mjs';
+import { href } from '../lib/site.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+
+const { seed, lang, touch = false } = Astro.props;
+const s = loadCorpus().seeds[seed];
+---
+
+<a class:list={['eco-seed', { touch }]} href={href(lang, 'seeds', undefined, seed)}>{L(s.name, lang)}</a>

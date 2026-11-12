@@ -1,0 +1,158 @@
+# Ecofeminism.
+
+- id: francoise-deaubonne
+  name: Françoise d'Eaubonne
+  sort: Eaubonne
+  short: d'Eaubonne
+  layer: leaf
+  branch: ecofeminism
+  born: 1920
+  died: 2005
+  place: {city: {en: Paris, fr: Paris}, country: {en: France, fr: France}, lat: 48.857, lon: 2.352}
+  wikidata: Q295009
+  lede:
+    en: "French writer and activist, co-founder of the Mouvement de libération des femmes and of the Front homosexuel d'action révolutionnaire. Le Féminisme ou la mort coins the word écoféminisme: one patriarchal power has taken hold of women's fertility and of the fertility of the earth."
+    fr: "Écrivaine et militante française, cofondatrice du Mouvement de libération des femmes et du Front homosexuel d'action révolutionnaire. Le Féminisme ou la mort forge le mot écoféminisme : un même pouvoir patriarcal s'est emparé de la fécondité des femmes et de la fertilité de la terre."
+  seeds:
+    - seed: ecofeminism
+      text:
+        en: "The exhaustion of resources and the subjection of women have one source, and one remedy."
+        fr: "L'épuisement des ressources et l'assujettissement des femmes ont une même source, et un même remède."
+      source: eaubonne-1974
+    - seed: control-of-fertility
+      text:
+        en: "Women taking back the control of births is, for her, the first ecological act."
+        fr: "Que les femmes reprennent la maîtrise des naissances est, pour elle, le premier acte écologique."
+      source: eaubonne-1974
+  works:
+    - {id: eaubonne-1974, year: 1974, title: Le Féminisme ou la mort}
+    - {id: eaubonne-1978, year: 1978, title: "Écologie/Féminisme : révolution ou mutation ?"}
+
+- id: val-plumwood
+  name: Val Plumwood
+  sort: Plumwood
+  layer: leaf
+  branch: ecofeminism
+  born: 1939
+  died: 2008
+  place: {city: {en: Sydney, fr: Sydney}, country: {en: Australia, fr: Australie}, lat: -33.87, lon: 151.21}
+  wikidata: Q7909128
+  lede:
+    en: "Australian philosopher. She analysed the dualisms that set reason against nature, man against woman and master against slave. In 1985 she survived a crocodile attack in Kakadu and wrote about what it means to be prey."
+    fr: "Philosophe australienne. Elle analyse les dualismes qui opposent la raison à la nature, l'homme à la femme et le maître à l'esclave. En 1985, elle survit à l'attaque d'un crocodile à Kakadu et écrit sur ce que signifie être une proie."
+  seeds:
+    - seed: dualism
+      text:
+        en: "A pair in which one side is defined as the lack of the other: reason and nature, mind and body."
+        fr: "Un couple dont un terme se définit comme le manque de l'autre : raison et nature, esprit et corps."
+      source: plumwood-1993
+    - seed: mastery
+      text:
+        en: "The master's standpoint denies its dependence on what it uses, whether a woman, a slave or the earth."
+        fr: "Le point de vue du maître nie sa dépendance envers ce qu'il utilise, qu'il s'agisse d'une femme, d'un esclave ou de la terre."
+      source: plumwood-1993
+    - seed: being-prey
+      text:
+        en: "To be food for another animal is to learn that humans belong to the food chain."
+        fr: "Être la nourriture d'un autre animal, c'est apprendre que les humains appartiennent à la chaîne alimentaire."
+      source: plumwood-1996
+  works:
+    - {id: plumwood-1993, year: 1993, title: Feminism and the Mastery of Nature}
+    - {id: plumwood-1996, year: 1996, title: Being Prey, kind: article, in: Terra Nova, issue: "1"}
+    - {id: plumwood-2002, year: 2002, title: "Environmental Culture: The Ecological Crisis of Reason"}
+
+- id: vandana-shiva
+  name: Vandana Shiva
+  sort: Shiva
+  layer: leaf
+  branch: ecofeminism
+  also: [decolonial]
+  born: 1952
+  place: {city: {en: Dehradun, fr: Dehradun}, country: {en: India, fr: Inde}, lat: 30.32, lon: 78.03}
+  wikidata: Q235451
+  lede:
+    en: "Indian physicist turned activist, founder of the seed-saving network Navdanya. Staying Alive describes development as a maldevelopment that destroys the subsistence work of rural women and the forests it depends on."
+    fr: "Physicienne indienne devenue militante, fondatrice du réseau de conservation des semences Navdanya. Staying Alive décrit le développement comme un maldéveloppement qui détruit le travail de subsistance des femmes rurales et les forêts dont il dépend."
+  seeds:
+    - seed: maldevelopment
+      text:
+        en: "Development that counts only what is sold treats the work that sustains life as unproductive."
+        fr: "Un développement qui ne compte que ce qui se vend tient pour improductif le travail qui entretient la vie."
+      source: shiva-1988
+    - seed: monocultures-of-the-mind
+      text:
+        en: "Uniform fields begin as uniform knowledge: one science displaces many local ones."
+        fr: "Les champs uniformes commencent par un savoir uniforme : une science évince de nombreux savoirs locaux."
+      source: shiva-1993
+    - seed: biopiracy
+      text:
+        en: "Patents on seeds and plants turn commons tended for centuries into corporate property."
+        fr: "Les brevets sur les semences et les plantes transforment en propriété d'entreprise des communs entretenus depuis des siècles."
+      source: shiva-1997
+  works:
+    - {id: shiva-1988, year: 1988, title: "Staying Alive: Women, Ecology and Development"}
+    - {id: shiva-1993, year: 1993, title: Monocultures of the Mind}
+    - {id: shiva-1997, year: 1997, title: "Biopiracy: The Plunder of Nature and Knowledge"}
+
+- id: carolyn-merchant
+  name: Carolyn Merchant
+  sort: Merchant
+  layer: leaf
+  branch: ecofeminism
+  born: 1936
+  place: {city: {en: "Rochester, New York", fr: "Rochester (New York)"}, country: {en: United States, fr: États-Unis}, lat: 43.16, lon: -77.61}
+  wikidata: Q2940097
+  lede:
+    en: "American historian of science at Berkeley. The Death of Nature shows how the scientific revolution replaced the image of a living, female earth with that of a machine, and how the change licensed both mining and the subordination of women."
+    fr: "Historienne des sciences américaine à Berkeley. La Mort de la nature montre comment la révolution scientifique a remplacé l'image d'une terre vivante et féminine par celle d'une machine, et comment ce changement a autorisé à la fois l'exploitation minière et la subordination des femmes."
+  seeds:
+    - seed: death-of-nature
+      text:
+        en: "A nurturing mother restrains those who would dig into her; a mechanism does not."
+        fr: "Une mère nourricière retient ceux qui voudraient la fouiller ; un mécanisme, non."
+      source: merchant-1980
+    - seed: partnership-ethic
+      text:
+        en: "Neither domination nor submission: humans and nature as partners with needs on both sides."
+        fr: "Ni domination ni soumission : humains et nature comme partenaires, avec des besoins de part et d'autre."
+      source: merchant-1996
+  works:
+    - {id: merchant-1980, year: 1980, title: "The Death of Nature: Women, Ecology and the Scientific Revolution"}
+    - {id: merchant-1989, year: 1989, title: "Ecological Revolutions: Nature, Gender, and Science in New England"}
+    - {id: merchant-1996, year: 1996, title: "Earthcare: Women and the Environment"}
+
+- id: maria-mies
+  name: Maria Mies
+  sort: Mies
+  layer: leaf
+  branch: ecofeminism
+  born: 1931
+  died: 2023
+  place: {city: {en: Hillesheim, fr: Hillesheim}, country: {en: Germany, fr: Allemagne}, lat: 50.29, lon: 6.67}
+  wikidata: Q111452
+  lede:
+    en: "German sociologist in Cologne, after years of teaching in India. She analysed how accumulation rests on the unpaid work of women, peasants and colonies, and proposed a subsistence perspective in its place."
+    fr: "Sociologue allemande à Cologne, après des années d'enseignement en Inde. Elle analyse comment l'accumulation repose sur le travail non payé des femmes, des paysans et des colonies, et propose à la place une perspective de subsistance."
+  seeds:
+    - seed: housewifisation
+      text:
+        en: "Capital defines women's work as a natural resource, free like air and water."
+        fr: "Le capital définit le travail des femmes comme une ressource naturelle, gratuite comme l'air et l'eau."
+      source: mies-1986
+    - seed: subsistence-perspective
+      text:
+        en: "Organise the economy around the production of life, not the production of commodities."
+        fr: "Organiser l'économie autour de la production de la vie, non de la production de marchandises."
+      source: mies-1999
+  works:
+    - {id: mies-1986, year: 1986, title: "Patriarchy and Accumulation on a World Scale: Women in the International Division of Labour"}
+    - id: mies-1993
+      year: 1993
+      title: Ecofeminism
+      by: {en: Mies and Shiva, fr: Mies et Shiva}
+      note: {en: with Vandana Shiva, fr: avec Vandana Shiva}
+    - id: mies-1999
+      year: 1999
+      title: "The Subsistence Perspective: Beyond the Globalised Economy"
+      by: {en: Mies and Bennholdt-Thomsen, fr: Mies et Bennholdt-Thomsen}
+      note: {en: with Veronika Bennholdt-Thomsen, fr: avec Veronika Bennholdt-Thomsen}

@@ -1,0 +1,67 @@
+---
+// Roots: the precursors, group by group.
+import Base from '../layouts/Base.astro';
+import AuthorLeaf from '../components/AuthorLeaf.astro';
+import LinkRows from '../components/LinkRows.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { L } from '../lib/text.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+
+const { lang } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+const roots = new Set(c.authors.filter((a) => a.layer === 'root').map((a) => a.id));
+const rising = c.sourcedLinks.filter((l) => roots.has(l.from) && !roots.has(l.to));
+---
+
+<Base lang={lang} view="roots" title={t('roots.title')} description={t('roots.lede')}>
+  <section class="page-head">
+    <nav class="crumbs" aria-label={lang === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'}>
+      <a href={href(lang, 'home')}>{t('tabs.tree')}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{t('roots.title')}</span>
+    </nav>
+    <h1 class="t-title">{t('roots.title')}</h1>
+    <p class="t-lede">{t('roots.lede')}</p>
+  </section>
+  <section class="page-body stack gap-8">
+    {
+      c.rootGroups.map((g) => (
+        <div class="group stack gap-4" id={g.id}>
+          <div class="stack gap-1">
+            <h2 class="t-heading">{L(g.name, lang)}</h2>
+            <p>{L(g.summary, lang)}</p>
+            <span class="eco-meta">
+              {t('roots.marker')}: {g.marker.year}, {L(g.marker.text, lang)}
+            </span>
+          </div>
+          <div class="leaf-grid">{g.authors.map((a) => <AuthorLeaf author={a} lang={lang} />)}</div>
+        </div>
+      ))
+    }
+  </section>
+
+  <div class="below-grid" slot="below">
+    <div class="below-col wide">
+      <div class="below-head">
+        <span class="label humus">{t('branch.threadsLabel')}</span>
+        <h2 class="t-heading">{lang === 'fr' ? 'Ce que les racines ont transmis' : 'What the roots passed on'}</h2>
+      </div>
+      <LinkRows links={rising} lang={lang} />
+    </div>
+  </div>
+</Base>
+
+<style>
+  .group {
+    padding-top: var(--space-6);
+    border-top: var(--stroke-branch) solid var(--humus);
+  }
+  .group h2 {
+    color: var(--humus);
+  }
+  .below-col.wide {
+    max-width: 900px;
+  }
+</style>

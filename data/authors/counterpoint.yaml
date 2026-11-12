@@ -1,0 +1,82 @@
+# Counterpoints: grafted onto the tree for debate, never a branch of the field.
+
+- id: stewart-brand
+  name: Stewart Brand
+  sort: Brand
+  layer: leaf
+  branch: counterpoint
+  born: 1938
+  place: {city: {en: "Rockford, Illinois", fr: "Rockford (Illinois)"}, country: {en: United States, fr: États-Unis}, lat: 42.27, lon: -89.09}
+  wikidata: Q971994
+  lede:
+    en: "American writer and editor, founder of the Whole Earth Catalog in 1968. Forty years later he asked environmentalists to reverse four of their positions and to accept dense cities, nuclear power, genetic engineering and geoengineering."
+    fr: "Écrivain et éditeur américain, fondateur du Whole Earth Catalog en 1968. Quarante ans plus tard, il demande aux écologistes d'inverser quatre de leurs positions et d'accepter les villes denses, le nucléaire, le génie génétique et la géo-ingénierie."
+  seeds:
+    - seed: ecopragmatism
+      text:
+        en: "Judge a technology by its measured effects on the climate, not by where it comes from."
+        fr: "Juger une technique à ses effets mesurés sur le climat, non à sa provenance."
+      source: brand-2009
+  works:
+    - {id: brand-1968, year: 1968, title: Whole Earth Catalog}
+    - {id: brand-2009, year: 2009, title: "Whole Earth Discipline: An Ecopragmatist Manifesto"}
+
+- id: ted-nordhaus
+  name: Ted Nordhaus
+  sort: Nordhaus
+  layer: leaf
+  branch: counterpoint
+  place: {country: {en: United States, fr: États-Unis}}
+  wikidata: Q7693562
+  lede:
+    en: "American policy writer, co-founder of the Breakthrough Institute in California. With Michael Shellenberger he argued in 2004 that an environmentalism built on limits and regulation could not answer global warming, and in 2015 he co-signed An Ecomodernist Manifesto."
+    fr: "Essayiste américain, cofondateur du Breakthrough Institute, en Californie. Avec Michael Shellenberger, il soutient en 2004 qu'un environnementalisme fondé sur les limites et la réglementation ne peut pas répondre au réchauffement, et il cosigne en 2015 An Ecomodernist Manifesto."
+  seeds:
+    - seed: death-of-environmentalism
+      text:
+        en: "A politics of limits cannot win majorities: offer investment and prosperity instead."
+        fr: "Une politique des limites ne peut pas gagner de majorité : il faut proposer de l'investissement et de la prospérité."
+      source: nordhaus-2004
+    - seed: decoupling
+      text:
+        en: "Intensify farming, energy and cities so that human welfare needs less land and leaves more to nature."
+        fr: "Intensifier l'agriculture, l'énergie et les villes pour que le bien-être humain occupe moins de terres et en laisse davantage à la nature."
+      source: nordhaus-2015
+  works:
+    - id: nordhaus-2004
+      year: 2004
+      title: "The Death of Environmentalism: Global Warming Politics in a Post-Environmental World"
+      kind: report
+      by: {en: Shellenberger and Nordhaus, fr: Shellenberger et Nordhaus}
+      note: {en: with Michael Shellenberger, fr: avec Michael Shellenberger}
+    - id: nordhaus-2007
+      year: 2007
+      title: "Break Through: From the Death of Environmentalism to the Politics of Possibility"
+      by: {en: Nordhaus and Shellenberger, fr: Nordhaus et Shellenberger}
+      note: {en: with Michael Shellenberger, fr: avec Michael Shellenberger}
+    - id: nordhaus-2015
+      year: 2015
+      title: An Ecomodernist Manifesto
+      kind: report
+      by: {en: Asafu-Adjaye et al., fr: Asafu-Adjaye et al.}
+      note: {en: collective text with eighteen signatories, fr: texte collectif de dix-huit signataires}
+
+- id: michael-shellenberger
+  name: Michael Shellenberger
+  sort: Shellenberger
+  layer: leaf
+  branch: counterpoint
+  born: 1971
+  place: {country: {en: United States, fr: États-Unis}}
+  wikidata: Q6834344
+  lede:
+    en: "American writer, co-founder of the Breakthrough Institute and co-author of An Ecomodernist Manifesto. He campaigns for nuclear power, and Apocalypse Never attacks what he calls environmental alarmism."
+    fr: "Essayiste américain, cofondateur du Breakthrough Institute et coauteur d'An Ecomodernist Manifesto. Il milite pour le nucléaire, et Apocalypse Never s'en prend à ce qu'il appelle l'alarmisme environnemental."
+  seeds:
+    - seed: ecomodernism
+      text:
+        en: "Human prosperity and an ecologically vibrant planet are compatible, through technology and not through restraint."
+        fr: "La prospérité humaine et une planète écologiquement vivante sont compatibles, par la technique et non par la retenue."
+      source: nordhaus-2015
+  works:
+    - {id: shellenberger-2020, year: 2020, title: "Apocalypse Never: Why Environmental Alarmism Hurts Us All"}

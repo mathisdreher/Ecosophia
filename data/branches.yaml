@@ -1,0 +1,99 @@
+# Schools and currents, in the order they stand on the tree (left to right).
+# Boundaries are editorial: see the method page. A branch colour never appears
+# without the branch name (design/brand.md, "Colour").
+- id: technocritique
+  token: branch-technocritique
+  name: {en: Technocritique, fr: Technocritique}
+  full: {en: Technocritique and eco-anarchism, fr: Technocritique et éco-anarchisme}
+  summary:
+    en: "The oldest quarrel of the field: is the problem what we produce, or the tools that produce it? From Mumford's megamachine to Illich's convivial tools, these authors hold that past a certain scale technique stops serving its users and starts commanding them."
+    fr: "La plus ancienne querelle du champ : le problème tient-il à ce que l'on produit, ou aux outils qui le produisent ? De la mégamachine de Mumford aux outils conviviaux d'Illich, ces auteurs soutiennent qu'au-delà d'une certaine échelle la technique cesse de servir ses usagers et se met à les commander."
+
+- id: degrowth
+  token: branch-degrowth
+  name: {en: Degrowth, fr: Décroissance}
+  full: {en: Degrowth and bioeconomics, fr: Décroissance et bioéconomie}
+  summary:
+    en: "Growth meets physical limits, and the wish for growth meets limits of meaning. Georgescu-Roegen supplies the thermodynamics, Latouche the slogan, Kallis and Hickel the research programme and its accounts between North and South."
+    fr: "La croissance bute sur des limites physiques, et le désir de croissance sur des limites de sens. Georgescu-Roegen apporte la thermodynamique, Latouche le mot d'ordre, Kallis et Hickel le programme de recherche et ses comptes entre Nord et Sud."
+
+- id: social-ecology
+  token: branch-social-ecology
+  name: {en: Social ecology, fr: Écologie sociale}
+  full: {en: Social ecology and libertarian municipalism, fr: Écologie sociale et municipalisme libertaire}
+  summary:
+    en: "Ecological problems are social problems: the domination of nature follows from the domination of human by human. Bookchin's answer is political, the face-to-face democracy of the municipality, federated from below."
+    fr: "Les problèmes écologiques sont des problèmes sociaux : la domination de la nature découle de la domination de l'humain par l'humain. La réponse de Bookchin est politique, la démocratie directe de la commune, fédérée par le bas."
+
+- id: ecosocialism
+  token: branch-ecosocialism
+  name: {en: Ecosocialism, fr: Écosocialisme}
+  full: {en: Ecosocialism and eco-Marxism, fr: Écosocialisme et écomarxisme}
+  summary:
+    en: "Capital accumulates without limit on a planet that has limits. Eco-Marxists reread Marx for a theory of the rift between society and the soil, and argue that no ecological transition is possible without changing who owns and plans production."
+    fr: "Le capital s'accumule sans limite sur une planète qui en a. Les écomarxistes relisent Marx pour y trouver une théorie de la rupture entre la société et le sol, et soutiennent qu'aucune transition écologique n'est possible sans changer qui possède et qui planifie la production."
+
+- id: deep-ecology
+  token: branch-deep-ecology
+  name: {en: Deep ecology, fr: Écologie profonde}
+  full: {en: Deep ecology and environmental ethics, fr: Écologie profonde et éthique environnementale}
+  summary:
+    en: "Does nature count for itself, or only for us? Environmental ethics and deep ecology answer that living beings and ecosystems have a value of their own, and that the human self is larger than the individual."
+    fr: "La nature compte-t-elle pour elle-même, ou seulement pour nous ? L'éthique environnementale et l'écologie profonde répondent que les êtres vivants et les écosystèmes ont une valeur propre, et que le soi humain est plus large que l'individu."
+
+- id: ecosophy
+  token: branch-ecosophy
+  name: {en: Ecosophy, fr: Écosophie}
+  full: {en: Ecosophy proper, fr: Écosophie proprement dite}
+  summary:
+    en: "The project's own branch. Næss calls ecosophy a personal wisdom of ecological harmony; Guattari, without building on him, gives the word to the joint care of the environment, of social relations and of subjectivity; Morizot extends it to a diplomacy among living beings."
+    fr: "La branche propre du projet. Næss appelle écosophie une sagesse personnelle de l'harmonie écologique ; Guattari, sans s'appuyer sur lui, donne le mot au soin conjoint de l'environnement, des rapports sociaux et de la subjectivité ; Morizot le prolonge en une diplomatie entre vivants."
+
+- id: anthropocene
+  token: branch-anthropocene
+  name: {en: Anthropocene, fr: Anthropocène}
+  full: {en: "Anthropocene, Gaia and new materialisms", fr: "Anthropocène, Gaïa et nouveaux matérialismes"}
+  summary:
+    en: "What becomes of politics when the Earth answers back? From Lovelock's Gaia to Latour, Stengers, Haraway and Tsing, these authors drop the divide between nature and society and describe a planet made by the entanglement of humans and other beings."
+    fr: "Que devient la politique quand la Terre répond ? De la Gaïa de Lovelock à Latour, Stengers, Haraway et Tsing, ces auteurs abandonnent le partage entre nature et société et décrivent une planète faite de l'enchevêtrement des humains et des autres êtres."
+
+- id: political-ecology
+  token: branch-political-ecology
+  name: {en: Political ecology, fr: Political ecology}
+  full: {en: Political ecology as a discipline, fr: La political ecology comme discipline}
+  summary:
+    en: "Political ecology as an academic field, born in anglophone geography and anthropology in the 1980s. It explains environmental change by relations of power, studies conflicts over land, water and mines, and questions the Western divide between nature and culture."
+    fr: "L'écologie politique comme champ universitaire, née dans la géographie et l'anthropologie anglophones des années 1980, et que le français nomme souvent en anglais pour la distinguer de l'écologie politique au sens large. Elle explique les changements environnementaux par des rapports de pouvoir, étudie les conflits pour la terre, l'eau et les mines, et interroge le partage occidental entre nature et culture."
+
+- id: decolonial
+  token: branch-decolonial
+  name: {en: Decolonial, fr: Décolonial}
+  full: {en: Decolonial ecology and environmental justice, fr: Écologie décoloniale et justice environnementale}
+  summary:
+    en: "Who pays for whose environment? Decolonial ecology and environmental justice start from the plantation, the mine and the dump, and show that pollution and conservation alike have followed the lines of race and empire."
+    fr: "Qui paie pour l'environnement de qui ? L'écologie décoloniale et la justice environnementale partent de la plantation, de la mine et de la décharge, et montrent que la pollution comme la conservation ont suivi les lignes de la race et de l'empire."
+
+- id: ecofeminism
+  token: branch-ecofeminism
+  name: {en: Ecofeminism, fr: Écoféminisme}
+  full: {en: Ecofeminism, fr: Écoféminisme}
+  summary:
+    en: "One logic subordinates women and nature. From the word d'Eaubonne coined in 1974 to Plumwood's critique of dualism and the subsistence perspective of Mies and Shiva, ecofeminists link the control of bodies, of reproduction and of land."
+    fr: "Une même logique subordonne les femmes et la nature. Du mot forgé par d'Eaubonne en 1974 à la critique du dualisme chez Plumwood et à la perspective de subsistance de Mies et Shiva, les écoféministes relient le contrôle des corps, de la reproduction et de la terre."
+
+- id: queer-ecology
+  token: branch-queer-ecology
+  name: {en: Queer ecology, fr: Écologie queer}
+  full: {en: Queer ecology, fr: Écologie queer}
+  summary:
+    en: "What counts as natural, and who decides? Queer ecology shows how ideas of nature have policed sexuality, and proposes ecologies that do without the norms of purity, family and reproduction."
+    fr: "Qu'est-ce qui passe pour naturel, et qui en décide ? L'écologie queer montre comment les idées de nature ont servi à policer la sexualité, et propose des écologies qui se passent des normes de pureté, de famille et de reproduction."
+
+- id: counterpoint
+  token: branch-counterpoint
+  graft: true
+  name: {en: Counterpoint, fr: Contrepoint}
+  full: {en: "Counterpoints: ecomodernism and green growth", fr: "Contrepoints : écomodernisme et croissance verte"}
+  summary:
+    en: "Not a branch of the field but its opponents from within environmentalism: ecomodernists hold that technology, cities and nuclear power can decouple prosperity from its footprint. They are grafted onto the tree because the field defines itself against them."
+    fr: "Non pas une branche du champ, mais ses contradicteurs venus de l'environnementalisme : les écomodernistes soutiennent que la technique, les villes et le nucléaire peuvent découpler la prospérité de son empreinte. Ils sont greffés sur l'arbre parce que le champ se définit contre eux."

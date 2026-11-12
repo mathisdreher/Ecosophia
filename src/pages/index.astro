@@ -1,0 +1,83 @@
+---
+// The root of the site sends the reader to their language: the one they chose
+// last time, else the browser's, else English. Without JavaScript the page
+// simply offers both.
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/instrument-sans/index.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+import Logo from '../components/Logo.astro';
+import { withBase, absolute } from '../lib/site.mjs';
+import { pathFor } from '../i18n/routes.mjs';
+
+const site = Astro.site ?? new URL('http://localhost:4321');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ecosophia</title>
+    <meta name="description" content="Roots, branches and mycelium of political ecology. Racines, branches et mycélium de l'écologie politique." />
+    <link rel="canonical" href={absolute(site, '/')} />
+    <link rel="alternate" hreflang="en" href={absolute(site, pathFor('en'))} />
+    <link rel="alternate" hreflang="fr" href={absolute(site, pathFor('fr'))} />
+    <link rel="alternate" hreflang="x-default" href={absolute(site, pathFor('en'))} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <script is:inline define:vars={{ en: withBase('/en/'), fr: withBase('/fr/') }}>
+      (function () {
+        var lang = null;
+        try {
+          lang = localStorage.getItem('eco-lang');
+          var t = localStorage.getItem('eco-theme');
+          if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+        } catch (e) {}
+        if (lang !== 'en' && lang !== 'fr') {
+          var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+          lang = 'en';
+          for (var i = 0; i < list.length; i++) {
+            var code = String(list[i]).toLowerCase();
+            if (code.indexOf('fr') === 0) { lang = 'fr'; break; }
+            if (code.indexOf('en') === 0) { lang = 'en'; break; }
+          }
+        }
+        window.location.replace(lang === 'fr' ? fr : en);
+      })();
+    </script>
+  </head>
+  <body>
+    <main class="gate">
+      <span class="logo"><Logo /></span>
+      <p class="t-lede" lang="en">Roots, branches and mycelium of political ecology.</p>
+      <p class="t-lede" lang="fr">Racines, branches et mycélium de l’écologie politique.</p>
+      <div class="row gap-3">
+        <a class="eco-btn" href={withBase('/en/')} hreflang="en" lang="en">Read in English</a>
+        <a class="eco-btn quiet" href={withBase('/fr/')} hreflang="fr" lang="fr">Lire en français</a>
+      </div>
+    </main>
+  </body>
+</html>
+
+<style>
+  .gate {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--space-4);
+    padding: var(--space-12) var(--gutter);
+    max-width: 720px;
+  }
+  .logo {
+    display: block;
+    color: var(--ink);
+    margin-bottom: var(--space-4);
+  }
+  .logo :global(svg) {
+    display: block;
+    width: 272px;
+    height: 64px;
+  }
+</style>

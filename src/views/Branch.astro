@@ -1,0 +1,89 @@
+---
+// A branch: its leaves above the ground line, the threads that cross it below.
+import Base from '../layouts/Base.astro';
+import AuthorLeaf from '../components/AuthorLeaf.astro';
+import BranchChip from '../components/BranchChip.astro';
+import LinkRows from '../components/LinkRows.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { L } from '../lib/text.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+
+const { lang, id } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+const b = c.branchById[id];
+const members = new Set(b.authors.map((a) => a.id));
+const touching = c.sourcedLinks.filter((l) => members.has(l.from) || members.has(l.to));
+const crossing = touching.filter((l) => !(members.has(l.from) && members.has(l.to)));
+const inside = touching.filter((l) => members.has(l.from) && members.has(l.to));
+---
+
+<Base lang={lang} view="branch" id={id} title={L(b.full, lang)} description={L(b.summary, lang)}>
+  <section class="page-head" style={`--chip: var(--${b.token})`}>
+    <nav class="crumbs" aria-label={lang === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'}>
+      <a href={href(lang, 'home')}>{t('tabs.tree')}</a>
+      <span aria-hidden="true">/</span>
+      <a href={href(lang, 'branches')}>{t('branch.all')}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{L(b.name, lang)}</span>
+    </nav>
+    <div class="row gap-3">
+      <span class="label t-muted">{b.graft ? t('common.graft') : t('branch.label')}</span>
+      <BranchChip branch={b} lang={lang} link={false} active />
+    </div>
+    <h1 class="t-title">{L(b.full, lang)}</h1>
+    <p class="t-lede">{L(b.summary, lang)}</p>
+    {b.graft && <p class="notice t-small">{t('branch.graftNote')}</p>}
+  </section>
+
+  <section class="page-body stack gap-8">
+    <div class="stack gap-4">
+      <h2 class="t-heading">{t('branch.leaves')}</h2>
+      <div class="leaf-grid">{b.authors.map((a) => <AuthorLeaf author={a} lang={lang} />)}</div>
+    </div>
+    {
+      b.guests.length > 0 && (
+        <div class="stack gap-2">
+          <h2 class="t-heading">{t('branch.guests')}</h2>
+          <p class="t-small t-muted">{t('branch.guestsNote')}</p>
+          <p class="guests">
+            {b.guests.map((a, i) => (
+              <>
+                {i > 0 && <span aria-hidden="true"> · </span>}
+                <a class="strong-link" href={href(lang, 'author', a.id)}>{a.name}</a>
+              </>
+            ))}
+          </p>
+        </div>
+      )
+    }
+  </section>
+
+  <div class="below-grid" slot="below">
+    <div class="below-col">
+      <div class="below-head">
+        <span class="label humus">{t('branch.threadsLabel')}</span>
+        <h2 class="t-heading">{t('branch.threads')}</h2>
+      </div>
+      {crossing.length === 0 ? <p class="below-item t-muted">{t('branch.threadsEmpty')}</p> : <LinkRows links={crossing} lang={lang} />}
+    </div>
+    {
+      inside.length > 0 && (
+        <div class="below-col">
+          <div class="below-head">
+            <span class="label humus">{t('branch.threadsLabel')}</span>
+            <h2 class="t-heading">{t('branch.inside')}</h2>
+          </div>
+          <LinkRows links={inside} lang={lang} />
+        </div>
+      )
+    }
+  </div>
+</Base>
+
+<style>
+  .guests {
+    line-height: 28px;
+  }
+</style>

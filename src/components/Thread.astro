@@ -1,0 +1,9 @@
+---
+// A sample of mycelium thread: solid = influenced, dashed = critiqued, dotted = in dialogue.
+const { type = 'influenced', width = 32, color = 'currentColor' } = Astro.props;
+const dash = type === 'critiqued' ? '4 4' : type === 'dialogue' ? '1 4' : undefined;
+---
+
+<svg aria-hidden="true" width={width} height="8" viewBox={`0 0 ${width} 8`}>
+  <path d={`M1 4H${width - 1}`} stroke={color} stroke-width="1.5" fill="none" stroke-linecap="round" stroke-dasharray={dash}></path>
+</svg>

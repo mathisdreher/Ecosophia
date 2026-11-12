@@ -1,0 +1,134 @@
+# Seeds: concepts planted or carried by authors. One line per seed.
+# Names are written in sentence case, as the field writes them. The gloss of a
+# seed is the sentence each author gives it in data/authors/*.yaml.
+net-product: {en: Net product, fr: Produit net}
+diminishing-returns: {en: Diminishing returns, fr: Rendements décroissants}
+unity-of-nature: {en: Unity of nature, fr: Unité de la nature}
+ecology-word: {en: 'Ecology, the word', fr: 'Écologie, le mot'}
+biosphere: {en: Biosphere, fr: Biosphère}
+state-of-nature: {en: State of nature, fr: État de nature}
+wildness: {en: Wildness, fr: Le sauvage}
+voluntary-simplicity: {en: Voluntary simplicity, fr: Simplicité volontaire}
+civil-disobedience: {en: Civil disobedience, fr: Désobéissance civile}
+preservation: {en: Preservation, fr: Préservation}
+deus-sive-natura: {en: God or Nature, fr: Dieu ou la Nature}
+conatus: {en: Conatus, fr: Conatus}
+non-violence: {en: Non-violence, fr: Non-violence}
+swaraj: {en: Swaraj, fr: Swaraj}
+metabolism: {en: Metabolism, fr: Métabolisme}
+useful-work: {en: Useful work, fr: Travail utile}
+social-geography: {en: Social geography, fr: Géographie sociale}
+mutual-aid: {en: Mutual aid, fr: Entraide}
+free-commune: {en: Free commune, fr: Commune libre}
+labour-as-energy: {en: Labour as energy, fr: Le travail comme énergie}
+regional-survey: {en: Regional survey, fr: Enquête régionale}
+virtual-wealth: {en: Virtual wealth, fr: Richesse virtuelle}
+biocide: {en: Biocide, fr: Biocide}
+limits-to-growth: {en: Limits to growth, fr: Limites à la croissance}
+overshoot: {en: Overshoot, fr: Dépassement}
+deep-ecology: {en: Deep ecology, fr: Écologie profonde}
+ecosophy-t: {en: Ecosophy T, fr: Écosophie T}
+self-realisation: {en: Self-realisation, fr: Réalisation de soi}
+three-ecologies: {en: Three ecologies, fr: Trois écologies}
+integrated-world-capitalism: {en: Integrated world capitalism, fr: Capitalisme mondial intégré}
+rhizome: {en: Rhizome, fr: Rhizome}
+diplomacy: {en: Diplomacy, fr: Diplomatie}
+crisis-of-sensibility: {en: Crisis of sensibility, fr: Crise de la sensibilité}
+tracking: {en: Tracking, fr: Pistage}
+land-ethic: {en: Land ethic, fr: Éthique de la terre}
+thinking-like-a-mountain: {en: Thinking like a mountain, fr: Penser comme une montagne}
+biotic-community: {en: Biotic community, fr: Communauté biotique}
+eight-point-platform: {en: Eight-point platform, fr: Plateforme en huit points}
+biocentric-equality: {en: Biocentric equality, fr: Égalité biocentrique}
+reform-and-deep: {en: Reform and deep environmentalism, fr: Environnementalisme réformiste et profond}
+simple-in-means: {en: 'Simple in means, rich in ends', fr: 'Simple en moyens, riche en fins'}
+intrinsic-value: {en: Intrinsic value, fr: Valeur intrinsèque}
+systemic-value: {en: Systemic value, fr: Valeur systémique}
+social-ecology: {en: Social ecology, fr: Écologie sociale}
+hierarchy: {en: Hierarchy, fr: Hiérarchie}
+libertarian-municipalism: {en: Libertarian municipalism, fr: Municipalisme libertaire}
+citizenship: {en: Citizenship, fr: Citoyenneté}
+beyond-environmentalism: {en: Beyond environmentalism, fr: Au-delà de l'environnementalisme}
+participatory-democracy: {en: Participatory democracy, fr: Démocratie participative}
+metabolic-rift: {en: Metabolic rift, fr: Rupture métabolique}
+ecological-materialism: {en: Ecological materialism, fr: Matérialisme écologique}
+ecosocialism: {en: Ecosocialism, fr: Écosocialisme}
+emergency-brake: {en: Emergency brake, fr: Frein d'urgence}
+ecological-planning: {en: Democratic ecological planning, fr: Planification écologique démocratique}
+degrowth-communism: {en: Degrowth communism, fr: Communisme de la décroissance}
+fossil-capital: {en: Fossil capital, fr: Capital fossile}
+capitalocene: {en: Capitalocene, fr: Capitalocène}
+sabotage: {en: Sabotage, fr: Sabotage}
+entropy: {en: Entropy, fr: Entropie}
+bioeconomics: {en: Bioeconomics, fr: Bioéconomie}
+degrowth: {en: Degrowth, fr: Décroissance}
+decolonising-the-imaginary: {en: Decolonising the imaginary, fr: Décoloniser l'imaginaire}
+eight-rs: {en: The eight Rs, fr: Les huit R}
+self-limitation: {en: Self-limitation, fr: Autolimitation}
+decoupling: {en: Decoupling, fr: Découplage}
+unequal-exchange: {en: Unequal exchange, fr: Échange inégal}
+ecofeminism: {en: Ecofeminism, fr: Écoféminisme}
+control-of-fertility: {en: Control of fertility, fr: Maîtrise de la fécondité}
+dualism: {en: Dualism, fr: Dualisme}
+mastery: {en: Mastery, fr: Maîtrise}
+being-prey: {en: Being prey, fr: Être une proie}
+maldevelopment: {en: Maldevelopment, fr: Maldéveloppement}
+monocultures-of-the-mind: {en: Monocultures of the mind, fr: Monocultures de l'esprit}
+biopiracy: {en: Biopiracy, fr: Biopiraterie}
+death-of-nature: {en: Death of nature, fr: Mort de la nature}
+partnership-ethic: {en: Partnership ethic, fr: Éthique du partenariat}
+housewifisation: {en: Housewifisation, fr: Ménagérisation}
+subsistence-perspective: {en: Subsistence perspective, fr: Perspective de subsistance}
+environmentalism-of-the-poor: {en: Environmentalism of the poor, fr: Écologisme des pauvres}
+ecological-distribution-conflicts: {en: Ecological distribution conflicts, fr: Conflits de distribution écologique}
+ecological-debt: {en: Ecological debt, fr: Dette écologique}
+post-development: {en: Post-development, fr: Après-développement}
+territories-of-difference: {en: Territories of difference, fr: Territoires de différence}
+pluriverse: {en: Pluriverse, fr: Plurivers}
+naturalism: {en: Naturalism, fr: Naturalisme}
+four-ontologies: {en: Four ontologies, fr: Quatre ontologies}
+apolitical-ecology: {en: Apolitical ecology, fr: Écologie apolitique}
+hatchet-and-seed: {en: The hatchet and the seed, fr: La hache et la graine}
+double-fracture: {en: Double fracture, fr: Double fracture}
+colonial-inhabitation: {en: Colonial inhabitation, fr: Habiter colonial}
+world-ship: {en: World-ship, fr: Navire-monde}
+wilderness-critique: {en: Critique of wilderness, fr: Critique de la wilderness}
+omnivores: {en: Omnivores and ecosystem people, fr: Omnivores et gens des écosystèmes}
+environmental-racism: {en: Environmental racism, fr: Racisme environnemental}
+environmental-justice: {en: Environmental justice, fr: Justice environnementale}
+parliament-of-things: {en: Parliament of things, fr: Parlement des choses}
+gaia: {en: Gaia, fr: Gaïa}
+terrestrial: {en: The terrestrial, fr: Le terrestre}
+intrusion-of-gaia: {en: Intrusion of Gaia, fr: Intrusion de Gaïa}
+cosmopolitics: {en: Cosmopolitics, fr: Cosmopolitiques}
+slow-science: {en: Slow science, fr: Ralentir les sciences}
+situated-knowledges: {en: Situated knowledges, fr: Savoirs situés}
+companion-species: {en: Companion species, fr: Espèces compagnes}
+chthulucene: {en: Chthulucene, fr: Chthulucène}
+friction: {en: Friction, fr: Friction}
+salvage-accumulation: {en: Salvage accumulation, fr: Accumulation par captation}
+plantationocene: {en: Plantationocene, fr: Plantationocène}
+sustainable-retreat: {en: Sustainable retreat, fr: Retraite durable}
+technique: {en: Technique, fr: La technique}
+technological-system: {en: Technological system, fr: Système technicien}
+technological-bluff: {en: Technological bluff, fr: Bluff technologique}
+conviviality: {en: Conviviality, fr: Convivialité}
+counterproductivity: {en: Counterproductivity, fr: Contre-productivité}
+vernacular: {en: Vernacular values, fr: Valeurs vernaculaires}
+political-ecology: {en: Political ecology, fr: Écologie politique}
+sufficiency: {en: Sufficiency, fr: Suffisance}
+autonomy: {en: Autonomy, fr: Autonomie}
+sentiment-of-nature: {en: Sentiment of nature, fr: Sentiment de la nature}
+nature-and-freedom: {en: Nature and freedom, fr: Nature et liberté}
+megamachine: {en: Megamachine, fr: Mégamachine}
+democratic-technics: {en: Democratic and authoritarian technics, fr: Techniques démocratiques et autoritaires}
+neotechnic: {en: Neotechnic phase, fr: Phase néotechnique}
+queer-ecology: {en: Queer ecology, fr: Écologie queer}
+democracy-without-identity: {en: Democracy without identity, fr: Démocratie sans identité}
+queer-ecological-imagination: {en: Queer ecological imagination, fr: Imagination écologique queer}
+bad-environmentalism: {en: Bad environmentalism, fr: Mauvais environnementalisme}
+ecology-without-nature: {en: Ecology without nature, fr: Écologie sans nature}
+hyperobjects: {en: Hyperobjects, fr: Hyperobjets}
+ecopragmatism: {en: Ecopragmatism, fr: Écopragmatisme}
+death-of-environmentalism: {en: Death of environmentalism, fr: Mort de l'environnementalisme}
+ecomodernism: {en: Ecomodernism, fr: Écomodernisme}

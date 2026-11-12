@@ -1,0 +1,27 @@
+# Secondary sources: works cited as evidence that are not by an author of the
+# corpus. Works by corpus authors live in data/authors/*.yaml and are cited by
+# their id in the same way.
+- id: wulf-2015
+  by: {en: Andrea Wulf, fr: Andrea Wulf}
+  short: Wulf
+  year: 2015
+  title: "The Invention of Nature: Alexander von Humboldt's New World"
+
+- id: novak-1995
+  by: {en: "Frank G. Novak Jr. (ed.)", fr: "Frank G. Novak Jr. (dir.)"}
+  short: Novak
+  year: 1995
+  title: "Lewis Mumford and Patrick Geddes: The Correspondence"
+
+- id: engels-1882
+  by: {en: Friedrich Engels, fr: Friedrich Engels}
+  short: Engels
+  year: 1882
+  kind: letter
+  title: {en: "Letter to Karl Marx, 19 December 1882", fr: "Lettre à Karl Marx, 19 décembre 1882"}
+
+- id: sachs-1992
+  by: {en: "Wolfgang Sachs (ed.)", fr: "Wolfgang Sachs (dir.)"}
+  short: Sachs
+  year: 1992
+  title: "The Development Dictionary: A Guide to Knowledge as Power"

@@ -1,0 +1,541 @@
+---
+// Mycelium: the influence graph. Nodes are author leaves coloured by branch and
+// always labelled; threads are drawn in one colour only (the mycelium belongs
+// to no one): solid = influenced, dashed = critiqued, dotted = in dialogue.
+// Below the ground line, the same links as a table with their sources.
+import Base from '../layouts/Base.astro';
+import AuthorChips from '../components/AuthorChips.astro';
+import Thread from '../components/Thread.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { L, citeHtml } from '../lib/text.mjs';
+import { loadCorpus, lifespan } from '../lib/corpus.mjs';
+import { layoutGraph, groupOf, GRAPH_W, GRAPH_H } from '../lib/graph.mjs';
+
+const { lang } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+const { pos, edges } = layoutGraph(c);
+
+const groups = [
+  { id: 'roots', token: 'humus', label: t('common.precursors') },
+  { id: 'trunk', token: 'ink', label: t('common.trunk') },
+  ...c.branches.map((b) => ({ id: b.id, token: b.token, label: L(b.name, lang) })),
+];
+const rel = { influenced: t('relation.typeInfluenced'), critiqued: t('relation.typeCritiqued'), dialogue: t('relation.typeDialogue') };
+
+function panelGroups(a) {
+  const pick = (list, key) => list.filter((l) => l.status !== 'to-verify').map((l) => ({ l, who: c.authorById[l[key]] }));
+  return [
+    { label: t('relation.receivedFrom'), rows: pick(a.inLinks.filter((l) => l.type === 'influenced'), 'from') },
+    { label: t('relation.gaveTo'), rows: pick(a.outLinks.filter((l) => l.type === 'influenced'), 'to') },
+    { label: t('relation.critiqued'), rows: pick(a.outLinks.filter((l) => l.type === 'critiqued'), 'to') },
+    { label: t('relation.critiquedBy'), rows: pick(a.inLinks.filter((l) => l.type === 'critiqued'), 'from') },
+    {
+      label: t('relation.dialogue'),
+      rows: [...pick(a.outLinks.filter((l) => l.type === 'dialogue'), 'to'), ...pick(a.inLinks.filter((l) => l.type === 'dialogue'), 'from')],
+    },
+  ].filter((g) => g.rows.length > 0);
+}
+const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length });
+---
+
+<Base lang={lang} view="mycelium" title={t('mycelium.title')} description={`${sub} ${t('mycelium.note')}`}>
+  <section class="myc" data-mycelium data-default="murray-bookchin">
+    <aside class="filters">
+      <div class="stack gap-1">
+        <h1 class="t-title">{t('mycelium.title')}</h1>
+        <p class="t-small t-muted">{sub}</p>
+      </div>
+      <fieldset>
+        <legend class="label t-muted">{t('mycelium.threads')}</legend>
+        {
+          ['influenced', 'critiqued', 'dialogue'].map((type) => (
+            <label>
+              <input type="checkbox" checked data-filter-type={type} />
+              <Thread type={type} width={36} color="var(--mycelium)" />
+              {t(`mycelium.${type}`)}
+            </label>
+          ))
+        }
+      </fieldset>
+      <fieldset>
+        <legend class="label t-muted">{t('mycelium.branches')}</legend>
+        {
+          groups.map((g) => (
+            <label>
+              <input type="checkbox" checked data-filter-group={g.id} />
+              <span class="swatch" style={`background: var(--${g.token})`} />
+              {g.label}
+            </label>
+          ))
+        }
+        <div class="row gap-4 t-small">
+          <button type="button" class="text-btn" data-filter-all="1">{t('mycelium.all')}</button>
+          <button type="button" class="text-btn" data-filter-all="0">{t('mycelium.none')}</button>
+        </div>
+      </fieldset>
+      <p class="note t-muted">{t('mycelium.note')}</p>
+    </aside>
+
+    <div class="stage">
+      <p class="scroll-hint t-small t-muted">{t('mycelium.scroll')}</p>
+      <div class="scroller">
+        <svg class="graph" viewBox={`0 0 ${GRAPH_W} ${GRAPH_H}`} role="group" aria-label={t('mycelium.graphLabel')}>
+          <defs>
+            <marker id="myc-head" orient="auto" markerWidth="8" markerHeight="8" refX="2" refY="4" markerUnits="userSpaceOnUse">
+              <path d="M0 0.5 L8 4 L0 7.5 Z"></path>
+            </marker>
+          </defs>
+          <g class="edges" aria-hidden="true">
+            {
+              edges.map((e) => (
+                <line
+                  class={`edge ${e.link.type}`}
+                  x1={e.x1}
+                  y1={e.y1}
+                  x2={e.x2}
+                  y2={e.y2}
+                  data-from={e.link.from}
+                  data-to={e.link.to}
+                  data-type={e.link.type}
+                  marker-end={e.link.type === 'dialogue' ? undefined : 'url(#myc-head)'}
+                />
+              ))
+            }
+          </g>
+          <g class="nodes">
+            {
+              c.authors.map((a) => {
+                const p = pos.get(a.id);
+                return (
+                  <a class="node" href={href(lang, 'author', a.id)} data-id={a.id} data-group={groupOf(a)} style={`--chip: var(--${a.token})`}>
+                    <circle class="hit" cx={p.x} cy={p.y} r={Math.max(p.r + 6, 14)} />
+                    <circle class="disc" cx={p.x} cy={p.y} r={p.r} />
+                    <text x={p.x} y={p.y + p.r + 15} text-anchor="middle">{a.name}</text>
+                  </a>
+                );
+              })
+            }
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <aside class="panels" aria-live="polite">
+      <p class="pick t-small t-muted" data-pick>{t('mycelium.pick')}</p>
+      {
+        c.authors.map((a) => {
+          const pg = panelGroups(a);
+          return (
+            <section class="panel" data-panel={a.id} hidden>
+              <div class="stack gap-2 head">
+                <span class="label t-muted">{t('mycelium.selected')}</span>
+                <h2 class="panel-name">{a.name}</h2>
+                <span class="eco-meta">
+                  {lifespan(a, lang)}
+                  {lifespan(a, lang) && a.wikidata && ' · '}
+                  {a.wikidata && <a href={`https://www.wikidata.org/wiki/${a.wikidata}`} rel="noopener">{t('common.wikidata')}</a>}
+                </span>
+                <span class="eco-chips"><AuthorChips author={a} lang={lang} link={false} /></span>
+              </div>
+              {pg.length === 0 && <p class="group t-small t-muted">{t('mycelium.empty')}</p>}
+              {pg.map((g) => (
+                <div class="group">
+                  <span class="label humus">{g.label}</span>
+                  {g.rows.map(({ l, who }) => (
+                    <div class="item">
+                      <span class="text">
+                        <button type="button" class="who" data-select={who.id}>{who.name}</button>: {L(l.note, lang)}
+                      </span>
+                      <span class="eco-meta" set:html={citeHtml(c.sources.get(l.source), lang)} />
+                    </div>
+                  ))}
+                </div>
+              ))}
+              <a class="eco-btn" href={href(lang, 'author', a.id)}>{t('common.openLeaf')}</a>
+            </section>
+          );
+        })
+      }
+    </aside>
+  </section>
+
+  <div class="below-grid" slot="below">
+    <div class="below-col table-col">
+      <div class="below-head">
+        <span class="label humus">{t('author.evidenceLabel')}</span>
+        <h2 class="t-heading">{t('mycelium.table')}</h2>
+      </div>
+      <div class="table-wrap">
+        <table class="eco-table">
+          <thead>
+            <tr>
+              <th scope="col">{t('mycelium.from')}</th>
+              <th scope="col">{t('mycelium.relation')}</th>
+              <th scope="col">{t('mycelium.to')}</th>
+              <th scope="col">{t('mycelium.note2')}</th>
+              <th scope="col">{t('mycelium.source')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              c.sourcedLinks.map((l) => (
+                <tr>
+                  <td class="nowrap"><a class="strong-link" href={href(lang, 'author', l.from)}>{c.authorById[l.from].name}</a></td>
+                  <td class="nowrap">{rel[l.type]}</td>
+                  <td class="nowrap"><a class="strong-link" href={href(lang, 'author', l.to)}>{c.authorById[l.to].name}</a></td>
+                  <td>{L(l.note, lang)}</td>
+                  <td class="eco-meta" set:html={citeHtml(c.sources.get(l.source), lang)} />
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-mycelium]');
+  if (root) {
+    const svg = root.querySelector<SVGSVGElement>('svg.graph')!;
+    const nodes = [...root.querySelectorAll<SVGAElement>('.node')];
+    const edges = [...root.querySelectorAll<SVGLineElement>('.edge')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+    const pick = root.querySelector<HTMLElement>('[data-pick]')!;
+    const typeBoxes = [...root.querySelectorAll<HTMLInputElement>('[data-filter-type]')];
+    const groupBoxes = [...root.querySelectorAll<HTMLInputElement>('[data-filter-group]')];
+    const groupOfId = new Map(nodes.map((n) => [n.dataset.id!, n.dataset.group!]));
+    let selected: string | null = null;
+
+    function applyFilters() {
+      const types = new Set(typeBoxes.filter((b) => b.checked).map((b) => b.dataset.filterType));
+      const groups = new Set(groupBoxes.filter((b) => b.checked).map((b) => b.dataset.filterGroup));
+      for (const n of nodes) n.classList.toggle('is-hidden', !groups.has(n.dataset.group));
+      for (const e of edges) {
+        const visible =
+          types.has(e.dataset.type) && groups.has(groupOfId.get(e.dataset.from!)) && groups.has(groupOfId.get(e.dataset.to!));
+        e.classList.toggle('is-hidden', !visible);
+      }
+    }
+
+    function highlight(id: string | null, transient = false) {
+      svg.classList.toggle('has-focus', transient && id != null);
+      svg.classList.toggle('has-selection', id != null);
+      const near = new Set<string>();
+      if (id) near.add(id);
+      for (const e of edges) {
+        const on = id != null && (e.dataset.from === id || e.dataset.to === id);
+        e.classList.toggle('is-on', on);
+        if (on) {
+          near.add(e.dataset.from!);
+          near.add(e.dataset.to!);
+        }
+      }
+      for (const n of nodes) {
+        n.classList.toggle('is-near', near.has(n.dataset.id!));
+        n.classList.toggle('is-selected', n.dataset.id === selected);
+      }
+    }
+
+    function select(id: string, updateUrl = true) {
+      if (!groupOfId.has(id)) return;
+      selected = id;
+      for (const p of panels) p.hidden = p.dataset.panel !== id;
+      pick.hidden = true;
+      highlight(id);
+      if (updateUrl) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('focus', id);
+        history.replaceState(null, '', url);
+      }
+    }
+
+    for (const n of nodes) {
+      n.addEventListener('click', (ev) => {
+        if (ev.metaKey || ev.ctrlKey || ev.shiftKey) return;
+        ev.preventDefault();
+        select(n.dataset.id!);
+      });
+      n.addEventListener('pointerenter', () => highlight(n.dataset.id!, true));
+      n.addEventListener('pointerleave', () => highlight(selected));
+      n.addEventListener('focus', () => highlight(n.dataset.id!, true));
+      n.addEventListener('blur', () => highlight(selected));
+    }
+    root.addEventListener('click', (ev) => {
+      const btn = (ev.target as HTMLElement).closest<HTMLElement>('[data-select]');
+      if (btn) select(btn.dataset.select!);
+      const all = (ev.target as HTMLElement).closest<HTMLElement>('[data-filter-all]');
+      if (all) {
+        for (const b of groupBoxes) b.checked = all.dataset.filterAll === '1';
+        applyFilters();
+      }
+    });
+    for (const b of [...typeBoxes, ...groupBoxes]) b.addEventListener('change', applyFilters);
+
+    const wanted = new URL(window.location.href).searchParams.get('focus');
+    select(wanted && groupOfId.has(wanted) ? wanted : root.dataset.default!, false);
+    if (wanted) {
+      const node = nodes.find((n) => n.dataset.id === wanted);
+      node?.scrollIntoView({ block: 'nearest', inline: 'center' });
+    }
+  }
+</script>
+
+<style>
+  .myc {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr) 340px;
+    align-items: start;
+    border-bottom: 0;
+  }
+  .filters {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    padding: 56px var(--space-6) var(--space-8) var(--gutter);
+  }
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  legend {
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 30px;
+    font-size: 14px;
+    line-height: 21px;
+    cursor: pointer;
+  }
+  input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: var(--moss);
+  }
+  .swatch {
+    flex: none;
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-pill);
+  }
+  .text-btn {
+    padding: var(--space-2) 0;
+    border: 0;
+    background: none;
+    color: var(--ink);
+    font: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+  .note {
+    font-size: 13px;
+    line-height: 19px;
+  }
+  .stage {
+    min-width: 0;
+    padding: var(--space-6) 0 var(--space-4);
+    border-inline: 1px solid var(--line);
+    align-self: stretch;
+  }
+  .scroll-hint {
+    display: none;
+    padding: 0 var(--space-4) var(--space-2);
+  }
+  .scroller {
+    overflow-x: auto;
+  }
+  .graph {
+    display: block;
+    width: 100%;
+    min-width: 760px;
+    height: auto;
+  }
+  .edge {
+    stroke: var(--mycelium);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    opacity: 0.75;
+  }
+  .edge.critiqued {
+    stroke-dasharray: 4 4;
+  }
+  .edge.dialogue {
+    stroke-dasharray: 1 4;
+  }
+  #myc-head path {
+    fill: var(--mycelium);
+  }
+  .node .disc {
+    fill: var(--chip);
+    stroke: var(--paper);
+    stroke-width: 2;
+  }
+  .node .hit {
+    fill: transparent;
+  }
+  .node text {
+    font: 400 13px/1 var(--font-sans);
+    fill: var(--ink);
+    paint-order: stroke;
+    stroke: var(--paper);
+    stroke-width: 4px;
+    stroke-linejoin: round;
+  }
+  .node:hover text,
+  .node:focus-visible text {
+    font-weight: 600;
+  }
+  .node:focus-visible {
+    outline: none;
+  }
+  .node:focus-visible .disc {
+    stroke: var(--moss);
+    stroke-width: 3;
+  }
+  .node.is-selected .disc {
+    stroke: var(--ink);
+    stroke-width: 2;
+    paint-order: stroke;
+    outline: none;
+  }
+  .node.is-selected text {
+    font-weight: 600;
+  }
+  .graph.has-selection .edge {
+    opacity: 0.5;
+  }
+  .graph.has-focus .edge {
+    opacity: 0.3;
+  }
+  .graph.has-selection .edge.is-on {
+    opacity: 1;
+    stroke-width: 2;
+  }
+  .graph.has-focus .node:not(.is-near) {
+    opacity: 0.6;
+  }
+  .is-hidden {
+    display: none;
+  }
+
+  .panels {
+    padding: 56px var(--gutter) var(--space-8) var(--space-8);
+    background: var(--paper-raised);
+    align-self: stretch;
+  }
+  .panel {
+    position: sticky;
+    top: var(--space-6);
+    max-height: calc(100vh - 2 * var(--space-6));
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .panel[hidden] {
+    display: none;
+  }
+  .panel .head {
+    align-items: flex-start;
+  }
+  .panel-name {
+    font: 600 32px/36px var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  .group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .item .text {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  .who {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    cursor: pointer;
+  }
+  .who:hover {
+    color: var(--moss);
+  }
+  .table-col {
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 1240px) {
+    .myc {
+      grid-template-columns: 230px minmax(0, 1fr);
+    }
+    .panels {
+      grid-column: 1 / -1;
+      padding: var(--space-8) var(--gutter);
+      border-top: 1px solid var(--line);
+    }
+    .panel {
+      position: static;
+      max-height: none;
+      max-width: 720px;
+    }
+    .stage {
+      border-right: 0;
+    }
+  }
+  @media (max-width: 860px) {
+    .myc {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .filters {
+      position: static;
+      max-height: none;
+      padding: var(--space-12) var(--gutter) var(--space-4);
+      gap: var(--space-4);
+    }
+    .filters fieldset {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 0 var(--space-4);
+    }
+    .filters legend {
+      width: 100%;
+    }
+    .stage {
+      border: 0;
+      border-top: 1px solid var(--line);
+      padding-top: var(--space-4);
+    }
+    .scroll-hint {
+      display: block;
+    }
+  }
+</style>

@@ -1,0 +1,129 @@
+---
+// Seed index: every concept, who carries it and in what sense.
+import Base from '../layouts/Base.astro';
+import AuthorChips from '../components/AuthorChips.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { L, citeHtml, fold } from '../lib/text.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+
+const { lang } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+const collator = new Intl.Collator(lang, { sensitivity: 'base' });
+const seeds = Object.values(c.seeds)
+  .filter((s) => s.carriers.length > 0)
+  .map((s) => ({ ...s, label: L(s.name, lang) }))
+  .sort((x, y) => collator.compare(x.label, y.label));
+const letters = [...new Set(seeds.map((s) => fold(s.label)[0].toUpperCase()))];
+const firstOfLetter = new Map();
+for (const s of seeds) {
+  const k = fold(s.label)[0].toUpperCase();
+  if (!firstOfLetter.has(k)) firstOfLetter.set(k, s.id);
+}
+---
+
+<Base lang={lang} view="seeds" title={t('seeds.title')} description={t('seeds.lede')}>
+  <section class="page-head">
+    <nav class="crumbs" aria-label={lang === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'}>
+      <a href={href(lang, 'home')}>{t('tabs.tree')}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{t('seeds.title')}</span>
+    </nav>
+    <h1 class="t-title">{t('seeds.title')}</h1>
+    <p class="t-lede">{t('seeds.lede')}</p>
+    <p class="eco-meta">{t('seeds.count', { n: seeds.length })}</p>
+    <nav class="letters" aria-label="A–Z">
+      {letters.map((k) => <a href={`#${firstOfLetter.get(k)}`}>{k}</a>)}
+    </nav>
+  </section>
+  <section class="page-body">
+    <div class="seeds">
+      {
+        seeds.map((s) => (
+          <article id={s.id} class:list={{ shared: s.carriers.length > 1 }}>
+            <h2>
+              <span class="eco-seed">{s.label}</span>
+            </h2>
+            <ul>
+              {s.carriers.map((k) => {
+                const a = c.authorById[k.author];
+                return (
+                  <li>
+                    <span class="who">
+                      <a class="strong-link" href={href(lang, 'author', a.id)}>{a.name}</a>
+                      <AuthorChips author={{ ...a, also: [] }} lang={lang} link={false} />
+                    </span>
+                    <span>{L(k.text, lang)}</span>
+                    <span class="eco-meta" set:html={citeHtml(c.sources.get(k.source), lang)} />
+                  </li>
+                );
+              })}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  .letters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px;
+  }
+  .letters a {
+    min-width: 32px;
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    font: 600 13px/16px var(--font-sans);
+  }
+  .letters a:hover {
+    background: var(--moss-soft);
+  }
+  .seeds {
+    columns: 3 340px;
+    column-gap: var(--space-12);
+  }
+  article {
+    break-inside: avoid;
+    padding: var(--space-4) 0;
+    border-top: 1px solid var(--line);
+  }
+  article:target h2 .eco-seed {
+    outline: 2px solid var(--moss);
+    outline-offset: 2px;
+  }
+  h2 {
+    font: inherit;
+    margin-bottom: var(--space-2);
+  }
+  h2 .eco-seed {
+    font-weight: 600;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 15px;
+    line-height: 23px;
+  }
+  .who {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-1) var(--space-3);
+  }
+</style>

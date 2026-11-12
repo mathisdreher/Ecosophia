@@ -1,0 +1,8 @@
+---
+// BranchChip: the only way a branch colour appears in running interface.
+// The name is always visible; the dot never travels alone.
+const { token = 'ink', label, href, active = false, graft = false } = Astro.props;
+const Tag = href ? 'a' : 'span';
+---
+
+<Tag class:list={['eco-chip', { 'is-active': active, graft }]} style={`--chip: var(--${token})`} href={href}>{label}</Tag>

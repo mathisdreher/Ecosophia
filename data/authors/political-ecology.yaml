@@ -1,0 +1,118 @@
+# Political ecology as a discipline (geography, anthropology, ecological economics).
+
+- id: joan-martinez-alier
+  name: Joan Martínez-Alier
+  sort: Martínez-Alier
+  layer: leaf
+  branch: political-ecology
+  also: [degrowth]
+  born: 1939
+  place: {city: {en: Barcelona, fr: Barcelone}, country: {en: Spain, fr: Espagne}, lat: 41.39, lon: 2.17}
+  wikidata: Q1999236
+  lede:
+    en: "Catalan economist, emeritus at the Autonomous University of Barcelona and a founder of ecological economics. He studies conflicts over mines, dams and plantations as an environmentalism of the poor, and directs the Environmental Justice Atlas that maps them."
+    fr: "Économiste catalan, professeur émérite à l'université autonome de Barcelone et l'un des fondateurs de l'économie écologique. Il étudie les conflits autour des mines, des barrages et des plantations comme un écologisme des pauvres, et dirige l'Atlas de la justice environnementale qui les cartographie."
+  seeds:
+    - seed: environmentalism-of-the-poor
+      text:
+        en: "People who defend a forest or a river to live from it are environmentalists, whatever they call themselves."
+        fr: "Celles et ceux qui défendent une forêt ou un fleuve pour en vivre sont des écologistes, quel que soit le nom qu'ils se donnent."
+      source: martinez-alier-2002
+    - seed: ecological-distribution-conflicts
+      text:
+        en: "Conflicts over who bears pollution and who gets the resource, fought in several languages of value."
+        fr: "Des conflits sur qui supporte la pollution et qui obtient la ressource, menés dans plusieurs langages de valeur."
+      source: martinez-alier-2002
+    - seed: ecological-debt
+      text:
+        en: "The North owes the South for resources taken cheaply and for the atmosphere it has filled."
+        fr: "Le Nord doit au Sud les ressources prises à bas prix et l'atmosphère qu'il a saturée."
+      source: martinez-alier-2002
+  works:
+    - {id: martinez-alier-1987, year: 1987, title: "Ecological Economics: Energy, Environment and Society"}
+    - {id: martinez-alier-2002, year: 2002, title: "The Environmentalism of the Poor: A Study of Ecological Conflicts and Valuation"}
+
+- id: arturo-escobar
+  name: Arturo Escobar
+  sort: Escobar
+  layer: leaf
+  branch: political-ecology
+  also: [decolonial]
+  born: 1952
+  place: {city: {en: Manizales, fr: Manizales}, country: {en: Colombia, fr: Colombie}, lat: 5.07, lon: -75.52}
+  wikidata: Q4801729
+  lede:
+    en: "Colombian anthropologist, emeritus at the University of North Carolina at Chapel Hill. Encountering Development reads development as a discourse that invented the Third World; his later work with Afro-Colombian movements of the Pacific coast defends a world where many worlds fit."
+    fr: "Anthropologue colombien, professeur émérite à l'université de Caroline du Nord à Chapel Hill. Encountering Development lit le développement comme un discours qui a inventé le tiers-monde ; ses travaux ultérieurs avec les mouvements afro-colombiens de la côte pacifique défendent un monde où tiennent plusieurs mondes."
+  seeds:
+    - seed: post-development
+      text:
+        en: "Development is not a stage to reach but a way of seeing that made two thirds of the world deficient."
+        fr: "Le développement n'est pas une étape à atteindre, mais un regard qui a rendu déficients les deux tiers du monde."
+      source: escobar-1995
+    - seed: territories-of-difference
+      text:
+        en: "A territory is not land with resources: it is the place where a people makes its world."
+        fr: "Un territoire n'est pas une terre dotée de ressources : c'est le lieu où un peuple fait son monde."
+      source: escobar-2008
+    - seed: pluriverse
+      text:
+        en: "Not one world with many cultures, but many worlds that design can help to coexist."
+        fr: "Non pas un monde et plusieurs cultures, mais plusieurs mondes que le design peut aider à faire coexister."
+      source: escobar-2018
+  works:
+    - {id: escobar-1995, year: 1995, title: "Encountering Development: The Making and Unmaking of the Third World"}
+    - {id: escobar-2008, year: 2008, title: "Territories of Difference: Place, Movements, Life, Redes"}
+    - {id: escobar-2018, year: 2018, title: "Designs for the Pluriverse: Radical Interdependence, Autonomy, and the Making of Worlds"}
+
+- id: philippe-descola
+  name: Philippe Descola
+  sort: Descola
+  layer: leaf
+  branch: political-ecology
+  also: [anthropocene]
+  born: 1949
+  place: {city: {en: Paris, fr: Paris}, country: {en: France, fr: France}, lat: 48.857, lon: 2.352}
+  wikidata: Q1197333
+  lede:
+    en: "French anthropologist, professor at the Collège de France from 2000 to 2019. From fieldwork among the Achuar of the Ecuadorian Amazon he concluded that the divide between nature and culture is one way of composing a world among four."
+    fr: "Anthropologue français, professeur au Collège de France de 2000 à 2019. De son terrain chez les Achuar d'Amazonie équatorienne, il conclut que le partage entre nature et culture n'est qu'une manière parmi quatre de composer un monde."
+  seeds:
+    - seed: naturalism
+      text:
+        en: "The modern West alone holds that humans share their bodies with other beings and keep the mind to themselves."
+        fr: "Seul l'Occident moderne tient que les humains partagent leur corps avec les autres êtres et gardent l'esprit pour eux."
+      source: descola-2005
+    - seed: four-ontologies
+      text:
+        en: "Animism, totemism, analogism and naturalism: four ways of sorting what resembles us from what does not."
+        fr: "Animisme, totémisme, analogisme et naturalisme : quatre manières de répartir ce qui nous ressemble et ce qui en diffère."
+      source: descola-2005
+  works:
+    - {id: descola-1986, year: 1986, title: "La Nature domestique : symbolisme et praxis dans l'écologie des Achuar"}
+    - {id: descola-1993, year: 1993, title: Les Lances du crépuscule}
+    - {id: descola-2005, year: 2005, title: Par-delà nature et culture}
+
+- id: paul-robbins
+  name: Paul Robbins
+  sort: Robbins
+  layer: leaf
+  branch: political-ecology
+  place: {country: {en: United States, fr: États-Unis}}
+  lede:
+    en: "American geographer at the University of Wisconsin–Madison. His textbook defines political ecology against apolitical explanations of environmental change, and Lawn People follows the chemistry of the American lawn back to its political economy."
+    fr: "Géographe américain à l'université du Wisconsin à Madison. Son manuel définit la political ecology contre les explications apolitiques du changement environnemental, et Lawn People remonte de la chimie de la pelouse américaine à son économie politique."
+  seeds:
+    - seed: apolitical-ecology
+      text:
+        en: "To blame scarcity or overpopulation for degradation is already a political claim, one that hides who gains."
+        fr: "Imputer la dégradation à la rareté ou à la surpopulation est déjà une thèse politique, qui masque qui en profite."
+      source: robbins-2004
+    - seed: hatchet-and-seed
+      text:
+        en: "The field works as a hatchet, to cut down dominant accounts, and as a seed, to grow alternatives."
+        fr: "Le champ sert de hache, pour abattre les récits dominants, et de graine, pour faire pousser des alternatives."
+      source: robbins-2004
+  works:
+    - {id: robbins-2004, year: 2004, title: "Political Ecology: A Critical Introduction"}
+    - {id: robbins-2007, year: 2007, title: "Lawn People: How Grasses, Weeds, and Chemicals Make Us Who We Are"}

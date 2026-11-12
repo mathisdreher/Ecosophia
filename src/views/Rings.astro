@@ -1,0 +1,375 @@
+---
+// Rings: lifespans and publication dates on one time axis, one line per author.
+// Each row carries the author's name, dates and branch as text, so the chart
+// reads without colour and without hovering.
+import Base from '../layouts/Base.astro';
+import Chip from '../components/Chip.astro';
+import BranchChip from '../components/BranchChip.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { L, yearLabel, typo } from '../lib/text.mjs';
+import { loadCorpus, lifespan } from '../lib/corpus.mjs';
+import { SITE } from '../site.config.mjs';
+
+const { lang } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+
+const dated = c.authors.filter((a) => a.born != null);
+const missing = c.authors.filter((a) => a.born == null);
+const now = SITE.currentYear;
+const minYear = Math.floor((Math.min(...dated.map((a) => a.born)) - 5) / 10) * 10;
+const maxYear = Math.ceil((now + 1) / 10) * 10;
+const pct = (y) => Math.round(((y - minYear) / (maxYear - minYear)) * 10000) / 100;
+const ticks = [];
+for (let y = Math.ceil(minYear / 50) * 50; y <= maxYear; y += 50) ticks.push(y);
+
+const groupLabel = (a) =>
+  a.layer === 'leaf' ? L(c.branchById[a.branch].name, lang) : a.layer === 'root' ? t('common.precursors') : t('common.trunk');
+
+const sections = [
+  { id: 'roots', kind: 'roots', authors: dated.filter((a) => a.layer === 'root') },
+  { id: 'trunk', kind: 'trunk', authors: dated.filter((a) => a.layer === 'trunk') },
+  ...c.branches.map((b) => ({ id: b.id, kind: 'branch', branch: b, authors: dated.filter((a) => a.layer === 'leaf' && a.branch === b.id) })),
+].filter((s) => s.authors.length > 0);
+for (const s of sections) s.authors.sort((x, y) => x.born - y.born);
+
+let index = 0;
+const rows = sections.flatMap((s) => [
+  { head: true, section: s, index: index++ },
+  ...s.authors.map((a) => ({ head: false, a, index: index++ })),
+]);
+const trunkFrom = 1962;
+const trunkTo = 1975;
+---
+
+<Base lang={lang} view="rings" title={t('rings.title')} description={t('rings.lede')}>
+  <section class="page-head">
+    <h1 class="t-title">{t('rings.title')}</h1>
+    <p class="t-lede">{t('rings.lede')}</p>
+  </section>
+
+  <section class="page-body rings-body">
+    <div class="controls">
+      <fieldset class="order">
+        <legend class="label t-muted">{t('rings.order')}</legend>
+        <label><input type="radio" name="order" value="branch" checked /> {t('rings.byBranch')}</label>
+        <label><input type="radio" name="order" value="birth" /> {t('rings.byBirth')}</label>
+      </fieldset>
+      <ul class="legend t-small" aria-hidden="true">
+        <li><span class="k bar"></span>{t('rings.lifespan')}</li>
+        <li><span class="k bar open"></span>{t('rings.living')}</li>
+        <li><span class="k dot"></span>{t('rings.work')}</li>
+        <li><span class="k band"></span>{t('rings.trunkBand')}</li>
+      </ul>
+    </div>
+
+    <div class="scroller">
+      <div class="chart" data-rings>
+        <div class="grid" aria-hidden="true">
+          <span class="band" style={`left: ${pct(trunkFrom)}%; width: ${pct(trunkTo) - pct(trunkFrom)}%`}></span>
+          {ticks.map((y) => <span class="tick" style={`left: ${pct(y)}%`}></span>)}
+        </div>
+        <div class="axis" aria-hidden="true">
+          <span class="axis-name eco-meta">{t('rings.axis')}</span>
+          <div class="axis-track">
+            {ticks.map((y) => <span class="eco-meta" style={`left: ${pct(y)}%`}>{y}</span>)}
+          </div>
+        </div>
+        <ol class="rows">
+          {
+            rows.map((r) =>
+              r.head ? (
+                <li class="head" data-index={r.index}>
+                  {r.section.kind === 'branch' ? (
+                    <BranchChip branch={r.section.branch} lang={lang} />
+                  ) : (
+                    <Chip
+                      token={r.section.kind === 'roots' ? 'humus' : 'ink'}
+                      label={r.section.kind === 'roots' ? t('common.precursors') : t('common.trunk')}
+                      href={href(lang, r.section.kind)}
+                    />
+                  )}
+                </li>
+              ) : (
+                <li class="row" data-index={r.index} data-birth={r.a.born} style={`--chip: var(--${r.a.token})`}>
+                  <span class="who">
+                    <a class="name" href={href(lang, 'author', r.a.id)}>{r.a.name}</a>
+                    <span class="eco-meta">
+                      {lifespan(r.a, lang)} · {groupLabel(r.a)}
+                    </span>
+                  </span>
+                  <span class="track" aria-hidden="true">
+                    <span
+                      class:list={['bar', { open: r.a.died == null }]}
+                      style={`left: ${pct(r.a.born)}%; width: ${Math.round((pct(r.a.died ?? now) - pct(r.a.born)) * 100) / 100}%`}
+                    />
+                    {r.a.works
+                      .filter((w) => w.key !== false)
+                      .map((w) => (
+                        <span class="dot" style={`left: ${pct(w.year)}%`} title={`${yearLabel(w)} · ${typo(typeof w.title === 'string' ? w.title : w.title.en, lang)}`} />
+                      ))}
+                  </span>
+                </li>
+              ),
+            )
+          }
+        </ol>
+      </div>
+    </div>
+
+    {
+      missing.length > 0 && (
+        <div class="missing stack gap-2">
+          <h2 class="t-heading">{t('rings.missing')}</h2>
+          <p class="t-small">
+            {t('rings.missingNote')}{' '}
+            {missing.map((a, i) => (
+              <>
+                {i > 0 && ', '}
+                <a class="link" href={href(lang, 'author', a.id)}>{a.name}</a>
+              </>
+            ))}
+            .
+          </p>
+        </div>
+      )
+    }
+  </section>
+</Base>
+
+<script>
+  const chart = document.querySelector<HTMLElement>('[data-rings]');
+  if (chart) {
+    const list = chart.querySelector<HTMLOListElement>('.rows')!;
+    const items = [...list.children] as HTMLElement[];
+    const radios = document.querySelectorAll<HTMLInputElement>('input[name="order"]');
+    const apply = (mode: string) => {
+      const sorted = [...items].sort((a, b) =>
+        mode === 'birth'
+          ? Number(a.dataset.birth ?? -1e9) - Number(b.dataset.birth ?? -1e9) || Number(a.dataset.index) - Number(b.dataset.index)
+          : Number(a.dataset.index) - Number(b.dataset.index),
+      );
+      chart.dataset.order = mode;
+      list.append(...sorted);
+    };
+    radios.forEach((r) => r.addEventListener('change', () => r.checked && apply(r.value)));
+  }
+</script>
+
+<style>
+  .rings-body {
+    --band: color-mix(in srgb, var(--ink) 9%, transparent);
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--space-4) var(--space-8);
+    padding-bottom: var(--space-4);
+  }
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-4);
+  }
+  legend {
+    float: left;
+    padding: 0;
+    margin-right: var(--space-4);
+    line-height: 30px;
+  }
+  .order label {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    min-height: 30px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  input[type="radio"] {
+    margin: 0;
+    accent-color: var(--moss);
+  }
+  .legend {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-6);
+    color: var(--ink-muted);
+  }
+  .legend li {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  .k {
+    display: inline-block;
+    flex: none;
+  }
+  .k.bar {
+    width: 36px;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--ink-muted);
+  }
+  .k.bar.open {
+    border-radius: 3px 0 0 3px;
+    mask-image: linear-gradient(to right, #000 40%, transparent);
+  }
+  .k.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ink);
+  }
+  .k.band {
+    width: 20px;
+    height: 16px;
+    background: var(--band);
+  }
+
+  .scroller {
+    overflow-x: auto;
+  }
+  .chart {
+    --name-w: 250px;
+    position: relative;
+    min-width: 860px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .grid {
+    position: absolute;
+    left: var(--name-w);
+    right: 0;
+    top: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+  .grid .tick {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--line);
+    opacity: 0.6;
+  }
+  .grid .band {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: var(--band);
+  }
+  .axis {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: var(--name-w) minmax(0, 1fr);
+    height: 32px;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .axis-name {
+    align-self: center;
+  }
+  .axis-track {
+    position: relative;
+  }
+  .axis-track span {
+    position: absolute;
+    top: 7px;
+    transform: translateX(-50%);
+  }
+  .rows {
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .rows li {
+    display: grid;
+    grid-template-columns: var(--name-w) minmax(0, 1fr);
+    align-items: center;
+  }
+  .head {
+    padding: var(--space-4) 0 var(--space-2);
+  }
+  .head :global(.eco-chip) {
+    justify-self: start;
+  }
+  .chart[data-order="birth"] .head {
+    display: none;
+  }
+  .row {
+    min-height: 42px;
+    border-top: 1px solid color-mix(in srgb, var(--line) 55%, transparent);
+  }
+  .who {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    padding: 3px var(--space-3) 3px 0;
+    background: var(--paper);
+    min-width: 0;
+  }
+  .name {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+  }
+  .who .eco-meta {
+    font-size: 12px;
+    line-height: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .track {
+    position: relative;
+    height: 24px;
+  }
+  .track .bar {
+    position: absolute;
+    top: 9px;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--chip);
+  }
+  .track .bar.open {
+    border-radius: 3px 0 0 3px;
+    mask-image: linear-gradient(to right, #000 calc(100% - 22px), transparent);
+  }
+  .track .dot {
+    position: absolute;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    margin-left: -4px;
+    border-radius: 50%;
+    background: var(--ink);
+    box-shadow: 0 0 0 2px var(--paper);
+  }
+  .track .dot:hover {
+    transform: scale(1.5);
+  }
+  .missing {
+    padding-top: var(--space-8);
+    max-width: var(--measure);
+  }
+  @media (max-width: 720px) {
+    .chart {
+      --name-w: 150px;
+    }
+  }
+</style>

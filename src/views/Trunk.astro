@@ -1,0 +1,84 @@
+---
+// Trunk: the founding texts, in order of publication.
+import Base from '../layouts/Base.astro';
+import AuthorChips from '../components/AuthorChips.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { L, titleHtml, yearLabel, typo } from '../lib/text.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+
+const { lang } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+const texts = [...c.trunk].sort((x, y) => x.source.year - y.source.year);
+---
+
+<Base lang={lang} view="trunk" title={t('trunk.title')} description={t('trunk.lede')}>
+  <section class="page-head">
+    <nav class="crumbs" aria-label={lang === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'}>
+      <a href={href(lang, 'home')}>{t('tabs.tree')}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{t('trunk.title')}</span>
+    </nav>
+    <h1 class="t-title">{t('trunk.title')}</h1>
+    <p class="t-lede">{t('trunk.lede')}</p>
+    <p class="t-small t-muted">{t('trunk.note')}</p>
+  </section>
+  <section class="page-body">
+    <ol class="texts">
+      {
+        texts.map(({ source, text }) => {
+          const a = c.authorById[source.authorId];
+          return (
+            <li>
+              <span class="year">{yearLabel(source)}</span>
+              <div class="stack gap-2">
+                <h2 class="t-heading">
+                  <Fragment set:html={titleHtml(source, lang)} />
+                </h2>
+                <p>
+                  {t('trunk.by')} <a class="strong-link" href={href(lang, 'author', a.id)}>{a.name}</a>
+                  {source.note && <span class="t-muted">, {L(source.note, lang)}</span>}
+                  {source.tr && (source.tr[lang] ?? source.tr.en) && <span class="t-muted"> [{typo(source.tr[lang] ?? source.tr.en, lang)}]</span>}
+                </p>
+                <p>{L(text, lang)}</p>
+                <div class="eco-chips"><AuthorChips author={a} lang={lang} /></div>
+              </div>
+            </li>
+          );
+        })
+      }
+    </ol>
+  </section>
+</Base>
+
+<style>
+  .texts {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 900px;
+    border-left: 7px solid var(--ink);
+  }
+  li {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: var(--space-4);
+    padding: var(--space-6) 0 var(--space-6) var(--space-6);
+    border-bottom: 1px solid var(--line);
+  }
+  li:last-child {
+    border-bottom: 0;
+  }
+  .year {
+    font: 400 15px/30px var(--font-mono);
+    color: var(--ink-muted);
+  }
+  @media (max-width: 560px) {
+    li {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
+      padding-left: var(--space-4);
+    }
+  }
+</style>

@@ -1,0 +1,89 @@
+# Queer ecology. Dates are left out where no public source has been checked.
+
+- id: catriona-sandilands
+  name: Catriona Sandilands
+  sort: Sandilands
+  layer: leaf
+  branch: queer-ecology
+  also: [ecofeminism]
+  place: {country: {en: Canada, fr: Canada}}
+  wikidata: Q57515747
+  lede:
+    en: "Canadian scholar of the environmental humanities at York University, Toronto. She brought queer theory to environmental thought, first through a critique of ecofeminism's appeal to women's nature, then by showing how ideas of nature have policed sexuality and how sexuality has shaped parks and wilderness."
+    fr: "Chercheuse canadienne en humanités environnementales à l'université York de Toronto. Elle introduit la théorie queer dans la pensée environnementale, d'abord par une critique du recours écoféministe à une nature des femmes, puis en montrant comment les idées de nature ont policé la sexualité et comment la sexualité a façonné les parcs et les espaces sauvages."
+  seeds:
+    - seed: queer-ecology
+      text:
+        en: "Nature has been used to call some desires unnatural; ecology can be thought without that norm."
+        fr: "On a invoqué la nature pour déclarer certains désirs contre nature ; l'écologie peut se penser sans cette norme."
+      source: sandilands-2010
+    - seed: democracy-without-identity
+      text:
+        en: "A politics founded on what women are closes the debate that democracy should keep open."
+        fr: "Une politique fondée sur ce que sont les femmes referme le débat que la démocratie devrait laisser ouvert."
+      source: sandilands-1999
+  works:
+    - {id: sandilands-1999, year: 1999, title: "The Good-Natured Feminist: Ecofeminism and the Quest for Democracy"}
+    - id: sandilands-2010
+      year: 2010
+      title: "Queer Ecologies: Sex, Nature, Politics, Desire"
+      by: {en: Mortimer-Sandilands and Erickson, fr: Mortimer-Sandilands et Erickson}
+      note: {en: edited with Bruce Erickson, fr: dirigé avec Bruce Erickson}
+
+- id: nicole-seymour
+  name: Nicole Seymour
+  sort: Seymour
+  layer: leaf
+  branch: queer-ecology
+  place: {country: {en: United States, fr: États-Unis}}
+  lede:
+    en: "American literary scholar at California State University, Fullerton. Strange Natures reads queer fiction for an environmentalism that cares for a future it does not ground in children and family; Bad Environmentalism defends irony and irreverence against the movement's habit of gloom and sanctimony."
+    fr: "Chercheuse américaine en littérature à l'université d'État de Californie à Fullerton. Strange Natures cherche dans la fiction queer un environnementalisme soucieux d'un avenir qu'il ne fonde ni sur les enfants ni sur la famille ; Bad Environmentalism défend l'ironie et l'irrévérence contre l'habitude du mouvement de se montrer sombre et moralisateur."
+  seeds:
+    - seed: queer-ecological-imagination
+      text:
+        en: "One can care for beings and futures with which one has no tie of kinship."
+        fr: "On peut prendre soin d'êtres et d'avenirs avec lesquels on n'a aucun lien de parenté."
+      source: seymour-2013
+    - seed: bad-environmentalism
+      text:
+        en: "Humour, camp and self-mockery can carry ecological concern further than reverence does."
+        fr: "L'humour, le camp et l'autodérision peuvent porter le souci écologique plus loin que la révérence."
+      source: seymour-2018
+  works:
+    - {id: seymour-2013, year: 2013, title: "Strange Natures: Futurity, Empathy, and the Queer Ecological Imagination"}
+    - {id: seymour-2018, year: 2018, title: "Bad Environmentalism: Irony and Irreverence in the Ecological Age"}
+
+- id: timothy-morton
+  name: Timothy Morton
+  sort: Morton
+  layer: leaf
+  branch: queer-ecology
+  also: [anthropocene]
+  born: 1968
+  place: {city: {en: London, fr: Londres}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 51.51, lon: -0.13}
+  wikidata: Q4854071
+  lede:
+    en: "British-born philosopher at Rice University, Houston. Ecology without Nature argues that the idea of Nature, set apart and admired from a distance, stands in the way of ecological thought; later books describe things such as global warming as hyperobjects, too vast in time and space to be seen whole."
+    fr: "Philosophe d'origine britannique à l'université Rice, à Houston. Ecology without Nature soutient que l'idée de Nature, mise à part et admirée de loin, fait obstacle à la pensée écologique ; des livres ultérieurs décrivent des choses comme le réchauffement global comme des hyperobjets, trop vastes dans le temps et l'espace pour être vus en entier."
+  seeds:
+    - seed: ecology-without-nature
+      text:
+        en: "To think ecologically, drop the picture of Nature as a pristine elsewhere."
+        fr: "Pour penser écologiquement, abandonner l'image de la Nature comme un ailleurs intact."
+      source: morton-2007
+    - seed: hyperobjects
+      text:
+        en: "Global warming is real and nowhere in particular: we are inside it."
+        fr: "Le réchauffement global est réel et n'est nulle part en particulier : nous sommes dedans."
+      source: morton-2013
+    - seed: queer-ecology
+      text:
+        en: "Evolution shows no fixed boundaries between species or sexes: ecology is queer already."
+        fr: "L'évolution ne montre aucune frontière fixe entre les espèces ni entre les sexes : l'écologie est déjà queer."
+      source: morton-2010b
+  works:
+    - {id: morton-2007, year: 2007, title: "Ecology without Nature: Rethinking Environmental Aesthetics"}
+    - {id: morton-2010, year: 2010, title: The Ecological Thought}
+    - {id: morton-2010b, year: 2010, title: Queer Ecology, kind: article, in: PMLA, issue: "125"}
+    - {id: morton-2013, year: 2013, title: "Hyperobjects: Philosophy and Ecology after the End of the World"}

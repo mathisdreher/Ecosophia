@@ -1,0 +1,63 @@
+# A specimen, written by hand, of what a Clearing run will look like.
+# It is NOT the output of a simulation: no agent produced these positions or
+# these lines, and none of them is a statement by the author named. Real runs
+# will be stored next to this file with their prompts, settings and transcript.
+id: specimen
+status: specimen
+claim:
+  en: "Nuclear power should count as green investment in the European Union."
+  fr: "Le nucléaire devrait compter comme un investissement vert dans l'Union européenne."
+positions:
+  - {branch: technocritique, score: 8}
+  - {branch: degrowth, score: 12}
+  - {branch: social-ecology, score: 16}
+  - {branch: ecofeminism, score: 20}
+  - {branch: decolonial, score: 28}
+  - {branch: political-ecology, score: 30}
+  - {branch: deep-ecology, score: 32}
+  - {branch: ecosophy, score: 36}
+  - {branch: queer-ecology, score: 38}
+  - {branch: ecosocialism, score: 46}
+  - {branch: anthropocene, score: 58}
+  - {branch: counterpoint, score: 90}
+alliances:
+  - title: {en: "Against, on grounds of scale", fr: "Contre, pour des raisons d'échelle"}
+    branches: [technocritique, degrowth, social-ecology]
+    text:
+      en: "A plant this large needs a central state and its experts. The technology decides the politics."
+      fr: "Une centrale de cette taille exige un État central et ses experts. La technique décide de la politique."
+  - title: {en: "Against, on grounds of justice", fr: "Contre, pour des raisons de justice"}
+    branches: [ecofeminism, decolonial, political-ecology]
+    text:
+      en: "Mines and waste sites land on poor and colonised territories."
+      fr: "Les mines et les sites de déchets échoient aux territoires pauvres et colonisés."
+  - title: {en: "Conditional", fr: "Sous conditions"}
+    branches: [deep-ecology, ecosophy, queer-ecology, ecosocialism]
+    text:
+      en: "It depends on who owns the plants, and on using less energy first."
+      fr: "Tout dépend de qui possède les centrales, et d'une baisse préalable de la consommation d'énergie."
+  - title: {en: "For", fr: "Pour"}
+    branches: [counterpoint, anthropocene]
+    partial: [anthropocene]
+    text:
+      en: "Carbon is the urgent danger. The Anthropocene branch splits: the Lovelock agent sides with the ecomodernists."
+      fr: "Le carbone est le danger urgent. La branche Anthropocène se divise : l'agent Lovelock se range du côté des écomodernistes."
+voices:
+  - author: ivan-illich
+    work: illich-1974
+    position: 6
+    text:
+      en: "Past a certain quantity of energy per person, the source no longer matters: the machines run the society. Ask how much before asking which."
+      fr: "Passé une certaine quantité d'énergie par personne, la source n'importe plus : les machines dirigent la société. Demandez combien avant de demander laquelle."
+  - author: andre-gorz
+    work: gorz-1975
+    position: 9
+    text:
+      en: "A nuclear grid cannot be self-managed. To choose it is to choose the experts and the police who must guard it for centuries."
+      fr: "Un réseau nucléaire ne peut pas être autogéré. Le choisir, c'est choisir les experts et la police qui devront le garder pendant des siècles."
+  - author: james-lovelock
+    work: lovelock-2006
+    position: 92
+    text:
+      en: "The danger is carbon, and the hour is late. Fission is the one large low-carbon source we already know how to build."
+      fr: "Le danger, c'est le carbone, et l'heure est tardive. La fission est la seule grande source bas carbone que nous sachions déjà construire."

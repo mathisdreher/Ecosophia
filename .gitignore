@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+*.log
+# generated from design/tokens.json at dev and build time
+src/styles/tokens.css
+# local snapshot written by scripts/wikidata-check.mjs
+.cache/

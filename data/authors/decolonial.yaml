@@ -1,0 +1,102 @@
+# Decolonial ecology and environmental justice.
+
+- id: malcom-ferdinand
+  name: Malcom Ferdinand
+  sort: Ferdinand
+  layer: leaf
+  branch: decolonial
+  born: 1985
+  place: {city: {en: Martinique, fr: Martinique}, country: {en: France, fr: France}, lat: 14.64, lon: -61.02}
+  wikidata: Q100145747
+  lede:
+    en: "Martinican engineer and political scientist, researcher at the CNRS in Paris. He thinks the ecological crisis from the Caribbean: against an environmentalism that boards Noah's Ark and forgets who is left ashore, he sets the hold of the slave ship."
+    fr: "Ingénieur et politiste martiniquais, chercheur au CNRS à Paris. Il pense la crise écologique depuis la Caraïbe : à un environnementalisme qui embarque sur l'arche de Noé en oubliant qui reste à quai, il oppose la cale du navire négrier."
+  seeds:
+    - seed: double-fracture
+      text:
+        en: "Environmental thought and anticolonial thought have grown apart: each forgets what the other knows."
+        fr: "La pensée environnementale et la pensée anticoloniale ont grandi séparément : chacune oublie ce que l'autre sait."
+      source: ferdinand-2019
+    - seed: colonial-inhabitation
+      text:
+        en: "The plantation is a way of living on the Earth that clears land, imports labour and exports the harvest."
+        fr: "La plantation est une manière d'habiter la Terre qui défriche, importe la main-d'œuvre et exporte la récolte."
+      source: ferdinand-2019
+    - seed: world-ship
+      text:
+        en: "Leave both the ark and the slave ship for a vessel where humans and non-humans meet on one deck."
+        fr: "Quitter l'arche comme le navire négrier pour un navire où humains et non-humains se rencontrent sur un même pont."
+      source: ferdinand-2019
+  works:
+    - {id: ferdinand-2019, year: 2019, title: "Une écologie décoloniale : penser l'écologie depuis le monde caribéen"}
+    - {id: ferdinand-2024, year: 2024, title: "S'aimer la Terre : défaire l'habiter colonial"}
+
+- id: ramachandra-guha
+  name: Ramachandra Guha
+  sort: Guha
+  layer: leaf
+  branch: decolonial
+  also: [political-ecology]
+  born: 1958
+  place: {city: {en: Dehradun, fr: Dehradun}, country: {en: India, fr: Inde}, lat: 30.32, lon: 78.03}
+  wikidata: Q3521662
+  lede:
+    en: "Indian historian. The Unquiet Woods is a history of peasant resistance in the Himalayan forests up to the Chipko movement; the same year he criticised deep ecology and wilderness protection as luxuries that displace the rural poor when exported to India."
+    fr: "Historien indien. The Unquiet Woods retrace la résistance paysanne dans les forêts de l'Himalaya jusqu'au mouvement Chipko ; la même année, il critique l'écologie profonde et la protection de la nature sauvage comme des luxes qui, exportés en Inde, déplacent les ruraux pauvres."
+  seeds:
+    - seed: wilderness-critique
+      text:
+        en: "Tiger reserves designed on the American model evict the villagers who lived with the forest."
+        fr: "Les réserves de tigres conçues sur le modèle américain expulsent les villageois qui vivaient avec la forêt."
+      source: guha-1989b
+    - seed: environmentalism-of-the-poor
+      text:
+        en: "In India the environmental movement is a movement for livelihood: forests, water, grazing land."
+        fr: "En Inde, le mouvement écologiste est un mouvement pour les moyens de vivre : forêts, eau, pâturages."
+      source: guha-1997
+    - seed: omnivores
+      text:
+        en: "Omnivores consume the resources of the whole country; ecosystem people live from their locality and pay the price."
+        fr: "Les omnivores consomment les ressources de tout le pays ; les gens des écosystèmes vivent de leur localité et en paient le prix."
+      source: guha-1995
+  works:
+    - {id: guha-1989, year: 1989, title: "The Unquiet Woods: Ecological Change and Peasant Resistance in the Himalaya"}
+    - {id: guha-1989b, year: 1989, title: "Radical American Environmentalism and Wilderness Preservation: A Third World Critique", kind: article, in: Environmental Ethics, issue: "11"}
+    - id: guha-1995
+      year: 1995
+      title: "Ecology and Equity: The Use and Abuse of Nature in Contemporary India"
+      by: {en: Gadgil and Guha, fr: Gadgil et Guha}
+      note: {en: with Madhav Gadgil, fr: avec Madhav Gadgil}
+      key: false
+    - id: guha-1997
+      year: 1997
+      title: "Varieties of Environmentalism: Essays North and South"
+      by: {en: Guha and Martínez-Alier, fr: Guha et Martínez-Alier}
+      note: {en: with Joan Martínez-Alier, fr: avec Joan Martínez-Alier}
+    - {id: guha-2000, year: 2000, title: "Environmentalism: A Global History"}
+
+- id: robert-bullard
+  name: Robert D. Bullard
+  sort: Bullard
+  layer: leaf
+  branch: decolonial
+  born: 1946
+  place: {city: {en: "Elba, Alabama", fr: "Elba (Alabama)"}, country: {en: United States, fr: États-Unis}, lat: 31.41, lon: -86.07}
+  wikidata: Q7343289
+  lede:
+    en: "American sociologist at Texas Southern University. Starting from a 1979 lawsuit over a landfill in a Black neighbourhood of Houston, he documented that waste sites follow race more closely than income, and gave the environmental justice movement its evidence."
+    fr: "Sociologue américain à la Texas Southern University. À partir d'un procès de 1979 contre une décharge dans un quartier noir de Houston, il établit que les sites de déchets suivent la race de plus près que le revenu, et donne ses preuves au mouvement pour la justice environnementale."
+  seeds:
+    - seed: environmental-racism
+      text:
+        en: "Landfills and incinerators are sited where residents are Black and politically weak."
+        fr: "Les décharges et les incinérateurs s'installent là où les habitants sont noirs et politiquement faibles."
+      source: bullard-1990
+    - seed: environmental-justice
+      text:
+        en: "No community should bear a larger share of pollution because of its race or its income."
+        fr: "Aucune communauté ne devrait supporter une part plus grande de la pollution en raison de sa race ou de son revenu."
+      source: bullard-1990
+  works:
+    - {id: bullard-1990, year: 1990, title: "Dumping in Dixie: Race, Class, and Environmental Quality"}
+    - {id: bullard-1993, year: 1993, title: "Confronting Environmental Racism: Voices from the Grassroots", note: {en: editor, fr: direction}}

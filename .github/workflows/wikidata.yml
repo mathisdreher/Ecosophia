@@ -1,0 +1,43 @@
+# Compares the dates and birthplaces entered by hand with Wikidata and writes
+# the differences to the run summary. It changes nothing in the repository:
+# corrections are made in data/authors/*.yaml after a human has looked.
+name: Check facts against Wikidata
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5 3 * *" # the 3rd of each month, 05:17 UTC
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Compare with Wikidata
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Compare
+        env:
+          # Wikimedia asks automated clients to identify themselves with a contact address.
+          WIKIDATA_USER_AGENT: EcosophiaFactCheck/0.1 (${{ github.server_url }}/${{ github.repository }})
+        run: node scripts/wikidata-check.mjs
+
+      - name: Keep the snapshot
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: wikidata-snapshot
+          path: .cache/wikidata.json
+          if-no-files-found: ignore

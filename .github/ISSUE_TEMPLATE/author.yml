@@ -1,0 +1,27 @@
+name: Suggest an author / Proposer un auteur
+description: An author who belongs on the tree. Un auteur qui a sa place sur l'arbre.
+labels: [author]
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Name / Nom
+    validations:
+      required: true
+  - type: input
+    id: branch
+    attributes:
+      label: Branch / Branche
+      description: Which school, or which root group? Quelle école, ou quel groupe de racines ?
+  - type: textarea
+    id: why
+    attributes:
+      label: Three seeds and their sources / Trois graines et leurs sources
+      description: The ideas this author planted, each with the work where it is set out. Les idées plantées par cet auteur, chacune avec l'œuvre où elle est exposée.
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: Links to authors already on the map / Liens avec des auteurs déjà sur la carte
+      description: Who influenced, criticised or answered whom, and in which work. No source, no link. Qui a influencé, critiqué ou répondu à qui, et dans quelle œuvre. Pas de source, pas de lien.

@@ -1,0 +1,84 @@
+---
+// GitHub Pages serves this page for every unknown address, so it speaks both
+// languages and picks the reader's own when it can.
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/instrument-sans/index.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+import Logo from '../components/Logo.astro';
+import { withBase } from '../lib/site.mjs';
+import { useUi } from '../i18n/ui.mjs';
+
+const en = useUi('en').t;
+const fr = useUi('fr').t;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>404 · Ecosophia</title>
+    <meta name="robots" content="noindex" />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <script is:inline define:vars={{ frPrefix: withBase('/fr/') }}>
+      (function () {
+        try {
+          var t = localStorage.getItem('eco-theme');
+          if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+          var stored = localStorage.getItem('eco-lang');
+          var french = window.location.pathname.indexOf(frPrefix) === 0 || stored === 'fr';
+          if (french) document.documentElement.setAttribute('data-show', 'fr');
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <main class="lost">
+      <a class="logo" href={withBase('/')}><Logo /></a>
+      <div class="msg" lang="en" data-lang="en">
+        <h1 class="t-title">{en('notFound.title')}</h1>
+        <p class="t-lede">{en('notFound.text')}</p>
+        <a class="eco-btn" href={withBase('/en/')}>{en('common.backToTree')}</a>
+      </div>
+      <div class="msg" lang="fr" data-lang="fr">
+        <h1 class="t-title">{fr('notFound.title')}</h1>
+        <p class="t-lede">{fr('notFound.text')}</p>
+        <a class="eco-btn" href={withBase('/fr/')}>{fr('common.backToTree')}</a>
+      </div>
+    </main>
+    <hr class="eco-ground" />
+  </body>
+</html>
+
+<style>
+  .lost {
+    min-height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: var(--space-8);
+    padding: var(--space-12) var(--gutter);
+    max-width: 720px;
+  }
+  .logo {
+    display: block;
+    color: var(--ink);
+  }
+  .logo :global(svg) {
+    display: block;
+    width: 272px;
+    height: 64px;
+  }
+  .msg {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+  :global(html[data-show="fr"]) .msg[data-lang="en"],
+  :global(html:not([data-show="fr"])) .msg[data-lang="fr"] {
+    display: none;
+  }
+</style>

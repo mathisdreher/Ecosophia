@@ -1,0 +1,178 @@
+# Anthropocene, Gaia and new materialisms.
+
+- id: bruno-latour
+  name: Bruno Latour
+  sort: Latour
+  layer: leaf
+  branch: anthropocene
+  born: 1947
+  died: 2022
+  place: {city: {en: Beaune, fr: Beaune}, country: {en: France, fr: France}, lat: 47.02, lon: 4.84}
+  wikidata: Q355237
+  lede:
+    en: "French sociologist and philosopher of science. He argued that the moderns never managed to keep nature and society apart, proposed a parliament of things, and in his last books described a new political actor, Gaia, and a new conflict over the habitability of the Earth."
+    fr: "Sociologue et philosophe des sciences français. Il soutient que les modernes n'ont jamais réussi à séparer nature et société, propose un parlement des choses et, dans ses derniers livres, décrit un nouvel acteur politique, Gaïa, et un nouveau conflit autour de l'habitabilité de la Terre."
+  seeds:
+    - seed: parliament-of-things
+      text:
+        en: "Rivers, viruses and the climate need spokespersons, since they already take part in our affairs."
+        fr: "Les fleuves, les virus et le climat ont besoin de porte-parole, puisqu'ils prennent déjà part à nos affaires."
+      source: latour-1999
+    - seed: gaia
+      text:
+        en: "Not a goddess nor a system: the name for an Earth that reacts to what we do to it."
+        fr: "Ni une déesse ni un système : le nom d'une Terre qui réagit à ce que nous lui faisons."
+      source: latour-2015
+    - seed: terrestrial
+      text:
+        en: "Politics no longer runs from local to global but toward or away from the ground we depend on."
+        fr: "La politique ne va plus du local au global, mais vers le sol dont nous dépendons, ou loin de lui."
+      source: latour-2017
+  works:
+    - {id: latour-1991, year: 1991, title: Nous n'avons jamais été modernes}
+    - {id: latour-1999, year: 1999, title: Politiques de la nature}
+    - id: latour-2011
+      year: 2011
+      title: Love Your Monsters
+      kind: chapter
+      in: "Love Your Monsters: Postenvironmentalism and the Anthropocene"
+      note: {en: "ed. Michael Shellenberger and Ted Nordhaus", fr: "dir. Michael Shellenberger et Ted Nordhaus"}
+      key: false
+    - {id: latour-2015, year: 2015, title: Face à Gaïa}
+    - {id: latour-2017, year: 2017, title: "Où atterrir ? Comment s'orienter en politique"}
+
+- id: isabelle-stengers
+  name: Isabelle Stengers
+  sort: Stengers
+  layer: leaf
+  branch: anthropocene
+  born: 1949
+  place: {city: {en: Brussels, fr: Bruxelles}, country: {en: Belgium, fr: Belgique}, lat: 50.85, lon: 4.35}
+  wikidata: Q444852
+  lede:
+    en: "Belgian philosopher of science at the Université libre de Bruxelles, trained as a chemist and first known for her work with Ilya Prigogine. She names Gaia the one who intrudes: a touchy assemblage of forces, indifferent to our reasons, with which we must learn to compose."
+    fr: "Philosophe des sciences belge à l'Université libre de Bruxelles, chimiste de formation et d'abord connue pour ses travaux avec Ilya Prigogine. Elle nomme Gaïa celle qui fait intrusion : un agencement chatouilleux de forces, indifférent à nos raisons, avec lequel il faut apprendre à composer."
+  seeds:
+    - seed: intrusion-of-gaia
+      text:
+        en: "Gaia does not ask to be saved or loved: she intrudes, and no one will make her go away."
+        fr: "Gaïa ne demande ni à être sauvée ni à être aimée : elle fait intrusion, et nul ne la fera partir."
+      source: stengers-2009
+    - seed: cosmopolitics
+      text:
+        en: "Slow down decisions until those they affect, human or not, have been able to object."
+        fr: "Ralentir les décisions jusqu'à ce que celles et ceux qu'elles affectent, humains ou non, aient pu objecter."
+      source: stengers-1997
+    - seed: slow-science
+      text:
+        en: "Research hurried by competition and patents loses the time it needs to doubt."
+        fr: "Une recherche pressée par la compétition et les brevets perd le temps dont elle a besoin pour douter."
+      source: stengers-2013
+  works:
+    - {id: stengers-1979, year: 1979, title: La Nouvelle Alliance, note: {en: with Ilya Prigogine, fr: avec Ilya Prigogine}}
+    - {id: stengers-1997, year: 1997, title: Cosmopolitiques}
+    - {id: stengers-2009, year: 2009, title: "Au temps des catastrophes : résister à la barbarie qui vient"}
+    - {id: stengers-2013, year: 2013, title: "Une autre science est possible ! Manifeste pour un ralentissement des sciences", key: false}
+
+- id: donna-haraway
+  name: Donna Haraway
+  sort: Haraway
+  layer: leaf
+  branch: anthropocene
+  also: [ecofeminism]
+  born: 1944
+  place: {city: {en: Denver, fr: Denver}, country: {en: United States, fr: États-Unis}, lat: 39.74, lon: -104.99}
+  wikidata: Q253407
+  lede:
+    en: "American biologist and historian of science, emerita at the University of California, Santa Cruz. From the cyborg to companion species she has taken apart the borders between organism, machine and animal, and she proposes to make kin across species on a damaged planet."
+    fr: "Biologiste et historienne des sciences américaine, professeure émérite à l'université de Californie à Santa Cruz. Du cyborg aux espèces compagnes, elle défait les frontières entre organisme, machine et animal, et propose de faire des parents entre espèces sur une planète abîmée."
+  seeds:
+    - seed: situated-knowledges
+      text:
+        en: "Objectivity is a view from somewhere: it gains by saying where it stands."
+        fr: "L'objectivité est une vue de quelque part : elle gagne à dire d'où elle regarde."
+      source: haraway-1988
+    - seed: companion-species
+      text:
+        en: "Humans and dogs made each other: no species becomes itself alone."
+        fr: "Humains et chiens se sont faits mutuellement : aucune espèce ne devient elle-même toute seule."
+      source: haraway-2003
+    - seed: chthulucene
+      text:
+        en: "A name for the present that stresses entanglement and repair rather than Man or Capital."
+        fr: "Un nom pour le présent qui met l'accent sur l'enchevêtrement et la réparation plutôt que sur l'Homme ou le Capital."
+      source: haraway-2016
+  works:
+    - {id: haraway-1985, year: 1985, title: "A Manifesto for Cyborgs: Science, Technology, and Socialist Feminism in the 1980s", kind: article, in: Socialist Review, issue: "80"}
+    - {id: haraway-1988, year: 1988, title: "Situated Knowledges: The Science Question in Feminism and the Privilege of Partial Perspective", kind: article, in: Feminist Studies, issue: "14"}
+    - {id: haraway-2003, year: 2003, title: "The Companion Species Manifesto: Dogs, People, and Significant Otherness"}
+    - {id: haraway-2016, year: 2016, title: "Staying with the Trouble: Making Kin in the Chthulucene"}
+    - id: haraway-2016b
+      year: 2016
+      title: "Anthropologists Are Talking – About the Anthropocene"
+      kind: article
+      in: Ethnos
+      issue: "81"
+      by: {en: Haraway et al., fr: Haraway et al.}
+      note: {en: "with Noboru Ishikawa, Scott F. Gilbert, Kenneth Olwig, Anna Tsing and Nils Bubandt", fr: "avec Noboru Ishikawa, Scott F. Gilbert, Kenneth Olwig, Anna Tsing et Nils Bubandt"}
+      key: false
+
+- id: anna-tsing
+  name: Anna Tsing
+  sort: Tsing
+  layer: leaf
+  branch: anthropocene
+  born: 1952
+  place: {country: {en: United States, fr: États-Unis}}
+  wikidata: Q21821411
+  lede:
+    en: "American anthropologist at the University of California, Santa Cruz. The Mushroom at the End of the World follows the matsutake, a mushroom that thrives in forests ruined by logging, to ask what kinds of life remain possible in capitalist ruins."
+    fr: "Anthropologue américaine à l'université de Californie à Santa Cruz. Le Champignon de la fin du monde suit le matsutake, un champignon qui prospère dans les forêts ruinées par l'exploitation, pour demander quelles vies restent possibles dans les ruines du capitalisme."
+  seeds:
+    - seed: friction
+      text:
+        en: "Global projects advance only by gripping local ground, and the grip changes them."
+        fr: "Les projets globaux n'avancent qu'en accrochant un terrain local, et cette accroche les transforme."
+      source: tsing-2005
+    - seed: salvage-accumulation
+      text:
+        en: "Capital collects value made outside its control: foraged mushrooms become inventory."
+        fr: "Le capital récupère une valeur produite hors de son contrôle : des champignons cueillis deviennent un stock."
+      source: tsing-2015
+    - seed: plantationocene
+      text:
+        en: "The plantation, with its transported plants and forced labour, is the model of the present epoch."
+        fr: "La plantation, avec ses plantes déplacées et son travail forcé, est le modèle de l'époque présente."
+      source: haraway-2016b
+  works:
+    - {id: tsing-2005, year: 2005, title: "Friction: An Ethnography of Global Connection"}
+    - {id: tsing-2015, year: 2015, title: "The Mushroom at the End of the World: On the Possibility of Life in Capitalist Ruins"}
+    - {id: tsing-2017, year: 2017, title: Arts of Living on a Damaged Planet, note: {en: "edited with Heather Swanson, Elaine Gan and Nils Bubandt", fr: "dirigé avec Heather Swanson, Elaine Gan et Nils Bubandt"}}
+
+- id: james-lovelock
+  name: James Lovelock
+  sort: Lovelock
+  layer: leaf
+  branch: anthropocene
+  born: 1919
+  died: 2022
+  place: {city: {en: "Letchworth, England", fr: "Letchworth (Angleterre)"}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 51.98, lon: -0.23}
+  wikidata: Q210898
+  lede:
+    en: "English chemist and inventor of the electron capture detector, which made it possible to trace pesticides and CFCs in the air. With the biologist Lynn Margulis he proposed the Gaia hypothesis: life regulates the conditions that keep the Earth habitable. From 2004 he defended nuclear power as the fastest answer to global warming."
+    fr: "Chimiste anglais et inventeur du détecteur à capture d'électrons, qui a permis de tracer les pesticides et les CFC dans l'air. Avec la biologiste Lynn Margulis, il propose l'hypothèse Gaïa : la vie régule les conditions qui maintiennent la Terre habitable. À partir de 2004, il défend le nucléaire comme la réponse la plus rapide au réchauffement."
+  seeds:
+    - seed: gaia
+      text:
+        en: "Living organisms and their environment form one self-regulating system."
+        fr: "Les organismes vivants et leur environnement forment un seul système autorégulé."
+      source: lovelock-1979
+    - seed: sustainable-retreat
+      text:
+        en: "It is too late for sustainable development: plan a retreat, with nuclear energy to power it."
+        fr: "Il est trop tard pour le développement durable : il faut organiser une retraite, alimentée par l'énergie nucléaire."
+      source: lovelock-2006
+  works:
+    - {id: lovelock-1979, year: 1979, title: "Gaia: A New Look at Life on Earth"}
+    - {id: lovelock-1988, year: 1988, title: "The Ages of Gaia: A Biography of Our Living Earth"}
+    - {id: lovelock-2006, year: 2006, title: The Revenge of Gaia}

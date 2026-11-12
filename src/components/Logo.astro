@@ -1,0 +1,13 @@
+---
+// The rooted lockup, inlined so that it takes the ink of the current theme.
+import fs from 'node:fs';
+import path from 'node:path';
+
+const raw = fs.readFileSync(path.join(process.cwd(), 'public/brand/ecosophia-lockup-rooted-bark.svg'), 'utf8');
+const svg = raw
+  .replaceAll('#2a2219', 'currentColor')
+  .replace(/<title>.*?<\/title>/, '')
+  .replace('<svg ', '<svg role="img" aria-label="Ecosophia" ');
+---
+
+<Fragment set:html={svg} />

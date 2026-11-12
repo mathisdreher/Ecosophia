@@ -1,0 +1,212 @@
+---
+// The tree below ground: the trunk goes on under the ground line and splits
+// into the root groups; thin mycelium threads run between neighbouring roots.
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { L } from '../lib/text.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+
+const { lang } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+
+const groups = c.rootGroups;
+const n = groups.length;
+const W = n * 100;
+const trunkX = W / 2;
+const xs = groups.map((_, j) => 50 + 100 * j);
+const mid = (n - 1) / 2;
+const rootPath = (x, j) => {
+  const d = Math.abs(j - mid);
+  if (d === 0) return `M${trunkX} 40 V120`;
+  const start = d >= mid ? 24 : 40;
+  return `M${trunkX} ${start} L${x} 90 V120`;
+};
+---
+
+<div class="roots-wide">
+  <div class="roots" style={`--cols: ${n}`}>
+    <svg class="lines" viewBox={`0 0 ${W} 170`} preserveAspectRatio="none" aria-hidden="true">
+      <g class="threads">
+        {xs.slice(0, -1).map((x, j) => <path d={`M${x} 120 Q${(x + xs[j + 1]) / 2} 168 ${xs[j + 1]} 120`} />)}
+      </g>
+      <g class="rootlines">{xs.map((x, j) => <path d={rootPath(x, j)} />)}</g>
+      <path class="trunk" d={`M${trunkX} 0 V40`}></path>
+    </svg>
+    {groups.map((_, j) => <span class="dot" style={`left: ${((j + 0.5) / n) * 100}%`} aria-hidden="true" />)}
+    <div class="groups">
+      {
+        groups.map((g) => (
+          <div class="group">
+            <a class="label humus" href={href(lang, 'roots', undefined, g.id)}>{L(g.name, lang)}</a>
+            <div class="names">
+              {g.authors.map((a) => (
+                <a href={href(lang, 'author', a.id)}>{a.name}</a>
+              ))}
+            </div>
+            <span class="eco-meta">
+              {g.marker.year} {L(g.marker.text, lang)}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<div class="roots-stacked">
+  <ol class="stack">
+    {
+      groups.map((g) => (
+        <li>
+          <a class="label humus" href={href(lang, 'roots', undefined, g.id)}>{L(g.name, lang)}</a>
+          <span class="names">
+            {g.authors.map((a, i) => (
+              <>
+                {i > 0 && <span aria-hidden="true"> · </span>}
+                <a href={href(lang, 'author', a.id)}>{a.name}</a>
+              </>
+            ))}
+          </span>
+          <span class="eco-meta">
+            {g.marker.year} {L(g.marker.text, lang)}
+          </span>
+        </li>
+      ))
+    }
+  </ol>
+</div>
+
+<div class="root-notes">
+  <p>
+    <b class="label humus">{t('home.rootsTitle')}</b>
+    {t('home.roots')} <a class="link" href={href(lang, 'roots')}>{t('footer.roots')}</a>
+  </p>
+  <p>
+    <b class="label humus">{t('home.myceliumTitle')}</b>
+    {t('home.mycelium')} <a class="link" href={href(lang, 'mycelium')}>{t('home.myceliumLink')}</a>
+  </p>
+</div>
+
+<style>
+  .roots-wide {
+    padding-inline: var(--gutter);
+  }
+  .roots {
+    position: relative;
+    max-width: 1312px;
+    margin: 0 auto;
+    padding-top: 150px;
+  }
+  .lines {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 170px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .lines path {
+    vector-effect: non-scaling-stroke;
+  }
+  .threads path {
+    stroke: var(--mycelium);
+    stroke-width: 1.5;
+  }
+  .rootlines path {
+    stroke: var(--humus);
+    stroke-width: 3;
+  }
+  .lines .trunk {
+    stroke: var(--ink);
+    stroke-width: 7;
+    stroke-linecap: butt;
+  }
+  .dot {
+    position: absolute;
+    top: 114px;
+    width: 12px;
+    height: 12px;
+    margin-left: -6px;
+    border-radius: var(--radius-pill);
+    background: var(--humus);
+  }
+  .groups {
+    display: grid;
+    grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  }
+  .group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-1);
+    padding: 0 6px;
+    text-align: center;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .names {
+    display: flex;
+    flex-direction: column;
+  }
+  .root-notes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: var(--space-4) var(--space-16);
+    max-width: calc(1312px + 2 * var(--gutter));
+    margin: 0 auto;
+    padding: var(--space-8) var(--gutter) var(--space-6);
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .root-notes .label {
+    display: block;
+    margin-bottom: var(--space-1);
+  }
+
+  .roots-stacked {
+    display: none;
+    padding: 0 var(--gutter);
+  }
+  .stack {
+    list-style: none;
+    margin: 0 0 0 3px;
+    padding: var(--space-6) 0 var(--space-2);
+    border-left: 7px solid var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .stack li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    padding-left: 36px;
+  }
+  .stack li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 28px;
+    border-top: var(--stroke-branch) solid var(--humus);
+  }
+  .stack .names {
+    display: block;
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  @media (max-width: 1020px) {
+    .roots-wide {
+      display: none;
+    }
+    .roots-stacked {
+      display: block;
+    }
+  }
+</style>

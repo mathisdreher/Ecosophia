@@ -1,0 +1,177 @@
+# Technocritique and eco-anarchism.
+
+- id: jacques-ellul
+  name: Jacques Ellul
+  sort: Ellul
+  layer: leaf
+  branch: technocritique
+  born: 1912
+  died: 1994
+  place: {city: {en: Bordeaux, fr: Bordeaux}, country: {en: France, fr: France}, lat: 44.84, lon: -0.58}
+  wikidata: Q322922
+  lede:
+    en: "French historian of law, sociologist and Protestant theologian, professor in Bordeaux. He describes technique as a system that grows by its own logic of efficiency, and to which politics, the economy and morals adapt."
+    fr: "Historien du droit, sociologue et théologien protestant français, professeur à Bordeaux. Il décrit la technique comme un système qui croît selon sa propre logique d'efficacité, et auquel s'adaptent la politique, l'économie et la morale."
+  seeds:
+    - seed: technique
+      text:
+        en: "Not machines but the search for the one most efficient means in every field of life."
+        fr: "Non pas les machines, mais la recherche du moyen le plus efficace dans tous les domaines de la vie."
+      source: ellul-1954
+    - seed: technological-system
+      text:
+        en: "Techniques link up and call for one another: no one steers the whole."
+        fr: "Les techniques s'enchaînent et s'appellent l'une l'autre : personne ne pilote l'ensemble."
+      source: ellul-1977
+    - seed: technological-bluff
+      text:
+        en: "Each technical fix is announced with its benefits and silent about the problems it will create."
+        fr: "Chaque solution technique est annoncée avec ses bienfaits, et tait les problèmes qu'elle créera."
+      source: ellul-1988
+  works:
+    - id: ellul-1935
+      year: 1935
+      title: Directives pour un manifeste personnaliste
+      kind: article
+      by: {en: Charbonneau and Ellul, fr: Charbonneau et Ellul}
+      note: {en: with Bernard Charbonneau, fr: avec Bernard Charbonneau}
+      key: false
+    - {id: ellul-1954, year: 1954, title: La Technique ou l'enjeu du siècle, tr: {en: "The Technological Society, 1964"}}
+    - {id: ellul-1977, year: 1977, title: Le Système technicien}
+    - {id: ellul-1988, year: 1988, title: Le Bluff technologique}
+
+- id: ivan-illich
+  name: Ivan Illich
+  sort: Illich
+  layer: leaf
+  branch: technocritique
+  also: [degrowth]
+  born: 1926
+  died: 2002
+  place: {city: {en: Vienna, fr: Vienne}, country: {en: Austria, fr: Autriche}, lat: 48.21, lon: 16.37}
+  wikidata: Q84186
+  lede:
+    en: "Vienna-born priest and historian who founded the CIDOC centre in Cuernavaca, Mexico. His pamphlets of the 1970s show institutions turning against their own ends past a certain threshold: schools that stupefy, medicine that makes ill, transport that immobilises."
+    fr: "Prêtre et historien né à Vienne, fondateur du centre CIDOC à Cuernavaca, au Mexique. Ses pamphlets des années 1970 montrent des institutions qui, passé un certain seuil, se retournent contre leurs propres fins : l'école abêtit, la médecine rend malade, le transport immobilise."
+  seeds:
+    - seed: conviviality
+      text:
+        en: "A tool is convivial when anyone can use it, as often as they wish, for ends they choose."
+        fr: "Un outil est convivial quand chacun peut s'en servir, aussi souvent qu'il le souhaite, à des fins qu'il choisit."
+      source: illich-1973
+    - seed: counterproductivity
+      text:
+        en: "Past a threshold of speed, the car costs its user more time than it saves."
+        fr: "Passé un seuil de vitesse, la voiture coûte à son usager plus de temps qu'elle ne lui en fait gagner."
+      source: illich-1974
+    - seed: vernacular
+      text:
+        en: "What people make, grow and learn outside the market and the school is not a lesser economy."
+        fr: "Ce que les gens fabriquent, cultivent et apprennent hors du marché et de l'école n'est pas une économie mineure."
+      source: illich-1981
+  works:
+    - {id: illich-1971, year: 1971, title: Deschooling Society}
+    - {id: illich-1973, year: 1973, title: Tools for Conviviality}
+    - {id: illich-1974, year: 1974, title: Energy and Equity}
+    - {id: illich-1975, year: 1975, title: "Medical Nemesis: The Expropriation of Health"}
+    - {id: illich-1981, year: 1981, title: Shadow Work, key: false}
+    - {id: illich-1993, year: 1993, title: To Honor Jacques Ellul, kind: talk, note: {en: "speech given in Bordeaux, 13 November 1993", fr: "discours prononcé à Bordeaux le 13 novembre 1993"}, key: false}
+
+- id: andre-gorz
+  name: André Gorz
+  sort: Gorz
+  layer: leaf
+  branch: technocritique
+  also: [degrowth, ecosocialism]
+  born: 1923
+  died: 2007
+  place: {city: {en: Vienna, fr: Vienne}, country: {en: Austria, fr: Autriche}, lat: 48.21, lon: 16.37}
+  wikidata: Q84352
+  lede:
+    en: "Vienna-born French philosopher and journalist, a follower of Sartre and co-founder of Le Nouvel Observateur, where he signed Michel Bosquet. He makes ecology a critique of capitalist production: the question is not only how much is produced but who decides what."
+    fr: "Philosophe et journaliste français né à Vienne, disciple de Sartre et cofondateur du Nouvel Observateur, où il signe Michel Bosquet. Il fait de l'écologie une critique de la production capitaliste : la question n'est pas seulement combien l'on produit, mais qui décide de quoi."
+  seeds:
+    - seed: political-ecology
+      text:
+        en: "Ecology is not the defence of nature but the defence of a world people can understand and control."
+        fr: "L'écologie n'est pas la défense de la nature, mais celle d'un monde que les gens peuvent comprendre et maîtriser."
+      source: gorz-1975
+    - seed: sufficiency
+      text:
+        en: "A common norm of enough, set by those concerned, beyond which more effort brings nothing wanted."
+        fr: "Une norme commune du suffisant, fixée par les intéressés, au-delà de laquelle l'effort supplémentaire n'apporte rien de désiré."
+      source: gorz-1992
+    - seed: autonomy
+      text:
+        en: "Free time for activities that are their own end, reclaimed from wage labour."
+        fr: "Du temps libre pour des activités qui sont à elles-mêmes leur fin, repris au travail salarié."
+      source: gorz-1988
+  works:
+    - {id: gorz-1975, year: 1975, title: Écologie et politique}
+    - {id: gorz-1977, year: 1977, title: Écologie et liberté}
+    - {id: gorz-1980, year: 1980, title: Adieux au prolétariat}
+    - {id: gorz-1988, year: 1988, title: Métamorphoses du travail}
+    - {id: gorz-1992, year: 1992, title: L'écologie politique entre expertocratie et autolimitation, kind: article, in: Actuel Marx, issue: "12", key: false}
+
+- id: bernard-charbonneau
+  name: Bernard Charbonneau
+  sort: Charbonneau
+  layer: leaf
+  branch: technocritique
+  born: 1910
+  died: 1996
+  place: {city: {en: Bordeaux, fr: Bordeaux}, country: {en: France, fr: France}, lat: 44.84, lon: -0.58}
+  wikidata: Q2897678
+  lede:
+    en: "French geographer and essayist, a lifelong friend of Ellul, who lived away from the university in the Béarn. From the 1930s he held that industrial society destroys nature and freedom together, and he described a countryside turned into a managed suburb."
+    fr: "Géographe et essayiste français, ami de toujours d'Ellul, qui vécut à l'écart de l'université, en Béarn. Dès les années 1930, il soutient que la société industrielle détruit ensemble la nature et la liberté, et il décrit une campagne transformée en banlieue administrée."
+  seeds:
+    - seed: sentiment-of-nature
+      text:
+        en: "The longing for nature is the one revolutionary feeling industrial society produces against itself."
+        fr: "Le désir de nature est le seul sentiment révolutionnaire que la société industrielle produit contre elle-même."
+      source: charbonneau-1937
+    - seed: nature-and-freedom
+      text:
+        en: "To protect nature by total management would destroy the freedom it was meant to save."
+        fr: "Protéger la nature par une gestion totale détruirait la liberté qu'il s'agissait de sauver."
+      source: charbonneau-1980
+  works:
+    - {id: charbonneau-1937, year: 1937, title: "Le sentiment de la nature, force révolutionnaire", kind: article}
+    - {id: charbonneau-1969, year: 1969, title: Le Jardin de Babylone}
+    - {id: charbonneau-1980, year: 1980, title: "Le Feu vert : autocritique du mouvement écologique"}
+
+- id: lewis-mumford
+  name: Lewis Mumford
+  sort: Mumford
+  layer: leaf
+  branch: technocritique
+  born: 1895
+  died: 1990
+  place: {city: {en: New York, fr: New York}, country: {en: United States, fr: États-Unis}, lat: 40.77, lon: -73.82}
+  wikidata: Q469888
+  lede:
+    en: "American historian of cities and technics, a follower of Patrick Geddes. He distinguished democratic technics, small and under the control of their users, from authoritarian ones, and called megamachine the organisation of humans as the parts of a machine, from the pyramids to the Pentagon."
+    fr: "Historien américain des villes et des techniques, disciple de Patrick Geddes. Il distingue les techniques démocratiques, petites et maîtrisées par leurs usagers, des techniques autoritaires, et nomme mégamachine l'organisation des humains en pièces d'une machine, des pyramides au Pentagone."
+  seeds:
+    - seed: megamachine
+      text:
+        en: "The first machine was made of people: armies of labourers under a command."
+        fr: "La première machine était faite d'humains : des armées de travailleurs sous un commandement."
+      source: mumford-1967
+    - seed: democratic-technics
+      text:
+        en: "Two technologies have coexisted since the Neolithic: one dispersed and durable, one centralised and powerful."
+        fr: "Deux techniques coexistent depuis le néolithique : l'une dispersée et durable, l'autre centralisée et puissante."
+      source: mumford-1964
+    - seed: neotechnic
+      text:
+        en: "After the age of coal and iron, electricity could allow a cleaner and more dispersed industry."
+        fr: "Après l'âge du charbon et du fer, l'électricité pourrait permettre une industrie plus propre et plus dispersée."
+      source: mumford-1934
+  works:
+    - {id: mumford-1934, year: 1934, title: Technics and Civilization}
+    - {id: mumford-1938, year: 1938, title: The Culture of Cities}
+    - {id: mumford-1961, year: 1961, title: The City in History}
+    - {id: mumford-1964, year: 1964, title: Authoritarian and Democratic Technics, kind: article, in: Technology and Culture, issue: "5", key: false}
+    - {id: mumford-1967, year: 1967, to: 1970, title: The Myth of the Machine}

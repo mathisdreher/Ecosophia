@@ -1,0 +1,124 @@
+# Deep ecology and environmental ethics.
+
+- id: aldo-leopold
+  name: Aldo Leopold
+  sort: Leopold
+  layer: leaf
+  branch: deep-ecology
+  born: 1887
+  died: 1948
+  place: {city: {en: "Burlington, Iowa", fr: "Burlington (Iowa)"}, country: {en: United States, fr: États-Unis}, lat: 40.81, lon: -91.11}
+  wikidata: Q971382
+  lede:
+    en: "American forester and wildlife ecologist. A Sand County Almanac, published a year after his death, extends ethics from the human community to soils, waters, plants and animals."
+    fr: "Forestier et écologue américain. L'Almanach d'un comté des sables, paru un an après sa mort, étend l'éthique de la communauté humaine aux sols, aux eaux, aux plantes et aux animaux."
+  seeds:
+    - seed: land-ethic
+      text:
+        en: "Humans are plain members and citizens of the land community, not its conquerors."
+        fr: "Les humains sont de simples membres et citoyens de la communauté de la terre, non ses conquérants."
+      source: leopold-1949
+    - seed: thinking-like-a-mountain
+      text:
+        en: "Kill the wolves and the deer strip the slope: only the mountain has lived long enough to know."
+        fr: "Tuez les loups, et les cerfs dénudent le versant : seule la montagne a vécu assez longtemps pour le savoir."
+      source: leopold-1949
+    - seed: biotic-community
+      text:
+        en: "Soils, waters, plants and animals form with us one community, held together by flows of energy."
+        fr: "Les sols, les eaux, les plantes et les animaux forment avec nous une seule communauté, tenue par des flux d'énergie."
+      source: leopold-1949
+  quote:
+    text: "A thing is right when it tends to preserve the integrity, stability, and beauty of the biotic community."
+    lang: en
+    source: leopold-1949
+    pages: "The Land Ethic"
+    gloss: {fr: "Une chose est juste lorsqu'elle tend à préserver l'intégrité, la stabilité et la beauté de la communauté biotique."}
+  works:
+    - {id: leopold-1933, year: 1933, title: Game Management}
+    - {id: leopold-1949, year: 1949, title: A Sand County Almanac}
+
+- id: george-sessions
+  name: George Sessions
+  sort: Sessions
+  layer: leaf
+  branch: deep-ecology
+  born: 1938
+  died: 2016
+  place: {country: {en: United States, fr: États-Unis}}
+  lede:
+    en: "American philosopher at Sierra College, California. With Arne Næss he wrote the eight-point platform of deep ecology in 1984, and with Bill Devall the book that carried the movement to North America."
+    fr: "Philosophe américain au Sierra College, en Californie. Il rédige avec Arne Næss, en 1984, la plateforme en huit points de l'écologie profonde et, avec Bill Devall, le livre qui porte le mouvement en Amérique du Nord."
+  seeds:
+    - seed: eight-point-platform
+      text:
+        en: "Eight statements that people of different philosophies and religions can sign together."
+        fr: "Huit énoncés que des personnes de philosophies et de religions différentes peuvent signer ensemble."
+      source: devall-1985
+    - seed: biocentric-equality
+      text:
+        en: "All things in the biosphere have an equal right to live and to reach their own forms of unfolding."
+        fr: "Tout ce qui vit dans la biosphère a un droit égal à vivre et à atteindre ses propres formes d'épanouissement."
+      source: devall-1985
+  works:
+    - {id: sessions-1995, year: 1995, title: Deep Ecology for the Twenty-First Century, note: {en: editor, fr: direction}}
+
+- id: bill-devall
+  name: Bill Devall
+  sort: Devall
+  layer: leaf
+  branch: deep-ecology
+  born: 1938
+  died: 2009
+  place: {country: {en: United States, fr: États-Unis}}
+  wikidata: Q59525622
+  lede:
+    en: "American sociologist at Humboldt State University, California. He took deep ecology out of the philosophy journals and into the practice of the North American environmental movement."
+    fr: "Sociologue américain à l'université d'État de Humboldt, en Californie. Il fait sortir l'écologie profonde des revues de philosophie pour l'installer dans la pratique du mouvement environnemental nord-américain."
+  seeds:
+    - seed: reform-and-deep
+      text:
+        en: "Reform environmentalism manages resources for people; deep ecology questions the worldview that makes nature a resource."
+        fr: "L'environnementalisme réformiste gère des ressources pour les humains ; l'écologie profonde interroge la vision du monde qui fait de la nature une ressource."
+      source: devall-1980
+    - seed: simple-in-means
+      text:
+        en: "A life simple in means and rich in ends: fewer needs, deeper experience."
+        fr: "Une vie simple en moyens et riche en fins : moins de besoins, une expérience plus profonde."
+      source: devall-1988
+  works:
+    - {id: devall-1980, year: 1980, title: The Deep Ecology Movement, kind: article, in: Natural Resources Journal, issue: "20"}
+    - id: devall-1985
+      year: 1985
+      title: "Deep Ecology: Living as if Nature Mattered"
+      by: {en: Devall and Sessions, fr: Devall et Sessions}
+      note: {en: with George Sessions, fr: avec George Sessions}
+    - {id: devall-1988, year: 1988, title: "Simple in Means, Rich in Ends: Practicing Deep Ecology"}
+
+- id: holmes-rolston
+  name: Holmes Rolston III
+  sort: Rolston
+  layer: leaf
+  branch: deep-ecology
+  born: 1932
+  died: 2025
+  place: {city: {en: "Staunton, Virginia", fr: "Staunton (Virginie)"}, country: {en: United States, fr: États-Unis}, lat: 38.15, lon: -79.07}
+  wikidata: Q3139446
+  lede:
+    en: "American philosopher and Presbyterian minister at Colorado State University. He argued that value is present in nature before any human valuer arrives, and that duties follow from it."
+    fr: "Philosophe et pasteur presbytérien américain, à l'université d'État du Colorado. Il soutient que la valeur est présente dans la nature avant l'arrivée de tout évaluateur humain, et que des devoirs en découlent."
+  seeds:
+    - seed: intrinsic-value
+      text:
+        en: "An organism defends a good of its own: value does not wait for a human to confer it."
+        fr: "Un organisme défend un bien qui lui est propre : la valeur n'attend pas qu'un humain la confère."
+      source: rolston-1988
+    - seed: systemic-value
+      text:
+        en: "Beyond individuals, the ecosystem that produces them carries a value of its own."
+        fr: "Au-delà des individus, l'écosystème qui les produit porte une valeur propre."
+      source: rolston-1988
+  works:
+    - {id: rolston-1975, year: 1975, title: "Is There an Ecological Ethic?", kind: article, in: Ethics, issue: "85"}
+    - {id: rolston-1986, year: 1986, title: Philosophy Gone Wild}
+    - {id: rolston-1988, year: 1988, title: "Environmental Ethics: Duties to and Values in the Natural World"}

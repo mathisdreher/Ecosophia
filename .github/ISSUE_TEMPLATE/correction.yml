@@ -1,0 +1,24 @@
+name: Report an error / Signaler une erreur
+description: A date, a title, a link or a paraphrase is wrong. Une date, un titre, un lien ou une paraphrase est faux.
+labels: [correction]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: Address of the page, or name of the author. Adresse de la page, ou nom de l'auteur.
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong / Ce qui est faux
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Source
+      description: A published work that supports the correction, with page if you can. Une œuvre publiée qui appuie la correction, avec la page si possible.
+    validations:
+      required: true

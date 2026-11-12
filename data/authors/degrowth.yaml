@@ -1,0 +1,144 @@
+# Degrowth and bioeconomics.
+
+- id: nicholas-georgescu-roegen
+  name: Nicholas Georgescu-Roegen
+  sort: Georgescu-Roegen
+  layer: leaf
+  branch: degrowth
+  born: 1906
+  died: 1994
+  place: {city: {en: Constanța, fr: Constanța}, country: {en: Romania, fr: Roumanie}, lat: 44.17, lon: 28.63}
+  wikidata: Q1351160
+  lede:
+    en: "Romanian-born mathematician and economist, at Vanderbilt University from 1949. He showed that the economy irreversibly turns low-entropy resources into waste, so that neither growth nor a steady state can last for ever."
+    fr: "Mathématicien et économiste d'origine roumaine, à l'université Vanderbilt à partir de 1949. Il montre que l'économie transforme irréversiblement des ressources de basse entropie en déchets, de sorte que ni la croissance ni l'état stationnaire ne peuvent durer toujours."
+  seeds:
+    - seed: entropy
+      text:
+        en: "Production does not create matter or energy: it degrades them, and the degradation cannot be undone."
+        fr: "La production ne crée ni matière ni énergie : elle les dégrade, et cette dégradation est sans retour."
+      source: georgescu-roegen-1971
+    - seed: bioeconomics
+      text:
+        en: "Economics is a chapter of biology: a species that lives on a stock it cannot renew."
+        fr: "L'économie est un chapitre de la biologie : une espèce qui vit d'un stock qu'elle ne peut renouveler."
+      source: georgescu-roegen-1975
+    - seed: degrowth
+      text:
+        en: "His essays appear in French in 1979 as Demain la décroissance: the title gives a movement its name."
+        fr: "Ses essais paraissent en français en 1979 sous le titre Demain la décroissance : le titre donne son nom à un mouvement."
+      source: georgescu-roegen-1979
+  works:
+    - {id: georgescu-roegen-1971, year: 1971, title: The Entropy Law and the Economic Process}
+    - {id: georgescu-roegen-1975, year: 1975, title: Energy and Economic Myths, kind: article, in: Southern Economic Journal, issue: "41"}
+    - {id: georgescu-roegen-1979, year: 1979, title: Demain la décroissance, note: {en: edited and translated by Jacques Grinevald and Ivo Rens, fr: édité et traduit par Jacques Grinevald et Ivo Rens}}
+
+- id: serge-latouche
+  name: Serge Latouche
+  sort: Latouche
+  layer: leaf
+  branch: degrowth
+  born: 1940
+  place: {city: {en: Vannes, fr: Vannes}, country: {en: France, fr: France}, lat: 47.66, lon: -2.76}
+  wikidata: Q1095066
+  lede:
+    en: "French economist, emeritus professor at Paris-Sud. Fieldwork in Africa turned him against development, and he became the main theorist of décroissance, which he presents as a slogan meant to break the hold of the economy on the imagination."
+    fr: "Économiste français, professeur émérite à l'université Paris-Sud. Ses terrains africains le retournent contre le développement, et il devient le principal théoricien de la décroissance, qu'il présente comme un mot d'ordre destiné à briser l'emprise de l'économie sur l'imaginaire."
+  seeds:
+    - seed: degrowth
+      text:
+        en: "Not negative growth but a way out of the religion of growth: a society of frugal abundance."
+        fr: "Non pas une croissance négative, mais une sortie de la religion de la croissance : une société d'abondance frugale."
+      source: latouche-2006
+    - seed: decolonising-the-imaginary
+      text:
+        en: "Before changing the economy, undo the belief that more is always better."
+        fr: "Avant de changer l'économie, défaire la croyance que plus vaut toujours mieux."
+      source: latouche-2003
+    - seed: eight-rs
+      text:
+        en: "Re-evaluate, reconceptualise, restructure, redistribute, relocalise, reduce, reuse, recycle."
+        fr: "Réévaluer, reconceptualiser, restructurer, redistribuer, relocaliser, réduire, réutiliser, recycler."
+      source: latouche-2007
+  works:
+    - {id: latouche-1989, year: 1989, title: L'Occidentalisation du monde}
+    - {id: latouche-2003, year: 2003, title: Décoloniser l'imaginaire, key: false}
+    - {id: latouche-2006, year: 2006, title: Le Pari de la décroissance}
+    - {id: latouche-2007, year: 2007, title: Petit traité de la décroissance sereine}
+    - {id: latouche-2013, year: 2013, title: Jacques Ellul contre le totalitarisme technicien, key: false}
+
+- id: giorgos-kallis
+  name: Giorgos Kallis
+  sort: Kallis
+  layer: leaf
+  branch: degrowth
+  also: [political-ecology]
+  born: 1972
+  place: {city: {en: Athens, fr: Athènes}, country: {en: Greece, fr: Grèce}, lat: 37.98, lon: 23.73}
+  wikidata: Q57198391
+  lede:
+    en: "Greek ecological economist, ICREA professor at the Autonomous University of Barcelona. He turned degrowth from a slogan into a research programme and argues that limits are something a society chooses to set for itself."
+    fr: "Économiste écologique grec, professeur ICREA à l'université autonome de Barcelone. Il fait de la décroissance, d'abord mot d'ordre, un programme de recherche, et soutient que les limites sont ce qu'une société choisit de se fixer."
+  seeds:
+    - seed: degrowth
+      text:
+        en: "An equitable downscaling of production and consumption that raises well-being: a hypothesis to be tested."
+        fr: "Une réduction équitable de la production et de la consommation qui accroît le bien-être : une hypothèse à mettre à l'épreuve."
+      source: kallis-2014
+    - seed: self-limitation
+      text:
+        en: "Limits are not imposed by nature: free people set them, as the Greeks set limits to wealth."
+        fr: "Les limites ne sont pas imposées par la nature : des gens libres se les donnent, comme les Grecs en donnaient à la richesse."
+      source: kallis-2019
+  works:
+    - id: kallis-2014
+      year: 2014
+      title: "Degrowth: A Vocabulary for a New Era"
+      by: {en: "D'Alisa, Demaria and Kallis", fr: "D'Alisa, Demaria et Kallis"}
+      note: {en: edited with Giacomo D'Alisa and Federico Demaria, fr: dirigé avec Giacomo D'Alisa et Federico Demaria}
+    - {id: kallis-2018, year: 2018, title: Degrowth}
+    - {id: kallis-2019, year: 2019, title: "Limits: Why Malthus Was Wrong and Why Environmentalists Should Care"}
+    - id: kallis-2019b
+      year: 2019
+      title: "Post-environmentalism: origins and evolution of a strange idea"
+      kind: article
+      in: Journal of Political Ecology
+      issue: "26"
+      by: {en: Kallis and Bliss, fr: Kallis et Bliss}
+      note: {en: with Sam Bliss, fr: avec Sam Bliss}
+      key: false
+
+- id: jason-hickel
+  name: Jason Hickel
+  sort: Hickel
+  layer: leaf
+  branch: degrowth
+  also: [decolonial]
+  born: 1982
+  place: {country: {en: Eswatini, fr: Eswatini}}
+  wikidata: Q79783723
+  lede:
+    en: "Economic anthropologist born in Eswatini, professor at the Autonomous University of Barcelona. He measures how far rich countries exceed their fair share of planetary boundaries, and argues for degrowth in the global North as a matter of justice toward the South."
+    fr: "Anthropologue économique né en Eswatini, professeur à l'université autonome de Barcelone. Il mesure de combien les pays riches dépassent leur juste part des limites planétaires, et défend la décroissance au Nord comme une question de justice envers le Sud."
+  seeds:
+    - seed: decoupling
+      text:
+        en: "No evidence shows that GDP can keep growing while material use falls fast enough."
+        fr: "Rien n'indique que le PIB puisse continuer de croître pendant que l'usage de matières baisse assez vite."
+      source: hickel-2020b
+    - seed: unequal-exchange
+      text:
+        en: "Growth in the North still draws on cheap labour and resources from the South."
+        fr: "La croissance du Nord continue de puiser dans le travail et les ressources à bas prix du Sud."
+      source: hickel-2017
+  works:
+    - {id: hickel-2017, year: 2017, title: "The Divide: A Brief Guide to Global Inequality and its Solutions"}
+    - {id: hickel-2020, year: 2020, title: "Less is More: How Degrowth Will Save the World"}
+    - id: hickel-2020b
+      year: 2020
+      title: "Is Green Growth Possible?"
+      kind: article
+      in: New Political Economy
+      issue: "25"
+      by: {en: Hickel and Kallis, fr: Hickel et Kallis}
+      note: {en: with Giorgos Kallis, fr: avec Giorgos Kallis}

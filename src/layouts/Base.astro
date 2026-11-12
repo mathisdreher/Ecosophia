@@ -1,0 +1,128 @@
+---
+// The page frame: header (rooted logo, six view tabs, search, language and
+// theme), the content above ground, the page's one ground line, and what lies
+// below it: evidence first, then the footer links.
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/fraunces/opsz-italic.css';
+import '@fontsource-variable/instrument-sans/index.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+import Logo from '../components/Logo.astro';
+import Search from '../components/Search.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { TABS, TAB_VIEW, tabOf, pathFor, LANGS } from '../i18n/routes.mjs';
+import { href, withBase, absolute } from '../lib/site.mjs';
+import { SITE } from '../site.config.mjs';
+
+const { lang, view, id, title, description } = Astro.props;
+const { t } = useUi(lang);
+const other = lang === 'en' ? 'fr' : 'en';
+const activeTab = tabOf(view);
+const site = Astro.site ?? new URL('http://localhost:4321');
+const pageTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} · ${t('site.tagline')}`;
+const pageDescription = description ?? t('site.description');
+const canonical = absolute(site, pathFor(lang, view, id));
+const suggestUrl = `${SITE.repoUrl}/issues/new?template=author.yml&title=${encodeURIComponent(lang === 'fr' ? 'Proposer un auteur : ' : 'Suggest an author: ')}`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonical} />
+    {LANGS.map((l) => <link rel="alternate" hreflang={l} href={absolute(site, pathFor(l, view, id))} />)}
+    <link rel="alternate" hreflang="x-default" href={absolute(site, pathFor(SITE.defaultLanguage, view, id))} />
+    <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_GB'} />
+    <meta name="color-scheme" content="light dark" />
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('eco-theme');
+          if (t === 'dark' || t === 'light') document.documentElement.dataset.theme = t;
+          localStorage.setItem('eco-lang', document.documentElement.lang);
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#content">{t('site.skip')}</a>
+    <header class="site-header">
+      <a class="site-logo" href={href(lang, 'home')}><Logo /></a>
+      <nav class="eco-tabs main" aria-label={t('tabs.label')}>
+        {
+          TABS.map((tab) => (
+            <a
+              class:list={['eco-tab', { 'is-active': tab === activeTab, clearing: tab === 'clearing' }]}
+              href={href(lang, TAB_VIEW[tab])}
+              aria-current={tab === activeTab && (view === TAB_VIEW[tab]) ? 'page' : undefined}
+            >
+              {t(`tabs.${tab}`)}
+            </a>
+          ))
+        }
+      </nav>
+      <div class="header-tools">
+        <Search lang={lang} />
+        <a class="icon-btn" href={href(other, view, id)} hreflang={other} lang={other} aria-label={t('lang.label')} title={t('lang.switchTo')}>
+          {other.toUpperCase()}
+        </a>
+        <button type="button" class="icon-btn theme-toggle" data-theme-toggle data-to-night={t('theme.toNight')} data-to-day={t('theme.toDay')} aria-label={t('theme.toNight')}>
+          <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4"></path></svg>
+          <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"></path></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="content">
+      <slot />
+    </main>
+
+    <hr class="eco-ground" />
+    <div class="eco-below">
+      <slot name="below" />
+      {Astro.slots.has('below') && <hr class="footer-rule" />}
+      <footer class="site-footer">
+        <nav aria-label={lang === 'fr' ? 'Pied de page' : 'Footer'}>
+          <a class="link" href={href(lang, 'method')}>{t('footer.method')}</a>
+          <a class="link" href={href(lang, 'data')}>{t('footer.data')}</a>
+          <a class="link" href={href(lang, 'authors')}>{t('footer.leaves')}</a>
+          <a class="link" href={href(lang, 'seeds')}>{t('footer.seeds')}</a>
+          <a class="link" href={href(lang, 'roots')}>{t('footer.roots')}</a>
+          <a class="link" href={href(lang, 'trunk')}>{t('footer.trunk')}</a>
+          {SITE.repoPublic && <a class="link" href={suggestUrl} rel="noopener">{t('footer.suggest')}</a>}
+        </nav>
+        <span class="line">{t('footer.line')}</span>
+      </footer>
+    </div>
+
+    <script>
+      const btn = document.querySelector<HTMLButtonElement>('[data-theme-toggle]');
+      if (btn) {
+        const root = document.documentElement;
+        const dark = () =>
+          root.dataset.theme ? root.dataset.theme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const label = () => btn.setAttribute('aria-label', dark() ? btn.dataset.toDay! : btn.dataset.toNight!);
+        label();
+        btn.addEventListener('click', () => {
+          const next = dark() ? 'light' : 'dark';
+          root.dataset.theme = next;
+          try {
+            localStorage.setItem('eco-theme', next);
+          } catch {}
+          label();
+        });
+      }
+    </script>
+  </body>
+</html>

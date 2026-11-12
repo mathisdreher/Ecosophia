@@ -1,0 +1,95 @@
+# Social ecology and libertarian municipalism.
+
+- id: murray-bookchin
+  name: Murray Bookchin
+  sort: Bookchin
+  layer: leaf
+  branch: social-ecology
+  born: 1921
+  died: 2006
+  place: {city: {en: New York, fr: New York}, country: {en: United States, fr: États-Unis}, lat: 40.71, lon: -74.01}
+  wikidata: Q315910
+  lede:
+    en: "American libertarian socialist, a foundry and car worker turned self-taught theorist. His social ecology holds that the domination of nature stems from the domination of human by human, and that the remedy is the directly democratic municipality."
+    fr: "Socialiste libertaire américain, ouvrier de fonderie et de l'automobile devenu théoricien autodidacte. Son écologie sociale soutient que la domination de la nature découle de la domination de l'humain par l'humain, et que le remède est la commune en démocratie directe."
+  seeds:
+    - seed: social-ecology
+      text:
+        en: "Every ecological problem is at root a social problem."
+        fr: "Tout problème écologique est à la racine un problème social."
+      source: bookchin-1982
+    - seed: hierarchy
+      text:
+        en: "Older and wider than class: the rule of elders, men and states came before the wish to master nature."
+        fr: "Plus ancienne et plus large que la classe : la domination des anciens, des hommes et des États a précédé le désir de maîtriser la nature."
+      source: bookchin-1982
+    - seed: libertarian-municipalism
+      text:
+        en: "Citizens' assemblies run the town and federate with others, in place of the nation state."
+        fr: "Des assemblées de citoyens gouvernent la commune et se fédèrent entre elles, à la place de l'État-nation."
+      source: bookchin-1987b
+  quote:
+    text: "The very notion of the domination of nature by man stems from the very real domination of human by human."
+    lang: en
+    source: bookchin-1982
+    pages: "Introduction"
+    gloss: {fr: "L'idée même de domination de la nature par l'homme découle de la domination bien réelle de l'humain par l'humain."}
+  works:
+    - {id: bookchin-1962, year: 1962, title: Our Synthetic Environment, note: {en: under the name Lewis Herber, fr: sous le nom de Lewis Herber}}
+    - {id: bookchin-1971, year: 1971, title: Post-Scarcity Anarchism}
+    - {id: bookchin-1982, year: 1982, title: "The Ecology of Freedom: The Emergence and Dissolution of Hierarchy"}
+    - {id: bookchin-1987, year: 1987, title: "Social Ecology versus Deep Ecology: A Challenge for the Ecology Movement", kind: article}
+    - {id: bookchin-1987b, year: 1987, title: The Rise of Urbanization and the Decline of Citizenship, key: false}
+
+- id: janet-biehl
+  name: Janet Biehl
+  sort: Biehl
+  layer: leaf
+  branch: social-ecology
+  born: 1953
+  place: {city: {en: "Cincinnati, Ohio", fr: "Cincinnati (Ohio)"}, country: {en: United States, fr: États-Unis}, lat: 39.1, lon: -84.51}
+  wikidata: Q535664
+  lede:
+    en: "American writer and Bookchin's collaborator for two decades. She set out his municipalism as a practical programme and later wrote his biography; earlier she had criticised ecofeminism from within social ecology."
+    fr: "Écrivaine américaine et collaboratrice de Bookchin pendant deux décennies. Elle expose son municipalisme comme un programme pratique, puis écrit sa biographie ; elle avait auparavant critiqué l'écoféminisme depuis l'écologie sociale."
+  seeds:
+    - seed: libertarian-municipalism
+      text:
+        en: "A step-by-step programme: neighbourhood assemblies, municipalised economy, confederation."
+        fr: "Un programme par étapes : assemblées de quartier, économie municipalisée, confédération."
+      source: biehl-1998
+    - seed: citizenship
+      text:
+        en: "Politics is what citizens do face to face; statecraft is what professionals do in their name."
+        fr: "La politique est ce que font les citoyens face à face ; la gestion étatique est ce que des professionnels font en leur nom."
+      source: biehl-1998
+  works:
+    - {id: biehl-1991, year: 1991, title: Rethinking Ecofeminist Politics}
+    - {id: biehl-1998, year: 1998, title: "The Politics of Social Ecology: Libertarian Municipalism"}
+    - {id: biehl-2015, year: 2015, title: "Ecology or Catastrophe: The Life of Murray Bookchin"}
+
+- id: dimitrios-roussopoulos
+  name: Dimitrios Roussopoulos
+  sort: Roussopoulos
+  layer: leaf
+  branch: social-ecology
+  born: 1936
+  place: {city: {en: Montreal, fr: Montréal}, country: {en: Canada, fr: Canada}, lat: 45.5, lon: -73.57}
+  wikidata: Q5277609
+  lede:
+    en: "Canadian activist and publisher in Montreal. He founded Black Rose Books, which brought Bookchin and the anarchist tradition into print, and took part in the housing cooperatives and urban ecology of the Milton-Parc neighbourhood."
+    fr: "Militant et éditeur canadien à Montréal. Il fonde Black Rose Books, qui publie Bookchin et la tradition anarchiste, et participe aux coopératives d'habitation et à l'écologie urbaine du quartier Milton-Parc."
+  seeds:
+    - seed: beyond-environmentalism
+      text:
+        en: "Environmentalism manages damage; political ecology questions the institutions that cause it."
+        fr: "L'environnementalisme gère les dégâts ; l'écologie politique met en cause les institutions qui les produisent."
+      source: roussopoulos-1993
+    - seed: participatory-democracy
+      text:
+        en: "Decisions belong to those who live with their consequences, starting in the neighbourhood."
+        fr: "Les décisions appartiennent à celles et ceux qui en vivent les conséquences, à commencer par le quartier."
+      source: roussopoulos-2005
+  works:
+    - {id: roussopoulos-1993, year: 1993, title: "Political Ecology: Beyond Environmentalism"}
+    - {id: roussopoulos-2005, year: 2005, title: "Participatory Democracy: Prospects for Democratizing Democracy", note: {en: edited with C. George Benello, fr: dirigé avec C. George Benello}}

@@ -1,0 +1,16 @@
+name: Propose a claim for the Clearing / Proposer une affirmation pour la Clairière
+description: A news event or a political claim for the author-agents to react to. Un événement ou une affirmation politique à soumettre aux agents-auteurs.
+labels: [clearing]
+body:
+  - type: textarea
+    id: claim
+    attributes:
+      label: Claim or event / Affirmation ou événement
+      description: One sentence that an author could oppose or endorse. Une phrase à laquelle un auteur pourrait s'opposer ou souscrire.
+    validations:
+      required: true
+  - type: input
+    id: context
+    attributes:
+      label: Context / Contexte
+      description: A link or a date that situates the claim. Un lien ou une date qui situe l'affirmation.

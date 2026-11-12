@@ -1,0 +1,32 @@
+---
+// The chips of an author: primary branch first, other affiliations after it.
+// Precursors and trunk authors get the chip of their layer.
+import Chip from './Chip.astro';
+import BranchChip from './BranchChip.astro';
+import { L } from '../lib/text.mjs';
+import { href } from '../lib/site.mjs';
+import { useUi } from '../i18n/ui.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+
+const { author, lang, activePrimary = false, link = true } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+---
+
+{
+  author.layer === 'leaf' && (
+    <BranchChip branch={c.branchById[author.branch]} lang={lang} active={activePrimary} link={link} />
+  )
+}
+{
+  author.layer === 'root' && (
+    <Chip
+      token="humus"
+      label={L(c.rootGroupById[author.root].name, lang)}
+      href={link ? href(lang, 'roots', undefined, author.root) : undefined}
+      active={activePrimary}
+    />
+  )
+}
+{author.layer === 'trunk' && <Chip token="ink" label={t('common.trunk')} href={link ? href(lang, 'trunk') : undefined} active={activePrimary} />}
+{author.also.map((b) => <BranchChip branch={c.branchById[b]} lang={lang} link={link} />)}

@@ -1,0 +1,53 @@
+# Authors of founding texts who do not sit on a branch. layer: trunk.
+
+- id: rachel-carson
+  name: Rachel Carson
+  sort: Carson
+  layer: trunk
+  born: 1907
+  died: 1964
+  place: {city: {en: "Springdale, Pennsylvania", fr: "Springdale (Pennsylvanie)"}, country: {en: United States, fr: États-Unis}, lat: 40.54, lon: -79.78}
+  wikidata: Q100948
+  lede:
+    en: "American marine biologist and writer. Silent Spring documented what synthetic pesticides do along the food chain and turned a technical question into a public one."
+    fr: "Biologiste marine et écrivaine américaine. Printemps silencieux documente ce que les pesticides de synthèse font le long de la chaîne alimentaire et transforme une question technique en question publique."
+  seeds:
+    - seed: biocide
+      text:
+        en: "A poison sprayed on insects does not stop at insects: it travels up the food chain to birds, fish and children."
+        fr: "Un poison répandu sur les insectes ne s'arrête pas aux insectes : il remonte la chaîne alimentaire jusqu'aux oiseaux, aux poissons et aux enfants."
+      source: carson-1962
+  works:
+    - {id: carson-1951, year: 1951, title: The Sea Around Us}
+    - {id: carson-1962, year: 1962, title: Silent Spring}
+
+- id: donella-meadows
+  name: Donella Meadows
+  sort: Meadows
+  layer: trunk
+  born: 1941
+  died: 2001
+  place: {city: {en: "Elgin, Illinois", fr: "Elgin (Illinois)"}, country: {en: United States, fr: États-Unis}, lat: 42.04, lon: -88.28}
+  wikidata: Q271226
+  lede:
+    en: "American systems scientist. Lead author of The Limits to Growth, the report to the Club of Rome that modelled the growth of population and industry on a finite planet."
+    fr: "Scientifique américaine, spécialiste de la dynamique des systèmes. Première autrice des Limites à la croissance, le rapport au Club de Rome qui modélise la croissance de la population et de l'industrie sur une planète finie."
+  seeds:
+    - seed: limits-to-growth
+      text:
+        en: "Exponential growth in a finite system ends, by choice or by collapse."
+        fr: "Une croissance exponentielle dans un système fini s'arrête, par choix ou par effondrement."
+      source: meadows-1972
+    - seed: overshoot
+      text:
+        en: "A system can exceed its limits for a time, because the signals that would stop it arrive late."
+        fr: "Un système peut dépasser ses limites un temps, parce que les signaux qui l'arrêteraient arrivent tard."
+      source: meadows-1972
+  works:
+    - id: meadows-1972
+      year: 1972
+      title: The Limits to Growth
+      kind: report
+      by: {en: Meadows et al., fr: Meadows et al.}
+      note: {en: "with Dennis Meadows, Jørgen Randers and William W. Behrens III", fr: "avec Dennis Meadows, Jørgen Randers et William W. Behrens III"}
+    - {id: meadows-2008, year: 2008, title: "Thinking in Systems: A Primer", note: {en: posthumous, fr: posthume}}

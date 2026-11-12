@@ -1,0 +1,38 @@
+# The trunk: founding texts, roughly 1962 to 1975. Each entry points to a work
+# defined in an author file. The selection is editorial (see the method page).
+- work: carson-1962
+  text:
+    en: "Pesticides become a public question."
+    fr: "Les pesticides deviennent une question publique."
+- work: bookchin-1962
+  text:
+    en: "Chemicals, cities and health: the environment as a social problem."
+    fr: "Chimie, villes et santé : l'environnement comme problème social."
+- work: ellul-1954
+  text:
+    en: "Technique as a system with its own logic. Read worldwide after its English translation of 1964."
+    fr: "La technique comme système doté de sa propre logique. Lu dans le monde entier après sa traduction anglaise de 1964."
+- work: georgescu-roegen-1971
+  text:
+    en: "The economy obeys the entropy law."
+    fr: "L'économie obéit à la loi de l'entropie."
+- work: meadows-1972
+  text:
+    en: "A computer model sets limits to growth."
+    fr: "Un modèle informatique fixe des limites à la croissance."
+- work: naess-1973
+  text:
+    en: "Shallow and deep ecology part ways."
+    fr: "L'écologie superficielle et l'écologie profonde se séparent."
+- work: illich-1973
+  text:
+    en: "Tools should serve those who use them."
+    fr: "L'outil doit servir celles et ceux qui l'utilisent."
+- work: eaubonne-1974
+  text:
+    en: "The word ecofeminism appears."
+    fr: "Le mot écoféminisme apparaît."
+- work: gorz-1975
+  text:
+    en: "Ecology becomes a critique of capitalist production."
+    fr: "L'écologie devient une critique de la production capitaliste."

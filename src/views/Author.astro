@@ -1,0 +1,331 @@
+---
+// Author page: leaf, ground, roots. Above the line, who the author is and the
+// seeds they carry. Below it, the evidence: who they read, who answered them,
+// and the numbered sources behind every claim on the page.
+import Base from '../layouts/Base.astro';
+import AuthorChips from '../components/AuthorChips.astro';
+import SeedTag from '../components/SeedTag.astro';
+import Thread from '../components/Thread.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { L, citeHtml, titleHtml, yearLabel, typo } from '../lib/text.mjs';
+import { loadCorpus, lifespan, placeLabel } from '../lib/corpus.mjs';
+import { SITE } from '../site.config.mjs';
+
+const { lang, id } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+const a = c.authorById[id];
+
+// Numbered sources, in order of appearance on the page.
+const order = [];
+const cite = (sourceId) => {
+  if (!sourceId) return null;
+  let i = order.indexOf(sourceId);
+  if (i === -1) i = order.push(sourceId) - 1;
+  return i + 1;
+};
+
+const seeds = a.seeds.map((s) => ({ ...s, n: cite(s.source) }));
+const quote = a.quote ? { ...a.quote, n: cite(a.quote.source) } : null;
+
+const received = a.inLinks.filter((l) => l.type === 'influenced');
+const answers = [
+  ...a.outLinks.filter((l) => l.type === 'influenced').map((l) => ({ l, who: l.to, label: t('relation.gaveTo') })),
+  ...a.inLinks.filter((l) => l.type === 'critiqued').map((l) => ({ l, who: l.from, label: t('relation.critiquedBy') })),
+  ...a.outLinks.filter((l) => l.type === 'critiqued').map((l) => ({ l, who: l.to, label: t('relation.critiqued') })),
+  ...a.outLinks.filter((l) => l.type === 'dialogue').map((l) => ({ l, who: l.to, label: l.label ? L(l.label, lang) : t('relation.dialogue') })),
+  ...a.inLinks.filter((l) => l.type === 'dialogue').map((l) => ({ l, who: l.from, label: l.label ? L(l.label, lang) : t('relation.dialogue') })),
+];
+const receivedRows = received.map((l) => ({ l, who: c.authorById[l.from], n: l.status === 'to-verify' ? null : cite(l.source) }));
+const answerRows = answers.map((x) => ({ ...x, who: c.authorById[x.who], n: x.l.status === 'to-verify' ? null : cite(x.l.source) }));
+
+const sources = order.map((sid) => c.sources.get(sid));
+const works = a.works.filter((w) => w.key !== false);
+const meta = [lifespan(a, lang), placeLabel(a, lang)].filter(Boolean);
+
+const parent =
+  a.layer === 'leaf'
+    ? { label: L(c.branchById[a.branch].name, lang), url: href(lang, 'branch', a.branch) }
+    : a.layer === 'root'
+      ? { label: t('common.roots'), url: href(lang, 'roots', undefined, a.root) }
+      : { label: t('common.trunk'), url: href(lang, 'trunk') };
+
+const description = L(a.lede, lang);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: a.name,
+  description,
+  ...(a.born ? { birthDate: String(a.born) } : {}),
+  ...(a.died ? { deathDate: String(a.died) } : {}),
+  ...(a.wikidata ? { sameAs: [`https://www.wikidata.org/wiki/${a.wikidata}`] } : {}),
+};
+const reportUrl = `${SITE.repoUrl}/issues/new?template=correction.yml&title=${encodeURIComponent(`${a.name}: `)}&page=${encodeURIComponent(a.name)}`;
+const seedsTitle = t(`author.seeds.${seeds.length}`);
+---
+
+<Base lang={lang} view="author" id={id} title={a.name} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <section class="leaf-page" style={`--chip: var(--${a.token})`}>
+    <div class="main">
+      <nav class="crumbs" aria-label={lang === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'}>
+        <a href={href(lang, 'home')}>{t('tabs.tree')}</a>
+        <span aria-hidden="true">/</span>
+        <a href={parent.url}>{parent.label}</a>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{a.name}</span>
+      </nav>
+      <h1 class="t-name">{a.name}</h1>
+      <div class="meta-row">
+        <span class="eco-meta">
+          {meta.join(' · ')}
+          {meta.length > 0 && a.wikidata && ' · '}
+          {a.wikidata && <a href={`https://www.wikidata.org/wiki/${a.wikidata}`} rel="noopener">{t('common.wikidata')}</a>}
+        </span>
+        <span class="eco-chips"><AuthorChips author={a} lang={lang} activePrimary /></span>
+      </div>
+      <p class="t-lede">{description}</p>
+
+      {
+        seeds.length > 0 && (
+          <>
+            <h2 class="t-heading">{seedsTitle}</h2>
+            <div class="seed-cards">
+              {seeds.map((s) => (
+                <div class="seed-card">
+                  <SeedTag seed={s.seed} lang={lang} />
+                  <p>{L(s.text, lang)}</p>
+                  <a class="eco-meta" href={`#source-${s.n}`}>
+                    {t('common.source')} {s.n}
+                  </a>
+                </div>
+              ))}
+            </div>
+          </>
+        )
+      }
+
+      {
+        quote && (
+          <figure class="eco-sourced">
+            <span class="eco-mark sourced">{t('common.sourced')}</span>
+            <blockquote lang={quote.lang}>{typo(quote.text, quote.lang)}</blockquote>
+            <figcaption>
+              {a.name}, <Fragment set:html={citeHtml(c.sources.get(quote.source), lang, { withAuthor: false, locator: quote.pages })} /> ·{' '}
+              <a href={`#source-${quote.n}`}>
+                {t('common.source')} {quote.n}
+              </a>
+            </figcaption>
+            {quote.lang !== lang && quote.gloss?.[lang] && (
+              <p class="gloss t-muted">
+                {t(`author.quoteOriginal.${quote.lang}`)} {t('author.gloss')} {L(quote.gloss, lang)} ({t('author.ourTranslation')})
+              </p>
+            )}
+          </figure>
+        )
+      }
+    </div>
+
+    <aside class="side">
+      <div class="portrait-block">
+        <div class="portrait" role="img" aria-label={t('author.portrait', { initials: a.initials })}>{a.initials}</div>
+        <span class="eco-meta">{t('author.noPortrait')}</span>
+      </div>
+      {
+        works.length > 0 && (
+          <div class="works">
+            <h2 class="t-heading">{t('author.works')}</h2>
+            <dl>
+              {works.map((w) => (
+                <>
+                  <dt class="eco-meta">{yearLabel(w)}</dt>
+                  <dd>
+                    <Fragment set:html={titleHtml(w, lang)} />
+                    {w.tr && (w.tr[lang] ?? w.tr.en) && <span class="t-muted"> [{typo(w.tr[lang] ?? w.tr.en, lang)}]</span>}
+                    {w.in && (
+                      <span class="t-muted">
+                        , <i>{w.in}</i>
+                        {w.issue && ` ${w.issue}`}
+                      </span>
+                    )}
+                    {w.note && <span class="t-muted">, {L(w.note, lang)}</span>}
+                  </dd>
+                </>
+              ))}
+            </dl>
+          </div>
+        )
+      }
+    </aside>
+  </section>
+
+  <div class="below-grid" slot="below">
+    <div class="below-col">
+      <div class="below-head">
+        <span class="label humus">{t('author.rootsLabel')}</span>
+        <h2 class="t-heading">{t('author.rootsTitle', { name: a.short })}</h2>
+      </div>
+      {receivedRows.length === 0 && <p class="below-item t-muted">{t('author.rootsEmpty')}</p>}
+      {
+        receivedRows.map(({ l, who, n }) => (
+          <div class="below-item">
+            <a class="strong-link" href={href(lang, 'author', who.id)}>{who.name}</a>
+            <span class="text">{L(l.note, lang)}</span>
+            {n ? (
+              <a class="eco-meta" href={`#source-${n}`}>
+                {t('common.source')} {n}
+              </a>
+            ) : (
+              <span class="eco-meta verify">[{t('common.toVerify')}]</span>
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="below-col">
+      <div class="below-head">
+        <span class="label humus">{t('author.myceliumLabel')}</span>
+        <h2 class="t-heading">{t('author.myceliumTitle')}</h2>
+      </div>
+      {answerRows.length === 0 && <p class="below-item t-muted">{t('author.myceliumEmpty')}</p>}
+      {
+        answerRows.map(({ l, who, label, n }) => (
+          <div class="below-item">
+            <span class="rel label">
+              <Thread type={l.type} />
+              {label}
+            </span>
+            <a class="strong-link" href={href(lang, 'author', who.id)}>{who.name}</a>
+            <span class="text">{L(l.note, lang)}</span>
+            {n ? (
+              <a class="eco-meta" href={`#source-${n}`}>
+                {t('common.source')} {n}
+              </a>
+            ) : (
+              <span class="eco-meta verify">[{t('common.toVerify')}]</span>
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="below-col">
+      <div class="below-head">
+        <span class="label humus">{t('author.evidenceLabel')}</span>
+        <h2 class="t-heading">{t('author.evidenceTitle')}</h2>
+      </div>
+      {
+        sources.length > 0 && (
+          <ol class="sources">
+            {sources.map((s, i) => (
+              <li id={`source-${i + 1}`}>
+                <Fragment set:html={citeHtml(s, lang)} />.
+              </li>
+            ))}
+          </ol>
+        )
+      }
+      <div class="row gap-6 t-small">
+        {SITE.repoPublic && <a class="link" href={reportUrl} rel="noopener">{t('author.report')}</a>}
+        <a class="link" href={`${href(lang, 'mycelium')}?focus=${a.id}`}>{t('author.seeMycelium')}</a>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .leaf-page {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-12) 80px;
+    padding: var(--space-16) var(--gutter) 72px;
+  }
+  .main {
+    flex: 999 1 600px;
+    min-width: 0;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .main h2 {
+    margin-top: 28px;
+  }
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2) var(--space-4);
+  }
+  .eco-sourced {
+    margin-top: 28px;
+  }
+  .side {
+    flex: 1 1 340px;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+  .portrait-block {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .portrait {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--moss-soft);
+    border-radius: 0 72px 0 72px;
+    font: 600 120px/1 var(--font-display);
+    letter-spacing: -0.02em;
+    color: var(--moss);
+  }
+  .works {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .works dl {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 10px var(--space-4);
+    margin: 0;
+    font-size: 15px;
+    line-height: 23px;
+  }
+  .works dt {
+    line-height: 23px;
+  }
+  .sources {
+    margin: 0;
+    padding: var(--space-4) 0 0 20px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .sources li:target {
+    background: var(--paper-raised);
+    outline: 6px solid var(--paper-raised);
+  }
+  .verify {
+    text-transform: uppercase;
+  }
+  @media (max-width: 720px) {
+    .leaf-page {
+      padding-top: var(--space-12);
+      padding-bottom: var(--space-12);
+    }
+    .portrait {
+      height: 200px;
+      font-size: 88px;
+    }
+  }
+</style>

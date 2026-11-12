@@ -1,0 +1,80 @@
+---
+// All leaves, A to Z. Also the fallback of the header search without JavaScript.
+import Base from '../layouts/Base.astro';
+import AuthorChips from '../components/AuthorChips.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { fold } from '../lib/text.mjs';
+import { loadCorpus, lifespan, placeLabel } from '../lib/corpus.mjs';
+
+const { lang } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+const groups = new Map();
+for (const a of c.authorsByName) {
+  const k = fold(a.sort)[0].toUpperCase();
+  if (!groups.has(k)) groups.set(k, []);
+  groups.get(k).push(a);
+}
+---
+
+<Base lang={lang} view="authors" title={t('authors.title')} description={t('authors.lede', { n: c.authors.length })}>
+  <section class="page-head">
+    <nav class="crumbs" aria-label={lang === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'}>
+      <a href={href(lang, 'home')}>{t('tabs.tree')}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{t('authors.title')}</span>
+    </nav>
+    <h1 class="t-title">{t('authors.title')}</h1>
+    <p class="t-lede">{t('authors.lede', { n: c.authors.length })}</p>
+  </section>
+  <section class="page-body">
+    <div class="index">
+      {
+        [...groups].map(([letter, list]) => (
+          <section>
+            <h2 class="t-heading">{letter}</h2>
+            <ul>
+              {list.map((a) => (
+                <li>
+                  <a class="strong-link" href={href(lang, 'author', a.id)}>{a.name}</a>
+                  <span class="eco-meta">{[lifespan(a, lang), placeLabel(a, lang)].filter(Boolean).join(' · ')}</span>
+                  <span class="eco-chips"><AuthorChips author={{ ...a, also: [] }} lang={lang} link={false} /></span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  .index {
+    columns: 3 340px;
+    column-gap: var(--space-12);
+  }
+  section {
+    break-inside: avoid;
+    padding-bottom: var(--space-6);
+  }
+  h2 {
+    color: var(--ink-muted);
+    padding-bottom: var(--space-1);
+    border-bottom: 1px solid var(--line);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--line);
+  }
+</style>

@@ -1,0 +1,15 @@
+---
+import Chip from './Chip.astro';
+import { L } from '../lib/text.mjs';
+import { href } from '../lib/site.mjs';
+
+const { branch, lang, active = false, link = true } = Astro.props;
+---
+
+<Chip
+  token={branch.token}
+  label={L(branch.name, lang)}
+  href={link ? href(lang, 'branch', branch.id) : undefined}
+  active={active}
+  graft={branch.graft}
+/>

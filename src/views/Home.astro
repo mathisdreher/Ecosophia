@@ -1,0 +1,83 @@
+---
+// Home: the tree. Leaves and branches above the ground line, roots and
+// mycelium below it, then the three rules of the site.
+import Base from '../layouts/Base.astro';
+import TreeCanopy from '../components/TreeCanopy.astro';
+import TreeRoots from '../components/TreeRoots.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+
+const { lang } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+const start = c.authorById['arne-naess'];
+---
+
+<Base lang={lang} view="home">
+  <section class="hero">
+    <h1 class="t-display">{t('home.title')}</h1>
+    <div class="hero-text">
+      <p class="t-lede">{t('home.lede')}</p>
+      <p class="t-small t-muted">{t('home.why')}</p>
+      <div class="row gap-3">
+        <a class="eco-btn" href={href(lang, 'author', start.id)}>{t('home.cta', { name: start.name })}</a>
+        <a class="eco-btn quiet" href={href(lang, 'clearing')}>{t('home.ctaClearing')}</a>
+      </div>
+    </div>
+  </section>
+
+  <TreeCanopy lang={lang} featured={start.id} />
+
+  <Fragment slot="below">
+    <TreeRoots lang={lang} />
+    <section class="principles">
+      <div>
+        <h2 class="t-heading">{t('home.p1Title')}</h2>
+        <p class="t-small">{t('home.p1')}</p>
+      </div>
+      <div>
+        <h2 class="t-heading">{t('home.p2Title')}</h2>
+        <p class="t-small">{t('home.p2')} <a class="link" href={href(lang, 'method')}>{t('footer.method')}</a></p>
+      </div>
+      <div>
+        <h2 class="t-heading">{t('home.p3Title')}</h2>
+        <p class="t-small">{t('home.p3')}</p>
+      </div>
+    </section>
+  </Fragment>
+</Base>
+
+<style>
+  .hero {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-6) var(--space-16);
+    align-items: flex-end;
+    padding: 72px var(--gutter) 0;
+  }
+  .hero h1 {
+    flex: 1 1 520px;
+    max-width: 680px;
+  }
+  .hero-text {
+    flex: 1 1 420px;
+    max-width: 560px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: var(--space-8);
+    margin: 0 var(--gutter);
+    padding: var(--space-8) 0 var(--space-12);
+    border-top: 1px solid var(--line);
+  }
+  .principles div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+</style>

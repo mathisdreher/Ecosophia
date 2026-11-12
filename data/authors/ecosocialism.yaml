@@ -1,0 +1,139 @@
+# Ecosocialism and eco-Marxism.
+
+- id: john-bellamy-foster
+  name: John Bellamy Foster
+  sort: Foster
+  layer: leaf
+  branch: ecosocialism
+  born: 1953
+  place: {city: {en: Seattle, fr: Seattle}, country: {en: United States, fr: États-Unis}, lat: 47.61, lon: -122.33}
+  wikidata: Q305361
+  lede:
+    en: "American sociologist at the University of Oregon and editor of Monthly Review. Marx's Ecology reconstructs an ecological materialism in Marx around the idea of a rift in the metabolism between society and the soil."
+    fr: "Sociologue américain à l'université de l'Oregon et rédacteur en chef de la Monthly Review. Marx's Ecology reconstruit chez Marx un matérialisme écologique autour de l'idée d'une rupture dans le métabolisme entre la société et le sol."
+  seeds:
+    - seed: metabolic-rift
+      text:
+        en: "Capitalist agriculture ships nutrients to the city and never returns them to the soil."
+        fr: "L'agriculture capitaliste expédie les nutriments vers la ville et ne les rend jamais au sol."
+      source: foster-1999
+    - seed: ecological-materialism
+      text:
+        en: "Marx's materialism was a philosophy of nature before it was a theory of history."
+        fr: "Le matérialisme de Marx fut une philosophie de la nature avant d'être une théorie de l'histoire."
+      source: foster-2000
+  works:
+    - {id: foster-1999, year: 1999, title: "Marx's Theory of Metabolic Rift: Classical Foundations for Environmental Sociology", kind: article, in: American Journal of Sociology, issue: "105"}
+    - {id: foster-2000, year: 2000, title: "Marx's Ecology: Materialism and Nature"}
+    - {id: foster-2010, year: 2010, title: "The Ecological Rift: Capitalism's War on the Earth", note: {en: with Brett Clark and Richard York, fr: avec Brett Clark et Richard York}}
+
+- id: michael-lowy
+  name: Michael Löwy
+  sort: Löwy
+  layer: leaf
+  branch: ecosocialism
+  born: 1938
+  place: {city: {en: São Paulo, fr: São Paulo}, country: {en: Brazil, fr: Brésil}, lat: -23.55, lon: -46.63}
+  wikidata: Q679718
+  lede:
+    en: "Franco-Brazilian sociologist and philosopher, emeritus research director at the CNRS in Paris. Co-author of the International Ecosocialist Manifesto, he joins Marx's critique of capital to Walter Benjamin's image of revolution as the emergency brake."
+    fr: "Sociologue et philosophe franco-brésilien, directeur de recherche émérite au CNRS à Paris. Coauteur du Manifeste écosocialiste international, il associe la critique marxienne du capital à l'image, chez Walter Benjamin, de la révolution comme frein d'urgence."
+  seeds:
+    - seed: ecosocialism
+      text:
+        en: "Socialism without ecology repeats productivism; ecology without socialism leaves accumulation intact."
+        fr: "Le socialisme sans écologie répète le productivisme ; l'écologie sans socialisme laisse l'accumulation intacte."
+      source: lowy-2011
+    - seed: emergency-brake
+      text:
+        en: "Revolution is not the locomotive of history but the passengers reaching for the brake."
+        fr: "La révolution n'est pas la locomotive de l'histoire, mais le geste des passagers qui tirent le frein."
+      source: lowy-2001b
+    - seed: ecological-planning
+      text:
+        en: "The main choices of production are decided democratically, by need and not by profit."
+        fr: "Les grands choix de production se décident démocratiquement, selon les besoins et non selon le profit."
+      source: lowy-2011
+  works:
+    - {id: lowy-1992, year: 1992, title: "Révolte et mélancolie : le romantisme à contre-courant de la modernité", by: {en: Löwy and Sayre, fr: Löwy et Sayre}, note: {en: with Robert Sayre, fr: avec Robert Sayre}}
+    - {id: lowy-2001, year: 2001, title: Manifeste écosocialiste international, kind: report, note: {en: with Joel Kovel, fr: avec Joel Kovel}}
+    - {id: lowy-2001b, year: 2001, title: "Walter Benjamin : avertissement d'incendie"}
+    - {id: lowy-2011, year: 2011, title: "Écosocialisme : l'alternative radicale à la catastrophe écologique capitaliste"}
+    - id: lowy-2022
+      year: 2022
+      title: For an Ecosocialist Degrowth
+      kind: article
+      in: Monthly Review
+      issue: "73"
+      by: {en: Löwy et al., fr: Löwy et al.}
+      note: {en: "with Bengi Akbulut, Sabrina Fernandes and Giorgos Kallis", fr: "avec Bengi Akbulut, Sabrina Fernandes et Giorgos Kallis"}
+      key: false
+
+- id: kohei-saito
+  name: Kohei Saito
+  sort: Saito
+  layer: leaf
+  branch: ecosocialism
+  also: [degrowth]
+  born: 1987
+  place: {country: {en: Japan, fr: Japon}}
+  wikidata: Q26043406
+  lede:
+    en: "Japanese philosopher at the University of Tokyo. From Marx's late notebooks on the natural sciences he argues that Marx gave up productivism, and he proposes a degrowth communism."
+    fr: "Philosophe japonais à l'université de Tokyo. À partir des derniers cahiers de Marx sur les sciences de la nature, il soutient que Marx a renoncé au productivisme, et il propose un communisme de la décroissance."
+  seeds:
+    - seed: metabolic-rift
+      text:
+        en: "Read in the notebooks: Marx studied soil chemistry and forestry to understand how capital exhausts nature."
+        fr: "Lue dans les cahiers : Marx étudie la chimie des sols et la sylviculture pour comprendre comment le capital épuise la nature."
+      source: saito-2017
+    - seed: degrowth-communism
+      text:
+        en: "Abundance comes from the commons and from free time, not from more production."
+        fr: "L'abondance vient des communs et du temps libre, non d'une production accrue."
+      source: saito-2022
+  works:
+    - {id: saito-2017, year: 2017, title: "Karl Marx's Ecosocialism: Capital, Nature, and the Unfinished Critique of Political Economy"}
+    - {id: saito-2020, year: 2020, title: Hitoshinsei no Shihonron, tr: {en: Capital in the Anthropocene, fr: Le Capital dans l'anthropocène}}
+    - {id: saito-2022, year: 2022, title: "Marx in the Anthropocene: Towards the Idea of Degrowth Communism"}
+
+- id: andreas-malm
+  name: Andreas Malm
+  sort: Malm
+  layer: leaf
+  branch: ecosocialism
+  born: 1977
+  place: {city: {en: Mölndal, fr: Mölndal}, country: {en: Sweden, fr: Suède}, lat: 57.66, lon: 12.01}
+  wikidata: Q5973460
+  lede:
+    en: "Swedish historian at Lund University. Fossil Capital traces global warming back to the choice of steam over water power by British mill owners, a choice made to control labour rather than to save money."
+    fr: "Historien suédois à l'université de Lund. Fossil Capital fait remonter le réchauffement au choix de la vapeur plutôt que de l'énergie hydraulique par les filateurs britanniques, un choix fait pour contrôler le travail plus que pour économiser."
+  seeds:
+    - seed: fossil-capital
+      text:
+        en: "Coal won because it could be burned where and when workers were available."
+        fr: "Le charbon l'a emporté parce qu'il pouvait brûler là où, et quand, la main-d'œuvre était disponible."
+      source: malm-2016
+    - seed: capitalocene
+      text:
+        en: "Not humanity as a species but a class of owners set the fossil economy in motion."
+        fr: "Ce n'est pas l'humanité comme espèce, mais une classe de propriétaires, qui a mis en marche l'économie fossile."
+      source: malm-2014
+    - seed: sabotage
+      text:
+        en: "A movement that rules out damage to property gives up a tactic most past movements have used."
+        fr: "Un mouvement qui s'interdit de s'en prendre aux biens renonce à une tactique que la plupart des mouvements passés ont employée."
+      source: malm-2021
+  works:
+    - id: malm-2014
+      year: 2014
+      title: "The Geology of Mankind? A Critique of the Anthropocene Narrative"
+      kind: article
+      in: The Anthropocene Review
+      issue: "1"
+      by: {en: Malm and Hornborg, fr: Malm et Hornborg}
+      note: {en: with Alf Hornborg, fr: avec Alf Hornborg}
+      key: false
+    - {id: malm-2016, year: 2016, title: "Fossil Capital: The Rise of Steam Power and the Roots of Global Warming"}
+    - {id: malm-2018, year: 2018, title: "The Progress of This Storm: Nature and Society in a Warming World"}
+    - {id: malm-2021, year: 2021, title: How to Blow Up a Pipeline}

@@ -1,0 +1,571 @@
+# The mycelium: who read whom, and what they disagreed on.
+#
+# type: influenced  -> `from` influenced `to`      (solid thread, arrow)
+#       critiqued   -> `from` criticised `to`      (dashed thread, arrow)
+#       dialogue    -> the two answered each other (dotted thread, no arrow)
+# source: id of a work (data/authors/*.yaml) or of a secondary source
+#         (data/sources.yaml). No source, no link.
+# status: to-verify -> kept on the author page with a flag, left out of the graph.
+
+# --- Roots among themselves -------------------------------------------------
+- from: francois-quesnay
+  to: anne-robert-jacques-turgot
+  type: influenced
+  note:
+    en: "Turgot takes the net product of the land from Quesnay and builds a theory of capital on it."
+    fr: "Turgot reprend à Quesnay le produit net de la terre et bâtit dessus une théorie du capital."
+  source: turgot-1766
+
+- from: francois-quesnay
+  to: karl-marx
+  type: influenced
+  note:
+    en: "Marx reads the Tableau as the first picture of an economy that reproduces itself."
+    fr: "Marx lit le Tableau comme la première image d'une économie qui se reproduit elle-même."
+  source: marx-1862
+
+- from: alexander-von-humboldt
+  to: ernst-haeckel
+  type: influenced
+  note:
+    en: "Haeckel reads Humboldt as a boy and takes from him the idea of nature as a living whole."
+    fr: "Haeckel lit Humboldt dès l'enfance et lui emprunte l'idée d'une nature comme tout vivant."
+  source: wulf-2015
+
+- from: alexander-von-humboldt
+  to: henry-david-thoreau
+  type: influenced
+  note:
+    en: "Reading Humboldt, Thoreau learns to join exact measurement to poetry in his journal."
+    fr: "En lisant Humboldt, Thoreau apprend à unir, dans son journal, la mesure exacte à la poésie."
+  source: wulf-2015
+
+- from: alexander-von-humboldt
+  to: john-muir
+  type: influenced
+  note:
+    en: "Muir annotates Humboldt and dreams of repeating his South American journey."
+    fr: "Muir annote Humboldt et rêve de refaire son voyage en Amérique du Sud."
+  source: wulf-2015
+
+- from: henry-david-thoreau
+  to: mohandas-gandhi
+  type: influenced
+  note:
+    en: "In South Africa, Gandhi publishes extracts from Thoreau's essay on resistance to government."
+    fr: "En Afrique du Sud, Gandhi publie des extraits de l'essai de Thoreau sur la résistance au gouvernement."
+  source: gandhi-1907
+
+- from: elisee-reclus
+  to: peter-kropotkin
+  type: dialogue
+  note:
+    en: "Friends and comrades in exile: Reclus edits and prefaces Kropotkin's first book."
+    fr: "Amis et camarades d'exil : Reclus édite et préface le premier livre de Kropotkine."
+  source: kropotkin-1885
+
+- from: sergei-podolinsky
+  to: karl-marx
+  type: dialogue
+  note:
+    en: "Podolinsky sends Marx his essay on labour and energy; Engels judges that it confuses physics with economics."
+    fr: "Podolinsky envoie à Marx son essai sur le travail et l'énergie ; Engels juge qu'il confond la physique et l'économie."
+  source: engels-1882
+
+- from: patrick-geddes
+  to: lewis-mumford
+  type: influenced
+  note:
+    en: "Mumford calls Geddes his master and takes from him the region as the unit of study."
+    fr: "Mumford appelle Geddes son maître et lui emprunte la région comme unité d'étude."
+  source: novak-1995
+
+- from: peter-kropotkin
+  to: lewis-mumford
+  type: influenced
+  note:
+    en: "Mumford finds in Fields, Factories and Workshops the model of a decentralised industry."
+    fr: "Mumford trouve dans Champs, usines et ateliers le modèle d'une industrie décentralisée."
+  source: mumford-1961
+
+# --- Ecosophy and deep ecology ----------------------------------------------
+- from: baruch-spinoza
+  to: arne-naess
+  type: influenced
+  note:
+    en: "Every being strives to persist and unfold: the ground of Ecosophy T."
+    fr: "Chaque être s'efforce de persévérer et de s'épanouir : le socle de l'Écosophie T."
+  source: naess-1975
+
+- from: mohandas-gandhi
+  to: arne-naess
+  type: influenced
+  note:
+    en: "Non-violence as a method, and the unity of all life."
+    fr: "La non-violence comme méthode, et l'unité de toute vie."
+  source: naess-1974
+
+- from: rachel-carson
+  to: arne-naess
+  type: influenced
+  status: to-verify
+  note:
+    en: "Silent Spring turns him toward the ecology movement."
+    fr: "Printemps silencieux le tourne vers le mouvement écologiste."
+
+- from: arne-naess
+  to: george-sessions
+  type: influenced
+  note:
+    en: "Sessions writes the eight-point platform with Næss and carries deep ecology to North America."
+    fr: "Sessions rédige avec Næss la plateforme en huit points et porte l'écologie profonde en Amérique du Nord."
+  source: devall-1985
+
+- from: arne-naess
+  to: bill-devall
+  type: influenced
+  note:
+    en: "Devall turns the distinction between shallow and deep into a programme for the movement."
+    fr: "Devall fait de la distinction entre superficiel et profond un programme pour le mouvement."
+  source: devall-1985
+
+- from: aldo-leopold
+  to: george-sessions
+  type: influenced
+  note:
+    en: "The land ethic is one of the sources Devall and Sessions name for deep ecology."
+    fr: "L'éthique de la terre est l'une des sources que Devall et Sessions donnent à l'écologie profonde."
+  source: devall-1985
+
+- from: aldo-leopold
+  to: holmes-rolston
+  type: influenced
+  note:
+    en: "Rolston asks whether the land ethic can be an ethic in the philosophers' sense, and answers yes."
+    fr: "Rolston demande si l'éthique de la terre peut être une éthique au sens des philosophes, et répond oui."
+  source: rolston-1975
+
+- from: aldo-leopold
+  to: baptiste-morizot
+  type: influenced
+  note:
+    en: "Thinking like a mountain becomes the starting point of a diplomacy with wolves."
+    fr: "Penser comme une montagne devient le point de départ d'une diplomatie avec les loups."
+  source: morizot-2016
+
+- from: philippe-descola
+  to: baptiste-morizot
+  type: influenced
+  note:
+    en: "Naturalism as one ontology among others: the frame Morizot wants to leave."
+    fr: "Le naturalisme comme une ontologie parmi d'autres : le cadre dont Morizot veut sortir."
+  source: morizot-2020
+
+- from: felix-guattari
+  to: arne-naess
+  type: dialogue
+  label:
+    en: "Same word, another sense"
+    fr: "Même mot, autre sens"
+  note:
+    en: "Ecosophy as three ecologies: environmental, social and mental. Guattari does not build on Næss."
+    fr: "L'écosophie comme trois écologies : environnementale, sociale et mentale. Guattari ne s'appuie pas sur Næss."
+  source: guattari-1989
+
+- from: murray-bookchin
+  to: arne-naess
+  type: critiqued
+  note:
+    en: "Deep ecology ignores the social roots of the ecological crisis."
+    fr: "L'écologie profonde ignore les racines sociales de la crise écologique."
+  source: bookchin-1987
+
+- from: murray-bookchin
+  to: george-sessions
+  type: critiqued
+  note:
+    en: "To blame humanity as a whole is to excuse the hierarchies and the firms that do the damage."
+    fr: "Accuser l'humanité entière, c'est excuser les hiérarchies et les entreprises qui causent les dégâts."
+  source: bookchin-1987
+
+- from: ramachandra-guha
+  to: arne-naess
+  type: critiqued
+  note:
+    en: "Wilderness preservation looks different from the global South."
+    fr: "La préservation de la nature sauvage se voit autrement depuis le Sud global."
+  source: guha-1989b
+
+- from: val-plumwood
+  to: arne-naess
+  type: critiqued
+  note:
+    en: "A self that expands to include nature still absorbs the other instead of recognising it."
+    fr: "Un soi qui s'élargit jusqu'à inclure la nature absorbe encore l'autre au lieu de le reconnaître."
+  source: plumwood-1993
+
+# --- Social ecology ---------------------------------------------------------
+- from: peter-kropotkin
+  to: murray-bookchin
+  type: influenced
+  note:
+    en: "Mutual aid and the free commune."
+    fr: "L'entraide et la commune libre."
+  source: bookchin-1982
+
+- from: lewis-mumford
+  to: murray-bookchin
+  type: influenced
+  status: to-verify
+  note:
+    en: "Technics and the organic city."
+    fr: "Les techniques et la ville organique."
+
+- from: murray-bookchin
+  to: janet-biehl
+  type: influenced
+  note:
+    en: "Libertarian municipalism, carried forward."
+    fr: "Le municipalisme libertaire, prolongé."
+  source: biehl-1998
+
+- from: murray-bookchin
+  to: dimitrios-roussopoulos
+  type: influenced
+  note:
+    en: "Social ecology, published and practised in Montreal."
+    fr: "L'écologie sociale, publiée et pratiquée à Montréal."
+  source: roussopoulos-1993
+
+# --- Ecosocialism -----------------------------------------------------------
+- from: karl-marx
+  to: john-bellamy-foster
+  type: influenced
+  note:
+    en: "Foster reconstructs the metabolic rift from Marx's reading of the chemist Liebig."
+    fr: "Foster reconstruit la rupture métabolique à partir de la lecture que Marx fait du chimiste Liebig."
+  source: foster-2000
+
+- from: karl-marx
+  to: kohei-saito
+  type: influenced
+  note:
+    en: "The late notebooks on natural science, read as an unfinished ecological critique."
+    fr: "Les derniers cahiers sur les sciences de la nature, lus comme une critique écologique inachevée."
+  source: saito-2017
+
+- from: karl-marx
+  to: michael-lowy
+  type: influenced
+  note:
+    en: "A Marx to be kept for his critique of capital and corrected for his faith in the productive forces."
+    fr: "Un Marx à garder pour sa critique du capital et à corriger pour sa foi dans les forces productives."
+  source: lowy-2011
+
+- from: william-morris
+  to: michael-lowy
+  type: influenced
+  note:
+    en: "A romantic critique of industrial civilisation from inside Marxism."
+    fr: "Une critique romantique de la civilisation industrielle, de l'intérieur du marxisme."
+  source: lowy-1992
+
+- from: john-bellamy-foster
+  to: kohei-saito
+  type: influenced
+  note:
+    en: "The metabolic rift, taken into the archive of Marx's notebooks."
+    fr: "La rupture métabolique, portée dans l'archive des cahiers de Marx."
+  source: saito-2017
+
+- from: andreas-malm
+  to: bruno-latour
+  type: critiqued
+  note:
+    en: "To fight warming one must tell society from nature, not dissolve the line between them."
+    fr: "Pour combattre le réchauffement, il faut distinguer la société de la nature, non dissoudre la frontière."
+  source: malm-2018
+
+- from: michael-lowy
+  to: giorgos-kallis
+  type: dialogue
+  note:
+    en: "A joint text argues that ecosocialism and degrowth need each other."
+    fr: "Un texte commun soutient que l'écosocialisme et la décroissance ont besoin l'un de l'autre."
+  source: lowy-2022
+
+# --- Technocritique and degrowth --------------------------------------------
+- from: jacques-ellul
+  to: bernard-charbonneau
+  type: dialogue
+  note:
+    en: "Friends from their youth in Bordeaux: they write a personalist manifesto together in 1935."
+    fr: "Amis depuis leur jeunesse bordelaise : ils rédigent ensemble un manifeste personnaliste en 1935."
+  source: ellul-1935
+
+- from: jacques-ellul
+  to: lewis-mumford
+  type: critiqued
+  note:
+    en: "A history of machines is too narrow: technique is more than the machine."
+    fr: "Une histoire des machines est trop étroite : la technique est plus que la machine."
+  source: ellul-1954
+
+- from: jacques-ellul
+  to: ivan-illich
+  type: influenced
+  note:
+    en: "Illich tells Ellul in person that he owes him the idea of technique as a system."
+    fr: "Illich dit à Ellul, de vive voix, qu'il lui doit l'idée de la technique comme système."
+  source: illich-1993
+
+- from: ivan-illich
+  to: andre-gorz
+  type: dialogue
+  note:
+    en: "Gorz presents Illich to French readers and argues with him about tools and autonomy."
+    fr: "Gorz présente Illich aux lecteurs français et discute avec lui des outils et de l'autonomie."
+  source: gorz-1975
+
+- from: donella-meadows
+  to: andre-gorz
+  type: influenced
+  note:
+    en: "Debating the Limits report in 1972, Gorz asks whether capitalism can survive without growth and speaks of décroissance."
+    fr: "En débattant du rapport sur les limites en 1972, Gorz demande si le capitalisme peut survivre sans croissance et parle de décroissance."
+  source: kallis-2014
+
+- from: nicholas-georgescu-roegen
+  to: serge-latouche
+  type: influenced
+  note:
+    en: "Bioeconomics gives degrowth its physical argument."
+    fr: "La bioéconomie donne à la décroissance son argument physique."
+  source: latouche-2006
+
+- from: ivan-illich
+  to: serge-latouche
+  type: influenced
+  note:
+    en: "Conviviality and the critique of needs."
+    fr: "La convivialité et la critique des besoins."
+  source: latouche-2006
+
+- from: andre-gorz
+  to: serge-latouche
+  type: influenced
+  note:
+    en: "Sufficiency, and the refusal of work as the centre of life."
+    fr: "La suffisance, et le refus du travail comme centre de la vie."
+  source: latouche-2006
+
+- from: jacques-ellul
+  to: serge-latouche
+  type: influenced
+  note:
+    en: "Latouche counts Ellul among the forerunners of degrowth and devotes a book to him."
+    fr: "Latouche range Ellul parmi les précurseurs de la décroissance et lui consacre un livre."
+  source: latouche-2013
+
+- from: serge-latouche
+  to: giorgos-kallis
+  type: influenced
+  note:
+    en: "The French décroissance becomes an international vocabulary."
+    fr: "La décroissance française devient un vocabulaire international."
+  source: kallis-2014
+
+- from: jason-hickel
+  to: giorgos-kallis
+  type: dialogue
+  note:
+    en: "Co-authors of the review that tests green growth against the evidence."
+    fr: "Coauteurs de la synthèse qui confronte la croissance verte aux données."
+  source: hickel-2020b
+
+- from: giorgos-kallis
+  to: ted-nordhaus
+  type: critiqued
+  note:
+    en: "A critical history of the post-environmentalism of the Breakthrough Institute."
+    fr: "Une histoire critique du post-environnementalisme du Breakthrough Institute."
+  source: kallis-2019b
+
+# --- Political ecology and the energetics roots -----------------------------
+- from: sergei-podolinsky
+  to: joan-martinez-alier
+  type: influenced
+  note:
+    en: "Martínez-Alier brings Podolinsky's energy accounting back from oblivion."
+    fr: "Martínez-Alier tire de l'oubli la comptabilité énergétique de Podolinsky."
+  source: martinez-alier-1987
+
+- from: patrick-geddes
+  to: joan-martinez-alier
+  type: influenced
+  note:
+    en: "Geddes's critique of economists who do not count energy and materials."
+    fr: "La critique que Geddes adresse aux économistes qui ne comptent ni l'énergie ni les matières."
+  source: martinez-alier-1987
+
+- from: frederick-soddy
+  to: joan-martinez-alier
+  type: influenced
+  note:
+    en: "Soddy's distinction between real wealth and debt."
+    fr: "La distinction de Soddy entre la richesse réelle et la dette."
+  source: martinez-alier-1987
+
+- from: nicholas-georgescu-roegen
+  to: joan-martinez-alier
+  type: influenced
+  note:
+    en: "The entropy law as the foundation of ecological economics."
+    fr: "La loi de l'entropie comme fondement de l'économie écologique."
+  source: martinez-alier-1987
+
+- from: ramachandra-guha
+  to: joan-martinez-alier
+  type: dialogue
+  note:
+    en: "Co-authors of the essays that set the environmentalism of the poor beside that of the rich."
+    fr: "Coauteurs des essais qui placent l'écologisme des pauvres à côté de celui des riches."
+  source: guha-1997
+
+- from: robert-bullard
+  to: joan-martinez-alier
+  type: dialogue
+  note:
+    en: "Environmental justice in the United States and the environmentalism of the poor: two names for one family of conflicts."
+    fr: "La justice environnementale aux États-Unis et l'écologisme des pauvres : deux noms pour une même famille de conflits."
+  source: martinez-alier-2002
+
+- from: serge-latouche
+  to: arturo-escobar
+  type: dialogue
+  note:
+    en: "Both write for The Development Dictionary, the founding volume of post-development."
+    fr: "Tous deux écrivent dans The Development Dictionary, le volume fondateur de l'après-développement."
+  source: sachs-1992
+
+- from: peter-kropotkin
+  to: paul-robbins
+  type: influenced
+  note:
+    en: "Robbins places Kropotkin among the deep roots of political ecology."
+    fr: "Robbins place Kropotkine parmi les racines profondes de la political ecology."
+  source: robbins-2004
+
+- from: elisee-reclus
+  to: paul-robbins
+  type: influenced
+  note:
+    en: "Reclus's social geography, claimed as an ancestor of the field."
+    fr: "La géographie sociale de Reclus, revendiquée comme ancêtre du champ."
+  source: robbins-2004
+
+- from: philippe-descola
+  to: bruno-latour
+  type: dialogue
+  note:
+    en: "Two ways out of the divide between nature and culture, argued over for three decades."
+    fr: "Deux manières de sortir du partage entre nature et culture, discutées pendant trois décennies."
+  source: descola-2005
+
+# --- Ecofeminism and queer ecology ------------------------------------------
+- from: maria-mies
+  to: vandana-shiva
+  type: dialogue
+  note:
+    en: "Co-authors: a view from the North and a view from the South on one system."
+    fr: "Coautrices : un regard du Nord et un regard du Sud sur un même système."
+  source: mies-1993
+
+- from: carolyn-merchant
+  to: val-plumwood
+  type: influenced
+  note:
+    en: "The mechanistic turn of the seventeenth century, read as a chapter in the history of dualism."
+    fr: "Le tournant mécaniste du XVIIe siècle, lu comme un chapitre de l'histoire du dualisme."
+  source: plumwood-1993
+
+- from: catriona-sandilands
+  to: nicole-seymour
+  type: influenced
+  note:
+    en: "Queer ecology as a field, on which Seymour builds a literary criticism."
+    fr: "L'écologie queer comme champ, sur lequel Seymour bâtit une critique littéraire."
+  source: seymour-2013
+
+# --- Anthropocene, Gaia and the counterpoints -------------------------------
+- from: james-lovelock
+  to: bruno-latour
+  type: influenced
+  note:
+    en: "Latour rereads Gaia as a political figure rather than a superorganism."
+    fr: "Latour relit Gaïa comme une figure politique plutôt que comme un superorganisme."
+  source: latour-2015
+
+- from: james-lovelock
+  to: isabelle-stengers
+  type: influenced
+  note:
+    en: "Stengers keeps the name Gaia for what intrudes and cannot be negotiated with."
+    fr: "Stengers garde le nom de Gaïa pour ce qui fait intrusion et avec quoi l'on ne négocie pas."
+  source: stengers-2009
+
+- from: isabelle-stengers
+  to: bruno-latour
+  type: dialogue
+  note:
+    en: "Cosmopolitics: a word Stengers coins and Latour takes up."
+    fr: "Cosmopolitiques : un mot que Stengers forge et que Latour reprend."
+  source: latour-1999
+
+- from: isabelle-stengers
+  to: donna-haraway
+  type: dialogue
+  note:
+    en: "Haraway thinks with Stengers about how to stay with the trouble rather than solve it from above."
+    fr: "Haraway pense avec Stengers la manière de rester avec le trouble plutôt que de le résoudre d'en haut."
+  source: haraway-2016
+
+- from: donna-haraway
+  to: anna-tsing
+  type: dialogue
+  note:
+    en: "The word Plantationocene comes out of a conversation between them and other anthropologists."
+    fr: "Le mot Plantationocène naît d'une conversation entre elles et d'autres anthropologues."
+  source: haraway-2016b
+
+- from: malcom-ferdinand
+  to: donna-haraway
+  type: dialogue
+  note:
+    en: "Ferdinand takes up the Plantationocene and answers it from the hold of the slave ship."
+    fr: "Ferdinand reprend le Plantationocène et lui répond depuis la cale du navire négrier."
+  source: ferdinand-2019
+
+- from: james-lovelock
+  to: stewart-brand
+  type: influenced
+  note:
+    en: "Brand takes from Lovelock both the image of a self-regulating Earth and the case for nuclear power."
+    fr: "Brand reprend à Lovelock à la fois l'image d'une Terre autorégulée et le plaidoyer pour le nucléaire."
+  source: brand-2009
+
+- from: bruno-latour
+  to: ted-nordhaus
+  type: dialogue
+  note:
+    en: "Latour writes for the Breakthrough Institute that we must care for our technologies as for our children."
+    fr: "Latour écrit pour le Breakthrough Institute qu'il faut prendre soin de nos techniques comme de nos enfants."
+  source: latour-2011
+
+- from: michael-shellenberger
+  to: ted-nordhaus
+  type: dialogue
+  note:
+    en: "Co-authors of the essay that declared the death of environmentalism."
+    fr: "Coauteurs de l'essai qui a proclamé la mort de l'environnementalisme."
+  source: nordhaus-2004

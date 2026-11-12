@@ -1,0 +1,124 @@
+# Checks the data, builds the site and, on the default branch, publishes it
+# to GitHub Pages. Every other branch and every pull request gets the same
+# checks without a deployment.
+#
+# One-time setup: Settings > Pages > Build and deployment > Source: GitHub Actions.
+# Until that is done the workflow still passes, and says what is missing.
+name: Build and deploy
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref_name != github.event.repository.default_branch }}
+
+jobs:
+  build:
+    name: Check and build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    outputs:
+      deploy: ${{ steps.target.outputs.deploy }}
+    env:
+      ASTRO_TELEMETRY_DISABLED: 1
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check the corpus
+        run: npm run validate
+
+      - name: Decide whether this run deploys
+        id: target
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EVENT: ${{ github.event_name }}
+          BRANCH: ${{ github.ref_name }}
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          deploy=false
+          if [ "$EVENT" != "pull_request" ] && [ "$BRANCH" = "$DEFAULT_BRANCH" ]; then
+            build_type=$(gh api "repos/$REPOSITORY/pages" --jq '.build_type' 2>/dev/null || true)
+            if [ "$build_type" = "workflow" ]; then
+              deploy=true
+            elif [ -n "$build_type" ]; then
+              echo "::warning title=GitHub Pages uses another source::Pages is set to build from a branch. Switch it to GitHub Actions in Settings > Pages to publish this site."
+            else
+              echo "::notice title=GitHub Pages is not enabled::The site was built and checked but not published. Enable Pages with Source: GitHub Actions in Settings > Pages (a private repository needs a paid GitHub plan for Pages), then run this workflow again."
+            fi
+          fi
+          echo "deploy=$deploy" >> "$GITHUB_OUTPUT"
+
+      - name: Read the Pages address
+        id: pages
+        if: steps.target.outputs.deploy == 'true'
+        uses: actions/configure-pages@v6
+
+      - name: Set the site address
+        env:
+          DEPLOY: ${{ steps.target.outputs.deploy }}
+          PAGES_ORIGIN: ${{ steps.pages.outputs.origin }}
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          OWNER: ${{ github.repository_owner }}
+          REPO_NAME: ${{ github.event.repository.name }}
+          REPO_PRIVATE: ${{ github.event.repository.private }}
+        run: |
+          if [ "$DEPLOY" = "true" ]; then
+            echo "SITE_URL=$PAGES_ORIGIN" >> "$GITHUB_ENV"
+            echo "BASE_PATH=${PAGES_BASE_PATH:-/}" >> "$GITHUB_ENV"
+          else
+            echo "SITE_URL=https://${OWNER}.github.io" >> "$GITHUB_ENV"
+            echo "BASE_PATH=/${REPO_NAME}" >> "$GITHUB_ENV"
+          fi
+          echo "REPO_URL=${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}" >> "$GITHUB_ENV"
+          if [ "$REPO_PRIVATE" = "false" ]; then
+            echo "REPO_PUBLIC=true" >> "$GITHUB_ENV"
+          else
+            echo "REPO_PUBLIC=false" >> "$GITHUB_ENV"
+          fi
+
+      - name: Build the site
+        run: npm run build
+
+      - name: Check internal links
+        run: node scripts/check-links.mjs
+
+      - name: Upload the site for Pages
+        if: steps.target.outputs.deploy == 'true'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    name: Publish to GitHub Pages
+    needs: build
+    if: needs.build.outputs.deploy == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v5

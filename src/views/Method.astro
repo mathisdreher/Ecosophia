@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import { href } from '../lib/site.mjs';
+import { typo } from '../lib/text.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+import { methodPage, corpusStats } from '../content/pages.mjs';
+import { useUi } from '../i18n/ui.mjs';
+import { SITE } from '../site.config.mjs';
+
+const { lang } = Astro.props;
+const { t } = useUi(lang);
+const page = methodPage(lang, corpusStats(loadCorpus()), { repoPublic: SITE.repoPublic });
+const T = (s) => typo(s, lang);
+---
+
+<Base lang={lang} view="method" title={page.title} description={page.lede}>
+  <section class="page-head">
+    <h1 class="t-title">{page.title}</h1>
+    <p class="t-lede">{T(page.lede)}</p>
+    <nav class="toc t-small" aria-label={lang === 'fr' ? 'Sommaire' : 'Contents'}>
+      {page.sections.map((s) => <a class="link" href={`#${s.id}`}>{T(s.h)}</a>)}
+    </nav>
+  </section>
+  <section class="page-body">
+    <div class="prose">
+      {
+        page.sections.map((s) => (
+          <>
+            <h2 id={s.id}>{T(s.h)}</h2>
+            {s.p?.map((p) => <p>{T(p)}</p>)}
+            {s.list && <ul>{s.list.map((li) => <li>{T(li)}</li>)}</ul>}
+            {s.p2?.map((p) => <p>{T(p)}</p>)}
+          </>
+        ))
+      }
+      <p class="t-small">
+        <a href={href(lang, 'data')}>{t('footer.data')}</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-6);
+  }
+  .prose h2:first-child {
+    margin-top: 0;
+  }
+  .prose h2 {
+    scroll-margin-top: var(--space-6);
+  }
+</style>

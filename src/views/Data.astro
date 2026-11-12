@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+import { href } from '../lib/site.mjs';
+import { typo } from '../lib/text.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+import { dataPage, corpusStats } from '../content/pages.mjs';
+import { useUi } from '../i18n/ui.mjs';
+import { SITE } from '../site.config.mjs';
+
+const { lang } = Astro.props;
+const { t } = useUi(lang);
+const page = dataPage(lang, corpusStats(loadCorpus()));
+const T = (s) => typo(s, lang);
+---
+
+<Base lang={lang} view="data" title={page.title} description={page.lede}>
+  <section class="page-head">
+    <h1 class="t-title">{T(page.title)}</h1>
+    <p class="t-lede">{T(page.lede)}</p>
+  </section>
+  <section class="page-body stack gap-8">
+    <dl class="numbers">
+      {
+        page.numbers.map(([n, label]) => (
+          <div>
+            <dt class="t-small t-muted">{T(label)}</dt>
+            <dd>{n}</dd>
+          </div>
+        ))
+      }
+    </dl>
+    <div class="prose">
+      {
+        page.sections.map((s) => (
+          <>
+            <h2 id={s.id}>{T(s.h)}</h2>
+            {s.p?.map((p) => <p>{T(p)}</p>)}
+            {s.files && (
+              <div class="table-wrap">
+                <table class="eco-table">
+                  <thead>
+                    <tr>
+                      <th scope="col">{page.filesHead[0]}</th>
+                      <th scope="col">{page.filesHead[1]}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {page.files.map(([f, d]) => (
+                      <tr>
+                        <td class="eco-meta nowrap">{f}</td>
+                        <td>{T(d)}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+            {s.list && <ul>{s.list.map((li) => <li>{T(li)}</li>)}</ul>}
+          </>
+        ))
+      }
+      {SITE.repoPublic && (
+        <p class="t-small">
+          <a href={SITE.repoUrl} rel="noopener">{SITE.repoUrl.replace('https://', '')}</a>
+        </p>
+      )}
+      <p class="t-small">
+        <a href={href(lang, 'method')}>{t('footer.method')}</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .numbers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
+    gap: var(--space-4) var(--space-6);
+    max-width: 960px;
+    margin: 0;
+    padding: var(--space-6) 0;
+    border-block: 1px solid var(--line);
+  }
+  .numbers div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: var(--space-1);
+  }
+  .numbers dd {
+    font: 600 40px/44px var(--font-sans);
+    letter-spacing: -0.01em;
+  }
+  .prose h2:first-child {
+    margin-top: 0;
+  }
+</style>

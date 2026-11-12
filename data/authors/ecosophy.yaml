@@ -1,0 +1,109 @@
+# Ecosophy proper. The first three authors of each branch file are the ones
+# shown on the home tree.
+
+- id: arne-naess
+  name: Arne Næss
+  sort: Næss
+  layer: leaf
+  branch: ecosophy
+  also: [deep-ecology]
+  born: 1912
+  died: 2009
+  place: {city: {en: Oslo, fr: Oslo}, country: {en: Norway, fr: Norvège}, lat: 59.91, lon: 10.75}
+  wikidata: Q335152
+  lede:
+    en: "Norwegian philosopher and mountaineer. In 1973 he separated a shallow ecology, which fights pollution and resource depletion, from a deep ecology that asks why industrial societies live as they do. He called his own answer Ecosophy T, after Tvergastein, his hut on the Hallingskarvet mountain."
+    fr: "Philosophe et alpiniste norvégien. En 1973, il distingue une écologie superficielle, qui combat la pollution et l'épuisement des ressources, d'une écologie profonde qui demande pourquoi les sociétés industrielles vivent comme elles vivent. Il nomme sa propre réponse Écosophie T, d'après Tvergastein, sa cabane sur le mont Hallingskarvet."
+  seeds:
+    - seed: deep-ecology
+      text:
+        en: "Asks why a society pollutes before asking how to pollute less."
+        fr: "Demande pourquoi une société pollue avant de demander comment polluer moins."
+      source: naess-1973
+    - seed: ecosophy-t
+      text:
+        en: "A personal philosophy of ecological harmony. Everyone is invited to work out their own."
+        fr: "Une philosophie personnelle de l'harmonie écologique. Chacun est invité à élaborer la sienne."
+      source: naess-1989
+    - seed: self-realisation
+      text:
+        en: "The self widens to include other beings, so caring for them needs no moral command."
+        fr: "Le soi s'élargit jusqu'à inclure les autres êtres : en prendre soin ne requiert plus de commandement moral."
+      source: naess-1987
+  quote:
+    text: "To the ecological field-worker, the equal right to live and blossom is an intuitively clear and obvious value axiom."
+    lang: en
+    source: naess-1973
+    pages: "95–96"
+    gloss: {fr: "Pour qui travaille sur le terrain de l'écologie, le droit égal de vivre et de s'épanouir est un axiome de valeur intuitivement clair et évident."}
+  works:
+    - {id: naess-1973, year: 1973, title: "The Shallow and the Deep, Long-Range Ecology Movement", kind: article, in: Inquiry, issue: "16"}
+    - {id: naess-1974, year: 1974, title: Gandhi and Group Conflict}
+    - {id: naess-1975, year: 1975, title: "Freedom, Emotion and Self-Subsistence", note: {en: on Spinoza's Ethics, fr: sur l'Éthique de Spinoza}}
+    - {id: naess-1987, year: 1987, title: "Self-Realization: An Ecological Approach to Being in the World", kind: article, key: false}
+    - {id: naess-1989, year: 1989, title: "Ecology, Community and Lifestyle", note: {en: trans. David Rothenberg, fr: trad. David Rothenberg}}
+
+- id: felix-guattari
+  name: Félix Guattari
+  sort: Guattari
+  layer: leaf
+  branch: ecosophy
+  born: 1930
+  died: 1992
+  place: {city: {en: Villeneuve-les-Sablons, fr: Villeneuve-les-Sablons}, country: {en: France, fr: France}, lat: 49.24, lon: 2.08}
+  wikidata: Q352465
+  lede:
+    en: "French psychoanalyst and philosopher, long at the La Borde clinic and co-author with Gilles Deleuze. The Three Ecologies calls ecosophy the joint work on three registers: the environment, social relations and human subjectivity."
+    fr: "Psychanalyste et philosophe français, longtemps à la clinique de La Borde et coauteur de Gilles Deleuze. Les Trois Écologies appelle écosophie le travail conjoint sur trois registres : l'environnement, les rapports sociaux et la subjectivité humaine."
+  seeds:
+    - seed: three-ecologies
+      text:
+        en: "Environmental, social and mental ecology cannot be repaired one without the others."
+        fr: "L'écologie environnementale, l'écologie sociale et l'écologie mentale ne se réparent pas l'une sans les autres."
+      source: guattari-1989
+    - seed: integrated-world-capitalism
+      text:
+        en: "Capitalism now produces signs and desires as much as goods, and standardises ways of living."
+        fr: "Le capitalisme produit désormais des signes et des désirs autant que des biens, et uniformise les manières de vivre."
+      source: guattari-1989
+    - seed: rhizome
+      text:
+        en: "Against the tree that descends from one root, a network where any point can connect to any other."
+        fr: "Contre l'arbre qui descend d'une racine unique, un réseau où tout point peut se connecter à tout autre."
+      source: guattari-1980
+  works:
+    - {id: guattari-1980, year: 1980, title: Mille Plateaux, by: {en: Deleuze and Guattari, fr: Deleuze et Guattari}, note: {en: with Gilles Deleuze, fr: avec Gilles Deleuze}}
+    - {id: guattari-1989, year: 1989, title: Les Trois Écologies}
+    - {id: guattari-1992, year: 1992, title: Chaosmose}
+
+- id: baptiste-morizot
+  name: Baptiste Morizot
+  sort: Morizot
+  layer: leaf
+  branch: ecosophy
+  born: 1983
+  place: {city: {en: Draguignan, fr: Draguignan}, country: {en: France, fr: France}, lat: 43.54, lon: 6.46}
+  wikidata: Q75606243
+  lede:
+    en: "French philosopher and wolf tracker, teaching at Aix-Marseille University. He describes the ecological crisis as a crisis of sensibility and calls for a diplomacy with the other living beings that share a territory."
+    fr: "Philosophe français et pisteur de loups, enseignant à l'université d'Aix-Marseille. Il décrit la crise écologique comme une crise de la sensibilité et appelle à une diplomatie avec les autres vivants qui partagent un territoire."
+  seeds:
+    - seed: diplomacy
+      text:
+        en: "Neither war nor sanctuary: negotiate cohabitation with the wolf by learning its language."
+        fr: "Ni guerre ni sanctuaire : négocier la cohabitation avec le loup en apprenant sa langue."
+      source: morizot-2016
+    - seed: crisis-of-sensibility
+      text:
+        en: "We have lost the words and the attention needed to perceive other ways of being alive."
+        fr: "Nous avons perdu les mots et l'attention nécessaires pour percevoir d'autres manières d'être vivant."
+      source: morizot-2020
+    - seed: tracking
+      text:
+        en: "Following an animal's signs is a way of thinking from its point of view."
+        fr: "Suivre les signes d'un animal, c'est penser depuis son point de vue."
+      source: morizot-2018
+  works:
+    - {id: morizot-2016, year: 2016, title: "Les Diplomates : cohabiter avec les loups sur une autre carte du vivant"}
+    - {id: morizot-2018, year: 2018, title: Sur la piste animale}
+    - {id: morizot-2020, year: 2020, title: Manières d'être vivant}

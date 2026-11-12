@@ -1,0 +1,78 @@
+---
+// Canopy: the map of ideas. The view is specified but not yet filled: a
+// placement needs a cited passage, and none has been reviewed so far.
+import Base from '../layouts/Base.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+
+const { lang } = Astro.props;
+const { t, dict } = useUi(lang);
+const c = loadCorpus();
+const axes = dict.canopy.axes;
+const rules = dict.canopy.rules;
+---
+
+<Base lang={lang} view="canopy" title={t('canopy.title')} description={t('canopy.lede')}>
+  <section class="page-head">
+    <span class="label t-muted">{t('common.inPreparation')}</span>
+    <h1 class="t-title">{t('canopy.title')}</h1>
+    <p class="t-lede">{t('canopy.lede')}</p>
+  </section>
+  <section class="page-body stack gap-8">
+    <div class="stack gap-4">
+      <h2 class="t-heading">{t('canopy.axesTitle')}</h2>
+      <div class="table-wrap">
+        <table class="eco-table">
+          <thead>
+            <tr>
+              <th scope="col">{t('canopy.axis')}</th>
+              <th scope="col">{t('canopy.low')}</th>
+              <th scope="col">{t('canopy.high')}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              axes.map((a) => (
+                <tr>
+                  <th scope="row" class="axis-name">{a.name}</th>
+                  <td>{a.low}</td>
+                  <td>{a.high}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="prose">
+      <h2>{t('canopy.rulesTitle')}</h2>
+      <ul>
+        {rules.map((r) => <li>{r}</li>)}
+      </ul>
+      <h2>{t('canopy.status')}</h2>
+      <p>
+        {t('canopy.statusText', { n: c.authors.length, m: c.sourcedLinks.length })}{' '}
+        <a href={href(lang, 'method')}>{t('footer.method')}</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .eco-table {
+    max-width: 960px;
+  }
+  .eco-table th.axis-name {
+    font: 600 16px/22px var(--font-display);
+    letter-spacing: 0;
+    text-transform: none;
+    border-bottom: 1px solid var(--line);
+    white-space: normal;
+    vertical-align: top;
+    padding: var(--space-3) var(--space-4) var(--space-3) 0;
+  }
+  .prose h2:first-child {
+    margin-top: 0;
+  }
+</style>

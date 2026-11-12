@@ -1,0 +1,271 @@
+---
+// The tree above ground: trunk, eleven branches, three leaves each.
+// Wide screens get the drawn tree; narrow screens get the same tree stacked
+// along a vertical trunk. Positions are computed from the branch order in
+// data/branches.yaml, so adding a branch redraws the tree.
+import BranchChip from './BranchChip.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { L } from '../lib/text.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+
+const { lang, featured = 'arne-naess' } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+
+const branches = c.treeBranches;
+const n = branches.length;
+const W = n * 100; // viewBox units: one column per branch
+const H = 560;
+const mid = (n - 1) / 2;
+const trunkX = 50 + 100 * mid;
+
+const cols = branches.map((b, i) => {
+  const x = 50 + 100 * i;
+  const d = Math.abs(i - mid);
+  const high = i % 2 === 1;
+  const top = high ? 112 : 282;
+  const join = 392 + 16 * Math.max(0, d - 1);
+  const path = d === 0 ? `M${trunkX} 392 V${top}` : `M${trunkX} ${join} L${x} 330 V${top}`;
+  return { b, i, x, d, high, path, left: ((i + 0.5) / n) * 100 };
+});
+const drawOrder = [...cols].sort((a, b) => b.d - a.d);
+
+const trunkAuthors = [...new Set(c.trunk.map((tk) => c.authorById[tk.source.authorId].short))];
+const trunkYears = `${Math.min(...c.trunk.map((tk) => tk.source.year >= 1962 ? tk.source.year : 1962))}–${Math.max(...c.trunk.map((tk) => tk.source.year))}`;
+const graft = c.graftBranches[0];
+---
+
+<div class="tree-wide" role="group" aria-label={t('home.treeLabel')}>
+  <div class="canopy" style={`--cols: ${n}`}>
+    <svg class="lines" viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" aria-hidden="true">
+      {drawOrder.map((col) => <path d={col.path} style={`stroke: var(--${col.b.token})`} />)}
+      <path class="trunk" d={`M${trunkX} ${H} V392`}></path>
+    </svg>
+
+    {
+      cols.map((col) => (
+        <div class:list={['branch', col.high ? 'high' : 'low']} style={`left: ${col.left}%`}>
+          <div class="names">
+            {col.b.authors.slice(0, 3).map((a) => (
+              <a href={href(lang, 'author', a.id)} class:list={{ 'strong-link': a.id === featured }}>
+                {a.name}
+              </a>
+            ))}
+          </div>
+          <BranchChip branch={col.b} lang={lang} active={col.d === 0} />
+        </div>
+      ))
+    }
+
+    <div class="note how">
+      <b class="label">{t('home.howTitle')}</b>
+      {t('home.how')}
+    </div>
+    {
+      graft && (
+        <div class="note graft" style={`--chip: var(--${graft.token})`}>
+          <BranchChip branch={graft} lang={lang} />
+          <span>{t('home.graft')}</span>
+        </div>
+      )
+    }
+    <div class="note trunk-note">
+      <b class="label">
+        {t('home.trunkTitle')} <span class="eco-meta">{trunkYears}</span>
+      </b>
+      {trunkAuthors.join(', ')}. <a class="link" href={href(lang, 'trunk')}>{t('home.trunkLink')}</a>
+    </div>
+  </div>
+</div>
+
+<div class="tree-stacked">
+  <ol class="stack">
+    {
+      branches.map((b) => (
+        <li style={`--chip: var(--${b.token})`}>
+          <BranchChip branch={b} lang={lang} />
+          <span class="names">
+            {b.authors.slice(0, 3).map((a, i) => (
+              <>
+                {i > 0 && <span aria-hidden="true"> · </span>}
+                <a href={href(lang, 'author', a.id)}>{a.name}</a>
+              </>
+            ))}
+          </span>
+        </li>
+      ))
+    }
+    {
+      graft && (
+        <li class="graft" style={`--chip: var(--${graft.token})`}>
+          <BranchChip branch={graft} lang={lang} />
+          <span class="names t-muted">{t('home.graft')}</span>
+        </li>
+      )
+    }
+    <li class="trunk-item">
+      <b class="label">
+        {t('home.trunkTitle')} <span class="eco-meta">{trunkYears}</span>
+      </b>
+      <span class="names">
+        {trunkAuthors.join(', ')}. <a class="link" href={href(lang, 'trunk')}>{t('home.trunkLink')}</a>
+      </span>
+    </li>
+  </ol>
+</div>
+
+<style>
+  .tree-wide {
+    padding-inline: var(--gutter);
+  }
+  .canopy {
+    position: relative;
+    height: 560px;
+    max-width: 1312px;
+    margin: var(--space-12) auto 0;
+  }
+  .lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+  .lines path {
+    vector-effect: non-scaling-stroke;
+  }
+  .lines .trunk {
+    stroke: var(--ink);
+    stroke-width: 7;
+    stroke-linecap: butt;
+  }
+  .branch {
+    position: absolute;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    text-align: center;
+  }
+  .branch.high {
+    bottom: 455px;
+    width: min(200px, calc(200% / var(--cols) - 12px));
+  }
+  .branch.low {
+    bottom: 285px;
+    width: min(168px, calc(150% / var(--cols)));
+  }
+  .names {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .note {
+    position: absolute;
+    top: 478px;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  .note .label {
+    display: block;
+    margin-bottom: var(--space-1);
+  }
+  .note .label .eco-meta {
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .note.how {
+    left: 0;
+    width: min(280px, 24%);
+    color: var(--ink-muted);
+  }
+  .note.how .label {
+    color: var(--ink);
+  }
+  .note.trunk-note {
+    left: calc(50% + 28px);
+    width: min(520px, 46%);
+  }
+  .note.graft {
+    right: calc(50% + 32px);
+    top: 484px;
+    width: 190px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: var(--space-1);
+    text-align: right;
+    font-size: 13px;
+    line-height: 18px;
+    color: var(--ink-muted);
+  }
+  .note.graft::after {
+    content: "";
+    position: absolute;
+    left: 100%;
+    top: 12px;
+    width: 28px;
+    border-top: var(--stroke-thread) dashed var(--chip);
+  }
+
+  /* Stacked version */
+  .tree-stacked {
+    display: none;
+    padding: var(--space-8) var(--gutter) 0;
+  }
+  .stack {
+    list-style: none;
+    margin: 0 0 0 3px;
+    padding: var(--space-2) 0 var(--space-6);
+    border-left: 7px solid var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  .stack li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding-left: 36px;
+  }
+  .stack li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 28px;
+    border-top: var(--stroke-branch) solid var(--chip, var(--ink));
+  }
+  .stack li.graft::before {
+    border-top: var(--stroke-thread) dashed var(--chip);
+  }
+  .stack li.trunk-item::before {
+    display: none;
+  }
+  .stack .names {
+    display: block;
+    font-size: 15px;
+    line-height: 23px;
+  }
+  .stack .label .eco-meta {
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  @media (max-width: 1020px) {
+    .tree-wide {
+      display: none;
+    }
+    .tree-stacked {
+      display: block;
+    }
+  }
+</style>

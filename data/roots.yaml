@@ -1,0 +1,50 @@
+# Root groups: families of precursors, in the order they stand below the tree.
+# Each carries one dated marker shown under its names.
+- id: physiocrats
+  name: {en: Physiocrats, fr: Physiocrates}
+  marker: {year: 1758, text: {en: Tableau économique, fr: Tableau économique}}
+  summary:
+    en: "In eighteenth-century France, the first economists hold that wealth comes from the land and circulates like blood."
+    fr: "Dans la France du XVIIIe siècle, les premiers économistes tiennent que la richesse vient de la terre et circule comme le sang."
+
+- id: naturalists
+  name: {en: Naturalists, fr: Naturalistes}
+  marker: {year: 1866, text: {en: 'the word “ecology”', fr: 'le mot « écologie »'}}
+  summary:
+    en: "They describe nature as a web of relations, give the science its name and the planet its biosphere."
+    fr: "Ils décrivent la nature comme un tissu de relations, donnent son nom à la science et sa biosphère à la planète."
+
+- id: romantics
+  name: {en: Romantics, fr: Romantiques}
+  marker: {year: 1854, text: {en: Walden, fr: Walden}}
+  summary:
+    en: "Against the factory and the city, they look for a measure of human life in solitude, walking and wild land."
+    fr: "Contre l'usine et la ville, ils cherchent une mesure de la vie humaine dans la solitude, la marche et les terres sauvages."
+
+- id: unity
+  name: {en: Philosophies of unity, fr: Philosophies de l'unité}
+  marker: {year: 1677, text: {en: Ethics, fr: Éthique}}
+  summary:
+    en: "One substance, one life: a metaphysics and a politics of non-violence that deep ecology will claim as its sources."
+    fr: "Une seule substance, une seule vie : une métaphysique et une politique de la non-violence que l'écologie profonde revendiquera comme sources."
+
+- id: political-economy
+  name: {en: Critics of political economy, fr: Critiques de l'économie politique}
+  marker: {year: 1867, text: {en: Capital, fr: Le Capital}}
+  summary:
+    en: "They read industrial capitalism as a system that exhausts the worker and the soil, and imagine what work could be after it."
+    fr: "Ils lisent le capitalisme industriel comme un système qui épuise le travailleur et le sol, et imaginent ce que le travail pourrait être après lui."
+
+- id: anarchist-geographers
+  name: {en: Anarchist geographers, fr: Géographes anarchistes}
+  marker: {year: 1902, text: {en: Mutual Aid, fr: L'Entraide}}
+  summary:
+    en: "Geographers and revolutionaries, they see in the Earth a common home and in cooperation a law of evolution."
+    fr: "Géographes et révolutionnaires, ils voient dans la Terre une maison commune et dans la coopération une loi de l'évolution."
+
+- id: energetics
+  name: {en: Energetics, fr: Énergétique sociale}
+  marker: {year: 1880, text: {en: labour as energy, fr: le travail comme énergie}}
+  summary:
+    en: "A physician, a biologist and a chemist ask economists to count in energy and matter rather than in money."
+    fr: "Un médecin, un biologiste et un chimiste demandent aux économistes de compter en énergie et en matière plutôt qu'en monnaie."

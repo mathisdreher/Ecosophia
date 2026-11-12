@@ -1,0 +1,419 @@
+# Precursors. layer: root, root: <group id from data/roots.yaml>.
+# Works double as citable sources: other files refer to them by id.
+
+- id: francois-quesnay
+  name: François Quesnay
+  sort: Quesnay
+  layer: root
+  root: physiocrats
+  born: 1694
+  died: 1774
+  place: {city: {en: Méré, fr: Méré}, country: {en: France, fr: France}, lat: 48.785, lon: 1.815}
+  wikidata: Q13575
+  lede:
+    en: "Physician at the court of Louis XV and founder of the physiocrats. His Tableau économique pictures the economy as a circulation fed by the land, the only source of a net product."
+    fr: "Médecin à la cour de Louis XV et fondateur de la physiocratie. Son Tableau économique représente l'économie comme une circulation alimentée par la terre, seule source d'un produit net."
+  seeds:
+    - seed: net-product
+      text:
+        en: "Only agriculture yields more than it consumes: wealth begins in the soil."
+        fr: "Seule l'agriculture rend plus qu'elle ne consomme : la richesse commence dans le sol."
+      source: quesnay-1758
+  works:
+    - {id: quesnay-1758, year: 1758, title: Tableau économique}
+
+- id: anne-robert-jacques-turgot
+  name: Anne Robert Jacques Turgot
+  sort: Turgot
+  layer: root
+  root: physiocrats
+  born: 1727
+  died: 1781
+  place: {city: {en: Paris, fr: Paris}, country: {en: France, fr: France}, lat: 48.857, lon: 2.352}
+  wikidata: Q221303
+  lede:
+    en: "Economist and minister of Louis XVI, close to the physiocrats without joining them. He stated the law of diminishing returns in agriculture: past a certain point, more work on the same land yields less and less."
+    fr: "Économiste et ministre de Louis XVI, proche des physiocrates sans s'y rallier. Il énonce la loi des rendements décroissants en agriculture : passé un certain point, davantage de travail sur la même terre rapporte de moins en moins."
+  seeds:
+    - seed: diminishing-returns
+      text:
+        en: "The soil does not answer effort in proportion: each further advance returns less."
+        fr: "Le sol ne répond pas à l'effort en proportion : chaque avance supplémentaire rend moins."
+      source: turgot-1767
+  works:
+    - {id: turgot-1766, year: 1766, title: Réflexions sur la formation et la distribution des richesses}
+    - {id: turgot-1767, year: 1767, title: Observations sur le mémoire de M. de Saint-Péravy, kind: article}
+
+- id: alexander-von-humboldt
+  name: Alexander von Humboldt
+  sort: Humboldt
+  layer: root
+  root: naturalists
+  born: 1769
+  died: 1859
+  place: {city: {en: Berlin, fr: Berlin}, country: {en: Germany, fr: Allemagne}, lat: 52.52, lon: 13.405}
+  wikidata: Q6694
+  lede:
+    en: "Prussian naturalist and explorer. From his American journey of 1799 to 1804 he drew a picture of nature as a web of forces in which climate, plants and human activity depend on one another."
+    fr: "Naturaliste et explorateur prussien. De son voyage américain de 1799 à 1804, il tire un tableau de la nature comme tissu de forces où le climat, les plantes et l'activité humaine dépendent les uns des autres."
+  seeds:
+    - seed: unity-of-nature
+      text:
+        en: "Nothing in nature stands alone: to describe a plant is to describe its altitude, its climate and its neighbours."
+        fr: "Rien dans la nature n'est isolé : décrire une plante, c'est décrire son altitude, son climat et ses voisines."
+      source: humboldt-1845
+  works:
+    - {id: humboldt-1807, year: 1807, title: Essai sur la géographie des plantes, note: {en: with Aimé Bonpland, fr: avec Aimé Bonpland}}
+    - {id: humboldt-1808, year: 1808, title: Ansichten der Natur, tr: {en: Views of Nature, fr: Tableaux de la nature}}
+    - {id: humboldt-1845, year: 1845, to: 1862, title: Kosmos, tr: {en: Cosmos, fr: Cosmos}}
+
+- id: ernst-haeckel
+  name: Ernst Haeckel
+  sort: Haeckel
+  layer: root
+  root: naturalists
+  born: 1834
+  died: 1919
+  place: {city: {en: Potsdam, fr: Potsdam}, country: {en: Germany, fr: Allemagne}, lat: 52.4, lon: 13.06}
+  wikidata: Q48246
+  lede:
+    en: "German zoologist who made Darwin known in Germany. In 1866 he coined the word Oecologie for the science of the relations between an organism and its surroundings."
+    fr: "Zoologiste allemand qui fit connaître Darwin en Allemagne. En 1866, il forge le mot Oecologie pour désigner la science des relations entre un organisme et son milieu."
+  seeds:
+    - seed: ecology-word
+      text:
+        en: "A name for a science: the household of nature, studied as a set of relations."
+        fr: "Un nom pour une science : l'économie de la nature, étudiée comme un ensemble de relations."
+      source: haeckel-1866
+  works:
+    - {id: haeckel-1866, year: 1866, title: Generelle Morphologie der Organismen, tr: {en: General Morphology of Organisms, fr: Morphologie générale des organismes}}
+
+- id: vladimir-vernadsky
+  name: Vladimir Vernadsky
+  sort: Vernadsky
+  layer: root
+  root: naturalists
+  born: 1863
+  died: 1945
+  place: {city: {en: Saint Petersburg, fr: Saint-Pétersbourg}, country: {en: Russia, fr: Russie}, lat: 59.94, lon: 30.31}
+  wikidata: Q316371
+  lede:
+    en: "Russian and Ukrainian geochemist. The Biosphere treats life as a geological force that transforms the crust, the waters and the atmosphere of the planet."
+    fr: "Géochimiste russe et ukrainien. La Biosphère traite la vie comme une force géologique qui transforme la croûte, les eaux et l'atmosphère de la planète."
+  seeds:
+    - seed: biosphere
+      text:
+        en: "The thin layer where life captures solar energy and reshapes the Earth."
+        fr: "La mince couche où la vie capte l'énergie solaire et refaçonne la Terre."
+      source: vernadsky-1926
+  works:
+    - {id: vernadsky-1926, year: 1926, title: Biosfera, tr: {en: The Biosphere, fr: La Biosphère}}
+
+- id: jean-jacques-rousseau
+  name: Jean-Jacques Rousseau
+  sort: Rousseau
+  layer: root
+  root: romantics
+  born: 1712
+  died: 1778
+  place: {city: {en: Geneva, fr: Genève}, country: {en: Switzerland, fr: Suisse}, lat: 46.204, lon: 6.143}
+  wikidata: Q6527
+  lede:
+    en: "Genevan philosopher. His second Discourse asks what society has done to the human nature it claims to improve, and his Reveries make solitary walking and botany a way of thinking."
+    fr: "Philosophe genevois. Son second Discours demande ce que la société a fait de la nature humaine qu'elle prétend améliorer, et ses Rêveries font de la marche solitaire et de la botanique une manière de penser."
+  seeds:
+    - seed: state-of-nature
+      text:
+        en: "A thought experiment to weigh what civilisation adds and what it takes away."
+        fr: "Une expérience de pensée pour peser ce que la civilisation ajoute et ce qu'elle retire."
+      source: rousseau-1755
+  works:
+    - {id: rousseau-1755, year: 1755, title: Discours sur l'origine et les fondements de l'inégalité parmi les hommes}
+    - {id: rousseau-1762, year: 1762, title: "Émile, ou De l'éducation"}
+    - {id: rousseau-1782, year: 1782, title: Les Rêveries du promeneur solitaire}
+
+- id: henry-david-thoreau
+  name: Henry David Thoreau
+  sort: Thoreau
+  layer: root
+  root: romantics
+  born: 1817
+  died: 1862
+  place: {city: {en: "Concord, Massachusetts", fr: "Concord (Massachusetts)"}, country: {en: United States, fr: États-Unis}, lat: 42.46, lon: -71.35}
+  wikidata: Q131149
+  lede:
+    en: "American writer and land surveyor. He spent two years in a cabin by Walden Pond to live deliberately, and a night in jail for refusing to pay a tax to a state that upheld slavery."
+    fr: "Écrivain et arpenteur américain. Il passe deux ans dans une cabane au bord de l'étang de Walden pour vivre délibérément, et une nuit en prison pour avoir refusé de payer l'impôt à un État qui maintenait l'esclavage."
+  seeds:
+    - seed: wildness
+      text:
+        en: "Not wilderness as a place but wildness as a quality, which a society needs in order to stay alive."
+        fr: "Non pas la nature sauvage comme lieu, mais le sauvage comme qualité, dont une société a besoin pour rester vivante."
+      source: thoreau-1862
+    - seed: voluntary-simplicity
+      text:
+        en: "Reduce your wants to find out what life requires."
+        fr: "Réduire ses besoins pour découvrir ce que la vie exige."
+      source: thoreau-1854
+    - seed: civil-disobedience
+      text:
+        en: "A citizen may withdraw cooperation from a government that makes them the agent of injustice."
+        fr: "Un citoyen peut retirer sa coopération à un gouvernement qui fait de lui l'agent d'une injustice."
+      source: thoreau-1849
+  quote:
+    text: "In Wildness is the preservation of the World."
+    lang: en
+    source: thoreau-1862
+    gloss: {fr: "C'est dans le sauvage que réside la préservation du monde."}
+  works:
+    - {id: thoreau-1849, year: 1849, title: Resistance to Civil Government, kind: article}
+    - {id: thoreau-1854, year: 1854, title: "Walden; or, Life in the Woods"}
+    - {id: thoreau-1862, year: 1862, title: Walking, kind: article, in: The Atlantic Monthly}
+
+- id: john-muir
+  name: John Muir
+  sort: Muir
+  layer: root
+  root: romantics
+  born: 1838
+  died: 1914
+  place: {city: {en: "Dunbar, Scotland", fr: "Dunbar (Écosse)"}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 56.0, lon: -2.52}
+  wikidata: Q379580
+  lede:
+    en: "Scottish-born American naturalist. He walked the Sierra Nevada, campaigned for Yosemite and co-founded the Sierra Club in 1892 to keep wild land out of economic use."
+    fr: "Naturaliste américain né en Écosse. Il parcourt à pied la Sierra Nevada, fait campagne pour Yosemite et cofonde le Sierra Club en 1892 afin de soustraire les terres sauvages à l'usage économique."
+  seeds:
+    - seed: preservation
+      text:
+        en: "Wild land has a worth apart from the timber, water and pasture it can supply."
+        fr: "La terre sauvage vaut indépendamment du bois, de l'eau et des pâturages qu'elle peut fournir."
+      source: muir-1901
+  quote:
+    text: "When we try to pick out anything by itself, we find it hitched to everything else in the Universe."
+    lang: en
+    source: muir-1911
+    gloss: {fr: "Dès que l'on tente d'isoler une chose, on la découvre attachée à tout le reste de l'univers."}
+  works:
+    - {id: muir-1901, year: 1901, title: Our National Parks}
+    - {id: muir-1911, year: 1911, title: My First Summer in the Sierra}
+
+- id: baruch-spinoza
+  name: Baruch Spinoza
+  sort: Spinoza
+  layer: root
+  root: unity
+  born: 1632
+  died: 1677
+  place: {city: {en: Amsterdam, fr: Amsterdam}, country: {en: Netherlands, fr: Pays-Bas}, lat: 52.37, lon: 4.9}
+  wikidata: Q35802
+  lede:
+    en: "Dutch philosopher of Portuguese Jewish descent. The Ethics holds that there is one substance, God or Nature, and that each thing strives to persevere in its being."
+    fr: "Philosophe néerlandais d'ascendance juive portugaise. L'Éthique soutient qu'il n'existe qu'une substance, Dieu ou la Nature, et que chaque chose s'efforce de persévérer dans son être."
+  seeds:
+    - seed: deus-sive-natura
+      text:
+        en: "God and Nature are two names for one substance: nothing stands outside it."
+        fr: "Dieu et la Nature sont deux noms d'une même substance : rien ne lui est extérieur."
+      source: spinoza-1677
+    - seed: conatus
+      text:
+        en: "Each thing strives to persevere in its being."
+        fr: "Chaque chose s'efforce de persévérer dans son être."
+      source: spinoza-1677
+  works:
+    - {id: spinoza-1670, year: 1670, title: Tractatus Theologico-Politicus}
+    - {id: spinoza-1677, year: 1677, title: Ethica, tr: {en: Ethics, fr: Éthique}}
+
+- id: mohandas-gandhi
+  name: Mohandas Gandhi
+  sort: Gandhi
+  layer: root
+  root: unity
+  born: 1869
+  died: 1948
+  place: {city: {en: Porbandar, fr: Porbandar}, country: {en: India, fr: Inde}, lat: 21.64, lon: 69.61}
+  wikidata: Q1001
+  lede:
+    en: "Indian lawyer and leader of the independence movement. Hind Swaraj refuses industrial civilisation as a model for India, and his campaigns make non-violence a method of collective action."
+    fr: "Avocat indien et chef du mouvement pour l'indépendance. Hind Swaraj refuse la civilisation industrielle comme modèle pour l'Inde, et ses campagnes font de la non-violence une méthode d'action collective."
+  seeds:
+    - seed: non-violence
+      text:
+        en: "Ahimsa: to refuse harm is a force, not a weakness, and it applies to all that lives."
+        fr: "Ahimsa : refuser de nuire est une force, non une faiblesse, et vaut pour tout ce qui vit."
+      source: gandhi-1927
+    - seed: swaraj
+      text:
+        en: "Self-rule: independence means governing oneself, village by village, not copying the rulers."
+        fr: "Autonomie : l'indépendance consiste à se gouverner soi-même, village par village, non à imiter les maîtres."
+      source: gandhi-1909
+  works:
+    - {id: gandhi-1907, year: 1907, title: Duty of Disobeying Laws, kind: article, in: Indian Opinion, key: false}
+    - {id: gandhi-1909, year: 1909, title: Hind Swaraj}
+    - {id: gandhi-1927, year: 1927, to: 1929, title: The Story of My Experiments with Truth}
+
+- id: karl-marx
+  name: Karl Marx
+  sort: Marx
+  layer: root
+  root: political-economy
+  born: 1818
+  died: 1883
+  place: {city: {en: Trier, fr: Trèves}, country: {en: Germany, fr: Allemagne}, lat: 49.75, lon: 6.64}
+  wikidata: Q9061
+  lede:
+    en: "German philosopher and economist. Capital describes a mode of production that undermines its two sources of wealth, the soil and the worker; twenty-first-century readers have built an ecological Marx on these pages."
+    fr: "Philosophe et économiste allemand. Le Capital décrit un mode de production qui ruine ses deux sources de richesse, la terre et le travailleur ; des lecteurs du XXIe siècle ont bâti sur ces pages un Marx écologique."
+  seeds:
+    - seed: metabolism
+      text:
+        en: "Labour is the metabolism between humans and nature; large-scale industry and agriculture disturb it."
+        fr: "Le travail est le métabolisme entre les humains et la nature ; la grande industrie et la grande agriculture le perturbent."
+      source: marx-1867
+  works:
+    - {id: marx-1862, year: 1862, to: 1863, title: Theorien über den Mehrwert, tr: {en: Theories of Surplus Value, fr: Théories sur la plus-value}, note: {en: manuscript, fr: manuscrit}, key: false}
+    - {id: marx-1867, year: 1867, title: "Das Kapital, Band I", tr: {en: "Capital, volume 1", fr: "Le Capital, livre I"}}
+
+- id: william-morris
+  name: William Morris
+  sort: Morris
+  layer: root
+  root: political-economy
+  born: 1834
+  died: 1896
+  place: {city: {en: "Walthamstow, England", fr: "Walthamstow (Angleterre)"}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 51.59, lon: -0.02}
+  wikidata: Q182589
+  lede:
+    en: "English designer, poet and socialist. News from Nowhere imagines a communist England after the factories, where work has become a pleasure and the Thames runs clean."
+    fr: "Designer, poète et socialiste anglais. Nouvelles de nulle part imagine une Angleterre communiste d'après les usines, où le travail est devenu un plaisir et où la Tamise coule propre."
+  seeds:
+    - seed: useful-work
+      text:
+        en: "Most industrial labour is useless toil: it makes things nobody needs and wears out those who make them."
+        fr: "L'essentiel du travail industriel est une peine inutile : il fabrique ce dont personne n'a besoin et use ceux qui le fabriquent."
+      source: morris-1884
+  works:
+    - {id: morris-1884, year: 1884, title: Useful Work versus Useless Toil, kind: article}
+    - {id: morris-1890, year: 1890, title: News from Nowhere}
+
+- id: elisee-reclus
+  name: Élisée Reclus
+  sort: Reclus
+  layer: root
+  root: anarchist-geographers
+  born: 1830
+  died: 1905
+  place: {city: {en: Sainte-Foy-la-Grande, fr: Sainte-Foy-la-Grande}, country: {en: France, fr: France}, lat: 44.84, lon: 0.22}
+  wikidata: Q20951
+  lede:
+    en: "French geographer and anarchist, exiled after the Paris Commune. His last work reads the history of societies through their rivers, soils and coasts, and opens with a sentence that sums up his geography."
+    fr: "Géographe et anarchiste français, exilé après la Commune de Paris. Son dernier ouvrage lit l'histoire des sociétés à travers leurs fleuves, leurs sols et leurs côtes, et s'ouvre sur une phrase qui résume sa géographie."
+  seeds:
+    - seed: social-geography
+      text:
+        en: "Societies and their environments make one another: geography is history in space."
+        fr: "Les sociétés et leurs milieux se font mutuellement : la géographie est l'histoire dans l'espace."
+      source: reclus-1905
+  quote:
+    text: "L'homme est la nature prenant conscience d'elle-même."
+    lang: fr
+    source: reclus-1905
+    gloss: {en: "Humanity is nature becoming conscious of itself."}
+  works:
+    - {id: reclus-1869, year: 1869, title: La Terre}
+    - {id: reclus-1876, year: 1876, to: 1894, title: Nouvelle Géographie universelle}
+    - {id: reclus-1905, year: 1905, to: 1908, title: L'Homme et la Terre}
+
+- id: peter-kropotkin
+  name: Peter Kropotkin
+  sort: Kropotkin
+  layer: root
+  root: anarchist-geographers
+  born: 1842
+  died: 1921
+  place: {city: {en: Moscow, fr: Moscou}, country: {en: Russia, fr: Russie}, lat: 55.75, lon: 37.62}
+  wikidata: Q5752
+  lede:
+    en: "Russian geographer and anarchist. Against a Darwinism reduced to struggle, he argued from his Siberian observations that cooperation is a factor of evolution, and that free communes can organise production."
+    fr: "Géographe et anarchiste russe. Contre un darwinisme réduit à la lutte, il soutient, à partir de ses observations sibériennes, que la coopération est un facteur de l'évolution et que des communes libres peuvent organiser la production."
+  seeds:
+    - seed: mutual-aid
+      text:
+        en: "Species that cooperate fare better than those that compete: sociability is a law of nature."
+        fr: "Les espèces qui coopèrent s'en tirent mieux que celles qui rivalisent : la sociabilité est une loi de la nature."
+      source: kropotkin-1902
+    - seed: free-commune
+      text:
+        en: "Fields and workshops side by side, run by those who work in them, federated without a state."
+        fr: "Champs et ateliers côte à côte, gérés par celles et ceux qui y travaillent, fédérés sans État."
+      source: kropotkin-1899
+  works:
+    - {id: kropotkin-1885, year: 1885, title: Paroles d'un révolté, note: {en: edited and prefaced by Élisée Reclus, fr: édité et préfacé par Élisée Reclus}, key: false}
+    - {id: kropotkin-1892, year: 1892, title: La Conquête du pain}
+    - {id: kropotkin-1899, year: 1899, title: "Fields, Factories and Workshops"}
+    - {id: kropotkin-1902, year: 1902, title: "Mutual Aid: A Factor of Evolution"}
+
+- id: sergei-podolinsky
+  name: Sergei Podolinsky
+  sort: Podolinsky
+  layer: root
+  root: energetics
+  born: 1850
+  died: 1891
+  place: {country: {en: Ukraine, fr: Ukraine}}
+  wikidata: Q2273334
+  lede:
+    en: "Ukrainian physician and socialist. In 1880 he tried to join the labour theory of value to thermodynamics: human labour is what increases the solar energy stored on the surface of the Earth. Engels read the essay and was not convinced."
+    fr: "Médecin et socialiste ukrainien. En 1880, il tente d'unir la théorie de la valeur-travail à la thermodynamique : le travail humain est ce qui accroît l'énergie solaire accumulée à la surface de la Terre. Engels lit l'essai sans être convaincu."
+  seeds:
+    - seed: labour-as-energy
+      text:
+        en: "An economy can be audited in calories: how much solar energy does work fix, and how much does it scatter?"
+        fr: "Une économie peut se comptabiliser en calories : combien d'énergie solaire le travail fixe-t-il, et combien en disperse-t-il ?"
+      source: podolinsky-1880
+  works:
+    - {id: podolinsky-1880, year: 1880, title: Le socialisme et l'unité des forces physiques, kind: article, in: La Revue socialiste}
+
+- id: patrick-geddes
+  name: Patrick Geddes
+  sort: Geddes
+  layer: root
+  root: energetics
+  born: 1854
+  died: 1932
+  place: {city: {en: "Ballater, Scotland", fr: "Ballater (Écosse)"}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 57.05, lon: -3.04}
+  wikidata: Q381848
+  lede:
+    en: "Scottish biologist and town planner. He read the city as part of its region, from the mountain to the sea, and asked economists to count energy and materials rather than money."
+    fr: "Biologiste et urbaniste écossais. Il lit la ville comme une partie de sa région, de la montagne à la mer, et demande aux économistes de compter l'énergie et les matières plutôt que la monnaie."
+  seeds:
+    - seed: regional-survey
+      text:
+        en: "Survey before plan: a city is understood through the valley that feeds it."
+        fr: "Enquêter avant de planifier : une ville se comprend par la vallée qui la nourrit."
+      source: geddes-1915
+  works:
+    - {id: geddes-1884, year: 1884, title: An Analysis of the Principles of Economics, kind: article, in: Proceedings of the Royal Society of Edinburgh}
+    - {id: geddes-1915, year: 1915, title: Cities in Evolution}
+
+- id: frederick-soddy
+  name: Frederick Soddy
+  sort: Soddy
+  layer: root
+  root: energetics
+  born: 1877
+  died: 1956
+  place: {city: {en: "Eastbourne, England", fr: "Eastbourne (Angleterre)"}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 50.77, lon: 0.28}
+  wikidata: Q102830
+  lede:
+    en: "English radiochemist, Nobel laureate in 1921. After the First World War he turned to economics and argued that real wealth is a flow of energy bound by thermodynamics, while debt grows by the rules of arithmetic."
+    fr: "Radiochimiste anglais, prix Nobel en 1921. Après la Première Guerre mondiale, il se tourne vers l'économie et soutient que la richesse réelle est un flux d'énergie soumis à la thermodynamique, tandis que la dette croît selon les règles de l'arithmétique."
+  seeds:
+    - seed: virtual-wealth
+      text:
+        en: "Money and debt are claims on wealth, not wealth: they can grow without limit, energy cannot."
+        fr: "La monnaie et la dette sont des créances sur la richesse, non la richesse : elles peuvent croître sans limite, l'énergie non."
+      source: soddy-1926
+  works:
+    - {id: soddy-1922, year: 1922, title: "Cartesian Economics: The Bearing of Physical Science upon State Stewardship"}
+    - {id: soddy-1926, year: 1926, title: "Wealth, Virtual Wealth and Debt"}

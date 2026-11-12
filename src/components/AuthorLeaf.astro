@@ -1,0 +1,47 @@
+---
+// AuthorLeaf: the author card. Leaf cut on two corners, a branch line on top,
+// up to three seeds, the primary chip and any secondary chips. No portrait.
+import AuthorChips from './AuthorChips.astro';
+import { L } from '../lib/text.mjs';
+import { href } from '../lib/site.mjs';
+import { lifespan, placeLabel, loadCorpus } from '../lib/corpus.mjs';
+
+const { author, lang, heading = 'h3' } = Astro.props;
+const c = loadCorpus();
+const H = heading;
+const meta = [lifespan(author, lang), placeLabel(author, lang)].filter(Boolean).join(' · ');
+---
+
+<article class="eco-leaf" style={`--chip: var(--${author.token})`}>
+  <H class="leaf-name"><a href={href(lang, 'author', author.id)}>{author.name}</a></H>
+  {meta && <div class="eco-meta">{meta}</div>}
+  {
+    author.seeds.length > 0 && (
+      <ul>
+        {author.seeds.map((s) => (
+          <li>
+            <b>{L(c.seeds[s.seed].name, lang)}.</b> {L(s.text, lang)}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+  <div class="eco-chips"><AuthorChips author={author} lang={lang} link={false} /></div>
+</article>
+
+<style>
+  .leaf-name {
+    font: 600 24px/30px var(--font-display);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+  .leaf-name a:hover {
+    color: var(--chip, var(--moss));
+  }
+  ul:empty {
+    display: none;
+  }
+  .eco-leaf > .eco-chips {
+    padding-top: var(--space-4);
+  }
+</style>

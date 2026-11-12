@@ -1,0 +1,251 @@
+---
+// Terrain: where the authors were born. Neutral markers (the Terrain layer
+// uses no branch colour); every place is also listed by country below the maps.
+import Base from '../layouts/Base.astro';
+import AuthorChips from '../components/AuthorChips.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { L, fold } from '../lib/text.mjs';
+import { loadCorpus, lifespan } from '../lib/corpus.mjs';
+import { worldMap, europeMap } from '../lib/geo.mjs';
+
+const { lang } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+
+const located = c.authors.filter((a) => a.place?.lat != null);
+const missing = c.authors.filter((a) => a.place?.lat == null);
+
+// One place per city: authors born in the same city share a marker.
+const placeMap = new Map();
+for (const a of located) {
+  const key = fold(`${a.place.city?.en ?? ''}|${a.place.country.en}`).replace(/[^a-z0-9|]+/g, '-');
+  if (!placeMap.has(key)) placeMap.set(key, { key: key.replace(/\|/g, '_'), place: a.place, authors: [], lat: 0, lon: 0 });
+  const p = placeMap.get(key);
+  p.authors.push(a);
+  p.lat += a.place.lat;
+  p.lon += a.place.lon;
+}
+const places = [...placeMap.values()].map((p) => ({ ...p, lat: p.lat / p.authors.length, lon: p.lon / p.authors.length }));
+const cityOf = (p) => L(p.place.city ?? p.place.country, lang);
+const radius = (n) => Math.round(5 * Math.sqrt(n) * 10) / 10;
+
+const world = worldMap();
+const europe = europeMap();
+const maps = [
+  { id: 'world', name: t('terrain.world'), map: world },
+  { id: 'europe', name: t('terrain.europe'), map: europe },
+].map((m) => ({
+  ...m,
+  markers: places
+    .map((p) => ({ p, xy: m.map.project(p.lon, p.lat) }))
+    .filter((mk) => mk.xy)
+    .sort((a, b) => b.p.authors.length - a.p.authors.length),
+}));
+
+const collator = new Intl.Collator(lang, { sensitivity: 'base' });
+const countryMap = new Map();
+for (const p of places) {
+  const name = L(p.place.country, lang);
+  if (!countryMap.has(name)) countryMap.set(name, []);
+  countryMap.get(name).push(p);
+}
+const countries = [...countryMap]
+  .map(([name, list]) => ({ name, places: list.sort((a, b) => collator.compare(cityOf(a), cityOf(b))), n: list.reduce((s, p) => s + p.authors.length, 0) }))
+  .sort((a, b) => b.n - a.n || collator.compare(a.name, b.name));
+---
+
+<Base lang={lang} view="terrain" title={t('terrain.title')} description={t('terrain.lede')}>
+  <section class="page-head">
+    <h1 class="t-title">{t('terrain.title')}</h1>
+    <p class="t-lede">{t('terrain.lede')}</p>
+  </section>
+
+  <section class="page-body stack gap-8">
+    <div class="maps">
+      {
+        maps.map((m) => (
+          <figure class={`map ${m.id}`}>
+            <figcaption class="label t-muted">{m.name}</figcaption>
+            <svg viewBox={`0 0 ${m.map.w} ${m.map.h}`} role="group" aria-label={`${t('terrain.mapLabel')} (${m.name})`}>
+              {m.map.outline && <path class="sphere" d={m.map.outline} />}
+              <path class="land" d={m.map.land} />
+              {m.markers.map(({ p, xy }) => {
+                const n = p.authors.length;
+                const r = radius(n);
+                const label = `${cityOf(p)}: ${p.authors.map((a) => a.name).join(', ')}`;
+                return (
+                  <a href={`#place-${p.key}`} class="marker" aria-label={label}>
+                    <title>{label}</title>
+                    <circle class="hit" cx={xy[0]} cy={xy[1]} r={Math.max(r + 5, 12)} />
+                    <circle class="disc" cx={xy[0]} cy={xy[1]} r={r} />
+                    {n > 1 && (
+                      <text x={xy[0]} y={xy[1] + 3.5} text-anchor="middle">
+                        {n}
+                      </text>
+                    )}
+                  </a>
+                );
+              })}
+            </svg>
+          </figure>
+        ))
+      }
+    </div>
+
+    <div class="stack gap-4">
+      <div class="stack gap-1">
+        <h2 class="t-heading">{t('terrain.byCountry')}</h2>
+        <p class="t-small t-muted">{t('terrain.countryNote')}</p>
+      </div>
+      <div class="countries">
+        {
+          countries.map((country) => (
+            <section>
+              <h3>
+                {country.name} <span class="eco-meta">{country.n}</span>
+              </h3>
+              <ul>
+                {country.places.map((p) => (
+                  <li id={`place-${p.key}`}>
+                    <span class="city label t-muted">{cityOf(p)}</span>
+                    {p.authors.map((a) => (
+                      <span class="person">
+                        <a class="strong-link" href={href(lang, 'author', a.id)}>{a.name}</a>
+                        <span class="eco-meta">{lifespan(a, lang)}</span>
+                        <span class="eco-chips"><AuthorChips author={{ ...a, also: [] }} lang={lang} link={false} /></span>
+                      </span>
+                    ))}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))
+        }
+      </div>
+    </div>
+
+    {
+      missing.length > 0 && (
+        <div class="stack gap-2 missing">
+          <h2 class="t-heading">{t('terrain.missing')}</h2>
+          <p class="t-small">
+            {t('terrain.missingNote')}{' '}
+            {missing.map((a, i) => (
+              <>
+                {i > 0 && ', '}
+                <a class="link" href={href(lang, 'author', a.id)}>{a.name}</a>
+              </>
+            ))}
+            .
+          </p>
+        </div>
+      )
+    }
+  </section>
+</Base>
+
+<style>
+  .maps {
+    display: grid;
+    grid-template-columns: minmax(0, 960fr) minmax(0, 560fr);
+    gap: var(--space-6);
+    align-items: start;
+  }
+  .map {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    min-width: 0;
+  }
+  .map svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .map.europe svg {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+  }
+  .sphere {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 1;
+  }
+  .land {
+    fill: var(--paper-raised);
+    stroke: var(--line);
+    stroke-width: 1;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+  }
+  .marker .hit {
+    fill: transparent;
+  }
+  .marker .disc {
+    fill: var(--ink);
+    stroke: var(--paper);
+    stroke-width: 2;
+  }
+  .marker text {
+    font: 600 10px/1 var(--font-sans);
+    fill: var(--paper);
+    pointer-events: none;
+  }
+  .marker:hover .disc,
+  .marker:focus-visible .disc {
+    fill: var(--moss);
+  }
+  .marker:focus-visible {
+    outline: none;
+  }
+  .marker:focus-visible .disc {
+    stroke: var(--moss);
+    stroke-width: 3;
+    paint-order: stroke;
+  }
+  .countries {
+    columns: 3 320px;
+    column-gap: var(--space-12);
+  }
+  .countries section {
+    break-inside: avoid;
+    padding-bottom: var(--space-6);
+  }
+  h3 {
+    font: 600 20px/26px var(--font-display);
+    padding-bottom: var(--space-1);
+    border-bottom: 1px solid var(--line);
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--line);
+    scroll-margin-top: var(--space-12);
+  }
+  li:target {
+    background: var(--moss-soft);
+    box-shadow: 0 0 0 8px var(--moss-soft);
+  }
+  .person {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-1) var(--space-3);
+  }
+  .missing {
+    max-width: var(--measure);
+  }
+  @media (max-width: 900px) {
+    .maps {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>
