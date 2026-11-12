@@ -12,8 +12,8 @@ import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { parseArgs } from 'node:util';
 import YAML from 'yaml';
-import { loadCorpus } from '../src/lib/corpus.mjs';
-import { ENGINE, DEFAULTS, LIMITS, EFFORTS } from './config.mjs';
+import { loadCorpus, loadClaims } from '../src/lib/corpus.mjs';
+import { ENGINE, DEFAULTS, LIMITS, EFFORTS, estimateCost } from './config.mjs';
 import { selectAgents, buildSimulation } from './seed.mjs';
 import { startBridge } from './bridge.mjs';
 import { prepareClaim, readRun, parseStance, interviewPrompt } from './reading.mjs';
@@ -30,6 +30,7 @@ function options() {
       agents: { type: 'string', default: 'all' },
       rounds: { type: 'string', default: String(DEFAULTS.rounds) },
       model: { type: 'string', default: DEFAULTS.model },
+      'reader-model': { type: 'string', default: '' },
       effort: { type: 'string', default: DEFAULTS.effort },
       status: { type: 'string', default: 'draft' },
       'dry-run': { type: 'boolean', default: false },
@@ -61,6 +62,7 @@ function options() {
     agents: values.agents,
     rounds,
     model: values.model.trim(),
+    readerModel: values['reader-model'].trim() || values.model.trim(),
     effort: values.effort,
     status: dry ? 'draft' : values.status,
     dry,
@@ -163,16 +165,22 @@ async function main() {
   fs.rmSync(work, { recursive: true, force: true });
   fs.mkdirSync(sim, { recursive: true });
 
-  const tokens = { input: 0, output: 0 };
+  // Tokens of the two calls made around the simulation (claim, reading), by the reader model.
+  const tokens = { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 };
   const count = (u) => {
-    tokens.input += (u?.input_tokens ?? 0) + (u?.cache_read_input_tokens ?? 0) + (u?.cache_creation_input_tokens ?? 0);
+    tokens.input += u?.input_tokens ?? 0;
+    tokens.cacheRead += u?.cache_read_input_tokens ?? 0;
+    tokens.cacheWrite += u?.cache_creation_input_tokens ?? 0;
     tokens.output += u?.output_tokens ?? 0;
   };
 
   say(`${runId}: ${agents.length} agents, ${opt.rounds} rounds, ${opt.dry ? 'stand-in model (dry run)' : `${opt.model}, effort ${opt.effort}`}`);
   if (withdrawn.length) say(`withdrawn agents left out: ${withdrawn.map((a) => a.name).join(', ')}`);
 
-  const claim = await prepareClaim({ raw: opt.claim, model: opt.model, effort: opt.effort, mock: opt.dry, usage: count });
+  // A claim id from data/clearing/claims.yaml brings its own wording in both
+  // languages and its source; anything else is a claim typed by hand.
+  const fromProgramme = loadClaims().find((k) => k.id === opt.claim.trim()) ?? null;
+  const claim = fromProgramme ? { en: fromProgramme.claim.en, fr: fromProgramme.claim.fr } : await prepareClaim({ raw: opt.claim, model: opt.readerModel, effort: opt.effort, mock: opt.dry, usage: count });
   say(`claim: ${claim.en}`);
 
   const { map } = buildSimulation({ corpus, claim: claim.en, agents, rounds: opt.rounds, dir: sim, runId, model: opt.model });
@@ -265,7 +273,7 @@ async function main() {
   if (answered.length < Math.max(LIMITS.agents.min, Math.ceil(stances.length / 2))) throw new Error('Fewer than half of the agents gave a position: the run is not kept.');
   if (comments === 0) throw new Error('No agent commented on the claim: the run is not kept.');
 
-  const reading = await readRun({ claim, stances, transcript, corpus, model: opt.model, effort: opt.effort, mock: opt.dry, usage: count });
+  const reading = await readRun({ claim, stances, transcript, corpus, model: opt.readerModel, effort: opt.effort, mock: opt.dry, usage: count });
 
   const positions = corpus.branches
     .map((b) => {
@@ -274,6 +282,10 @@ async function main() {
     })
     .filter(Boolean);
 
+  const agentCost = estimateCost(opt.model, stats.tokens);
+  const readerCost = estimateCost(opt.readerModel, tokens);
+  const cost = opt.dry || agentCost == null || readerCost == null ? null : agentCost + readerCost;
+
   const run = {
     id: runId,
     runId,
@@ -281,10 +293,22 @@ async function main() {
     ...(opt.dry ? { dryRun: true } : {}),
     date: new Date().toISOString().slice(0, 10),
     claim,
+    ...(fromProgramme
+      ? {
+          claimSource: {
+            id: fromProgramme.id,
+            party: fromProgramme.party,
+            programme: fromProgramme.programme,
+            locator: fromProgramme.locator,
+            quote: fromProgramme.quote,
+          },
+        }
+      : {}),
     summary: reading.summary,
     engine: { name: ENGINE.name, commit: ENGINE.commit, platform: ENGINE.platform, packages: ENGINE.packages.slice(0, 2) },
     model: {
       requested: opt.model,
+      ...(opt.readerModel !== opt.model ? { reader: opt.readerModel } : {}),
       served: Object.keys(stats.servedBy),
       effort: opt.dry ? null : opt.effort,
     },
@@ -296,8 +320,9 @@ async function main() {
       interviews: stats.interviews,
       declined: stats.refusals,
       failed: stats.errors,
-      tokensIn: stats.tokens.input + stats.tokens.cacheRead + stats.tokens.cacheWrite + tokens.input,
+      tokensIn: stats.tokens.input + stats.tokens.cacheRead + stats.tokens.cacheWrite + tokens.input + tokens.cacheRead + tokens.cacheWrite,
       tokensOut: stats.tokens.output + tokens.output,
+      ...(cost != null ? { costUsd: Math.round(cost * 100) / 100 } : {}),
     },
     positions,
     alliances: reading.alliances,
@@ -353,10 +378,11 @@ async function main() {
         `|---|---|`,
         `| Agents | ${agents.length} |`,
         `| Rounds | ${opt.rounds} |`,
-        `| Model | ${opt.dry ? 'stand-in' : `${run.model.served.join(', ')} (effort ${opt.effort})`} |`,
+        `| Model | ${opt.dry ? 'stand-in' : `${run.model.served.join(', ')} (effort ${opt.effort})${opt.readerModel !== opt.model ? `, reading by ${opt.readerModel}` : ''}`} |`,
         `| Agent turns | ${run.counts.turns} |`,
         `| Comments | ${run.counts.comments} |`,
-        `| Tokens | ${run.counts.tokensIn.toLocaleString('en')} in, ${run.counts.tokensOut.toLocaleString('en')} out |`,
+        `| Tokens | ${run.counts.tokensIn.toLocaleString('en')} in (${stats.tokens.cacheRead.toLocaleString('en')} read from cache), ${run.counts.tokensOut.toLocaleString('en')} out |`,
+        `| Estimated cost | ${cost == null ? 'n/a' : `${cost.toFixed(2)} USD at list prices`} |`,
         `| Declined or failed calls | ${run.counts.declined} declined, ${run.counts.failed} failed |`,
         `| Status | ${run.status} |`,
         '',

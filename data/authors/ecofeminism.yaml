@@ -156,3 +156,44 @@
       title: "The Subsistence Perspective: Beyond the Globalised Economy"
       by: {en: Mies and Bennholdt-Thomsen, fr: Mies et Bennholdt-Thomsen}
       note: {en: with Veronika Bennholdt-Thomsen, fr: avec Veronika Bennholdt-Thomsen}
+
+- id: wangari-maathai
+  name: Wangari Maathai
+  sort: Maathai
+  layer: leaf
+  branch: ecofeminism
+  also: [decolonial]
+  born: 1940
+  died: 2011
+  place: {city: {en: "Ihithe, Nyeri", fr: "Ihithe (Nyeri)"}, country: {en: Kenya, fr: Kenya}, lat: -0.42, lon: 36.95}
+  lede:
+    en: "Kenyan biologist and politician, the first woman in East and Central Africa to earn a doctorate. In 1977 she founded the Green Belt Movement, through which rural women planted tens of millions of trees, and in 2004 she received the Nobel Peace Prize."
+    fr: "Biologiste et femme politique kényane, première femme d'Afrique de l'Est et centrale à obtenir un doctorat. En 1977, elle fonde le Green Belt Movement, par lequel des femmes rurales plantent des dizaines de millions d'arbres, et reçoit en 2004 le prix Nobel de la paix."
+  seeds:
+    - seed: trees-and-democracy
+      text:
+        en: "Planting a tree is a political act: forests, water, women's livelihoods and democracy fail or hold together."
+        fr: "Planter un arbre est un acte politique : forêts, eau, subsistance des femmes et démocratie tiennent ou tombent ensemble."
+      source: maathai-2003
+  works:
+    - {id: maathai-2003, year: 2003, title: "The Green Belt Movement: Sharing the Approach and the Experience"}
+    - {id: maathai-2006, year: 2006, title: "Unbowed: A Memoir"}
+
+- id: stefania-barca
+  name: Stefania Barca
+  sort: Barca
+  layer: leaf
+  branch: ecofeminism
+  also: [ecosocialism]
+  lede:
+    en: "Italian environmental historian. Forces of Reproduction reads the Anthropocene from the side of those who care for bodies and land, women, peasants, Indigenous peoples and workers, and makes them the subjects of an ecological politics."
+    fr: "Historienne italienne de l'environnement. Forces of Reproduction lit l'Anthropocène du côté de celles et ceux qui prennent soin des corps et des terres, femmes, paysans, peuples autochtones et travailleurs, et en fait les sujets d'une politique écologique."
+  seeds:
+    - seed: forces-of-reproduction
+      text:
+        en: "Not the forces of production but the labour that reproduces life is the ground of an ecological politics."
+        fr: "Ce ne sont pas les forces productives mais le travail qui reproduit la vie qui fonde une politique écologique."
+      source: barca-2020
+  works:
+    - {id: barca-2020, year: 2020, title: "Forces of Reproduction: Notes for a Counter-Hegemonic Anthropocene"}
+    - {id: barca-2024, year: 2024, title: Workers of the Earth}

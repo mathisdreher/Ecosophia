@@ -116,3 +116,27 @@
   works:
     - {id: robbins-2004, year: 2004, title: "Political Ecology: A Critical Introduction"}
     - {id: robbins-2007, year: 2007, title: "Lawn People: How Grasses, Weeds, and Chemicals Make Us Who We Are"}
+
+- id: marisol-de-la-cadena
+  name: Marisol de la Cadena
+  sort: Cadena
+  layer: leaf
+  branch: political-ecology
+  place: {country: {en: Peru, fr: Pérou}}
+  lede:
+    en: "Peruvian anthropologist, professor at the University of California, Davis. From long conversations with two Quechua men near Cuzco, she shows mountains entering Andean politics as earth-beings, and asks what politics becomes when it must include them."
+    fr: "Anthropologue péruvienne, professeure à l'université de Californie à Davis. À partir de longues conversations avec deux hommes quechuas près de Cuzco, elle montre des montagnes entrer dans la politique andine comme êtres-terre, et demande ce que devient la politique quand elle doit les inclure."
+  seeds:
+    - seed: earth-beings
+      text:
+        en: "A mountain can be a person with its own will, and a political actor in a dispute over a mine."
+        fr: "Une montagne peut être une personne dotée d'une volonté propre, et un acteur politique dans un conflit autour d'une mine."
+      source: delacadena-2015
+    - seed: cosmopolitics
+      text:
+        en: "Indigenous movements bring beings into politics that modern politics had left to nature or to culture."
+        fr: "Les mouvements autochtones font entrer en politique des êtres que la politique moderne laissait à la nature ou à la culture."
+      source: delacadena-2010
+  works:
+    - {id: delacadena-2010, year: 2010, title: "Indigenous Cosmopolitics in the Andes: Conceptual Reflections beyond Politics", kind: article, in: Cultural Anthropology, issue: "25 (2)"}
+    - {id: delacadena-2015, year: 2015, title: "Earth Beings: Ecologies of Practice across Andean Worlds"}

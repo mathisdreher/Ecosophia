@@ -122,3 +122,48 @@
     - {id: rolston-1975, year: 1975, title: "Is There an Ecological Ethic?", kind: article, in: Ethics, issue: "85"}
     - {id: rolston-1986, year: 1986, title: Philosophy Gone Wild}
     - {id: rolston-1988, year: 1988, title: "Environmental Ethics: Duties to and Values in the Natural World"}
+
+- id: baird-callicott
+  name: J. Baird Callicott
+  sort: Callicott
+  layer: leaf
+  branch: deep-ecology
+  born: 1941
+  place: {country: {en: United States, fr: États-Unis}}
+  lede:
+    en: "American philosopher who taught one of the first university courses in environmental ethics. He made Aldo Leopold's land ethic into a philosophical position: the community of life, not the single organism, is what counts morally."
+    fr: "Philosophe américain qui donne l'un des premiers cours universitaires d'éthique environnementale. Il fait de l'éthique de la terre d'Aldo Leopold une position philosophique : c'est la communauté du vivant, et non l'organisme isolé, qui compte moralement."
+  seeds:
+    - seed: land-ethic
+      text:
+        en: "The good of the biotic community is the final measure of right and wrong, even when it weighs against single animals."
+        fr: "Le bien de la communauté biotique est la mesure ultime du juste et de l'injuste, même quand il pèse contre des animaux isolés."
+      source: callicott-1989
+  works:
+    - {id: callicott-1989, year: 1989, title: "In Defense of the Land Ethic: Essays in Environmental Philosophy"}
+
+- id: edward-o-wilson
+  name: Edward O. Wilson
+  sort: Wilson
+  layer: leaf
+  branch: deep-ecology
+  born: 1929
+  died: 2021
+  place: {city: {en: "Birmingham, Alabama", fr: "Birmingham (Alabama)"}, country: {en: United States, fr: États-Unis}, lat: 33.52, lon: -86.81}
+  lede:
+    en: "American biologist, specialist of ants and founder of sociobiology. He popularised the word biodiversity and, late in life, proposed setting aside half of the Earth's surface for the rest of life."
+    fr: "Biologiste américain, spécialiste des fourmis et fondateur de la sociobiologie. Il popularise le mot biodiversité et propose, à la fin de sa vie, de réserver la moitié de la surface de la Terre au reste du vivant."
+  seeds:
+    - seed: biophilia
+      text:
+        en: "Humans carry an inborn urge to affiliate with other forms of life."
+        fr: "Les humains portent un penchant inné à se lier aux autres formes de vie."
+      source: wilson-1984
+    - seed: half-earth
+      text:
+        en: "Only by protecting half of the planet can most species be kept from extinction."
+        fr: "Seule la protection de la moitié de la planète peut épargner l'extinction à la plupart des espèces."
+      source: wilson-2016
+  works:
+    - {id: wilson-1984, year: 1984, title: Biophilia}
+    - {id: wilson-2016, year: 2016, title: "Half-Earth: Our Planet's Fight for Life"}

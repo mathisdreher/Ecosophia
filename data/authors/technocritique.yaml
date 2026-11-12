@@ -175,3 +175,42 @@
     - {id: mumford-1961, year: 1961, title: The City in History}
     - {id: mumford-1964, year: 1964, title: Authoritarian and Democratic Technics, kind: article, in: Technology and Culture, issue: "5", key: false}
     - {id: mumford-1967, year: 1967, to: 1970, title: The Myth of the Machine}
+
+- id: gunther-anders
+  name: Günther Anders
+  sort: Anders
+  layer: leaf
+  branch: technocritique
+  born: 1902
+  died: 1992
+  place: {city: {en: "Breslau (now Wrocław)", fr: "Breslau (aujourd'hui Wrocław)"}, country: {en: Poland, fr: Pologne}, lat: 51.11, lon: 17.03}
+  lede:
+    en: "German-born philosopher, a student of Husserl, exiled in the United States, then settled in Vienna. After Hiroshima he made the bomb and the machines of mass production the centre of his work, and became a leading voice of the anti-nuclear movement."
+    fr: "Philosophe né en Allemagne, élève de Husserl, exilé aux États-Unis puis installé à Vienne. Après Hiroshima, il place la bombe et les machines de la production de masse au centre de son œuvre et devient une voix majeure du mouvement antinucléaire."
+  seeds:
+    - seed: promethean-gap
+      text:
+        en: "We can make far more than we can imagine, foresee or feel: our products have outgrown us."
+        fr: "Nous pouvons fabriquer bien plus que nous ne pouvons imaginer, prévoir ou ressentir : nos produits nous dépassent."
+      source: anders-1956
+  works:
+    - {id: anders-1956, year: 1956, to: 1980, title: Die Antiquiertheit des Menschen, tr: {en: "The Obsolescence of Humankind", fr: "L'Obsolescence de l'homme"}}
+
+- id: wendell-berry
+  name: Wendell Berry
+  sort: Berry
+  layer: leaf
+  branch: technocritique
+  born: 1934
+  place: {city: {en: "Henry County, Kentucky", fr: "comté de Henry (Kentucky)"}, country: {en: United States, fr: États-Unis}, lat: 38.45, lon: -85.12}
+  lede:
+    en: "American farmer, poet, novelist and essayist who has worked the same hillside farm in Kentucky since the 1960s. He reads industrial agriculture as the undoing of land, rural communities and the skills that bound them together."
+    fr: "Agriculteur, poète, romancier et essayiste américain, qui cultive la même ferme à flanc de colline au Kentucky depuis les années 1960. Il lit l'agriculture industrielle comme la ruine conjointe des terres, des communautés rurales et des savoir-faire qui les liaient."
+  seeds:
+    - seed: agrarianism
+      text:
+        en: "How a people farms is how it lives: agriculture is a culture before it is an industry."
+        fr: "La manière dont un peuple cultive est la manière dont il vit : l'agriculture est une culture avant d'être une industrie."
+      source: berry-1977
+  works:
+    - {id: berry-1977, year: 1977, title: "The Unsettling of America: Culture and Agriculture"}

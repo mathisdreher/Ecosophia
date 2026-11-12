@@ -569,3 +569,53 @@
     en: "Co-authors of the essay that declared the death of environmentalism."
     fr: "Coauteurs de l'essai qui a proclamé la mort de l'environnementalisme."
   source: nordhaus-2004
+
+# --- Added after the Cairn index and the Penguin Green Ideas list ----------
+- from: cornelius-castoriadis
+  to: serge-latouche
+  type: influenced
+  note:
+    en: "Latouche takes the social imaginary from Castoriadis: growth must first be undone in the mind."
+    fr: "Latouche reprend à Castoriadis l'imaginaire social : la croissance doit d'abord être défaite dans les têtes."
+  source: latouche-2003
+
+- from: cornelius-castoriadis
+  to: giorgos-kallis
+  type: influenced
+  note:
+    en: "Kallis builds his case for collective self-limitation on Castoriadis's idea of autonomy."
+    fr: "Kallis fonde sa défense de l'autolimitation collective sur l'idée d'autonomie de Castoriadis."
+  source: kallis-2019
+  status: to-verify
+
+- from: aldo-leopold
+  to: baird-callicott
+  type: influenced
+  note:
+    en: "Callicott's work is a sustained philosophical defence of Leopold's land ethic."
+    fr: "L'œuvre de Callicott est une défense philosophique suivie de l'éthique de la terre de Leopold."
+  source: callicott-1989
+
+- from: aime-cesaire
+  to: malcom-ferdinand
+  type: influenced
+  note:
+    en: "Ferdinand reads the Discourse on Colonialism as a founding text for a decolonial ecology of the Caribbean."
+    fr: "Ferdinand lit le Discours sur le colonialisme comme un texte fondateur d'une écologie décoloniale de la Caraïbe."
+  source: ferdinand-2019
+
+- from: isabelle-stengers
+  to: marisol-de-la-cadena
+  type: influenced
+  note:
+    en: "De la Cadena takes the word cosmopolitics from Stengers to describe earth-beings entering Andean politics."
+    fr: "De la Cadena reprend à Stengers le mot cosmopolitique pour décrire l'entrée des êtres-terre dans la politique andine."
+  source: delacadena-2010
+
+- from: alberto-acosta
+  to: arturo-escobar
+  type: dialogue
+  note:
+    en: "Co-editors, with Kothari, Salleh and Demaria, of a dictionary of alternatives to development."
+    fr: "Codirecteurs, avec Kothari, Salleh et Demaria, d'un dictionnaire des alternatives au développement."
+  source: acosta-2019

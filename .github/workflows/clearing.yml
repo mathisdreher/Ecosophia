@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
     inputs:
       claim:
-        description: "Claim or event to discuss, one sentence, in English or French"
+        description: "Claim to discuss: one sentence in English or French, or the id of a claim in data/clearing/claims.yaml (e.g. lfi-2026-nucleaire)"
         required: true
         type: string
       agents:
@@ -28,9 +28,15 @@ on:
         default: "3"
         type: string
       model:
-        description: "Claude model"
+        description: "Model that plays the agents (most of the cost)"
+        type: choice
+        options: [claude-opus-5-5, claude-sonnet-5-5, claude-haiku-5-5]
         default: claude-opus-5-5
-        type: string
+      reader_model:
+        description: "Model that prepares the claim and reads the run (two calls); empty = same as above"
+        type: choice
+        options: ["", claude-opus-5-5, claude-sonnet-5-5, claude-haiku-5-5]
+        default: ""
       effort:
         description: "How hard the model thinks on each turn"
         type: choice
@@ -119,6 +125,7 @@ jobs:
           AGENTS: ${{ inputs.agents }}
           ROUNDS: ${{ inputs.rounds }}
           MODEL: ${{ inputs.model }}
+          READER_MODEL: ${{ inputs.reader_model }}
           EFFORT: ${{ inputs.effort }}
           STATUS: ${{ inputs.status }}
           DRY_RUN: ${{ inputs.dry_run }}
@@ -127,7 +134,7 @@ jobs:
             echo "::error title=No API key::Add a repository secret named ANTHROPIC_API_KEY in Settings > Secrets and variables > Actions, or tick dry_run to test the pipeline without one."
             exit 1
           fi
-          args=(--claim "$CLAIM" --agents "$AGENTS" --rounds "$ROUNDS" --model "$MODEL" --effort "$EFFORT" --status "$STATUS")
+          args=(--claim "$CLAIM" --agents "$AGENTS" --rounds "$ROUNDS" --model "$MODEL" --reader-model "$READER_MODEL" --effort "$EFFORT" --status "$STATUS")
           args+=(--engine "$ENGINE_DIR" --python "$ENGINE_DIR/backend/.venv/bin/python" --run-as "$ENGINE_USER")
           args+=(--work /tmp/clearing-work --out "$RUNNER_TEMP/clearing-out")
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi

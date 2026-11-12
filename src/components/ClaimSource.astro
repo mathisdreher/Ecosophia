@@ -1,0 +1,29 @@
+---
+// Where a claim comes from, when it was taken from a party programme. The
+// quotation is the party's own wording, in French, marked Sourced.
+import { useUi } from '../i18n/ui.mjs';
+import { typo } from '../lib/text.mjs';
+
+const { source, lang } = Astro.props;
+const { t } = useUi(lang);
+---
+
+<figure class="eco-sourced claim-source">
+  <span class="eco-mark sourced">{t('common.sourced')}</span>
+  <blockquote lang="fr">{typo(`« ${source.quote} »`, 'fr')}</blockquote>
+  <figcaption>
+    {source.party.name}, <a href={source.programme.url} rel="noopener"><i>{source.programme.title}</i></a> ({source.programme.year}), {typo(source.locator, 'fr')}
+  </figcaption>
+  <p class="t-small t-muted">{t('clearing.fromProgramme')}</p>
+</figure>
+
+<style>
+  .claim-source {
+    max-width: var(--measure);
+    margin: 0;
+  }
+  .claim-source blockquote {
+    margin: 0;
+    font-size: clamp(18px, 1.8vw, 21px);
+  }
+</style>

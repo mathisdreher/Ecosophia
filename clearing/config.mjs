@@ -28,7 +28,7 @@ export const DEFAULTS = {
 
 export const LIMITS = {
   rounds: { min: 1, max: 8 },
-  agents: { min: 2, max: 60 },
+  agents: { min: 2, max: 120 },
   claimChars: { min: 12, max: 400 },
   commentWords: 60,
   reactionWords: 45,
@@ -38,3 +38,21 @@ export const EFFORTS = ['low', 'medium', 'high', 'xhigh', 'max'];
 
 /** Position scale used everywhere: 0 opposes the claim, 100 endorses it. */
 export const SCALE = { min: 0, neutral: 50, max: 100 };
+
+/**
+ * List prices in USD per million tokens, used only to estimate the cost of a
+ * run in its summary. Check the current price list before relying on them.
+ * Cache writes are the 5-minute writes (1.25 times the input price).
+ */
+export const PRICES = {
+  'claude-opus-5-5': { input: 4, output: 20, cacheRead: 0.2, cacheWrite: 5 },
+  'claude-sonnet-5-5': { input: 2, output: 10, cacheRead: 0.1, cacheWrite: 2.5 },
+  'claude-haiku-5-5': { input: 0.1, output: 0.5, cacheRead: 0.01, cacheWrite: 0.125 },
+};
+
+/** Estimated cost in USD of a token count {input, output, cacheRead, cacheWrite}, or null. */
+export function estimateCost(model, t) {
+  const p = PRICES[model];
+  if (!p) return null;
+  return ((t.input ?? 0) * p.input + (t.output ?? 0) * p.output + (t.cacheRead ?? 0) * p.cacheRead + (t.cacheWrite ?? 0) * p.cacheWrite) / 1e6;
+}

@@ -153,12 +153,13 @@ test('a dry run goes from claim to run files', () => {
     const record = JSON.parse(fs.readFileSync(path.join(tmp, 'out', yamlFile.replace('.yaml', '.transcript.json')), 'utf8'));
     assert.equal(run.status, 'draft');
     assert.equal(run.dryRun, true);
-    assert.equal(run.settings.agents, 8);
-    assert.equal(run.voices.length, 8);
+    const cast = corpus.authors.filter((a) => a.layer === 'leaf' && a.agent !== false && ['technocritique', 'counterpoint'].includes(a.branch)).length;
+    assert.equal(run.settings.agents, cast);
+    assert.equal(run.voices.length, cast);
     assert.deepEqual(run.positions.map((p) => p.branch), ['technocritique', 'counterpoint']);
-    assert.equal(run.counts.turns, 16);
-    assert.ok(run.counts.comments >= 8);
-    assert.equal(new Set(run.alliances.flatMap((al) => al.authors)).size, 8);
+    assert.equal(run.counts.turns, cast * 2);
+    assert.ok(run.counts.comments >= cast);
+    assert.equal(new Set(run.alliances.flatMap((al) => al.authors)).size, cast);
     assert.equal(record.transcript[0].type, 'post');
     assert.ok(record.transcript.some((e) => e.type === 'like' && e.to));
     const prompt = record.prompts.agents['ivan-illich'];

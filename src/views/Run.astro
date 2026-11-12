@@ -6,6 +6,7 @@
 import Base from '../layouts/Base.astro';
 import RunBoard from '../components/RunBoard.astro';
 import VoiceCard from '../components/VoiceCard.astro';
+import ClaimSource from '../components/ClaimSource.astro';
 import { useUi } from '../i18n/ui.mjs';
 import { href, withBase } from '../lib/site.mjs';
 import { L } from '../lib/text.mjs';
@@ -52,6 +53,7 @@ const agentPrompts = Object.entries(prompts?.agents ?? {}).filter(([, text]) => 
     <span class="eco-meta">
       {run.runId} · {meta}
     </span>
+    {run.claimSource && <ClaimSource source={run.claimSource} lang={lang} />}
     {
       draft && (
         <div class="notice lichen">

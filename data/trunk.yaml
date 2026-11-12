@@ -36,3 +36,12 @@
   text:
     en: "Ecology becomes a critique of capitalist production."
     fr: "L'écologie devient une critique de la production capitaliste."
+
+- work: boulding-1966
+  text:
+    en: "The Earth is a closed ship, and the economy must learn to count throughput as a cost."
+    fr: "La Terre est un vaisseau fermé, et l'économie doit apprendre à compter le flux de matière comme un coût."
+- work: commoner-1971
+  text:
+    en: "Four laws of ecology, and pollution blamed on post-war technology."
+    fr: "Quatre lois de l'écologie, et une pollution imputée aux techniques d'après-guerre."

@@ -142,3 +142,34 @@
       issue: "25"
       by: {en: Hickel and Kallis, fr: Hickel et Kallis}
       note: {en: with Giorgos Kallis, fr: avec Giorgos Kallis}
+
+- id: cornelius-castoriadis
+  name: Cornelius Castoriadis
+  sort: Castoriadis
+  layer: leaf
+  branch: degrowth
+  also: [social-ecology]
+  born: 1922
+  died: 1997
+  place: {city: {en: "Constantinople (now Istanbul)", fr: "Constantinople (aujourd'hui Istanbul)"}, country: {en: Turkey, fr: Turquie}, lat: 41.01, lon: 28.98}
+  lede:
+    en: "Greek-French philosopher, economist and psychoanalyst, co-founder of the review Socialisme ou Barbarie. He held that every society creates its own meanings, and that unlimited growth is one of them: an imaginary, not a law of nature, which a free society can unmake."
+    fr: "Philosophe, économiste et psychanalyste gréco-français, cofondateur de la revue Socialisme ou Barbarie. Pour lui, chaque société crée ses propres significations, et la croissance illimitée en est une : un imaginaire et non une loi de la nature, qu'une société libre peut défaire."
+  seeds:
+    - seed: social-imaginary
+      text:
+        en: "A society holds together by meanings it invents and then forgets it invented."
+        fr: "Une société tient par des significations qu'elle invente, puis oublie avoir inventées."
+      source: castoriadis-1975
+    - seed: autonomy
+      text:
+        en: "Ecology is political: it asks a society to set its own limits instead of receiving them from the economy."
+        fr: "L'écologie est politique : elle demande à une société de se donner ses propres limites au lieu de les recevoir de l'économie."
+      source: castoriadis-1981
+  works:
+    - {id: castoriadis-1975, year: 1975, title: L'Institution imaginaire de la société, tr: {en: "The Imaginary Institution of Society, 1987"}}
+    - id: castoriadis-1981
+      year: 1981
+      title: De l'écologie à l'autonomie
+      by: {en: "Castoriadis and Cohn-Bendit", fr: "Castoriadis et Cohn-Bendit"}
+      note: {en: with Daniel Cohn-Bendit, fr: avec Daniel Cohn-Bendit}

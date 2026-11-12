@@ -146,6 +146,12 @@ export function loadClearing() {
   return { specimen, runs, published: runs.filter((r) => r.status === 'published') };
 }
 
+/** Claims taken from party programmes (data/clearing/claims.yaml). */
+export function loadClaims() {
+  const file = path.join(DATA, 'clearing', 'claims.yaml');
+  return fs.existsSync(file) ? (readYaml(path.join('clearing', 'claims.yaml')) ?? []) : [];
+}
+
 /** The prompts, the transcript and the closing interviews of one run, or null. */
 export function loadTranscript(runId) {
   const file = path.join(DATA, 'clearing', 'runs', `${runId}.transcript.json`);

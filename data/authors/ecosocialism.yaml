@@ -137,3 +137,49 @@
     - {id: malm-2016, year: 2016, title: "Fossil Capital: The Rise of Steam Power and the Roots of Global Warming"}
     - {id: malm-2018, year: 2018, title: "The Progress of This Storm: Nature and Society in a Warming World"}
     - {id: malm-2021, year: 2021, title: How to Blow Up a Pipeline}
+
+- id: rudolf-bahro
+  name: Rudolf Bahro
+  sort: Bahro
+  layer: leaf
+  branch: ecosocialism
+  born: 1935
+  died: 1997
+  place: {city: {en: "Bad Flinsberg (now Świeradów-Zdrój)", fr: "Bad Flinsberg (aujourd'hui Świeradów-Zdrój)"}, country: {en: Poland, fr: Pologne}, lat: 50.91, lon: 15.33}
+  lede:
+    en: "East German Marxist dissident. Die Alternative, his critique of actually existing socialism, cost him prison in 1977; expelled to the West, he joined the German Greens, then left them in 1985 for a more radical break with industrial civilisation."
+    fr: "Dissident marxiste est-allemand. Die Alternative, sa critique du socialisme réellement existant, lui vaut la prison en 1977 ; expulsé à l'Ouest, il rejoint les Verts allemands puis les quitte en 1985 pour une rupture plus radicale avec la civilisation industrielle."
+  seeds:
+    - seed: industrial-civilisation
+      text:
+        en: "The crisis belongs to industrial civilisation, East and West alike: changing the owner of the factories does not change their logic."
+        fr: "La crise est celle de la civilisation industrielle, à l'Est comme à l'Ouest : changer le propriétaire des usines ne change pas leur logique."
+      source: bahro-1987
+  works:
+    - {id: bahro-1977, year: 1977, title: "Die Alternative: Zur Kritik des real existierenden Sozialismus", tr: {en: "The Alternative in Eastern Europe, 1978"}}
+    - {id: bahro-1987, year: 1987, title: Logik der Rettung}
+
+- id: naomi-klein
+  name: Naomi Klein
+  sort: Klein
+  layer: leaf
+  branch: ecosocialism
+  born: 1970
+  place: {city: {en: Montreal, fr: Montréal}, country: {en: Canada, fr: Canada}, lat: 45.50, lon: -73.57}
+  lede:
+    en: "Canadian journalist and essayist, author of No Logo and The Shock Doctrine. This Changes Everything argues that the climate crisis cannot be solved within deregulated capitalism and that the response to it can be a programme of social justice."
+    fr: "Journaliste et essayiste canadienne, autrice de No Logo et de La Stratégie du choc. Tout peut changer soutient que la crise climatique ne se résout pas dans un capitalisme dérégulé, et que la réponse peut en être un programme de justice sociale."
+  seeds:
+    - seed: blockadia
+      text:
+        en: "A roaming zone of local resistance to mines, pipelines and wells, where people put their bodies in the way."
+        fr: "Une zone mobile de résistances locales aux mines, aux oléoducs et aux forages, où des gens se mettent physiquement en travers."
+      source: klein-2014
+    - seed: capitalism-vs-climate
+      text:
+        en: "Our economic system and our planetary system are at war: one of them will have to change."
+        fr: "Notre système économique et notre système planétaire sont en guerre : l'un des deux devra changer."
+      source: klein-2014
+  works:
+    - {id: klein-2014, year: 2014, title: "This Changes Everything: Capitalism vs. the Climate"}
+    - {id: klein-2019, year: 2019, title: "On Fire: The (Burning) Case for a Green New Deal"}

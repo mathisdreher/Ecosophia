@@ -1,7 +1,7 @@
 // Checks the corpus before every build: references, bilingual fields and the
 // editorial rules of the brand book (design/brand.md). Errors fail the build;
 // warnings list what is still missing.
-import { loadCorpus, loadClearing, loadTranscript, LINK_TYPES, LAYERS, WORK_KINDS } from '../src/lib/corpus.mjs';
+import { loadCorpus, loadClearing, loadClaims, loadTranscript, LINK_TYPES, LAYERS, WORK_KINDS } from '../src/lib/corpus.mjs';
 import { wordCount } from '../src/lib/text.mjs';
 
 const c = loadCorpus();
@@ -153,6 +153,22 @@ if (clearing.specimen) {
   }
 }
 
+// Clearing: claims taken from party programmes
+const claims = loadClaims();
+const claimIds = new Set();
+for (const k of claims) {
+  const kt = `claim ${k.id}`;
+  if (!/^[a-z0-9-]+$/.test(String(k.id))) err(`${kt}: an id is lowercase ascii with dashes`);
+  if (claimIds.has(k.id)) err(`${kt}: duplicate id`);
+  claimIds.add(k.id);
+  if (!k.party?.short || !k.party?.name) err(`${kt}: party.short and party.name are required`);
+  if (!k.programme?.title || !Number.isInteger(k.programme?.year) || !/^https:\/\//.test(k.programme?.url ?? '')) err(`${kt}: programme needs a title, a year and an https address`);
+  if (!k.locator) err(`${kt}: locator (section or page) is required`);
+  if (!k.quote || k.quote.split(/\s+/).length > 60) err(`${kt}: a verbatim quotation of 60 words at most is required`);
+  bilingual(k.claim, `${kt}.claim`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(k.checked))) err(`${kt}: checked must be the date the quotation was read (YYYY-MM-DD)`);
+}
+
 // Clearing: runs written by clearing/run.mjs
 const inRange = (n) => Number.isInteger(n) && n >= 0 && n <= 100;
 for (const run of clearing.runs) {
@@ -202,6 +218,7 @@ for (const run of clearing.runs) {
     if (v.work && c.sources.get(v.work)?.authorId !== v.author) err(`${rt}: work "${v.work}" is not a work of ${v.author}`);
   }
   for (const id of run.silent ?? []) agentOk(id, 'the silent list');
+  if (run.claimSource && !claimIds.has(run.claimSource.id)) warn(`${rt}: claim ${run.claimSource.id} is no longer in data/clearing/claims.yaml`);
   const record = loadTranscript(run.id);
   if (!record) err(`${rt}: ${run.id}.transcript.json is missing next to the run`);
   else {
@@ -224,6 +241,7 @@ const summary = [
   `${c.links.length - c.sourcedLinks.length} to verify`,
   `${c.sources.size} sources`,
   `${clearing.runs.length} Clearing runs (${clearing.published.length} published)`,
+  `${claims.length} programme claims`,
 ].join(' · ');
 
 if (process.argv.includes('--quiet') === false && warnings.length) {

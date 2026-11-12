@@ -1,0 +1,146 @@
+# Claims taken from French party programmes, ready to be debated in the
+# Clearing:  Actions > Clearing run > claim: lfi-2026-nucleaire
+#
+# Each claim rests on a verbatim quotation from an official party document,
+# with its address and where in it the text sits. The claim itself is a
+# neutral restatement that keeps the scope of the original. The agents are
+# given the claim only, never the name of the party.
+#
+# Coverage so far: LFI, Les Écologistes, PS, RN. Still to add, for balance:
+# PCF, Renaissance / Ensemble, LR. A claim enters this file only after its
+# quotation has been read in the party's own document.
+# --- La France insoumise -------------------------------------------------
+- id: lfi-2026-nucleaire
+  party: {short: LFI, name: La France insoumise}
+  programme: {title: "L'Avenir en commun – Le programme de la Nouvelle France (édition 2027)", year: 2026, url: "https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3/"}
+  locator: "Partie 1, chapitre 3, « Organiser le 100 % d’énergies renouvelables »"
+  quote: "Planifier la fermeture progressive des centrales nucléaires existantes en ne prolongeant pas au-delà de 60 ans leur durée de vie et arrêter le programme de nouveau nucléaire (EPR2)"
+  claim:
+    fr: "La France devrait fermer progressivement ses centrales nucléaires existantes sans prolonger leur durée de vie au-delà de 60 ans, et arrêter le programme de nouveau nucléaire EPR2."
+    en: "France should progressively close its existing nuclear plants without extending their lifetime beyond 60 years, and stop the new EPR2 nuclear programme."
+  topic: energy
+  checked: "2026-11-12"
+
+- id: lfi-2026-renouvelables
+  party: {short: LFI, name: La France insoumise}
+  programme: {title: "L'Avenir en commun – Le programme de la Nouvelle France (édition 2027)", year: 2026, url: "https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3/"}
+  locator: "Partie 1, chapitre 3, « Organiser le 100 % d’énergies renouvelables »"
+  quote: "Atteindre le 100 % d’énergies renouvelables au plus tard en 2060, en commençant par organiser la sortie des énergies fossiles avant 2050 par la montée en puissance des énergies renouvelables, la sobriété et l’efficacité énergétiques"
+  claim:
+    fr: "La France devrait atteindre 100 % d’énergies renouvelables au plus tard en 2060, en sortant des énergies fossiles avant 2050 grâce aux renouvelables, à la sobriété et à l’efficacité énergétiques."
+    en: "France should reach 100% renewable energy by 2060 at the latest, phasing out fossil fuels before 2050 through renewables, energy sufficiency and energy efficiency."
+  topic: energy
+  checked: "2026-11-12"
+
+- id: lfi-2026-vols-interieurs
+  party: {short: LFI, name: La France insoumise}
+  programme: {title: "L'Avenir en commun – Le programme de la Nouvelle France (édition 2027)", year: 2026, url: "https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3/"}
+  locator: "Partie 1, chapitre 3, « Développer les transports publics écologiques, repenser la mobilité individuelle »"
+  quote: "Supprimer les lignes aériennes intérieures quand l’alternative en train est inférieure à quatre heures"
+  claim:
+    fr: "Les lignes aériennes intérieures devraient être supprimées lorsqu’une alternative en train de moins de quatre heures existe."
+    en: "Domestic air routes should be abolished where a train alternative of less than four hours exists."
+  topic: transport
+  checked: "2026-11-12"
+
+# --- Les Écologistes -----------------------------------------------------
+- id: eco-2026-nucleaire
+  party: {short: Les Écologistes, name: Les Écologistes (Europe Écologie Les Verts)}
+  programme: {title: "Pour une prospérité écologique – Le nouveau programme des Écologistes (Projet 2027)", year: 2026, url: "https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf"}
+  locator: "I. Garantir un monde habitable, chapitre 1 « Gagner la bataille du climat », proposition 7"
+  quote: "Planifier la sortie du nucléaire. Mettre fin aux nouveaux programmes EPR-2 et SMR extrêmement dispendieux. Planifier l’arrêt progressif du parc constitué de centrales vieillissantes dont la mise hors service doit être étalée sur une vingtaine d’années."
+  claim:
+    fr: "La France devrait planifier la sortie du nucléaire, en mettant fin aux programmes EPR-2 et SMR et en étalant l’arrêt des centrales existantes sur une vingtaine d’années."
+    en: "France should plan a nuclear phase-out, ending the EPR-2 and SMR programmes and spreading the shutdown of existing plants over about twenty years."
+  topic: energy
+  checked: "2026-11-12"
+
+- id: eco-2026-pesticides
+  party: {short: Les Écologistes, name: Les Écologistes (Europe Écologie Les Verts)}
+  programme: {title: "Pour une prospérité écologique – Le nouveau programme des Écologistes (Projet 2027)", year: 2026, url: "https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf"}
+  locator: "I. Garantir un monde habitable, chapitre 5 « Restaurer la biodiversité terrestre », proposition 1"
+  quote: "Planifier une sortie progressive des pesticides de synthèse et des engrais azotés à l’horizon 2050."
+  claim:
+    fr: "La France devrait planifier une sortie progressive des pesticides de synthèse et des engrais azotés d’ici 2050."
+    en: "France should plan a gradual exit from synthetic pesticides and nitrogen fertilisers by 2050."
+  topic: agriculture
+  checked: "2026-11-12"
+
+- id: eco-2026-vehicules-2035
+  party: {short: Les Écologistes, name: Les Écologistes (Europe Écologie Les Verts)}
+  programme: {title: "Pour une prospérité écologique – Le nouveau programme des Écologistes (Projet 2027)", year: 2026, url: "https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf"}
+  locator: "I. Garantir un monde habitable, chapitre 3 « Garantir la liberté de se déplacer autrement », proposition 1"
+  quote: "Maintenir l’objectif de 100 % de véhicules zéro émission en 2035 pour les ventes de véhicules neufs."
+  claim:
+    fr: "L’objectif de 100 % de véhicules zéro émission dans les ventes de véhicules neufs en 2035 devrait être maintenu."
+    en: "The target of 100% zero-emission vehicles in new vehicle sales by 2035 should be maintained."
+  topic: transport
+  checked: "2026-11-12"
+
+# --- Parti socialiste ----------------------------------------------------
+- id: ps-2026-nucleaire
+  party: {short: PS, name: Parti socialiste}
+  programme: {title: "Le Projet socialiste – Vivre libres", year: 2026, url: "https://projet-socialiste.fr/projet/vivre-libres/"}
+  locator: "Vivre libres, chapitre 3, « Produire de l’énergie propre, sûre et bon marché »"
+  quote: "Ce mix devra s’appuyer sur le parc nucléaire historique, qui sera partiellement renouvelé, ainsi que sur le développement des énergies renouvelables."
+  claim:
+    fr: "Le mix énergétique français devrait s’appuyer sur le parc nucléaire historique, partiellement renouvelé, ainsi que sur le développement des énergies renouvelables."
+    en: "France's energy mix should rely on the existing nuclear fleet, partially renewed, together with the development of renewable energy."
+  topic: energy
+  checked: "2026-11-12"
+
+- id: ps-2026-glyphosate
+  party: {short: PS, name: Parti socialiste}
+  programme: {title: "Le Projet socialiste – Vivre avec la nature", year: 2026, url: "https://projet-socialiste.fr/projet/vivre-avec-la-nature/"}
+  locator: "Vivre avec la nature, chapitre 14, « Une agriculture durable »"
+  quote: "Réduire l’usage des engrais et des pesticides de synthèse et interdire les produits les plus toxiques dont le glyphosate."
+  claim:
+    fr: "La France devrait réduire l’usage des engrais et pesticides de synthèse et interdire les produits les plus toxiques, dont le glyphosate."
+    en: "France should reduce the use of synthetic fertilisers and pesticides and ban the most toxic products, including glyphosate."
+  topic: agriculture
+  checked: "2026-11-12"
+
+- id: ps-2026-fiscalite-carbone
+  party: {short: PS, name: Parti socialiste}
+  programme: {title: "Le Projet socialiste – Être en sécurité(s)", year: 2026, url: "https://projet-socialiste.fr/projet/etre-en-securites/"}
+  locator: "Être en sécurité(s), chapitre 7 « Pour une sécurité écologique », « Construire un fonds de sécurité climatique et environnemental »"
+  quote: "Assurer un financement pérenne et équitable du fonds de sécurité climatique par une fiscalité carbone progressive sur les logements, les véhicules et les entreprises, qui exclut de facto de l’assiette les ménages pauvres et les classes moyennes."
+  claim:
+    fr: "Un fonds de sécurité climatique devrait être financé par une fiscalité carbone progressive sur les logements, les véhicules et les entreprises, excluant de l’assiette les ménages pauvres et les classes moyennes."
+    en: "A climate security fund should be financed by a progressive carbon tax on housing, vehicles and businesses that excludes poor and middle-class households from its base."
+  topic: climate
+  checked: "2026-11-12"
+
+# --- Rassemblement national ----------------------------------------------
+- id: rn-2022-moratoire-eolien
+  party: {short: RN, name: Rassemblement national}
+  programme: {title: "Projet pour la France de Marine Le Pen – L’environnement, pour une écologie française", year: 2022, url: "https://rassemblementnational.fr/documents/projet/projet-lecologie.pdf"}
+  locator: "« Notre programme d’action pour une écologie nationale ! », point 1 « Assurer la transition vers une économie décarbonée autonome en énergie »"
+  quote: "Nous prononcerons un moratoire sur l’éolien et le solaire ; pour l’éolien, nous lancerons le démantèlement progressif des sites en commençant par ceux qui arrivent en fin de vie."
+  claim:
+    fr: "La France devrait décréter un moratoire sur l’éolien et le solaire et démanteler progressivement les sites éoliens, en commençant par ceux qui arrivent en fin de vie."
+    en: "France should declare a moratorium on wind and solar power and progressively dismantle wind farms, starting with those reaching the end of their life."
+  topic: energy
+  checked: "2026-11-12"
+
+- id: rn-2024-relance-nucleaire
+  party: {short: RN, name: Rassemblement national}
+  programme: {title: "Bardella Premier ministre – Un projet, une méthode (législatives 2024)", year: 2024, url: "https://rassemblementnational.fr/documents/202406-programme.pdf"}
+  locator: "Le besoin de projection, 2 « Refaire de la France un paradis énergétique respectant la trajectoire de l’accord de Paris »"
+  quote: "Lancer le plan Marie Curie de relance du nucléaire (EPR, SMR, réacteurs à neutrons rapides)"
+  claim:
+    fr: "La France devrait lancer un plan de relance du nucléaire comprenant des EPR, des SMR et des réacteurs à neutrons rapides."
+    en: "France should launch a nuclear revival plan including EPR reactors, small modular reactors and fast-neutron reactors."
+  topic: energy
+  checked: "2026-11-12"
+
+- id: rn-2024-voitures-thermiques
+  party: {short: RN, name: Rassemblement national}
+  programme: {title: "Bardella Premier ministre – Un projet, une méthode (législatives 2024)", year: 2024, url: "https://rassemblementnational.fr/documents/202406-programme.pdf"}
+  locator: "Le devoir de protection, 6 « Défendre la qualité de vie des Français en refusant toute écologie punitive »"
+  quote: "Renoncer à l’interdiction de la vente des voitures à moteur thermique à l’horizon 2035 et inciter les constructeurs français à développer des véhicules propres abordables"
+  claim:
+    fr: "La France devrait renoncer à l’interdiction de la vente des voitures à moteur thermique en 2035 et inciter les constructeurs français à développer des véhicules propres abordables."
+    en: "France should abandon the 2035 ban on sales of combustion-engine cars and encourage French manufacturers to develop affordable clean vehicles."
+  topic: transport
+  checked: "2026-11-12"

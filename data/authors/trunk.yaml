@@ -51,3 +51,41 @@
       by: {en: Meadows et al., fr: Meadows et al.}
       note: {en: "with Dennis Meadows, Jørgen Randers and William W. Behrens III", fr: "avec Dennis Meadows, Jørgen Randers et William W. Behrens III"}
     - {id: meadows-2008, year: 2008, title: "Thinking in Systems: A Primer", note: {en: posthumous, fr: posthume}}
+
+- id: barry-commoner
+  name: Barry Commoner
+  sort: Commoner
+  layer: trunk
+  born: 1917
+  died: 2012
+  place: {city: {en: "Brooklyn, New York", fr: "Brooklyn (New York)"}, country: {en: United States, fr: États-Unis}, lat: 40.68, lon: -73.94}
+  lede:
+    en: "American biologist and campaigner against atmospheric nuclear tests. The Closing Circle blamed post-war production technologies, rather than population, for pollution; he ran for the presidency of the United States in 1980 for the Citizens Party."
+    fr: "Biologiste américain, militant contre les essais nucléaires atmosphériques. L'Encerclement impute la pollution aux techniques de production d'après-guerre plutôt qu'à la population ; il se présente à la présidence des États-Unis en 1980 pour le Citizens Party."
+  seeds:
+    - seed: laws-of-ecology
+      text:
+        en: "Everything is connected to everything else, everything must go somewhere, nature knows best, there is no free lunch."
+        fr: "Tout est lié à tout, tout doit aller quelque part, la nature sait mieux, rien n'est gratuit."
+      source: commoner-1971
+  works:
+    - {id: commoner-1971, year: 1971, title: "The Closing Circle: Nature, Man, and Technology"}
+
+- id: kenneth-boulding
+  name: Kenneth E. Boulding
+  sort: Boulding
+  layer: trunk
+  born: 1910
+  died: 1993
+  place: {city: {en: Liverpool, fr: Liverpool}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 53.41, lon: -2.98}
+  lede:
+    en: "British-born American economist, Quaker and peace researcher. His essay of 1966 contrasted the open cowboy economy of the past with the closed spaceship economy of a finite Earth, where throughput is a cost to be cut, not a measure of success."
+    fr: "Économiste américain né en Angleterre, quaker et chercheur sur la paix. Son essai de 1966 oppose l'économie ouverte du cow-boy à l'économie fermée du vaisseau spatial qu'impose une Terre finie, où le flux de matière est un coût à réduire et non une mesure du succès."
+  seeds:
+    - seed: spaceship-earth
+      text:
+        en: "On a closed ship, the less we consume to keep the crew well, the better."
+        fr: "Dans un vaisseau fermé, moins l'on consomme pour maintenir l'équipage en bonne santé, mieux c'est."
+      source: boulding-1966
+  works:
+    - {id: boulding-1966, year: 1966, title: "The Economics of the Coming Spaceship Earth", kind: chapter, in: Environmental Quality in a Growing Economy}

@@ -5,10 +5,11 @@
 import Base from '../layouts/Base.astro';
 import RunBoard from '../components/RunBoard.astro';
 import VoiceCard from '../components/VoiceCard.astro';
+import ClaimSource from '../components/ClaimSource.astro';
 import { useUi } from '../i18n/ui.mjs';
 import { href } from '../lib/site.mjs';
 import { L } from '../lib/text.mjs';
-import { loadClearing } from '../lib/corpus.mjs';
+import { loadClearing, loadClaims } from '../lib/corpus.mjs';
 import { spreadVoices, runDate } from '../lib/clearing.mjs';
 import { SITE } from '../site.config.mjs';
 
@@ -16,6 +17,8 @@ const { lang } = Astro.props;
 const { t } = useUi(lang);
 const { specimen, published } = loadClearing();
 const latest = published[0] ?? null;
+const claims = loadClaims();
+const runsOf = (claimId) => published.filter((r) => r.claimSource?.id === claimId);
 const run = latest ?? specimen;
 const voices = latest ? spreadVoices(latest.voices, 6) : run.voices;
 const metaOf = (r) => t('clearing.runMeta', { agents: r.settings.agents, rounds: r.settings.rounds, comments: r.counts.comments, date: runDate(r, lang) });
@@ -62,6 +65,7 @@ const metaOf = (r) => t('clearing.runMeta', { agents: r.settings.agents, rounds:
           <h2 class="t-title claim-line">{L(latest.claim, lang)}</h2>
           <p class="t-lede summary">{L(latest.summary, lang)}</p>
           <span class="eco-meta">{metaOf(latest)}</span>
+          {latest.claimSource && <ClaimSource source={latest.claimSource} lang={lang} />}
         </div>
       ) : (
         <div class="notice lichen">
@@ -138,6 +142,35 @@ const metaOf = (r) => t('clearing.runMeta', { agents: r.settings.agents, rounds:
       <p class="text">{t('clearing.reproduce')}</p>
       <a class="link t-small" href={href(lang, 'method', undefined, 'simulated')}>{t('clearing.readMethod')}</a>
     </div>
+    {
+      claims.length > 0 && (
+        <div class="below-col wide claims">
+          <div class="below-head">
+            <span class="label humus">{t('clearing.claimsLabel')}</span>
+            <h2 class="t-heading">{t('clearing.claimsTitle')}</h2>
+          </div>
+          <p class="text">{t('clearing.claims')}</p>
+          <ul>
+            {claims.map((k) => (
+              <li>
+                <span class="text">{L(k.claim, lang)}</span>
+                <span class="eco-meta">
+                  {k.party.short} · <a href={k.programme.url} rel="noopener">{k.programme.title}</a> ({k.programme.year}) · <code>{k.id}</code>
+                  {runsOf(k.id).length > 0 && (
+                    <>
+                      {' '}· {t('clearing.claimsRun')}{' '}
+                      {runsOf(k.id).map((r) => (
+                        <a href={href(lang, 'run', r.id)}>{r.runId}</a>
+                      ))}
+                    </>
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
   </div>
 </Base>
 
@@ -228,6 +261,25 @@ const metaOf = (r) => t('clearing.runMeta', { agents: r.settings.agents, rounds:
     gap: 4px;
     padding: var(--space-3) 0;
     border-top: 1px solid var(--line);
+  }
+  .claims {
+    grid-column: 1 / -1;
+    max-width: 900px;
+  }
+  .claims ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .claims li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--line);
+  }
+  .claims code {
+    font: inherit;
   }
   .below-col .text {
     font-size: 15px;

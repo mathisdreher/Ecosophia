@@ -1,5 +1,6 @@
 // Compares the facts entered by hand in data/authors/*.yaml with Wikidata:
-// years of birth and death, and the place of birth. It writes a report and a
+// years of birth and death, and the place of birth. For authors without a QID
+// it lists the people Wikidata finds under the same name. It writes a report and a
 // snapshot (.cache/wikidata.json) and changes nothing in the corpus.
 //
 //   WIKIDATA_USER_AGENT="EcosophiaFactCheck/0.1 (https://example.org/contact)" npm run wikidata
@@ -105,8 +106,26 @@ for (const a of withQid) {
   }
 }
 
+// Authors without a QID: search Wikidata by name and list the people it finds,
+// with their description and dates, for a human to confirm.
+const candidates = [];
+for (const a of withoutQid) {
+  const url = `${API}?action=wbsearchentities&format=json&language=en&type=item&limit=5&search=${encodeURIComponent(a.name)}`;
+  const res = await fetch(url, { headers: { 'User-Agent': UA, Accept: 'application/json' } });
+  if (!res.ok) throw new Error(`Wikidata answered ${res.status} ${res.statusText}`);
+  const hits = (await res.json()).search ?? [];
+  await sleep(1200);
+  const found = hits.length ? await entities(hits.map((h) => h.id), 'claims%7Clabels%7Cdescriptions') : {};
+  const humans = hits
+    .map((h) => found[h.id])
+    .filter((e) => e && (e.claims?.P31 ?? []).some((c) => c.mainsnak?.datavalue?.value?.id === 'Q5'))
+    .map((e) => ({ qid: e.id, label: label(e, 'en'), description: e.descriptions?.en?.value ?? null, born: yearOf(firstValue(e, 'P569')), died: yearOf(firstValue(e, 'P570')) }))
+    .map((c) => ({ ...c, datesMatch: a.born == null ? null : c.born === a.born && (a.died ?? null) === (c.died ?? null) }));
+  candidates.push({ author: a, humans });
+}
+
 fs.mkdirSync(path.join(process.cwd(), '.cache'), { recursive: true });
-fs.writeFileSync(path.join(process.cwd(), '.cache/wikidata.json'), JSON.stringify(snapshot, null, 2));
+fs.writeFileSync(path.join(process.cwd(), '.cache/wikidata.json'), JSON.stringify({ checked: snapshot, candidates: candidates.map(({ author, humans }) => ({ author: author.id, humans })) }, null, 2));
 
 const lines = [
   '## Corpus compared with Wikidata',
@@ -119,8 +138,17 @@ const lines = [
   `### Facts Wikidata could add (${additions.length})`,
   ...(additions.length ? additions.map((d) => `- ${d}`) : ['None.']),
   '',
-  `### Authors without a QID (${withoutQid.length})`,
-  ...(withoutQid.length ? withoutQid.map((a) => `- ${a.name}`) : ['None.']),
+  `### Authors without a QID (${withoutQid.length}): people Wikidata finds under the same name`,
+  ...(candidates.length
+    ? candidates.map(({ author: a, humans }) => {
+        const here = a.born == null ? 'no dates here' : `${a.born}${a.died ? `–${a.died}` : ''} here`;
+        if (!humans.length) return `- **${a.name}** (${here}): no person found.`;
+        const list = humans
+          .map((h) => `${h.qid} ${h.label} (${h.born ?? '?'}${h.died ? `–${h.died}` : ''}; ${h.description ?? 'no description'})${h.datesMatch ? ' **dates match**' : ''}`)
+          .join('; ');
+        return `- **${a.name}** (${here}): ${list}`;
+      })
+    : ['None.']),
   '',
   'Wikidata is a reference, not an authority: check a difference against a second source before changing the corpus.',
 ];
