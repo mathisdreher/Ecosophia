@@ -1,0 +1,754 @@
+<title>Ecosophia Film</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400&display=swap">
+<style>
+  /* Layout: one 16:9 stage that plays like a film, chapters and subtitles under it.
+     Night forest, the brand's video theme: one committed dark look. */
+  :root {
+    color-scheme: dark;
+    --paper: #11150f;
+    --raised: #1a2016;
+    --line: #3a4433;
+    --ink: #ece6d8;
+    --muted: #aca391;
+    --moss: #9cc47a;
+    --humus: #cf9a6e;
+    --mycelium: #d8cba9;
+    --lichen: #c9b44a;
+    --display: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  html, body { background: var(--paper); color: var(--ink); }
+  body {
+    font-family: var(--sans);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 20px 40px;
+  }
+  .wrap { max-width: 1080px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+
+  .stage {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+    background: radial-gradient(120% 90% at 50% 100%, #172014 0%, var(--paper) 62%);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    container-type: inline-size;
+  }
+  .scene {
+    position: absolute;
+    inset: 0;
+    padding: 5cqw 6cqw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 600ms ease;
+  }
+  .scene.on { opacity: 1; visibility: visible; }
+  .eyebrow {
+    font: 600 1.25cqw/1 var(--sans);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--moss);
+  }
+  .h {
+    font: 600 4.4cqw/1.08 var(--display);
+    margin: 1.2cqw 0 0;
+    text-wrap: balance;
+    max-width: 70cqw;
+  }
+  .p { font: 400 1.9cqw/1.4 var(--sans); color: var(--muted); max-width: 56cqw; margin: 1.4cqw 0 0; }
+  .meta { font: 400 1.25cqw/1.3 var(--mono); color: var(--muted); }
+
+  /* grow-in helpers: elements rest visible once their scene is on */
+  .g { opacity: 0; transform: translateY(1.2cqw); transition: opacity 700ms ease, transform 700ms ease; }
+  .on .g { opacity: 1; transform: none; }
+  .on .d1 { transition-delay: 0.3s; } .on .d2 { transition-delay: 0.9s; } .on .d3 { transition-delay: 1.5s; }
+  .on .d4 { transition-delay: 2.2s; } .on .d5 { transition-delay: 3s; } .on .d6 { transition-delay: 4s; }
+  .draw { stroke-dasharray: var(--len, 1000); stroke-dashoffset: var(--len, 1000); }
+  .on .draw { animation: draw var(--dur, 1.6s) ease-out forwards; animation-delay: var(--delay, 0s); }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+
+  /* 1 title */
+  .s-title { align-items: center; text-align: center; }
+  .s-title .logo { width: 46cqw; max-width: 100%; }
+  .s-title .logo svg { width: 100%; height: auto; display: block; }
+  .s-title .h { max-width: 62cqw; font-size: 3.6cqw; margin-top: 2cqw; }
+
+  /* 2 numbers */
+  .nums { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2cqw; margin-top: 4cqw; }
+  .num b { display: block; font: 600 6cqw/1 var(--display); color: var(--ink); font-variant-numeric: tabular-nums; }
+  .num span { display: block; margin-top: 0.8cqw; font: 500 1.4cqw/1.3 var(--sans); color: var(--muted); }
+
+  /* 3 tree, 5 ring, 6 canopy, 7 strip: SVG drawn by script */
+  svg.full { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .corner { position: absolute; left: 6cqw; top: 5cqw; max-width: 34cqw; }
+  .corner .h { font-size: 3.2cqw; }
+  .corner .p { font-size: 1.6cqw; }
+
+  /* 4 leaf card */
+  .leaf { display: grid; grid-template-columns: 26cqw 1fr; gap: 3cqw; align-items: center; }
+  .leaf img { width: 26cqw; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 0 3cqw 0 3cqw; border: 0.3cqw solid #9cc47a; filter: grayscale(1) contrast(1.05); }
+  .leaf .name { font: 600 5cqw/1 var(--display); }
+  .chip { display: inline-flex; align-items: center; gap: 0.6cqw; padding: 0.5cqw 1.1cqw; border: 1px solid currentColor; border-radius: 99px; font: 600 1.1cqw/1 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; }
+  .chip::before { content: ""; width: 0.8cqw; height: 0.8cqw; border-radius: 50%; background: currentColor; }
+  .seeds { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5cqw; margin-top: 2.5cqw; }
+  .seed { padding: 1.4cqw; border: 1px solid var(--line); border-radius: 0 1.6cqw 0 1.6cqw; background: var(--raised); }
+  .seed b { display: block; font: 600 1.4cqw/1.2 var(--sans); color: var(--moss); }
+  .seed span { display: block; margin-top: 0.6cqw; font: 400 1.3cqw/1.35 var(--sans); }
+  .seed i { display: block; margin-top: 0.8cqw; font: italic 400 1.05cqw/1.3 var(--mono); color: var(--muted); }
+
+  /* 7 clearing */
+  .sim { display: inline-block; padding: 0.4cqw 0.9cqw; background: var(--lichen); color: #11150f; font: 600 1.1cqw/1 var(--sans); letter-spacing: 0.1em; text-transform: uppercase; border-radius: 0.3cqw; }
+  .voices { display: grid; grid-template-columns: 1fr 1fr; gap: 2cqw; margin-top: 2cqw; }
+  .voice { display: grid; grid-template-columns: 7cqw 1fr; gap: 1.4cqw; padding: 1.4cqw; border: 0.15cqw dashed var(--lichen); border-radius: 1cqw; background: rgba(26, 32, 22, 0.85); }
+  .voice img { width: 7cqw; height: 7cqw; object-fit: cover; object-position: 50% 30%; border-radius: 50%; filter: grayscale(1); }
+  .voice b { font: 600 1.4cqw/1.2 var(--display); }
+  .voice p { margin: 0.5cqw 0 0; font: 400 1.25cqw/1.4 var(--sans); color: var(--ink); }
+
+  /* 8 quiz */
+  .quiz { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4cqw; align-items: center; }
+  .qcard { padding: 2.2cqw; border: 1px solid var(--line); border-radius: 0 2.4cqw 0 2.4cqw; background: var(--raised); }
+  .qcard .k { font: 600 1.1cqw/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .qcard .q { font: 600 2.1cqw/1.25 var(--display); margin: 1.2cqw 0 1.6cqw; }
+  .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 1cqw; }
+  .opt { padding: 1cqw 1.3cqw; border: 1px solid var(--line); border-radius: 0.8cqw; font: 500 1.4cqw/1.2 var(--sans); }
+  .opt.right { transition: background 400ms ease 2.6s, border-color 400ms ease 2.6s; }
+  .on .opt.right { background: rgba(156, 196, 122, 0.22); border-color: var(--moss); }
+  .rules { display: flex; flex-direction: column; gap: 1.8cqw; }
+  .rule b { display: block; font: 600 2.1cqw/1.2 var(--display); }
+  .rule span { display: block; margin-top: 0.5cqw; font: 400 1.45cqw/1.4 var(--sans); color: var(--muted); }
+
+  /* 9 end */
+  .s-end { align-items: center; text-align: center; }
+  .s-end .logo { width: 38cqw; }
+  .s-end .logo svg { width: 100%; height: auto; display: block; }
+  .url { margin-top: 2.4cqw; font: 400 2cqw/1 var(--mono); color: var(--moss); }
+
+  .spores { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .start {
+    position: absolute; left: 50%; bottom: 3cqw; transform: translateX(-50%); z-index: 5;
+    display: inline-flex; align-items: center; gap: 1.2cqw; padding: 1.3cqw 2.4cqw;
+    border: 0; border-radius: 99px; background: var(--moss); color: #11150f;
+    font: 600 max(15px, 1.7cqw)/1 var(--sans); cursor: pointer; box-shadow: 0 0 0 0.6cqw rgba(156, 196, 122, 0.18);
+  }
+  .start .tri { width: 0; height: 0; border-left: 1.4cqw solid #11150f; border-top: 0.9cqw solid transparent; border-bottom: 0.9cqw solid transparent; }
+  .start:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+  .leaf img { animation: none; }
+  .on .leaf img { animation: kenburns 9s ease-out both; }
+  @keyframes kenburns { from { transform: scale(1.06); } to { transform: scale(1); } }
+
+  /* controls */
+  .bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .btn {
+    min-height: 40px; padding: 0 16px; border-radius: 8px; border: 1px solid var(--line);
+    background: var(--raised); color: var(--ink); font: 600 14px/1 var(--sans); cursor: pointer;
+  }
+  .btn.primary { background: var(--moss); border-color: var(--moss); color: #11150f; }
+  .btn:focus-visible, .chap:focus-visible, .track:focus-visible { outline: 2px solid var(--moss); outline-offset: 2px; }
+  .time { font: 400 13px/1 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+  .lang { margin-left: auto; display: flex; gap: 6px; }
+  .lang .btn[aria-pressed="true"] { border-color: var(--moss); color: var(--moss); }
+  .track { position: relative; height: 8px; border-radius: 99px; background: var(--line); cursor: pointer; flex: 1 1 100%; }
+  .track span { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: 99px; background: var(--moss); }
+  .track i { position: absolute; top: -3px; width: 2px; height: 14px; background: var(--paper); }
+  .caption {
+    min-height: 3.2em; font: 400 18px/1.5 var(--sans); color: var(--ink); max-width: 62ch;
+  }
+  .chapters { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chap { padding: 6px 10px; border: 1px solid var(--line); border-radius: 99px; background: none; color: var(--muted); font: 500 13px/1 var(--sans); cursor: pointer; }
+  .chap[aria-current="true"] { color: var(--paper); background: var(--moss); border-color: var(--moss); }
+  .note { font: 400 13px/1.5 var(--sans); color: var(--muted); }
+  .note a { color: var(--moss); }
+  @media (max-width: 560px) { .caption { font-size: 16px; } .lang { margin-left: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .scene, .g, .opt.right { transition: none !important; }
+    .on .draw { animation: none; stroke-dashoffset: 0; }
+    .on .leaf img { animation: none; }
+  }
+</style>
+
+<main class="wrap">
+  <div class="stage" id="stage" aria-live="off">
+    <canvas class="spores" id="spores" aria-hidden="true"></canvas>
+    <button class="start" id="start" type="button"><span class="tri" aria-hidden="true"></span><span data-t="startLabel"></span></button>
+    <section class="scene s-title on" data-scene="0">
+      <div class="logo g">__LOGO__</div>
+      <h1 class="h g d2" data-t="title"></h1>
+      <p class="meta g d3" data-t="titleMeta"></p>
+    </section>
+
+    <section class="scene" data-scene="1">
+      <span class="eyebrow g" data-t="e1"></span>
+      <h2 class="h g d1" data-t="h1"></h2>
+      <div class="nums">
+        <div class="num g d2"><b data-count="__AUTHORS__">0</b><span data-t="n1"></span></div>
+        <div class="num g d3"><b data-count="__SCHOOLS__">0</b><span data-t="n2"></span></div>
+        <div class="num g d3"><b data-count="__GRAFTS__">0</b><span data-t="n3"></span></div>
+        <div class="num g d4"><b data-count="__LINKS__">0</b><span data-t="n4"></span></div>
+        <div class="num g d4"><b data-count="__RUNS__">0</b><span data-t="n5"></span></div>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="2">
+      <svg class="full" id="tree" viewBox="0 0 1600 900" aria-hidden="true"></svg>
+      <div class="corner"><span class="eyebrow g" data-t="e2"></span><h2 class="h g d1" data-t="h2"></h2></div>
+    </section>
+
+    <section class="scene" data-scene="3">
+      <span class="eyebrow g" data-t="e3"></span>
+      <div class="leaf" style="margin-top:2cqw">
+        <img class="g d1" src="__NAESS__" alt="">
+        <div>
+          <div class="name g d1">Arne Næss</div>
+          <div class="meta g d2" style="margin-top:1cqw">1912–2009 · Oslo · Wikidata</div>
+          <div class="g d2" style="margin-top:1.2cqw"><span class="chip" style="color:#9cc47a" data-t="ecosophy"></span></div>
+        </div>
+      </div>
+      <div class="seeds" id="seeds"></div>
+    </section>
+
+    <section class="scene" data-scene="4">
+      <svg class="full" id="ring" viewBox="0 0 1600 900" aria-hidden="true"></svg>
+      <div class="corner"><span class="eyebrow g" data-t="e4"></span><h2 class="h g d1" data-t="h4"></h2><p class="p g d2" id="legend"></p></div>
+    </section>
+
+    <section class="scene" data-scene="5">
+      <svg class="full" id="canopy" viewBox="0 0 1600 900" aria-hidden="true"></svg>
+      <div class="corner"><span class="eyebrow g" data-t="e5"></span><h2 class="h g d1" data-t="h5"></h2></div>
+    </section>
+
+    <section class="scene" data-scene="6">
+      <div style="display:flex;gap:1.4cqw;align-items:center" class="g"><span class="eyebrow" data-t="e6"></span><span class="sim" data-t="simulated"></span></div>
+      <h2 class="h g d1" style="font-size:3.4cqw" data-t="claim"></h2>
+      <svg id="strip" viewBox="0 0 1400 120" style="width:100%;height:auto;margin-top:2cqw" aria-hidden="true"></svg>
+      <div class="voices">
+        <div class="voice g d4"><img src="__SINGER__" alt=""><div><b data-t="agentSinger"></b><p data-t="vSinger"></p></div></div>
+        <div class="voice g d5"><img src="__PLUMWOOD__" alt=""><div><b data-t="agentPlumwood"></b><p data-t="vPlumwood"></p></div></div>
+      </div>
+    </section>
+
+    <section class="scene" data-scene="7">
+      <div class="quiz">
+        <div class="qcard g">
+          <div class="k" data-t="qk"></div>
+          <div class="q" data-t="qq"></div>
+          <div class="opts"><div class="opt">Serge Latouche</div><div class="opt right">Ugo Bardi</div><div class="opt">Jared Diamond</div><div class="opt">Bruno Latour</div></div>
+        </div>
+        <div class="rules">
+          <div class="rule g d1"><b data-t="r1"></b><span data-t="r1t"></span></div>
+          <div class="rule g d2"><b data-t="r2"></b><span data-t="r2t"></span></div>
+          <div class="rule g d3"><b data-t="r3"></b><span data-t="r3t"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene s-end" data-scene="8">
+      <div class="logo g">__LOGO__</div>
+      <p class="h g d1" style="font-size:3cqw;max-width:none;margin-top:2cqw" data-t="endLine"></p>
+      <div class="url g d2">mathisdreher.github.io/Ecosophia</div>
+      <p class="meta g d3" style="margin-top:1.4cqw" data-t="endMeta"></p>
+    </section>
+  </div>
+
+  <div class="bar">
+    <button class="btn primary" id="play" type="button"></button>
+    <button class="btn" id="restart" type="button"></button>
+    <button class="btn" id="sound" type="button" aria-pressed="true"></button>
+    <span class="time" id="time">0:00</span>
+    <div class="lang" role="group" aria-label="Subtitles">
+      <button class="btn" type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button class="btn" type="button" data-lang="fr" aria-pressed="false">FR</button>
+    </div>
+    <div class="track" id="track" role="slider" tabindex="0" aria-label="Position" aria-valuemin="0" aria-valuemax="120" aria-valuenow="0"><span id="fill"></span></div>
+  </div>
+  <p class="caption" id="caption" aria-live="polite"></p>
+  <nav class="chapters" id="chapters" aria-label="Chapters"></nav>
+  <p class="note" data-t="note"></p>
+</main>
+
+<script>
+  const DATA = __DATA__;
+  const CHAPTERS = [
+    { en: 'Ecosophia', fr: 'Ecosophia' },
+    { en: 'The field', fr: 'Le champ' },
+    { en: 'The tree', fr: 'L’arbre' },
+    { en: 'A leaf', fr: 'Une feuille' },
+    { en: 'Mycelium', fr: 'Mycélium' },
+    { en: 'Canopy', fr: 'Canopée' },
+    { en: 'Clearing', fr: 'Clairière' },
+    { en: 'Learn', fr: 'Apprendre' },
+    { en: 'Visit', fr: 'Visiter' },
+  ];
+  // Narration: the scene each line belongs to, and the line itself. The voice
+  // clips were generated from these same lines; their durations set the timing.
+  const VOICE = __VOICE__;
+  const LINES = VOICE.scenes.map((scene, i) => ({ scene, en: VOICE.lines.en[i], fr: VOICE.lines.fr[i] }));
+  const AUDIO = __AUDIO__;
+  const LEAD = 0.9, GAP = 0.75, TAIL = 3;
+  // Minimum time on screen for scenes whose drawing takes longer than their lines.
+  const MIN_SCENE = [0, 0, 11, 8, 8.5, 6.5, 0, 6, 6];
+  let TIMELINE = null;
+  function buildTimeline(l) {
+    const starts = [], sceneAt = [];
+    let t = LEAD;
+    LINES.forEach((line, i) => {
+      if (line.scene !== (LINES[i - 1]?.scene ?? -1)) {
+        if (i > 0) {
+          const prev = LINES[i - 1].scene;
+          const need = sceneAt[prev] + MIN_SCENE[prev];
+          if (t < need) t = need;
+        }
+        sceneAt[line.scene] = i === 0 ? 0 : t;
+      }
+      starts.push(t);
+      t += (VOICE.dur[l][i] ?? 4) + GAP;
+    });
+    const last = LINES[LINES.length - 1].scene;
+    const end = Math.max(t - GAP + TAIL, sceneAt[last] + MIN_SCENE[last]);
+    return { starts, sceneAt, end };
+  }
+  const T = {
+    en: {
+      title: 'Ecology has a family tree. And a long history of quarrels.', titleMeta: 'An introduction · under two minutes',
+      e1: 'The field', h1: 'Not one doctrine. A quarrel.', n1: 'thinkers', n2: 'schools', n3: 'counterpoints grafted on', n4: 'sourced threads', n5: 'simulated debates',
+      e2: 'The tree', h2: 'Roots, trunk, branches, leaves.',
+      e3: 'A leaf', ecosophy: 'Ecosophy',
+      e4: 'Mycelium', h4: 'Who answered whom.', e5: 'Canopy', h5: 'Three axes, two at a time.',
+      e6: 'Clearing', simulated: 'Simulated', claim: DATA.run.en, agentSinger: 'Agent Singer', agentPlumwood: 'Agent Plumwood',
+      vSinger: 'Suffering counts whatever the species; land efficiency cannot leave animal pain out of the moral sum.',
+      vPlumwood: 'Factory farming is the master’s standpoint made industrial, but abolition must not lift humans out of the food chain.',
+      qk: 'Quiz · an idea', qq: 'Seneca effect: decline is steeper than growth. Who developed this idea?',
+      r1: 'Sourced', r1t: 'Every link and every idea points to a work, with its page when we have it.', r2: 'Editorial, and said so', r2t: 'Schools and Canopy readings are choices, explained on the Method page.', r3: 'Simulated, and labelled', r3t: 'Debates are model output, published with their prompts and transcripts.',
+      endLine: 'Roots, branches and mycelium of political ecology.', endMeta: 'English · Français · open data',
+      note: 'Voice-over generated with a speech model, subtitles below. Real data from the site; portraits are generated pencil drawings, not photographs. Agent lines are paraphrases from a simulated debate, never words of the authors.',
+      play: 'Play', pause: 'Pause', restart: 'Restart', soundOn: 'Sound on', soundOff: 'Sound off', startLabel: 'Play with sound', legend: '→ influence · ××× critique · ↔ dialogue',
+    },
+    fr: {
+      title: 'L’écologie a un arbre généalogique. Et une longue histoire de querelles.', titleMeta: 'Une introduction · moins de deux minutes',
+      e1: 'Le champ', h1: 'Pas une doctrine. Une querelle.', n1: 'penseurs', n2: 'écoles', n3: 'contrepoints greffés', n4: 'fils sourcés', n5: 'débats simulés',
+      e2: 'L’arbre', h2: 'Racines, tronc, branches, feuilles.',
+      e3: 'Une feuille', ecosophy: 'Écosophie',
+      e4: 'Mycélium', h4: 'Qui a répondu à qui.', e5: 'Canopée', h5: 'Trois axes, deux à la fois.',
+      e6: 'Clairière', simulated: 'Simulé', claim: DATA.run.fr, agentSinger: 'Agent Singer', agentPlumwood: 'Agent Plumwood',
+      vSinger: 'La souffrance compte quelle que soit l’espèce ; l’efficacité foncière ne peut pas laisser la douleur animale hors du calcul moral.',
+      vPlumwood: 'L’élevage industriel est le point de vue du maître devenu industrie, mais l’abolition ne doit pas sortir les humains de la chaîne alimentaire.',
+      qk: 'Quiz · une idée', qq: 'Effet Sénèque : le déclin est plus raide que la croissance. Qui a développé cette idée ?',
+      r1: 'Sourcé', r1t: 'Chaque lien et chaque idée renvoie à une œuvre, avec la page quand nous l’avons.', r2: 'Éditorial, et dit comme tel', r2t: 'Les écoles et les lectures de la Canopée sont des choix, expliqués sur la page Méthode.', r3: 'Simulé, et étiqueté', r3t: 'Les débats sont des sorties de modèle, publiées avec leurs prompts et transcriptions.',
+      endLine: 'Racines, branches et mycélium de l’écologie politique.', endMeta: 'Français · English · données ouvertes',
+      note: 'Voix off générée par un modèle de synthèse vocale, sous-titres ci-dessous. Données réelles du site ; les portraits sont des dessins au crayon générés, non des photographies. Les lignes d’agents sont des paraphrases d’un débat simulé, jamais des mots des auteurs.',
+      play: 'Lecture', pause: 'Pause', restart: 'Recommencer', soundOn: 'Son activé', soundOff: 'Son coupé', startLabel: 'Lecture avec le son', legend: '→ influence · ××× critique · ↔ dialogue',
+    },
+  };
+  const NAESS_SEEDS = __SEEDS__;
+
+  const NS = 'http://www.w3.org/2000/svg';
+  const el = (tag, attrs = {}, parent) => {
+    const e = document.createElementNS(NS, tag);
+    for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+    if (parent) parent.append(e);
+    return e;
+  };
+  const txt = (parent, x, y, s, attrs = {}) => {
+    const t = el('text', { x, y, ...attrs }, parent);
+    t.textContent = s;
+    return t;
+  };
+  let lang = 'en';
+  try { const saved = localStorage.getItem('eco-film-lang'); if (saved === 'fr' || saved === 'en') lang = saved; } catch (e) {}
+  if (!localStorage) {}
+
+  /* ---------- drawings ---------- */
+  function drawTree() {
+    const svg = document.getElementById('tree');
+    svg.replaceChildren();
+    const ground = 640, tx = 1090;
+    el('line', { x1: 0, y1: ground, x2: 1600, y2: ground, stroke: '#ece6d8', 'stroke-width': 3, class: 'draw', style: '--len:1600;--dur:1.2s' }, svg);
+    el('line', { x1: tx, y1: ground, x2: tx, y2: 330, stroke: '#ece6d8', 'stroke-width': 10, class: 'draw', style: '--len:320;--dur:1s;--delay:0.6s' }, svg);
+    const leaves = DATA.branches.filter((b) => !b.graft);
+    const n = leaves.length;
+    leaves.forEach((b, i) => {
+      const x = 660 + (i / (n - 1)) * 860;
+      const tier = i % 3;
+      const top = 150 + tier * 70;
+      const len = Math.hypot(x - tx, 330 - top) + 60;
+      el('path', { d: `M${tx} ${360 + Math.abs(i - n / 2) * 6} L${x} ${top + 40} V${top}`, fill: 'none', stroke: b.color, 'stroke-width': 4, class: 'draw', style: `--len:${len + 200};--dur:1.4s;--delay:${1.2 + i * 0.12}s` }, svg);
+      const label = txt(svg, x, top - 12, lang === 'fr' ? b.fr : b.en, { 'text-anchor': 'middle', fill: b.color, 'font-family': 'Instrument Sans, sans-serif', 'font-weight': 600, 'font-size': 16, 'letter-spacing': 0.5, class: 'g', style: `transition-delay:${2 + i * 0.12}s` });
+      label.style.textTransform = 'uppercase';
+    });
+    // roots
+    const roots = ['Physiocrats', 'Naturalists', 'Romantics', 'Unity', 'Political economy', 'Anarchist geographers', 'Energetics'];
+    const rootsFr = ['Physiocrates', 'Naturalistes', 'Romantiques', 'Philosophies de l’unité', 'Critiques de l’économie', 'Géographes anarchistes', 'Énergétique'];
+    roots.forEach((r, i) => {
+      const x = 640 + i * 150;
+      el('path', { d: `M${tx} ${ground} L${x} ${ground + 70} V${ground + 110}`, fill: 'none', stroke: '#cf9a6e', 'stroke-width': 3, class: 'draw', style: `--len:900;--dur:1.2s;--delay:${3.4 + i * 0.1}s` }, svg);
+      txt(svg, x, ground + 140 + (i % 2) * 28, lang === 'fr' ? rootsFr[i] : r, { 'text-anchor': 'middle', fill: '#cf9a6e', 'font-family': 'Instrument Sans, sans-serif', 'font-size': 17, class: 'g', style: `transition-delay:${4 + i * 0.1}s` });
+    });
+    txt(svg, tx + 26, 470, lang === 'fr' ? 'TRONC · 1962–1975' : 'TRUNK · 1962–1975', { fill: '#ece6d8', 'font-family': 'IBM Plex Mono, monospace', 'font-size': 18, class: 'g', style: 'transition-delay:1.4s' });
+    // grafts
+    const grafts = DATA.branches.filter((b) => b.graft);
+    grafts.forEach((b, i) => {
+      const y = 430 + i * 50;
+      el('line', { x1: tx - 10, y1: y, x2: 860, y2: y, stroke: b.color, 'stroke-width': 2, 'stroke-dasharray': '8 6', class: 'g', style: `transition-delay:${8 + i * 0.3}s` }, svg);
+      txt(svg, 848, y + 6, lang === 'fr' ? b.fr : b.en, { 'text-anchor': 'end', fill: b.color, 'font-family': 'Instrument Sans, sans-serif', 'font-weight': 600, 'font-size': 19, class: 'g', style: `transition-delay:${8.2 + i * 0.3}s` });
+    });
+  }
+
+  function drawRing() {
+    const svg = document.getElementById('ring');
+    svg.replaceChildren();
+    const cx = 1060, cy = 450, R = 330;
+    const groups = [{ id: 'root', n: DATA.roots, color: '#cf9a6e' }, { id: 'trunk', n: DATA.trunk, color: '#ece6d8' }, ...DATA.branches.map((b) => ({ id: b.id, n: b.n, color: b.color }))];
+    const total = groups.reduce((s, g) => s + g.n, 0) + groups.length * 3;
+    const step = (Math.PI * 2) / total;
+    let a = Math.PI / 2 - (DATA.roots / 2) * step;
+    const pos = {};
+    groups.forEach((g, gi) => {
+      const a0 = a;
+      for (let k = 0; k < g.n; k += 1) {
+        const x = cx + R * Math.cos(a), y = cy + R * Math.sin(a);
+        el('circle', { cx: x, cy: y, r: 5.5, fill: g.color, class: 'g', style: `transition-delay:${0.2 + gi * 0.08}s` }, svg);
+        (pos[g.id] ??= []).push([x, y, a]);
+        a += step;
+      }
+      const a1 = a - step;
+      const r2 = R - 18;
+      el('path', { d: `M${cx + r2 * Math.cos(a0)} ${cy + r2 * Math.sin(a0)} A${r2} ${r2} 0 0 1 ${cx + r2 * Math.cos(a1)} ${cy + r2 * Math.sin(a1)}`, fill: 'none', stroke: g.color, 'stroke-width': 5, 'stroke-linecap': 'round', class: 'g', style: `transition-delay:${0.3 + gi * 0.08}s` }, svg);
+      a += step * 3;
+    });
+    const pick = (g, k) => (pos[g] ? pos[g][Math.min(k, pos[g].length - 1)] : null);
+    const threads = [
+      ['root', 2, 'ecosocialism', 3, 'i'], ['root', 5, 'social-ecology', 0, 'i'], ['trunk', 3, 'degrowth', 2, 'i'], ['technocritique', 1, 'degrowth', 4, 'i'],
+      ['ecosophy', 0, 'social-ecology', 2, 'c'], ['deep-ecology', 1, 'decolonial', 5, 'c'], ['anthropocene', 2, 'political-ecology', 4, 'd'],
+      ['trunk', 6, 'market', 2, 'c'], ['degrowth', 1, 'counterpoint', 1, 'c'], ['root', 9, 'animal', 0, 'i'], ['animal', 0, 'deep-ecology', 3, 'c'],
+      ['democracy', 0, 'democracy', 1, 'd'], ['root', 12, 'collapse', 3, 'i'], ['trunk', 8, 'collapse', 0, 'i'], ['ecofeminism', 2, 'decolonial', 1, 'd'],
+      ['anthropocene', 5, 'animal', 7, 'd'], ['ecosocialism', 5, 'anthropocene', 9, 'c'], ['technocritique', 6, 'conservative', 1, 'i'],
+    ];
+    const defs = el('defs', {}, svg);
+    const m = el('marker', { id: 'hd', orient: 'auto-start-reverse', markerWidth: 10, markerHeight: 10, refX: 1, refY: 5, markerUnits: 'userSpaceOnUse' }, defs);
+    el('path', { d: 'M0 0.5 L10 5 L0 9.5 Z', fill: '#d8cba9' }, m);
+    threads.forEach(([g1, k1, g2, k2, type], i) => {
+      const p = pick(g1, k1), q = pick(g2, k2);
+      if (!p || !q) return;
+      const inner = 0.86;
+      const s = [cx + (p[0] - cx) * inner, cy + (p[1] - cy) * inner];
+      const e = [cx + (q[0] - cx) * inner, cy + (q[1] - cy) * inner];
+      const d = `M${s[0]} ${s[1]} Q${cx} ${cy} ${e[0]} ${e[1]}`;
+      const delay = 1.4 + i * 0.35;
+      const attrs = { d, fill: 'none', stroke: '#d8cba9', 'stroke-width': 2, opacity: 0.8, class: 'draw', style: `--len:1400;--dur:1.2s;--delay:${delay}s` };
+      if (type === 'd') { attrs['stroke-dasharray'] = '2 6'; attrs.class = 'g'; attrs.style = `transition-delay:${delay}s`; attrs['marker-start'] = 'url(#hd)'; }
+      if (type === 'c') { attrs.class = 'g'; attrs.style = `transition-delay:${delay}s`; attrs.stroke = 'none'; }
+      el('path', { ...attrs, 'marker-end': type === 'c' ? undefined : 'url(#hd)' }, svg).removeAttribute(type === 'c' ? 'marker-end' : 'data-x');
+      if (type === 'c') {
+        // a row of small crosses along the curve, ending in an arrow
+        const path = el('path', { d, fill: 'none', stroke: 'none' }, svg);
+        const L = path.getTotalLength ? path.getTotalLength() : 600;
+        const g = el('g', { class: 'g', style: `transition-delay:${delay}s`, stroke: i === 4 ? '#ece6d8' : '#d8cba9', 'stroke-width': i === 4 ? 2.6 : 2 }, svg);
+        for (let t = 0; t < L - 14; t += 13) {
+          const pt = path.getPointAtLength(t);
+          el('path', { d: `M${pt.x - 3.5} ${pt.y - 3.5}L${pt.x + 3.5} ${pt.y + 3.5}M${pt.x - 3.5} ${pt.y + 3.5}L${pt.x + 3.5} ${pt.y - 3.5}` }, g);
+        }
+        const a1 = path.getPointAtLength(L - 12), a2 = path.getPointAtLength(L);
+        el('line', { x1: a1.x, y1: a1.y, x2: a2.x, y2: a2.y, 'marker-end': 'url(#hd)' }, g);
+      }
+    });
+  }
+
+  function drawCanopy() {
+    const svg = document.getElementById('canopy');
+    svg.replaceChildren();
+    const x0 = 620, y0 = 110, w = 880, h = 660;
+    el('rect', { x: x0, y: y0, width: w, height: h, fill: '#1a2016', stroke: '#3a4433' }, svg);
+    el('line', { x1: x0 + w / 2, y1: y0, x2: x0 + w / 2, y2: y0 + h, stroke: '#3a4433', 'stroke-dasharray': '6 6' }, svg);
+    el('line', { x1: x0, y1: y0 + h / 2, x2: x0 + w, y2: y0 + h / 2, stroke: '#3a4433', 'stroke-dasharray': '6 6' }, svg);
+    const fr = lang === 'fr';
+    txt(svg, x0, y0 + h + 34, fr ? 'L’État et ses plans' : 'The state and its plans', { fill: '#aca391', 'font-family': 'Instrument Sans, sans-serif', 'font-size': 18 });
+    txt(svg, x0 + w, y0 + h + 34, fr ? 'La commune et l’autonomie' : 'The commune and autonomy', { 'text-anchor': 'end', fill: '#aca391', 'font-family': 'Instrument Sans, sans-serif', 'font-size': 18 });
+    txt(svg, x0 + 14, y0 + 30, fr ? '↑ Écocentrique' : '↑ Ecocentric', { fill: '#aca391', 'font-family': 'Instrument Sans, sans-serif', 'font-size': 18, 'font-style': 'italic' });
+    txt(svg, x0 + 14, y0 + h - 14, fr ? '↓ Anthropocentrique' : '↓ Anthropocentric', { fill: '#aca391', 'font-family': 'Instrument Sans, sans-serif', 'font-size': 18, 'font-style': 'italic' });
+    txt(svg, x0 + w / 2, y0 + h + 66, fr ? 'Siège du pouvoir' : 'Seat of power', { 'text-anchor': 'middle', fill: '#ece6d8', 'font-family': 'Instrument Sans, sans-serif', 'font-size': 20, 'font-weight': 600 });
+    DATA.canopy.filter((p) => p.power != null && p.nature != null && !['ted-nordhaus', 'jacques-ellul'].includes(p.id)).forEach((p, i) => {
+      const x = x0 + (p.power / 100) * w, y = y0 + h - (p.nature / 100) * h;
+      const g = el('g', { class: 'g', style: `transition-delay:${0.6 + i * 0.18}s` }, svg);
+      el('circle', { cx: x, cy: y, r: 10, fill: p.color, stroke: '#11150f', 'stroke-width': 3 }, g);
+      txt(g, x + 15, y + 6, p.name, { fill: '#ece6d8', 'font-family': 'Instrument Sans, sans-serif', 'font-size': 18, 'paint-order': 'stroke', stroke: '#1a2016', 'stroke-width': 5 });
+    });
+  }
+
+  function drawStrip() {
+    const svg = document.getElementById('strip');
+    svg.replaceChildren();
+    el('line', { x1: 20, y1: 50, x2: 1380, y2: 50, stroke: '#3a4433', 'stroke-width': 3 }, svg);
+    el('line', { x1: 700, y1: 36, x2: 700, y2: 64, stroke: '#3a4433', 'stroke-width': 2, 'stroke-dasharray': '4 4' }, svg);
+    const fr = lang === 'fr';
+    txt(svg, 20, 100, fr ? 'contre' : 'against', { fill: '#aca391', 'font-family': 'IBM Plex Mono, monospace', 'font-size': 20 });
+    txt(svg, 1380, 100, fr ? 'pour' : 'for', { 'text-anchor': 'end', fill: '#aca391', 'font-family': 'IBM Plex Mono, monospace', 'font-size': 20 });
+    DATA.run.pos.forEach((p, i) => {
+      const x = 20 + (p.score / 100) * 1360;
+      const c = el('circle', { cx: x, cy: 50, r: 13, fill: p.color, stroke: '#11150f', 'stroke-width': 3, class: 'g', style: `transition-delay:${1.2 + i * 0.12}s` }, svg);
+      const t = el('title', {}, c);
+      t.textContent = `${fr ? p.fr : p.en} · ${p.score}`;
+    });
+  }
+
+  function seeds() {
+    const box = document.getElementById('seeds');
+    box.replaceChildren();
+    NAESS_SEEDS.forEach((s, i) => {
+      const d = document.createElement('div');
+      d.className = `seed g d${3 + i}`;
+      d.innerHTML = '<b></b><span></span><i></i>';
+      d.children[0].textContent = s.name[lang];
+      d.children[1].textContent = s.text[lang];
+      d.children[2].textContent = `Næss, ${s.src} (${s.y})`;
+      box.append(d);
+    });
+  }
+
+  const stage = document.getElementById('stage');
+  const track = document.getElementById('track');
+
+  /* ---------- text and language ---------- */
+  function applyLang() {
+    document.documentElement.lang = lang;
+    for (const e of document.querySelectorAll('[data-t]')) e.textContent = T[lang][e.dataset.t] ?? '';
+    document.getElementById('legend').textContent = T[lang].legend;
+    for (const b of document.querySelectorAll('[data-lang]')) b.setAttribute('aria-pressed', String(b.dataset.lang === lang));
+    document.getElementById('restart').textContent = T[lang].restart;
+    TIMELINE = buildTimeline(lang);
+    track.setAttribute('aria-valuemax', String(Math.round(TIMELINE.end)));
+    renderMarks();
+    renderChapters();
+    drawTree(); drawRing(); drawCanopy(); drawStrip(); seeds();
+    setPlayLabel(); setSoundLabel();
+  }
+
+  /* ---------- sound: voice clips and a quiet ambient pad ---------- */
+  const clips = { en: AUDIO.en.map((src) => (src ? new Audio(src) : null)), fr: AUDIO.fr.map((src) => (src ? new Audio(src) : null)) };
+  for (const l of ['en', 'fr']) for (const a of clips[l]) if (a) a.preload = 'auto';
+  let soundOn = true, speaking = null, ctx = null, pad = null;
+  function startPad() {
+    if (!soundOn || pad) return;
+    try {
+      ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+      if (ctx.state === 'suspended') ctx.resume();
+      const out = ctx.createGain();
+      out.gain.value = 0;
+      out.gain.linearRampToValueAtTime(0.035, ctx.currentTime + 3);
+      const filter = ctx.createBiquadFilter();
+      filter.type = 'lowpass';
+      filter.frequency.value = 700;
+      filter.connect(out).connect(ctx.destination);
+      const oscs = [110, 164.81, 220.5, 277.18].map((f, k) => {
+        const o = ctx.createOscillator();
+        o.type = k % 2 ? 'sine' : 'triangle';
+        o.frequency.value = f;
+        const g = ctx.createGain();
+        g.gain.value = k === 0 ? 0.5 : 0.25;
+        const lfo = ctx.createOscillator();
+        lfo.frequency.value = 0.05 + k * 0.03;
+        const depth = ctx.createGain();
+        depth.gain.value = 0.15;
+        lfo.connect(depth).connect(g.gain);
+        o.connect(g).connect(filter);
+        o.start(); lfo.start();
+        return [o, lfo];
+      });
+      pad = { out, oscs };
+    } catch (e) { pad = null; }
+  }
+  function stopPad() {
+    if (!pad || !ctx) return;
+    const p = pad; pad = null;
+    try {
+      p.out.gain.cancelScheduledValues(ctx.currentTime);
+      p.out.gain.setValueAtTime(p.out.gain.value, ctx.currentTime);
+      p.out.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.8);
+      setTimeout(() => p.oscs.forEach(([o, l]) => { o.stop(); l.stop(); }), 900);
+    } catch (e) {}
+  }
+  function stopVoice() { if (speaking) { speaking.pause(); speaking = null; } }
+  function syncVoice() {
+    if (!soundOn || !playing) { stopVoice(); return; }
+    const k = lineAt(t);
+    const start = TIMELINE.starts[k];
+    const a = clips[lang][k];
+    const offset = t - start;
+    if (!a || offset < 0 || offset > (VOICE.dur[lang][k] ?? 0)) { if (speaking && speaking !== a) stopVoice(); return; }
+    if (speaking !== a) {
+      stopVoice();
+      speaking = a;
+      try { a.currentTime = offset; } catch (e) {}
+      a.play().catch(() => {});
+    }
+  }
+  function setSoundLabel() {
+    const b = document.getElementById('sound');
+    b.textContent = soundOn ? T[lang].soundOn : T[lang].soundOff;
+    b.setAttribute('aria-pressed', String(soundOn));
+  }
+
+  /* ---------- player ---------- */
+  const scenes = [...stage.querySelectorAll('.scene')];
+  const fill = document.getElementById('fill');
+  const caption = document.getElementById('caption');
+  const timeEl = document.getElementById('time');
+  const playBtn = document.getElementById('play');
+  const startBtn = document.getElementById('start');
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let t = 0, playing = false, last = 0, current = -1, captionIdx = -1;
+
+  function fmt(s) { s = Math.floor(s); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; }
+  function lineAt(time) { let k = 0; TIMELINE.starts.forEach((s, i) => { if (time >= s - 0.05) k = i; }); return k; }
+  function sceneAt(time) { let k = 0; TIMELINE.sceneAt.forEach((s, i) => { if (s != null && time >= s) k = i; }); return k; }
+  function setPlayLabel() { playBtn.textContent = playing ? T[lang].pause : T[lang].play; }
+  function renderMarks() {
+    for (const m of track.querySelectorAll('i')) m.remove();
+    TIMELINE.sceneAt.forEach((s) => {
+      if (!s) return;
+      const mark = document.createElement('i');
+      mark.style.left = `${(s / TIMELINE.end) * 100}%`;
+      track.append(mark);
+    });
+  }
+
+  function show(k) {
+    if (k === current) return;
+    current = k;
+    scenes.forEach((s, i) => {
+      if (i === k) {
+        s.classList.remove('on');
+        void s.offsetWidth; // restart the scene's entrance
+        s.classList.add('on');
+      } else s.classList.remove('on');
+    });
+    if (k === 1) countUp();
+    for (const c of document.querySelectorAll('.chap')) c.setAttribute('aria-current', String(Number(c.dataset.k) === k));
+  }
+  function countUp() {
+    for (const b of document.querySelectorAll('[data-count]')) {
+      const target = Number(b.dataset.count);
+      if (reduced) { b.textContent = target; continue; }
+      const t0 = performance.now();
+      const tick = (now) => {
+        const p = Math.min(1, (now - t0 - 600) / 1600);
+        b.textContent = Math.round(target * Math.max(0, 1 - Math.pow(1 - p, 3)));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+  }
+  function updateCaption(force) {
+    const k = lineAt(t);
+    if (k !== captionIdx || force) { captionIdx = k; caption.textContent = LINES[k][lang]; }
+  }
+  function render() {
+    fill.style.width = `${(t / TIMELINE.end) * 100}%`;
+    track.setAttribute('aria-valuenow', String(Math.floor(t)));
+    timeEl.textContent = `${fmt(t)} / ${fmt(TIMELINE.end)}`;
+    show(sceneAt(t));
+    updateCaption(false);
+    syncVoice();
+  }
+  function loop(now) {
+    if (!playing) return;
+    const dt = Math.min(0.25, (now - last) / 1000);
+    last = now;
+    t = Math.min(TIMELINE.end, t + dt);
+    render();
+    if (t >= TIMELINE.end) { playing = false; stopVoice(); stopPad(); setPlayLabel(); return; }
+    requestAnimationFrame(loop);
+  }
+  function play() {
+    if (t >= TIMELINE.end - 0.05) seek(0);
+    startBtn.hidden = true;
+    playing = true;
+    last = performance.now();
+    setPlayLabel();
+    startPad();
+    requestAnimationFrame(loop);
+  }
+  function pause() { playing = false; stopVoice(); stopPad(); setPlayLabel(); }
+  function seek(s) { stopVoice(); t = Math.max(0, Math.min(TIMELINE.end - 0.01, s)); current = -1; render(); }
+
+  function renderChapters() {
+    const nav = document.getElementById('chapters');
+    nav.replaceChildren();
+    CHAPTERS.forEach((c, k) => {
+      const at = TIMELINE.sceneAt[k];
+      if (at == null) return;
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chap';
+      b.dataset.k = k;
+      b.textContent = `${fmt(at)} ${c[lang]}`;
+      b.setAttribute('aria-current', String(k === current));
+      b.addEventListener('click', () => { seek(at); if (!playing) play(); });
+      nav.append(b);
+    });
+  }
+
+  /* ---------- spores: a slow drift of light motes behind every scene ---------- */
+  (function spores() {
+    const c = document.getElementById('spores');
+    const g = c.getContext('2d');
+    const motes = Array.from({ length: 46 }, () => ({ x: Math.random(), y: Math.random(), r: 0.6 + Math.random() * 1.8, v: 0.004 + Math.random() * 0.01, p: Math.random() * 6.28 }));
+    function size() { c.width = c.clientWidth * devicePixelRatio; c.height = c.clientHeight * devicePixelRatio; }
+    size();
+    addEventListener('resize', size);
+    function frame(now) {
+      g.clearRect(0, 0, c.width, c.height);
+      for (const m of motes) {
+        if (!reduced) { m.y -= m.v / 60; if (m.y < -0.02) { m.y = 1.02; m.x = Math.random(); } }
+        const x = (m.x + Math.sin(now / 4000 + m.p) * 0.01) * c.width, y = m.y * c.height;
+        g.beginPath();
+        g.fillStyle = `rgba(156, 196, 122, ${0.08 + 0.1 * (1 + Math.sin(now / 1500 + m.p)) / 2})`;
+        g.arc(x, y, m.r * devicePixelRatio, 0, 6.283);
+        g.fill();
+      }
+      if (!reduced) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+
+  startBtn.addEventListener('click', () => { soundOn = true; setSoundLabel(); play(); });
+  playBtn.addEventListener('click', () => (playing ? pause() : play()));
+  document.getElementById('restart').addEventListener('click', () => { seek(0); play(); });
+  document.getElementById('sound').addEventListener('click', () => {
+    soundOn = !soundOn;
+    setSoundLabel();
+    if (soundOn) { if (playing) { startPad(); syncVoice(); } } else { stopVoice(); stopPad(); }
+  });
+  track.addEventListener('click', (e) => { const r = track.getBoundingClientRect(); seek(((e.clientX - r.left) / r.width) * TIMELINE.end); });
+  track.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') seek(t + 5);
+    if (e.key === 'ArrowLeft') seek(t - 5);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space' && e.target === document.body) { e.preventDefault(); playing ? pause() : play(); }
+  });
+  for (const b of document.querySelectorAll('[data-lang]')) {
+    b.addEventListener('click', () => {
+      const ratio = t / TIMELINE.end;
+      lang = b.dataset.lang;
+      try { localStorage.setItem('eco-film-lang', lang); } catch (e) {}
+      stopVoice();
+      applyLang();
+      t = ratio * TIMELINE.end;
+      current = -1;
+      render();
+      updateCaption(true);
+    });
+  }
+
+  applyLang();
+  render();
+  updateCaption(true);
+</script>

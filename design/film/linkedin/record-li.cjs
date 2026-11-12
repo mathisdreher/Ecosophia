@@ -1,0 +1,20 @@
+const { chromium } = require('playwright');
+const fs = require('fs');
+(async () => {
+  const b = await chromium.launch({ args: ['--autoplay-policy=no-user-gesture-required'] });
+  const ctx = await b.newContext({ viewport: { width: 1080, height: 1350 }, deviceScaleFactor: 1, recordVideo: { dir: 'rec', size: { width: 1080, height: 1350 } } });
+  const created = Date.now();
+  const p = await ctx.newPage();
+  await p.goto('file://' + process.cwd() + '/mirofish-linkedin.html#record');
+  await p.waitForTimeout(2500);
+  const tl = await p.evaluate(() => window.TL);
+  const startedAt = Date.now();
+  await p.evaluate(() => window.startFilm());
+  await p.waitForFunction(() => window.FILM_DONE === true, null, { timeout: 200000, polling: 500 });
+  await p.waitForTimeout(800);
+  await ctx.close();
+  const video = fs.readdirSync('rec').find((f) => f.endsWith('.webm'));
+  fs.writeFileSync('rec/timing.json', JSON.stringify({ offset: (startedAt - created) / 1000, starts: tl.starts, end: tl.end, video }));
+  await b.close();
+  console.log('recorded', video, (startedAt - created) / 1000);
+})();

@@ -1,0 +1,423 @@
+<title>MiroFish in the Clearing</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Instrument+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: a 4:5 stage for the LinkedIn feed; a swarm of agents on canvas
+     behind DOM scenes, subtitles burned into the frame. One committed dark look. */
+  :root {
+    color-scheme: dark;
+    --bg: #0e130f;
+    --raised: #182016;
+    --line: #34402f;
+    --ink: #efe9dc;
+    --muted: #a9a08e;
+    --moss: #9cc47a;
+    --lichen: #d6c25a;
+    --display: "Fraunces", Georgia, "Times New Roman", serif;
+    --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  }
+  html, body { background: var(--bg); color: var(--ink); }
+  body { font-family: var(--sans); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 20px 40px; }
+  .wrap { max-width: 560px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  body.record { padding: 0; }
+  body.record .wrap { max-width: none; gap: 0; }
+  body.record .controls, body.record .note { display: none; }
+  body.record .stage { width: 100vw; height: 100vh; border: 0; border-radius: 0; }
+
+  .stage {
+    position: relative; aspect-ratio: 4 / 5; max-width: 100%;
+    background: radial-gradient(110% 70% at 50% 110%, #1b2617 0%, var(--bg) 60%);
+    border: 1px solid var(--line); border-radius: 8px; overflow: hidden; container-type: inline-size;
+  }
+  canvas.swarm { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .stage::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 34cqw; z-index: 3; background: linear-gradient(to top, rgba(14,19,15,0.96) 55%, rgba(14,19,15,0)); pointer-events: none; }
+  .scene { position: absolute; inset: 0; padding: 9cqw 8cqw 34cqw; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transition: opacity 500ms ease; pointer-events: none; }
+  .scene.on { opacity: 1; visibility: visible; }
+  .kicker { font: 600 2.7cqw/1 var(--sans); letter-spacing: 0.18em; text-transform: uppercase; color: var(--moss); }
+  .big { font: 700 8.2cqw/1.04 var(--display); letter-spacing: -0.01em; margin: 2.6cqw 0 0; text-wrap: balance; }
+  .mid { font: 600 6.2cqw/1.1 var(--display); margin: 2.4cqw 0 0; text-wrap: balance; }
+  .small { font: 500 3.4cqw/1.4 var(--sans); color: var(--muted); margin: 2.4cqw 0 0; }
+  .accent { color: var(--moss); }
+  .tag { display: inline-block; padding: 1cqw 2cqw; border: 0.3cqw solid var(--line); border-radius: 99px; font: 500 2.8cqw/1 var(--mono); color: var(--muted); }
+
+  /* word-by-word and element reveals */
+  .w { display: inline-block; opacity: 0; transform: translateY(2cqw); transition: opacity 420ms ease, transform 420ms cubic-bezier(.2,.8,.2,1); }
+  .on .w { opacity: 1; transform: none; }
+  .r { opacity: 0; transform: translateY(2.5cqw) scale(0.98); transition: opacity 600ms ease, transform 600ms cubic-bezier(.2,.8,.2,1); }
+  .on .r { opacity: 1; transform: none; }
+
+  /* subtitles burned into the frame */
+  .sub { position: absolute; left: 6cqw; right: 6cqw; bottom: 6.5cqw; z-index: 4; text-align: center; font: 600 3.9cqw/1.32 var(--sans); color: var(--ink); text-wrap: balance; text-shadow: 0 0.3cqw 1.6cqw rgba(0, 0, 0, 0.85); }
+  .sub b { color: var(--moss); font-weight: 700; }
+  .brandline { position: absolute; left: 6cqw; right: 6cqw; top: 3.6cqw; z-index: 4; display: flex; justify-content: space-between; font: 500 2.5cqw/1 var(--mono); color: var(--muted); }
+  .brandline .dot { display: inline-block; width: 1.6cqw; height: 1.6cqw; border-radius: 50%; background: var(--moss); margin-right: 1.2cqw; vertical-align: -0.2cqw; }
+
+  /* scene parts */
+  .post { margin-top: 5cqw; padding: 3.2cqw; border: 0.3cqw solid var(--line); border-radius: 2.4cqw; background: rgba(24, 32, 22, 0.92); }
+  .post .who { font: 600 2.8cqw/1 var(--mono); color: var(--muted); }
+  .post .claim { font: 600 4.6cqw/1.2 var(--display); margin-top: 1.6cqw; }
+  .react { display: flex; gap: 3cqw; margin-top: 2cqw; font: 600 3.2cqw/1 var(--mono); }
+  .react .up { color: var(--moss); } .react .down { color: #e98f72; }
+  .steps { margin-top: 4cqw; display: grid; grid-template-columns: 1fr; gap: 1.8cqw; }
+  .step { display: grid; grid-template-columns: 8cqw 1fr; gap: 2cqw; align-items: center; padding: 2cqw 3cqw; border: 0.3cqw solid var(--line); border-radius: 2cqw; background: rgba(24, 32, 22, 0.9); }
+  .step .n { font: 700 5.6cqw/1 var(--display); color: var(--moss); }
+  .step b { display: block; font: 600 3.7cqw/1.15 var(--sans); }
+  .step span { display: block; margin-top: 0.6cqw; font: 400 2.9cqw/1.3 var(--sans); color: var(--muted); }
+  .axis-labels { position: absolute; left: 8cqw; right: 8cqw; display: flex; justify-content: space-between; font: 500 2.8cqw/1 var(--mono); color: var(--muted); }
+  .legend { margin-top: auto; display: flex; flex-wrap: wrap; gap: 1.6cqw 3cqw; font: 500 2.7cqw/1.2 var(--sans); color: var(--muted); }
+  .legend i { display: inline-block; width: 2cqw; height: 2cqw; border-radius: 50%; margin-right: 1cqw; vertical-align: -0.3cqw; }
+  .cards { margin-top: 3cqw; display: grid; grid-template-columns: 1fr 1fr; gap: 2.2cqw; }
+  .card { padding: 1.8cqw 2.2cqw; border: 0.3cqw solid var(--line); border-radius: 0 3cqw 0 3cqw; background: rgba(24, 32, 22, 0.94); }
+  .card img { width: 100%; height: 17cqw; object-fit: contain; display: block; }
+  .card b { display: block; margin-top: 1.2cqw; font: 600 3.3cqw/1.2 var(--sans); }
+  .card span { display: block; margin-top: 0.6cqw; font: 400 2.6cqw/1.3 var(--sans); color: var(--muted); }
+  .sim { display: inline-block; padding: 0.9cqw 1.8cqw; background: var(--lichen); color: #0e130f; font: 700 2.6cqw/1 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; border-radius: 0.6cqw; }
+  .stat { font: 700 15cqw/0.95 var(--display); color: var(--ink); }
+  .hero-art { width: 46cqw; margin-top: 3cqw; }
+
+  /* controls (hidden when recording) */
+  .controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+  .btn { min-height: 40px; padding: 0 16px; border-radius: 8px; border: 1px solid var(--line); background: var(--raised); color: var(--ink); font: 600 14px/1 var(--sans); cursor: pointer; }
+  .btn.primary { background: var(--moss); border-color: var(--moss); color: #0e130f; }
+  .btn:focus-visible, .track:focus-visible { outline: 2px solid var(--moss); outline-offset: 2px; }
+  .time { font: 400 13px/1 var(--mono); color: var(--muted); }
+  .track { position: relative; height: 8px; border-radius: 99px; background: var(--line); cursor: pointer; flex: 1 1 100%; }
+  .track span { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: 99px; background: var(--moss); }
+  .note { font: 400 13px/1.5 var(--sans); color: var(--muted); }
+  .start { position: absolute; left: 50%; bottom: 22cqw; transform: translateX(-50%); z-index: 6; display: inline-flex; align-items: center; gap: 2cqw; padding: 2.6cqw 4.6cqw; border: 0; border-radius: 99px; background: var(--moss); color: #0e130f; font: 700 3.6cqw/1 var(--sans); cursor: pointer; pointer-events: auto; }
+  .start .tri { width: 0; height: 0; border-left: 2.6cqw solid #0e130f; border-top: 1.7cqw solid transparent; border-bottom: 1.7cqw solid transparent; }
+  body.record .start { display: none; }
+  @media (prefers-reduced-motion: reduce) { .w, .r, .scene { transition: none !important; } }
+</style>
+
+<main class="wrap">
+  <div class="stage" id="stage">
+    <canvas class="swarm" id="swarm" aria-hidden="true"></canvas>
+    <div class="brandline"><span><span class="dot"></span>MiroFish × Ecosophia</span><span id="clock"></span></div>
+
+    <section class="scene" data-s="0">
+      <span class="kicker r">A thought experiment</span>
+      <h1 class="big" data-words>Ask thirty thinkers the same question. <span class="accent">Watch them argue.</span></h1>
+    </section>
+
+    <section class="scene" data-s="1">
+      <span class="kicker r">What is MiroFish</span>
+      <h2 class="mid" data-words>An open-source swarm intelligence engine.</h2>
+      <p class="small r" style="transition-delay:1.2s">A small society of AI agents, each with a persona and a memory.</p>
+      <div style="margin-top:2.4cqw;display:flex;gap:2cqw;flex-wrap:wrap;transition-delay:1.5s" class="r"><span class="tag">open source</span><span class="tag">persona</span><span class="tag">memory</span><span class="tag">report</span></div>
+      <img class="hero-art r" style="transition-delay:1.8s;align-self:center;width:52cqw;margin-top:5cqw" src="__ART1__" alt="">
+    </section>
+
+    <section class="scene" data-s="2">
+      <span class="kicker r">A simulated social network</span>
+      <h2 class="mid" data-words>They post, reply, like and dislike.</h2>
+      <div class="post r" style="transition-delay:1.2s">
+        <div class="who">@moderator · posted the claim</div>
+        <div class="claim">Capitalism can be reformed to respect ecological limits.</div>
+        <div class="react"><span class="up">▲ <span data-tick="37">0</span></span><span class="down">▼ <span data-tick="28">0</span></span><span style="color:var(--muted)">💬 <span data-tick="76">0</span></span></div>
+      </div>
+
+    </section>
+
+    <section class="scene" data-s="3">
+      <span class="kicker r">How I used it</span>
+      <h2 class="big" data-words>Ecosophia</h2>
+      <p class="small r" style="transition-delay:1s">A map of <b class="accent">159 thinkers</b> of political ecology, their ideas and their quarrels.</p>
+    </section>
+
+    <section class="scene" data-s="4">
+      <span class="kicker r">The pipeline</span>
+      <div class="steps">
+        <div class="step r" style="transition-delay:0.3s"><span class="n">1</span><div><b>One record per author</b><span>ideas, books, quarrels, all sourced</span></div></div>
+        <div class="step r" style="transition-delay:1.6s"><span class="n">2</span><div><b>Claude picks the panel</b><span>agents and rounds, within a budget</span></div></div>
+        <div class="step r" style="transition-delay:2.9s"><span class="n">3</span><div><b>MiroFish runs the forum</b><span>posts, replies, likes, dislikes</span></div></div>
+        <div class="step r" style="transition-delay:4.2s"><span class="n">4</span><div><b>Each agent takes a position</b><span>0 to 100, then schools and alliances</span></div></div>
+      </div>
+    </section>
+
+    <section class="scene" data-s="5">
+      <span class="kicker r">The result</span>
+      <h2 class="mid" data-words>Schools take sides. Alliances appear.</h2>
+      <div class="axis-labels" style="top:66cqw"><span>against</span><span>for</span></div>
+    </section>
+
+    <section class="scene" data-s="6">
+      <span class="kicker r">New nuclear in France</span>
+      <h2 class="mid" data-words><span class="accent">Liberals 74</span>, ecofeminists 10.</h2>
+      <div class="legend r" id="legend" style="margin-top:4cqw;transition-delay:1.6s"></div>
+      <div class="axis-labels" style="top:66cqw"><span>against</span><span>for</span></div>
+    </section>
+
+    <section class="scene" data-s="7">
+      <span class="kicker r">Cost and honesty</span>
+      <div class="stat r" style="margin-top:6cqw">≈ $__COST__</div>
+      <p class="small r" style="transition-delay:0.6s">per debate, on Claude Opus. __RUNS__ debates published, prompts and transcripts included.</p>
+      <div class="r" style="margin-top:4cqw;transition-delay:1.4s"><span class="sim">Simulated</span></div>
+      <p class="small r" style="transition-delay:1.8s">Every word is labelled. No agent speaks for a real person.</p>
+    </section>
+
+    <section class="scene" data-s="8">
+      <span class="kicker r">Now imagine it elsewhere</span>
+      <div class="cards">
+        <div class="card r" style="transition-delay:0.4s"><img src="__ART2__" alt=""><b>Flexibility product</b><span>sites, grid operators, aggregators</span></div>
+        <div class="card r" style="transition-delay:2.6s"><img src="__ART3__" alt=""><b>Public consultation</b><span>a battery project, rehearsed</span></div>
+        <div class="card r" style="transition-delay:5.4s"><img src="__ART4__" alt=""><b>Message pre-test</b><span>who reacts, and how</span></div>
+        <div class="card r" style="transition-delay:7.2s"><img src="__ART5__" alt=""><b>Negotiation prep</b><span>every stakeholder in the room</span></div>
+      </div>
+    </section>
+
+    <section class="scene" data-s="9">
+      <img class="hero-art r" style="width:34cqw;align-self:center;margin-top:0" src="__ART6__" alt="">
+      <h2 class="big" data-words style="text-align:center;margin-top:3cqw">A mirror, not an oracle.</h2>
+      <p class="small r" style="text-align:center;transition-delay:1.4s">But a fast, cheap mirror is already a lot.</p>
+    </section>
+
+    <section class="scene" data-s="10">
+      <h2 class="big" data-words style="text-align:center;margin-top:18cqw">What would you put in the room?</h2>
+      <p class="small r" style="text-align:center;transition-delay:1.6s;font-family:var(--mono)">mathisdreher.github.io/Ecosophia</p>
+      <p class="small r" style="text-align:center;transition-delay:2s">MiroFish · OASIS by CAMEL-AI · Claude</p>
+    </section>
+
+    <p class="sub" id="sub" aria-live="polite"></p>
+    <button class="start" id="start" type="button"><span class="tri" aria-hidden="true"></span>Play with sound</button>
+  </div>
+
+  <div class="controls">
+    <button class="btn primary" id="play" type="button">Play</button>
+    <button class="btn" id="restart" type="button">Restart</button>
+    <button class="btn" id="sound" type="button" aria-pressed="true">Sound on</button>
+    <span class="time" id="time"></span>
+    <div class="track" id="track" role="slider" tabindex="0" aria-label="Position" aria-valuemin="0" aria-valuenow="0"><span id="fill"></span></div>
+  </div>
+  <p class="note">A 4:5 film for LinkedIn. Voice-over generated with a speech model. Debate figures are real outputs of simulated debates on the Ecosophia site; illustrations drawn with an image model.</p>
+</main>
+
+<script>
+  const VOICE = __VOICE__;
+  const AUDIO = __AUDIO__;
+  const DATA = __DATA__;
+  const RECORD = location.hash === '#record';
+  if (RECORD) document.body.classList.add('record');
+
+  const LEAD = 0.6, GAP = 0.55, TAIL = 2.6;
+  const MIN_SCENE = [0, 6, 6.5, 4.5, 7.5, 5, 7, 6, 11, 5, 5];
+  function buildTimeline() {
+    const starts = [], sceneAt = [];
+    let t = LEAD;
+    VOICE.scenes.forEach((scene, i) => {
+      if (scene !== VOICE.scenes[i - 1]) {
+        if (i > 0) { const prev = VOICE.scenes[i - 1]; const need = sceneAt[prev] + MIN_SCENE[prev]; if (t < need) t = need; }
+        sceneAt[scene] = i === 0 ? 0 : t;
+      }
+      starts.push(t);
+      t += VOICE.dur[i] + GAP;
+    });
+    const last = VOICE.scenes[VOICE.scenes.length - 1];
+    return { starts, sceneAt, end: Math.max(t - GAP + TAIL, sceneAt[last] + MIN_SCENE[last]) };
+  }
+  const TL = buildTimeline();
+  window.TL = TL;
+
+  /* ---------- words: split headlines for a word-by-word reveal ---------- */
+  for (const h of document.querySelectorAll('[data-words]')) {
+    let k = 0;
+    const walk = (node) => {
+      for (const n of [...node.childNodes]) {
+        if (n.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          for (const part of n.textContent.split(/(\s+)/)) {
+            if (!part) continue;
+            if (/^\s+$/.test(part)) { frag.append(document.createTextNode(part)); continue; }
+            const s = document.createElement('span');
+            s.className = 'w';
+            s.style.transitionDelay = `${0.15 + k * 0.11}s`;
+            s.textContent = part;
+            frag.append(s);
+            k += 1;
+          }
+          n.replaceWith(frag);
+        } else walk(n);
+      }
+    };
+    walk(h);
+  }
+
+  /* ---------- the swarm: 30 agents morphing between formations ---------- */
+  const canvas = document.getElementById('swarm');
+  const g = canvas.getContext('2d');
+  let W = 0, H = 0, DPR = 1;
+  function size() { DPR = Math.min(2, window.devicePixelRatio || 1); W = canvas.clientWidth; H = canvas.clientHeight; canvas.width = W * DPR; canvas.height = H * DPR; }
+  size();
+  addEventListener('resize', size);
+  const PAL = DATA.palette;
+  const N = 30;
+  const agents = Array.from({ length: N }, (_, i) => ({
+    x: Math.random(), y: Math.random(), vx: 0, vy: 0, tx: 0.5, ty: 0.5, r: 1, tr: 1,
+    color: PAL[i % PAL.length], phase: Math.random() * 6.28, school: DATA.nuclear[i % DATA.nuclear.length],
+  }));
+  const links = [];
+  const sparks = [];
+  let formation = 'scatter';
+  const RAND = agents.map(() => [Math.random(), Math.random()]);
+  function targets(name, time) {
+    agents.forEach((a, i) => {
+      let x = 0.5, y = 0.5, r = 1;
+      const ang = (i / N) * Math.PI * 2 - Math.PI / 2;
+      if (name === 'scatter') { x = 0.1 + RAND[i][0] * 0.8 + Math.sin(time / 3 + a.phase) * 0.02; y = 0.42 + RAND[i][1] * 0.38 + Math.cos(time / 4 + a.phase) * 0.02; }
+      if (name === 'ring') { x = 0.5 + Math.cos(ang + time / 14) * 0.32; y = 0.62 + Math.sin(ang + time / 14) * 0.2; }
+      if (name === 'forum') { x = 0.5 + Math.cos(ang + time / 20) * 0.38; y = 0.62 + Math.sin(ang + time / 20) * 0.16; r = 0.9; }
+      if (name === 'tree') { const k = i / (N - 1); const sp = (k - 0.5) * 0.8; x = 0.5 + sp + Math.sin(i * 7.3) * 0.03; y = 0.5 + Math.abs(sp) * 0.25 + Math.cos(i * 3.1) * 0.05; }
+      if (name === 'pipe') { const lane = i % 4; x = 0.12 + ((time * 0.06 + RAND[i][0]) % 1) * 0.76; y = 0.88 + (lane - 1.5) * 0.012; r = 0.6; }
+      if (name === 'axis' || name === 'nuclear') { const s = a.school; x = 0.1 + (s.score / 100) * 0.8 + (RAND[i][0] - 0.5) * 0.03; y = 0.6 + (RAND[i][1] - 0.5) * 0.09; }
+      if (name === 'cost') { x = 0.78 + Math.cos(ang) * 0.1; y = 0.15 + Math.sin(ang) * 0.06; r = 0.6; }
+      if (name === 'groups') { const q = i % 4; const cx = q % 2 ? 0.74 : 0.26, cy = q < 2 ? 0.27 : 0.6; x = cx + Math.cos(ang * 3 + time / 3) * 0.06; y = cy + Math.sin(ang * 3 + time / 3) * 0.035; r = 0.55; }
+      if (name === 'mirror') { const k = i % 15; const left = i < 15; x = 0.5 + (left ? -1 : 1) * (0.33 + Math.abs(Math.sin(k * 1.7)) * 0.08); y = 0.14 + (k / 14) * 0.52; r = left ? 1 : 0.85; }
+      if (name === 'room') { x = 0.5 + Math.cos(ang + time / 10) * 0.4; y = 0.42 + Math.sin(ang + time / 10) * 0.3; }
+      a.tx = x; a.ty = y; a.tr = r;
+    });
+  }
+  const FORMATION = ['scatter', 'ring', 'forum', 'tree', 'pipe', 'axis', 'nuclear', 'cost', 'groups', 'mirror', 'room'];
+  let lastSpark = 0;
+  function swarmFrame(time, dt) {
+    targets(formation, time);
+    for (const a of agents) {
+      const k = 2.4, damp = 0.82;
+      a.vx = (a.vx + (a.tx - a.x) * k * dt) * Math.pow(damp, dt * 60);
+      a.vy = (a.vy + (a.ty - a.y) * k * dt) * Math.pow(damp, dt * 60);
+      a.x += a.vx * dt * 6; a.y += a.vy * dt * 6;
+      a.r += (a.tr - a.r) * Math.min(1, dt * 3);
+    }
+    // forum: replies as links and flying reactions
+    if ((formation === 'forum' || formation === 'room') && time - lastSpark > 0.18) {
+      lastSpark = time;
+      const i = Math.floor(Math.random() * N), j = Math.floor(Math.random() * N);
+      if (i !== j) links.push({ i, j, life: 1 });
+      if (formation === 'forum' && Math.random() < 0.6) sparks.push({ x: agents[i].x, y: agents[i].y, vy: -0.08 - Math.random() * 0.06, life: 1, up: Math.random() < 0.57 });
+    }
+    g.setTransform(DPR, 0, 0, DPR, 0, 0);
+    g.clearRect(0, 0, W, H);
+    // ground line for the tree and the axis
+    if (formation === 'tree') { g.strokeStyle = 'rgba(239,233,220,0.5)'; g.lineWidth = 2; g.beginPath(); g.moveTo(W * 0.06, H * 0.78); g.lineTo(W * 0.94, H * 0.78); g.stroke(); g.lineWidth = 6; g.beginPath(); g.moveTo(W * 0.5, H * 0.78); g.lineTo(W * 0.5, H * 0.62); g.stroke();
+      g.lineWidth = 1.2; g.strokeStyle = 'rgba(156,196,122,0.35)'; for (const a of agents) { g.beginPath(); g.moveTo(W * 0.5, H * 0.62); g.lineTo(a.x * W, a.y * H); g.stroke(); } }
+    if (formation === 'axis' || formation === 'nuclear') {
+      g.strokeStyle = 'rgba(239,233,220,0.35)'; g.lineWidth = 2; g.beginPath(); g.moveTo(W * 0.1, H * 0.6); g.lineTo(W * 0.9, H * 0.6); g.stroke();
+      g.setLineDash([5, 6]); g.beginPath(); g.moveTo(W * 0.5, H * 0.55); g.lineTo(W * 0.5, H * 0.65); g.stroke(); g.setLineDash([]);
+      if (formation === 'axis') { // alliances: arcs between agents of different schools that sit close
+        g.strokeStyle = 'rgba(214,194,90,0.45)'; g.lineWidth = 1.5;
+        for (let i = 0; i < N; i += 3) { const a = agents[i], b = agents[(i + 7) % N]; if (Math.abs(a.x - b.x) < 0.12 && a.school.b !== b.school.b) { g.beginPath(); g.moveTo(a.x * W, a.y * H); g.quadraticCurveTo(((a.x + b.x) / 2) * W, (a.y - 0.08) * H, b.x * W, b.y * H); g.stroke(); } }
+      }
+    }
+    if (formation === 'pipe') { g.strokeStyle = 'rgba(156,196,122,0.25)'; g.lineWidth = 2; g.beginPath(); g.moveTo(W * 0.1, H * 0.88); g.lineTo(W * 0.9, H * 0.88); g.stroke(); }
+    if (formation === 'mirror') { g.strokeStyle = 'rgba(239,233,220,0.25)'; g.lineWidth = 1.5; g.setLineDash([4, 8]); g.beginPath(); g.moveTo(W * 0.5, H * 0.1); g.lineTo(W * 0.5, H * 0.7); g.stroke(); g.setLineDash([]); }
+    for (let k = links.length - 1; k >= 0; k -= 1) {
+      const l = links[k]; l.life -= dt * 0.9; if (l.life <= 0) { links.splice(k, 1); continue; }
+      const a = agents[l.i], b = agents[l.j];
+      g.strokeStyle = `rgba(216,203,169,${0.35 * l.life})`; g.lineWidth = 1.2;
+      g.beginPath(); g.moveTo(a.x * W, a.y * H); g.quadraticCurveTo(W * 0.5, H * 0.6, b.x * W, b.y * H); g.stroke();
+    }
+    for (let k = sparks.length - 1; k >= 0; k -= 1) {
+      const s = sparks[k]; s.life -= dt * 0.8; s.y += s.vy * dt; if (s.life <= 0) { sparks.splice(k, 1); continue; }
+      g.fillStyle = s.up ? `rgba(156,196,122,${s.life})` : `rgba(233,143,114,${s.life})`;
+      g.font = `600 ${Math.round(W * 0.03)}px Instrument Sans, sans-serif`;
+      g.fillText(s.up ? '▲' : '▼', s.x * W - 6, s.y * H);
+    }
+    for (const a of agents) {
+      const c = formation === 'nuclear' || formation === 'axis' ? a.school.color : a.color;
+      const rr = W * 0.012 * a.r * (1 + 0.08 * Math.sin(time * 2 + a.phase));
+      g.fillStyle = c;
+      g.globalAlpha = 0.18; g.beginPath(); g.arc(a.x * W, a.y * H, rr * 2.2, 0, 6.283); g.fill();
+      g.globalAlpha = 1; g.beginPath(); g.arc(a.x * W, a.y * H, rr, 0, 6.283); g.fill();
+    }
+    g.globalAlpha = 1;
+  }
+
+  /* ---------- sound ---------- */
+  const clips = AUDIO.map((src) => (src ? new Audio(src) : null));
+  let soundOn = !RECORD, speaking = null, actx = null, pad = null;
+  function startPad() {
+    if (!soundOn || pad) return;
+    try {
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+      if (actx.state === 'suspended') actx.resume();
+      const out = actx.createGain(); out.gain.value = 0; out.gain.linearRampToValueAtTime(0.03, actx.currentTime + 2.5);
+      const f = actx.createBiquadFilter(); f.type = 'lowpass'; f.frequency.value = 650; f.connect(out).connect(actx.destination);
+      const oscs = [98, 146.83, 196, 246.94].map((fr, k) => { const o = actx.createOscillator(); o.type = k % 2 ? 'sine' : 'triangle'; o.frequency.value = fr; const gg = actx.createGain(); gg.gain.value = k ? 0.25 : 0.5; o.connect(gg).connect(f); o.start(); return o; });
+      pad = { out, oscs };
+    } catch (e) { pad = null; }
+  }
+  function stopPad() { if (!pad) return; const p = pad; pad = null; try { p.out.gain.linearRampToValueAtTime(0, actx.currentTime + 0.6); setTimeout(() => p.oscs.forEach((o) => o.stop()), 700); } catch (e) {} }
+  function stopVoice() { if (speaking) { speaking.pause(); speaking = null; } }
+  function lineAt(t) { let k = 0; TL.starts.forEach((s, i) => { if (t >= s - 0.05) k = i; }); return k; }
+  function syncVoice() {
+    if (!soundOn || !playing) { stopVoice(); return; }
+    const k = lineAt(t); const a = clips[k]; const off = t - TL.starts[k];
+    if (!a || off < 0 || off > VOICE.dur[k]) { if (speaking && speaking !== a) stopVoice(); return; }
+    if (speaking !== a) { stopVoice(); speaking = a; try { a.currentTime = off; } catch (e) {} a.play().catch(() => {}); }
+  }
+
+  /* ---------- player ---------- */
+  const scenes = [...document.querySelectorAll('.scene')];
+  const sub = document.getElementById('sub');
+  const fill = document.getElementById('fill');
+  const timeEl = document.getElementById('time');
+  const clock = document.getElementById('clock');
+  const playBtn = document.getElementById('play');
+  const track = document.getElementById('track');
+  let t = 0, playing = false, last = performance.now(), current = -1, subIdx = -1;
+  const fmt = (s) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}`;
+  function sceneAt(time) { let k = 0; TL.sceneAt.forEach((s, i) => { if (s != null && time >= s) k = i; }); return k; }
+  function show(k) {
+    if (k === current) return;
+    current = k;
+    formation = FORMATION[k];
+    scenes.forEach((s, i) => { if (i === k) { s.classList.remove('on'); void s.offsetWidth; s.classList.add('on'); } else s.classList.remove('on'); });
+    if (k === 2) tickUp();
+  }
+  function tickUp() {
+    for (const el of document.querySelectorAll('[data-tick]')) {
+      const to = Number(el.dataset.tick), t0 = performance.now();
+      const step = (now) => { const p = Math.min(1, (now - t0 - 1500) / 3500); el.textContent = Math.max(0, Math.round(to * p)); if (p < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    }
+  }
+  function emphasise(text) {
+    const out = document.createDocumentFragment();
+    const re = /(MiroFish|Ecosophia|Claude|OASIS|simulated|mirror)/g;
+    let i = 0, m;
+    while ((m = re.exec(text))) { out.append(text.slice(i, m.index)); const b = document.createElement('b'); b.textContent = m[0]; out.append(b); i = m.index + m[0].length; }
+    out.append(text.slice(i));
+    return out;
+  }
+  function render() {
+    show(sceneAt(t));
+    const k = lineAt(t);
+    if (k !== subIdx) { subIdx = k; sub.replaceChildren(emphasise(VOICE.lines[k])); }
+    fill.style.width = `${(t / TL.end) * 100}%`;
+    track.setAttribute('aria-valuenow', String(Math.floor(t)));
+    timeEl.textContent = `${fmt(t)} / ${fmt(TL.end)}`;
+    syncVoice();
+  }
+  function frame(now) {
+    const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    if (playing) { t = Math.min(TL.end, t + dt); render(); if (t >= TL.end) { playing = false; stopVoice(); stopPad(); playBtn.textContent = 'Play'; window.FILM_DONE = true; } }
+    swarmFrame(now / 1000, dt);
+    requestAnimationFrame(frame);
+  }
+  function play() { if (t >= TL.end - 0.05) seek(0); document.getElementById('start').hidden = true; playing = true; last = performance.now(); playBtn.textContent = 'Pause'; startPad(); }
+  function pause() { playing = false; stopVoice(); stopPad(); playBtn.textContent = 'Play'; }
+  function seek(s) { stopVoice(); t = Math.max(0, Math.min(TL.end - 0.01, s)); current = -1; render(); }
+  playBtn.addEventListener('click', () => (playing ? pause() : play()));
+  document.getElementById('restart').addEventListener('click', () => { seek(0); play(); });
+  document.getElementById('start').addEventListener('click', () => { soundOn = true; play(); });
+  document.getElementById('sound').addEventListener('click', (e) => { soundOn = !soundOn; e.currentTarget.textContent = soundOn ? 'Sound on' : 'Sound off'; e.currentTarget.setAttribute('aria-pressed', String(soundOn)); if (soundOn && playing) { startPad(); syncVoice(); } else { stopVoice(); stopPad(); } });
+  track.addEventListener('click', (e) => { const r = track.getBoundingClientRect(); seek(((e.clientX - r.left) / r.width) * TL.end); });
+  track.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') seek(t + 5); if (e.key === 'ArrowLeft') seek(t - 5); });
+  track.setAttribute('aria-valuemax', String(Math.round(TL.end)));
+  document.getElementById('legend').replaceChildren(...DATA.legend.map((l) => { const s = document.createElement('span'); const i = document.createElement('i'); i.style.background = l.color; s.append(i, `${l.name} ${l.score}`); return s; }));
+  render();
+  requestAnimationFrame(frame);
+  window.startFilm = () => { soundOn = false; play(); };
+</script>
