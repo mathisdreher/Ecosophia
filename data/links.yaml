@@ -851,3 +851,50 @@
     en: "Dobson separates ecologism from deep ecology's identification with nature and grounds it in politics."
     fr: "Dobson sépare l'écologisme de l'identification à la nature propre à l'écologie profonde et le fonde dans la politique."
   source: dobson-1990
+
+# --- Animal ethics ------------------------------------------------------------
+- from: jeremy-bentham
+  to: peter-singer
+  type: influenced
+  note:
+    en: "Singer builds Animal Liberation on Bentham's question: can they suffer?"
+    fr: "Singer bâtit La Libération animale sur la question de Bentham : peuvent-ils souffrir ?"
+  source: singer-1975
+- from: peter-singer
+  to: tom-regan
+  type: critiqued
+  note:
+    en: "Regan rejects the utilitarian basis of animal liberation: rights, not sums of interests."
+    fr: "Regan rejette le fondement utilitariste de la libération animale : des droits, non des sommes d'intérêts."
+  source: regan-1983
+- from: peter-singer
+  to: baird-callicott
+  type: critiqued
+  note:
+    en: "For Callicott, animal liberation and the land ethic form a triangular affair: the land ethic values wholes, not suffering individuals."
+    fr: "Pour Callicott, libération animale et éthique de la terre forment une affaire triangulaire : l'éthique de la terre valorise les ensembles, non les individus qui souffrent."
+  source: callicott-1989
+- from: tom-regan
+  to: will-kymlicka
+  type: influenced
+  status: to-verify
+  note:
+    en: "Zoopolis starts from animal rights theory and gives it a political form."
+    fr: "Zoopolis part de la théorie des droits des animaux et lui donne une forme politique."
+  source: kymlicka-2011
+- from: donna-haraway
+  to: vinciane-despret
+  type: dialogue
+  status: to-verify
+  note:
+    en: "Both ask how knowing animals is a relation in which both sides become."
+    fr: "Toutes deux demandent comment connaître les animaux est une relation où chacun devient."
+  source: despret-2012
+- from: peter-singer
+  to: elisabeth-de-fontenay
+  type: critiqued
+  status: to-verify
+  note:
+    en: "De Fontenay refuses to reduce the animal question to a utilitarian sum of suffering."
+    fr: "De Fontenay refuse de réduire la question animale à une somme utilitariste de souffrances."
+  source: fontenay-1998

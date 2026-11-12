@@ -88,4 +88,12 @@ if (fs.existsSync(path.join(SRC, 'icons/v4-1.svg'))) {
     write(`glyphs/branches/small/${id}.svg`, titled(cell('v4', small), id));
   }
 }
+// Fifth round: better emblems for the weaker schools, and animal ethics.
+// [branch, detailed cell or null to keep, small cell]
+if (fs.existsSync(path.join(SRC, 'icons/v5-1.svg'))) {
+  for (const [id, detailed, small] of [['counterpoint', 1, 5], ['political-ecology', 2, 6], ['decolonial', 3, 7], ['social-ecology', null, 8], ['ecosocialism', 9, 11], ['animal', 10, 12]]) {
+    if (detailed) write(`glyphs/branches/${id}.svg`, titled(cell('v5', detailed), id));
+    write(`glyphs/branches/small/${id}.svg`, titled(cell('v5', small), id));
+  }
+}
 console.log('brand installed');

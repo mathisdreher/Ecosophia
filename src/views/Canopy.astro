@@ -6,9 +6,9 @@
 import Base from '../layouts/Base.astro';
 import BranchChip from '../components/BranchChip.astro';
 import { useUi } from '../i18n/ui.mjs';
-import { href } from '../lib/site.mjs';
-import { L, citeHtml } from '../lib/text.mjs';
-import { loadCorpus, loadCanopy, CANOPY_AXES } from '../lib/corpus.mjs';
+import { href, withBase } from '../lib/site.mjs';
+import { L, citeHtml, citeText } from '../lib/text.mjs';
+import { loadCorpus, loadCanopy, CANOPY_AXES, portraitOf, lifespan } from '../lib/corpus.mjs';
 
 const { lang } = Astro.props;
 const { t, dict } = useUi(lang);
@@ -46,6 +46,11 @@ const points = [...byAuthor.entries()].map(([id, scores]) => {
     url: href(lang, 'author', id),
     scores: Object.fromEntries(CANOPY_AXES.map((axis) => [axis, scores[axis]?.score ?? null])),
     medians: branchMedian[b.id],
+    face: portraitOf(a).src ? withBase(portraitOf(a).src) : null,
+    dates: lifespan(a, lang),
+    readings: Object.fromEntries(
+      CANOPY_AXES.filter((axis) => scores[axis]).map((axis) => [axis, { note: L(scores[axis].note, lang), work: citeText(c.sources.get(scores[axis].source), lang, { withAuthor: false }) }]),
+    ),
   };
 });
 const branchesShown = c.branches.filter((b) => points.some((p) => p.branch === b.id));
@@ -80,6 +85,18 @@ const data = { points, axes: Object.fromEntries(CANOPY_AXES.map((id) => [id, { n
         </select>
       </label>
       <label>
+        <span class="label t-muted">{lang === 'fr' ? 'Mettre en avant' : 'Highlight'}</span>
+        <select data-focus-branch>
+          <option value="">{lang === 'fr' ? 'Toutes les écoles' : 'All schools'}</option>
+          {branchesShown.map((b) => <option value={b.id}>{L(b.name, lang)}</option>)}
+        </select>
+      </label>
+      <label>
+        <span class="label t-muted">{lang === 'fr' ? 'Trouver un auteur' : 'Find an author'}</span>
+        <input type="search" list="canopy-names" data-find placeholder={lang === 'fr' ? 'Nom…' : 'Name…'} />
+        <datalist id="canopy-names">{points.map((p) => <option value={p.name} />)}</datalist>
+      </label>
+      <label>
         <span class="label t-muted" data-third-label>{t('canopy.filter')}</span>
         <select data-filter>
           <option value="all">{t('canopy.filterAll')}</option>
@@ -97,8 +114,8 @@ const data = { points, axes: Object.fromEntries(CANOPY_AXES.map((id) => [id, { n
         <text class="end" x="70" y="504" text-anchor="start" data-x-low></text>
         <text class="end" x="650" y="504" text-anchor="end" data-x-high></text>
         <text class="axis-name" x="360" y="534" text-anchor="middle" data-x-name></text>
-        <text class="end" x="58" y="480" text-anchor="start" transform="rotate(-90 58 480)" data-y-low></text>
-        <text class="end" x="58" y="20" text-anchor="end" transform="rotate(-90 58 20)" data-y-high></text>
+<text class="end corner" x="78" y="472" text-anchor="start" data-y-low></text>
+        <text class="end corner" x="78" y="34" text-anchor="start" data-y-high></text>
         <text class="axis-name" x="28" y="250" text-anchor="middle" transform="rotate(-90 28 250)" data-y-name></text>
         <g data-points></g>
       </svg>
@@ -111,6 +128,17 @@ const data = { points, axes: Object.fromEntries(CANOPY_AXES.map((id) => [id, { n
           <li><span class="k hollow" aria-hidden="true"></span>{t('canopy.keyHollow')}</li>
         </ul>
         <p class="t-small" data-hover>{t('canopy.hoverHint')}</p>
+        <div class="card" data-card hidden>
+          <div class="card-head">
+            <img data-card-face alt="" width="72" height="72" />
+            <div>
+              <a class="card-name" data-card-link></a>
+              <span class="eco-meta" data-card-meta></span>
+            </div>
+          </div>
+          <dl data-card-readings></dl>
+          <a class="link t-small" data-card-open>{lang === 'fr' ? 'Ouvrir la fiche' : 'Open the leaf'}</a>
+        </div>
       </aside>
     </div>
 
@@ -180,6 +208,40 @@ const data = { points, axes: Object.fromEntries(CANOPY_AXES.map((id) => [id, { n
     const Y = (v: number) => 480 - (v / 100) * 460;
     const set = (sel: string, text: string) => (svg.querySelector(sel)!.textContent = text);
 
+    const focusSel = root.querySelector<HTMLSelectElement>('[data-focus-branch]')!;
+    const find = root.querySelector<HTMLInputElement>('[data-find]')!;
+    const card = root.querySelector<HTMLElement>('[data-card]')!;
+    let selected: string | null = null;
+    const show = (p: any) => {
+      selected = p.id;
+      const face = card.querySelector<HTMLImageElement>('[data-card-face]')!;
+      face.hidden = !p.face;
+      if (p.face) face.src = p.face;
+      face.style.borderColor = `var(--${p.token})`;
+      const link = card.querySelector<HTMLAnchorElement>('[data-card-link]')!;
+      link.textContent = p.name;
+      link.href = p.url;
+      card.querySelector<HTMLAnchorElement>('[data-card-open]')!.href = p.url;
+      card.querySelector('[data-card-meta]')!.textContent = [p.dates, p.branchName].filter(Boolean).join(' · ');
+      const dl = card.querySelector('[data-card-readings]')!;
+      dl.replaceChildren();
+      for (const axis of ['nature', 'change', 'power']) {
+        const r = p.readings[axis];
+        const dt = document.createElement('dt');
+        dt.textContent = `${data.axes[axis].name} · ${r ? p.scores[axis] : '–'}`;
+        const dd = document.createElement('dd');
+        dd.textContent = r ? `${r.note} ${r.work}` : (document.documentElement.lang === 'fr' ? 'Pas encore de lecture : placé à la médiane de la branche.' : 'No reading yet: shown at the median of the branch.');
+        dl.append(dt, dd);
+      }
+      card.hidden = false;
+      hover.hidden = true;
+      draw();
+    };
+    find.addEventListener('change', () => {
+      const p = data.points.find((x: any) => x.name.toLowerCase() === find.value.trim().toLowerCase());
+      if (p) show(p);
+    });
+    focusSel.addEventListener('change', () => draw());
     const draw = () => {
       if (xSel.value === ySel.value) {
         const other = ['nature', 'change', 'power'].find((a) => a !== xSel.value)!;
@@ -192,8 +254,8 @@ const data = { points, axes: Object.fromEntries(CANOPY_AXES.map((id) => [id, { n
       set('[data-x-low]', data.axes[xa].low);
       set('[data-x-high]', data.axes[xa].high);
       set('[data-x-name]', data.axes[xa].name);
-      set('[data-y-low]', data.axes[ya].low);
-      set('[data-y-high]', data.axes[ya].high);
+      set('[data-y-low]', `↓ ${data.axes[ya].low}`);
+      set('[data-y-high]', `↑ ${data.axes[ya].high}`);
       set('[data-y-name]', data.axes[ya].name);
       g.replaceChildren();
       // Every marker is placed first; labels then go where they hide neither a
@@ -243,6 +305,13 @@ const data = { points, axes: Object.fromEntries(CANOPY_AXES.map((id) => [id, { n
           boxes.push(bx);
           break;
         }
+        a.addEventListener('click', (ev) => {
+          if (ev.metaKey || ev.ctrlKey || ev.shiftKey) return;
+          ev.preventDefault();
+          show(p);
+        });
+        if (focusSel.value && p.branch !== focusSel.value) a.classList.add('faded');
+        if (selected === p.id) a.classList.add('selected');
         a.addEventListener('mouseenter', () => (hover.textContent = title.textContent));
         a.addEventListener('focus', () => (hover.textContent = title.textContent));
         a.addEventListener('mouseleave', () => (hover.textContent = hint));
@@ -299,6 +368,9 @@ const data = { points, axes: Object.fromEntries(CANOPY_AXES.map((id) => [id, { n
     font: 400 12px/1 var(--font-sans);
     fill: var(--ink-muted);
   }
+  .corner {
+    font-style: italic;
+  }
   .axis-name {
     font: 600 13px/1 var(--font-sans);
     fill: var(--ink);
@@ -327,6 +399,64 @@ const data = { points, axes: Object.fromEntries(CANOPY_AXES.map((id) => [id, { n
   .plot :global(.pt:hover circle),
   .plot :global(.pt:focus-visible circle) {
     stroke: var(--ink);
+  }
+  .plot :global(.pt.faded) {
+    opacity: 0.15;
+  }
+  .plot :global(.pt.selected circle) {
+    stroke: var(--ink);
+    stroke-width: 3;
+  }
+  .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    padding: var(--space-4);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--paper-raised);
+  }
+  .card[hidden] {
+    display: none;
+  }
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .card-head img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    object-position: 50% 30%;
+    border-radius: 0 18px 0 18px;
+    border: 2px solid var(--line);
+    flex: none;
+  }
+  .card-head > div {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-name {
+    font: 600 20px/24px var(--font-display);
+    color: var(--ink);
+  }
+  .card dl {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  .card :global(dt) {
+    font: 600 12px/16px var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    margin-top: var(--space-2);
+  }
+  .card :global(dd) {
+    margin: 0;
+    font: 400 14px/20px var(--font-sans);
   }
   .side {
     display: flex;

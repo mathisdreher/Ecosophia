@@ -439,3 +439,23 @@
   works:
     - {id: hubbert-1956, year: 1956, title: Nuclear Energy and the Fossil Fuels, kind: article}
 
+- id: jeremy-bentham
+  name: Jeremy Bentham
+  sort: Bentham
+  layer: root
+  root: political-economy
+  born: 1748
+  died: 1832
+  place: {city: {en: London, fr: Londres}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 51.51, lon: -0.13}
+  lede:
+    en: "English philosopher, founder of utilitarianism. A footnote of his Introduction to the Principles of Morals and Legislation sets the question every later animal ethics starts from: not whether animals can reason or talk, but whether they can suffer."
+    fr: "Philosophe anglais, fondateur de l'utilitarisme. Une note de son Introduction aux principes de morale et de législation pose la question dont part toute l'éthique animale ultérieure : non pas si les animaux peuvent raisonner ou parler, mais s'ils peuvent souffrir."
+  seeds:
+    - seed: can-they-suffer
+      text:
+        en: "The capacity to suffer, not reason or speech, is what gives a being a claim to moral consideration."
+        fr: "La capacité de souffrir, non la raison ni la parole, est ce qui donne à un être un droit à la considération morale."
+      source: bentham-1789
+  works:
+    - {id: bentham-1789, year: 1789, title: An Introduction to the Principles of Morals and Legislation}
+

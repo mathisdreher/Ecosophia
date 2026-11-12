@@ -3,13 +3,19 @@
 import Base from '../layouts/Base.astro';
 import AuthorChips from '../components/AuthorChips.astro';
 import { useUi } from '../i18n/ui.mjs';
-import { href } from '../lib/site.mjs';
-import { fold } from '../lib/text.mjs';
-import { loadCorpus, lifespan, placeLabel } from '../lib/corpus.mjs';
+import { href, withBase } from '../lib/site.mjs';
+import { fold, L } from '../lib/text.mjs';
+import { loadCorpus, lifespan, placeLabel, portraitOf } from '../lib/corpus.mjs';
 
 const { lang } = Astro.props;
 const { t } = useUi(lang);
 const c = loadCorpus();
+const groupOf = (a) => (a.layer === 'leaf' ? a.branch : a.layer === 'root' ? 'roots' : 'trunk');
+const filterGroups = [
+  { id: 'roots', label: t('common.precursors') },
+  { id: 'trunk', label: t('common.trunk') },
+  ...c.branches.map((b) => ({ id: b.id, label: L(b.name, lang) })),
+];
 const groups = new Map();
 for (const a of c.authorsByName) {
   const k = fold(a.sort)[0].toUpperCase();
@@ -29,34 +35,141 @@ for (const a of c.authorsByName) {
     <p class="t-lede">{t('authors.lede', { n: c.authors.length })}</p>
   </section>
   <section class="page-body">
+    <div class="tools" data-filter-root>
+      <label class="search-box">
+        <span class="label t-muted">{lang === 'fr' ? 'Chercher' : 'Find'}</span>
+        <input type="search" data-q placeholder={lang === 'fr' ? 'Nom, ville, pays…' : 'Name, city, country…'} />
+      </label>
+      <label>
+        <span class="label t-muted">{lang === 'fr' ? 'École' : 'School'}</span>
+        <select data-g>
+          <option value="">{lang === 'fr' ? 'Toutes' : 'All'}</option>
+          {filterGroups.map((g) => <option value={g.id}>{g.label}</option>)}
+        </select>
+      </label>
+      <span class="eco-meta count" data-count>{c.authors.length}</span>
+    </div>
     <div class="index">
       {
         [...groups].map(([letter, list]) => (
-          <section>
+          <section data-letter>
             <h2 class="t-heading">{letter}</h2>
-            <ul>
-              {list.map((a) => (
-                <li>
-                  <a class="strong-link" href={href(lang, 'author', a.id)}>{a.name}</a>
-                  <span class="eco-meta">{[lifespan(a, lang), placeLabel(a, lang)].filter(Boolean).join(' · ')}</span>
-                  <span class="eco-chips"><AuthorChips author={{ ...a, also: [] }} lang={lang} link={false} /></span>
-                </li>
-              ))}
+            <ul class="cards">
+              {list.map((a) => {
+                const face = portraitOf(a);
+                return (
+                  <li style={`--chip: var(--${a.token})`} data-group={groupOf(a)} data-text={fold(`${a.name} ${placeLabel(a, lang)}`).toLowerCase()}>
+                    <a class="card" href={href(lang, 'author', a.id)}>
+                      {face.src && <img class="face" src={withBase(face.src)} alt="" width="64" height="64" loading="lazy" />}
+                      <span class="txt">
+                        <span class="name">{a.name}</span>
+                        <span class="eco-meta">{[lifespan(a, lang), placeLabel(a, lang)].filter(Boolean).join(' · ')}</span>
+                      </span>
+                    </a>
+                    <span class="eco-chips"><AuthorChips author={{ ...a, also: [] }} lang={lang} link={false} /></span>
+                  </li>
+                );
+              })}
             </ul>
           </section>
         ))
       }
     </div>
+    <p class="t-small t-muted empty" data-empty hidden>{lang === 'fr' ? 'Aucune feuille ne correspond.' : 'No leaf matches.'}</p>
   </section>
 </Base>
 
+<script>
+  const root = document.querySelector<HTMLElement>('[data-filter-root]');
+  if (root) {
+    const q = root.querySelector<HTMLInputElement>('[data-q]')!;
+    const g = root.querySelector<HTMLSelectElement>('[data-g]')!;
+    const count = root.querySelector<HTMLElement>('[data-count]')!;
+    const items = [...document.querySelectorAll<HTMLElement>('.cards li')];
+    const letters = [...document.querySelectorAll<HTMLElement>('[data-letter]')];
+    const empty = document.querySelector<HTMLElement>('[data-empty]')!;
+    const fold = (s: string) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+    const apply = () => {
+      const term = fold(q.value.trim());
+      let n = 0;
+      for (const li of items) {
+        const ok = (!term || li.dataset.text!.includes(term)) && (!g.value || li.dataset.group === g.value);
+        li.hidden = !ok;
+        if (ok) n += 1;
+      }
+      for (const s of letters) s.hidden = !s.querySelector('li:not([hidden])');
+      count.textContent = String(n);
+      empty.hidden = n > 0;
+    };
+    q.addEventListener('input', apply);
+    g.addEventListener('change', apply);
+  }
+</script>
+
 <style>
-  .index {
-    columns: 3 340px;
-    column-gap: var(--space-12);
+  .tools {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: var(--space-4) var(--space-8);
+    margin-bottom: var(--space-8);
+  }
+  .tools label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+  .tools input,
+  .tools select {
+    min-height: 40px;
+    padding: 0 var(--space-3);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    background: var(--paper-raised);
+    color: var(--ink);
+    font: 400 15px/1 var(--font-sans);
+  }
+  .tools input {
+    width: min(320px, 80vw);
+  }
+  .count {
+    padding-bottom: 10px;
+  }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+    gap: var(--space-3) var(--space-6);
+  }
+  .card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: inherit;
+    text-decoration: none;
+  }
+  .card:hover .name {
+    color: var(--chip);
+    text-decoration: underline;
+  }
+  .face {
+    width: 64px;
+    height: 64px;
+    flex: none;
+    object-fit: cover;
+    object-position: 50% 30%;
+    border-radius: 0 16px 0 16px;
+    border: 2px solid var(--chip);
+    background: var(--paper);
+  }
+  .txt {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .name {
+    font: 600 18px/22px var(--font-display);
   }
   section {
-    break-inside: avoid;
     padding-bottom: var(--space-6);
   }
   h2 {
@@ -73,8 +186,12 @@ for (const a of c.authorsByName) {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 4px;
+    gap: var(--space-2);
     padding: var(--space-3) 0;
     border-bottom: 1px solid var(--line);
+  }
+  li[hidden],
+  section[hidden] {
+    display: none;
   }
 </style>

@@ -1,20 +1,28 @@
 ---
 // AuthorLeaf: the author card. Leaf cut on two corners, a branch line on top,
-// up to three seeds, the primary chip and any secondary chips. No portrait.
+// up to three seeds, the primary chip and any secondary chips, and the
+// generated pencil portrait (or the leaf placeholder).
 import AuthorChips from './AuthorChips.astro';
 import { L } from '../lib/text.mjs';
 import { href } from '../lib/site.mjs';
-import { lifespan, placeLabel, loadCorpus } from '../lib/corpus.mjs';
+import { withBase } from '../lib/site.mjs';
+import { lifespan, placeLabel, loadCorpus, portraitOf } from '../lib/corpus.mjs';
 
 const { author, lang, heading = 'h3' } = Astro.props;
 const c = loadCorpus();
 const H = heading;
+const face = portraitOf(author);
 const meta = [lifespan(author, lang), placeLabel(author, lang)].filter(Boolean).join(' · ');
 ---
 
 <article class="eco-leaf" style={`--chip: var(--${author.token})`}>
-  <H class="leaf-name"><a href={href(lang, 'author', author.id)}>{author.name}</a></H>
-  {meta && <div class="eco-meta">{meta}</div>}
+  <div class="leaf-head">
+    {face.src && <img class="face" src={withBase(face.src)} alt="" width="76" height="76" loading="lazy" />}
+    <div>
+      <H class="leaf-name"><a href={href(lang, 'author', author.id)}>{author.name}</a></H>
+      {meta && <div class="eco-meta">{meta}</div>}
+    </div>
+  </div>
   {
     author.seeds.length > 0 && (
       <ul>
@@ -30,6 +38,21 @@ const meta = [lifespan(author, lang), placeLabel(author, lang)].filter(Boolean).
 </article>
 
 <style>
+  .leaf-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  .face {
+    width: 76px;
+    height: 76px;
+    flex: none;
+    object-fit: cover;
+    object-position: 50% 30%;
+    border-radius: 0 20px 0 20px;
+    border: 2px solid var(--chip);
+    background: var(--paper);
+  }
   .leaf-name {
     font: 600 24px/30px var(--font-display);
     letter-spacing: -0.01em;
