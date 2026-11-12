@@ -1,0 +1,358 @@
+# Clearing run clr-0003. Simulated: nothing below is a statement by any author named.
+# Written by clearing/run.mjs. The transcript and the prompts are in the file next to this one.
+id: clr-0003
+runId: clr-0003
+status: draft
+date: 2026-11-12
+claim:
+  en: Economic growth can be decoupled from environmental damage fast enough to stay within planetary boundaries.
+  fr: La croissance économique peut être découplée des dégâts environnementaux assez vite pour rester dans les limites planétaires.
+question:
+  id: croissance-verte
+  kind: axiom
+  measures: []
+summary:
+  en: The division ran between three Counterpoint agents, who endorsed the claim if societies build nuclear power, dense cities and intensive farming, and twenty-three others, mostly opposed over displaced damage or boundaries beyond carbon. Unexpectedly, the Lovelock agent agreed with them on nuclear power but wanted it for a planned retreat, not growth.
+  fr: La ligne passait entre trois agents de la branche Contrepoint, favorables à condition de bâtir nucléaire, villes denses et agriculture intensive, et vingt-trois autres, opposés pour la plupart au nom des dégâts déplacés ou des autres limites planétaires. Fait inattendu, l'agent Lovelock partageait leur nucléaire, mais pour une retraite planifiée, non pour la croissance.
+engine:
+  name: MiroFish
+  commit: 7657031ac01184afe2cb220f5ee3545573b5e843
+  platform: reddit
+  packages:
+    - camel-oasis==0.2.5
+    - camel-ai==0.2.78
+model:
+  requested: claude-opus-5-5
+  served:
+    - claude-opus-5-5
+  effort: medium
+settings:
+  rounds: 2
+  agents: 26
+  selection: auto
+  budgetUsd: 3
+  estimateUsd: 1.99
+plan:
+  model: claude-opus-5-5
+  note: The panel sets the three ecomodernist advocates of decoupling against empirical critics, biophysical critics and critics from the Global South, with the planetary boundaries author as the reference point. Two rounds let agents answer each other on evidence, rebound effects and extraction while keeping cost near 2 USD.
+  rounds: 2
+  ranked: 26
+  trimmed: false
+  reasons:
+    jason-hickel: Has published empirical work arguing that absolute decoupling in rich countries is far too slow to meet climate and material targets.
+    ted-nordhaus: Breakthrough Institute co-founder whose work on decoupling makes him the strongest advocate for the claim.
+    johan-rockstrom: Led the definition of planetary boundaries, the yardstick the claim is measured against.
+    giorgos-kallis: Ecological economist who argues that green growth is improbable and that rebound effects undermine efficiency gains.
+    michael-shellenberger: Ecomodernist who argues that nuclear power and intensification can decouple prosperity from environmental impact.
+    kate-raworth: Doughnut economics frames the question as staying under an ecological ceiling and is agnostic about growth.
+    jean-baptiste-fressoz: Historian showing that energy sources have historically added up rather than replaced each other, which challenges the idea of a fast transition.
+    nicholas-georgescu-roegen: His entropy law sets physical limits on any material economy, whatever its efficiency.
+    kohei-saito: Degrowth communism explicitly rejects green growth and green Keynesianism as illusions.
+    stewart-brand: Ecopragmatist who supports nuclear power, cities and genetic engineering as routes to lower impact.
+    andreas-malm: Fossil Capital links the growth dynamics of capital to fossil fuel dependence.
+    joan-martinez-alier: Ecological economist who documents rising material throughput and the distribution conflicts that come with it.
+    eduardo-gudynas: Analyses the extractivism that the minerals of a decoupled economy would require.
+    jacques-ellul: His idea of the technological bluff questions faith in technical fixes.
+    yayo-herrero: Ecofeminist economics stresses biophysical limits and the dependence of the economy on care work.
+    murray-bookchin: Social ecology holds that a grow-or-die market economy cannot be ecological.
+    arne-naess: His distinction between shallow and deep ecology targets technical reform without changes in values.
+    edward-o-wilson: Biologist who brings the biodiversity boundary into the debate through Half-Earth.
+    timothy-morton: Hyperobjects framing questions whether measurable boundaries and managerial fixes can contain the problem.
+    john-bellamy-foster: Metabolic rift theory and his writing on the Jevons paradox both argue against decoupling under capitalism.
+    james-lovelock: Gaia scientist who backed nuclear power yet argued for a sustainable retreat.
+    robyn-eckersley: Studies whether a green state could steer growth within ecological limits.
+    andre-gorz: Early theorist of sufficiency who argued that ecological limits make growth-led capitalism unsustainable.
+    pierre-charbonnier: Links modern freedoms to material abundance, which bears on the political stakes of decoupling.
+    maria-mies: Her subsistence perspective rejects growth as the measure of welfare.
+    maristella-svampa: Her commodities consensus shows how green transitions can deepen raw material exports in the Global South.
+counts:
+  turns: 52
+  comments: 60
+  reactions: 65
+  interviews: 26
+  declined: 0
+  failed: 0
+  tokensIn: 651005
+  tokensOut: 34836
+  costUsd: 2.28
+positions:
+  - branch: technocritique
+    score: 8
+    min: 8
+    max: 8
+    agents: 2
+  - branch: degrowth
+    score: 8
+    min: 5
+    max: 25
+    agents: 4
+  - branch: social-ecology
+    score: 8
+    min: 8
+    max: 8
+    agents: 1
+  - branch: ecosocialism
+    score: 8
+    min: 6
+    max: 10
+    agents: 3
+  - branch: deep-ecology
+    score: 45
+    min: 45
+    max: 45
+    agents: 1
+  - branch: ecosophy
+    score: 12
+    min: 12
+    max: 12
+    agents: 1
+  - branch: anthropocene
+    score: 19
+    min: 8
+    max: 30
+    agents: 4
+  - branch: political-ecology
+    score: 17
+    min: 8
+    max: 25
+    agents: 2
+  - branch: decolonial
+    score: 8
+    min: 8
+    max: 8
+    agents: 2
+  - branch: ecofeminism
+    score: 8
+    min: 8
+    max: 8
+    agents: 2
+  - branch: queer-ecology
+    score: 15
+    min: 15
+    max: 15
+    agents: 1
+  - branch: counterpoint
+    score: 75
+    min: 70
+    max: 80
+    agents: 3
+alliances:
+  - title:
+      en: For, through dense energy
+      fr: Pour, par l'énergie dense
+    text:
+      en: Decoupling is achievable if it is built on purpose with nuclear power, dense cities and intensive farming. These agents treated a politics of limits as a losing politics.
+      fr: Le découplage est possible s'il est bâti délibérément par le nucléaire, les villes denses et l'agriculture intensive. Ces agents jugent perdante toute politique des limites.
+    authors:
+      - ted-nordhaus
+      - michael-shellenberger
+      - stewart-brand
+  - title:
+      en: Unproven against every boundary
+      fr: Non démontré sur toutes les limites
+    text:
+      en: Decoupling counts only if absolute pressures fall inside every boundary before thresholds or habitat loss prevail. The Raworth agent left the firm refusal of Degrowth for this test.
+      fr: Le découplage ne vaut que si toutes les pressions repassent sous chaque limite avant les seuils de bascule ou la perte d'habitats. L'agent Raworth quitte ici le refus net de la Décroissance.
+    authors:
+      - johan-rockstrom
+      - kate-raworth
+      - edward-o-wilson
+      - james-lovelock
+  - title:
+      en: Against, on evidence and physics
+      fr: Contre, au nom des faits et de la physique
+    text:
+      en: Absolute decoupling has never come fast enough, energy sources have piled up rather than replaced one another, and entropy makes growing throughput unavoidable. The Fressoz agent, from Anthropocene, stood here.
+      fr: Le découplage absolu n'a jamais été assez rapide, les énergies se sont empilées sans se remplacer et l'entropie rend la hausse des flux inévitable. L'agent Fressoz, issu de la branche Anthropocène, se range ici.
+    authors:
+      - jason-hickel
+      - giorgos-kallis
+      - nicholas-georgescu-roegen
+      - jean-baptiste-fressoz
+  - title:
+      en: Against, as damage moved elsewhere
+      fr: Contre, des dégâts déplacés
+    text:
+      en: Northern decoupling hides extraction shifted to Southern frontiers and the unpaid work of women and peasants that growth treats as free.
+      fr: Le découplage du Nord masque l'extraction reportée sur les frontières du Sud et le travail non rémunéré des femmes et des paysans, que la croissance tient pour gratuit.
+    authors:
+      - joan-martinez-alier
+      - eduardo-gudynas
+      - maristella-svampa
+      - maria-mies
+      - yayo-herrero
+  - title:
+      en: Against, the question is misframed
+      fr: Contre, une question mal posée
+    text:
+      en: Decoupling treats as technical a problem rooted in capital, technique, power or worldview. Within this group the Malm agent clashed with the Morton agent, and the Eckersley and Næss agents with the Bookchin agent.
+      fr: Le découplage traite comme technique un problème qui tient au capital, à la technique, au pouvoir ou à la vision du monde. Dans ce groupe, l'agent Malm s'opposait à l'agent Morton, et les agents Eckersley et Næss à l'agent Bookchin.
+    authors:
+      - kohei-saito
+      - andreas-malm
+      - john-bellamy-foster
+      - murray-bookchin
+      - andre-gorz
+      - jacques-ellul
+      - pierre-charbonnier
+      - robyn-eckersley
+      - arne-naess
+      - timothy-morton
+voices:
+  - author: nicholas-georgescu-roegen
+    position: 5
+    work: georgescu-roegen-1971
+    text:
+      en: The claim fails on physical grounds. Production degrades low-entropy matter and energy into waste that cannot be restored. Efficiency and clean energy only slow the rate, and a growing economy needs growing throughput, so no form of growth can last indefinitely.
+      fr: La thèse échoue pour des raisons physiques. La production dégrade la matière et l'énergie de basse entropie en déchets qu'on ne peut restaurer. L'efficacité et l'énergie propre ne font que ralentir ce rythme, et une économie en croissance exige des flux croissants, si bien qu'aucune forme de croissance ne peut durer indéfiniment.
+  - author: kohei-saito
+    position: 6
+    work: saito-2022
+    text:
+      en: Capital's drive to expand value without limit widens the metabolic rift, and efficiency gains are reinvested into more throughput. Fast absolute decoupling has not happened. Abundance has to come from the commons and free time through degrowth communism.
+      fr: La pulsion du capital à valoriser sans limite élargit la rupture métabolique, et les gains d'efficacité sont réinvestis dans davantage de flux. Aucun découplage absolu rapide ne s'est produit. L'abondance doit venir des communs et du temps libre, par le communisme décroissant.
+  - author: jason-hickel
+    position: 8
+    work: hickel-2020b
+    text:
+      en: Absolute decoupling of resource use and emissions has not happened at the speed or scale needed. Where it has occurred, it is too slow to stay within fair carbon budgets. High-income nations should plan to reduce their energy and material throughput rather than count on green growth.
+      fr: Le découplage absolu de l'usage des ressources et des émissions ne s'est pas produit au rythme ni à l'échelle nécessaires. Là où il a eu lieu, il est trop lent pour respecter des budgets carbone équitables. Les pays riches devraient planifier la réduction de leurs flux d'énergie et de matière plutôt que de miser sur la croissance verte.
+  - author: giorgos-kallis
+    position: 8
+    work: kallis-2018
+    text:
+      en: Evidence shows no absolute decoupling of resource use and emissions at the speed and scale needed, so green growth is a risky bet. Rich economies should instead pursue an equitable downscaling of production and consumption, with limits chosen collectively rather than imposed by scarcity.
+      fr: Les données ne montrent aucun découplage absolu de l'usage des ressources et des émissions au rythme et à l'échelle nécessaires, si bien que la croissance verte est un pari risqué. Les économies riches devraient plutôt viser une réduction équitable de la production et de la consommation, avec des limites choisies collectivement plutôt qu'imposées par la pénurie.
+  - author: jean-baptiste-fressoz
+    position: 8
+    work: fressoz-2024
+    text:
+      en: Decoupling assumes that new energies replace old ones, but the history of energy shows that sources pile up. Coal, oil and wood grew together, each feeding the others. Betting planetary limits on a substitution that has never happened goes against the historical record.
+      fr: Le découplage suppose que les énergies nouvelles remplacent les anciennes, or l'histoire de l'énergie montre qu'elles s'empilent. Le charbon, le pétrole et le bois ont crû ensemble, chacun nourrissant les autres. Parier les limites planétaires sur une substitution qui n'a jamais eu lieu va contre les faits historiques.
+  - author: joan-martinez-alier
+    position: 8
+    work: martinez-alier-2002
+    text:
+      en: Social metabolism keeps growing. Apparent decoupling in rich countries moves extraction and pollution onto southern commodity frontiers, and the ecological distribution conflicts there keep multiplying. Growth fast enough to stay within planetary boundaries has not been observed.
+      fr: Le métabolisme social continue de croître. Le découplage apparent des pays riches reporte l'extraction et la pollution sur les frontières des matières premières du Sud, où les conflits écologico-distributifs ne cessent de se multiplier. Une croissance assez rapide pour rester dans les limites planétaires n'a pas été observée.
+  - author: eduardo-gudynas
+    position: 8
+    work: gudynas-2015
+    text:
+      en: Northern decoupling hides damage moved to Southern mines, oil fields and soy frontiers. Economies that export raw materials in great volume stay tied to the land whoever spends the rent, so the planet as a whole is not decoupling.
+      fr: Le découplage du Nord cache des dégâts déplacés vers les mines, les champs pétroliers et les fronts du soja du Sud. Les économies qui exportent des matières premières en grand volume restent liées au territoire, quel que soit celui qui dépense la rente, si bien que la planète dans son ensemble ne se découple pas.
+  - author: jacques-ellul
+    position: 8
+    work: ellul-1988
+    text:
+      en: Decoupling is a technical promise that announces its benefits and stays silent about the problems it will create. Efficiency feeds a technological system that grows by its own logic, and no one steers it toward a limit.
+      fr: Le découplage est une promesse technique qui annonce ses bienfaits et tait les problèmes qu'elle créera. L'efficacité alimente un système technicien qui croît selon sa propre logique, et personne ne l'oriente vers une limite.
+  - author: yayo-herrero
+    position: 8
+    work: herrero-2021
+    text:
+      en: "Decoupling is not credible because growth accounting leaves out its own foundations: the ecosystems it draws down and the unpaid care work, mostly done by women, that keeps people alive. The task is to put sustaining life at the centre of the economy."
+      fr: Le découplage n'est pas crédible, car la comptabilité de la croissance laisse de côté ses propres fondements, à savoir les écosystèmes qu'elle épuise et le travail de soin gratuit, accompli surtout par des femmes, qui maintient les gens en vie. Il s'agit de placer la préservation de la vie au centre de l'économie.
+  - author: murray-bookchin
+    position: 8
+    work: bookchin-1982
+    text:
+      en: A grow-or-die market economy cannot respect limits for long, so decoupling fails as a technical fix. The ecological crisis comes from hierarchy and competition. Only directly democratic municipalities that decide what to produce and why can bring the economy back into balance with nature.
+      fr: Une économie de marché soumise à l'alternative croître ou mourir ne peut respecter longtemps des limites, et le découplage échoue donc comme solution technique. La crise écologique vient de la hiérarchie et de la concurrence. Seules des municipalités en démocratie directe, décidant quoi produire et pourquoi, peuvent ramener l'économie en équilibre avec la nature.
+  - author: john-bellamy-foster
+    position: 8
+    work: foster-2010
+    text:
+      en: Decoupling mistakes a social rupture for a technical ratio. Capital accumulation widens the metabolic rift between society and the earth, and efficiency gains under a growth imperative expand throughput. Staying within planetary boundaries requires transforming social relations of production.
+      fr: Le découplage prend une rupture sociale pour un ratio technique. L'accumulation du capital élargit la rupture métabolique entre la société et la terre, et sous l'impératif de croissance les gains d'efficacité accroissent les flux. Rester dans les limites planétaires exige de transformer les rapports sociaux de production.
+  - author: andre-gorz
+    position: 8
+    work: gorz-1975
+    text:
+      en: Decoupling, even if possible, leaves untouched who decides what is produced and why. Growth serves capital's valorisation and is steered by experts. The answer is sufficiency, a common norm of enough set by those concerned, together with tools people can understand and control.
+      fr: Le découplage, même s'il était possible, laisse intacte la question de savoir qui décide quoi produire et pourquoi. La croissance sert la valorisation du capital et elle est pilotée par des experts. La réponse est la suffisance, une norme commune du suffisant fixée par les intéressés, avec des outils que chacun peut comprendre et maîtriser.
+  - author: maria-mies
+    position: 8
+    work: mies-1986
+    text:
+      en: Opposed. Growth rests on unpaid work by women, peasants and colonies, which it treats as free like air and water. What looks like decoupling in Northern statistics moves the damage onto them. The alternative is an economy built around producing life.
+      fr: Contre. La croissance repose sur le travail non rémunéré des femmes, des paysans et des colonies, qu'elle tient pour gratuit comme l'air et l'eau. Ce qui ressemble à un découplage dans les statistiques du Nord reporte les dégâts sur eux. L'alternative est une économie organisée autour de la production de la vie.
+  - author: maristella-svampa
+    position: 8
+    work: svampa-2013
+    text:
+      en: Decoupling measured in importing economies hides displaced extraction. Under the commodities consensus, governments of left and right expanded mining, soy and oil exports, so Northern efficiency depends on Southern frontiers. Growth stays coupled to territories, not decoupled from damage.
+      fr: Le découplage mesuré dans les économies importatrices cache une extraction déplacée. Sous le consensus des commodities, des gouvernements de gauche comme de droite ont développé les exportations minières, de soja et de pétrole, si bien que l'efficacité du Nord dépend des frontières du Sud. La croissance reste couplée aux territoires, non découplée des dégâts.
+  - author: andreas-malm
+    position: 10
+    work: malm-2016
+    text:
+      en: Emissions grow out of fossil capital, which a class of owners chose in order to control labour. Market efficiency will not decouple growth from warming fast enough. Only a political fight that forces fossil assets to be retired could cut emissions at the speed required.
+      fr: Les émissions naissent du capital fossile, qu'une classe de propriétaires a choisi pour contrôler le travail. L'efficacité marchande ne découplera pas la croissance du réchauffement assez vite. Seule une lutte politique qui impose le retrait des actifs fossiles pourrait réduire les émissions au rythme requis.
+  - author: arne-naess
+    position: 12
+    work: naess-1973
+    text:
+      en: Decoupling is shallow ecology. It asks how to pollute less per unit of output and never asks why rich societies need ever more output. Staying within limits takes a life rich in ends and simple in means, and room for other beings to unfold.
+      fr: Le découplage relève de l'écologie superficielle. Il demande comment polluer moins par unité produite, sans jamais demander pourquoi les sociétés riches ont besoin de produire toujours plus. Rester dans les limites exige une vie riche par ses fins et simple par ses moyens, et de la place pour que les autres êtres s'épanouissent.
+  - author: timothy-morton
+    position: 15
+    work: morton-2013
+    text:
+      en: Decoupling pictures the economy here and Nature over there, as if they could be pulled apart. Global warming is a hyperobject that everything already sits inside, economies included. Nothing exists outside it to decouple into, so the claim depends on a picture ecological thought has to give up.
+      fr: Le découplage imagine l'économie ici et la Nature là-bas, comme si l'on pouvait les séparer. Le réchauffement climatique est un hyperobjet dans lequel tout se trouve déjà, économies comprises. Il n'existe aucun dehors vers lequel se découpler, et la thèse repose donc sur une image que la pensée écologique doit abandonner.
+  - author: james-lovelock
+    position: 15
+    work: lovelock-2006
+    text:
+      en: Decoupling comes too late. Earth is one self-regulating system with nonlinear feedbacks, and the total load on it keeps rising. It may jump to a hotter state whatever national accounts show. The task is a planned retreat powered by nuclear energy, not more growth.
+      fr: Le découplage arrive trop tard. La Terre est un seul système autorégulé aux rétroactions non linéaires, et la charge totale qui pèse sur elle ne cesse d'augmenter. Elle peut basculer vers un état plus chaud quoi que disent les comptes nationaux. Il faut une retraite planifiée, alimentée par le nucléaire, et non davantage de croissance.
+  - author: pierre-charbonnier
+    position: 22
+    work: charbonnier-2020
+    text:
+      en: "Decoupling is doubtful because it keeps the modern bargain that tied freedom to abundant land, colonies and fossil energy. Clean energy put in place of coal leaves that dependence unexamined. The decisive task is political: finding a freedom that does not rest on material expansion."
+      fr: Le découplage est douteux, car il reconduit le pacte moderne qui liait la liberté à l'abondance des terres, aux colonies et à l'énergie fossile. Remplacer le charbon par une énergie propre laisse cette dépendance intacte. La tâche décisive est politique, trouver une liberté qui ne repose pas sur l'expansion matérielle.
+  - author: kate-raworth
+    position: 25
+    work: raworth-2017
+    text:
+      en: Several planetary boundaries are already overshot, so decoupling would have to be absolute, cover all boundaries and happen fast, and that has not been shown. Rich economies should be designed to thrive whether or not they grow, so the goal does not depend on decoupling.
+      fr: Plusieurs limites planétaires sont déjà dépassées, donc le découplage devrait être absolu, couvrir toutes les limites et se faire vite, ce qui n'a pas été démontré. Les économies riches doivent être conçues pour prospérer qu'elles croissent ou non, afin que l'objectif ne dépende pas du découplage.
+  - author: robyn-eckersley
+    position: 25
+    work: eckersley-2004
+    text:
+      en: Decoupling fast enough is doubtful, and markets will not deliver it on their own. Ecological limits can only be set and enforced by a transformed state, one answerable to everyone its decisions affect, including people not yet born and other species.
+      fr: Un découplage assez rapide est douteux, et les marchés ne le produiront pas d'eux-mêmes. Les limites écologiques ne peuvent être fixées et imposées que par un État transformé, responsable devant tous ceux que ses décisions affectent, y compris les générations à naître et les autres espèces.
+  - author: johan-rockstrom
+    position: 30
+    work: rockstrom-2009
+    text:
+      en: Decoupling counts only if absolute pressures fall back inside all nine boundaries together, several of them already transgressed, before nonlinear thresholds are crossed. Carbon-only gains or shifting pressure between Earth processes do not pass that test, so the claim remains unproven and doubtful.
+      fr: Le découplage ne compte que si les pressions absolues repassent sous les neuf limites à la fois, dont plusieurs déjà franchies, avant que des seuils non linéaires ne soient atteints. Des gains limités au carbone, ou une pression déplacée d'un processus terrestre à l'autre, ne passent pas ce test, si bien que la thèse reste non démontrée et douteuse.
+  - author: edward-o-wilson
+    position: 45
+    work: wilson-2016
+    text:
+      en: Growth is not the enemy in itself. Decoupling counts only if it stops habitat loss, the main driver of extinction. Carbon cuts and land sparing are not enough on their own. Half of the land and sea must be formally set aside for the rest of life.
+      fr: La croissance n'est pas l'ennemie en soi. Le découplage ne compte que s'il arrête la perte d'habitats, principale cause d'extinction. Réduire le carbone et épargner des terres ne suffit pas à lui seul. La moitié des terres et des mers doit être formellement réservée au reste du vivant.
+  - author: stewart-brand
+    position: 70
+    work: brand-2009
+    text:
+      en: Decoupling is possible if environmentalists accept dense cities, nuclear power, genetic engineering and, if needed, geoengineering. Each technology should be judged by its measured climate effects. Rejecting these tools on principle is what makes decoupling too slow.
+      fr: Le découplage est possible si les écologistes acceptent les villes denses, le nucléaire, le génie génétique et, au besoin, la géo-ingénierie. Chaque technologie doit être jugée sur ses effets mesurés sur le climat. C'est le refus de principe de ces outils qui rend le découplage trop lent.
+  - author: ted-nordhaus
+    position: 75
+    work: nordhaus-2015
+    text:
+      en: Decoupling is achievable but only if it is built on purpose. Denser cities, intensive farming and nuclear and other clean energy let human welfare use less land and leave more to nature. A politics of prosperity and investment, not limits, is what makes it fast.
+      fr: Le découplage est possible, mais seulement s'il est construit délibérément. Des villes plus denses, une agriculture intensive, le nucléaire et d'autres énergies propres permettent au bien-être humain d'occuper moins de terres et d'en laisser davantage à la nature. C'est une politique de prospérité et d'investissement, non de limites, qui le rend rapide.
+  - author: michael-shellenberger
+    position: 80
+    work: shellenberger-2020
+    text:
+      en: Decoupling is achievable when societies choose dense energy, especially nuclear, along with intensive farming and urbanization. National transitions such as France's show that substitution is possible. Degrowth would hurt the poor most, so prosperity through technology, not restraint, protects nature.
+      fr: Le découplage est possible quand les sociétés choisissent une énergie dense, en particulier le nucléaire, avec l'agriculture intensive et l'urbanisation. Des transitions nationales comme celle de la France montrent que la substitution est possible. La décroissance frapperait d'abord les pauvres, et c'est donc la prospérité par la technique, non la sobriété, qui protège la nature.
+silent: []
