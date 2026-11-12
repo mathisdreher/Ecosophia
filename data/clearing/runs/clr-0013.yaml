@@ -1,0 +1,367 @@
+# Clearing run clr-0013. Simulated: nothing below is a statement by any author named.
+# Written by clearing/run.mjs. The transcript and the prompts are in the file next to this one.
+id: clr-0013
+runId: clr-0013
+status: draft
+date: 2026-11-12
+claim:
+  en: Factory farming should be abolished.
+  fr: L'élevage industriel devrait être aboli.
+question:
+  id: elevage-industriel
+  kind: axiom
+  measures: []
+summary:
+  en: Twenty-three of twenty-four agents endorsed abolition, and the only opponent, the Nordhaus agent, drew dislikes from nearly every branch for its land-sparing case. The real fault line ran among supporters over meat itself, and the Plumwood agent of Ecofeminism parted with the Adams agent, refusing a universal ban that places humans outside the food chain.
+  fr: "Vingt-trois agents sur vingt-quatre soutiennent l'abolition; le seul opposant, l'agent Nordhaus, est désavoué par presque toutes les branches pour sa défense de l'intensification. Le vrai clivage passe entre partisans, sur la viande elle-même : l'agent Plumwood, de l'Écoféminisme, rompt avec l'agent Adams et refuse une interdiction qui placerait l'humain hors de la chaîne alimentaire."
+engine:
+  name: MiroFish
+  commit: 7657031ac01184afe2cb220f5ee3545573b5e843
+  platform: reddit
+  packages:
+    - camel-oasis==0.2.5
+    - camel-ai==0.2.78
+model:
+  requested: claude-opus-5-5
+  served:
+    - claude-opus-5-5
+  effort: medium
+settings:
+  rounds: 2
+  agents: 24
+  selection: auto
+  budgetUsd: 3
+  estimateUsd: 1.81
+plan:
+  model: claude-opus-5-5
+  note: All seventeen branches have one agent among the first seventeen, chosen for direct relevance to animal agriculture. The added agents widen the split between abolition, reform and defence of husbandry. Two rounds let abolitionists, agrarians and ecomodernists answer each other while keeping the cost near 1.8 USD.
+  rounds: 2
+  ranked: 24
+  trimmed: false
+  reasons:
+    peter-singer: Animal Liberation made the suffering in intensive animal farming a central case against speciesism.
+    roger-scruton: Defended humane traditional husbandry and meat eating while condemning factory farms, so he separates reform from abolition of animal use.
+    wendell-berry: Agrarian critic of industrial agriculture who still defends mixed farms with livestock.
+    luc-ferry: Humanist critic of animal rights and deep ecology, likely to resist the moral framing of the claim.
+    ted-nordhaus: Ecomodernist case for agricultural intensification and land sparing challenges the push to abolish intensive systems.
+    donna-haraway: Companion species thinking criticises industrial animal production but rejects simple abolitionist positions.
+    val-plumwood: Opposed factory farming yet criticised ontological veganism, offering an ecofeminist middle position.
+    baird-callicott: His triangular affair essay set the land ethic against animal liberation on farming and domestic animals.
+    john-bellamy-foster: Metabolic rift theory explains concentrated feedlots as a capitalist break in nutrient cycles.
+    murray-bookchin: Social ecology links the domination of nature, including agribusiness, to social hierarchy.
+    jason-hickel: Degrowth economist who points to industrial beef and feed crops as a major ecological overshoot to scale down.
+    joan-martinez-alier: Studies distribution conflicts over feed soy, plantations and waste that come from livestock chains.
+    ramachandra-guha: Decolonial critic of Western environmentalism who defends pastoralists and ecosystem people.
+    arne-naess: Deep ecology platform about reducing human interference and respecting the flourishing of other beings.
+    andrew-dobson: Ecological citizenship asks what duties and democratic means could carry a reform as large as abolition.
+    timothy-morton: Queer ecology view that sees meat and animal agriculture as tied to ideas of nature and coexistence.
+    rob-hopkins: Transition and permaculture practice favour small local food systems over industrial ones.
+    tom-regan: Rights view demands the abolition of animal agriculture altogether, which goes beyond reform.
+    carol-j-adams: The absent referent links industrial meat to the objectification of women.
+    will-kymlicka: Zoopolis frames domesticated animals as co-citizens, which raises the question of what follows abolition.
+    anna-tsing: Her Plantationocene work reads industrial pig and plantation systems as a model of alienated production.
+    florence-burgat: Argues that eating meat is an unnecessary cultural choice and that industrial killing reveals it.
+    robin-wall-kimmerer: The honorable harvest offers an Indigenous ethic of reciprocal taking, set against industrial extraction.
+    corine-pelluchon: Her animalist manifesto makes ending intensive farming a concrete political programme.
+counts:
+  turns: 48
+  comments: 76
+  reactions: 73
+  interviews: 24
+  declined: 0
+  failed: 0
+  tokensIn: 579432
+  tokensOut: 37226
+  costUsd: 2.3
+positions:
+  - branch: technocritique
+    score: 92
+    min: 92
+    max: 92
+    agents: 1
+  - branch: degrowth
+    score: 88
+    min: 88
+    max: 88
+    agents: 1
+  - branch: social-ecology
+    score: 88
+    min: 88
+    max: 88
+    agents: 1
+  - branch: ecosocialism
+    score: 90
+    min: 90
+    max: 90
+    agents: 1
+  - branch: deep-ecology
+    score: 85
+    min: 85
+    max: 85
+    agents: 1
+  - branch: ecosophy
+    score: 90
+    min: 90
+    max: 90
+    agents: 1
+  - branch: anthropocene
+    score: 88
+    min: 88
+    max: 88
+    agents: 2
+  - branch: political-ecology
+    score: 85
+    min: 85
+    max: 85
+    agents: 1
+  - branch: decolonial
+    score: 84
+    min: 78
+    max: 90
+    agents: 2
+  - branch: ecofeminism
+    score: 92
+    min: 92
+    max: 92
+    agents: 1
+  - branch: queer-ecology
+    score: 88
+    min: 88
+    max: 88
+    agents: 1
+  - branch: democracy
+    score: 82
+    min: 82
+    max: 82
+    agents: 1
+  - branch: collapse
+    score: 82
+    min: 82
+    max: 82
+    agents: 1
+  - branch: animal
+    score: 95
+    min: 95
+    max: 98
+    agents: 6
+  - branch: counterpoint
+    score: 25
+    min: 25
+    max: 25
+    agents: 1
+  - branch: market
+    score: 65
+    min: 65
+    max: 65
+    agents: 1
+  - branch: conservative
+    score: 75
+    min: 75
+    max: 75
+    agents: 1
+alliances:
+  - title:
+      en: Against meat, not only factories
+      fr: Contre la viande, pas seulement l'usine
+    text:
+      en: These agents held that ending the factory falls short while animals are still eaten or used, whether framed as rights, the absent referent or sacrifice.
+      fr: Pour ces agents, abolir l'usine ne suffit pas tant que les animaux restent mangés ou utilisés, qu'on parle de droits, de référent absent ou de sacrifice.
+    authors:
+      - tom-regan
+      - carol-j-adams
+      - florence-burgat
+  - title:
+      en: Suffering and standing in law
+      fr: Souffrance et place dans la loi
+    text:
+      en: These agents ground abolition in animal suffering or in justice enforced by democratic law. The Ferry agent, of the Market liberals, joined on humanist duties while rejecting animal rights.
+      fr: Ces agents fondent l'abolition sur la souffrance animale ou sur une justice portée par la loi démocratique. L'agent Ferry, des Libéraux de marché, s'y joint au nom de devoirs humanistes, sans droits des animaux.
+    authors:
+      - peter-singer
+      - will-kymlicka
+      - corine-pelluchon
+      - luc-ferry
+  - title:
+      en: A broken relation, not eating
+      fr: Une relation rompue, non le fait de manger
+    text:
+      en: The wrong is the severed bond between people, animals and land, framed as husbandry, reciprocity or entanglement. The Morton agent shared the verdict but rejected the pastoral nostalgia of the Berry and Scruton agents.
+      fr: Le tort tient au lien rompu entre humains, animaux et terre, pensé comme soin, réciprocité ou enchevêtrement. L'agent Morton partage le verdict mais rejette la nostalgie pastorale des agents Berry et Scruton.
+    authors:
+      - wendell-berry
+      - roger-scruton
+      - baird-callicott
+      - robin-wall-kimmerer
+      - val-plumwood
+      - donna-haraway
+      - anna-tsing
+      - timothy-morton
+  - title:
+      en: Costs pushed onto others
+      fr: Des coûts reportés sur autrui
+    text:
+      en: These agents read the factory as accumulation that shifts land, feed and pollution onto the South, neighbours or a fragile future. The Næss agent joined them, sparing pastoral herds that serve vital needs.
+      fr: Ces agents voient dans l'usine une accumulation qui reporte terres, fourrage et pollution sur le Sud, les riverains ou un avenir fragile. L'agent Næss les rejoint et épargne les troupeaux pastoraux qui répondent à des besoins vitaux.
+    authors:
+      - john-bellamy-foster
+      - murray-bookchin
+      - jason-hickel
+      - joan-martinez-alier
+      - ramachandra-guha
+      - andrew-dobson
+      - rob-hopkins
+      - arne-naess
+  - title:
+      en: Against, for land sparing
+      fr: Contre, pour épargner les terres
+    text:
+      en: The Nordhaus agent alone opposed, arguing that extensive farming would take more land and that innovation beats bans. Nearly every other agent replied to this case, which left animal suffering aside.
+      fr: "L'agent Nordhaus s'oppose seul : un élevage extensif prendrait plus de terres, et l'innovation vaut mieux que l'interdiction. Presque tous les autres agents lui répondent, sur une thèse qui laisse de côté la souffrance animale."
+    authors:
+      - ted-nordhaus
+voices:
+  - author: ted-nordhaus
+    position: 25
+    work: nordhaus-2015
+    text:
+      en: Abolishing intensive livestock farming would spread animals over far more land and undo decoupling. Its harms call for innovation, such as better intensive systems and meat alternatives, rather than bans that a majority will reject. The work does not address animal suffering.
+      fr: Abolir l'élevage intensif disperserait les animaux sur bien plus de terres et déferait le découplage. Ses nuisances appellent l'innovation, avec de meilleurs systèmes intensifs et des substituts à la viande, plutôt que des interdictions qu'une majorité rejettera. L'œuvre n'aborde pas la souffrance animale.
+  - author: luc-ferry
+    position: 65
+    work: ferry-1992
+    text:
+      en: Industrial cruelty toward sentient animals should be curbed and can be banned by democratic law. The grounds are humanist duties toward suffering beings, not rights held by animals or nature, because rights belong only to beings capable of freedom.
+      fr: La cruauté industrielle envers les animaux sensibles devrait être freinée et peut être interdite par la loi démocratique. Ses fondements sont des devoirs humanistes envers des êtres souffrants, non des droits détenus par les animaux ou la nature, car les droits n'appartiennent qu'aux êtres capables de liberté.
+  - author: roger-scruton
+    position: 75
+    work: scruton-2012
+    text:
+      en: Factory farming should end because it abandons husbandry and cuts the bond of care between farmer, land and animal. The grounds are duties of stewardship and love of home, not animal rights, and the remedy is the good local farm rather than an end to every use of animals.
+      fr: L'élevage industriel devrait cesser, car il abandonne l'art d'élever et rompt le lien de soin entre l'éleveur, la terre et l'animal. Ses raisons tiennent aux devoirs d'intendance et à l'amour du foyer, non aux droits des animaux, et le remède est la bonne ferme locale, non la fin de tout usage des animaux.
+  - author: ramachandra-guha
+    position: 78
+    work: guha-1995
+    text:
+      en: Factory farming should end because it feeds omnivores at the expense of ecosystem people, taking their land, grain and water and leaving them the pollution. Abolition must not become a ban on the herds that pastoralists and peasants depend on for their livelihood.
+      fr: L'élevage industriel devrait prendre fin, car il nourrit les omnivores aux dépens des peuples des écosystèmes, à qui il prend la terre, le grain et l'eau en leur laissant la pollution. L'abolition ne doit pas devenir une interdiction des troupeaux dont pasteurs et paysans tirent leur subsistance.
+  - author: andrew-dobson
+    position: 82
+    work: dobson-2003
+    text:
+      en: Factory farming should end because its footprint falls on distant people and lands through imported feed, pollution and emissions. Ecological citizenship makes cutting that footprint a duty of justice, in law and in private conduct. The case for animal citizenship stays open.
+      fr: L'élevage industriel devrait prendre fin, car son empreinte retombe sur des peuples et des terres lointains, par le fourrage importé, la pollution et les émissions. La citoyenneté écologique fait de la réduction de cette empreinte un devoir de justice, dans la loi comme dans la conduite privée. La question d'une citoyenneté animale reste ouverte.
+  - author: rob-hopkins
+    position: 82
+    work: hopkins-2008
+    text:
+      en: Factory farming should end because it runs on cheap oil and long supply chains, and energy descent will make it fragile. Communities can start now, without waiting for the state, by rebuilding local, smaller-scale food systems built for resilience.
+      fr: L'élevage industriel devrait prendre fin, car il repose sur le pétrole bon marché et de longues chaînes d'approvisionnement, que la descente énergétique rendra fragiles. Les communautés peuvent commencer dès maintenant, sans attendre l'État, en reconstruisant des systèmes alimentaires locaux, à plus petite échelle, conçus pour la résilience.
+  - author: baird-callicott
+    position: 85
+    work: callicott-1989
+    text:
+      en: "Factory farming should end because it degrades the biotic community: it pollutes watersheds, erodes soil and cuts the ties between people, animals and land. The ground is the integrity of the whole, not individual suffering. Mixed farming that fits the land remains defensible."
+      fr: "L'élevage industriel devrait prendre fin, car il dégrade la communauté biotique : il pollue les bassins versants, érode les sols et rompt les liens entre les gens, les animaux et la terre. Son fondement est l'intégrité du tout, non la souffrance individuelle. La polyculture-élevage adaptée à la terre reste défendable."
+  - author: joan-martinez-alier
+    position: 85
+    work: martinez-alier-2002
+    text:
+      en: Factory farming should be abolished as an ecological distribution conflict. It pushes manure, polluted water and land seizures for feed crops onto neighbours and Southern communities. Their resistance is an environmentalism of the poor, and intensification only moves the land burden elsewhere.
+      fr: L'élevage industriel devrait être aboli en tant que conflit de distribution écologique. Il reporte le lisier, l'eau polluée et les accaparements de terres pour les cultures fourragères sur les riverains et les communautés du Sud. Leur résistance est un écologisme des pauvres, et l'intensification ne fait que déplacer ailleurs la charge foncière.
+  - author: donna-haraway
+    position: 88
+    work: haraway-2016
+    text:
+      en: Factory farming should end because it is a Plantationocene machine. It reduces animals, workers and land to interchangeable units and cuts the ties of mutual response through which species make each other. Abolition means building better ways to live and die together, not drawing a clean line between humans and animals.
+      fr: L'élevage industriel devrait prendre fin, car c'est une machine du Plantationocène. Il réduit animaux, travailleurs et terres à des unités interchangeables et tranche les liens de réponse mutuelle par lesquels les espèces se font les unes les autres. Abolir, c'est inventer de meilleures manières de vivre et de mourir ensemble, non tracer une frontière nette entre humains et animaux.
+  - author: murray-bookchin
+    position: 88
+    work: bookchin-1982
+    text:
+      en: Factory farming should be abolished as a social problem before a moral one. Agribusiness turns animals, workers and land into commodities. The remedy is democratic municipalities controlling regional agriculture, not intensification or blaming humanity's consumption habits in general.
+      fr: L'élevage industriel devrait être aboli comme problème social avant d'être un problème moral. L'agro-industrie fait des animaux, des travailleurs et de la terre des marchandises. Le remède tient dans des municipalités démocratiques maîtresses de l'agriculture régionale, non dans l'intensification ou la mise en cause des habitudes de consommation de l'humanité en général.
+  - author: jason-hickel
+    position: 88
+    work: hickel-2020
+    text:
+      en: Factory farming should be abolished because it is high-throughput production driven by accumulation rather than need. It relies on cheap feed and land from the global South, and intensification cannot decouple it from material and land use fast enough. Rich countries must cut meat production and consumption.
+      fr: L'élevage industriel devrait être aboli, car c'est une production à haut débit mue par l'accumulation plutôt que par les besoins. Il dépend de fourrage et de terres bon marché venus des pays du Sud, et l'intensification ne peut pas le découpler assez vite de l'usage des matières et des sols. Les pays riches doivent réduire leur production et leur consommation de viande.
+  - author: timothy-morton
+    position: 88
+    work: morton-2010b
+    text:
+      en: Abolition is endorsed, by analogy. No fixed boundary separates species, so turning some beings into stock has no basis. Factory farming also feeds a hyperobject whose emissions and resistant microbes cross every fence, so neither land-sparing nor pastoral nostalgia answers it.
+      fr: L'abolition est soutenue, par analogie. Aucune frontière fixe ne sépare les espèces, si bien que rien ne fonde la conversion de certains êtres en cheptel. L'élevage industriel alimente aussi un hyperobjet dont les émissions et les microbes résistants franchissent toutes les clôtures. Ni l'économie de terres ni la nostalgie pastorale n'y répondent.
+  - author: anna-tsing
+    position: 88
+    work: tsing-2015
+    text:
+      en: Factory farming is the plantation model applied to animals. It makes bodies, workers and land uniform and interchangeable, and pushes its costs onto distant feed frontiers. It should be abolished, and attention should turn to the entangled ways of living together that can grow in its ruins.
+      fr: L'élevage industriel est le modèle de la plantation appliqué aux animaux. Il rend corps, travailleurs et terres uniformes et interchangeables, et reporte ses coûts sur de lointains fronts fourragers. Il devrait être aboli, et l'attention devrait se tourner vers les manières enchevêtrées de vivre ensemble qui peuvent pousser dans ses ruines.
+  - author: john-bellamy-foster
+    position: 90
+    work: foster-1999
+    text:
+      en: Factory farming is the metabolic rift at its most extreme. Feed grown on distant land and animals packed into sheds turn soil nutrients into pollution. Abolishing it means bringing animals and land back together and overcoming capitalism's split between town and country.
+      fr: L'élevage industriel est la rupture métabolique poussée à l'extrême. Le fourrage cultivé sur des terres lointaines et les animaux entassés dans des hangars changent les nutriments du sol en pollution. L'abolir, c'est réunir de nouveau animaux et terre et surmonter la séparation capitaliste entre ville et campagne.
+  - author: arne-naess
+    position: 90
+    work: naess-1973
+    text:
+      en: Factory farming should end because every living being has value of its own, apart from its use to humans. Interfering with other life is justified only for vital needs. Affluent overconsumption of meat is not a vital need, while pastoral livelihoods are.
+      fr: L'élevage industriel devrait prendre fin, car tout être vivant a une valeur propre, indépendante de son utilité pour les humains. Intervenir dans d'autres vies ne se justifie que pour des besoins vitaux. La surconsommation de viande des sociétés aisées n'en est pas un, alors que les moyens d'existence pastoraux en sont.
+  - author: robin-wall-kimmerer
+    position: 90
+    work: kimmerer-2013
+    text:
+      en: Factory farming should end because it breaks the honorable harvest. It takes everything, asks nothing, gives nothing back, and turns gifts into stock. The wrong is taking without reciprocity, not eating as such, so the remedy is to restore relationship with animals and land.
+      fr: L'élevage industriel devrait prendre fin, car il rompt la récolte honorable. Il prend tout, ne demande rien, ne rend rien et change les dons en stocks. Le tort est de prendre sans réciprocité, non de manger en soi; le remède consiste donc à restaurer la relation avec les animaux et la terre.
+  - author: wendell-berry
+    position: 92
+    work: berry-1977
+    text:
+      en: Factory farming should be abolished because it takes animals off the land, turns manure into pollution and empties the countryside of farmers. The remedy is small mixed farms built on good husbandry, not ending the keeping of animals.
+      fr: L'élevage industriel devrait être aboli, car il retire les animaux de la terre, change le fumier en pollution et vide les campagnes de leurs paysans. Le remède passe par de petites fermes de polyculture-élevage fondées sur le bon soin des bêtes, non par la fin de l'élevage.
+  - author: val-plumwood
+    position: 92
+    work: plumwood-1993
+    text:
+      en: Factory farming should be abolished because it is the master's standpoint made industrial. It reduces animals to mindless meat and denies dependence on them. Abolition should not lift humans out of the food chain, since humans are edible too.
+      fr: L'élevage industriel devrait être aboli, car il est le point de vue du maître devenu industrie. Il réduit les animaux à de la viande sans esprit et nie la dépendance envers eux. L'abolition ne doit pas extraire les humains de la chaîne alimentaire, car les humains aussi sont comestibles.
+  - author: peter-singer
+    position: 95
+    work: singer-1975
+    text:
+      en: Factory farming should be abolished because it inflicts intense suffering on billions of sentient animals for minor human interests such as taste and low prices. Discounting that suffering on the basis of species is speciesism, and land efficiency cannot justify leaving their pain out of the moral sum.
+      fr: L'élevage industriel devrait être aboli, car il inflige des souffrances intenses à des milliards d'animaux sensibles pour des intérêts humains mineurs, comme le goût et les prix bas. Minorer cette souffrance en raison de l'espèce relève du spécisme, et l'efficacité foncière ne peut justifier qu'on laisse leur douleur hors du calcul moral.
+  - author: carol-j-adams
+    position: 95
+    work: adams-1990
+    text:
+      en: Factory farming should be abolished, but abolition falls short if meat-eating continues. The factory, the small farm and the plate all turn a living animal into an absent referent. Consuming bodies works the same way as the objectification of women.
+      fr: L'élevage industriel devrait être aboli, mais l'abolition reste insuffisante si l'on continue de manger de la viande. L'usine, la petite ferme et l'assiette font toutes d'un animal vivant un référent absent. Consommer des corps procède de la même logique que l'objectivation des femmes.
+  - author: will-kymlicka
+    position: 95
+    work: kymlicka-2011
+    text:
+      en: Factory farming should be abolished, but that is only the minimum. Domesticated animals are members of a shared society. Justice means turning exploitation into political membership, with their interests represented in law, rather than milder husbandry or cutting all ties with them.
+      fr: L'élevage industriel devrait être aboli, mais ce n'est qu'un minimum. Les animaux domestiques sont membres d'une société partagée. La justice exige de transformer l'exploitation en appartenance politique, avec leurs intérêts représentés dans la loi, plutôt qu'un élevage plus doux ou la rupture de tout lien avec eux.
+  - author: florence-burgat
+    position: 95
+    work: burgat-2017
+    text:
+      en: Factory farming should be abolished, but abolition does not go far enough. Eating meat is not a need but a cultural ritual by which humanity defines itself by sacrificing the animal. Kinder husbandry or more efficient production leaves that sacrifice in place.
+      fr: L'élevage industriel devrait être aboli, mais l'abolition ne va pas assez loin. Manger de la viande n'est pas un besoin mais un rituel culturel par lequel l'humanité se définit en sacrifiant l'animal. Un élevage plus doux ou une production plus efficace laissent ce sacrifice en place.
+  - author: corine-pelluchon
+    position: 95
+    work: pelluchon-2017
+    text:
+      en: Factory farming should be abolished because the condition of animals is a test of justice. It is a public institution kept alive by law, subsidies and trade rules. Ending it therefore belongs in democratic politics, with phased bans and support for farmers' transition.
+      fr: L'élevage industriel devrait être aboli, car la condition animale est une épreuve de la justice. C'est une institution publique maintenue en vie par la loi, les subventions et les règles commerciales. Y mettre fin relève donc de la politique démocratique, avec des interdictions progressives et un accompagnement des éleveurs dans leur transition.
+  - author: tom-regan
+    position: 98
+    work: regan-1983
+    text:
+      en: Factory farming must be abolished because animals who are subjects of a life have inherent value and rights that no sum of human benefits can override. Bigger cages and gentler slaughter leave the wrong intact. The same reasoning condemns every use of animals as resources.
+      fr: L'élevage industriel doit être aboli, car les animaux sujets d'une vie ont une valeur inhérente et des droits qu'aucune somme d'avantages humains ne peut primer. Des cages plus grandes ou un abattage plus doux laissent le tort intact. Le même raisonnement condamne tout usage des animaux comme ressources.
+silent: []
