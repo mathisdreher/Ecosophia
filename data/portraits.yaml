@@ -164,6 +164,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: carol-j-adams
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: carolyn-merchant
   status: drawn
   model: gemini-nano-banana-2.1
@@ -189,6 +195,12 @@
   style: 1
   date: 2026-11-12
 - id: christopher-stone
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: corine-pelluchon
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
@@ -260,6 +272,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: elisabeth-de-fontenay
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: elisee-reclus
   status: drawn
   model: gemini-nano-banana-2.1
@@ -303,6 +321,12 @@
   style: 1
   date: 2026-11-12
 - id: felwine-sarr
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: florence-burgat
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
@@ -435,6 +459,12 @@
   style: 1
   date: 2026-11-12
 - id: jem-bendell
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: jeremy-bentham
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
@@ -680,6 +710,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: peter-singer
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: philippe-descola
   status: drawn
   model: gemini-nano-banana-2.1
@@ -836,6 +872,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: tom-regan
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: ugo-bardi
   status: drawn
   model: gemini-nano-banana-2.1
@@ -854,6 +896,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: vinciane-despret
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: vladimir-vernadsky
   status: drawn
   model: gemini-nano-banana-2.1
@@ -867,6 +915,12 @@
   style: 1
   date: 2026-11-12
 - id: wendell-berry
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: will-kymlicka
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
