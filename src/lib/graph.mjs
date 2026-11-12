@@ -94,10 +94,31 @@ export function layoutRing(corpus) {
     };
     const start = shorten([a.x, a.y], c1, a.r + (l.type === 'dialogue' ? 8 : 2));
     const end = shorten([b.x, b.y], c2, b.r + (l.type === 'critiqued' ? 4 : 8));
-    return {
-      link: l,
-      d: `M${round(start[0])} ${round(start[1])}C${round(c1[0])} ${round(c1[1])} ${round(c2[0])} ${round(c2[1])} ${round(end[0])} ${round(end[1])}`,
+    const curve = `M${round(start[0])} ${round(start[1])}C${round(c1[0])} ${round(c1[1])} ${round(c2[0])} ${round(c2[1])} ${round(end[0])} ${round(end[1])}`;
+    if (l.type !== 'critiqued') return { link: l, d: curve };
+    // A critique is drawn as a row of small crosses along the same curve.
+    const bez = (t) => {
+      const u = 1 - t;
+      return [0, 1].map((i) => u * u * u * start[i] + 3 * u * u * t * c1[i] + 3 * u * t * t * c2[i] + t * t * t * end[i]);
     };
+    let length = 0;
+    let prev = start;
+    for (let i = 1; i <= 40; i += 1) {
+      const p = bez(i / 40);
+      length += Math.hypot(p[0] - prev[0], p[1] - prev[1]);
+      prev = p;
+    }
+    const n = Math.max(3, Math.round(length / 9));
+    const h = 2.2;
+    const crosses = [];
+    for (let i = 0; i < n; i += 1) {
+      const [x, y] = bez(i / n);
+      crosses.push(`M${round(x - h)} ${round(y - h)}L${round(x + h)} ${round(y + h)}M${round(x - h)} ${round(y + h)}L${round(x + h)} ${round(y - h)}`);
+    }
+    // A short last stroke carries the arrowhead: a critique has a direction.
+    const tip = bez(0.96);
+    crosses.push(`M${round(tip[0])} ${round(tip[1])}L${round(end[0])} ${round(end[1])}`);
+    return { link: l, d: crosses.join('') };
   });
 
   return { pos, edges, arcs, size: GRAPH_SIZE };

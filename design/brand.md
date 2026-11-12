@@ -111,7 +111,7 @@ The logo is the rooted wordmark: "Ecosophia" in a warm serif on its ground line,
 - Layout: a ring. Precursors at the bottom, under the ground; then the trunk, the branches in the order of the tree, and the grafted counterpoints, each group on its own coloured arc and its authors in order of birth. Threads curve towards the centre, more deeply the further apart their ends are.
 
 - Node = author leaf, a circle filled with its branch colour, area proportional to the number of incoming influence links. Precursors use `humus`.
-- Edge = hypha, drawn in `mycelium` at `stroke-thread`. Solid for "influenced", dashed (4 4) for "critiqued", dotted (1 3) for "in dialogue with". Each edge stores its source (Wikidata property or a cited passage).
+- Edge = hypha, drawn in `mycelium` at `stroke-thread`. Solid with an arrow for "influenced", a row of small crosses for "critiqued", dotted with an arrow at both ends for "in dialogue with". Each edge stores its source (Wikidata property or a cited passage).
 - Never colour edges by branch: the mycelium belongs to no one.
 
 ## Canopy axes

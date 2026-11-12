@@ -114,7 +114,7 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
                   data-to={e.link.to}
                   data-type={e.link.type}
                   marker-start={e.link.type === 'dialogue' ? 'url(#myc-head)' : undefined}
-                  marker-end={e.link.type === 'critiqued' ? 'url(#myc-bar)' : 'url(#myc-head)'}
+                  marker-end="url(#myc-head)"
                 />
               ))
             }
@@ -430,7 +430,7 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
     opacity: 0.2;
   }
   .edge.critiqued {
-    stroke-dasharray: 5 3;
+    stroke-width: 1.3;
   }
   .edge.dialogue {
     stroke-dasharray: 1.5 3.5;

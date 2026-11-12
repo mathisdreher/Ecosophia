@@ -1,17 +1,15 @@
 ---
 // A sample of mycelium thread, as drawn in the graph:
-// influenced = solid line and an arrow (→), critiqued = dashed line ending in
-// a bar (⊣), in dialogue = dotted line with an arrow at both ends (↔).
+// influenced = solid line and an arrow (→), critiqued = a row of small
+// crosses ending in an arrow (×××→), in dialogue = dotted line with an arrow at both ends (↔).
 const { type = 'influenced', width = 32, color = 'currentColor' } = Astro.props;
-const dash = type === 'critiqued' ? '4 3' : type === 'dialogue' ? '1.5 3' : undefined;
 const w = width;
-const start = type === 'dialogue' ? 6 : 1;
-const end = type === 'critiqued' ? w - 2 : w - 6;
+const xs = type === 'critiqued' ? Array.from({ length: Math.max(3, Math.floor((w - 4) / 7) + 1) }, (_, i) => 3 + i * 7).filter((x) => x <= w - 2) : [];
 ---
 
 <svg aria-hidden="true" width={w} height="10" viewBox={`0 0 ${w} 10`} fill="none" stroke={color} stroke-linecap="round" stroke-linejoin="round">
-  <path d={`M${start} 5H${end}`} stroke-width="1.5" stroke-dasharray={dash}></path>
-  {type !== 'critiqued' && <path d={`M${w - 6} 2L${w - 1} 5L${w - 6} 8`} stroke-width="1.5"></path>}
-  {type === 'dialogue' && <path d="M6 2L1 5L6 8" stroke-width="1.5"></path>}
-  {type === 'critiqued' && <path d={`M${w - 1} 1V9`} stroke-width="2"></path>}
+  {type === 'influenced' && <path d={`M1 5H${w - 6}M${w - 6} 2L${w - 1} 5L${w - 6} 8`} stroke-width="1.5"></path>}
+  {type === 'dialogue' && <path d={`M6 5H${w - 6}`} stroke-width="1.5" stroke-dasharray="1.5 3"></path>}
+  {type === 'dialogue' && <path d={`M${w - 6} 2L${w - 1} 5L${w - 6} 8M6 2L1 5L6 8`} stroke-width="1.5"></path>}
+  {type === 'critiqued' && <path d={xs.filter((x) => x < w - 8).map((x) => `M${x - 2} 3L${x + 2} 7M${x - 2} 7L${x + 2} 3`).join('') + `M${w - 6} 2L${w - 1} 5L${w - 6} 8`} stroke-width="1.4"></path>}
 </svg>
