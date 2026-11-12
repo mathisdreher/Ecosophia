@@ -34,7 +34,7 @@ export const DEFAULTS = {
 
 export const LIMITS = {
   rounds: { min: 1, max: 8 },
-  agents: { min: 2, max: 120 },
+  agents: { min: 2, max: 200 },
   claimChars: { min: 12, max: 400 },
   commentWords: 60,
   reactionWords: 45,
