@@ -10,6 +10,7 @@
   born: 1944
   died: 2020
   place: {city: {en: Buslingthorpe, fr: Buslingthorpe}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 53.37, lon: -0.40}
+  wikidata: Q445939
   lede:
     en: "English conservative philosopher. Green Philosophy argues that environmental care belongs to the right: it grows from oikophilia, the love of home, and from local institutions, not from global plans and activist campaigns."
     fr: "Philosophe conservateur anglais. Green Philosophy soutient que le souci de l'environnement appartient à la droite : il naît de l'oikophilie, l'amour du chez-soi, et des institutions locales, non des plans mondiaux et des campagnes militantes."
@@ -30,6 +31,7 @@
   born: 1928
   died: 2009
   place: {city: {en: Paris, fr: Paris}, country: {en: France, fr: France}, lat: 48.86, lon: 2.35}
+  wikidata: Q535185
   lede:
     en: "Anglo-French founder of The Ecologist in 1969. A Blueprint for Survival called for small, decentralised communities, and his later work holds up traditional societies, bound to their ecosystems by custom and religion, against industrial modernity."
     fr: "Fondateur franco-britannique de The Ecologist en 1969. A Blueprint for Survival appelle à de petites communautés décentralisées, et son œuvre ultérieure oppose à la modernité industrielle les sociétés traditionnelles, liées à leurs écosystèmes par la coutume et la religion."
@@ -56,6 +58,7 @@
   born: 1936
   died: 2025
   place: {city: {en: Buenos Aires, fr: Buenos Aires}, country: {en: Argentina, fr: Argentine}, lat: -34.60, lon: -58.38}
+  wikidata: Q450675
   lede:
     en: "Jorge Mario Bergoglio, pope from 2013 to 2025. Laudato si' speaks from Catholic tradition and creation, and condemns the technocratic paradigm and the throwaway culture; claimed by the left for its critique and by conservatives for its integral ecology. Grafted here for the tradition he speaks from."
     fr: "Jorge Mario Bergoglio, pape de 2013 à 2025. Laudato si' parle depuis la tradition catholique et la création, et condamne le paradigme technocratique et la culture du déchet ; la gauche s'en réclame pour sa critique, les conservateurs pour son écologie intégrale. Greffé ici pour la tradition depuis laquelle il parle."
@@ -75,6 +78,7 @@
   branch: conservative
   born: 1943
   place: {country: {en: France, fr: France}}
+  wikidata: Q516375
   lede:
     en: "French essayist, the leading thinker of the Nouvelle Droite. Demain, la décroissance ! takes up degrowth from the right: ecology as the defence of rooted, local communities and their differences against the uniform world of the market. Mapped here because the far right now claims an ecology of its own."
     fr: "Essayiste français, principal penseur de la Nouvelle Droite. Demain, la décroissance ! reprend la décroissance depuis la droite : l'écologie comme défense des communautés enracinées et locales, et de leurs différences, contre le monde uniforme du marché. Cartographié ici parce que l'extrême droite revendique désormais une écologie à elle."

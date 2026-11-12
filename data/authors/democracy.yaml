@@ -9,6 +9,7 @@
   born: 1935
   died: 2014
   place: {city: {en: Buenos Aires, fr: Buenos Aires}, country: {en: Argentina, fr: Argentine}, lat: -34.60, lon: -58.38}
+  wikidata: Q454802
   lede:
     en: "Argentine political theorist at Essex. He wrote little on ecology, but his theory of hegemony and of populism, how scattered demands become a people against an adversary, is the frame in which Mouffe and the green left now think the ecological question."
     fr: "Théoricien politique argentin, à Essex. Il a peu écrit sur l'écologie, mais sa théorie de l'hégémonie et du populisme, la façon dont des demandes éparses deviennent un peuple face à un adversaire, est le cadre dans lequel Mouffe et la gauche verte pensent aujourd'hui la question écologique."
@@ -33,6 +34,7 @@
   branch: democracy
   born: 1943
   place: {city: {en: Charleroi, fr: Charleroi}, country: {en: Belgium, fr: Belgique}, lat: 50.41, lon: 4.44}
+  wikidata: Q236173
   lede:
     en: "Belgian political theorist, co-author with Laclau of Hegemony and Socialist Strategy. Democracy lives on conflict between adversaries, not on consensus; she calls for a green democratic revolution that wins people through affects and a shared project rather than through expertise and guilt."
     fr: "Théoricienne politique belge, coautrice avec Laclau d'Hégémonie et stratégie socialiste. La démocratie vit du conflit entre adversaires, non du consensus ; elle appelle à une révolution démocratique verte qui gagne les gens par les affects et un projet partagé plutôt que par l'expertise et la culpabilité."
@@ -57,6 +59,7 @@
   layer: leaf
   branch: democracy
   born: 1953
+  wikidata: Q6230210
   lede:
     en: "Political theorist working in Australia, a founder of deliberative democracy. From Rational Ecology onwards he asks which institutions can learn from ecosystems, and maps the competing discourses through which societies argue about the Earth."
     fr: "Théoricien politique, en Australie, l'un des fondateurs de la démocratie délibérative. Depuis Rational Ecology, il cherche quelles institutions peuvent apprendre des écosystèmes, et cartographie les discours rivaux par lesquels les sociétés débattent de la Terre."
@@ -77,6 +80,7 @@
   branch: democracy
   born: 1957
   place: {country: {en: United Kingdom, fr: Royaume-Uni}}
+  wikidata: Q504468
   lede:
     en: "British political theorist. Green Political Thought set ecologism apart from environmentalism, and his ecological citizenship defines duties owed to those who bear one's ecological footprint, wherever they live."
     fr: "Théoricien politique britannique. Green Political Thought distingue l'écologisme de l'environnementalisme, et sa citoyenneté écologique définit des devoirs envers ceux qui portent notre empreinte écologique, où qu'ils vivent."
@@ -97,6 +101,7 @@
   branch: democracy
   born: 1953
   place: {country: {en: France, fr: France}}
+  wikidata: Q3035015
   lede:
     en: "French philosopher, long at Lausanne. With Kerry Whiteside he argues that representative democracy, built for the short term and for individual rights, cannot handle ecological limits, and proposes institutions for the long term such as a chamber of the future."
     fr: "Philosophe français, longtemps à Lausanne. Avec Kerry Whiteside, il soutient que la démocratie représentative, faite pour le court terme et les droits individuels, ne sait pas traiter les limites écologiques, et propose des institutions du long terme, comme une chambre du futur."

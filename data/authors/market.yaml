@@ -10,6 +10,7 @@
   born: 1877
   died: 1959
   place: {city: {en: Ryde, fr: Ryde}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 50.73, lon: -1.16}
+  wikidata: Q313034
   lede:
     en: "English economist at Cambridge. The Economics of Welfare names the gap between private and social cost, and proposes that the state close it with a tax: the root of every carbon tax since."
     fr: "Économiste anglais, à Cambridge. The Economics of Welfare nomme l'écart entre coût privé et coût social, et propose que l'État le comble par une taxe : la racine de toutes les taxes carbone depuis."
@@ -30,6 +31,7 @@
   born: 1910
   died: 2013
   place: {city: {en: Willesden, fr: Willesden}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 51.55, lon: -0.23}
+  wikidata: Q188113
   lede:
     en: "British economist at Chicago, Nobel prize 1991. The Problem of Social Cost answers Pigou: where property rights are clear and bargaining is cheap, polluter and victim can settle the harm between themselves, without a tax."
     fr: "Économiste britannique à Chicago, prix Nobel 1991. The Problem of Social Cost répond à Pigou : quand les droits de propriété sont clairs et la négociation peu coûteuse, pollueur et victime peuvent régler le dommage entre eux, sans taxe."
@@ -50,6 +52,7 @@
   born: 1932
   died: 1998
   place: {city: {en: "Newark, New Jersey", fr: "Newark (New Jersey)"}, country: {en: United States, fr: États-Unis}, lat: 40.74, lon: -74.17}
+  wikidata: Q1712024
   lede:
     en: "American economist, the leading cornucopian. Against Ehrlich he held that population and growth enrich rather than exhaust, and in 1980 he bet Ehrlich that five metals would be cheaper ten years later. He won."
     fr: "Économiste américain, chef de file des cornucopiens. Contre Ehrlich, il soutient que la population et la croissance enrichissent au lieu d'épuiser, et parie en 1980 avec Ehrlich que cinq métaux seront moins chers dix ans plus tard. Il gagne."
@@ -69,6 +72,7 @@
   branch: market
   born: 1946
   place: {country: {en: United States, fr: États-Unis}}
+  wikidata: Q7704640
   lede:
     en: "American economist, founder of the Property and Environment Research Center in Montana. With Donald Leal he gave a name to free-market environmentalism: protect nature by owning it."
     fr: "Économiste américain, fondateur du Property and Environment Research Center, dans le Montana. Avec Donald Leal, il donne son nom à l'environnementalisme de marché : protéger la nature en la possédant."
@@ -91,7 +95,9 @@
   layer: leaf
   branch: market
   born: 1941
+  died: 2026
   place: {city: {en: "Albuquerque, New Mexico", fr: "Albuquerque (Nouveau-Mexique)"}, country: {en: United States, fr: États-Unis}, lat: 35.08, lon: -106.65}
+  wikidata: Q562481
   lede:
     en: "American economist at Yale, Nobel prize 2018 for putting the climate into growth models. He criticised The Limits to Growth from the start, and argues for a carbon price that rises along an optimal path, weighing damage avoided against the cost of cutting."
     fr: "Économiste américain à Yale, prix Nobel 2018 pour avoir introduit le climat dans les modèles de croissance. Il critique Les Limites à la croissance dès sa parution, et défend un prix du carbone qui monte selon une trajectoire optimale, en pesant le dommage évité contre le coût de la réduction."
@@ -113,6 +119,7 @@
   branch: market
   born: 1965
   place: {city: {en: Frederiksberg, fr: Frederiksberg}, country: {en: Denmark, fr: Danemark}, lat: 55.68, lon: 12.53}
+  wikidata: Q318511
   lede:
     en: "Danish political scientist. He set out to refute Julian Simon and ended by agreeing with him: The Skeptical Environmentalist argues that most environmental indicators are improving, and his Copenhagen Consensus ranks remedies by cost and benefit."
     fr: "Politiste danois. Parti pour réfuter Julian Simon, il finit par lui donner raison : L'Écologiste sceptique soutient que la plupart des indicateurs environnementaux s'améliorent, et son Consensus de Copenhague classe les remèdes selon leurs coûts et leurs bénéfices."
@@ -132,6 +139,7 @@
   branch: market
   born: 1951
   place: {city: {en: Colombes, fr: Colombes}, country: {en: France, fr: France}, lat: 48.92, lon: 2.25}
+  wikidata: Q740110
   lede:
     en: "French philosopher, minister of education from 2002 to 2004. Le Nouvel Ordre écologique attacks deep ecology in the name of humanism: to grant rights to nature is to forget that only a being capable of freedom can hold them."
     fr: "Philosophe français, ministre de l'Éducation de 2002 à 2004. Le Nouvel Ordre écologique attaque l'écologie profonde au nom de l'humanisme : accorder des droits à la nature, c'est oublier que seul un être capable de liberté peut en être titulaire."
@@ -151,6 +159,7 @@
   branch: market
   born: 1948
   place: {city: {en: Paris, fr: Paris}, country: {en: France, fr: France}, lat: 48.86, lon: 2.35}
+  wikidata: Q1348334
   lede:
     en: "French essayist. Le Fanatisme de l'apocalypse reads political ecology as a secular religion of doom that cultivates guilt and fear, and defends progress and abundance against it."
     fr: "Essayiste français. Le Fanatisme de l'apocalypse lit l'écologie politique comme une religion laïque de la fin du monde, qui cultive la culpabilité et la peur, et défend contre elle le progrès et l'abondance."

@@ -426,6 +426,7 @@
   born: 1903
   died: 1989
   place: {city: {en: "San Saba, Texas", fr: "San Saba (Texas)"}, country: {en: United States, fr: États-Unis}, lat: 31.20, lon: -98.72}
+  wikidata: Q383883
   lede:
     en: "American geophysicist at Shell. In 1956 he predicted that oil production in the United States would peak around 1970, which it did: the bell-shaped Hubbert curve became the basis of every later argument about peak oil and the end of cheap energy."
     fr: "Géophysicien américain chez Shell. En 1956, il prévoit que la production pétrolière des États-Unis culminera vers 1970, ce qui arrive : la courbe en cloche de Hubbert devient la base de tous les débats ultérieurs sur le pic pétrolier et la fin de l'énergie bon marché."

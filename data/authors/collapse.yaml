@@ -8,6 +8,7 @@
   branch: collapse
   born: 1952
   place: {city: {en: Florence, fr: Florence}, country: {en: Italy, fr: Italie}, lat: 43.77, lon: 11.25}
+  wikidata: Q3547798
   lede:
     en: "Italian chemist at Florence, a member of the Club of Rome. He defended The Limits to Growth against its critics, and named the Seneca effect: growth is slow, but ruin is rapid, because a system that exhausts its resources falls faster than it rose."
     fr: "Chimiste italien à Florence, membre du Club de Rome. Il défend Les Limites à la croissance contre ses critiques et nomme l'effet Sénèque : la croissance est lente, mais la ruine est rapide, car un système qui épuise ses ressources tombe plus vite qu'il ne s'est élevé."
@@ -29,6 +30,7 @@
   branch: collapse
   born: 1949
   place: {country: {en: United States, fr: États-Unis}}
+  wikidata: Q3134839
   lede:
     en: "American archaeologist. The Collapse of Complex Societies explains the fall of Rome or the Maya by diminishing returns on complexity: each new layer of administration solves a problem at a higher cost, until simplification becomes the rational choice."
     fr: "Archéologue américain. The Collapse of Complex Societies explique la chute de Rome ou des Mayas par les rendements décroissants de la complexité : chaque nouvelle couche d'administration résout un problème à un coût plus élevé, jusqu'à ce que la simplification devienne le choix rationnel."
@@ -48,6 +50,7 @@
   branch: collapse
   born: 1937
   place: {city: {en: Boston, fr: Boston}, country: {en: United States, fr: États-Unis}, lat: 42.36, lon: -71.06}
+  wikidata: Q205772
   lede:
     en: "American geographer and physiologist. Collapse compares Easter Island, the Norse of Greenland and others, and argues that societies choose to fail or succeed: environmental damage, climate, neighbours, trade and above all their responses decide."
     fr: "Géographe et physiologiste américain. Effondrement compare l'île de Pâques, les Scandinaves du Groenland et d'autres, et soutient que les sociétés choisissent d'échouer ou de réussir : dégâts environnementaux, climat, voisins, échanges et surtout leurs réponses en décident."
@@ -66,7 +69,9 @@
   layer: leaf
   branch: collapse
   born: 1950
+  died: 2026
   place: {country: {en: United States, fr: États-Unis}}
+  wikidata: Q1342829
   lede:
     en: "American writer at the Post Carbon Institute. The Party's Over popularised peak oil: industrial civilisation was built on cheap fossil energy, and its decline forces a choice between competition for what remains and a planned power-down."
     fr: "Essayiste américain du Post Carbon Institute. The Party's Over popularise le pic pétrolier : la civilisation industrielle s'est bâtie sur une énergie fossile bon marché, et son déclin oblige à choisir entre la lutte pour ce qui reste et une descente énergétique planifiée."
@@ -86,6 +91,7 @@
   branch: collapse
   born: 1968
   place: {country: {en: United Kingdom, fr: Royaume-Uni}}
+  wikidata: Q1594109
   lede:
     en: "British permaculture teacher, founder of the Transition Town movement at Totnes. Rather than wait for governments, towns plan their own energy descent and rebuild local food, energy and economy, with resilience as the goal."
     fr: "Enseignant britannique en permaculture, fondateur du mouvement des villes en transition à Totnes. Plutôt que d'attendre les gouvernements, les villes planifient leur propre descente énergétique et reconstruisent alimentation, énergie et économie locales, avec la résilience pour but."
@@ -103,8 +109,8 @@
   sort: Bendell
   layer: leaf
   branch: collapse
-  born: 1971
-  place: {country: {en: United Kingdom, fr: Royaume-Uni}}
+  place: {city: {en: London, fr: Londres}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 51.51, lon: -0.13}
+  wikidata: Q63980720
   lede:
     en: "British sustainability scholar. His paper Deep Adaptation, widely read and widely contested, argues that societal collapse driven by climate change is likely, and that the task is to prepare for it with resilience, relinquishment and restoration."
     fr: "Chercheur britannique en développement durable. Son article Deep Adaptation, très lu et très contesté, soutient qu'un effondrement des sociétés sous l'effet du climat est probable, et que la tâche est de s'y préparer par la résilience, le renoncement et la restauration."
@@ -124,6 +130,7 @@
   branch: collapse
   born: 1946
   place: {city: {en: Rennes, fr: Rennes}, country: {en: France, fr: France}, lat: 48.11, lon: -1.68}
+  wikidata: Q1398216
   lede:
     en: "French mathematician and Green politician, minister of the environment in 2001 and 2002. From Pétrole apocalypse onwards he holds that the end of cheap oil makes a global collapse likely, and argues for degrowth and planned rationing."
     fr: "Mathématicien et homme politique écologiste français, ministre de l'Environnement en 2001 et 2002. Depuis Pétrole apocalypse, il tient pour probable un effondrement mondial dû à la fin du pétrole bon marché, et plaide pour la décroissance et un rationnement planifié."
