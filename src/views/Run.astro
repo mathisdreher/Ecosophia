@@ -10,7 +10,7 @@ import ClaimSource from '../components/ClaimSource.astro';
 import QuestionPositions from '../components/QuestionPositions.astro';
 import { useUi } from '../i18n/ui.mjs';
 import { href, withBase } from '../lib/site.mjs';
-import { L } from '../lib/text.mjs';
+import { L, typo } from '../lib/text.mjs';
 import { loadCorpus, loadClearing, loadTranscript, runMeasures } from '../lib/corpus.mjs';
 import { runDate } from '../lib/clearing.mjs';
 
@@ -38,6 +38,21 @@ const transcript = record?.transcript ?? [];
 const rounds = [...new Set(transcript.map((e) => e.round))].sort((a, b) => a - b);
 const lines = (round) => transcript.filter((e) => e.round === round && ['post', 'comment', 'like', 'dislike'].includes(e.type));
 const prompts = record?.prompts ?? null;
+const T = (en, fr) => typo(lang === 'fr' ? fr : en, lang);
+// The debate as the agents saw it on the simulated forum: every comment with
+// the agents who approved or disapproved it.
+const comments = transcript.filter((e) => e.type === 'comment' && e.author).map((e) => ({ ...e, likes: [], dislikes: [] }));
+const byText = new Map(comments.map((cm) => [cm.text.trim(), cm]));
+for (const e of transcript) {
+  if (e.type !== 'like' && e.type !== 'dislike') continue;
+  const cm = byText.get((e.about ?? '').trim());
+  if (cm && e.author) (e.type === 'like' ? cm.likes : cm.dislikes).push(e.author);
+}
+const feedRounds = [...new Set(comments.map((cm) => cm.round))].sort((a, b) => a - b);
+const mostLiked = [...comments].filter((cm) => cm.likes.length > 0).sort((a, b) => b.likes.length - a.likes.length || a.dislikes.length - b.dislikes.length).slice(0, 3);
+const mostContested = [...comments].filter((cm) => cm.dislikes.length > 0).sort((a, b) => b.dislikes.length - a.dislikes.length || b.likes.length - a.likes.length).slice(0, 3);
+const tokenOf = (id) => c.authorById[id]?.token ?? 'ink';
+const names = (ids) => ids.map(name).join(', ');
 const agentPrompts = Object.entries(prompts?.agents ?? {}).filter(([, text]) => text);
 ---
 
@@ -83,6 +98,57 @@ const agentPrompts = Object.entries(prompts?.agents ?? {}).filter(([, text]) => 
       )
     }
   </section>
+
+  {
+    comments.length > 0 && (
+      <section class="feed wrap">
+        <div class="feed-head">
+          <span class="eco-mark simulated">{t('common.simulated')}</span>
+          <h2 class="t-heading">{T('The thread of the debate', 'Le fil du débat')}</h2>
+          <p class="t-small t-muted">{T('The forum the agents debated on, as the OASIS engine recorded it: each comment, round by round, with the agents who approved (▲) or disapproved (▼) of it. Written by agents, never by the authors named.', 'Le forum sur lequel les agents ont débattu, tel que le moteur OASIS l’a enregistré : chaque commentaire, tour par tour, avec les agents qui l’ont approuvé (▲) ou désapprouvé (▼). Écrit par des agents, jamais par les auteurs nommés.')}</p>
+        </div>
+        <div class="highlights">
+          {[[T('Most approved', 'Les plus approuvés'), mostLiked], [T('Most contested', 'Les plus contestés'), mostContested]].map(([title, list]) =>
+            list.length > 0 && (
+              <div>
+                <h3 class="label">{title}</h3>
+                <ol class="cards">
+                  {list.map((cm) => (
+                    <li class="cm" style={`--chip: var(--${tokenOf(cm.author)})`}>
+                      <span class="who"><span class="dot" />{t('clearing.agentPrompt', { name: name(cm.author) })}</span>
+                      <p lang="en">{cm.text}</p>
+                      <span class="react eco-meta">
+                        <span title={names(cm.likes)}>▲ {cm.likes.length}</span> <span title={names(cm.dislikes)}>▼ {cm.dislikes.length}</span>
+                      </span>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+            ),
+          )}
+        </div>
+        {feedRounds.map((r) => (
+          <details class="round" open={r === feedRounds[0]}>
+            <summary class="t-heading">{t('clearing.round', { n: r })} <span class="eco-meta">· {comments.filter((cm) => cm.round === r).length} {T('comments', 'commentaires')}</span></summary>
+            <ol class="thread">
+              {comments.filter((cm) => cm.round === r).map((cm) => (
+                <li class="cm" style={`--chip: var(--${tokenOf(cm.author)})`}>
+                  <span class="who"><span class="dot" />{t('clearing.agentPrompt', { name: name(cm.author) })}</span>
+                  <p lang="en">{cm.text}</p>
+                  {(cm.likes.length > 0 || cm.dislikes.length > 0) && (
+                    <span class="react eco-meta">
+                      {cm.likes.length > 0 && <span>▲ {cm.likes.length} · {names(cm.likes)}</span>}
+                      {cm.dislikes.length > 0 && <span>▼ {cm.dislikes.length} · {names(cm.dislikes)}</span>}
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ol>
+          </details>
+        ))}
+      </section>
+    )
+  }
 
   <div class="below-grid evidence" slot="below">
     <div class="below-col">
@@ -160,7 +226,7 @@ const agentPrompts = Object.entries(prompts?.agents ?? {}).filter(([, text]) => 
           </div>
           <p class="text">{t('clearing.transcript')}</p>
           {rounds.map((r) => (
-            <details open={r <= 1}>
+            <details>
               <summary>
                 {r === 0 ? t('clearing.opening') : t('clearing.round', { n: r })} <span class="eco-meta">({lines(r).length})</span>
               </summary>
@@ -185,6 +251,72 @@ const agentPrompts = Object.entries(prompts?.agents ?? {}).filter(([, text]) => 
 </Base>
 
 <style>
+  .feed {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    padding-bottom: 72px;
+  }
+  .feed-head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    max-width: 72ch;
+  }
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+    gap: var(--space-6);
+  }
+  .cards,
+  .thread {
+    list-style: none;
+    margin: var(--space-3) 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .cm {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-3) var(--space-4);
+    border: var(--stroke-thread) dashed var(--lichen-ink);
+    border-left: 3px solid var(--chip);
+    border-radius: var(--radius-md);
+    background: var(--paper-raised);
+  }
+  .cm p {
+    margin: 0;
+    font: 400 15px/22px var(--font-sans);
+  }
+  .who {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font: 600 13px/18px var(--font-sans);
+  }
+  .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--chip);
+  }
+  .react {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-4);
+  }
+  .round summary {
+    cursor: pointer;
+    padding: var(--space-2) 0;
+    border-top: 1px solid var(--line);
+  }
+  .thread {
+    max-width: 860px;
+  }
   .head {
     display: flex;
     flex-direction: column;
