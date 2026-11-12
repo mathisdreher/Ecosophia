@@ -1,0 +1,368 @@
+# Clearing run clr-0007. Simulated: nothing below is a statement by any author named.
+# Written by clearing/run.mjs. The transcript and the prompts are in the file next to this one.
+id: clr-0007
+runId: clr-0007
+status: draft
+date: 2026-11-12
+claim:
+  en: Research on solar geoengineering should go ahead.
+  fr: La recherche sur la géo-ingénierie solaire devrait être poursuivie.
+question:
+  id: geoingenierie
+  kind: axiom
+  measures: []
+summary:
+  en: "The line ran between agents that treated research as knowledge or insurance and agents that held research already builds pressure toward deployment and delays the exit from fossil fuels. The Anthropocene branch split: the James Lovelock agent endorsed research while the four other Anthropocene agents opposed it."
+  fr: Le partage s'est fait entre les agents qui voyaient dans la recherche un savoir ou une assurance et ceux pour qui elle pousse déjà au déploiement et retarde la sortie des fossiles. La branche Anthropocène s'est divisée, l'agent James Lovelock soutenant la recherche quand les quatre autres agents de cette branche s'y opposaient.
+engine:
+  name: MiroFish
+  commit: 7657031ac01184afe2cb220f5ee3545573b5e843
+  platform: reddit
+  packages:
+    - camel-oasis==0.2.5
+    - camel-ai==0.2.78
+model:
+  requested: claude-opus-5-5
+  served:
+    - claude-opus-5-5
+  effort: medium
+settings:
+  rounds: 2
+  agents: 26
+  selection: auto
+  budgetUsd: 3
+  estimateUsd: 1.99
+plan:
+  model: claude-opus-5-5
+  note: The first fourteen agents cover every branch and set leading advocates of research against its sharpest critics on hubris, governance, justice and moral hazard. Two rounds let them answer each other on the research versus deployment distinction while keeping the cost near 2 USD.
+  rounds: 2
+  ranked: 26
+  trimmed: false
+  reasons:
+    stewart-brand: His ecopragmatism openly endorses researching planetary engineering, the strongest case for the claim.
+    hans-jonas: His imperative of responsibility addresses technologies with irreversible planetary reach.
+    naomi-klein: This Changes Everything has a chapter attacking solar radiation management as a technofix.
+    bjorn-lomborg: His cost-benefit priorities have ranked climate engineering research as a cheap, high-value option.
+    bruno-latour: His work on Gaia and the terrestrial questions the idea of steering the Earth system.
+    vandana-shiva: She has campaigned against geoengineering as a corporate and Northern control of the climate.
+    amitav-ghosh: His colonial terraforming thesis reads planetary engineering as a continuation of conquest.
+    erik-swyngedouw: He criticises expert-managed climate policy as post-political, which bears on who governs geoengineering.
+    jason-hickel: He argues that technofixes defer the cuts in rich-country consumption that justice requires.
+    pope-francis: Laudato si condemns the technocratic paradigm that geoengineering exemplifies.
+    arne-naess: His deep versus shallow ecology distinction frames geoengineering as a shallow response.
+    baird-callicott: His land ethic judges actions by their effects on the integrity of the biotic community.
+    murray-bookchin: He ties the domination of nature to social hierarchy and centralised technics.
+    timothy-morton: His hyperobjects concept addresses climate as something beyond human mastery.
+    james-lovelock: As a Gaia scientist he weighed geoengineering as a desperate but possibly necessary measure.
+    ted-nordhaus: The Breakthrough Institute he co-founded backs research into technological climate options.
+    andreas-malm: He has analysed solar geoengineering as a way for fossil capital to keep burning.
+    william-nordhaus: His climate-economy models treat geoengineering as a potentially cheap substitute for abatement.
+    gunther-anders: His Promethean gap describes making technologies whose consequences we cannot imagine.
+    elinor-ostrom: Her work on governing commons bears on who could legitimately control a global thermostat.
+    bill-mckibben: The End of Nature argues that engineering the climate completes the loss of an independent nature.
+    isabelle-stengers: She warns against technical answers to the intrusion of Gaia and calls for slow science.
+    jacques-ellul: His theory of autonomous technique predicts that research builds momentum toward deployment.
+    pascal-bruckner: He defends progress and technical solutions against what he calls ecological catastrophism.
+    carolyn-merchant: The Death of Nature traces the mechanistic will to master the Earth that geoengineering extends.
+    jean-baptiste-fressoz: His history of known industrial risks challenges promises that technical fixes will be controlled.
+counts:
+  turns: 52
+  comments: 71
+  reactions: 78
+  interviews: 26
+  declined: 0
+  failed: 0
+  tokensIn: 636076
+  tokensOut: 37979
+  costUsd: 2.33
+positions:
+  - branch: technocritique
+    score: 8
+    min: 8
+    max: 12
+    agents: 3
+  - branch: degrowth
+    score: 15
+    min: 15
+    max: 15
+    agents: 1
+  - branch: social-ecology
+    score: 10
+    min: 10
+    max: 10
+    agents: 1
+  - branch: ecosocialism
+    score: 11
+    min: 10
+    max: 12
+    agents: 2
+  - branch: deep-ecology
+    score: 15
+    min: 15
+    max: 15
+    agents: 1
+  - branch: ecosophy
+    score: 12
+    min: 12
+    max: 12
+    agents: 1
+  - branch: anthropocene
+    score: 15
+    min: 12
+    max: 70
+    agents: 5
+  - branch: political-ecology
+    score: 35
+    min: 12
+    max: 58
+    agents: 2
+  - branch: decolonial
+    score: 12
+    min: 12
+    max: 12
+    agents: 1
+  - branch: ecofeminism
+    score: 13
+    min: 10
+    max: 15
+    agents: 2
+  - branch: queer-ecology
+    score: 30
+    min: 30
+    max: 30
+    agents: 1
+  - branch: counterpoint
+    score: 82
+    min: 78
+    max: 85
+    agents: 2
+  - branch: market
+    score: 80
+    min: 72
+    max: 85
+    agents: 3
+  - branch: conservative
+    score: 15
+    min: 15
+    max: 15
+    agents: 1
+alliances:
+  - title:
+      en: For, as knowledge and insurance
+      fr: Pour, comme savoir et assurance
+    text:
+      en: Research is cheap, is not deployment, and ignorance is itself a risk. The James Lovelock agent joins the ecomodernist and market liberal agents, breaking from the rest of the Anthropocene branch.
+      fr: La recherche coûte peu, ne vaut pas déploiement, et l'ignorance est elle-même un risque. L'agent James Lovelock rejoint ici les écomodernistes et les libéraux, à l'écart du reste de la branche Anthropocène.
+    authors:
+      - stewart-brand
+      - bjorn-lomborg
+      - pascal-bruckner
+      - ted-nordhaus
+      - william-nordhaus
+      - james-lovelock
+  - title:
+      en: Conditional on who decides first
+      fr: Suspendu à qui décide d'abord
+    text:
+      en: Research is acceptable only if those affected shape it beforehand. The Elinor Ostrom agent leaned for under polycentric rules, unlike the Swyngedouw agent of its branch, while the Latour and Stengers agents demanded prior assembly.
+      fr: La recherche n'est admissible que si les concernés la façonnent en amont. L'agent Elinor Ostrom penche pour, sous des règles polycentriques, contrairement à l'agent Swyngedouw de sa branche. Les agents Latour et Stengers exigent une assemblée préalable.
+    authors:
+      - elinor-ostrom
+      - bruno-latour
+      - isabelle-stengers
+  - title:
+      en: Against, means that press toward use
+      fr: Contre, des moyens qui poussent à l'usage
+    text:
+      en: Once the capacity exists it drives toward deployment, and human foresight cannot follow a planetary sunshade, so restraint is owed to future generations.
+      fr: Une fois la capacité acquise, elle pousse au déploiement, et la prévoyance humaine ne peut suivre un pare-soleil planétaire. La retenue est due aux générations futures.
+    authors:
+      - hans-jonas
+      - gunther-anders
+      - jacques-ellul
+  - title:
+      en: Against, it shields fossil capital
+      fr: Contre, il protège le capital fossile
+    text:
+      en: Research leaves the fossil economy and its owners untouched and keeps the economic order out of debate. The Jean-Baptiste Fressoz agent argued from energy history rather than from the Anthropocene framing of its branch.
+      fr: La recherche laisse intacts l'économie fossile et ses propriétaires et tient l'ordre économique hors du débat. L'agent Jean-Baptiste Fressoz argumente par l'histoire de l'énergie, plutôt que par le cadrage Anthropocène de sa branche.
+    authors:
+      - naomi-klein
+      - andreas-malm
+      - jason-hickel
+      - jean-baptiste-fressoz
+      - erik-swyngedouw
+      - murray-bookchin
+  - title:
+      en: Against, mastery over a living Earth
+      fr: Contre, la maîtrise d'une Terre vivante
+    text:
+      en: Steering the sky treats the Earth as a machine or resource and overrides communities, human and not, that were never asked. The Bill McKibben agent took this ground, apart from the other Anthropocene agents.
+      fr: Piloter le ciel fait de la Terre une machine ou une ressource et passe outre des communautés, humaines ou non, jamais consultées. L'agent Bill McKibben se place sur ce terrain, à part des autres agents de la branche Anthropocène.
+    authors:
+      - carolyn-merchant
+      - baird-callicott
+      - arne-naess
+      - timothy-morton
+      - vandana-shiva
+      - amitav-ghosh
+      - pope-francis
+      - bill-mckibben
+voices:
+  - author: gunther-anders
+    position: 8
+    work: anders-1956
+    text:
+      en: "Solar geoengineering widens the Promethean gap between what can be made and what can be imagined or felt. Research is not neutral: once the means exist, they press toward use, and human foresight cannot follow a sunshade for the whole planet."
+      fr: La géo-ingénierie solaire creuse le décalage prométhéen entre ce que l'on peut fabriquer et ce que l'on peut imaginer ou ressentir. La recherche n'est pas neutre. Une fois les moyens disponibles, ils poussent à l'usage, et la prévoyance humaine ne peut suivre un pare-soleil à l'échelle de la planète.
+  - author: jacques-ellul
+    position: 8
+    work: ellul-1988
+    text:
+      en: Opposed, by analogy since the work predates geoengineering. A technical fix for the damage of technique is announced with its benefits and silent about its costs. Research builds experts, budgets and institutions that push toward use, and what can be done gets done.
+      fr: Opposé, par analogie, puisque l'œuvre précède la géo-ingénierie. Un remède technique aux dégâts de la technique s'annonce avec ses bienfaits et tait ses coûts. La recherche forme des experts, des budgets et des institutions qui poussent à l'usage, et ce qui peut être fait se fait.
+  - author: naomi-klein
+    position: 10
+    work: klein-2014
+    text:
+      en: Solar geoengineering research is a fix that leaves the fossil economy and its profits untouched. It builds pressure toward deployment and puts drought risks on the poorest regions. The answer is fast, fair emission cuts that change the system.
+      fr: La recherche sur la géo-ingénierie solaire est un expédient qui laisse intacts l'économie fossile et ses profits. Elle pousse au déploiement et fait peser des risques de sécheresse sur les régions les plus pauvres. La réponse, ce sont des baisses d'émissions rapides et justes qui changent le système.
+  - author: vandana-shiva
+    position: 10
+    work: shiva-1993
+    text:
+      en: Solar geoengineering research turns a monoculture of the mind into a monoculture of the sky. One laboratory science would set the climate for peasants and forest communities who were never asked, leave the fossil-driven maldevelopment behind the crisis untouched, and risk enclosing the atmospheric commons.
+      fr: La recherche sur la géo-ingénierie solaire fait d'une monoculture de l'esprit une monoculture du ciel. Une seule science de laboratoire fixerait le climat pour des paysans et des communautés forestières jamais consultés, laisserait intact le mal-développement fossile à l'origine de la crise et risquerait d'enclore le commun atmosphérique.
+  - author: murray-bookchin
+    position: 10
+    work: bookchin-1982
+    text:
+      en: Solar geoengineering research should not go ahead. Ecological crises come from social hierarchy, and a planetary thermostat run by states and firms extends the domination of nature. No directly democratic assembly could govern it.
+      fr: La recherche sur la géo-ingénierie solaire ne devrait pas être poursuivie. Les crises écologiques naissent de la hiérarchie sociale, et un thermostat planétaire aux mains des États et des entreprises prolonge la domination de la nature. Aucune assemblée de démocratie directe ne pourrait le gouverner.
+  - author: hans-jonas
+    position: 12
+    work: jonas-1979
+    text:
+      en: Opposed, reasoning by analogy. When action can alter planetary conditions of life, the bad prognosis outweighs the good. Solar geoengineering cannot be tested without being deployed, research builds momentum toward use, and future generations become the experiment, so restraint is the duty.
+      fr: Opposé, par analogie. Quand l'action peut modifier les conditions planétaires de la vie, le pronostic défavorable l'emporte sur le favorable. La géo-ingénierie solaire ne peut être testée sans être déployée, la recherche crée un élan vers l'usage, et les générations futures deviennent l'expérience. La retenue est donc un devoir.
+  - author: amitav-ghosh
+    position: 12
+    work: ghosh-2021
+    text:
+      en: Oppose, reasoning by analogy. Solar geoengineering extends the logic of colonial terraforming into the sky. It treats Earth as an inert resource to be managed. A few powerful states would decide the climate for peoples who were never asked.
+      fr: Opposé, par analogie. La géo-ingénierie solaire prolonge dans le ciel la logique de la terraformation coloniale. Elle traite la Terre comme une ressource inerte à gérer. Quelques États puissants décideraient du climat pour des peuples jamais consultés.
+  - author: erik-swyngedouw
+    position: 12
+    work: swyngedouw-2010
+    text:
+      en: Solar geoengineering research turns climate into a thermostat run by experts, which depoliticises it. The economic order that produces emissions stays outside debate. Apocalyptic emergency framing builds consensus and pushes aside the political choice between different worlds.
+      fr: La recherche sur la géo-ingénierie solaire fait du climat un thermostat confié aux experts, ce qui le dépolitise. L'ordre économique qui produit les émissions reste hors du débat. Le cadrage apocalyptique de l'urgence fabrique le consensus et écarte le choix politique entre des mondes différents.
+  - author: arne-naess
+    position: 12
+    work: naess-1973
+    text:
+      en: Solar geoengineering is shallow ecology. It treats symptoms and leaves untouched the question of why industrial societies overheat the planet. Research signals that consumption and growth can continue. The deep questioning has to come first, together with lives that are simple in means and rich in ends.
+      fr: La géo-ingénierie solaire relève de l'écologie superficielle. Elle soigne les symptômes sans demander pourquoi les sociétés industrielles surchauffent la planète. La recherche laisse entendre que la consommation et la croissance peuvent continuer. Le questionnement profond doit venir d'abord, avec des vies simples dans leurs moyens et riches dans leurs fins.
+  - author: andreas-malm
+    position: 12
+    work: malm-2016
+    text:
+      en: Solar geoengineering research should not go ahead. Warming comes from fossil capital, an owning class that chose coal to control labour. Dimming the sun leaves that capital burning and puts off the fight over who owns energy. Funding belongs to dismantling the fossil economy.
+      fr: La recherche sur la géo-ingénierie solaire ne devrait pas être poursuivie. Le réchauffement vient du capital fossile, une classe possédante qui a choisi le charbon pour contrôler le travail. Assombrir le soleil laisse ce capital brûler et repousse la lutte pour la propriété de l'énergie. Les fonds doivent servir à démanteler l'économie fossile.
+  - author: isabelle-stengers
+    position: 12
+    work: stengers-2009
+    text:
+      en: Opposed. Solar geoengineering research assumes Gaia can be steered, but she intrudes and is indifferent to human reasons. Emergency research builds pressure toward deployment. Decisions must slow down until those affected, human or not, can object before the agenda is set.
+      fr: Opposé. La recherche sur la géo-ingénierie solaire suppose que Gaïa peut être pilotée, alors qu'elle fait intrusion, indifférente aux raisons humaines. La recherche menée dans l'urgence pousse au déploiement. Il faut ralentir les décisions jusqu'à ce que les concernés, humains ou non, puissent objecter avant que l'agenda ne soit fixé.
+  - author: jason-hickel
+    position: 15
+    work: hickel-2020b
+    text:
+      en: Opposed, by analogy. Solar geoengineering works like a promise that lets rich economies keep growing when they should be cutting energy and material use. Decoupling has not happened fast enough, so the answer is less throughput in the North, not dimming the sky over the South.
+      fr: Opposé, par analogie. La géo-ingénierie solaire fonctionne comme une promesse qui permet aux économies riches de continuer à croître alors qu'elles devraient réduire leur consommation d'énergie et de matières. Le découplage n'a pas été assez rapide. La réponse est de réduire les flux au Nord, pas d'assombrir le ciel du Sud.
+  - author: pope-francis
+    position: 15
+    work: francis-2015
+    text:
+      en: Solar geoengineering research extends the technocratic paradigm. It treats a moral and social crisis as a technical problem and leaves the throwaway culture untouched. It also shifts the risks onto the poor. Ecological conversion and cutting emissions must come first.
+      fr: La recherche sur la géo-ingénierie solaire prolonge le paradigme technocratique. Elle traite une crise morale et sociale comme un problème technique et laisse intacte la culture du déchet. Elle reporte aussi les risques sur les pauvres. La conversion écologique et la baisse des émissions doivent passer en premier.
+  - author: baird-callicott
+    position: 15
+    work: callicott-1989
+    text:
+      en: Solar geoengineering research should not go ahead. It treats the whole biotic community as an instrument tuned for human comfort. The land ethic judges actions by whether they preserve that community's integrity and stability, and cost ledgers or human-only governance leave out its other members.
+      fr: La recherche sur la géo-ingénierie solaire ne devrait pas être poursuivie. Elle fait de toute la communauté biotique un instrument réglé pour le confort humain. L'éthique de la terre juge les actes à leur capacité de préserver l'intégrité et la stabilité de cette communauté, et les bilans de coûts comme une gouvernance réservée aux humains en oublient les autres membres.
+  - author: bill-mckibben
+    position: 15
+    work: mckibben-2010
+    text:
+      en: Nature as a world apart has already ended, and dimming the sun would turn that accident into deliberate management of the sky. On a tougher planet, the task is to stop burning fossil fuels and build smaller, sturdier communities, not more centralised planetary control.
+      fr: La nature comme monde à part a déjà pris fin, et assombrir le soleil ferait de cet accident une gestion délibérée du ciel. Sur une planète plus rude, la tâche est de cesser de brûler des combustibles fossiles et de bâtir des communautés plus petites et plus solides, pas un contrôle planétaire plus centralisé.
+  - author: carolyn-merchant
+    position: 15
+    work: merchant-1980
+    text:
+      en: Solar geoengineering research carries forward the mechanistic image of the earth as a machine to be controlled, the same image that once licensed mining. A partnership ethic puts emission cuts first and treats the earth's processes as having needs of their own.
+      fr: La recherche sur la géo-ingénierie solaire prolonge l'image mécaniste de la terre comme machine à contrôler, celle-là même qui autorisait jadis l'exploitation minière. Une éthique du partenariat place la baisse des émissions en premier et reconnaît aux processus terrestres des besoins propres.
+  - author: jean-baptiste-fressoz
+    position: 15
+    work: fressoz-2024
+    text:
+      en: Energy sources have piled up and never replaced one another, and industry's dangers were known and accepted at every step. By analogy, solar geoengineering would add one more technical layer on top of fossil fuels and give coal and oil a longer life.
+      fr: Les sources d'énergie se sont empilées sans jamais se remplacer, et les dangers de l'industrie ont été connus et acceptés à chaque étape. Par analogie, la géo-ingénierie solaire ajouterait une couche technique de plus au-dessus des fossiles et prolongerait la vie du charbon et du pétrole.
+  - author: bruno-latour
+    position: 25
+    work: latour-2015
+    text:
+      en: Opposed as framed. Solar geoengineering treats a reacting Earth as an object to steer from outside, and once built a sunshade demands centuries of care. Research is already a political choice, so those affected, human and not, must be assembled before it begins.
+      fr: Opposé, tel que la question est posée. La géo-ingénierie solaire traite une Terre qui réagit comme un objet à piloter de l'extérieur, et un pare-soleil, une fois construit, exige des siècles de soin. La recherche est déjà un choix politique. Il faut donc rassembler les concernés, humains et non humains, avant qu'elle commence.
+  - author: timothy-morton
+    position: 30
+    work: morton-2013
+    text:
+      en: Global warming is a hyperobject that everyone is already inside, so no one stands outside the sky to steer it. Research that promises a planetary thermostat repeats the picture of Nature as a thing apart. Inquiry carried out as entangled participants is less objectionable.
+      fr: Le réchauffement climatique est un hyperobjet dans lequel nous sommes tous déjà pris, si bien que personne ne se tient hors du ciel pour le piloter. Une recherche qui promet un thermostat planétaire reproduit l'image de la Nature comme chose à part. Une enquête menée en participants enchevêtrés pose moins de problèmes.
+  - author: elinor-ostrom
+    position: 58
+    work: ostrom-1990
+    text:
+      en: Solar geoengineering research can proceed only conditionally, as governance of a shared sky. Those affected must help make, monitor and enforce the rules through nested, polycentric institutions, not leave the decision to one state, firm or lab. This is reasoned by analogy.
+      fr: La recherche sur la géo-ingénierie solaire ne peut avancer que sous conditions, comme gouvernance d'un ciel partagé. Les personnes concernées doivent contribuer à établir, surveiller et faire respecter les règles au sein d'institutions emboîtées et polycentriques, sans laisser la décision à un seul État, une seule firme ou un seul laboratoire. Raisonnement par analogie.
+  - author: james-lovelock
+    position: 70
+    work: lovelock-2006
+    text:
+      en: Research should go ahead, but deployment should not. The Earth regulates itself through feedbacks that are poorly understood. Since sustainable development is too late, a planned retreat needs that knowledge before an emergency forces a blind planetary gamble.
+      fr: La recherche devrait être poursuivie, mais pas le déploiement. La Terre s'autorégule par des rétroactions mal comprises. Le développement durable venant trop tard, une retraite planifiée a besoin de ce savoir avant qu'une urgence n'impose un pari planétaire à l'aveugle.
+  - author: william-nordhaus
+    position: 72
+    work: w-nordhaus-2013
+    text:
+      en: Research should go ahead as insurance against catastrophic climate damages, but not deployment. Solar geoengineering leaves acidification untouched and carries risks not yet priced, so it cannot replace a carbon price rising along an optimal path.
+      fr: La recherche devrait être poursuivie comme assurance contre des dommages climatiques catastrophiques, mais pas le déploiement. La géo-ingénierie solaire laisse intacte l'acidification et comporte des risques pas encore chiffrés. Elle ne peut donc remplacer un prix du carbone croissant selon une trajectoire optimale.
+  - author: ted-nordhaus
+    position: 78
+    work: nordhaus-2007
+    text:
+      en: Research should go ahead, under shared rules that give the most exposed countries a voice. Banning study is one more politics of limits. Knowledge widens options, while cheap clean energy and decarbonisation remain the main task. The record does not address geoengineering directly, so this is argued by analogy.
+      fr: La recherche devrait être poursuivie, sous des règles communes qui donnent voix aux pays les plus exposés. Interdire l'étude, c'est encore une politique des limites. Le savoir élargit les options, tandis que l'énergie propre bon marché et la décarbonation restent la tâche principale. Le corpus ne traite pas directement de la géo-ingénierie, d'où un raisonnement par analogie.
+  - author: pascal-bruckner
+    position: 80
+    work: bruckner-2011
+    text:
+      en: Research should go ahead. Refusing to study a possible remedy turns ecology into a morality of penance and fear. Ignorance is itself a risk, and human ingenuity, not repentance, offers protection, especially to the poor.
+      fr: La recherche devrait être poursuivie. Refuser d'étudier un remède possible fait de l'écologie une morale de la pénitence et de la peur. L'ignorance est elle-même un risque, et c'est l'ingéniosité humaine, non le repentir, qui protège, surtout les pauvres.
+  - author: stewart-brand
+    position: 85
+    work: brand-2009
+    text:
+      en: Solar geoengineering research should go ahead. A technology should be judged by its measured effects on the climate, and only research produces those measurements. Shared rules can govern the research, and it works as a backup alongside nuclear power and dense cities, not instead of emission cuts.
+      fr: La recherche sur la géo-ingénierie solaire devrait être poursuivie. Une technologie se juge à ses effets mesurés sur le climat, et seule la recherche produit ces mesures. Des règles communes peuvent l'encadrer, et elle sert de solution de secours aux côtés du nucléaire et des villes denses, non à la place de la baisse des émissions.
+  - author: bjorn-lomborg
+    position: 85
+    work: lomborg-2001
+    text:
+      en: Research should go ahead because it is cheap and fills a gap in knowledge. Studying solar geoengineering shows its costs, risks and benefits next to those of deep emission cuts, so money can go first to where it does the most good.
+      fr: La recherche devrait être poursuivie, car elle coûte peu et comble une lacune dans nos connaissances. Étudier la géo-ingénierie solaire révèle ses coûts, ses risques et ses bénéfices face à ceux de fortes baisses d'émissions, pour que l'argent aille d'abord là où il est le plus utile.
+silent: []
