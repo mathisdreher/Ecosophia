@@ -1,19 +1,17 @@
 ---
-// The quiz: rounds of ten questions drawn from the sourced corpus (portraits,
-// seeds, schools, works, threads, Canopy readings, sourced quotations). Every
-// answer comes with its explanation and a link to the leaf. Nothing here is
-// simulated; the questions are built in the browser from the data below.
+// The quiz: rounds of ten questions of four kinds, all drawn from the sourced
+// corpus: who developed an idea (or which idea an author developed), who wrote
+// a work, which school an author belongs to, and which critique an author
+// made. Every answer comes with its explanation and a link to the leaf.
+// Nothing here is simulated; the questions are built in the browser.
 import Base from '../layouts/Base.astro';
-import { href, withBase } from '../lib/site.mjs';
-import { L, typo, citeText } from '../lib/text.mjs';
-import { loadCorpus, loadCanopy, loadPortraits } from '../lib/corpus.mjs';
+import { href } from '../lib/site.mjs';
+import { L, typo } from '../lib/text.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
 
 const { lang } = Astro.props;
 const T = (en, fr) => typo(lang === 'fr' ? fr : en, lang);
 const c = loadCorpus();
-const portraits = loadPortraits();
-const canopy = loadCanopy();
-const nature = Object.fromEntries(canopy.filter((p) => p.axis === 'nature').map((p) => [p.author, { score: p.score, note: L(p.note, lang) }]));
 const groupName = (a) => (a.layer === 'leaf' ? L(c.branchById[a.branch].name, lang) : a.layer === 'root' ? (lang === 'fr' ? 'Précurseurs' : 'Precursors') : (lang === 'fr' ? 'Tronc' : 'Trunk'));
 const data = {
   lang,
@@ -24,41 +22,35 @@ const data = {
     groupName: groupName(a),
     token: a.token,
     url: href(lang, 'author', a.id),
-    face: a.portrait !== false && portraits.get(a.id)?.status === 'drawn' ? withBase(`/portraits/${a.id}.webp`) : null,
     seeds: a.seeds.map((s) => ({ name: L(c.seeds[s.seed].name, lang), text: L(s.text, lang) })),
     works: a.works.filter((w) => w.title).map((w) => ({ title: w.title, year: w.year })),
-    quote: a.quote ? { text: a.quote.text, cite: citeText(c.sources.get(a.quote.source), lang, { withAuthor: false }) } : null,
-    nature: nature[a.id] ?? null,
+    short: a.short,
   })),
   groups: [
     { id: 'root', name: lang === 'fr' ? 'Précurseurs' : 'Precursors' },
     { id: 'trunk', name: lang === 'fr' ? 'Tronc' : 'Trunk' },
     ...c.branches.map((b) => ({ id: b.id, name: L(b.name, lang) })),
   ],
-  links: c.sourcedLinks.map((l) => ({ from: l.from, to: l.to, type: l.type, note: L(l.note, lang) })),
+  critiques: c.sourcedLinks.filter((l) => l.type === 'critiqued').map((l) => ({ target: l.from, critic: l.to, note: L(l.note, lang) })),
 };
-const modes = [
-  ['all', T('Everything', 'Tout')],
-  ['faces', T('Faces', 'Visages')],
-  ['ideas', T('Ideas and works', 'Idées et œuvres')],
-  ['schools', T('Schools and quarrels', 'Écoles et querelles')],
-];
 ---
 
-<Base lang={lang} view="quiz" title={T('Quiz', 'Quiz')} description={T('Ten questions to discover the thinkers of political ecology, their ideas, their schools and their quarrels.', 'Dix questions pour découvrir les penseurs de l’écologie politique, leurs idées, leurs écoles et leurs querelles.')}>
+<Base lang={lang} view="quiz" title={T('Quiz', 'Quiz')} description={T('Ten questions to learn the ideas, books, schools and critiques of political ecology.', 'Dix questions pour apprendre les idées, les livres, les écoles et les critiques de l’écologie politique.')}>
   <section class="page-head">
     <h1 class="t-title">{T('Quiz', 'Quiz')}</h1>
-    <p class="t-lede">{T('Ten questions drawn from the map: who is this, who carried this idea, who wrote this book, who answered whom. Each answer comes with its source and a way into the leaf.', 'Dix questions tirées de la carte : qui est-ce, qui a porté cette idée, qui a écrit ce livre, qui a répondu à qui. Chaque réponse vient avec sa source et un chemin vers la fiche.')}</p>
+    <p class="t-lede">{T('Ten questions of four kinds, drawn from the map: who developed an idea, who wrote a book, which school a thinker belongs to, which critique they made. Each answer explains itself and opens the leaf.', 'Dix questions de quatre sortes, tirées de la carte : qui a développé une idée, qui a écrit un livre, à quelle école appartient un penseur, quelle critique il a formulée. Chaque réponse s’explique et ouvre la fiche.')}</p>
   </section>
 
   <section class="page-body" data-quiz>
     <script type="application/json" data-quiz-data set:html={JSON.stringify(data)} />
     <div class="start" data-start>
-      <span class="label t-muted">{T('Choose a round', 'Choisir une partie')}</span>
-      <div class="modes">
-        {modes.map(([id, label]) => <button type="button" class="eco-btn mode" data-mode={id}>{label}</button>)}
-      </div>
-      <p class="t-small t-muted">{T('Portraits are generated drawings, not photographs.', 'Les portraits sont des dessins générés, non des photographies.')}</p>
+      <ul class="kinds t-small">
+        <li><b>{T('Ideas', 'Idées')}</b> {T('who developed it, or which one an author developed', 'qui l’a développée, ou laquelle un auteur a développée')}</li>
+        <li><b>{T('Books', 'Livres')}</b> {T('who wrote it', 'qui l’a écrit')}</li>
+        <li><b>{T('Schools', 'Écoles')}</b> {T('where a thinker belongs on the tree', 'où se trouve un penseur sur l’arbre')}</li>
+        <li><b>{T('Critiques', 'Critiques')}</b> {T('which critique a thinker made', 'quelle critique un penseur a formulée')}</li>
+      </ul>
+      <button type="button" class="eco-btn" data-mode="all">{T('Start', 'Commencer')}</button>
     </div>
 
     <div class="game" data-game hidden>
@@ -66,8 +58,6 @@ const modes = [
       <div class="meta eco-meta"><span data-step></span><span data-score></span></div>
       <article class="q">
         <span class="label t-muted" data-kind></span>
-        <img class="q-face" data-face alt="" width="220" height="220" hidden />
-        <blockquote class="q-quote" data-quote hidden></blockquote>
         <h2 class="t-heading q-text" data-question></h2>
         <div class="options" data-options></div>
         <div class="feedback" data-feedback hidden>
@@ -108,63 +98,50 @@ const modes = [
       return [...near, ...others(a, 10).filter((b: any) => !near.includes(b))].slice(0, n);
     };
 
-    type Q = { kind: string; text: string; options: string[]; answer: string; explain: string; learn: string; face?: string; quote?: string; seen: string[] };
+    type Q = { kind: string; text: string; options: string[]; answer: string; explain: string; learn: string; seen: string[] };
+    const authorWord = fr ? 'l’auteur' : 'the author';
+    const mask = (note: string, a: any) => {
+      let out = note;
+      for (const n of [a.name, a.short]) out = out.split(n).join(authorWord);
+      return out.charAt(0).toUpperCase() + out.slice(1);
+    };
     const makers: Record<string, () => Q | null> = {
-      face() {
-        const a = pick(D.authors.filter((x: any) => x.face));
-        const opts = shuffle([a, ...distract(a)]);
-        return { kind: fr ? 'Qui est-ce ?' : 'Who is this?', text: fr ? 'Ce portrait dessiné représente…' : 'This drawn portrait shows…', face: a.face, options: opts.map((o: any) => o.name), answer: a.name, explain: `${a.name} · ${a.groupName}.`, learn: a.url, seen: [a.id] };
-      },
-      seed() {
-        const a = pick(D.authors.filter((x: any) => x.seeds.length));
+      idea() {
+        const withSeeds = D.authors.filter((x: any) => x.seeds.length);
+        const a = pick(withSeeds);
         const s = pick(a.seeds);
-        const opts = shuffle([a, ...distract(a)]);
-        return { kind: fr ? 'Une idée' : 'An idea', text: `${s.name}. ${s.text} ${fr ? 'Qui porte cette idée ?' : 'Who carries this idea?'}`, options: opts.map((o: any) => o.name), answer: a.name, explain: `${s.name}${C}${a.name} (${a.groupName}).`, learn: a.url, seen: [a.id] };
+        if (Math.random() < 0.5) {
+          const opts = shuffle([a, ...distract(a)]);
+          return { kind: fr ? 'Une idée' : 'An idea', text: `${s.name}${C}${s.text} ${fr ? 'Qui a développé cette idée ?' : 'Who developed this idea?'}`, options: opts.map((o: any) => o.name), answer: a.name, explain: `${s.name}${C}${a.name} (${a.groupName}).`, learn: a.url, seen: [a.id] };
+        }
+        const pool = shuffle(withSeeds.filter((x: any) => x.id !== a.id).flatMap((x: any) => x.seeds.map((y: any) => y.name)));
+        const wrong = [...new Set(pool.filter((n: string) => !a.seeds.some((y: any) => y.name === n)))].slice(0, 3);
+        return { kind: fr ? 'Une idée' : 'An idea', text: fr ? `Quelle idée doit-on à ${a.name} ?` : `Which idea do we owe to ${a.name}?`, options: shuffle([s.name, ...wrong]), answer: s.name, explain: `${s.name}${C}${s.text}`, learn: a.url, seen: [a.id] };
       },
       work() {
         const a = pick(D.authors.filter((x: any) => x.works.length));
         const w = pick(a.works);
         const opts = shuffle([a, ...distract(a)]);
-        return { kind: fr ? 'Une œuvre' : 'A work', text: fr ? `Qui a écrit « ${w.title} » (${w.year}) ?` : `Who wrote ${w.title} (${w.year})?`, options: opts.map((o: any) => o.name), answer: a.name, explain: `${w.title} (${w.year})${C}${a.name}.`, learn: a.url, seen: [a.id] };
-      },
-      quote() {
-        const a = pick(D.authors.filter((x: any) => x.quote));
-        if (!a) return null;
-        const opts = shuffle([a, ...distract(a)]);
-        return { kind: fr ? 'Une citation sourcée' : 'A sourced quotation', text: fr ? 'Qui a écrit ces mots ?' : 'Who wrote these words?', quote: a.quote.text, options: opts.map((o: any) => o.name), answer: a.name, explain: `${a.name}, ${a.quote.cite}.`, learn: a.url, seen: [a.id] };
+        return { kind: fr ? 'Un livre' : 'A book', text: fr ? `Qui a écrit « ${w.title} » (${w.year}) ?` : `Who wrote ${w.title} (${w.year})?`, options: opts.map((o: any) => o.name), answer: a.name, explain: `${w.title} (${w.year})${C}${a.name}, ${a.groupName}.`, learn: a.url, seen: [a.id] };
       },
       school() {
         const a = pick(D.authors.filter((x: any) => x.group !== 'root' && x.group !== 'trunk'));
         const wrong = shuffle(D.groups.filter((g: any) => g.id !== a.group && g.id !== 'root' && g.id !== 'trunk')).slice(0, 3);
         const opts = shuffle([groupName.get(a.group), ...wrong.map((g: any) => g.name)]);
-        return { kind: fr ? 'Une école' : 'A school', text: fr ? `Sur quelle branche se trouve ${a.name} ?` : `On which branch is ${a.name}?`, options: opts, answer: a.groupName, explain: `${a.name}${C}${a.groupName}.`, learn: a.url, seen: [a.id] };
+        const seed = a.seeds[0];
+        return { kind: fr ? 'Une école' : 'A school', text: fr ? `À quelle école appartient ${a.name} ?` : `Which school does ${a.name} belong to?`, options: opts, answer: a.groupName, explain: `${a.name}${C}${a.groupName}.${seed ? ` ${seed.name}${C}${seed.text}` : ''}`, learn: a.url, seen: [a.id] };
       },
-      thread() {
-        const l = pick(D.links.filter((x: any) => x.type !== 'dialogue'));
-        const from: any = byId.get(l.from);
-        const to: any = byId.get(l.to);
-        const verb = l.type === 'critiqued' ? (fr ? 'a été critiqué par' : 'was critiqued by') : fr ? 'a influencé' : 'influenced';
-        const opts = shuffle([to, ...distract(to)]);
-        return { kind: l.type === 'critiqued' ? (fr ? 'Une querelle' : 'A quarrel') : fr ? 'Une influence' : 'An influence', text: `${from.name} ${verb}…`, options: opts.map((o: any) => o.name), answer: to.name, explain: l.note, learn: to.url, seen: [from.id, to.id] };
-      },
-      canopy() {
-        const placed = D.authors.filter((x: any) => x.nature);
-        for (let i = 0; i < 30; i += 1) {
-          const a = pick(placed);
-          const b = pick(placed);
-          if (Math.abs(a.nature.score - b.nature.score) < 35) continue;
-          const hi = a.nature.score > b.nature.score ? a : b;
-          return { kind: fr ? 'La Canopée' : 'The Canopy', text: fr ? 'Lequel des deux donne le plus de valeur à la nature en elle-même ?' : 'Which of the two gives nature more value in itself?', options: shuffle([a.name, b.name]), answer: hi.name, explain: `${hi.name}${C}${hi.nature.note} (${fr ? 'lecture proposée' : 'proposed reading'})`, learn: hi.url, seen: [a.id, b.id] };
-        }
-        return null;
+      critique() {
+        const k = pick(D.critiques);
+        const critic: any = byId.get(k.critic);
+        const target: any = byId.get(k.target);
+        const others = shuffle(D.critiques.filter((x: any) => x.critic !== k.critic)).slice(0, 3);
+        const options = shuffle([k, ...others].map((x: any) => mask(x.note, byId.get(x.critic))));
+        const answer = mask(k.note, critic);
+        return { kind: fr ? 'Une critique' : 'A critique', text: fr ? `Quelle critique doit-on à ${critic.name} ?` : `Which critique do we owe to ${critic.name}?`, options, answer, explain: `${critic.name} → ${target.name}${C}${k.note}`, learn: critic.url, seen: [critic.id, target.id] };
       },
     };
-    const MODES: Record<string, string[]> = {
-      all: ['face', 'seed', 'work', 'quote', 'school', 'thread', 'canopy', 'face', 'seed', 'thread'],
-      faces: ['face'],
-      ideas: ['seed', 'work', 'quote'],
-      schools: ['school', 'thread', 'canopy'],
-    };
+    const MODES: Record<string, string[]> = { all: ['idea', 'work', 'school', 'critique'] };
 
     let questions: Q[] = [];
     let i = 0;
@@ -173,12 +150,14 @@ const modes = [
 
     const build = (mode: string) => {
       const kinds = MODES[mode];
+      const order = [...shuffle(kinds), ...shuffle(kinds)];
       const out: Q[] = [];
       const used = new Set<string>();
       let guard = 0;
       while (out.length < 10 && guard < 200) {
         guard += 1;
-        const q = makers[mode === 'all' ? kinds[out.length % kinds.length] : pick(kinds)]();
+        const kind = out.length < 8 ? order[out.length] : pick(kinds);
+        const q = makers[kind]();
         if (!q || used.has(q.text + q.answer)) continue;
         used.add(q.text + q.answer);
         out.push(q);
@@ -193,12 +172,6 @@ const modes = [
       $('[data-score]').textContent = `${fr ? 'Score' : 'Score'} ${score}`;
       $('[data-kind]').textContent = q.kind;
       $('[data-question]').textContent = q.text;
-      const face = $<HTMLImageElement>('[data-face]');
-      face.hidden = !q.face;
-      if (q.face) face.src = q.face;
-      const quote = $('[data-quote]');
-      quote.hidden = !q.quote;
-      quote.textContent = q.quote ?? '';
       const box = $('[data-options]');
       box.replaceChildren();
       for (const o of q.options) {
@@ -245,14 +218,6 @@ const modes = [
         const link = document.createElement('a');
         link.href = a.url;
         link.className = 'met-card';
-        if (a.face) {
-          const img = document.createElement('img');
-          img.src = a.face;
-          img.alt = '';
-          img.width = 48;
-          img.height = 48;
-          link.append(img);
-        }
         const span = document.createElement('span');
         span.textContent = a.name;
         link.append(span);
@@ -294,10 +259,12 @@ const modes = [
     gap: var(--space-4);
     max-width: 760px;
   }
-  .modes {
+  .kinds {
+    margin: 0;
+    padding-left: 1.2em;
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
+    flex-direction: column;
+    gap: var(--space-1);
   }
   [hidden] {
     display: none !important;
@@ -333,20 +300,6 @@ const modes = [
     border: 1px solid var(--line);
     border-radius: 0 24px 0 24px;
     background: var(--paper-raised);
-  }
-  .q-face {
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
-    object-position: 50% 30%;
-    border-radius: 0 24px 0 24px;
-    border: 2px solid var(--line);
-  }
-  .q-quote {
-    margin: 0;
-    font: italic 400 22px/30px var(--font-display);
-    border-left: 3px solid var(--moss);
-    padding-left: var(--space-4);
   }
   .q-text {
     margin: 0;
