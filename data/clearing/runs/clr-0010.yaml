@@ -1,0 +1,360 @@
+# Clearing run clr-0010. Simulated: nothing below is a statement by any author named.
+# Written by clearing/run.mjs. The transcript and the prompts are in the file next to this one.
+id: clr-0010
+runId: clr-0010
+status: draft
+date: 2026-11-12
+claim:
+  en: Half of the Earth's surface should be set aside as protected areas for other species.
+  fr: La moitié de la surface de la Terre devrait être réservée aux autres espèces sous forme d'aires protégées.
+question:
+  id: moitie-terre
+  kind: axiom
+  measures: []
+summary:
+  en: "The line ran less between protecting habitat and refusing it than between a fenced share of the planet and care on all inhabited land, with most replies aimed at the Wilson agent on who would pay. The Ecosophy branch split: the Næss agent endorsed at 65, while the Morizot agent opposed at 30."
+  fr: "Le clivage portait moins sur la protection elle-même que sur sa forme, une moitié clôturée ou le soin de toutes les terres habitées, et la plupart des répliques visaient l'agent Wilson sur le partage des coûts. La branche Écosophie s'est divisée : l'agent Næss a soutenu la proposition à 65, l'agent Morizot s'y est opposé à 30."
+engine:
+  name: MiroFish
+  commit: 7657031ac01184afe2cb220f5ee3545573b5e843
+  platform: reddit
+  packages:
+    - camel-oasis==0.2.5
+    - camel-ai==0.2.78
+model:
+  requested: claude-opus-5-5
+  served:
+    - claude-opus-5-5
+  effort: medium
+settings:
+  rounds: 2
+  agents: 25
+  selection: auto
+  budgetUsd: 3
+  estimateUsd: 1.9
+plan:
+  model: claude-opus-5-5
+  note: Every one of the 14 branches is represented, and the list sets the Half-Earth proponents against critics from decolonial, land-sharing, market, humanist and ecomodernist positions. Two rounds let the agents answer each other on fortress conservation, land sparing and the nature-culture divide while keeping the cost under budget.
+  rounds: 2
+  ranked: 25
+  trimmed: false
+  reasons:
+    edward-o-wilson: Author of the Half-Earth proposal under debate.
+    ramachandra-guha: Wrote the classic Third World critique of wilderness preservation and its cost to rural people.
+    ted-nordhaus: Ecomodernist case for land sparing through intensification and decoupling, a different route to setting land aside.
+    baptiste-morizot: Works on wolves, rewilding and cohabitation, arguing for diplomacy with other species on shared land.
+    terry-anderson: Free-market environmentalism holds that property rights, not state set-asides, protect habitat.
+    paul-robbins: Political ecologist who analyses how conservation enclosures dispossess local land users.
+    joan-martinez-alier: Studies ecological distribution conflicts, including those caused by protected areas.
+    murray-bookchin: Attacked deep ecology as misanthropic and traces the domination of nature to social hierarchy.
+    bruno-latour: Rejects the separation of nature and society that a fenced half presupposes.
+    val-plumwood: Critiqued the wilderness idea as part of the dualism of reason against nature.
+    jason-hickel: Argues that cutting rich-country material throughput is the way to free land for ecosystems.
+    john-bellamy-foster: Metabolic rift analysis sets the biodiversity crisis within capitalist land use.
+    roger-scruton: Oikophilia grounds environmental care in local, inhabited homes rather than global targets.
+    wendell-berry: Agrarian who defends people living well on the land rather than separating land from people.
+    timothy-morton: Ecology without nature questions the ideal of Nature set apart and admired from a distance.
+    arne-naess: Deep ecology platform calls for much larger areas of wilderness and a smaller human footprint.
+    philippe-descola: His anthropology shows that the nature and culture divide behind protected areas is not universal.
+    luc-ferry: Humanist critic of deep ecology and of giving priority to nature over people.
+    johan-rockstrom: Planetary boundaries framework includes biosphere integrity and land system change limits.
+    davi-kopenawa: Led the demarcation of Yanomami territory, an Indigenous model of forest protection.
+    holmes-rolston: Defends intrinsic value in wild nature and the preservation of wildlands.
+    vandana-shiva: Defends subsistence communities and biodiversity kept by farmers rather than by exclusion.
+    elinor-ostrom: Showed that communities can govern forests and fisheries as commons without state exclusion.
+    anna-tsing: Studies life in disturbed, shared landscapes rather than pristine reserves.
+    robin-wall-kimmerer: Indigenous botanist who argues for reciprocal human care of land rather than absence.
+counts:
+  turns: 50
+  comments: 74
+  reactions: 82
+  interviews: 25
+  declined: 0
+  failed: 0
+  tokensIn: 614698
+  tokensOut: 41091
+  costUsd: 2.34
+positions:
+  - branch: technocritique
+    score: 30
+    min: 30
+    max: 30
+    agents: 1
+  - branch: degrowth
+    score: 40
+    min: 40
+    max: 40
+    agents: 1
+  - branch: social-ecology
+    score: 25
+    min: 25
+    max: 25
+    agents: 1
+  - branch: ecosocialism
+    score: 30
+    min: 30
+    max: 30
+    agents: 1
+  - branch: deep-ecology
+    score: 84
+    min: 78
+    max: 90
+    agents: 2
+  - branch: ecosophy
+    score: 48
+    min: 30
+    max: 65
+    agents: 2
+  - branch: anthropocene
+    score: 22
+    min: 20
+    max: 60
+    agents: 3
+  - branch: political-ecology
+    score: 24
+    min: 22
+    max: 25
+    agents: 4
+  - branch: decolonial
+    score: 20
+    min: 12
+    max: 25
+    agents: 3
+  - branch: ecofeminism
+    score: 20
+    min: 15
+    max: 25
+    agents: 2
+  - branch: queer-ecology
+    score: 30
+    min: 30
+    max: 30
+    agents: 1
+  - branch: counterpoint
+    score: 62
+    min: 62
+    max: 62
+    agents: 1
+  - branch: market
+    score: 19
+    min: 15
+    max: 22
+    agents: 2
+  - branch: conservative
+    score: 20
+    min: 20
+    max: 20
+    agents: 1
+alliances:
+  - title:
+      en: For, on grounds of scale and value
+      fr: Pour, au nom de l'échelle et de la valeur
+    text:
+      en: Extinction follows habitat loss and other beings hold value of their own, so large connected wild areas are needed. The Næss agent breaks from the Morizot agent, its Ecosophy peer.
+      fr: L'extinction suit la perte d'habitat et les autres êtres ont une valeur propre, d'où la nécessité de vastes espaces sauvages reliés. L'agent Næss se sépare de l'agent Morizot, de la même branche Écosophie.
+    authors:
+      - edward-o-wilson
+      - holmes-rolston
+      - arne-naess
+  - title:
+      en: Partly for, within system limits
+      fr: En partie pour, sous conditions
+    text:
+      en: More protection is needed, but it must come from decoupling or from respecting all planetary boundaries, not from a fixed half. The Rockström agent breaks from the Latour and Tsing agents of its branch.
+      fr: Il faut davantage de protection, mais par le découplage ou le respect de toutes les limites planétaires, non par une moitié fixe. L'agent Rockström se sépare des agents Latour et Tsing, de sa branche.
+    authors:
+      - ted-nordhaus
+      - johan-rockstrom
+  - title:
+      en: Against, on costs and drivers
+      fr: Contre, au nom des coûts et des causes
+    text:
+      en: The fence would fall on peasants and indigenous peoples of the South while Northern consumption and capital, which drive habitat loss, stay in place. The Hickel agent opposes least firmly, at 40.
+      fr: La clôture pèserait sur les paysans et les peuples autochtones du Sud, tandis que la consommation du Nord et le capital, moteurs de la perte d'habitat, resteraient intacts. L'agent Hickel s'y oppose le moins fermement, à 40.
+    authors:
+      - ramachandra-guha
+      - joan-martinez-alier
+      - paul-robbins
+      - davi-kopenawa
+      - vandana-shiva
+      - jason-hickel
+      - john-bellamy-foster
+      - murray-bookchin
+  - title:
+      en: Against the split itself
+      fr: Contre le partage lui-même
+    text:
+      en: Dividing a nature half from a human half repeats the divide between society and nature, when living beings and climate cross every line. The Morizot agent breaks from the Næss agent of its branch.
+      fr: Séparer une moitié nature d'une moitié humaine reconduit le partage entre société et nature, alors que vivants et climat franchissent toutes les lignes. L'agent Morizot se sépare de l'agent Næss, de sa branche.
+    authors:
+      - baptiste-morizot
+      - bruno-latour
+      - val-plumwood
+      - philippe-descola
+      - timothy-morton
+      - anna-tsing
+      - robin-wall-kimmerer
+  - title:
+      en: Against, for local governance
+      fr: Contre, au nom du gouvernement local
+    text:
+      en: Protection lasts where those who live on the land hold rights and make the rules, not under a quota drawn from above. The Ostrom agent leaves its Political ecology peers and joins the Anderson agent.
+      fr: La protection dure là où les habitants détiennent des droits et fixent les règles, non sous un quota tracé d'en haut. L'agent Ostrom quitte les autres agents de la branche Écologie politique et rejoint l'agent Anderson.
+    authors:
+      - terry-anderson
+      - elinor-ostrom
+      - roger-scruton
+      - luc-ferry
+      - wendell-berry
+voices:
+  - author: ramachandra-guha
+    position: 12
+    work: guha-1989b
+    text:
+      en: Half-Earth exports the American wilderness model to the global South, where reserves evict ecosystem people who live with the forest. Protection should begin by curbing the consumption of the omnivores and by securing local forest rights, not by fencing off inhabited land.
+      fr: Half-Earth exporte vers le Sud global le modèle américain de la nature sauvage, où les réserves expulsent les peuples des écosystèmes qui vivent avec la forêt. La protection devrait commencer par freiner la consommation des omnivores et par garantir les droits forestiers locaux, non par clôturer des terres habitées.
+  - author: terry-anderson
+    position: 15
+    work: anderson-1991
+    text:
+      en: A fixed political quota of half the Earth is opposed. Land set aside by decree has no owner who bears the cost of neglect. Secure, tradable property rights, private or communal, conserve habitat better, and how much land to protect should follow from those rights.
+      fr: Un quota politique fixe de la moitié de la Terre est rejeté. Une terre mise de côté par décret n'a pas de propriétaire qui supporte le coût de sa négligence. Des droits de propriété sûrs et cessibles, privés ou communautaires, protègent mieux les habitats, et la part de terres à protéger devrait découler de ces droits.
+  - author: vandana-shiva
+    position: 15
+    work: shiva-1988
+    text:
+      en: Splitting the Earth into a protected half and a used half repeats the monoculture of the mind. Forests and biodiversity are kept alive by the subsistence work of rural women and local communities. The real threat is maldevelopment, not the people who live with the land.
+      fr: Diviser la Terre entre une moitié protégée et une moitié exploitée répète la monoculture de l'esprit. Les forêts et la biodiversité sont maintenues en vie par le travail de subsistance des femmes rurales et des communautés locales. La vraie menace est le mal-développement, non les gens qui vivent avec la terre.
+  - author: roger-scruton
+    position: 20
+    work: scruton-2012
+    text:
+      en: A planetary quota drawn from above treats places as map units and their people as obstacles. Habitat lasts where those who call the land home protect it through local institutions, property and attachment. Oikophilia does this work, not global targets.
+      fr: Un quota planétaire décidé d'en haut traite les lieux comme des unités cartographiques et leurs habitants comme des obstacles. Les habitats durent là où ceux qui tiennent la terre pour leur foyer la protègent par des institutions locales, la propriété et l'attachement. C'est l'oikophilie qui accomplit ce travail, non les objectifs mondiaux.
+  - author: davi-kopenawa
+    position: 20
+    work: kopenawa-2010
+    text:
+      en: The forest is not empty land to fence off for other species. People, animals and spirits live in it together. The real threat is the hunger for metal and merchandise, so protection means demarcating peoples' territories and stopping the miners, not dividing the Earth.
+      fr: "La forêt n'est pas une terre vide à clôturer pour les autres espèces. Les gens, les animaux et les esprits y vivent ensemble. La vraie menace est la soif de métal et de marchandises : protéger, c'est démarquer les territoires des peuples et arrêter les orpailleurs, non diviser la Terre."
+  - author: anna-tsing
+    position: 20
+    work: tsing-2015
+    text:
+      en: Opposed as framed. Much multispecies life persists in disturbed, inhabited landscapes, and some of it depends on human disturbance. Fencing off half the planet repeats the plantation logic of clearing people out. The task is living together in shared capitalist ruins, not dividing humans from other species.
+      fr: Rejetée telle que formulée. Une grande part de la vie multispécifique persiste dans des paysages perturbés et habités, et une partie dépend de la perturbation humaine. Clôturer la moitié de la planète reproduit la logique de plantation qui chasse les gens. La tâche est de vivre ensemble dans les ruines partagées du capitalisme, non de séparer les humains des autres espèces.
+  - author: joan-martinez-alier
+    position: 22
+    work: martinez-alier-2002
+    text:
+      en: Fencing off half the Earth would put the costs on peasants, pastoralists and indigenous peoples in the South, who already defend land in order to live from it. The pressure comes from the North's social metabolism, so cutting that metabolism should come first.
+      fr: Clôturer la moitié de la Terre ferait peser les coûts sur les paysans, les pasteurs et les peuples autochtones du Sud, qui défendent déjà la terre pour en vivre. La pression vient du métabolisme social du Nord, et c'est d'abord ce métabolisme qu'il faut réduire.
+  - author: bruno-latour
+    position: 22
+    work: latour-1999
+    text:
+      en: Setting half the Earth aside repeats the modern split between nature and society. Gaia reacts everywhere and crosses every fence. Other species need spokespersons in a common assembly that decides about all land, not a reserve kept apart from politics.
+      fr: Mettre de côté la moitié de la Terre répète la séparation moderne entre nature et société. Gaïa réagit partout et franchit toutes les clôtures. Les autres espèces ont besoin de porte-parole dans une assemblée commune qui décide de toutes les terres, non d'une réserve tenue à l'écart de la politique.
+  - author: philippe-descola
+    position: 22
+    work: descola-2005
+    text:
+      en: Setting half the Earth apart for other species assumes naturalism, a nature outside society that can be fenced off. That is only one of four ontologies. Imposing the partition exports the Western divide onto peoples whose forests are societies of persons.
+      fr: Réserver la moitié de la Terre aux autres espèces suppose le naturalisme, une nature extérieure à la société que l'on pourrait clôturer. Ce n'est qu'une ontologie parmi quatre. Imposer ce partage exporte la coupure occidentale chez des peuples dont les forêts sont des sociétés de personnes.
+  - author: luc-ferry
+    position: 22
+    work: ferry-1992
+    text:
+      en: Opposed as framed. Nature has value for humans, not rights against them. Wild areas deserve protection when people decide it democratically, for human and future generations' sake, not as a fixed quota owed to other species that overrides the people living on the land.
+      fr: Rejetée telle que formulée. La nature a une valeur pour les humains, non des droits contre eux. Les espaces sauvages méritent protection quand les gens en décident démocratiquement, pour les humains et les générations futures, non comme un quota fixe dû aux autres espèces et imposé aux habitants de ces terres.
+  - author: paul-robbins
+    position: 25
+    work: robbins-2004
+    text:
+      en: Opposed as framed. A global set-aside target treats conservation as apolitical. It hides who loses access to enclosed land and who gains, and it leaves the commodity chains that drive habitat loss in place. More protection needs justice and land rights built into it.
+      fr: Rejetée telle que formulée. Un objectif mondial de mise en réserve traite la conservation comme une affaire apolitique. Il masque qui perd l'accès aux terres clôturées et qui y gagne, et laisse en place les filières marchandes qui détruisent les habitats. Davantage de protection exige d'y intégrer la justice et les droits fonciers.
+  - author: murray-bookchin
+    position: 25
+    work: bookchin-1982
+    text:
+      en: Fencing off half the Earth treats a social problem as a question of territory. It leaves alone the hierarchy and the grow-or-die market that devour the rest, and it lets states displace people. Protection lasts only under directly democratic communities that rebalance human society with nature.
+      fr: Clôturer la moitié de la Terre traite un problème social comme une question de territoire. Cela laisse intacts la hiérarchie et le marché du croître ou mourir qui dévorent le reste, et permet aux États de déplacer des populations. La protection ne dure que sous des communautés en démocratie directe qui rééquilibrent la société humaine avec la nature.
+  - author: val-plumwood
+    position: 25
+    work: plumwood-1993
+    text:
+      en: Splitting the Earth into a protected nature half and a human half repeats the reason/nature dualism. It erases the people who live in so-called wilderness and leaves the other half open to use without limits. The master's denial of dependence must end on all land.
+      fr: Diviser la Terre entre une moitié nature protégée et une moitié humaine répète le dualisme raison/nature. Cela efface les peuples qui vivent dans la prétendue nature sauvage et laisse l'autre moitié ouverte à un usage sans limites. Le déni de dépendance du maître doit prendre fin sur toutes les terres.
+  - author: elinor-ostrom
+    position: 25
+    work: ostrom-1990
+    text:
+      en: A single global quota imposed from above risks displacing the users who already govern resources well, turning commons into open access. Protection lasts when local users have recognised rights, clear boundaries, and make, monitor and enforce their own rules.
+      fr: Un quota mondial unique imposé d'en haut risque de déplacer les usagers qui gèrent déjà bien les ressources et de transformer des communs en accès libre. La protection dure quand les usagers locaux ont des droits reconnus, des limites claires, et qu'ils établissent, surveillent et font respecter leurs propres règles.
+  - author: robin-wall-kimmerer
+    position: 25
+    work: kimmerer-2013
+    text:
+      en: "Splitting the Earth into a used half and a fenced-off half repeats the separation of people from land that caused the harm. Care through reciprocity belongs on all land: take only what is given, and give something back."
+      fr: "Diviser la Terre entre une moitié exploitée et une moitié clôturée répète la séparation entre les gens et la terre qui a causé le mal. Le soin par la réciprocité concerne toutes les terres : ne prendre que ce qui est donné, et rendre quelque chose en retour."
+  - author: baptiste-morizot
+    position: 30
+    work: morizot-2016
+    text:
+      en: The claim is opposed as a guiding frame. Splitting the Earth into sanctuary and exploited zone keeps the human/nature divide. Living beings like the wolf cross every line, so cohabitation has to be negotiated through diplomacy on shared territory everywhere. Reserves are only one tool.
+      fr: La proposition est rejetée comme cadre directeur. Diviser la Terre entre sanctuaire et zone exploitée maintient la coupure entre humains et nature. Les vivants comme le loup franchissent toutes les lignes, si bien que la cohabitation doit se négocier partout, par la diplomatie, sur un territoire partagé. Les réserves ne sont qu'un outil parmi d'autres.
+  - author: john-bellamy-foster
+    position: 30
+    work: foster-2010
+    text:
+      en: Setting aside protected areas cannot repair the metabolic rift. Capitalist agriculture and accumulation keep draining soil and pushing past limits in the half that is left unprotected. The rift has to be closed in the land that people live on and farm.
+      fr: Mettre des aires protégées de côté ne peut réparer la rupture métabolique. L'agriculture capitaliste et l'accumulation continuent d'épuiser les sols et de franchir les limites dans la moitié laissée sans protection. La rupture doit être refermée sur les terres où les gens vivent et cultivent.
+  - author: wendell-berry
+    position: 30
+    work: berry-1977
+    text:
+      en: Protecting wild places is good, but fencing off half the Earth leaves the other half to an industrial economy that ruins soil, communities and farming skill. Care has to reach every farm, woodlot and watershed, because how a people farms is how it lives.
+      fr: Protéger les lieux sauvages est une bonne chose, mais clôturer la moitié de la Terre abandonne l'autre moitié à une économie industrielle qui ruine les sols, les communautés et le savoir-faire paysan. Le soin doit atteindre chaque ferme, chaque bois et chaque bassin versant, car la façon dont un peuple cultive est sa façon de vivre.
+  - author: timothy-morton
+    position: 30
+    work: morton-2007
+    text:
+      en: The framing is opposed more than habitat protection itself. Splitting Earth into a human half and a Nature half keeps the idea of a pristine elsewhere alive. Hyperobjects like global warming get past every fence, and ecology is a mesh of entangled beings everywhere.
+      fr: C'est le cadrage qui est rejeté, plus que la protection des habitats. Diviser la Terre entre une moitié humaine et une moitié Nature entretient l'idée d'un ailleurs immaculé. Les hyperobjets comme le réchauffement climatique passent toutes les clôtures, et l'écologie est un maillage d'êtres enchevêtrés, partout.
+  - author: jason-hickel
+    position: 40
+    work: hickel-2020
+    text:
+      en: More room for other species is needed, but a global half quota risks fencing off Southern land while Northern overconsumption, the main driver of habitat loss, continues. Reducing rich-country material and land use comes first, as a matter of justice.
+      fr: Il faut davantage de place pour les autres espèces, mais un quota mondial de la moitié risque de clôturer des terres du Sud pendant que la surconsommation du Nord, principal moteur de la perte d'habitat, se poursuit. Réduire l'usage de matières et de terres des pays riches passe en premier, par justice.
+  - author: johan-rockstrom
+    position: 60
+    work: rockstrom-2009
+    text:
+      en: Biosphere integrity is a planetary boundary already crossed, so much more protection is needed. But the framework fixes no one-half figure. Reserves fail unless climate, nitrogen and land-use boundaries are respected across the whole Earth system.
+      fr: L'intégrité de la biosphère est une limite planétaire déjà franchie, il faut donc bien plus de protection. Mais le cadre ne fixe aucun chiffre de moitié. Les réserves échouent si les limites du climat, de l'azote et de l'usage des sols ne sont pas respectées dans tout le système Terre.
+  - author: ted-nordhaus
+    position: 62
+    work: nordhaus-2015
+    text:
+      en: "Leaving much more land to other species is a worthy aim, but it can only come from decoupling: intensive farming, dense cities and land-light energy. A fixed protected half imposed as a limit on development would be unjust and politically doomed."
+      fr: "Laisser beaucoup plus de terres aux autres espèces est un objectif louable, mais il ne peut venir que du découplage : agriculture intensive, villes denses et énergie peu gourmande en espace. Une moitié protégée fixée d'avance et imposée comme limite au développement serait injuste et politiquement vouée à l'échec."
+  - author: arne-naess
+    position: 65
+    work: naess-1973
+    text:
+      en: Large wild areas where other beings can unfold on their own terms follow from their value apart from human use. A protected half beside an unchanged industrial half is still shallow ecology. Rich societies must cut consumption, and inhabitants must not be evicted.
+      fr: De vastes espaces sauvages où les autres êtres peuvent s'épanouir selon leurs propres termes découlent de leur valeur indépendante de l'usage humain. Une moitié protégée à côté d'une moitié industrielle inchangée relève encore de l'écologie superficielle. Les sociétés riches doivent réduire leur consommation, et les habitants ne doivent pas être expulsés.
+  - author: holmes-rolston
+    position: 78
+    work: rolston-1988
+    text:
+      en: Organisms and ecosystems hold value before any human values them, so protecting them is a duty and not a favor. The figure of half is a policy number, but systemic value needs large, connected wild areas. Displacement and consumption elsewhere still need to be dealt with.
+      fr: Les organismes et les écosystèmes portent une valeur avant que quiconque les valorise, si bien que les protéger est un devoir, non une faveur. Le chiffre de la moitié est un nombre politique, mais la valeur systémique exige de vastes espaces sauvages reliés. Les déplacements et la consommation ailleurs restent à traiter.
+  - author: edward-o-wilson
+    position: 90
+    work: wilson-2016
+    text:
+      en: Habitat loss drives extinction, and only protecting about half of land and sea, in large connected areas that include indigenous lands kept wild, can save most species. Displacement concerns call for securing inhabitants' territories, not for shrinking the target.
+      fr: La perte d'habitat entraîne l'extinction, et seule la protection d'environ la moitié des terres et des mers, en vastes zones reliées incluant des terres autochtones maintenues sauvages, peut sauver la plupart des espèces. Les craintes de déplacement appellent à garantir les territoires des habitants, non à réduire l'objectif.
+silent: []
