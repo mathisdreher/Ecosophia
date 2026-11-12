@@ -6,9 +6,10 @@
 # neutral restatement that keeps the scope of the original. The agents are
 # given the claim only, never the name of the party.
 #
-# Coverage so far: LFI, Les Écologistes, PS, RN. Still to add, for balance:
-# PCF, Renaissance / Ensemble, LR. A claim enters this file only after its
-# quotation has been read in the party's own document.
+# Coverage: LFI, PCF, Les Écologistes, PS, Renaissance / Ensemble, LR, RN,
+# from their most recent full programme found on an official site. A claim
+# enters this file only after its quotation has been read in the party's own
+# document; the year is the year of that document.
 # --- La France insoumise -------------------------------------------------
 - id: lfi-2026-nucleaire
   party: {short: LFI, name: La France insoumise}
@@ -143,4 +144,106 @@
     fr: "La France devrait renoncer à l’interdiction de la vente des voitures à moteur thermique en 2035 et inciter les constructeurs français à développer des véhicules propres abordables."
     en: "France should abandon the 2035 ban on sales of combustion-engine cars and encourage French manufacturers to develop affordable clean vehicles."
   topic: transport
+  checked: "2026-11-12"
+
+# --- Parti communiste français -------------------------------------------
+- id: pcf-2022-mix-energetique
+  party: {short: PCF, name: Parti communiste français}
+  programme: {title: "Fabien Roussel – La France des Jours heureux, le programme (document 8 pages, présidentielle 2022)", year: 2022, url: "https://assets.nationbuilder.com/pcf/pages/13815/attachments/original/1643123394/document_-_exe_8p_programme_stc.pdf?1643123394"}
+  locator: "Objectifs pour l’humain et la planète d’abord, 4 « Pour l’emploi et le climat, je lancerai un grand plan de réindustrialisation de la France » (p. 3 du PDF)"
+  quote: "Un mix énergétique nucléaire et renouvelable ; un service public avec EDF et Engie renationalisés."
+  claim:
+    fr: "Le mix énergétique français devrait associer nucléaire et renouvelables, dans un service public de l’énergie reposant sur EDF et Engie renationalisées."
+    en: "France's energy mix should combine nuclear and renewables, within a public energy service built on a renationalised EDF and Engie."
+  topic: energy
+  checked: "2026-11-12"
+
+- id: pcf-2022-plan-emploi-climat
+  party: {short: PCF, name: Parti communiste français}
+  programme: {title: "Fabien Roussel – La France des Jours heureux, le programme (document 8 pages, présidentielle 2022)", year: 2022, url: "https://assets.nationbuilder.com/pcf/pages/13815/attachments/original/1643123394/document_-_exe_8p_programme_stc.pdf?1643123394"}
+  locator: "Objectifs pour l’humain et la planète d’abord, 4 « Pour l’emploi et le climat, je lancerai un grand plan de réindustrialisation de la France » (p. 3 du PDF)"
+  quote: "Il faut répondre aux défis écologiques et humains en s’attaquant aux logiques destructrices du capitalisme et en portant un plan de 140 milliards d’euros pour l’emploi et le climat."
+  claim:
+    fr: "Pour répondre aux défis écologiques et humains, il faudrait s’attaquer aux logiques destructrices du capitalisme et engager un plan de 140 milliards d’euros pour l’emploi et le climat."
+    en: "Meeting ecological and human challenges requires tackling the destructive logic of capitalism and launching a 140-billion-euro plan for jobs and the climate."
+  topic: climate
+  checked: "2026-11-12"
+
+- id: pcf-2022-petites-lignes-transports-gratuits
+  party: {short: PCF, name: Parti communiste français}
+  programme: {title: "Fabien Roussel – La France des Jours heureux, le programme (document 8 pages, présidentielle 2022)", year: 2022, url: "https://assets.nationbuilder.com/pcf/pages/13815/attachments/original/1643123394/document_-_exe_8p_programme_stc.pdf?1643123394"}
+  locator: "Objectifs pour l’humain et la planète d’abord, 4 « Pour l’emploi et le climat, je lancerai un grand plan de réindustrialisation de la France » (p. 3 du PDF)"
+  quote: "Réouverture des petites lignes SNCF et gratuité des transports publics urbains."
+  claim:
+    fr: "Les petites lignes ferroviaires de la SNCF devraient être rouvertes et les transports publics urbains rendus gratuits."
+    en: "Small SNCF rail lines should be reopened and urban public transport made free of charge."
+  topic: transport
+  checked: "2026-11-12"
+
+# --- Renaissance / Ensemble pour la République ---------------------------
+- id: ens-2024-nouveaux-reacteurs
+  party: {short: Ensemble, name: Renaissance (Ensemble pour la République)}
+  programme: {title: "Ensemble pour la République – Notre projet (législatives 2024)", year: 2024, url: "https://doc.ensemble-2024.fr/programme-legislatives-24.pdf"}
+  locator: "« Ensemble pour protéger l’environnement ! » (p. 10 du PDF)"
+  quote: "Nous mettrons en chantier 14 nouveaux réacteurs nucléaires pour assurer l’indépendance énergétique de la France et aller vers une économie sans carbone."
+  claim:
+    fr: "La France devrait mettre en chantier 14 nouveaux réacteurs nucléaires pour assurer son indépendance énergétique et aller vers une économie sans carbone."
+    en: "France should start building 14 new nuclear reactors to secure its energy independence and move towards a carbon-free economy."
+  topic: energy
+  checked: "2026-11-12"
+
+- id: ens-2024-pesticides
+  party: {short: Ensemble, name: Renaissance (Ensemble pour la République)}
+  programme: {title: "Ensemble pour la République – Notre projet (législatives 2024)", year: 2024, url: "https://doc.ensemble-2024.fr/programme-legislatives-24.pdf"}
+  locator: "« Ensemble pour protéger l’environnement ! » (p. 10 du PDF)"
+  quote: "Nous continuerons à réduire l’usage des pesticides de 50 % d’ici 2030, après avoir réduit l’usage des plus dangereux de 98 % depuis 2017."
+  claim:
+    fr: "L’usage des pesticides devrait être réduit de 50 % d’ici 2030."
+    en: "Pesticide use should be cut by 50% by 2030."
+  topic: agriculture
+  checked: "2026-11-12"
+
+- id: ens-2024-leasing-social
+  party: {short: Ensemble, name: Renaissance (Ensemble pour la République)}
+  programme: {title: "Ensemble pour la République – Notre projet (législatives 2024)", year: 2024, url: "https://doc.ensemble-2024.fr/programme-legislatives-24.pdf"}
+  locator: "« Ensemble pour protéger l’environnement ! » (p. 10 du PDF)"
+  quote: "Nous proposerons chaque année 100 000 véhicules électriques en leasing social pour permettre aux Français de classes moyennes et populaires de choisir un mode de déplacement non-polluant."
+  claim:
+    fr: "L’État devrait proposer chaque année 100 000 véhicules électriques en leasing social aux Français des classes moyennes et populaires."
+    en: "The state should offer 100,000 electric vehicles a year on social leasing to middle- and working-class households."
+  topic: transport
+  checked: "2026-11-12"
+
+# --- Les Républicains ----------------------------------------------------
+- id: lr-2026-nucleaire-80-ans
+  party: {short: LR, name: Les Républicains}
+  programme: {title: "Nos propositions pour la France – Électricité : baisser la facture des Français, c’est possible !", year: 2026, url: "https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf"}
+  locator: "01 « L’urgence de consolider nos atouts stratégiques », axe « Conserver une électricité décarbonée en consolidant nos atouts stratégiques » (propositions 1 et 2)"
+  quote: "en inscrivant les réacteurs existants dans une trajectoire d’exploitation à 80 ans (proposition 1), en assurant un pilotage rigoureux de la construction des nouveaux EPR2 dans le respect des délais et des coûts"
+  claim:
+    fr: "Les réacteurs nucléaires existants devraient être inscrits dans une trajectoire d’exploitation à 80 ans, et la construction des nouveaux EPR2 pilotée rigoureusement dans le respect des délais et des coûts."
+    en: "Existing nuclear reactors should be placed on an 80-year operating trajectory, and construction of the new EPR2 reactors rigorously managed to stay on time and on budget."
+  topic: energy
+  checked: "2026-11-12"
+
+- id: lr-2026-fin-appels-offres-renouvelables
+  party: {short: LR, name: Les Républicains}
+  programme: {title: "Nos propositions pour la France – Électricité : baisser la facture des Français, c’est possible !", year: 2026, url: "https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf"}
+  locator: "Proposition 4 « Stopper le subventionnement de nouvelles capacités éoliennes et photovoltaïques et contenir les coûts réseaux », « Ce que nous proposons » (p. 19 et suivantes)"
+  quote: "Nous abrogerons immédiatement le volet électricité de la PPE 3, déclarerons infructueux les appels d’offres non encore attribués en matière de photovoltaïque et d’éolien en mer, et n’en lancerons plus - tant que la demande n’augmentera pas nettement."
+  claim:
+    fr: "Le volet électricité de la troisième programmation pluriannuelle de l’énergie devrait être abrogé, les appels d’offres photovoltaïques et éoliens en mer non encore attribués déclarés infructueux, et aucun nouveau lancé tant que la demande n’augmente pas nettement."
+    en: "The electricity part of the third multi-year energy programme should be repealed, unawarded solar and offshore wind tenders declared void, and no new ones launched until demand rises markedly."
+  topic: energy
+  checked: "2026-11-12"
+
+- id: lr-2026-phytosanitaires
+  party: {short: LR, name: Les Républicains}
+  programme: {title: "Nos propositions pour la France – Réarmer notre agriculture", year: 2026, url: "https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf"}
+  locator: "Proposition 1 « Rompre avec un cadre juridique devenu hostile à l’agriculture », « Assumer une stratégie d’innovation agronomique fondée sur la science, l’évaluation et les résultats »"
+  quote: "Sur les produits phytosanitaires, cela implique d’abandonner les trajectoires arbitraires, telles que l’objectif uniforme de réduction de 50 % fixé par la stratégie Ecophyto 2030, au profit d’une logique d’autorisation au cas par cas, fondée sur l’analyse scientifique des risques et des bénéfices."
+  claim:
+    fr: "L’objectif uniforme de réduction de 50 % des produits phytosanitaires fixé par la stratégie Ecophyto 2030 devrait être abandonné au profit d’autorisations au cas par cas fondées sur l’analyse scientifique des risques et des bénéfices."
+    en: "The uniform 50% pesticide-reduction target of the Ecophyto 2030 strategy should be abandoned in favour of case-by-case authorisation based on scientific analysis of risks and benefits."
+  topic: agriculture
   checked: "2026-11-12"
