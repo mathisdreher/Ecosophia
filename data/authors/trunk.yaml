@@ -91,3 +91,117 @@
       source: boulding-1966
   works:
     - {id: boulding-1966, year: 1966, title: "The Economics of the Coming Spaceship Earth", kind: chapter, in: Environmental Quality in a Growing Economy}
+
+- id: lynn-white
+  name: Lynn White Jr.
+  sort: White
+  layer: trunk
+  born: 1907
+  died: 1987
+  place: {city: {en: "San Francisco, California", fr: "San Francisco (Californie)"}, country: {en: United States, fr: États-Unis}, lat: 37.77, lon: -122.42}
+  lede:
+    en: "American historian of medieval technology. A short lecture printed in Science in 1967 laid the ecological crisis at the door of Western Christianity, and opened a debate on religion and nature that has not closed."
+    fr: "Historien américain des techniques médiévales. Une courte conférence publiée dans Science en 1967 impute la crise écologique au christianisme occidental et ouvre un débat sur la religion et la nature qui ne s'est pas refermé."
+  seeds:
+    - seed: roots-of-the-crisis
+      text:
+        en: "By setting humans apart from and above nature, Western Christianity prepared the attitude that science and technology then put to work."
+        fr: "En plaçant l'humain à part et au-dessus de la nature, le christianisme occidental prépare l'attitude que la science et la technique mettront ensuite en œuvre."
+      source: white-1967
+  works:
+    - {id: white-1967, year: 1967, title: The Historical Roots of Our Ecologic Crisis, kind: article, in: Science, issue: "155"}
+
+- id: garrett-hardin
+  name: Garrett Hardin
+  sort: Hardin
+  layer: trunk
+  born: 1915
+  died: 2003
+  place: {city: {en: "Dallas, Texas", fr: "Dallas (Texas)"}, country: {en: United States, fr: États-Unis}, lat: 32.78, lon: -96.80}
+  lede:
+    en: "American ecologist. His essay of 1968 argued that a resource open to all is ruined by each user's rational choice, and drew from it a case for coercive limits on population; Elinor Ostrom's work on commons answered it."
+    fr: "Écologue américain. Son essai de 1968 soutient qu'une ressource ouverte à tous est ruinée par le choix rationnel de chaque usager, et en tire la nécessité de limites contraignantes à la population ; les travaux d'Elinor Ostrom sur les communs lui répondent."
+  seeds:
+    - seed: tragedy-of-the-commons
+      text:
+        en: "Freedom in a commons brings ruin to all: only mutual coercion, mutually agreed upon, can save it."
+        fr: "La liberté dans un bien commun mène tout le monde à la ruine : seule une coercition mutuelle, mutuellement consentie, peut le sauver."
+      source: hardin-1968
+  works:
+    - {id: hardin-1968, year: 1968, title: The Tragedy of the Commons, kind: article, in: Science, issue: "162"}
+
+- id: paul-ehrlich
+  name: Paul R. Ehrlich
+  sort: Ehrlich
+  layer: trunk
+  born: 1932
+  died: 2026
+  place: {city: {en: "Philadelphia, Pennsylvania", fr: "Philadelphie (Pennsylvanie)"}, country: {en: United States, fr: États-Unis}, lat: 39.95, lon: -75.17}
+  lede:
+    en: "American biologist, specialist of butterflies, at Stanford. The Population Bomb, written with Anne Ehrlich, made population growth the centre of the environmental question in 1968; its forecasts of mass famine did not come to pass, and its framing was contested from the start."
+    fr: "Biologiste américain, spécialiste des papillons, à Stanford. La Bombe P, écrite avec Anne Ehrlich, fait en 1968 de la croissance démographique le centre de la question environnementale ; ses prévisions de famines massives ne se sont pas réalisées et son cadrage a été contesté dès le départ."
+  seeds:
+    - seed: population-bomb
+      text:
+        en: "Population growth outruns food and resources: the cause of the crisis is too many people."
+        fr: "La croissance de la population dépasse celle des vivres et des ressources : la cause de la crise est le trop grand nombre d'humains."
+      source: ehrlich-1968
+  works:
+    - {id: ehrlich-1968, year: 1968, title: The Population Bomb}
+
+- id: christopher-stone
+  name: Christopher D. Stone
+  sort: Stone
+  layer: trunk
+  born: 1937
+  died: 2021
+  place: {country: {en: United States, fr: États-Unis}}
+  lede:
+    en: "American law professor at the University of Southern California. His article of 1972 asked whether forests, rivers and oceans could be parties to a lawsuit, and became the founding text of the rights of nature."
+    fr: "Professeur de droit américain à l'université de Californie du Sud. Son article de 1972 demande si des forêts, des rivières et des océans peuvent être parties à un procès, et devient le texte fondateur des droits de la nature."
+  seeds:
+    - seed: rights-of-nature
+      text:
+        en: "Natural objects can be given legal standing, with guardians who speak for them in court."
+        fr: "Les objets naturels peuvent recevoir la qualité pour agir, avec des tuteurs qui parlent pour eux devant le juge."
+      source: stone-1972
+  works:
+    - {id: stone-1972, year: 1972, title: "Should Trees Have Standing? Toward Legal Rights for Natural Objects", kind: article, in: Southern California Law Review, issue: "45"}
+
+- id: ernst-friedrich-schumacher
+  name: E. F. Schumacher
+  sort: Schumacher
+  layer: trunk
+  born: 1911
+  died: 1977
+  place: {city: {en: Bonn, fr: Bonn}, country: {en: Germany, fr: Allemagne}, lat: 50.74, lon: 7.10}
+  lede:
+    en: "German-born British economist, for twenty years at the National Coal Board. Small Is Beautiful asked for an economics as if people mattered: production at a human scale, with tools that local communities can make and control."
+    fr: "Économiste britannique né en Allemagne, vingt ans au National Coal Board. Small Is Beautiful demande une économie qui compte avec les personnes : une production à échelle humaine, avec des outils que les communautés locales peuvent fabriquer et maîtriser."
+  seeds:
+    - seed: intermediate-technology
+      text:
+        en: "Between the hoe and the tractor lies a technology that is cheap, simple and within reach of the people who use it."
+        fr: "Entre la houe et le tracteur, il existe une technique bon marché, simple et à la portée de celles et ceux qui s'en servent."
+      source: schumacher-1973
+  works:
+    - {id: schumacher-1973, year: 1973, title: "Small Is Beautiful: A Study of Economics as if People Mattered"}
+
+- id: rene-dumont
+  name: René Dumont
+  sort: Dumont
+  layer: trunk
+  born: 1904
+  died: 2001
+  place: {city: {en: Cambrai, fr: Cambrai}, country: {en: France, fr: France}, lat: 50.18, lon: 3.24}
+  lede:
+    en: "French agronomist of the Third World and author of L'Afrique noire est mal partie. In 1974 he was the first candidate of political ecology in a French presidential election, with a glass of water to announce its coming scarcity."
+    fr: "Agronome français, spécialiste du tiers-monde, auteur de L'Afrique noire est mal partie. En 1974, il est le premier candidat de l'écologie politique à une élection présidentielle française, un verre d'eau à la main pour en annoncer la rareté prochaine."
+  seeds:
+    - seed: ecology-and-the-third-world
+      text:
+        en: "The consumption of the rich countries is paid for by the hunger of the poor: ecology begins with that inequality."
+        fr: "La consommation des pays riches se paie de la faim des pays pauvres : l'écologie commence par cette inégalité."
+      source: dumont-1973
+  works:
+    - {id: dumont-1973, year: 1973, title: "L'Utopie ou la mort !"}

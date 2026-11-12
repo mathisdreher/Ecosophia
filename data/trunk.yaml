@@ -45,3 +45,28 @@
   text:
     en: "Four laws of ecology, and pollution blamed on post-war technology."
     fr: "Quatre lois de l'écologie, et une pollution imputée aux techniques d'après-guerre."
+
+- work: white-1967
+  text:
+    en: "The crisis is traced to the religious roots of the West."
+    fr: "La crise est rapportée aux racines religieuses de l'Occident."
+- work: hardin-1968
+  text:
+    en: "The commons is said to be ruined by free access."
+    fr: "Le bien commun serait ruiné par le libre accès."
+- work: ehrlich-1968
+  text:
+    en: "Population becomes the centre of the environmental question."
+    fr: "La population devient le centre de la question environnementale."
+- work: stone-1972
+  text:
+    en: "Trees, rivers and oceans are proposed as holders of rights."
+    fr: "Arbres, rivières et océans sont proposés comme titulaires de droits."
+- work: schumacher-1973
+  text:
+    en: "An economics at the scale of people and of their tools."
+    fr: "Une économie à l'échelle des personnes et de leurs outils."
+- work: dumont-1973
+  text:
+    en: "Political ecology enters French politics through the hunger of the Third World."
+    fr: "L'écologie politique entre dans la politique française par la faim du tiers-monde."

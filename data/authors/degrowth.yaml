@@ -174,3 +174,43 @@
       title: De l'écologie à l'autonomie
       by: {en: "Castoriadis and Cohn-Bendit", fr: "Castoriadis et Cohn-Bendit"}
       note: {en: with Daniel Cohn-Bendit, fr: avec Daniel Cohn-Bendit}
+
+- id: francois-partant
+  name: François Partant
+  sort: Partant
+  layer: leaf
+  branch: degrowth
+  also: [decolonial]
+  born: 1926
+  died: 1987
+  place: {country: {en: France, fr: France}}
+  lede:
+    en: "French banker who worked for development in Madagascar and elsewhere, then turned against it. La Fin du développement described development as the extension of one economic system to the whole world, and announced its exhaustion."
+    fr: "Banquier français qui travaille pour le développement à Madagascar et ailleurs, puis se retourne contre lui. La Fin du développement décrit le développement comme l'extension d'un système économique au monde entier, et en annonce l'épuisement."
+  seeds:
+    - seed: end-of-development
+      text:
+        en: "Development is not a stage every country passes through but a system that cannot be generalised to all."
+        fr: "Le développement n'est pas une étape que chaque pays franchit, mais un système qui ne peut pas être étendu à tous."
+      source: partant-1982
+  works:
+    - {id: partant-1982, year: 1982, title: "La Fin du développement : naissance d'une alternative ?"}
+
+- id: kate-raworth
+  name: Kate Raworth
+  sort: Raworth
+  layer: leaf
+  branch: degrowth
+  born: 1970
+  place: {country: {en: United Kingdom, fr: Royaume-Uni}}
+  lede:
+    en: "British economist, formerly at Oxfam. Doughnut Economics replaces the curve of growth with a ring: a social floor no one should fall below and an ecological ceiling of planetary boundaries. She calls herself agnostic about growth rather than for degrowth."
+    fr: "Économiste britannique, passée par Oxfam. La Théorie du donut remplace la courbe de croissance par un anneau : un plancher social sous lequel personne ne doit tomber et un plafond écologique fait des limites planétaires. Elle se dit agnostique sur la croissance plutôt que décroissante."
+  seeds:
+    - seed: doughnut
+      text:
+        en: "The goal is to meet the needs of all within the means of the planet, whether or not the economy grows."
+        fr: "Le but est de répondre aux besoins de tous dans les limites de la planète, que l'économie croisse ou non."
+      source: raworth-2017
+  works:
+    - {id: raworth-2017, year: 2017, title: "Doughnut Economics: Seven Ways to Think Like a 21st-Century Economist"}

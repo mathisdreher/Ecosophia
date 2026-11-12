@@ -185,3 +185,69 @@
   works:
     - {id: klein-2014, year: 2014, title: "This Changes Everything: Capitalism vs. the Climate"}
     - {id: klein-2019, year: 2019, title: "On Fire: The (Burning) Case for a Green New Deal"}
+
+- id: joel-kovel
+  name: Joel Kovel
+  sort: Kovel
+  layer: leaf
+  branch: ecosocialism
+  born: 1936
+  died: 2018
+  place: {city: {en: "Brooklyn, New York", fr: "Brooklyn (New York)"}, country: {en: United States, fr: États-Unis}, lat: 40.68, lon: -73.94}
+  lede:
+    en: "American psychiatrist turned political writer, Green Party candidate and editor of the review Capitalism Nature Socialism. The Enemy of Nature argued that capital, not humanity in general, drives the ecological crisis."
+    fr: "Psychiatre américain devenu écrivain politique, candidat du Green Party et rédacteur de la revue Capitalism Nature Socialism. The Enemy of Nature soutient que c'est le capital, et non l'humanité en général, qui conduit la crise écologique."
+  seeds:
+    - seed: capital-against-nature
+      text:
+        en: "Capital must grow or die, and so it cannot stop consuming the conditions of its own existence."
+        fr: "Le capital doit croître ou mourir, et ne peut donc pas cesser de consommer les conditions de sa propre existence."
+      source: kovel-2002
+  works:
+    - id: kovel-2001
+      year: 2001
+      title: An Ecosocialist Manifesto
+      kind: article
+      by: {en: Kovel and Löwy, fr: Kovel et Löwy}
+      note: {en: with Michael Löwy, fr: avec Michael Löwy}
+    - {id: kovel-2002, year: 2002, title: "The Enemy of Nature: The End of Capitalism or the End of the World?"}
+
+- id: james-oconnor
+  name: James O'Connor
+  sort: O'Connor
+  layer: leaf
+  branch: ecosocialism
+  born: 1930
+  died: 2017
+  place: {country: {en: United States, fr: États-Unis}}
+  lede:
+    en: "American economist and sociologist, founder of the review Capitalism Nature Socialism in 1988. He added a second contradiction to Marx's first: capital degrades the natural and social conditions on which its own production depends."
+    fr: "Économiste et sociologue américain, fondateur en 1988 de la revue Capitalism Nature Socialism. Il ajoute une seconde contradiction à la première de Marx : le capital dégrade les conditions naturelles et sociales dont dépend sa propre production."
+  seeds:
+    - seed: second-contradiction
+      text:
+        en: "Capital undermines its own conditions of production, the land, the workers' health and the cities, and raises its costs by doing so."
+        fr: "Le capital mine ses propres conditions de production, la terre, la santé des travailleurs et les villes, et augmente ainsi ses coûts."
+      source: oconnor-1988
+  works:
+    - {id: oconnor-1988, year: 1988, title: "Capitalism, Nature, Socialism: A Theoretical Introduction", kind: article, in: "Capitalism Nature Socialism", issue: "1 (1)"}
+
+- id: nancy-fraser
+  name: Nancy Fraser
+  sort: Fraser
+  layer: leaf
+  branch: ecosocialism
+  also: [ecofeminism]
+  born: 1947
+  place: {city: {en: "Baltimore, Maryland", fr: "Baltimore (Maryland)"}, country: {en: United States, fr: États-Unis}, lat: 39.29, lon: -76.61}
+  lede:
+    en: "American philosopher at the New School, known for her work on justice and recognition. Cannibal Capitalism describes a system that feeds on what it does not pay for: nature, care work, public power and the wealth of the colonised."
+    fr: "Philosophe américaine de la New School, connue pour ses travaux sur la justice et la reconnaissance. Le Capitalisme est un cannibalisme décrit un système qui se nourrit de ce qu'il ne paie pas : la nature, le travail du soin, la puissance publique et les richesses des colonisés."
+  seeds:
+    - seed: cannibal-capitalism
+      text:
+        en: "Capitalism devours the background conditions of its own economy: nature, care, public power."
+        fr: "Le capitalisme dévore les conditions d'arrière-plan de sa propre économie : la nature, le soin, la puissance publique."
+      source: fraser-2022
+  works:
+    - {id: fraser-2022, year: 2022, title: "Cannibal Capitalism: How Our System Is Devouring Democracy, Care, and the Planet and What We Can Do About It"}

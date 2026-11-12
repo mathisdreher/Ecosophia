@@ -619,3 +619,77 @@
     en: "Co-editors, with Kothari, Salleh and Demaria, of a dictionary of alternatives to development."
     fr: "Codirecteurs, avec Kothari, Salleh et Demaria, d'un dictionnaire des alternatives au développement."
   source: acosta-2019
+
+# --- Added from the full index of the Dictionnaire d'écologie politique ----
+- from: elinor-ostrom
+  to: garrett-hardin
+  type: critiqued
+  note:
+    en: "Ostrom's fieldwork shows commons governed for centuries by their users, against Hardin's tragedy."
+    fr: "Les terrains d'Ostrom montrent des communs gouvernés pendant des siècles par leurs usagers, contre la tragédie de Hardin."
+  source: ostrom-1990
+
+- from: barry-commoner
+  to: paul-ehrlich
+  type: critiqued
+  note:
+    en: "Commoner blames post-war production technology, not population, for pollution: the start of a long public dispute."
+    fr: "Commoner impute la pollution aux techniques de production d'après-guerre et non à la population : début d'une longue querelle publique."
+  source: commoner-1971
+
+- from: philippe-descola
+  to: pierre-charbonnier
+  type: influenced
+  note:
+    en: "Charbonnier follows the separation of nature and society from Durkheim to his teacher Descola."
+    fr: "Charbonnier suit le partage entre nature et société de Durkheim jusqu'à son maître Descola."
+  source: charbonnier-2015
+
+- from: maria-mies
+  to: silvia-federici
+  type: influenced
+  note:
+    en: "Federici builds on Mies's analysis of the housewife and of accumulation on a world scale."
+    fr: "Federici s'appuie sur l'analyse de la ménagère et de l'accumulation à l'échelle mondiale proposée par Mies."
+  source: federici-2004
+
+- from: richard-routley
+  to: val-plumwood
+  type: dialogue
+  note:
+    en: "Married and co-authors, they wrote the early papers of environmental ethics together as the Routleys."
+    fr: "Mariés et coauteurs, ils écrivent ensemble, sous le nom des Routley, les premiers textes de l'éthique environnementale."
+  source: routley-1980
+
+- from: joel-kovel
+  to: michael-lowy
+  type: dialogue
+  note:
+    en: "Co-authors of the Ecosocialist Manifesto of 2001."
+    fr: "Coauteurs du Manifeste écosocialiste de 2001."
+  source: kovel-2001
+
+- from: eduardo-gudynas
+  to: alberto-acosta
+  type: dialogue
+  note:
+    en: "Co-authors of a critique of development that presents buen vivir as its alternative."
+    fr: "Coauteurs d'une critique du développement qui présente le buen vivir comme son alternative."
+  source: gudynas-2011
+  status: to-verify
+
+- from: johan-rockstrom
+  to: kate-raworth
+  type: influenced
+  note:
+    en: "The ecological ceiling of the doughnut is drawn from the planetary boundaries."
+    fr: "Le plafond écologique du donut est tracé à partir des limites planétaires."
+  source: raworth-2017
+
+- from: donella-meadows
+  to: pablo-servigne
+  type: influenced
+  note:
+    en: "Collapsology starts from the scenarios of The Limits to Growth."
+    fr: "La collapsologie part des scénarios des Limites à la croissance."
+  source: servigne-2015

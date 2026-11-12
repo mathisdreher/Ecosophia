@@ -170,3 +170,30 @@
   works:
     - {id: wilson-1984, year: 1984, title: Biophilia}
     - {id: wilson-2016, year: 2016, title: "Half-Earth: Our Planet's Fight for Life"}
+
+- id: richard-routley
+  name: Richard Routley (Sylvan)
+  sort: Routley
+  layer: leaf
+  branch: deep-ecology
+  born: 1935
+  died: 1996
+  place: {city: {en: Levin, fr: Levin}, country: {en: New Zealand, fr: Nouvelle-Zélande}, lat: -40.62, lon: 175.29}
+  lede:
+    en: "New Zealand-born Australian philosopher and logician, who later took the name Sylvan. His paper of 1973 asked whether Western ethics, centred on humans, could account for the value of nature, and helped found environmental ethics."
+    fr: "Philosophe et logicien australien né en Nouvelle-Zélande, qui prend plus tard le nom de Sylvan. Son texte de 1973 demande si l'éthique occidentale, centrée sur l'humain, peut rendre compte de la valeur de la nature, et contribue à fonder l'éthique environnementale."
+  seeds:
+    - seed: last-man
+      text:
+        en: "If the last man alive destroyed every living thing before dying, he would wrong no one by human ethics, and yet he would do wrong."
+        fr: "Si le dernier homme vivant détruisait tout être vivant avant de mourir, il ne léserait personne selon l'éthique humaine, et pourtant il ferait mal."
+      source: routley-1973
+  works:
+    - {id: routley-1973, year: 1973, title: "Is There a Need for a New, an Environmental, Ethic?", kind: chapter, in: Proceedings of the XVth World Congress of Philosophy}
+    - id: routley-1980
+      year: 1980
+      title: Human Chauvinism and Environmental Ethics
+      kind: chapter
+      in: Environmental Philosophy
+      by: {en: Routley and Routley, fr: Routley et Routley}
+      note: {en: with Val Routley (later Plumwood), fr: avec Val Routley (plus tard Plumwood)}

@@ -200,3 +200,66 @@
   works:
     - {id: ghosh-2016, year: 2016, title: "The Great Derangement: Climate Change and the Unthinkable"}
     - {id: ghosh-2021, year: 2021, title: "The Nutmeg's Curse: Parables for a Planet in Crisis"}
+
+- id: eduardo-gudynas
+  name: Eduardo Gudynas
+  sort: Gudynas
+  layer: leaf
+  branch: decolonial
+  place: {country: {en: Uruguay, fr: Uruguay}}
+  lede:
+    en: "Uruguayan analyst at the Latin American Centre of Social Ecology in Montevideo. He named neo-extractivism: the progressive governments of Latin America kept mining and oil at the centre of their economies and spent the proceeds on social programmes."
+    fr: "Analyste uruguayen au Centre latino-américain d'écologie sociale de Montevideo. Il nomme le néo-extractivisme : les gouvernements progressistes d'Amérique latine ont gardé les mines et le pétrole au centre de leurs économies et en ont dépensé les revenus en programmes sociaux."
+  seeds:
+    - seed: extractivism
+      text:
+        en: "Exporting raw materials in great volume, with little processing, shapes a whole society, whoever spends the rent."
+        fr: "Exporter des matières premières en grand volume, peu transformées, façonne toute une société, quel que soit l'usage de la rente."
+      source: gudynas-2015
+  works:
+    - id: gudynas-2011
+      year: 2011
+      title: "La renovación de la crítica al desarrollo y el buen vivir como alternativa"
+      kind: article
+      in: Utopía y Praxis Latinoamericana
+      by: {en: Gudynas and Acosta, fr: Gudynas et Acosta}
+      note: {en: with Alberto Acosta, fr: avec Alberto Acosta}
+    - {id: gudynas-2015, year: 2015, title: "Extractivismos: ecología, economía y política de un modo de entender el desarrollo y la naturaleza"}
+
+- id: maristella-svampa
+  name: Maristella Svampa
+  sort: Svampa
+  layer: leaf
+  branch: decolonial
+  born: 1961
+  place: {country: {en: Argentina, fr: Argentine}}
+  lede:
+    en: "Argentine sociologist and writer. She described the commodities consensus that bound Latin American governments of left and right to the export of raw materials, and the eco-territorial turn of the struggles that oppose it."
+    fr: "Sociologue et écrivaine argentine. Elle décrit le consensus des commodities qui a lié les gouvernements latino-américains, de gauche comme de droite, à l'exportation de matières premières, et le tournant éco-territorial des luttes qui s'y opposent."
+  seeds:
+    - seed: commodities-consensus
+      text:
+        en: "Left and right governments alike accepted the export of raw materials as the only path, and made dissent look like a refusal of progress."
+        fr: "Gouvernements de gauche comme de droite ont accepté l'exportation de matières premières comme seule voie, et fait passer la contestation pour un refus du progrès."
+      source: svampa-2013
+  works:
+    - {id: svampa-2013, year: 2013, title: "«Consenso de los commodities» y lenguajes de valoración en América Latina", kind: article, in: Nueva Sociedad, issue: "244"}
+
+- id: laura-pulido
+  name: Laura Pulido
+  sort: Pulido
+  layer: leaf
+  branch: decolonial
+  also: [political-ecology]
+  place: {country: {en: United States, fr: États-Unis}}
+  lede:
+    en: "American geographer and scholar of ethnic studies, at the University of Oregon. Studying Los Angeles, she argued that environmental racism comes less from deliberate siting decisions than from white privilege built into urban development."
+    fr: "Géographe américaine, spécialiste des études ethniques, à l'université de l'Oregon. À partir de Los Angeles, elle soutient que le racisme environnemental tient moins à des décisions d'implantation délibérées qu'au privilège blanc inscrit dans le développement urbain."
+  seeds:
+    - seed: environmental-racism
+      text:
+        en: "Polluted neighbourhoods are produced by the whole history of where white residents could move, not only by where plants were sited."
+        fr: "Les quartiers pollués sont produits par toute l'histoire des lieux où les Blancs ont pu s'installer, et pas seulement par l'implantation des usines."
+      source: pulido-2000
+  works:
+    - {id: pulido-2000, year: 2000, title: "Rethinking Environmental Racism: White Privilege and Urban Development in Southern California", kind: article, in: Annals of the Association of American Geographers, issue: "90 (1)"}
