@@ -20,15 +20,26 @@ for (const [lang, lines] of Object.entries(job.lines)) {
   durations[lang] = [];
   for (const [i, line] of lines.entries()) {
     const name = `${lang}-${String(i + 1).padStart(2, '0')}`;
-    const res = await fetch(`${API}/${encodeURIComponent(job.model)}:generateContent`, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', 'x-goog-api-key': process.env.GEMINI_API_KEY },
-      body: JSON.stringify({
-        contents: [{ role: 'user', parts: [{ text: `${job.style[lang]}: ${line}` }] }],
-        generationConfig: { responseModalities: ['AUDIO'], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: job.voice } } } },
-      }),
-    });
-    const json = await res.json().catch(() => ({}));
+    // The text is read as given: an instruction placed before it would be read
+    // aloud too. Requests are spaced to stay under the per-minute quota, and a
+    // refusal for quota is retried after the delay the API asks for.
+    let res, json;
+    for (let attempt = 0; attempt < 4; attempt += 1) {
+      res = await fetch(`${API}/${encodeURIComponent(job.model)}:generateContent`, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-goog-api-key': process.env.GEMINI_API_KEY },
+        body: JSON.stringify({
+          contents: [{ role: 'user', parts: [{ text: line }] }],
+          generationConfig: { responseModalities: ['AUDIO'], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: job.voice } } } },
+        }),
+      });
+      json = await res.json().catch(() => ({}));
+      if (res.status !== 429) break;
+      const wait = Number(String(json.error?.message ?? '').match(/retry in ([\d.]+)s/)?.[1] ?? 20);
+      console.log(`${name}: quota, retrying in ${Math.ceil(wait + 1)} s`);
+      await new Promise((r) => setTimeout(r, (wait + 1) * 1000));
+    }
+    await new Promise((r) => setTimeout(r, Number(job.spacingMs ?? 7000)));
     const part = (json.candidates?.[0]?.content?.parts ?? []).find((p) => p.inlineData?.data);
     if (!res.ok || !part) {
       console.error(`${name}: ${res.status} ${json.error?.message ?? json.candidates?.[0]?.finishReason ?? 'no audio'}`);
@@ -44,7 +55,8 @@ for (const [lang, lines] of Object.entries(job.lines)) {
     fs.rmSync(pcm);
     const secs = Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', mp3]).toString().trim());
     durations[lang].push(Math.round(secs * 100) / 100);
-    console.log(`${name}: ${secs.toFixed(2)} s`);
+    const words = line.split(/\s+/).length;
+    console.log(`${name}: ${secs.toFixed(2)} s for ${words} words${secs > words * 0.55 + 2 ? '  (slow: check the clip)' : ''}`);
   }
 }
 fs.writeFileSync(path.join(out, 'durations.json'), `${JSON.stringify(durations, null, 2)}\n`);
