@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
     inputs:
       claim:
-        description: "Question id from data/clearing/questions.yaml (nouveau-nucleaire, eolien-solaire, pesticides, voitures-thermiques-2035, rail-avion), or a claim in one sentence"
+        description: "Question id from data/clearing/questions.yaml (nouveau-nucleaire, eolien-solaire, pesticides, voitures-thermiques-2035, rail-avion, leasing-social) or an axiom (croissance-verte, sabotage, elevage-industriel, effondrement…), or a claim in one sentence"
         required: true
         type: string
       agents:

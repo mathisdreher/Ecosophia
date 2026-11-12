@@ -100,7 +100,7 @@
   claim:
     en: "The ecological emergency justifies limiting democratic procedures."
     fr: "L'urgence écologique justifie de limiter les procédures démocratiques."
-  note: {en: "Hardin's mutual coercion and Lovelock's late pessimism against Bookchin, Gorz and Eckersley.", fr: "La coercition mutuelle de Hardin et le pessimisme tardif de Lovelock contre Bookchin, Gorz et Eckersley."}
+  note: {en: "Hardin's mutual coercion and Lovelock's late pessimism against Bookchin, Gorz, Eckersley, Dryzek and Mouffe.", fr: "La coercition mutuelle de Hardin et le pessimisme tardif de Lovelock contre Bookchin, Gorz, Eckersley, Dryzek et Mouffe."}
 
 - id: population
   kind: axiom
@@ -143,3 +143,18 @@
     en: "Dense cities are the most ecological way for people to live."
     fr: "Les villes denses sont la manière la plus écologique d'habiter."
   note: {en: "Brand's case for cities against Berry's agrarianism and Bookchin's critique of the megalopolis.", fr: "L'éloge des villes par Brand contre l'agrarisme de Berry et la critique de la mégalopole par Bookchin."}
+
+- id: elevage-industriel
+  kind: axiom
+  claim:
+    en: "Factory farming should be abolished."
+    fr: "L'élevage industriel devrait être aboli."
+  note: {en: "Singer, Regan and the animal cause against the market liberals; ecocentrists who value herds and landscapes, not individual animals, in between.", fr: "Singer, Regan et la cause animale contre les libéraux ; entre les deux, les écocentristes qui défendent les troupeaux et les paysages plutôt que les animaux un par un."}
+
+- id: effondrement
+  kind: axiom
+  claim:
+    en: "A collapse of industrial civilisation within this century is likely, and societies should prepare for it rather than try to prevent it."
+    fr: "Un effondrement de la civilisation industrielle au cours de ce siècle est probable, et les sociétés devraient s'y préparer plutôt que chercher à l'empêcher."
+  note: {en: "Bardi, Cochet and Bendell against the ecomodernists and the market liberals; the left asks who would pay for the descent.", fr: "Bardi, Cochet et Bendell contre les écomodernistes et les libéraux ; la gauche demande qui paierait la descente."}
+
