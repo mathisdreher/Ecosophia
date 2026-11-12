@@ -10,7 +10,7 @@ import QuestionPositions from '../components/QuestionPositions.astro';
 import { useUi } from '../i18n/ui.mjs';
 import { href } from '../lib/site.mjs';
 import { L } from '../lib/text.mjs';
-import { loadClearing, loadQuestions } from '../lib/corpus.mjs';
+import { loadClearing, loadQuestions, runMeasures } from '../lib/corpus.mjs';
 import { spreadVoices, runDate } from '../lib/clearing.mjs';
 import { SITE } from '../site.config.mjs';
 
@@ -70,7 +70,7 @@ const metaOf = (r) => t('clearing.runMeta', { agents: r.settings.agents, rounds:
           <p class="t-lede summary">{L(latest.summary, lang)}</p>
           <span class="eco-meta">{metaOf(latest)}</span>
           {latest.claimSource && <ClaimSource source={latest.claimSource} lang={lang} />}
-          {latest.question && <QuestionPositions measures={latest.question.measures} lang={lang} />}
+          {latest.question && <QuestionPositions measures={runMeasures(latest, allQuestions)} lang={lang} />}
         </div>
       ) : (
         <div class="notice lichen">

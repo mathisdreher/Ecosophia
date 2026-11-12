@@ -201,6 +201,21 @@ export function loadQuestions(claims = loadClaims()) {
   return list.map((q) => ({ ...q, measures: (q.measures ?? []).map((m) => ({ ...m, claim: byId.get(m.id) ?? null })) }));
 }
 
+/**
+ * The party measures to show next to a run. They are Ecosophia's sourced
+ * data, not output of the run (the agents never see a party), so a run shows
+ * the current reading of its question; the copy stored in the run is the
+ * fallback when the question no longer exists.
+ */
+export function runMeasures(run, questions = loadQuestions()) {
+  if (!run.question) return null;
+  const q = questions.find((x) => x.id === run.question.id);
+  if (!q) return run.question.measures ?? [];
+  return q.measures
+    .filter((m) => m.claim)
+    .map((m) => ({ id: m.id, stance: m.stance, party: m.claim.party, programme: m.claim.programme, locator: m.claim.locator, quote: m.claim.quote }));
+}
+
 /** The prompts, the transcript and the closing interviews of one run, or null. */
 export function loadTranscript(runId) {
   const file = path.join(DATA, 'clearing', 'runs', `${runId}.transcript.json`);

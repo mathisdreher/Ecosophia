@@ -90,6 +90,17 @@
   checked: "2026-11-12"
 
 # --- Parti socialiste ----------------------------------------------------
+- id: eco-2026-leasing-social
+  party: {short: Les Écologistes, name: Les Écologistes (Europe Écologie Les Verts)}
+  programme: {title: "Pour une prospérité écologique – Le nouveau programme des Écologistes (Projet 2027)", year: 2026, url: "https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf"}
+  locator: "I. Garantir un monde habitable, chapitre 3 « Garantir la liberté de se déplacer autrement », proposition 1"
+  quote: "Créer un parc social de voitures électriques. Créer une offre de location sociale (leasing social) d’un million de véhicules sur le quinquennat en favorisant les véhicules européens."
+  claim:
+    fr: "L’État devrait créer une offre de leasing social d’un million de voitures électriques sur le quinquennat, en favorisant les véhicules européens."
+    en: "The state should create a social leasing offer of one million electric cars over the five-year term, favouring European-made vehicles."
+  topic: transport
+  checked: "2026-11-12"
+
 - id: ps-2026-nucleaire
   party: {short: PS, name: Parti socialiste}
   programme: {title: "Le Projet socialiste – Vivre libres", year: 2026, url: "https://projet-socialiste.fr/projet/vivre-libres/"}

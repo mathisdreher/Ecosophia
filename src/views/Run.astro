@@ -11,7 +11,7 @@ import QuestionPositions from '../components/QuestionPositions.astro';
 import { useUi } from '../i18n/ui.mjs';
 import { href, withBase } from '../lib/site.mjs';
 import { L } from '../lib/text.mjs';
-import { loadCorpus, loadClearing, loadTranscript } from '../lib/corpus.mjs';
+import { loadCorpus, loadClearing, loadTranscript, runMeasures } from '../lib/corpus.mjs';
 import { runDate } from '../lib/clearing.mjs';
 
 const { lang, id } = Astro.props;
@@ -55,7 +55,7 @@ const agentPrompts = Object.entries(prompts?.agents ?? {}).filter(([, text]) => 
       {run.runId} · {meta}
     </span>
     {run.claimSource && <ClaimSource source={run.claimSource} lang={lang} />}
-    {run.question && <QuestionPositions measures={run.question.measures} lang={lang} open />}
+    {run.question && <QuestionPositions measures={runMeasures(run)} lang={lang} open />}
     {
       draft && (
         <div class="notice lichen">

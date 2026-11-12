@@ -65,6 +65,7 @@
     en: "The state should fund electric cars on social leasing for low- and middle-income households."
     fr: "L'État devrait financer des voitures électriques en leasing social pour les ménages modestes et des classes moyennes."
   measures:
+    - {id: eco-2026-leasing-social, stance: for}
     - {id: ens-2024-leasing-social, stance: for}
     - {id: lfi-2026-location-publique, stance: partly}
 
