@@ -10,12 +10,12 @@ import { useUi } from '../i18n/ui.mjs';
 import { href } from '../lib/site.mjs';
 import { L, citeHtml } from '../lib/text.mjs';
 import { loadCorpus, lifespan } from '../lib/corpus.mjs';
-import { layoutGraph, groupOf, GRAPH_W, GRAPH_H } from '../lib/graph.mjs';
+import { layoutRing, groupOf } from '../lib/graph.mjs';
 
 const { lang } = Astro.props;
 const { t } = useUi(lang);
 const c = loadCorpus();
-const { pos, edges } = layoutGraph(c);
+const { pos, edges, arcs, size } = layoutRing(c);
 
 const groups = [
   { id: 'roots', token: 'humus', label: t('common.precursors') },
@@ -37,6 +37,7 @@ function panelGroups(a) {
     },
   ].filter((g) => g.rows.length > 0);
 }
+const groupById = Object.fromEntries(groups.map((g) => [g.id, g]));
 const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length });
 ---
 
@@ -81,21 +82,31 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
     <div class="stage">
       <p class="scroll-hint t-small t-muted">{t('mycelium.scroll')}</p>
       <div class="scroller">
-        <svg class="graph" viewBox={`0 0 ${GRAPH_W} ${GRAPH_H}`} role="group" aria-label={t('mycelium.graphLabel')}>
+        <svg class="graph" viewBox={`0 0 ${size} ${size}`} role="group" aria-label={t('mycelium.graphLabel')}>
           <defs>
-            <marker id="myc-head" orient="auto" markerWidth="8" markerHeight="8" refX="2" refY="4" markerUnits="userSpaceOnUse">
-              <path d="M0 0.5 L8 4 L0 7.5 Z"></path>
+            <marker id="myc-head" orient="auto" markerWidth="7" markerHeight="7" refX="2" refY="3.5" markerUnits="userSpaceOnUse">
+              <path d="M0 0.5 L7 3.5 L0 6.5 Z"></path>
             </marker>
+            {arcs.map((g) => <path id={`myc-arc-${g.id}`} d={g.text} />)}
           </defs>
+          <g class="arcs" aria-hidden="true">
+            {
+              arcs.map((g) => (
+                <g style={`--chip: var(--${groupById[g.id].token})`} data-arc={g.id}>
+                  <path class="band" d={g.band} />
+                  <text class="arc-label">
+                    <textPath href={`#myc-arc-${g.id}`} startOffset="50%" text-anchor="middle">{groupById[g.id].label}</textPath>
+                  </text>
+                </g>
+              ))
+            }
+          </g>
           <g class="edges" aria-hidden="true">
             {
               edges.map((e) => (
-                <line
+                <path
                   class={`edge ${e.link.type}`}
-                  x1={e.x1}
-                  y1={e.y1}
-                  x2={e.x2}
-                  y2={e.y2}
+                  d={e.d}
                   data-from={e.link.from}
                   data-to={e.link.to}
                   data-type={e.link.type}
@@ -110,9 +121,10 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
                 const p = pos.get(a.id);
                 return (
                   <a class="node" href={href(lang, 'author', a.id)} data-id={a.id} data-group={groupOf(a)} style={`--chip: var(--${a.token})`}>
-                    <circle class="hit" cx={p.x} cy={p.y} r={Math.max(p.r + 6, 14)} />
+                    <title>{a.name}</title>
+                    <circle class="hit" cx={p.x} cy={p.y} r={Math.max(p.r + 4, 9)} />
                     <circle class="disc" cx={p.x} cy={p.y} r={p.r} />
-                    <text x={p.x} y={p.y + p.r + 15} text-anchor="middle">{a.name}</text>
+                    <text x={p.label.x} y={p.label.y} dy="0.35em" text-anchor={p.label.anchor} transform={`rotate(${p.label.rotate} ${p.label.x} ${p.label.y})`}>{a.short}</text>
                   </a>
                 );
               })
@@ -202,7 +214,8 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
   if (root) {
     const svg = root.querySelector<SVGSVGElement>('svg.graph')!;
     const nodes = [...root.querySelectorAll<SVGAElement>('.node')];
-    const edges = [...root.querySelectorAll<SVGLineElement>('.edge')];
+    const edges = [...root.querySelectorAll<SVGPathElement>('.edge')];
+    const arcGroups = [...root.querySelectorAll<SVGGElement>('[data-arc]')];
     const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
     const pick = root.querySelector<HTMLElement>('[data-pick]')!;
     const typeBoxes = [...root.querySelectorAll<HTMLInputElement>('[data-filter-type]')];
@@ -214,6 +227,7 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
       const types = new Set(typeBoxes.filter((b) => b.checked).map((b) => b.dataset.filterType));
       const groups = new Set(groupBoxes.filter((b) => b.checked).map((b) => b.dataset.filterGroup));
       for (const n of nodes) n.classList.toggle('is-hidden', !groups.has(n.dataset.group));
+      for (const g of arcGroups) g.classList.toggle('is-faded', !groups.has(g.dataset.arc));
       for (const e of edges) {
         const visible =
           types.has(e.dataset.type) && groups.has(groupOfId.get(e.dataset.from!)) && groups.has(groupOfId.get(e.dataset.to!));
@@ -287,31 +301,51 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
 <style>
   .myc {
     display: grid;
-    grid-template-columns: 250px minmax(0, 1fr) 340px;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    grid-template-areas: 'filters filters' 'stage panels';
     align-items: start;
     border-bottom: 0;
   }
+  .myc > .filters {
+    grid-area: filters;
+  }
+  .myc > .stage {
+    grid-area: stage;
+  }
+  .myc > .panels {
+    grid-area: panels;
+  }
   .filters {
-    position: sticky;
-    top: 0;
-    max-height: 100vh;
-    overflow: auto;
     display: flex;
-    flex-direction: column;
-    gap: 28px;
-    padding: 56px var(--space-6) var(--space-8) var(--gutter);
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--space-4) var(--space-12);
+    padding: 48px var(--gutter) var(--space-6);
+    border-bottom: 1px solid var(--line);
+  }
+  .filters > .stack {
+    flex: 0 0 220px;
   }
   fieldset {
     margin: 0;
     padding: 0;
     border: 0;
     display: flex;
-    flex-direction: column;
-    gap: 2px;
+    flex-wrap: wrap;
+    gap: 0 var(--space-4);
+    flex: 1 1 300px;
+  }
+  fieldset:nth-of-type(2) {
+    flex: 3 1 520px;
   }
   legend {
     padding: 0;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
+    width: 100%;
+  }
+  .filters .note {
+    flex: 1 1 100%;
+    margin: 0;
   }
   label {
     display: flex;
@@ -350,8 +384,8 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
   }
   .stage {
     min-width: 0;
-    padding: var(--space-6) 0 var(--space-4);
-    border-inline: 1px solid var(--line);
+    padding: var(--space-4) var(--space-4) var(--space-4) var(--gutter);
+    border-right: 1px solid var(--line);
     align-self: stretch;
   }
   .scroll-hint {
@@ -364,23 +398,38 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
   .graph {
     display: block;
     width: 100%;
-    min-width: 760px;
+    max-width: 960px;
+    min-width: 720px;
     height: auto;
+    margin: 0 auto;
   }
   .edge {
+    fill: none;
     stroke: var(--mycelium);
-    stroke-width: 1.5;
+    stroke-width: 1.2;
     stroke-linecap: round;
-    opacity: 0.75;
+    opacity: 0.55;
+  }
+  .band {
+    fill: none;
+    stroke: var(--chip);
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+  .arc-label {
+    font: 600 9px/1 var(--font-sans);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    fill: var(--chip);
+  }
+  .is-faded {
+    opacity: 0.2;
   }
   .edge.critiqued {
     stroke-dasharray: 4 4;
   }
   .edge.dialogue {
     stroke-dasharray: 1 4;
-  }
-  #myc-head path {
-    fill: var(--mycelium);
   }
   .node .disc {
     fill: var(--chip);
@@ -391,7 +440,7 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
     fill: transparent;
   }
   .node text {
-    font: 400 13px/1 var(--font-sans);
+    font: 400 11px/1 var(--font-sans);
     fill: var(--ink);
     paint-order: stroke;
     stroke: var(--paper);
@@ -419,17 +468,21 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
     font-weight: 600;
   }
   .graph.has-selection .edge {
-    opacity: 0.5;
-  }
-  .graph.has-focus .edge {
-    opacity: 0.3;
+    opacity: 0.16;
   }
   .graph.has-selection .edge.is-on {
     opacity: 1;
-    stroke-width: 2;
+    stroke: var(--ink);
+    stroke-width: 1.8;
   }
-  .graph.has-focus .node:not(.is-near) {
-    opacity: 0.6;
+  .graph.has-selection .node:not(.is-near) text {
+    opacity: 0.55;
+  }
+  .graph.has-selection .node.is-near text {
+    font-weight: 600;
+  }
+  #myc-head path {
+    fill: var(--ink);
   }
   .is-hidden {
     display: none;
@@ -495,10 +548,10 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
 
   @media (max-width: 1240px) {
     .myc {
-      grid-template-columns: 230px minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas: 'filters' 'stage' 'panels';
     }
     .panels {
-      grid-column: 1 / -1;
       padding: var(--space-8) var(--gutter);
       border-top: 1px solid var(--line);
     }
@@ -516,18 +569,7 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
       grid-template-columns: minmax(0, 1fr);
     }
     .filters {
-      position: static;
-      max-height: none;
       padding: var(--space-12) var(--gutter) var(--space-4);
-      gap: var(--space-4);
-    }
-    .filters fieldset {
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 0 var(--space-4);
-    }
-    .filters legend {
-      width: 100%;
     }
     .stage {
       border: 0;

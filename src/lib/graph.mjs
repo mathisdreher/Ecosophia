@@ -1,121 +1,104 @@
-// Build-time layout of the Mycelium graph. The positions are computed once,
-// with a seeded random source, so every build draws the same picture and the
-// browser receives plain SVG.
-import { forceSimulation, forceLink, forceManyBody, forceCollide, forceX, forceY } from 'd3-force';
+// Build-time layout of the Mycelium graph, as a ring. Precursors sit at the
+// bottom, under the ground; then the trunk, the branches in the order of the
+// tree, and the grafted counterpoints. Each group holds an arc of the circle,
+// its authors in order of birth. Threads are curves that dive towards the
+// centre, more deeply the further apart their ends are: the mycelium runs
+// underneath everything. Everything is computed here; the browser gets SVG.
 import { influenceReceived } from './corpus.mjs';
 
-export const GRAPH_W = 900;
-export const GRAPH_H = 1080;
-
-// Labels are wider than they are tall. The simulation runs in a space squeezed
-// horizontally by KX, so that its circular collisions become wide ellipses on
-// the page and names do not sit on top of one another.
-const KX = 2.5;
-
-function lcg(seed = 7) {
-  let s = seed;
-  return () => (s = (s * 1664525 + 1013904223) % 4294967296) / 4294967296;
-}
+export const GRAPH_SIZE = 920;
+const C = GRAPH_SIZE / 2;
+const R = 318;
+const GAP = 3; // empty slots between two groups
 
 /** Which filter group a node belongs to: its branch, or "roots" / "trunk". */
 export function groupOf(author) {
   return author.layer === 'leaf' ? author.branch : author.layer === 'root' ? 'roots' : 'trunk';
 }
 
-/** Node radius: area proportional to the influence received (design/brand.md, "Graph grammar"). */
+/** Node radius: area grows with the influence received (design/brand.md, "Graph grammar"). */
 export function radiusOf(author) {
-  return Math.round(6.5 * Math.sqrt(1 + influenceReceived(author)) * 10) / 10;
+  return Math.round(Math.min(11, 3.5 + 2 * Math.sqrt(influenceReceived(author))) * 10) / 10;
 }
 
-// Where each school gathers. Neighbours on this grid are schools that answer
-// each other most; precursors gather lower down, under the leaves.
-const BRANCH_ANCHORS = {
-  technocritique: [150, 120],
-  degrowth: [400, 110],
-  'political-ecology': [650, 180],
-  decolonial: [780, 360],
-  'social-ecology': [130, 420],
-  ecosocialism: [400, 330],
-  anthropocene: [640, 470],
-  counterpoint: [790, 620],
-  'deep-ecology': [200, 640],
-  ecosophy: [430, 600],
-  ecofeminism: [600, 700],
-  'queer-ecology': [780, 800],
-};
-const ROOT_ANCHORS = {
-  'anarchist-geographers': [120, 800],
-  unity: [400, 800],
-  energetics: [130, 980],
-  'political-economy': [380, 960],
-  physiocrats: [560, 1010],
-  romantics: [600, 880],
-  naturalists: [780, 980],
-};
-const TRUNK_ANCHOR = [280, 240];
+const round = (v) => Math.round(v * 10) / 10;
+const at = (angle, r) => [C + r * Math.cos(angle), C + r * Math.sin(angle)];
 
-export function layoutGraph(corpus) {
-  const { authors, sourcedLinks } = corpus;
+function arcPath(a0, a1, r, reverse = false) {
+  const [x0, y0] = at(reverse ? a1 : a0, r);
+  const [x1, y1] = at(reverse ? a0 : a1, r);
+  const large = Math.abs(a1 - a0) > Math.PI ? 1 : 0;
+  return `M${round(x0)} ${round(y0)}A${r} ${r} 0 ${large} ${reverse ? 0 : 1} ${round(x1)} ${round(y1)}`;
+}
 
-  const random = lcg(11);
-  const nodes = authors.map((a) => {
-    const at =
-      a.layer === 'leaf'
-        ? (BRANCH_ANCHORS[a.branch] ?? [GRAPH_W / 2, GRAPH_H / 2])
-        : a.layer === 'root'
-          ? (ROOT_ANCHORS[a.root] ?? [GRAPH_W / 2, GRAPH_H - 120])
-          : TRUNK_ANCHOR;
-    return {
-      id: a.id,
-      ax: at[0] / KX,
-      ay: at[1],
-      x: at[0] / KX + (random() - 0.5) * 30,
-      y: at[1] + (random() - 0.5) * 60,
-      r: radiusOf(a),
-    };
-  });
-  const links = sourcedLinks.map((l) => ({ source: l.from, target: l.to, type: l.type }));
+export function layoutRing(corpus) {
+  const { authors, branches, sourcedLinks } = corpus;
+  const order = ['roots', 'trunk', ...branches.filter((b) => !b.graft).map((b) => b.id), ...branches.filter((b) => b.graft).map((b) => b.id)];
+  const byGroup = new Map(order.map((g) => [g, []]));
+  for (const a of authors) byGroup.get(groupOf(a))?.push(a);
+  for (const list of byGroup.values()) list.sort((x, y) => (x.born ?? 3000) - (y.born ?? 3000) || x.sort.localeCompare(y.sort));
+  const groups = order.filter((g) => byGroup.get(g).length > 0);
 
-  const sim = forceSimulation(nodes)
-    .randomSource(lcg(23))
-    .force('link', forceLink(links).id((d) => d.id).distance(70).strength(0.06))
-    .force('charge', forceManyBody().strength(-60).distanceMax(220))
-    .force('collide', forceCollide().radius((d) => 25 + d.r * 0.5).strength(1).iterations(4))
-    .force('x', forceX((d) => d.ax).strength(0.16))
-    .force('y', forceY((d) => d.ay).strength(0.16))
-    .stop();
+  const slots = authors.length + GAP * groups.length;
+  const step = (2 * Math.PI) / slots;
+  // Centre the precursors on the bottom of the ring (angle pi/2, y downwards).
+  const rootsSpan = byGroup.get('roots').length;
+  let angle = Math.PI / 2 - ((rootsSpan - 1) / 2) * step;
 
-  const minX = 74 / KX;
-  const maxX = (GRAPH_W - 74) / KX;
-  for (let i = 0; i < 700; i += 1) {
-    sim.tick();
-    for (const n of nodes) {
-      n.x = Math.max(minX, Math.min(maxX, n.x));
-      n.y = Math.max(34, Math.min(GRAPH_H - 40, n.y));
+  const pos = new Map();
+  const arcs = [];
+  for (const [gi, g] of groups.entries()) {
+    const list = byGroup.get(g);
+    const a0 = angle;
+    for (const a of list) {
+      const r = radiusOf(a);
+      const [x, y] = at(angle, R);
+      const deg = (angle * 180) / Math.PI;
+      const left = Math.cos(angle) < 0;
+      const [lx, ly] = at(angle, R + r + 6);
+      pos.set(a.id, {
+        x: round(x),
+        y: round(y),
+        r,
+        angle,
+        label: { x: round(lx), y: round(ly), rotate: round(left ? deg + 180 : deg), anchor: left ? 'end' : 'start' },
+      });
+      angle += step;
     }
+    const a1 = angle - step;
+    const mid = (a0 + a1) / 2;
+    const bottom = Math.sin(mid) > 0.15;
+    arcs.push({
+      id: g,
+      band: arcPath(a0 - step * 0.4, a1 + step * 0.4, R - 16),
+      // The label needs room even for a group of two or three leaves.
+      // Neighbouring labels alternate between two radii so they never overlap.
+      text: arcPath(mid - Math.max((a1 - a0) / 2 + step, 0.3), mid + Math.max((a1 - a0) / 2 + step, 0.3), (bottom ? R - 40 : R - 30) - (gi % 2) * 16, bottom),
+    });
+    angle += GAP * step;
   }
-
-  const round = (v) => Math.round(v * 10) / 10;
-  const pos = new Map(nodes.map((n) => [n.id, { x: round(n.x * KX), y: round(n.y), r: n.r }]));
 
   const edges = sourcedLinks.map((l) => {
     const a = pos.get(l.from);
     const b = pos.get(l.to);
-    const dx = b.x - a.x;
-    const dy = b.y - a.y;
-    const len = Math.hypot(dx, dy) || 1;
-    const ux = dx / len;
-    const uy = dy / len;
-    const startGap = a.r + 3;
-    const endGap = b.r + (l.type === 'dialogue' ? 3 : 9);
+    let d = Math.abs(a.angle - b.angle) % (2 * Math.PI);
+    if (d > Math.PI) d = 2 * Math.PI - d;
+    const k = 0.92 - 0.82 * (d / Math.PI); // near ends: shallow; opposite ends: through the centre
+    const c1 = [C + (a.x - C) * k, C + (a.y - C) * k];
+    const c2 = [C + (b.x - C) * k, C + (b.y - C) * k];
+    const shorten = (p, q, by) => {
+      const dx = p[0] - q[0];
+      const dy = p[1] - q[1];
+      const len = Math.hypot(dx, dy) || 1;
+      return [p[0] - (dx / len) * by, p[1] - (dy / len) * by];
+    };
+    const start = shorten([a.x, a.y], c1, a.r + 2);
+    const end = shorten([b.x, b.y], c2, b.r + (l.type === 'dialogue' ? 2 : 7));
     return {
       link: l,
-      x1: round(a.x + ux * startGap),
-      y1: round(a.y + uy * startGap),
-      x2: round(b.x - ux * endGap),
-      y2: round(b.y - uy * endGap),
+      d: `M${round(start[0])} ${round(start[1])}C${round(c1[0])} ${round(c1[1])} ${round(c2[0])} ${round(c2[1])} ${round(end[0])} ${round(end[1])}`,
     };
   });
 
-  return { pos, edges };
+  return { pos, edges, arcs, size: GRAPH_SIZE };
 }

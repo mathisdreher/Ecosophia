@@ -84,7 +84,7 @@ The portraits are illustrations, not documents: the site labels each one as a ge
 | Tree | `/en/` · `/fr/` | The branches and their leaves, the trunk, the root groups below the ground line |
 | Author | `/en/authors/<id>/` · `/fr/auteurs/<id>/` | Portrait, seeds, a sourced quotation, who they read, who answered, numbered sources |
 | Branch | `/en/branches/<id>/` | The leaves of a school and the threads that cross it |
-| Mycelium | `/en/mycelium/` | The influence graph, with filters and a table of every link and its source |
+| Mycelium | `/en/mycelium/` | The influence graph as a ring of schools, threads through the centre, with filters and a table of every link and its source |
 | Rings | `/en/rings/` · `/fr/cernes/` | Lifespans and publication dates on one time axis |
 | Terrain | `/en/terrain/` | Birthplaces on a world map and a Europe inset, markers coloured by branch with a filter, and the share of each continent |
 | Clearing | `/en/clearing/` · `/fr/clairiere/` | The latest published run, the questions and the party positions |
