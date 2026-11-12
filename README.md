@@ -16,7 +16,8 @@ Ecosophia maps the thinkers of political ecology as one tree: precursors in the 
 | Mycelium | `/en/mycelium/` | The influence graph, with filters, a detail panel and a table of every link with its source |
 | Rings | `/en/rings/` · `/fr/cernes/` | Lifespans and publication dates on one time axis |
 | Terrain | `/en/terrain/` | Birthplaces on a world map and a Europe inset, listed by country |
-| Clearing | `/en/clearing/` · `/fr/clairiere/` | The page for simulated debates. It holds a hand-written specimen, labelled as such, until a first run is published |
+| Clearing | `/en/clearing/` · `/fr/clairiere/` | Simulated debates between author-agents, run with MiroFish. The latest published run, or a hand-written specimen until there is one |
+| Clearing run | `/en/clearing/<run>/` · `/fr/clairiere/<run>/` | One run: positions, alliances, every closing line, and below the ground line the prompts and the full transcript |
 | Canopy | `/en/canopy/` · `/fr/canopee/` | In preparation: the three axes and the rules of placement |
 | Seeds, Roots, Trunk | `/en/seeds/`, `/en/roots/`, `/en/trunk/` | Concepts, precursors and founding texts |
 | Method, Data | `/en/method/`, `/en/data/` | How the map is made, where the data lives |
@@ -28,6 +29,7 @@ Ecosophia maps the thinkers of political ecology as one tree: precursors in the 
 - Colours, type, spacing and strokes come from `design/tokens.json`, the export of the Ecosophia design system. `design/brand.md` is its brand book.
 - Fonts (Fraunces, Instrument Sans, IBM Plex Mono) are self-hosted. The site sets no cookie and calls no third party.
 - GitHub Actions validates the data, builds, checks every internal link and deploys to GitHub Pages.
+- Clearing simulations run in GitHub Actions with [MiroFish](https://github.com/666ghj/MiroFish) (multi-agent simulation on OASIS) and Claude through the official Anthropic SDK. See [Running a Clearing simulation](#running-a-clearing-simulation).
 
 ## Run it locally
 
@@ -67,7 +69,7 @@ data/
   seeds.yaml           names of the concepts, in both languages
   trunk.yaml           the founding texts
   sources.yaml         secondary sources cited as evidence
-  clearing/            the specimen, and later the published runs
+  clearing/            the hand-written specimen, and runs/ with one YAML and one transcript per run
 ```
 
 An author record:
@@ -114,6 +116,32 @@ Dates and birthplaces were entered by hand. The **Check facts against Wikidata**
 WIKIDATA_USER_AGENT="EcosophiaFactCheck/0.1 (https://github.com/<owner>/<repo>)" npm run wikidata
 ```
 
+## Running a Clearing simulation
+
+A run takes a claim, turns every leaf of the tree into an agent, lets the agents discuss the claim for a few rounds in MiroFish, asks each for a closing position, and stores the result as data. The site then shows where each school stands, who stood with whom, and every closing line, marked Simulated.
+
+**Once.** Add an Anthropic API key as a repository secret named `ANTHROPIC_API_KEY` (Settings › Secrets and variables › Actions). The key is used only by the run workflow.
+
+**Each time.** Actions › **Clearing run** › Run workflow.
+
+| Input | Default | Meaning |
+|---|---|---|
+| `claim` | | One sentence that can be endorsed or opposed, in English or French |
+| `agents` | `all` | `all` leaves, or author ids and branch ids separated by commas, for example `degrowth, counterpoint, james-lovelock` |
+| `rounds` | `3` | Rounds of discussion, 1 to 8. Every agent is offered a turn in every round |
+| `model` | `claude-opus-5-5` | The Claude model that plays the agents and reads the run |
+| `effort` | `medium` | How hard the model thinks on each turn |
+| `status` | `draft` | `draft` gives the run its own page and lists it nowhere; `published` shows it on the Clearing |
+| `dry_run` | off | Runs the whole pipeline with a stand-in model: no key, no cost, nothing stored |
+
+The workflow commits the run to `data/clearing/runs/` and rebuilds the site. A draft is at `/en/clearing/<run>/`; read it, then publish it with Actions › **Clearing run status** (which can also take a run back to draft or delete it). A draft is unlisted, not private: the repository is public.
+
+**Cost and time.** Cost grows with the number of agents times the number of rounds, and each agent rereads the growing discussion. As an order of magnitude, not a quote: the full cast (46 agents) for 3 rounds is a few hundred model calls and around two million tokens read, which on the default model is roughly 5 to 15 USD, and takes 10 to 25 minutes. A subset such as two or three branches costs a fraction of that. Every run reports its real token counts in the workflow summary and on its page.
+
+**What an agent is.** An agent receives the Ecosophia record of its author (summary, seeds, works, sourced threads) and rules: argue from the record, say when the work is silent, never use quotation marks, never speak as the author. It does not read the books, and the model also draws on what it already knows. Every prompt is published with the run. An author with `agent: false` in `data/authors/*.yaml` takes no part; `node clearing/withdraw.mjs <author-id>` removes an agent from stored runs.
+
+How the pipeline is built, and how to run it on your own machine, is in [`clearing/README.md`](clearing/README.md).
+
 ## Languages
 
 Every page exists at a localised address in both languages, with `hreflang` links between them. Interface strings are in `src/i18n/ui.mjs`, routes in `src/i18n/routes.mjs`. Titles of works stay in their original language. French typography (spaces before `:`, `;`, `?`, guillemets) is applied at build time.
@@ -124,6 +152,7 @@ Every page exists at a localised address in both languages, with `hreflang` link
 design/        tokens.json and the brand book, from the design system
 data/          the corpus
 scripts/       build-tokens, validate-data, check-links, wikidata-check
+clearing/      the Clearing pipeline: agents from the corpus, the bridge to Claude, the run, its reading
 src/
   i18n/        interface strings and the route table
   lib/         corpus reader, text and citation helpers, graph and map layout
@@ -149,6 +178,8 @@ Ecosophia cartographie les penseuses et penseurs de l'écologie politique comme 
 
 **Modifier le corpus.** Les données sont des fichiers YAML dans `data/` : un fichier par branche pour les auteurs, `links.yaml` pour le mycélium, `seeds.yaml` pour les concepts. Chaque texte existe en anglais et en français. Chaque graine et chaque lien porte une source : pas de source, pas de lien. Un fait non confirmé reste vide plutôt que deviné ; `npm run validate` liste ce qui manque.
 
-**Sourcé et simulé.** Les citations sont exactes et référencées. La Clairière accueillera des débats simulés entre agents-auteurs ; elle ne montre pour l'instant qu'un spécimen rédigé à la main, étiqueté comme tel.
+**Sourcé et simulé.** Les citations sont exactes et référencées. La Clairière accueille des débats simulés entre agents-auteurs, toujours marqués « Simulé » et jamais mis entre guillemets ; tant qu'aucune simulation n'est publiée, elle montre un spécimen rédigé à la main, étiqueté comme tel.
+
+**Lancer une simulation.** Ajouter une clé d'API Anthropic comme secret du dépôt, sous le nom `ANTHROPIC_API_KEY`, puis Actions › **Clearing run** › Run workflow : une affirmation en une phrase, les agents (`all`, ou des identifiants d'auteurs et de branches), le nombre de tours. La simulation tourne dans MiroFish, le résultat est enregistré dans `data/clearing/runs/` comme brouillon, avec sa page à `/fr/clairiere/<id>/`. Après relecture, Actions › **Clearing run status** la publie. L'option `dry_run` teste toute la chaîne avec un modèle factice, sans clé et sans coût. Le détail est dans [`clearing/README.md`](clearing/README.md).
 
 **État.** Version 0.1. La licence des textes et des données n'est pas encore choisie : d'ici là, tous droits réservés.

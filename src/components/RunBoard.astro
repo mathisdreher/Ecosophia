@@ -1,0 +1,168 @@
+---
+// The two panels of a run inside one dashed frame: where each branch stands
+// on the claim, and who stood with whom. Used for the hand-written specimen
+// and for simulated runs; the mark says which of the two it is.
+import BranchChip from './BranchChip.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { L } from '../lib/text.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+import { allianceBranches } from '../lib/clearing.mjs';
+
+const { run, lang, mark = 'simulated' } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+const positions = [...run.positions].sort((a, b) => a.score - b.score);
+const hasRange = positions.some((p) => p.min != null && p.max != null && p.min !== p.max);
+const branchLine = (al) =>
+  allianceBranches(al, run, c)
+    .map(({ branch, partial }) => {
+      const name = L(branch.name, lang);
+      return partial ? (lang === 'fr' ? `une partie de ${name}` : `part of ${name}`) : name;
+    })
+    .join(' · ');
+const agentLine = (al) => (al.authors ? al.authors.map((id) => c.authorById[id].short).join(', ') : null);
+---
+
+<div class="run">
+  <div class="stand">
+    <div class="stack gap-1">
+      <span class="eco-mark simulated-ink">{t(`common.${mark}`)}</span>
+      <h2 class="t-heading">{t('clearing.standTitle')}</h2>
+      <p class="t-small t-muted">
+        {t('clearing.stand')}
+        {hasRange && ` ${t('clearing.standRange')}`}
+      </p>
+    </div>
+    <div class:list={['eco-stance', { ranged: hasRange }]}>
+      {
+        positions.map((p) => {
+          const b = c.branchById[p.branch];
+          const left = Math.min(p.score, 50);
+          const width = Math.abs(p.score - 50);
+          const ranged = p.min != null && p.max != null && p.min !== p.max;
+          return (
+            <>
+              <BranchChip branch={b} lang={lang} />
+              <div class="scale" style={`--chip: var(--${b.token})`} aria-hidden="true">
+                {ranged && <div class="range" style={`left: ${p.min}%; width: ${p.max - p.min}%`} />}
+                <div class="bar" style={`left: ${left}%; width: ${width}%`} />
+                <div class="dot" style={`left: ${p.score}%`} />
+              </div>
+              <span class="eco-meta value">
+                {p.score}
+                {hasRange && <span class="spread">{ranged ? `${p.min}–${p.max}` : ''}</span>}
+              </span>
+            </>
+          );
+        })
+      }
+      <span class="axis-pad"></span>
+      <div class="axis eco-meta" aria-hidden="true">
+        <span>{t('clearing.oppose')}</span>
+        <span>{t('clearing.neutral')}</span>
+        <span>{t('clearing.endorse')}</span>
+      </div>
+      <span></span>
+    </div>
+  </div>
+
+  <div class="allies">
+    <div class="stack gap-1">
+      <span class="eco-mark simulated-ink">{t(`common.${mark}`)}</span>
+      <h2 class="t-heading">{t('clearing.alliesTitle')}</h2>
+    </div>
+    {
+      run.alliances.map((al) => (
+        <div class="ally">
+          <b>{L(al.title, lang)}</b>
+          <span class="t-small t-muted">{branchLine(al)}</span>
+          <span class="text">{L(al.text, lang)}</span>
+          {agentLine(al) && (
+            <span class="eco-meta">
+              {t('clearing.agents')} {agentLine(al)}
+            </span>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .run {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px var(--space-16);
+    padding: var(--space-8);
+    border: var(--stroke-thread) dashed var(--lichen-ink);
+    border-radius: var(--radius-md);
+    background: var(--paper-raised);
+  }
+  .stand {
+    flex: 999 1 560px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .stand :global(.eco-chip) {
+    justify-self: start;
+  }
+  .eco-stance.ranged {
+    grid-template-columns: minmax(0, 200px) minmax(0, 1fr) 84px;
+  }
+  .range {
+    position: absolute;
+    top: 7px;
+    height: 10px;
+    border-left: 1px solid var(--ink-muted);
+    border-right: 1px solid var(--ink-muted);
+    box-sizing: border-box;
+    background: linear-gradient(var(--ink-muted), var(--ink-muted)) center / 100% 1px no-repeat;
+  }
+  .value {
+    white-space: nowrap;
+  }
+  .spread {
+    display: inline-block;
+    min-width: 50px;
+    margin-left: 6px;
+    font-size: 12px;
+    opacity: 0.85;
+  }
+  .allies {
+    flex: 1 1 360px;
+    max-width: 460px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .ally {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--line);
+  }
+  .ally b {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .ally .text {
+    font-size: 15px;
+    line-height: 23px;
+  }
+  @media (max-width: 720px) {
+    .run {
+      padding: var(--space-4);
+    }
+  }
+  @media (max-width: 560px) {
+    .axis-pad {
+      display: none;
+    }
+    .eco-stance.ranged {
+      grid-template-columns: minmax(0, 1fr) 84px;
+    }
+  }
+</style>

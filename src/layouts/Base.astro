@@ -17,7 +17,7 @@ import { TABS, TAB_VIEW, tabOf, pathFor, LANGS } from '../i18n/routes.mjs';
 import { href, withBase, absolute } from '../lib/site.mjs';
 import { SITE } from '../site.config.mjs';
 
-const { lang, view, id, title, description } = Astro.props;
+const { lang, view, id, title, description, noindex = false } = Astro.props;
 const { t } = useUi(lang);
 const other = lang === 'en' ? 'fr' : 'en';
 const activeTab = tabOf(view);
@@ -36,6 +36,7 @@ const suggestUrl = `${SITE.repoUrl}/issues/new?template=author.yml&title=${encod
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     {LANGS.map((l) => <link rel="alternate" hreflang={l} href={absolute(site, pathFor(l, view, id))} />)}
     <link rel="alternate" hreflang="x-default" href={absolute(site, pathFor(SITE.defaultLanguage, view, id))} />
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />

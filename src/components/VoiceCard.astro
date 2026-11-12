@@ -1,0 +1,47 @@
+---
+// One closing line of an agent, or one line of the hand-written specimen.
+// Never a quotation: dashed lichen outline, a mark, the run it comes from,
+// and the reminder that the author named did not say it.
+import { useUi } from '../i18n/ui.mjs';
+import { href } from '../lib/site.mjs';
+import { L, titleHtml, yearLabel } from '../lib/text.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+import { runDate } from '../lib/clearing.mjs';
+
+const { voice, run, lang } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+const a = c.authorById[voice.author];
+const w = voice.work ? c.sources.get(voice.work) : null;
+const specimen = run.status === 'specimen';
+---
+
+<div class="eco-sim">
+  <span class="eco-mark simulated">{t(specimen ? 'common.specimen' : 'common.simulated')}</span>
+  <b class="who">
+    <a href={href(lang, 'author', a.id)}>{a.name}</a>{t(specimen ? 'clearing.specimenReactionTail' : 'clearing.reactionTail')}
+  </b>
+  <p>{L(voice.text, lang)}</p>
+  <span class="eco-meta">
+    {
+      w && (
+        <>
+          {t(specimen ? 'clearing.writtenAfter' : 'clearing.builtFrom')} <Fragment set:html={titleHtml(w, lang)} /> ({yearLabel(w)}) ·{' '}
+        </>
+      )
+    }
+    {t('clearing.position')} {voice.position}
+    {!specimen && ` · ${run.runId} · ${runDate(run, lang)}`} · {t('clearing.notStatement')}
+    {!specimen && a.living && ` · ${t('clearing.livingNotice')}`}
+  </span>
+</div>
+
+<style>
+  .who a {
+    text-decoration: none;
+  }
+  .who a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+</style>

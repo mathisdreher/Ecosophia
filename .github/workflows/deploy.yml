@@ -45,6 +45,9 @@ jobs:
       - name: Check the corpus
         run: npm run validate
 
+      - name: Test the Clearing pipeline
+        run: npm run test:clearing
+
       - name: Decide whether this run deploys
         id: target
         env:

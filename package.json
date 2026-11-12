@@ -15,9 +15,12 @@
     "prebuild": "npm run tokens && npm run validate",
     "build": "astro build",
     "preview": "astro preview",
-    "wikidata": "node scripts/wikidata-check.mjs"
+    "wikidata": "node scripts/wikidata-check.mjs",
+    "clearing": "node clearing/run.mjs",
+    "test:clearing": "node --test clearing/test/pipeline.test.mjs"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.8.0",
     "@fontsource-variable/fraunces": "^5.3.0",
     "@fontsource-variable/instrument-sans": "^5.3.0",
     "@fontsource/ibm-plex-mono": "^5.3.0",

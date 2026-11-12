@@ -1,7 +1,7 @@
 ---
 // The only page route: every view of the site, in both languages, is
 // generated from the route table in src/i18n/routes.mjs.
-import { loadCorpus } from '../../lib/corpus.mjs';
+import { loadCorpus, loadClearing } from '../../lib/corpus.mjs';
 import { allRoutes } from '../../i18n/routes.mjs';
 import Home from '../../views/Home.astro';
 import Author from '../../views/Author.astro';
@@ -16,11 +16,12 @@ import Rings from '../../views/Rings.astro';
 import Canopy from '../../views/Canopy.astro';
 import Terrain from '../../views/Terrain.astro';
 import Clearing from '../../views/Clearing.astro';
+import Run from '../../views/Run.astro';
 import Method from '../../views/Method.astro';
 import Data from '../../views/Data.astro';
 
 export function getStaticPaths() {
-  return allRoutes(loadCorpus()).map((r) => ({
+  return allRoutes(loadCorpus(), loadClearing()).map((r) => ({
     params: { lang: r.lang, path: r.slug || undefined },
     props: { view: r.view, id: r.id },
   }));
@@ -42,6 +43,7 @@ const VIEWS = {
   canopy: Canopy,
   terrain: Terrain,
   clearing: Clearing,
+  run: Run,
   method: Method,
   data: Data,
 };

@@ -1,27 +1,24 @@
 ---
 // The Clearing: simulated debates between author-agents. Nothing here is ever
-// set as a quotation. Until a first run is published, the page shows a
-// hand-written specimen and says so.
+// set as a quotation. The page shows the latest published run; until there is
+// one, it shows a hand-written specimen and says so.
 import Base from '../layouts/Base.astro';
-import BranchChip from '../components/BranchChip.astro';
+import RunBoard from '../components/RunBoard.astro';
+import VoiceCard from '../components/VoiceCard.astro';
 import { useUi } from '../i18n/ui.mjs';
 import { href } from '../lib/site.mjs';
-import { L, titleHtml, yearLabel } from '../lib/text.mjs';
-import { loadCorpus, loadClearing } from '../lib/corpus.mjs';
+import { L } from '../lib/text.mjs';
+import { loadClearing } from '../lib/corpus.mjs';
+import { spreadVoices, runDate } from '../lib/clearing.mjs';
 import { SITE } from '../site.config.mjs';
 
 const { lang } = Astro.props;
 const { t } = useUi(lang);
-const c = loadCorpus();
-const { specimen: run } = loadClearing();
-const positions = [...run.positions].sort((a, b) => a.score - b.score);
-const names = (al) =>
-  al.branches
-    .map((b) => {
-      const name = L(c.branchById[b].name, lang);
-      return al.partial?.includes(b) ? (lang === 'fr' ? `une partie de ${name}` : `part of ${name}`) : name;
-    })
-    .join(' · ');
+const { specimen, published } = loadClearing();
+const latest = published[0] ?? null;
+const run = latest ?? specimen;
+const voices = latest ? spreadVoices(latest.voices, 6) : run.voices;
+const metaOf = (r) => t('clearing.runMeta', { agents: r.settings.agents, rounds: r.settings.rounds, comments: r.counts.comments, date: runDate(r, lang) });
 ---
 
 <Base lang={lang} view="clearing" title={t('clearing.title')} description={t('clearing.lede')}>
@@ -56,87 +53,60 @@ const names = (al) =>
   </section>
 
   <section class="wrap">
-    <div class="notice lichen">
-      <b class="label">{t('clearing.specimenTitle')}</b>
-      <p class="t-small">{t('clearing.specimen')}</p>
-    </div>
+    {
+      latest ? (
+        <div class="latest stack gap-2">
+          <span class="label lichen-ink">
+            {t('clearing.latest')} · {latest.runId}
+          </span>
+          <h2 class="t-title claim-line">{L(latest.claim, lang)}</h2>
+          <p class="t-lede summary">{L(latest.summary, lang)}</p>
+          <span class="eco-meta">{metaOf(latest)}</span>
+        </div>
+      ) : (
+        <div class="notice lichen">
+          <b class="label">{t('clearing.specimenTitle')}</b>
+          <p class="t-small">{t('clearing.specimen')}</p>
+        </div>
+      )
+    }
   </section>
 
   <section class="wrap run-wrap">
-    <div class="run">
-      <div class="stand">
-        <div class="stack gap-1">
-          <span class="eco-mark simulated-ink">{t('common.specimen')}</span>
-          <h2 class="t-heading">{t('clearing.standTitle')}</h2>
-          <p class="t-small t-muted">{t('clearing.stand')}</p>
-        </div>
-        <div class="eco-stance">
-          {
-            positions.map((p) => {
-              const b = c.branchById[p.branch];
-              const left = Math.min(p.score, 50);
-              const width = Math.abs(p.score - 50);
-              return (
-                <>
-                  <BranchChip branch={b} lang={lang} />
-                  <div class="scale" style={`--chip: var(--${b.token})`} aria-hidden="true">
-                    <div class="bar" style={`left: ${left}%; width: ${width}%`} />
-                    <div class="dot" style={`left: ${p.score}%`} />
-                  </div>
-                  <span class="eco-meta value">{p.score}</span>
-                </>
-              );
-            })
-          }
-          <span class="axis-pad"></span>
-          <div class="axis eco-meta" aria-hidden="true">
-            <span>{t('clearing.oppose')}</span>
-            <span>{t('clearing.neutral')}</span>
-            <span>{t('clearing.endorse')}</span>
-          </div>
-          <span></span>
-        </div>
-      </div>
-
-      <div class="allies">
-        <div class="stack gap-1">
-          <span class="eco-mark simulated-ink">{t('common.specimen')}</span>
-          <h2 class="t-heading">{t('clearing.alliesTitle')}</h2>
-        </div>
-        {
-          run.alliances.map((al) => (
-            <div class="ally">
-              <b>{L(al.title, lang)}</b>
-              <span class="t-small t-muted">{names(al)}</span>
-              <span class="text">{L(al.text, lang)}</span>
-            </div>
-          ))
-        }
-      </div>
-    </div>
+    <RunBoard run={run} lang={lang} mark={latest ? 'simulated' : 'specimen'} />
   </section>
 
   <section class="voices wrap">
-    <h2 class="t-heading">{t('clearing.voicesTitle')}</h2>
+    <h2 class="t-heading">{t(latest ? 'clearing.voicesRun' : 'clearing.voicesTitle')}</h2>
     <div class="voice-grid">
-      {
-        run.voices.map((v) => {
-          const a = c.authorById[v.author];
-          const w = c.sources.get(v.work);
-          return (
-            <div class="eco-sim">
-              <span class="eco-mark simulated">{t('common.specimen')}</span>
-              <b class="who">{t('clearing.specimenReaction', { name: a.name })}</b>
-              <p>{L(v.text, lang)}</p>
-              <span class="eco-meta">
-                {t('clearing.writtenAfter')} <Fragment set:html={titleHtml(w, lang)} /> ({yearLabel(w)}) · {t('clearing.position')} {v.position} · {t('clearing.notStatement')}
-              </span>
-            </div>
-          );
-        })
-      }
+      {voices.map((v) => <VoiceCard voice={v} run={run} lang={lang} />)}
     </div>
+    {
+      latest && (
+        <a class="eco-btn read" href={href(lang, 'run', latest.id)}>
+          {t('clearing.readRun')}
+        </a>
+      )
+    }
   </section>
+
+  {
+    published.length > 1 && (
+      <section class="wrap runs">
+        <h2 class="t-heading">{t('clearing.allRuns')}</h2>
+        <ul>
+          {published.map((r) => (
+            <li>
+              <a class="strong-link" href={href(lang, 'run', r.id)}>{L(r.claim, lang)}</a>
+              <span class="eco-meta">
+                {r.runId} · {metaOf(r)}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )
+  }
 
   <div class="below-grid" slot="below">
     <div class="below-col">
@@ -152,6 +122,13 @@ const names = (al) =>
         <h2 class="t-heading">{t('clearing.limitsTitle')}</h2>
       </div>
       <p class="text">{t('clearing.limits')}</p>
+      {
+        SITE.repoPublic && (
+          <a class="link t-small" href={`${SITE.repoUrl}/issues/new?template=correction.yml&title=${encodeURIComponent(lang === 'fr' ? 'Retrait d’un agent : ' : 'Withdraw an agent: ')}`} rel="noopener">
+            {t('clearing.withdraw')}
+          </a>
+        )
+      }
     </div>
     <div class="below-col">
       <div class="below-head">
@@ -203,50 +180,21 @@ const names = (al) =>
     font: 400 22px/30px var(--font-display);
     resize: vertical;
   }
+  .latest {
+    max-width: 860px;
+    padding-top: var(--space-8);
+  }
+  .lichen-ink {
+    color: var(--lichen-ink);
+  }
+  .claim-line {
+    text-wrap: balance;
+  }
+  .summary {
+    max-width: var(--measure);
+  }
   .run-wrap {
     padding-block: var(--space-8) 56px;
-  }
-  .run {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px var(--space-16);
-    padding: var(--space-8);
-    border: var(--stroke-thread) dashed var(--lichen-ink);
-    border-radius: var(--radius-md);
-    background: var(--paper-raised);
-  }
-  .stand {
-    flex: 999 1 560px;
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .stand :global(.eco-chip) {
-    justify-self: start;
-  }
-  .allies {
-    flex: 1 1 360px;
-    max-width: 460px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  .ally {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding-top: var(--space-4);
-    border-top: 1px solid var(--line);
-  }
-  .ally b {
-    font-size: 16px;
-    line-height: 22px;
-  }
-  .ally .text,
-  .below-col .text {
-    font-size: 15px;
-    line-height: 23px;
   }
   .voices {
     display: flex;
@@ -259,17 +207,35 @@ const names = (al) =>
     grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
     gap: 20px;
   }
+  .read {
+    align-self: flex-start;
+  }
+  .runs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding-bottom: 72px;
+  }
+  .runs ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: var(--measure);
+  }
+  .runs li {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--line);
+  }
+  .below-col .text {
+    font-size: 15px;
+    line-height: 23px;
+  }
   @media (max-width: 720px) {
-    .run {
-      padding: var(--space-4);
-    }
     .intro {
       padding-top: var(--space-12);
-    }
-  }
-  @media (max-width: 560px) {
-    .axis-pad {
-      display: none;
     }
   }
 </style>

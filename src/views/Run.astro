@@ -1,0 +1,243 @@
+---
+// One Clearing run. Above the ground line: the claim, where the schools
+// stand, who stood with whom, and the closing line of every agent. Below it,
+// the evidence: how the run was made, what each agent was told, and
+// everything the agents wrote. Nothing here is set as a quotation.
+import Base from '../layouts/Base.astro';
+import RunBoard from '../components/RunBoard.astro';
+import VoiceCard from '../components/VoiceCard.astro';
+import { useUi } from '../i18n/ui.mjs';
+import { href, withBase } from '../lib/site.mjs';
+import { L } from '../lib/text.mjs';
+import { loadCorpus, loadClearing, loadTranscript } from '../lib/corpus.mjs';
+import { runDate } from '../lib/clearing.mjs';
+
+const { lang, id } = Astro.props;
+const { t } = useUi(lang);
+const c = loadCorpus();
+const run = loadClearing().runs.find((r) => r.id === id);
+const record = loadTranscript(run.id);
+const draft = run.status !== 'published';
+const nf = new Intl.NumberFormat(lang === 'fr' ? 'fr-FR' : 'en-GB');
+const meta = t('clearing.runMeta', { agents: run.settings.agents, rounds: run.settings.rounds, comments: run.counts.comments, date: runDate(run, lang) });
+const engineText = t('clearing.engine', {
+  engine: run.engine.name,
+  commit: String(run.engine.commit).slice(0, 7),
+  model: run.model.served?.length ? run.model.served.join(', ') : run.model.requested,
+  effort: run.model.effort ? t('clearing.effort', { effort: run.model.effort }) : '',
+  turns: nf.format(run.counts.turns),
+  tokensIn: nf.format(run.counts.tokensIn),
+  tokensOut: nf.format(run.counts.tokensOut),
+  declined: run.counts.declined,
+  failed: run.counts.failed,
+});
+const name = (authorId) => c.authorById[authorId]?.short ?? authorId;
+const transcript = record?.transcript ?? [];
+const rounds = [...new Set(transcript.map((e) => e.round))].sort((a, b) => a - b);
+const lines = (round) => transcript.filter((e) => e.round === round && ['post', 'comment', 'like', 'dislike'].includes(e.type));
+const prompts = record?.prompts ?? null;
+---
+
+<Base lang={lang} view="run" id={id} title={`${t('clearing.runTitle', { id: run.runId })}: ${L(run.claim, lang)}`} description={L(run.summary, lang)} noindex={draft}>
+  <section class="head">
+    <nav class="crumbs" aria-label={lang === 'fr' ? 'Fil d’Ariane' : 'Breadcrumb'}>
+      <a href={href(lang, 'clearing')}>{t('clearing.title')}</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{run.runId}</span>
+    </nav>
+    <span class="eco-mark simulated">{t('common.simulated')}</span>
+    <h1 class="t-title claim-line">{L(run.claim, lang)}</h1>
+    <p class="t-lede summary">{L(run.summary, lang)}</p>
+    <span class="eco-meta">
+      {run.runId} · {meta}
+    </span>
+    {
+      draft && (
+        <div class="notice lichen">
+          <b class="label">{t('clearing.draftTitle')}</b>
+          <p class="t-small">{t('clearing.draft')}</p>
+        </div>
+      )
+    }
+  </section>
+
+  <section class="wrap run-wrap">
+    <RunBoard run={run} lang={lang} mark="simulated" />
+  </section>
+
+  <section class="voices wrap">
+    <h2 class="t-heading">{t('clearing.voicesAll')}</h2>
+    <div class="voice-grid">
+      {run.voices.map((v) => <VoiceCard voice={v} run={run} lang={lang} />)}
+    </div>
+    {
+      run.silent?.length > 0 && (
+        <p class="t-small t-muted">
+          {t('clearing.silent')} {run.silent.map((s) => t('clearing.agentPrompt', { name: name(s) })).join(', ')}.
+        </p>
+      )
+    }
+  </section>
+
+  <div class="below-grid evidence" slot="below">
+    <div class="below-col">
+      <div class="below-head">
+        <span class="label humus">{t('clearing.engineLabel')}</span>
+        <h2 class="t-heading">{t('clearing.engineTitle')}</h2>
+      </div>
+      <p class="text">{engineText}</p>
+      <p class="text">{t('clearing.limits')}</p>
+      <div class="row gap-6 t-small">
+        <a class="link" href={href(lang, 'method', undefined, 'simulated')}>{t('clearing.readMethod')}</a>
+        {record && <a class="link" href={withBase(`/clearing/${run.id}.json`)}>{t('clearing.download')}</a>}
+      </div>
+    </div>
+
+    {
+      prompts && (
+        <div class="below-col">
+          <div class="below-head">
+            <span class="label humus">{t('clearing.promptsLabel')}</span>
+            <h2 class="t-heading">{t('clearing.promptsTitle')}</h2>
+          </div>
+          <p class="text">{t('clearing.prompts')}</p>
+          <details>
+            <summary>{t('clearing.opening')}</summary>
+            <pre lang="en">{prompts.opening}</pre>
+          </details>
+          <details>
+            <summary>{t('clearing.interview')}</summary>
+            <pre lang="en">{prompts.interview}</pre>
+          </details>
+          {Object.entries(prompts.agents)
+            .filter(([, text]) => text)
+            .map(([authorId, text]) => (
+              <details>
+                <summary>{t('clearing.agentPrompt', { name: name(authorId) })}</summary>
+                <pre lang="en">{text}</pre>
+              </details>
+            ))}
+        </div>
+      )
+    }
+
+    {
+      transcript.length > 0 && (
+        <div class="below-col wide">
+          <div class="below-head">
+            <span class="label humus">{t('clearing.transcriptLabel')}</span>
+            <h2 class="t-heading">{t('clearing.transcriptTitle')}</h2>
+          </div>
+          <p class="text">{t('clearing.transcript')}</p>
+          {rounds.map((r) => (
+            <details open={r <= 1}>
+              <summary>
+                {r === 0 ? t('clearing.opening') : t('clearing.round', { n: r })} <span class="eco-meta">({lines(r).length})</span>
+              </summary>
+              <ol class="lines">
+                {lines(r).map((e) => (
+                  <li>
+                    <b>{e.author ? t('clearing.agentPrompt', { name: name(e.author) }) : t('clearing.moderator')}</b>
+                    {e.type === 'post' || e.type === 'comment' ? (
+                      <span lang="en">{e.text}</span>
+                    ) : (
+                      <span class="t-muted">{t(e.type === 'like' ? 'clearing.liked' : 'clearing.disliked', { name: e.to ? name(e.to) : '?' })}</span>
+                    )}
+                  </li>
+                ))}
+              </ol>
+            </details>
+          ))}
+        </div>
+      )
+    }
+  </div>
+</Base>
+
+<style>
+  .head {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+    max-width: 900px;
+    padding: var(--space-16) var(--gutter) var(--space-4);
+  }
+  .claim-line {
+    text-wrap: balance;
+  }
+  .summary {
+    max-width: var(--measure);
+  }
+  .run-wrap {
+    padding-block: var(--space-8) 56px;
+  }
+  .voices {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 72px;
+  }
+  .voice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
+    gap: 20px;
+  }
+  .evidence .text {
+    font-size: 15px;
+    line-height: 23px;
+  }
+  .evidence .wide {
+    grid-column: 1 / -1;
+    max-width: 900px;
+  }
+  details {
+    border-top: 1px solid var(--line);
+    padding: var(--space-2) 0;
+  }
+  summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 28px;
+  }
+  pre {
+    margin: var(--space-2) 0 var(--space-3);
+    padding: var(--space-4);
+    max-height: 420px;
+    overflow: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    font: 400 13px/20px var(--font-mono);
+  }
+  .lines {
+    list-style: none;
+    margin: var(--space-2) 0 var(--space-3);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+  .lines li {
+    display: grid;
+    grid-template-columns: minmax(0, 170px) minmax(0, 1fr);
+    gap: var(--space-4);
+    font-size: 15px;
+    line-height: 23px;
+  }
+  .lines b {
+    font-size: 14px;
+  }
+  @media (max-width: 720px) {
+    .head {
+      padding-top: var(--space-12);
+    }
+    .lines li {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2px;
+    }
+  }
+</style>

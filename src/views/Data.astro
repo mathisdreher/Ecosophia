@@ -2,14 +2,14 @@
 import Base from '../layouts/Base.astro';
 import { href } from '../lib/site.mjs';
 import { typo } from '../lib/text.mjs';
-import { loadCorpus } from '../lib/corpus.mjs';
+import { loadCorpus, loadClearing } from '../lib/corpus.mjs';
 import { dataPage, corpusStats } from '../content/pages.mjs';
 import { useUi } from '../i18n/ui.mjs';
 import { SITE } from '../site.config.mjs';
 
 const { lang } = Astro.props;
 const { t } = useUi(lang);
-const page = dataPage(lang, corpusStats(loadCorpus()));
+const page = dataPage(lang, corpusStats(loadCorpus(), loadClearing()));
 const T = (s) => typo(s, lang);
 ---
 

@@ -1,7 +1,7 @@
 // Checks the corpus before every build: references, bilingual fields and the
 // editorial rules of the brand book (design/brand.md). Errors fail the build;
 // warnings list what is still missing.
-import { loadCorpus, loadClearing, LINK_TYPES, LAYERS, WORK_KINDS } from '../src/lib/corpus.mjs';
+import { loadCorpus, loadClearing, loadTranscript, LINK_TYPES, LAYERS, WORK_KINDS } from '../src/lib/corpus.mjs';
 import { wordCount } from '../src/lib/text.mjs';
 
 const c = loadCorpus();
@@ -46,6 +46,7 @@ for (const a of c.authors) {
   bilingual(a.lede, `${at}.lede`);
   if (a.born != null && a.died != null && a.died < a.born) err(`${at}: died before born`);
   if (a.wikidata && !/^Q\d+$/.test(a.wikidata)) err(`${at}: wikidata must look like Q123`);
+  if (a.agent != null && typeof a.agent !== 'boolean') err(`${at}: agent must be true or false (false withdraws the author from the Clearing)`);
   if (a.place) {
     bilingual(a.place.country, `${at}.place.country`);
     if (a.place.city) bilingual(a.place.city, `${at}.place.city`);
@@ -128,10 +129,12 @@ for (const t of c.trunk) {
   bilingual(t.text, `trunk ${t.work}.text`);
 }
 
-// Clearing: the specimen and any published run must point to real branches, authors and works
+// Clearing: the hand-written specimen
 const clearing = loadClearing();
-for (const run of [clearing.specimen, ...clearing.runs].filter(Boolean)) {
-  const rt = `clearing ${run.id}`;
+const QUOTES = /["“”«»]/;
+if (clearing.specimen) {
+  const run = clearing.specimen;
+  const rt = 'clearing specimen';
   bilingual(run.claim, `${rt}.claim`);
   for (const p of run.positions ?? []) {
     if (!c.branchById[p.branch]) err(`${rt}: unknown branch "${p.branch}"`);
@@ -146,9 +149,67 @@ for (const run of [clearing.specimen, ...clearing.runs].filter(Boolean)) {
     if (!c.authorById[v.author]) err(`${rt}: unknown author "${v.author}"`);
     need(v.work, `${rt} voice ${v.author}`);
     bilingual(v.text, `${rt}.voice ${v.author}.text`);
-    if (/["“”«»]/.test(v.text.en + v.text.fr)) err(`${rt}: a simulated voice is never set in quotation marks (${v.author})`);
+    if (QUOTES.test(v.text.en + v.text.fr)) err(`${rt}: a simulated voice is never set in quotation marks (${v.author})`);
   }
-  if (run.status !== 'specimen' && !run.runId) err(`${rt}: a published run needs a runId and a date`);
+}
+
+// Clearing: runs written by clearing/run.mjs
+const inRange = (n) => Number.isInteger(n) && n >= 0 && n <= 100;
+for (const run of clearing.runs) {
+  const rt = `clearing run ${run.id}`;
+  if (!/^clr-\d{4}$/.test(String(run.id))) err(`${rt}: a run id looks like clr-0001`);
+  if (run.file !== `${run.id}.yaml`) err(`${rt}: the file must be named ${run.id}.yaml (found ${run.file})`);
+  if (run.runId !== run.id) err(`${rt}: runId must repeat the id`);
+  if (!['draft', 'published'].includes(run.status)) err(`${rt}: status must be draft or published`);
+  if (run.dryRun) err(`${rt}: a dry run is filler made by a stand-in model and is never stored in data/`);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(run.date))) err(`${rt}: date must be YYYY-MM-DD`);
+  bilingual(run.claim, `${rt}.claim`);
+  bilingual(run.summary, `${rt}.summary`);
+  if (!run.engine?.name || !run.engine?.commit) err(`${rt}: the engine and its commit are required`);
+  if (!run.model?.requested) err(`${rt}: the model is required`);
+  if (!(run.settings?.rounds > 0) || !(run.settings?.agents > 0)) err(`${rt}: settings.rounds and settings.agents are required`);
+  for (const k of ['turns', 'comments', 'tokensIn', 'tokensOut', 'declined', 'failed']) {
+    if (!Number.isInteger(run.counts?.[k])) err(`${rt}: counts.${k} is required`);
+  }
+  if (!(run.positions?.length > 0)) err(`${rt}: no branch position`);
+  for (const p of run.positions ?? []) {
+    if (!c.branchById[p.branch]) err(`${rt}: unknown branch "${p.branch}"`);
+    for (const k of ['score', 'min', 'max']) if (!inRange(p[k])) err(`${rt}: ${k} of ${p.branch} must be a whole number between 0 and 100`);
+  }
+  const agentOk = (id, where) => {
+    const a = c.authorById[id];
+    if (!a) return err(`${rt}: unknown author "${id}" in ${where}`);
+    if (a.layer !== 'leaf') err(`${rt}: ${id} is not a leaf and cannot be an agent (${where})`);
+    if (a.agent === false) err(`${rt}: ${a.name} is marked agent: false. Remove this agent from the run with: node clearing/withdraw.mjs ${id}`);
+  };
+  const placed = new Set();
+  if (!(run.alliances?.length > 0)) err(`${rt}: no alliance`);
+  for (const al of run.alliances ?? []) {
+    bilingual(al.title, `${rt}.alliance.title`);
+    bilingual(al.text, `${rt}.alliance.text`);
+    for (const id of al.authors ?? []) {
+      agentOk(id, 'an alliance');
+      if (placed.has(id)) err(`${rt}: ${id} appears in two alliances`);
+      placed.add(id);
+    }
+  }
+  if (!(run.voices?.length > 0)) err(`${rt}: no voice`);
+  for (const v of run.voices ?? []) {
+    agentOk(v.author, 'a voice');
+    if (!inRange(v.position)) err(`${rt}: position of ${v.author} must be a whole number between 0 and 100`);
+    bilingual(v.text, `${rt}.voice ${v.author}.text`);
+    if (QUOTES.test(`${v.text?.en}${v.text?.fr}`)) err(`${rt}: a simulated voice is never set in quotation marks (${v.author})`);
+    if (v.work && c.sources.get(v.work)?.authorId !== v.author) err(`${rt}: work "${v.work}" is not a work of ${v.author}`);
+  }
+  for (const id of run.silent ?? []) agentOk(id, 'the silent list');
+  const record = loadTranscript(run.id);
+  if (!record) err(`${rt}: ${run.id}.transcript.json is missing next to the run`);
+  else {
+    if (record.runId !== run.id) err(`${rt}: the transcript belongs to another run (${record.runId})`);
+    if (!(record.transcript?.length > 0)) err(`${rt}: the transcript is empty`);
+    for (const e of record.transcript ?? []) if (e.author) agentOk(e.author, 'the transcript');
+    for (const id of Object.keys(record.prompts?.agents ?? {})) agentOk(id, 'the prompts');
+  }
 }
 
 const linked = new Set(c.sourcedLinks.flatMap((l) => [l.from, l.to]));
@@ -162,6 +223,7 @@ const summary = [
   `${c.sourcedLinks.length} sourced links`,
   `${c.links.length - c.sourcedLinks.length} to verify`,
   `${c.sources.size} sources`,
+  `${clearing.runs.length} Clearing runs (${clearing.published.length} published)`,
 ].join(' · ');
 
 if (process.argv.includes('--quiet') === false && warnings.length) {

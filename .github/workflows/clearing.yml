@@ -1,0 +1,214 @@
+# Runs one Clearing simulation: agents built from the corpus debate a claim in
+# MiroFish, and the result is stored in data/clearing/runs.
+#
+# Start it from Actions > Clearing run > Run workflow.
+#
+# One-time setup: Settings > Secrets and variables > Actions > New repository
+# secret, named ANTHROPIC_API_KEY. A dry run needs no key and costs nothing.
+#
+# The job that runs the simulation can only read the repository. The engine
+# and its dependencies are third-party code: they run under a separate system
+# account that cannot see the API key. A second job, which runs none of that
+# code, stores the result.
+name: Clearing run
+
+on:
+  workflow_dispatch:
+    inputs:
+      claim:
+        description: "Claim or event to discuss, one sentence, in English or French"
+        required: true
+        type: string
+      agents:
+        description: "Who takes part: all, or author ids and branch ids separated by commas"
+        default: all
+        type: string
+      rounds:
+        description: "Rounds of discussion, 1 to 8"
+        default: "3"
+        type: string
+      model:
+        description: "Claude model"
+        default: claude-opus-5-5
+        type: string
+      effort:
+        description: "How hard the model thinks on each turn"
+        type: choice
+        options: [low, medium, high, xhigh, max]
+        default: medium
+      status:
+        description: "draft: own page, listed nowhere. published: shown on the Clearing"
+        type: choice
+        options: [draft, published]
+        default: draft
+      dry_run:
+        description: "Test the pipeline with a stand-in model: no key, no cost, nothing stored"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: clearing-run
+  cancel-in-progress: false
+
+jobs:
+  simulate:
+    name: Simulate
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    permissions:
+      contents: read
+    outputs:
+      run_id: ${{ steps.run.outputs.run_id }}
+    env:
+      ENGINE_DIR: /tmp/mirofish
+      ENGINE_USER: clearing-sim
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v7
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check the corpus
+        run: npm run validate
+
+      - name: Test the pipeline against a double of the engine
+        run: npm run test:clearing
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.11"
+
+      - name: Fetch MiroFish at the pinned commit
+        run: |
+          repo=$(node -e "import('./clearing/config.mjs').then((m) => console.log(m.ENGINE.repo))")
+          commit=$(node -e "import('./clearing/config.mjs').then((m) => console.log(m.ENGINE.commit))")
+          git init --quiet "$ENGINE_DIR"
+          git -C "$ENGINE_DIR" remote add origin "$repo"
+          git -C "$ENGINE_DIR" fetch --quiet --depth 1 origin "$commit"
+          git -C "$ENGINE_DIR" checkout --quiet --detach FETCH_HEAD
+          test "$(git -C "$ENGINE_DIR" rev-parse HEAD)" = "$commit"
+          echo "MiroFish at $commit"
+
+      - name: Install the engine's dependencies from its lockfile
+        env:
+          UV_PYTHON_DOWNLOADS: never
+          UV_LINK_MODE: copy
+        run: |
+          python -m pip install --quiet uv
+          uv sync --frozen --no-dev --no-install-project --project "$ENGINE_DIR/backend" --python "$(python -c 'import sys; print(sys.executable)')"
+
+      - name: Create the account the engine runs under
+        run: sudo useradd --system --create-home --shell /usr/sbin/nologin "$ENGINE_USER"
+
+      - name: Run the simulation
+        id: run
+        env:
+          ANTHROPIC_API_KEY: ${{ !inputs.dry_run && secrets.ANTHROPIC_API_KEY || '' }}
+          CLAIM: ${{ inputs.claim }}
+          AGENTS: ${{ inputs.agents }}
+          ROUNDS: ${{ inputs.rounds }}
+          MODEL: ${{ inputs.model }}
+          EFFORT: ${{ inputs.effort }}
+          STATUS: ${{ inputs.status }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          if [ "$DRY_RUN" != "true" ] && [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error title=No API key::Add a repository secret named ANTHROPIC_API_KEY in Settings > Secrets and variables > Actions, or tick dry_run to test the pipeline without one."
+            exit 1
+          fi
+          args=(--claim "$CLAIM" --agents "$AGENTS" --rounds "$ROUNDS" --model "$MODEL" --effort "$EFFORT" --status "$STATUS")
+          args+=(--engine "$ENGINE_DIR" --python "$ENGINE_DIR/backend/.venv/bin/python" --run-as "$ENGINE_USER")
+          args+=(--work /tmp/clearing-work --out "$RUNNER_TEMP/clearing-out")
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          node clearing/run.mjs "${args[@]}"
+
+      - name: Show the end of the engine log
+        if: failure()
+        run: tail -n 80 /tmp/clearing-work/mirofish.log 2>/dev/null || echo "no engine log"
+
+      - name: Keep the run
+        if: steps.run.outputs.run_id != ''
+        uses: actions/upload-artifact@v7
+        with:
+          name: clearing-run
+          path: ${{ runner.temp }}/clearing-out
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Keep the logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: clearing-logs
+          path: |
+            /tmp/clearing-work/mirofish.log
+            /tmp/clearing-work/bridge.jsonl
+          if-no-files-found: ignore
+          retention-days: 14
+
+  store:
+    name: Store the run
+    needs: simulate
+    if: ${{ !inputs.dry_run }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: write
+    env:
+      RUN_ID: ${{ needs.simulate.outputs.run_id }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Fetch the run
+        uses: actions/download-artifact@v8
+        with:
+          name: clearing-run
+          path: ${{ runner.temp }}/clearing-run
+
+      - name: Put the run in the corpus
+        run: |
+          case "$RUN_ID" in clr-[0-9][0-9][0-9][0-9]) ;; *) echo "::error::Unexpected run id: $RUN_ID"; exit 1 ;; esac
+          mkdir -p data/clearing/runs
+          if [ -e "data/clearing/runs/$RUN_ID.yaml" ]; then echo "::error::$RUN_ID already exists"; exit 1; fi
+          cp "$RUNNER_TEMP/clearing-run/$RUN_ID.yaml" "$RUNNER_TEMP/clearing-run/$RUN_ID.transcript.json" data/clearing/runs/
+
+      - name: Check the corpus and build the site
+        run: npm run build
+
+      - name: Commit the run
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/clearing/runs
+          git commit -m "Add Clearing run $RUN_ID"
+          git push origin "HEAD:$DEFAULT_BRANCH"
+
+      - name: Rebuild the site
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref "$DEFAULT_BRANCH"

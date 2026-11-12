@@ -12,6 +12,7 @@ const SEGMENTS = {
   canopy: { en: 'canopy', fr: 'canopee' },
   terrain: { en: 'terrain', fr: 'terrain' },
   clearing: { en: 'clearing', fr: 'clairiere' },
+  run: { en: 'clearing', fr: 'clairiere' },
   authors: { en: 'authors', fr: 'auteurs' },
   author: { en: 'authors', fr: 'auteurs' },
   branches: { en: 'branches', fr: 'branches' },
@@ -31,6 +32,7 @@ export const TAB_VIEW = { tree: 'home', mycelium: 'mycelium', rings: 'rings', ca
 
 /** Which tab is lit for a given view: everything that hangs from the tree lights "Tree". */
 export function tabOf(view) {
+  if (view === 'run') return 'clearing';
   if (['mycelium', 'rings', 'canopy', 'terrain', 'clearing'].includes(view)) return view;
   if (['method', 'data'].includes(view)) return null;
   return 'tree';
@@ -49,8 +51,11 @@ export function pathFor(lang, view = 'home', id) {
   return `/${lang}/${slug ? `${slug}/` : ''}`;
 }
 
-/** Every page of the site, for getStaticPaths and the sitemap. */
-export function allRoutes(corpus) {
+/**
+ * Every page of the site, for getStaticPaths and the sitemap. Each Clearing
+ * run has a page; a draft run is flagged `unlisted` and stays out of the sitemap.
+ */
+export function allRoutes(corpus, clearing = { runs: [] }) {
   const routes = [];
   for (const lang of LANGS) {
     for (const view of ['home', 'mycelium', 'rings', 'canopy', 'terrain', 'clearing', 'authors', 'branches', 'roots', 'trunk', 'seeds', 'method', 'data']) {
@@ -58,6 +63,7 @@ export function allRoutes(corpus) {
     }
     for (const a of corpus.authors) routes.push({ lang, view: 'author', id: a.id });
     for (const b of corpus.branches) routes.push({ lang, view: 'branch', id: b.id });
+    for (const r of clearing.runs) routes.push({ lang, view: 'run', id: r.id, unlisted: r.status !== 'published' });
   }
   return routes.map((r) => ({ ...r, slug: slugFor(r.lang, r.view, r.id), path: pathFor(r.lang, r.view, r.id) }));
 }

@@ -129,15 +129,27 @@ export function loadCorpus() {
   return cache;
 }
 
-/** Clearing material: the hand-written specimen and, later, published runs. */
+/**
+ * Clearing material: the hand-written specimen, and the runs written by
+ * clearing/run.mjs under data/clearing/runs. A draft run has its own page but
+ * is listed nowhere; only published runs appear on the Clearing.
+ */
 export function loadClearing() {
   const dir = path.join(DATA, 'clearing');
-  const files = fs.existsSync(dir) ? fs.readdirSync(dir).filter((f) => f.endsWith('.yaml')).sort() : [];
-  const all = files.map((f) => readYaml(path.join('clearing', f)));
-  return {
-    specimen: all.find((r) => r.status === 'specimen') ?? null,
-    runs: all.filter((r) => r.status !== 'specimen'),
-  };
+  const specimenFile = path.join(dir, 'specimen.yaml');
+  const specimen = fs.existsSync(specimenFile) ? readYaml(path.join('clearing', 'specimen.yaml')) : null;
+  const runsDir = path.join(dir, 'runs');
+  const files = fs.existsSync(runsDir) ? fs.readdirSync(runsDir).filter((f) => f.endsWith('.yaml')).sort() : [];
+  const runs = files
+    .map((f) => ({ ...readYaml(path.join('clearing', 'runs', f)), file: f }))
+    .sort((a, b) => String(b.date).localeCompare(String(a.date)) || String(b.id).localeCompare(String(a.id)));
+  return { specimen, runs, published: runs.filter((r) => r.status === 'published') };
+}
+
+/** The prompts, the transcript and the closing interviews of one run, or null. */
+export function loadTranscript(runId) {
+  const file = path.join(DATA, 'clearing', 'runs', `${runId}.transcript.json`);
+  return fs.existsSync(file) ? JSON.parse(fs.readFileSync(file, 'utf8')) : null;
 }
 
 /** Sourced influence links received by an author (drives node size). */

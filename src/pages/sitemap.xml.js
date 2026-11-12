@@ -1,5 +1,5 @@
 // Sitemap with hreflang alternates for every page in both languages.
-import { loadCorpus } from '../lib/corpus.mjs';
+import { loadCorpus, loadClearing } from '../lib/corpus.mjs';
 import { allRoutes, pathFor, LANGS } from '../i18n/routes.mjs';
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
@@ -7,7 +7,7 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
 export function GET({ site }) {
   const origin = site ?? new URL('http://localhost:4321');
   const abs = (p) => new URL(`${BASE}${p}`, origin).toString();
-  const routes = allRoutes(loadCorpus());
+  const routes = allRoutes(loadCorpus(), loadClearing()).filter((r) => !r.unlisted);
   const urls = routes
     .map((r) => {
       const alternates = LANGS.map(

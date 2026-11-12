@@ -1,7 +1,7 @@
 // Long-form text of the Method and Data pages, in both languages. Numbers are
 // filled from the corpus at build time so that the pages never drift from it.
 
-export function corpusStats(c) {
+export function corpusStats(c, clearing) {
   const roots = c.authors.filter((a) => a.layer === 'root').length;
   const trunk = c.authors.filter((a) => a.layer === 'trunk').length;
   const leaves = c.authors.filter((a) => a.layer === 'leaf').length;
@@ -22,6 +22,7 @@ export function corpusStats(c) {
     unlocated: c.authors.filter((a) => a.place?.lat == null).length,
     isolated: c.authors.filter((a) => !linked.has(a.id)).length,
     quotes: c.authors.filter((a) => a.quote).length,
+    runs: clearing?.published.length ?? 0,
   };
 }
 
@@ -87,7 +88,9 @@ export function methodPage(lang, s, { repoPublic }) {
           h: 'Sourcé et simulé',
           p: [
             "Deux sortes de paroles paraissent sur Ecosophia, et elles ne se mélangent jamais. Les paroles sourcées sont des citations et des paraphrases de textes publiés, marquées « Sourcé » et référencées. Les paroles simulées sont produites par des agents-auteurs dans la Clairière : elles sont marquées « Simulé », entourées d'un trait en tirets, jamais mises entre guillemets et jamais introduites par « a dit ».",
-            "Aucune simulation n'a encore été publiée. La Clairière montre pour l'instant un spécimen rédigé à la main, étiqueté comme tel. Lorsque des simulations seront publiées, chacune le sera avec ses prompts, ses réglages et sa transcription ; les agents d'auteurs vivants porteront un avertissement et seront retirés sur demande.",
+            "Une simulation de la Clairière est faite avec MiroFish, un moteur libre de simulation multi-agents construit sur OASIS. Chaque feuille de l'arbre devient un agent qui reçoit la fiche Ecosophia de son auteur : le résumé, les graines, la liste des œuvres et les fils sourcés. Les agents discutent l'affirmation pendant quelques tours sur un fil de discussion simulé, puis chacun donne une position de 0 à 100 et une dernière ligne. Le modèle est Claude ; un second passage du même modèle regroupe les agents en alliances et traduit les dernières lignes.",
+            "Un agent ne lit pas les livres, et le modèle qui l'anime s'appuie aussi sur ce qu'il sait déjà de l'auteur. Une simulation est un tirage : la même affirmation, simulée deux fois, donne d'autres chiffres. Chaque simulation est publiée avec ses prompts, son modèle, ses réglages et sa transcription complète. Les agents d'auteurs vivants portent un avertissement et sont retirés sur demande.",
+            s.runs > 0 ? `${s.runs} simulation${s.runs > 1 ? 's sont publiées' : ' est publiée'} à ce jour.` : "Aucune simulation n'est encore publiée : la Clairière montre pour l'instant un spécimen rédigé à la main, étiqueté comme tel.",
           ],
         },
         {
@@ -123,7 +126,7 @@ export function methodPage(lang, s, { repoPublic }) {
             "Les lieux de travail et d'exil sur le Terrain.",
             'Les références à la page pour chaque graine et chaque lien.',
             'Les capsules vidéo de quatre-vingt-dix secondes.',
-            'Les premières simulations de la Clairière.',
+            ...(s.runs > 0 ? [] : ['Les premières simulations de la Clairière.']),
           ],
         },
       ],
@@ -189,7 +192,9 @@ export function methodPage(lang, s, { repoPublic }) {
         h: 'Sourced and simulated',
         p: [
           'Two kinds of words appear on Ecosophia and they are never mixed. Sourced words are quotations and paraphrases of published texts, marked “Sourced” and cited. Simulated words are produced by author-agents in the Clearing: they are marked “Simulated”, outlined with a dashed line, never set in quotation marks and never introduced by “said”.',
-          'No simulation has been published yet. For now the Clearing shows a specimen written by hand and labelled as such. When runs are published, each will come with its prompts, its settings and its transcript; agents of living authors will carry a notice and will be withdrawn on request.',
+          'A run of the Clearing is made with MiroFish, an open-source multi-agent simulation engine built on OASIS. Each leaf of the tree becomes an agent that receives the Ecosophia record of its author: the summary, the seeds, the list of works and the sourced threads. The agents discuss the claim for a few rounds on a simulated discussion thread, then each gives a position from 0 to 100 and one closing line. The model is Claude; a second pass by the same model groups the agents into alliances and translates the closing lines.',
+          'An agent does not read the books, and the model behind it also draws on what it already knows of the author. A run is one draw: the same claim, run twice, gives other numbers. Each run is published with its prompts, its model, its settings and its full transcript. Agents of living authors carry a notice and are withdrawn on request.',
+          s.runs > 0 ? `${s.runs} run${s.runs > 1 ? 's are' : ' is'} published so far.` : 'No run has been published yet: for now the Clearing shows a specimen written by hand and labelled as such.',
         ],
       },
       {
@@ -225,7 +230,7 @@ export function methodPage(lang, s, { repoPublic }) {
           'Places of work and exile on the Terrain.',
           'Page references for every seed and every link.',
           'The ninety-second video capsules.',
-          'The first runs of the Clearing.',
+          ...(s.runs > 0 ? [] : ['The first runs of the Clearing.']),
         ],
       },
     ],

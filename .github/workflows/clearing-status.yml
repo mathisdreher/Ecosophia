@@ -1,0 +1,70 @@
+# Publishes a draft Clearing run, takes a published one back to draft, or
+# deletes a run. Start it from Actions > Clearing run status > Run workflow.
+name: Clearing run status
+
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Run id, for example clr-0001"
+        required: true
+        type: string
+      action:
+        description: "published: shown on the Clearing. draft: own page, listed nowhere. delete: removed"
+        type: choice
+        options: [published, draft, delete]
+        default: published
+
+permissions:
+  contents: read
+
+concurrency:
+  group: clearing-run
+  cancel-in-progress: false
+
+jobs:
+  status:
+    name: Change the status
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      actions: write
+    env:
+      RUN_ID: ${{ inputs.run_id }}
+      ACTION: ${{ inputs.action }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Change the status
+        run: node clearing/status.mjs "$RUN_ID" "$ACTION"
+
+      - name: Check the corpus and build the site
+        run: npm run build
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A data/clearing/runs
+          if git diff --cached --quiet; then echo "Nothing to change."; exit 0; fi
+          git commit -m "Clearing run $RUN_ID: $ACTION"
+          git push origin "HEAD:$DEFAULT_BRANCH"
+
+      - name: Rebuild the site
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref "$DEFAULT_BRANCH"
