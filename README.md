@@ -90,6 +90,7 @@ The portraits are illustrations, not documents: the site labels each one as a ge
 | Clearing | `/en/clearing/` · `/fr/clairiere/` | The latest published run, the questions and the party positions |
 | Clearing run | `/en/clearing/<run>/` · `/fr/clairiere/<run>/` | One run in full, with prompts and transcript |
 | Canopy | `/en/canopy/` · `/fr/canopee/` | Authors on three axes (standing of nature, path of change, seat of power), two plotted at a time, each placement a reading of one cited work |
+| Brand | `/en/brand/` · `/fr/marque/` | Logo family, E mark and app icons, colours, type, glyphs, branch emblems, with SVG downloads |
 | Seeds, Roots, Trunk, Method, Data | `/en/seeds/` and so on | Concepts, precursors, founding texts, how the map is made |
 
 ## The corpus

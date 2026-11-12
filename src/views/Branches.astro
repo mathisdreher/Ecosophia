@@ -1,5 +1,6 @@
 ---
 // All branches, in the order they stand on the tree.
+import Emblem from '../components/Emblem.astro';
 import Base from '../layouts/Base.astro';
 import BranchChip from '../components/BranchChip.astro';
 import { useUi } from '../i18n/ui.mjs';
@@ -35,7 +36,7 @@ const title = t('branch.all');
                 {b.graft && ` · ${t('common.graft')}`}
               </span>
             </div>
-            <h2 class="t-heading"><a href={href(lang, 'branch', b.id)}>{L(b.full, lang)}</a></h2>
+            <h2 class="t-heading with-emblem"><Emblem branch={b.id} size={28} /><a href={href(lang, 'branch', b.id)}>{L(b.full, lang)}</a></h2>
             <p>{L(b.summary, lang)}</p>
             <p class="t-small">
               {b.authors.map((a, i) => (
@@ -73,5 +74,10 @@ const title = t('branch.all');
   }
   h2 a:hover {
     color: var(--chip);
+  }
+  .with-emblem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
   }
 </style>

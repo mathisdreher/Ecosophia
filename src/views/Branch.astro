@@ -1,5 +1,6 @@
 ---
 // A branch: its leaves above the ground line, the threads that cross it below.
+import Emblem from '../components/Emblem.astro';
 import Base from '../layouts/Base.astro';
 import AuthorLeaf from '../components/AuthorLeaf.astro';
 import BranchChip from '../components/BranchChip.astro';
@@ -32,7 +33,7 @@ const inside = touching.filter((l) => members.has(l.from) && members.has(l.to));
       <span class="label t-muted">{b.graft ? t('common.graft') : t('branch.label')}</span>
       <BranchChip branch={b} lang={lang} link={false} active />
     </div>
-    <h1 class="t-title">{L(b.full, lang)}</h1>
+    <h1 class="t-title with-emblem"><Emblem branch={b.id} size={44} />{L(b.full, lang)}</h1>
     <p class="t-lede">{L(b.summary, lang)}</p>
     {b.graft && <p class="notice t-small">{t('branch.graftNote')}</p>}
   </section>
@@ -85,5 +86,10 @@ const inside = touching.filter((l) => members.has(l.from) && members.has(l.to));
 <style>
   .guests {
     line-height: 28px;
+  }
+  .with-emblem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
   }
 </style>

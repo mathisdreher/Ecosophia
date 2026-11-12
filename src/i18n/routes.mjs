@@ -22,6 +22,7 @@ const SEGMENTS = {
   seeds: { en: 'seeds', fr: 'graines' },
   method: { en: 'method', fr: 'methode' },
   data: { en: 'data', fr: 'donnees' },
+  brand: { en: 'brand', fr: 'marque' },
 };
 
 export const VIEWS = Object.keys(SEGMENTS);
@@ -34,7 +35,7 @@ export const TAB_VIEW = { tree: 'home', mycelium: 'mycelium', rings: 'rings', ca
 export function tabOf(view) {
   if (view === 'run') return 'clearing';
   if (['mycelium', 'rings', 'canopy', 'terrain', 'clearing'].includes(view)) return view;
-  if (['method', 'data'].includes(view)) return null;
+  if (['method', 'data', 'brand'].includes(view)) return null;
   return 'tree';
 }
 
@@ -58,7 +59,7 @@ export function pathFor(lang, view = 'home', id) {
 export function allRoutes(corpus, clearing = { runs: [] }) {
   const routes = [];
   for (const lang of LANGS) {
-    for (const view of ['home', 'mycelium', 'rings', 'canopy', 'terrain', 'clearing', 'authors', 'branches', 'roots', 'trunk', 'seeds', 'method', 'data']) {
+    for (const view of ['home', 'mycelium', 'rings', 'canopy', 'terrain', 'clearing', 'authors', 'branches', 'roots', 'trunk', 'seeds', 'method', 'data', 'brand']) {
       routes.push({ lang, view, id: undefined });
     }
     for (const a of corpus.authors) routes.push({ lang, view: 'author', id: a.id });

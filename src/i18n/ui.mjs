@@ -35,6 +35,7 @@ const en = {
   footer: {
     method: 'Method',
     data: 'Data and licence',
+    brand: 'Brand and icons',
     suggest: 'Suggest an author',
     leaves: 'All leaves',
     seeds: 'Seeds',
@@ -381,6 +382,7 @@ const fr = {
   footer: {
     method: 'Méthode',
     data: 'Données et licence',
+    brand: 'Marque et icônes',
     suggest: 'Proposer un auteur',
     leaves: 'Toutes les feuilles',
     seeds: 'Graines',

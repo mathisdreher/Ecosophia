@@ -1,0 +1,293 @@
+---
+// The brand page: the logo family, colours, type, glyphs and branch emblems,
+// with the files to download. The rules behind them are in design/brand.md.
+import fs from 'node:fs';
+import path from 'node:path';
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/site.mjs';
+import { typo, L } from '../lib/text.mjs';
+import { loadCorpus } from '../lib/corpus.mjs';
+
+const { lang } = Astro.props;
+const T = (en, fr) => typo(lang === 'fr' ? fr : en, lang);
+const c = loadCorpus();
+
+// Inline an SVG so that it takes the ink and moss of the current theme.
+const inline = (file, label) =>
+  fs
+    .readFileSync(path.join(process.cwd(), 'public', file), 'utf8')
+    .replaceAll('fill="#2a2219"', 'fill="currentColor"')
+    .replaceAll('stroke="#2a2219"', 'stroke="currentColor"')
+    .replaceAll('fill="#3d5a2a"', 'style="fill:var(--moss)"')
+    .replaceAll('stroke="#3d5a2a"', 'style="stroke:var(--moss)"')
+    .replace(/<title>(.*?)<\/title>/, (_, t) => `<title>${label ?? t}</title>`)
+    .replace('<svg ', '<svg role="img" ');
+const title = (file) => fs.readFileSync(path.join(process.cwd(), 'public', file), 'utf8').match(/<title>(.*?)<\/title>/)?.[1] ?? '';
+
+const logos = [
+  { file: 'brand/ecosophia-logo.svg', ground: 'day', en: 'Primary, Day', fr: 'Principal, Jour' },
+  { file: 'brand/ecosophia-logo-night.svg', ground: 'night', en: 'Primary, Night forest', fr: 'Principal, Forêt de nuit' },
+  { file: 'brand/ecosophia-logo-mono-bark.svg', ground: 'day', en: 'One ink, bark', fr: 'Une encre, écorce' },
+  { file: 'brand/ecosophia-logo-mono-cream.svg', ground: 'night', en: 'One ink, cream', fr: 'Une encre, crème' },
+  { file: 'brand/ecosophia-logo-mono-moss.svg', ground: 'day', en: 'One ink, moss', fr: 'Une encre, mousse' },
+];
+const marks = [
+  { file: 'brand/ecosophia-e-mark.svg', ground: 'day', en: 'E mark', fr: 'Monogramme E' },
+  { file: 'brand/ecosophia-e-mark-night.svg', ground: 'night', en: 'E mark, Night forest', fr: 'Monogramme E, nuit' },
+  { file: 'brand/ecosophia-app-icon.svg', ground: 'plain', en: 'App icon, paper', fr: 'Icône, papier' },
+  { file: 'brand/ecosophia-app-icon-moss.svg', ground: 'plain', en: 'App icon, moss', fr: 'Icône, mousse' },
+  { file: 'brand/ecosophia-app-icon-night.svg', ground: 'plain', en: 'App icon, night', fr: 'Icône, nuit' },
+];
+const glyphs = ['leaf', 'branch', 'trunk', 'root', 'seed', 'hypha', 'ring', 'canopy', 'terrain', 'clearing', 'sourced', 'simulated', 'work', 'programme', 'axiom', 'portrait', 'search', 'download'];
+const core = [
+  ['paper', 'Paper', 'Papier'],
+  ['paper-raised', 'Raised paper', 'Papier levé'],
+  ['ink', 'Bark ink', 'Encre écorce'],
+  ['ink-muted', 'Muted ink', 'Encre atténuée'],
+  ['moss', 'Moss, the brand colour', 'Mousse, couleur de marque'],
+  ['humus', 'Humus, roots only', 'Humus, racines seulement'],
+  ['mycelium', 'Mycelium, influence only', 'Mycélium, influences seulement'],
+  ['lichen', 'Lichen, simulated only', 'Lichen, simulé seulement'],
+];
+---
+
+<Base lang={lang} view="brand" title={T('Brand and icons', 'Marque et icônes')} description={T('The Ecosophia logo family, colours, type, glyphs and branch emblems, with files to download.', 'La famille de logos, les couleurs, les caractères, les pictogrammes et les emblèmes de branches d’Ecosophia, avec les fichiers à télécharger.')}>
+  <section class="page-head">
+    <h1 class="t-title">{T('Brand and icons', 'Marque et icônes')}</h1>
+    <p class="t-lede">
+      {T('The name stands on the ground line and the p roots below it: what is visible grows from what feeds it. Every file below is vector, drawn from one source, and free to use to talk about Ecosophia.', 'Le nom se tient sur la ligne de sol et le p s’enracine dessous : ce qui se voit pousse de ce qui le nourrit. Chaque fichier ci-dessous est vectoriel, tiré d’une seule source, et libre d’usage pour parler d’Ecosophia.')}
+    </p>
+  </section>
+
+  <section class="page-body brand-body">
+    <div>
+      <h2 class="t-heading">{T('Logo', 'Logo')}</h2>
+      <p class="t-small t-muted rule">{T('The rooted wordmark: Fraunces outlines, a ground line, roots from the p joined by moss threads (the mycelium), two sprouts. Use it from 120 px wide. Keep clear space of one x-height on every side. Never recolour outside bark, cream and moss, never stretch, never redraw the letters in another face.', 'Le logotype enraciné : Fraunces vectorisé, une ligne de sol, des racines issues du p reliées par des fils de mousse (le mycélium), deux pousses. À partir de 120 px de large. Laisser une hauteur d’x de marge de chaque côté. Jamais d’autre couleur que l’écorce, la crème et la mousse, jamais déformé, jamais redessiné dans un autre caractère.')}</p>
+      <div class="grid logos">
+        {logos.map((x) => (
+          <figure class:list={['tile', x.ground]}>
+            <div class="art" set:html={inline(x.file, 'Ecosophia')} />
+            <figcaption><span>{T(x.en, x.fr)}</span> <a class="link" href={withBase(`/${x.file}`)} download>SVG</a></figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+
+    <div>
+      <h2 class="t-heading">{T('Mark and icons', 'Monogramme et icônes')}</h2>
+      <p class="t-small t-muted rule">{T('Below 120 px, the E mark: the first letter on its ground line, a sprout above and three roots below. It is the favicon and, on a tile, the app icon.', 'Sous 120 px, le monogramme E : la première lettre sur sa ligne de sol, une pousse au-dessus et trois racines dessous. C’est le favicon et, sur une tuile, l’icône d’application.')}</p>
+      <div class="grid marks">
+        {marks.map((x) => (
+          <figure class:list={['tile', x.ground]}>
+            <div class="art" set:html={inline(x.file, 'Ecosophia')} />
+            <figcaption><span>{T(x.en, x.fr)}</span> <a class="link" href={withBase(`/${x.file}`)} download>SVG</a></figcaption>
+          </figure>
+        ))}
+      </div>
+      <div class="sizes" aria-hidden="true">
+        {[64, 32, 16].map((s) => <span class="size" style={`--s:${s}px`} set:html={inline('brand/ecosophia-e-mark.svg')} />)}
+        <span class="t-small t-muted">64 · 32 · 16 px</span>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="t-heading">{T('Glyphs', 'Pictogrammes')}</h2>
+      <p class="t-small t-muted rule">{T('One family for the concepts of the site: 24 px grid, 1.75 stroke, round caps, one ink. Interface chrome (search, download) is drawn the same way; no third-party icon set, no emoji.', 'Une seule famille pour les notions du site : grille de 24 px, trait de 1,75, extrémités rondes, une encre. Les icônes d’interface (recherche, téléchargement) sont dessinées de même ; pas de jeu d’icônes tiers, pas d’emoji.')}</p>
+      <ul class="glyphs">
+        {glyphs.map((g) => (
+          <li>
+            <span class="g" set:html={inline(`glyphs/${g}.svg`)} />
+            <span class="t-small">{title(`glyphs/${g}.svg`).split(':')[0]}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="t-heading">{T('Branch emblems', 'Emblèmes des branches')}</h2>
+      <p class="t-small t-muted rule">{T('Eleven pigments cannot be told apart by colour alone. Each branch also has an emblem drawn like the glyphs, shown with its colour and its name, never alone.', 'Onze pigments ne se distinguent pas à la seule couleur. Chaque branche a aussi un emblème dessiné comme les pictogrammes, montré avec sa couleur et son nom, jamais seul.')}</p>
+      <ul class="glyphs emblems">
+        {c.branches.map((b) => (
+          <li style={`--chip: var(--${b.token})`}>
+            <span class="g" set:html={inline(`glyphs/branches/${b.id}.svg`, L(b.name, lang))} />
+            <span class="t-small">{L(b.name, lang)}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="t-heading">{T('Colour', 'Couleurs')}</h2>
+      <ul class="swatches">
+        {core.map(([tok, en, fr]) => (
+          <li><span class="sw" style={`background: var(--${tok})`} /><span class="t-small">{T(en, fr)}</span><code class="t-meta">--{tok}</code></li>
+        ))}
+        {c.branches.map((b) => (
+          <li><span class="sw" style={`background: var(--${b.token})`} /><span class="t-small">{L(b.name, lang)}</span><code class="t-meta">--{b.token}</code></li>
+        ))}
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="t-heading">{T('Type', 'Caractères')}</h2>
+      <div class="type">
+        <p class="spec display">Fraunces <span class="t-small t-muted">{T('names, titles, quotations in italic', 'noms, titres, citations en italique')}</span></p>
+        <p class="spec sans">Instrument Sans <span class="t-small t-muted">{T('interface and reading text', 'interface et texte courant')}</span></p>
+        <p class="spec mono">IBM Plex Mono <span class="t-small t-muted">{T('dates, ids, page references', 'dates, identifiants, pages')}</span></p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .brand-body > div + div {
+    margin-top: var(--space-16);
+  }
+  .swatches code {
+    font: 400 12px/16px var(--font-mono);
+    color: var(--ink-muted);
+    overflow-wrap: anywhere;
+  }
+  .spec .t-small {
+    font: 400 14px/20px var(--font-sans);
+  }
+  .rule {
+    max-width: 68ch;
+    margin: var(--space-2) 0 var(--space-6);
+  }
+  .grid {
+    display: grid;
+    gap: var(--space-4);
+  }
+  .logos {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  .marks {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+  .tile {
+    margin: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .tile .art {
+    padding: var(--space-6);
+    display: grid;
+    place-items: center;
+    min-height: 150px;
+  }
+  .tile .art :global(svg) {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+  }
+  .marks .tile .art :global(svg) {
+    max-width: 96px;
+  }
+  .tile.day .art {
+    background: #f3eee3;
+    color: #2a2219;
+    --moss: #3d5a2a;
+  }
+  .tile.night .art {
+    background: #16201a;
+    color: #ece6d8;
+    --moss: #8fae6a;
+  }
+  .tile.plain .art {
+    background: var(--paper-raised);
+  }
+  figcaption {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    border-top: 1px solid var(--line);
+    font: 400 13px/18px var(--font-sans);
+  }
+  .sizes {
+    display: flex;
+    align-items: flex-end;
+    gap: var(--space-4);
+    margin-top: var(--space-4);
+    color: var(--ink);
+  }
+  .size :global(svg) {
+    width: var(--s);
+    height: var(--s);
+    display: block;
+  }
+  .glyphs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: var(--space-4);
+  }
+  .glyphs li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    text-align: center;
+    padding: var(--space-4) var(--space-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--paper-raised);
+    color: var(--ink);
+  }
+  .g :global(svg) {
+    width: 40px;
+    height: 40px;
+    display: block;
+  }
+  .emblems li {
+    color: var(--chip);
+    border-top: 3px solid var(--chip);
+  }
+  .emblems li .t-small {
+    color: var(--ink);
+  }
+  .swatches {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-3) var(--space-6);
+  }
+  .swatches li {
+    display: grid;
+    grid-template-columns: 36px 1fr;
+    grid-template-rows: auto auto;
+    column-gap: var(--space-3);
+    align-items: center;
+  }
+  .sw {
+    grid-row: span 2;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--line);
+  }
+  .type .spec {
+    margin: 0 0 var(--space-3);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: var(--space-3);
+  }
+  .spec.display {
+    font: 600 40px/1.1 var(--font-display);
+  }
+  .spec.sans {
+    font: 500 28px/1.2 var(--font-sans);
+  }
+  .spec.mono {
+    font: 400 22px/1.2 var(--font-mono);
+  }
+</style>

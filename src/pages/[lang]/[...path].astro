@@ -19,6 +19,7 @@ import Clearing from '../../views/Clearing.astro';
 import Run from '../../views/Run.astro';
 import Method from '../../views/Method.astro';
 import Data from '../../views/Data.astro';
+import Brand from '../../views/Brand.astro';
 
 export function getStaticPaths() {
   return allRoutes(loadCorpus(), loadClearing()).map((r) => ({
@@ -46,6 +47,7 @@ const VIEWS = {
   run: Run,
   method: Method,
   data: Data,
+  brand: Brand,
 };
 const View = VIEWS[view];
 ---

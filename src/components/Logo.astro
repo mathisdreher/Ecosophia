@@ -1,11 +1,15 @@
 ---
-// The rooted lockup, inlined so that it takes the ink of the current theme.
+// The rooted wordmark, inlined so that it takes the ink and moss of the
+// current theme. Drawn by scripts/brand-logo.py; see design/brand.md.
 import fs from 'node:fs';
 import path from 'node:path';
 
-const raw = fs.readFileSync(path.join(process.cwd(), 'public/brand/ecosophia-lockup-rooted-bark.svg'), 'utf8');
+const raw = fs.readFileSync(path.join(process.cwd(), 'public/brand/ecosophia-logo.svg'), 'utf8');
 const svg = raw
-  .replaceAll('#2a2219', 'currentColor')
+  .replaceAll('fill="#2a2219"', 'fill="currentColor"')
+  .replaceAll('stroke="#2a2219"', 'stroke="currentColor"')
+  .replaceAll('fill="#3d5a2a"', 'style="fill:var(--moss)"')
+  .replaceAll('stroke="#3d5a2a"', 'style="stroke:var(--moss)"')
   .replace(/<title>.*?<\/title>/, '')
   .replace('<svg ', '<svg role="img" aria-label="Ecosophia" ');
 ---

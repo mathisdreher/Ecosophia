@@ -40,12 +40,18 @@ const suggestUrl = `${SITE.repoUrl}/issues/new?template=author.yml&title=${encod
     {LANGS.map((l) => <link rel="alternate" hreflang={l} href={absolute(site, pathFor(l, view, id))} />)}
     <link rel="alternate" hreflang="x-default" href={absolute(site, pathFor(SITE.defaultLanguage, view, id))} />
     <link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+    <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={lang === 'fr' ? 'fr_FR' : 'en_GB'} />
+    <meta property="og:image" content={absolute(site, '/brand/ecosophia-social.png')} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ecosophia: who read whom, and what they disagreed on." />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="color-scheme" content="light dark" />
     <script is:inline>
       (function () {
@@ -102,6 +108,7 @@ const suggestUrl = `${SITE.repoUrl}/issues/new?template=author.yml&title=${encod
         <nav aria-label={lang === 'fr' ? 'Pied de page' : 'Footer'}>
           <a class="link" href={href(lang, 'method')}>{t('footer.method')}</a>
           <a class="link" href={href(lang, 'data')}>{t('footer.data')}</a>
+          <a class="link" href={href(lang, 'brand')}>{t('footer.brand')}</a>
           <a class="link" href={href(lang, 'authors')}>{t('footer.leaves')}</a>
           <a class="link" href={href(lang, 'seeds')}>{t('footer.seeds')}</a>
           <a class="link" href={href(lang, 'roots')}>{t('footer.roots')}</a>

@@ -80,10 +80,23 @@ Two themes ship: Day (linen paper, bark ink) and Night forest (deep green-black 
 
 ## Logo
 
-- The rooted lockup is the primary logo: the mark and the outlined wordmark stand on one shared ground line, and the p roots below it. Use `ecosophia-lockup-rooted-bark.svg` on `paper` and `ecosophia-lockup-rooted-cream.svg` on Night forest.
-- Below 120px wide, or where a line would clash with a neighbouring rule, use the inline lockup. Below 64px wide, use the mark alone.
-- Clear space: a quarter of the mark's width on every side. Never recolour outside `ink`, cream and `moss`, never tilt, never set the wordmark in another face.
-- In a site header the lockup's ground line sits exactly on the header's bottom rule, so the logo grows out of the page.
+The logo is the rooted wordmark: "Ecosophia" in outlined Fraunces stands on the ground line, the p runs through it, and roots grow from the p. Their tips are joined by fine moss threads, the mycelium. Two moss sprouts rise from the E and the i. It was chosen from six concepts drawn with an image model (`design/logo-concepts/`) and redrawn by hand as vector: `scripts/brand-logo.py` builds every file below from one drawing. The site shows the whole family at `/en/brand/`.
+
+| File | Use |
+|---|---|
+| `ecosophia-logo.svg` | Primary, on `paper`: bark ink, moss sprouts and threads |
+| `ecosophia-logo-night.svg` | Primary on Night forest: cream ink, light moss |
+| `ecosophia-logo-mono-bark.svg`, `-mono-cream.svg`, `-mono-moss.svg` | One ink, for print, engraving, stamps, embroidery |
+| `ecosophia-e-mark.svg`, `-e-mark-night.svg`, `-e-mark-mono.svg` | The E mark: the E on its ground line, a sprout, three roots |
+| `ecosophia-app-icon.svg`, `-moss.svg`, `-night.svg`, `-512.png` | The E mark on a square tile with rounded corners |
+| `/favicon.svg`, `/apple-touch-icon.png` | Browser and home-screen icons (the favicon follows the system theme) |
+| `ecosophia-social.png` | 1200 × 630 card shown when a page is shared |
+
+- Use the wordmark from 120 px wide. Below that, use the E mark; below 24 px the roots disappear, which is accepted.
+- Clear space: one x-height on every side, roots included.
+- Colours: bark, cream and moss only. Sprouts and threads are always moss (or the single ink in the mono versions). Never tilt, stretch, outline, shadow or reset the letters in another face.
+- In the site header the ground line of the logo sits on the header's bottom rule, so the roots hang below it into the page.
+- The previous lockup (tree mark beside the wordmark) is kept in `design/previous-logo/` for reference and is no longer used.
 
 ## Shape, space and line
 
@@ -151,7 +164,13 @@ Name cards use `CapsuleLowerThird`. Titles never cover a face or a map node.
 
 ## Iconography
 
-Use the eight glyphs in assets/Glyphs, drawn on a 24px grid at `stroke-glyph` with round caps. They are single-ink files in `ink` (#2a2219); for Night forest, recolour to the dark `ink` value before export. Do not mix in a third-party icon set for these concepts; for interface chrome (search, close, menu) use thin round-cap outline icons at the same stroke. No emoji.
+One family of glyphs, in `public/glyphs`, drawn by `scripts/brand-glyphs.py` on a 24 px grid at `stroke-glyph` (1.75) with round caps and joins, single ink (`#2a2219`, recoloured with `currentColor` when inlined).
+
+- Concepts of the tree: leaf, branch, trunk, root, seed, hypha, ring.
+- Views and marks: canopy, terrain, clearing, sourced (a page), simulated (a dashed speech bubble), work, programme, axiom, portrait.
+- Interface: search, download. Other chrome (close, menu) is drawn the same way. No third-party icon set, no emoji.
+
+**Branch emblems** (`public/glyphs/branches/<branch>.svg`) let a reader tell the eleven schools and the Counterpoint graft apart without relying on colour: ecosophy the three ecologies, deep ecology the mountain, social ecology the assembly, ecosocialism the metabolic rift, degrowth the snail, ecofeminism care and the seed, political ecology the contour map, decolonial the south-up compass, Anthropocene the strata, technocritique the gear and the leaf, queer ecology the fungus, counterpoint the reply. An emblem is drawn in its branch colour and always shown with the branch name, never alone.
 
 ## Don't
 
