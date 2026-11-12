@@ -2,59 +2,15 @@
 # Written by clearing/run.mjs. The transcript and the prompts are in the file next to this one.
 id: clr-0001
 runId: clr-0001
-status: draft
+status: published
 date: 2026-11-12
 claim:
-  en: France should build new nuclear reactors.
-  fr: La France devrait construire de nouveaux réacteurs nucléaires.
+  en: The state should fund electric cars on social leasing for low- and middle-income households.
+  fr: L'État devrait financer des voitures électriques en leasing social pour les ménages modestes et des classes moyennes.
 question:
-  id: nouveau-nucleaire
+  id: leasing-social
   measures:
-    - id: lfi-2026-nucleaire
-      stance: against
-      party:
-        short: LFI
-        name: La France insoumise
-      programme:
-        title: L'Avenir en commun – Le programme de la Nouvelle France (édition 2027)
-        year: 2026
-        url: https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3/
-      locator: Partie 1, chapitre 3, « Organiser le 100 % d’énergies renouvelables »
-      quote: Planifier la fermeture progressive des centrales nucléaires existantes en ne prolongeant pas au-delà de 60 ans leur durée de vie et arrêter le programme de nouveau nucléaire (EPR2)
-    - id: eco-2026-nucleaire
-      stance: against
-      party:
-        short: Les Écologistes
-        name: Les Écologistes (Europe Écologie Les Verts)
-      programme:
-        title: Pour une prospérité écologique – Le nouveau programme des Écologistes (Projet 2027)
-        year: 2026
-        url: https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
-      locator: I. Garantir un monde habitable, chapitre 1 « Gagner la bataille du climat », proposition 7
-      quote: Planifier la sortie du nucléaire. Mettre fin aux nouveaux programmes EPR-2 et SMR extrêmement dispendieux. Planifier l’arrêt progressif du parc constitué de centrales vieillissantes dont la mise hors service doit être étalée sur une vingtaine d’années.
-    - id: ps-2026-nucleaire
-      stance: partly
-      party:
-        short: PS
-        name: Parti socialiste
-      programme:
-        title: Le Projet socialiste – Vivre libres
-        year: 2026
-        url: https://projet-socialiste.fr/projet/vivre-libres/
-      locator: Vivre libres, chapitre 3, « Produire de l’énergie propre, sûre et bon marché »
-      quote: Ce mix devra s’appuyer sur le parc nucléaire historique, qui sera partiellement renouvelé, ainsi que sur le développement des énergies renouvelables.
-    - id: pcf-2022-mix-energetique
-      stance: partly
-      party:
-        short: PCF
-        name: Parti communiste français
-      programme:
-        title: Fabien Roussel – La France des Jours heureux, le programme (document 8 pages, présidentielle 2022)
-        year: 2022
-        url: https://assets.nationbuilder.com/pcf/pages/13815/attachments/original/1643123394/document_-_exe_8p_programme_stc.pdf?1643123394
-      locator: Objectifs pour l’humain et la planète d’abord, 4 « Pour l’emploi et le climat, je lancerai un grand plan de réindustrialisation de la France » (p. 3 du PDF)
-      quote: Un mix énergétique nucléaire et renouvelable ; un service public avec EDF et Engie renationalisés.
-    - id: ens-2024-nouveaux-reacteurs
+    - id: ens-2024-leasing-social
       stance: for
       party:
         short: Ensemble
@@ -64,32 +20,21 @@ question:
         year: 2024
         url: https://doc.ensemble-2024.fr/programme-legislatives-24.pdf
       locator: « Ensemble pour protéger l’environnement ! » (p. 10 du PDF)
-      quote: Nous mettrons en chantier 14 nouveaux réacteurs nucléaires pour assurer l’indépendance énergétique de la France et aller vers une économie sans carbone.
-    - id: rn-2024-relance-nucleaire
-      stance: for
+      quote: Nous proposerons chaque année 100 000 véhicules électriques en leasing social pour permettre aux Français de classes moyennes et populaires de choisir un mode de déplacement non-polluant.
+    - id: lfi-2026-location-publique
+      stance: partly
       party:
-        short: RN
-        name: Rassemblement national
+        short: LFI
+        name: La France insoumise
       programme:
-        title: Bardella Premier ministre – Un projet, une méthode (législatives 2024)
-        year: 2024
-        url: https://rassemblementnational.fr/documents/202406-programme.pdf
-      locator: Le besoin de projection, 2 « Refaire de la France un paradis énergétique respectant la trajectoire de l’accord de Paris »
-      quote: Lancer le plan Marie Curie de relance du nucléaire (EPR, SMR, réacteurs à neutrons rapides)
-    - id: lr-2026-nucleaire-80-ans
-      stance: for
-      party:
-        short: LR
-        name: Les Républicains
-      programme:
-        title: "Nos propositions pour la France – Électricité : baisser la facture des Français, c’est possible !"
+        title: L'Avenir en commun – Plan d'investissement Automobile (présidentielle 2027)
         year: 2026
-        url: https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf
-      locator: 01 « L’urgence de consolider nos atouts stratégiques », axe « Conserver une électricité décarbonée en consolidant nos atouts stratégiques » (propositions 1 et 2)
-      quote: en inscrivant les réacteurs existants dans une trajectoire d’exploitation à 80 ans (proposition 1), en assurant un pilotage rigoureux de la construction des nouveaux EPR2 dans le respect des délais et des coûts
+        url: https://melenchon2027.fr/programme/plans-investissement/automobile/
+      locator: « Les besoins et objectifs associés », section « Mettre en place un service public de la location abordable »
+      quote: nous mettrons en place un véritable service public de la location abordable grâce à la constitution d’un parc public de véhicules via des investissements du pôle public bancaire.
 summary:
-  en: "The run split four agents backing reactors as a climate priority from a broad opposition, while a conditional middle converged on one test: reactors count only if fossil plants close. Branches did not hold, as the Anthropocene agents ranged from the Lovelock agent at 92 to the Stengers agent at 25."
-  fr: "Quatre agents ont soutenu les réacteurs au nom du climat face à une large opposition, et le centre conditionnel s'est accordé sur un critère : fermer des centrales fossiles. Les branches n'ont pas tenu : dans la branche Anthropocène, l'agent Lovelock finit à 92 et l'agent Stengers à 25."
+  en: "The run divided over what counts as being better off: fifteen agents disliked a comment by the Nordhaus agent, and a middle group made support conditional. Branches did not predict sides: Degrowth, Decolonial and Ecosocialism each split, with the Raworth, Bullard and Malm agents near 60 and their colleagues near 20."
+  fr: "Le débat s'est divisé sur ce que signifie vivre mieux : quinze agents ont désapprouvé un commentaire de l'agent Nordhaus, et un groupe intermédiaire a soumis son soutien à des conditions. Les branches ne dessinaient pas les camps : Décroissance, Décolonial et Écosocialisme se sont scindées, avec les agents Raworth, Bullard et Malm autour de 60 et leurs voisins autour de 20."
 engine:
   name: MiroFish
   commit: 7657031ac01184afe2cb220f5ee3545573b5e843
@@ -104,347 +49,315 @@ model:
   effort: medium
 settings:
   rounds: 2
-  agents: 28
+  agents: 24
   selection: auto
   budgetUsd: 3
-  estimateUsd: 2.17
+  estimateUsd: 1.81
 plan:
   model: claude-opus-5-5
-  note: The first twelve cover every branch, with the authors who wrote most directly on nuclear power or large energy systems. Two rounds let the pro-nuclear climate case and the critiques based on risk, democracy and extraction answer each other. The run stays near 2.2 USD.
+  note: The panel pairs car critics and extraction critics against pro-technology and justice-oriented voices, and covers every branch. Two rounds let agents answer each other on equity, mining and car dependence while keeping the cost near 1.8 USD.
   rounds: 2
-  ranked: 28
+  ranked: 24
   trimmed: false
   reasons:
-    michael-shellenberger: Ecomodernist who campaigns openly for nuclear power, the strongest case for the claim.
-    hans-jonas: His imperative of responsibility bears on technologies with irreversible, long-term risks such as reactors and waste.
-    james-lovelock: Gaia theorist who argued that nuclear power is needed against climate change.
-    francoise-deaubonne: French ecofeminist who took part in direct action against French nuclear sites.
-    andre-gorz: Wrote that nuclear power implies a centralised, policed society, against his ideal of autonomy.
-    andreas-malm: Historian of fossil capital who weighs speed of decarbonisation against the forms of energy.
-    serge-latouche: French degrowth theorist who opposes the energy-intensive growth that reactors support.
-    murray-bookchin: Social ecologist who opposed centralised energy and favoured decentralised, municipal technics.
-    joan-martinez-alier: Studies ecological distribution conflicts, including uranium mining and nuclear sites.
-    malcom-ferdinand: French CNRS researcher on colonial inhabitation, relevant to uranium supply and nuclear testing in French territories.
-    arne-naess: Founder of deep ecology who questioned large energy systems and the growth they serve.
-    bill-devall: Deep ecologist who set reform environmentalism against simple means, a test for technical fixes.
-    timothy-morton: His idea of hyperobjects uses nuclear waste and its long timescales as a central example.
-    stewart-brand: Former counterculture figure who asked environmentalists to accept nuclear power.
-    jacques-ellul: French theorist of technique as a self-expanding system, with a critique of the technological bluff.
-    gunther-anders: Philosopher of the Promethean gap who wrote on nuclear danger after Hiroshima.
-    jean-baptiste-fressoz: French historian who argues there has been no energy transition, only additions of energy sources.
-    bruno-latour: French thinker of the terrestrial who questions modernising projects and how they are decided.
-    starhawk: Activist of the anti-nuclear blockades of the 1980s.
-    lewis-mumford: His contrast between authoritarian and democratic technics fits large reactor programmes directly.
-    giorgos-kallis: Degrowth researcher on self-limitation who disputes the need for more energy supply.
-    johan-rockstrom: Earth system scientist whose planetary boundaries frame the climate case for low-carbon power.
-    isabelle-stengers: Philosopher of science who criticises expert-led decisions on risky technologies.
-    ted-nordhaus: Breakthrough Institute co-founder who supports nuclear power as part of decoupling.
-    robyn-eckersley: Theorist of the green state, relevant to state-led energy planning as in France.
-    bernard-charbonneau: French critic of industrial society who wrote against the nuclear programme of the 1970s.
-    robert-bullard: Documented the unequal siting of hazardous facilities, which applies to waste and plants.
-    kohei-saito: Degrowth communist who questions productivist technology even when it is low-carbon.
+    andre-gorz: Wrote The Social Ideology of the Motorcar, arguing that the private car cannot be democratised.
+    ted-nordhaus: Breakthrough Institute decoupling view backs public support for clean technology adoption.
+    ivan-illich: Energy and Equity argues that high-speed transport is counterproductive and widens inequality.
+    jean-baptiste-fressoz: His no transition thesis questions whether electric cars substitute for fossil use or add to it.
+    eduardo-gudynas: Analyst of extractivism, relevant to the lithium and metal mining behind EV batteries.
+    giorgos-kallis: Degrowth scholar who favours less car use over replacing the car fleet.
+    andreas-malm: Fossil Capital critic who weighs state intervention against car-centred capitalism.
+    robert-bullard: Environmental justice scholar who has worked on transport inequity for low-income communities.
+    joan-martinez-alier: Studies ecological distribution conflicts, including conflicts over mining for energy transitions.
+    yayo-herrero: Ecofeminist who centres the needs of households and care over the industrial economy.
+    murray-bookchin: Social ecology view of urban form and municipal control rather than state consumer subsidies.
+    felix-guattari: Three ecologies frame individual consumption within integrated world capitalism.
+    bill-devall: Deep ecology principle of simple means questions any policy that expands car ownership.
+    timothy-morton: Queer ecology and hyperobjects frame offers a distinct angle on technofixes and climate.
+    michael-shellenberger: Ecomodernist who favours technological substitution, though he has been critical of EV mandates.
+    maristella-svampa: Studied the commodities consensus and lithium extraction in the Andean triangle.
+    jason-hickel: Measures material throughput of rich countries and questions the decoupling claimed for EVs.
+    kate-raworth: Doughnut framework weighs a social floor of mobility access against the ecological ceiling.
+    kohei-saito: Degrowth communism opposes green growth based on private consumer goods.
+    fatima-ouassak: Works on ecology from working-class neighbourhoods, the target households of social leasing.
+    robyn-eckersley: Green state theorist on what role the state should take in ecological transition.
+    pierre-charbonnier: Links freedom to material abundance, relevant to mobility as a social right.
+    lewis-mumford: Historian of cities who criticised car-dominated urban planning.
+    arne-naess: Founder of deep ecology who distinguished shallow pollution fixes from deeper change.
 counts:
-  turns: 56
-  comments: 73
-  reactions: 88
-  interviews: 28
+  turns: 48
+  comments: 59
+  reactions: 67
+  interviews: 24
   declined: 0
   failed: 0
-  tokensIn: 709611
-  tokensOut: 38458
-  costUsd: 2.48
+  tokensIn: 574305
+  tokensOut: 34688
+  costUsd: 2.18
 positions:
   - branch: technocritique
-    score: 12
-    min: 8
-    max: 25
-    agents: 6
-  - branch: degrowth
-    score: 19
+    score: 15
     min: 12
-    max: 25
-    agents: 2
+    max: 15
+    agents: 3
+  - branch: degrowth
+    score: 22
+    min: 22
+    max: 60
+    agents: 3
   - branch: social-ecology
-    score: 10
-    min: 10
-    max: 10
+    score: 12
+    min: 12
+    max: 12
     agents: 1
   - branch: ecosocialism
-    score: 40
-    min: 18
-    max: 62
+    score: 39
+    min: 20
+    max: 58
     agents: 2
   - branch: deep-ecology
-    score: 15
-    min: 15
-    max: 15
+    score: 22
+    min: 22
+    max: 22
     agents: 1
   - branch: ecosophy
     score: 25
     min: 25
     max: 25
-    agents: 1
+    agents: 2
   - branch: anthropocene
-    score: 55
-    min: 25
-    max: 92
-    agents: 5
-  - branch: political-ecology
-    score: 35
-    min: 25
+    score: 38
+    min: 30
     max: 45
     agents: 2
+  - branch: political-ecology
+    score: 43
+    min: 25
+    max: 60
+    agents: 2
   - branch: decolonial
-    score: 31
-    min: 22
-    max: 40
-    agents: 2
+    score: 26
+    min: 20
+    max: 58
+    agents: 4
   - branch: ecofeminism
-    score: 9
-    min: 8
-    max: 10
-    agents: 2
+    score: 22
+    min: 22
+    max: 22
+    agents: 1
   - branch: queer-ecology
-    score: 50
-    min: 50
-    max: 50
+    score: 60
+    min: 60
+    max: 60
     agents: 1
   - branch: counterpoint
-    score: 90
-    min: 88
-    max: 95
-    agents: 3
+    score: 83
+    min: 80
+    max: 85
+    agents: 2
 alliances:
   - title:
-      en: For, as a climate priority
-      fr: Pour, au nom du climat
+      en: For, on grounds of prosperity
+      fr: Pour, au nom de la prospérité
     text:
-      en: Dense, low-carbon power must push out fossil fuels now, and waste is a manageable problem. The Lovelock agent was the only Anthropocene agent to endorse firmly.
-      fr: Une énergie dense et bas carbone doit chasser les fossiles dès maintenant, et les déchets restent gérables. L'agent Lovelock est le seul de la branche Anthropocène à soutenir sans réserve.
+      en: Cleaner cars should make working households better off without rationing mobility, provided the state builds firm clean power. The Shellenberger agent tied that power to nuclear.
+      fr: Des voitures plus propres doivent améliorer la vie des ménages modestes sans rationner leur mobilité, à condition que l'État bâtisse une électricité propre et pilotable. L'agent Shellenberger la veut nucléaire.
     authors:
-      - michael-shellenberger
-      - james-lovelock
-      - stewart-brand
       - ted-nordhaus
+      - michael-shellenberger
   - title:
-      en: Only under binding conditions
-      fr: Seulement sous conditions fermes
+      en: Conditional, as a bridge
+      fr: Sous conditions, comme une passerelle
     text:
-      en: Reactors count only if fossil plants close on a timetable, or if France commits to caring for its waste over millennia. The Malm agent broke with the Saito agent of Ecosocialism.
-      fr: Les réacteurs ne valent que si des centrales fossiles ferment selon un calendrier, ou si la France s'engage à soigner ses déchets pendant des millénaires. L'agent Malm se sépare de l'agent Saito, de l'écosocialisme.
+      en: Targeted aid helps households now, but only if fossil supply is cut, old cars are retired, transit is funded and mining communities are heard. The Raworth, Bullard and Malm agents broke from their branches here.
+      fr: L'aide ciblée soulage les ménages tout de suite, à condition de réduire l'offre fossile, de retirer les vieilles voitures, de financer les transports et d'entendre les communautés minières. Les agents Raworth, Bullard et Malm s'écartent ici de leur branche.
     authors:
       - andreas-malm
-      - johan-rockstrom
-      - jean-baptiste-fressoz
-      - bruno-latour
+      - robert-bullard
       - timothy-morton
+      - kate-raworth
+      - robyn-eckersley
   - title:
-      en: Against, on grounds of centralised power
-      fr: Contre la centralisation technique
+      en: Against, on material grounds
+      fr: Contre, pour des raisons matérielles
     text:
-      en: A reactor fleet requires central, expert and policed control that escapes those it affects. The Anders agent added that its effects outrun what anyone can imagine.
-      fr: Un parc de réacteurs exige un contrôle central, expert et policier qui échappe à ceux qu'il touche. L'agent Anders ajoute que ses effets dépassent ce que quiconque peut se représenter.
+      en: A new fleet piles mining, power demand and sacrifice zones in the South on top of the old system rather than replacing it.
+      fr: Une nouvelle flotte ajoute des mines, de la demande électrique et des zones sacrifiées au Sud par-dessus l'ancien système, au lieu de le remplacer.
+    authors:
+      - eduardo-gudynas
+      - maristella-svampa
+      - joan-martinez-alier
+      - jason-hickel
+      - jean-baptiste-fressoz
+      - pierre-charbonnier
+  - title:
+      en: Against car dependence itself
+      fr: Contre la dépendance automobile
+    text:
+      en: Swapping the motor keeps sprawl and the car's radical monopoly. Public money should put daily life within reach on foot, by bicycle and by transit.
+      fr: Changer de moteur maintient l'étalement et le monopole radical de la voiture. L'argent public doit rendre la vie quotidienne accessible à pied, à vélo et en transports en commun.
     authors:
       - andre-gorz
-      - jacques-ellul
-      - bernard-charbonneau
+      - ivan-illich
       - lewis-mumford
-      - murray-bookchin
-      - starhawk
-      - francoise-deaubonne
-      - gunther-anders
-  - title:
-      en: Against, demand comes first
-      fr: Contre, la demande d'abord
-    text:
-      en: The claim treats energy demand as fixed, when the first task is to need and produce less. The Jonas agent reached this ground through precaution, not through the critique of centralisation.
-      fr: La proposition tient la demande d'énergie pour acquise, alors qu'il faut d'abord moins consommer et moins produire. L'agent Jonas y arrive par la précaution plutôt que par la critique de la centralisation.
-    authors:
-      - serge-latouche
       - giorgos-kallis
-      - arne-naess
-      - bill-devall
       - kohei-saito
-      - hans-jonas
+      - yayo-herrero
+      - bill-devall
+      - arne-naess
   - title:
-      en: Against until the affected decide
-      fr: Pas sans ceux qui en portent le poids
+      en: Against, for residents deciding
+      fr: Contre, pour que les habitants décident
     text:
-      en: Uranium mines, waste sites and risks fall on people with no say, and a decision is legitimate only if they can object. The Stengers agent stood here, apart from most Anthropocene agents.
-      fr: Mines d'uranium, sites de déchets et risques retombent sur des gens privés de parole, et la décision n'est légitime que s'ils peuvent objecter. L'agent Stengers se range ici, loin de la plupart des agents de la branche Anthropocène.
+      en: The lease treats neighbourhoods as a market. Mobility should be decided by residents and their assemblies, who invent their own ways of living.
+      fr: Le leasing traite les quartiers comme un marché. La mobilité doit être décidée par les habitants et leurs assemblées, qui inventent leurs propres manières de vivre.
     authors:
-      - joan-martinez-alier
-      - malcom-ferdinand
-      - robert-bullard
-      - robyn-eckersley
-      - isabelle-stengers
+      - murray-bookchin
+      - felix-guattari
+      - fatima-ouassak
 voices:
-  - author: francoise-deaubonne
-    position: 8
-    work: eaubonne-1974
+  - author: ivan-illich
+    position: 12
+    work: illich-1974
     text:
-      en: I oppose new reactors. Exhausting the earth and subjecting women come from the same patriarchal drive for centralised power and endless growth. Reactors cut carbon but feed that drive. The remedy is to take back control of production and of fertility.
-      fr: Je m'oppose à de nouveaux réacteurs. L'épuisement de la terre et l'asservissement des femmes viennent de la même pulsion patriarcale de pouvoir centralisé et de croissance sans fin. Les réacteurs réduisent le carbone mais nourrissent cette pulsion. Le remède est de reprendre en main la production et la fécondité.
-  - author: gunther-anders
-    position: 8
-    work: anders-1956
-    text:
-      en: I oppose new reactors. Their dangers and waste last far longer than anyone can imagine or feel responsible for. Building more widens the gap between what we can make and what we can grasp, and low-carbon accounting does not close that gap.
-      fr: Je m'oppose à de nouveaux réacteurs. Leurs dangers et leurs déchets durent bien plus longtemps que quiconque ne peut l'imaginer ou s'en sentir responsable. En construire davantage creuse l'écart entre ce que nous pouvons fabriquer et ce que nous pouvons saisir, et la comptabilité bas carbone ne le comble pas.
+      en: Opposed. A new motor leaves the car's counterproductivity and radical monopoly in place. Public money should make walking, cycling and nearby places usable by anyone, so that households are freed from needing a car at all.
+      fr: Contre. Un nouveau moteur laisse en place la contre-productivité de la voiture et son monopole radical. L'argent public devrait rendre la marche, le vélo et les lieux proches praticables par tous, afin de libérer les ménages du besoin même d'une voiture.
   - author: murray-bookchin
-    position: 10
-    work: bookchin-1971
+    position: 12
+    work: bookchin-1982
     text:
-      en: I oppose. New reactors keep energy in the hands of the state and a few firms, and that hierarchy is the social root of the ecological crisis. Energy should be decentralised and run by federated municipal assemblies.
-      fr: Je m'y oppose. De nouveaux réacteurs laissent l'énergie aux mains de l'État et de quelques firmes, et cette hiérarchie est la racine sociale de la crise écologique. L'énergie devrait être décentralisée et gérée par des assemblées municipales fédérées.
-  - author: starhawk
-    position: 10
-    work: starhawk-1987
-    text:
-      en: "I oppose new reactors. They turn energy into power-over: centralised control, guarded sites, expert command and waste that binds future generations. Climate safety should come from power shared, through local renewable energy that communities can understand and govern themselves."
-      fr: "Je m'oppose à de nouveaux réacteurs. Ils font de l'énergie un pouvoir sur : contrôle centralisé, sites gardés, commandement des experts et déchets qui lient les générations futures. La sécurité climatique devrait venir du pouvoir partagé, par des énergies renouvelables locales que les communautés peuvent comprendre et gouverner elles-mêmes."
+      en: A state subsidy that swaps one private car for another treats a social problem as a consumer purchase. It leaves the car-bound megalopolis and its hierarchies in place. Mobility should be decided by citizens' assemblies through transit, walkable towns and shared vehicles.
+      fr: Une subvention d'État qui remplace une voiture individuelle par une autre traite un problème social comme un acte de consommation. Elle laisse en place la mégalopole vouée à l'automobile et ses hiérarchies. La mobilité devrait être décidée par des assemblées de citoyens, par les transports en commun, des villes praticables à pied et des véhicules partagés.
   - author: andre-gorz
-    position: 12
-    work: gorz-1977
-    text:
-      en: I oppose it. Nuclear power needs centralised, expert-run, policed control, so it takes energy choices away from the people affected. Ecology means a world people can understand and govern, starting from a shared norm of enough, not from ever more supply.
-      fr: Je m'y oppose. Le nucléaire exige un contrôle centralisé, confié aux experts et placé sous surveillance policière, et retire ainsi les choix énergétiques à ceux qu'ils concernent. L'écologie, c'est un monde que les gens peuvent comprendre et gouverner, à partir d'une norme commune du suffisant et non d'une offre toujours croissante.
-  - author: serge-latouche
-    position: 12
-    work: latouche-2007
-    text:
-      en: I oppose. New reactors treat demand as fixed and keep the religion of growth going. They rely on uranium mined elsewhere and on central expert control. First reduce, relocalise and redistribute, so that a frugal society needs far less power.
-      fr: Je m'y oppose. De nouveaux réacteurs tiennent la demande pour acquise et entretiennent la religion de la croissance. Ils dépendent d'un uranium extrait ailleurs et d'un contrôle central par les experts. Il faut d'abord réduire, relocaliser et redistribuer, pour qu'une société frugale ait besoin de bien moins d'énergie.
-  - author: jacques-ellul
-    position: 12
-    work: ellul-1988
-    text:
-      en: I oppose. A reactor fleet is not a neutral tool. It calls for a centralised grid, permanent security and expert rule. It is sold on its low-carbon benefits while the problems it will create go unmentioned, so technique decides in place of politics.
-      fr: "Je m'y oppose. Un parc de réacteurs n'est pas un outil neutre. Il appelle un réseau centralisé, une sécurité permanente et le pouvoir des experts. On le vend sur ses bienfaits bas carbone en taisant les problèmes qu'il créera : la technique décide ainsi à la place de la politique."
-  - author: bernard-charbonneau
-    position: 12
-    work: charbonneau-1980
-    text:
-      en: I oppose the claim. A reactor fleet saves the climate by organising the whole country under central, expert and police control. Protecting nature through total management destroys the freedom that defending nature was meant to protect.
-      fr: Je m'oppose à la proposition. Un parc de réacteurs sauve le climat en organisant tout le pays sous un contrôle central, expert et policier. Protéger la nature par une gestion totale détruit la liberté que la défense de la nature devait protéger.
-  - author: bill-devall
     position: 15
-    work: devall-1988
+    work: gorz-1975
     text:
-      en: I oppose. New reactors are reform environmentalism. They switch energy sources but keep the worldview that treats nature as a resource for growing demand. The deeper task is to need less, living simple in means and rich in ends.
-      fr: Je m'y oppose. De nouveaux réacteurs relèvent de l'environnementalisme réformiste. Ils changent de source d'énergie mais gardent la vision du monde qui traite la nature comme une ressource au service d'une demande croissante. La tâche plus profonde est d'avoir moins de besoins, de vivre simple dans les moyens et riche dans les fins.
+      en: Subsidising electric cars swaps the engine but deepens car dependence, which spreads homes, jobs and services apart and then sells the remedy. Public money should build places where daily needs are reachable without a car, so people regain control over their time and surroundings.
+      fr: Subventionner la voiture électrique change le moteur mais renforce la dépendance automobile, qui éloigne logements, emplois et services avant de vendre le remède. L'argent public devrait bâtir des lieux où les besoins quotidiens s'atteignent sans voiture, pour que chacun reprenne la maîtrise de son temps et de son cadre de vie.
   - author: lewis-mumford
     position: 15
-    work: mumford-1934
+    work: mumford-1961
     text:
-      en: "I oppose the claim. A reactor fleet is authoritarian technics: centralised, run by experts, guarded by the state and beyond its users' control. Electricity's real promise was a dispersed regional industry that communities can understand and govern."
-      fr: "Je m'oppose à la proposition. Un parc de réacteurs est une technique autoritaire : centralisée, dirigée par des experts, gardée par l'État et hors du contrôle de ses usagers. La vraie promesse de l'électricité était une industrie régionale dispersée, que les communautés peuvent comprendre et gouverner."
+      en: Swapping the motor keeps the car-built megalopolis and its sprawl, and leaves households dependent on machinery they cannot control. Public money should rebuild regions around walking, trams and rail, so that low-income households no longer need a car.
+      fr: Changer de moteur conserve la mégalopole bâtie pour l'automobile et son étalement, et laisse les ménages dépendants de machines qu'ils ne maîtrisent pas. L'argent public devrait reconstruire les régions autour de la marche, du tramway et du rail, pour que les ménages modestes n'aient plus besoin de voiture.
+  - author: eduardo-gudynas
+    position: 20
+    work: gudynas-2015
+    text:
+      en: Opposed as framed. Social leasing of electric cars redistributes in the North but rests on lithium, copper and nickel taken in volume from Andean and other frontiers. That moves neo-extractivism abroad, and its social and ecological costs fall on communities that never gain from the programme.
+      fr: Contre, tel que formulé. Le leasing social de voitures électriques redistribue au Nord mais repose sur du lithium, du cuivre et du nickel extraits en masse dans les Andes et sur d'autres frontières. Il déplace le néo-extractivisme à l'étranger, et ses coûts sociaux et écologiques retombent sur des communautés qui n'en tirent aucun bénéfice.
   - author: kohei-saito
-    position: 18
+    position: 20
     work: saito-2022
     text:
-      en: I oppose. New reactors keep production growing on a cleaner fuel and leave the metabolic rift open through mining and waste. Abundance comes from the commons, from free time and from producing less, not from new supply for capital.
-      fr: Je m'y oppose. De nouveaux réacteurs prolongent la croissance de la production avec un combustible plus propre et laissent ouverte la rupture métabolique par l'extraction et les déchets. L'abondance vient des communs, du temps libre et d'une production réduite, non d'une offre nouvelle au service du capital.
-  - author: malcom-ferdinand
+      en: Subsidising electric cars keeps the private car as the norm and moves the metabolic rift to mines in the Global South. Public money should instead expand the commons, with free public transport and shorter working hours. That gives real abundance to low-income households.
+      fr: Subventionner la voiture électrique maintient la voiture individuelle comme norme et déplace la rupture métabolique vers les mines du Sud global. L'argent public devrait plutôt élargir les communs, avec des transports publics gratuits et un temps de travail réduit. C'est là une abondance réelle pour les ménages modestes.
+  - author: giorgos-kallis
     position: 22
-    work: ferdinand-2019
+    work: kallis-2019
     text:
-      en: I oppose the claim as posed, reasoning by analogy. French low-carbon power rests on uranium extracted abroad and waste kept beside marginalised communities. That repeats colonial inhabitation. No energy choice is just until those left ashore share the deck and the decision.
-      fr: Je m'oppose à la proposition telle qu'elle est posée, en raisonnant par analogie. L'électricité bas carbone française repose sur un uranium extrait à l'étranger et sur des déchets stockés près de communautés marginalisées. C'est la répétition de l'habiter colonial. Aucun choix énergétique n'est juste tant que ceux restés à quai ne partagent pas le pont et la décision.
-  - author: hans-jonas
-    position: 25
-    work: jonas-1979
+      en: Opposed as framed. Leasing electric cars swaps the engine but keeps the car system, with its mining, roads and sprawl. Equity is better served by public money for car-free life, through free transit, cycling and nearby services, and by a collective choice to limit the car.
+      fr: Contre, tel que formulé. Le leasing de voitures électriques change le moteur mais conserve le système automobile, avec ses mines, ses routes et son étalement. L'équité passe plutôt par de l'argent public pour une vie sans voiture, avec des transports gratuits, le vélo et des services de proximité, et par le choix collectif de limiter la voiture.
+  - author: yayo-herrero
+    position: 22
+    work: herrero-2021
     text:
-      en: I oppose. Reactors put irreversible harm on generations who cannot consent, and the bad prognosis should weigh more than the good one. Warming is also a grave risk, so the first duty is to cut demand, not to stake the future on one technology.
-      fr: "Je m'y oppose. Les réacteurs font peser un tort irréversible sur des générations qui ne peuvent y consentir, et le pronostic défavorable doit l'emporter sur le favorable. Le réchauffement est lui aussi un risque grave : le premier devoir est donc de réduire la demande, non de miser l'avenir sur une seule technique."
+      en: Opposed as framed. Leasing electric cars hides the extraction behind the batteries and keeps poorer households dependent on cars. Putting life at the centre means funding nearby services, public transport and time for care, much of it done by women.
+      fr: Contre, tel que formulé. Le leasing de voitures électriques masque l'extraction derrière les batteries et maintient les ménages modestes dans la dépendance automobile. Mettre la vie au centre, c'est financer les services de proximité, les transports publics et le temps du soin, assuré en grande partie par des femmes.
+  - author: bill-devall
+    position: 22
+    work: devall-1980
+    text:
+      en: Funding electric cars is reform environmentalism. It swaps the fuel and keeps the car-centred way of life, and it treats mountains and salt flats as resources. Public money should build places where people can live simple in means and rich in ends.
+      fr: Financer la voiture électrique relève de l'environnementalisme réformiste. Cela change le carburant, garde un mode de vie centré sur la voiture et traite les montagnes et les salars comme des ressources. L'argent public devrait bâtir des lieux où l'on puisse vivre simple dans ses moyens et riche dans ses fins.
+  - author: maristella-svampa
+    position: 22
+    work: svampa-2013
+    text:
+      en: Subsidised private electric cars in the North drive up demand for lithium, copper and nickel. Under the commodities consensus that demand turns into new mines and sacrifice zones in Latin America, and communities who resist are cast as enemies of progress. Public transport should come first.
+      fr: Les voitures électriques individuelles subventionnées au Nord font monter la demande de lithium, de cuivre et de nickel. Sous le consensus des commodities, cette demande devient de nouvelles mines et des zones sacrifiées en Amérique latine, et les communautés qui résistent sont présentées comme des ennemies du progrès. Les transports publics doivent passer en premier.
+  - author: jason-hickel
+    position: 22
+    work: hickel-2020b
+    text:
+      en: Leasing electric cars swaps the engine but keeps the car system's material throughput, and its lithium, cobalt and copper are drawn cheaply from the South. No evidence shows growth decoupling fast enough. Public money should fund free public transport and cities that need fewer cars.
+      fr: Le leasing de voitures électriques change le moteur mais conserve le débit de matière du système automobile, et son lithium, son cobalt et son cuivre sont tirés à bas prix du Sud. Rien ne montre que la croissance se découple assez vite. L'argent public devrait financer des transports publics gratuits et des villes qui ont moins besoin de voitures.
   - author: joan-martinez-alier
     position: 25
     work: martinez-alier-2002
     text:
-      en: I oppose new reactors as the claim is posed. Low-carbon accounting hides the conflicts along the uranium chain and at waste sites, where poor and colonised communities bear the burdens. They are owed a say and a debt.
-      fr: Je m'oppose à de nouveaux réacteurs tels que la proposition les présente. La comptabilité bas carbone masque les conflits le long de la filière de l'uranium et autour des sites de déchets, où des communautés pauvres et colonisées portent les charges. On leur doit une voix au chapitre et une dette.
+      en: Social leasing of electric cars helps poorer households in the North, but it raises demand for lithium, cobalt and copper. That moves extraction conflicts onto poor communities in the South and adds to the ecological debt. Public transport should come first.
+      fr: Le leasing social de voitures électriques aide les ménages pauvres du Nord, mais il accroît la demande de lithium, de cobalt et de cuivre. Il déplace ainsi les conflits d'extraction vers les communautés pauvres du Sud et alourdit la dette écologique. Les transports publics doivent passer en premier.
+  - author: felix-guattari
+    position: 25
+    work: guattari-1989
+    text:
+      en: Funding electric cars repairs only the environmental register. It leaves social relations and subjectivity shaped by the private car untouched, and public money ends up producing that standardised desire. Shared mobility and ways of living invented by residents should come first.
+      fr: Financer la voiture électrique ne répare que le registre environnemental. Cela laisse intacts les rapports sociaux et la subjectivité façonnés par la voiture individuelle, et l'argent public finit par produire ce désir standardisé. La mobilité partagée et les manières de vivre inventées par les habitants doivent passer en premier.
   - author: arne-naess
     position: 25
     work: naess-1973
     text:
-      en: I oppose with a qualification. New reactors answer the shallow question of how to supply more power with less carbon. The deep question is why France needs so much energy. Centralised, expert-run technology also undermines local self-reliance.
-      fr: "Je m'y oppose, avec une réserve. De nouveaux réacteurs répondent à la question superficielle : comment fournir plus d'énergie avec moins de carbone. La question profonde est de savoir pourquoi la France a besoin de tant d'énergie. Une technique centralisée, confiée aux experts, sape en outre l'autonomie locale."
-  - author: giorgos-kallis
-    position: 25
-    work: kallis-2019
-    text:
-      en: I oppose. The claim treats energy demand as fixed and only asks which source should feed growth. A society that sets its own limits would cut demand and share energy fairly first. Reactors built to keep growth going would tie France to that path for decades.
-      fr: Je m'y oppose. La proposition tient la demande d'énergie pour fixe et demande seulement quelle source doit nourrir la croissance. Une société qui fixe ses propres limites réduirait d'abord la demande et partagerait l'énergie équitablement. Des réacteurs construits pour entretenir la croissance enfermeraient la France dans cette voie pour des décennies.
-  - author: isabelle-stengers
-    position: 25
-    work: stengers-1997
-    text:
-      en: I oppose the claim as posed. A reactor fleet decided in a hurry, in the name of urgency, cuts out everyone it affects, human and not. Slow the decision down until rivers, miners, neighbours and future guardians of the waste have been able to object.
-      fr: Je m'oppose à la proposition telle qu'elle est posée. Un parc de réacteurs décidé dans la précipitation, au nom de l'urgence, écarte tous ceux qu'il affecte, humains ou non. Il faut ralentir la décision jusqu'à ce que rivières, mineurs, riverains et futurs gardiens des déchets aient pu objecter.
-  - author: robert-bullard
-    position: 40
-    work: bullard-1990
-    text:
-      en: Reactors are neither good nor bad in themselves. The test is distributive. France fails it if uranium mining, waste storage and risk land on poor, rural or colonised communities that had no real say in the decision.
-      fr: Les réacteurs ne sont ni bons ni mauvais en soi. Le critère est distributif. La France échoue si l'extraction d'uranium, le stockage des déchets et les risques retombent sur des communautés pauvres, rurales ou colonisées qui n'ont pas eu de véritable voix dans la décision.
-  - author: robyn-eckersley
-    position: 45
-    work: eckersley-2004
-    text:
-      en: My support is conditional and leans slightly against. New reactors are acceptable only if the decision is democratic and answers to everyone affected. That includes future generations who inherit the waste, neighbouring countries, and the communities where uranium is mined. A closed technocratic programme fails that test.
-      fr: "Mon soutien est conditionnel et penche légèrement contre. De nouveaux réacteurs ne sont acceptables que si la décision est démocratique et rend des comptes à tous ceux qu'elle affecte : les générations futures qui héritent des déchets, les pays voisins et les communautés où l'uranium est extrait. Un programme technocratique fermé ne passe pas ce test."
-  - author: timothy-morton
-    position: 50
-    work: morton-2013
-    text:
-      en: Neither yes nor no. Reactors swap one hyperobject, warming, for another, waste that lasts millennia. There is no away and no pristine Nature to return to, so any choice must accept caring for what it leaves behind indefinitely.
-      fr: "Ni oui ni non. Les réacteurs échangent un hyperobjet, le réchauffement, contre un autre, des déchets qui durent des millénaires. Il n'y a pas d'ailleurs ni de Nature intacte où revenir : tout choix doit accepter de prendre soin, indéfiniment, de ce qu'il laisse derrière lui."
+      en: "Swapping engines is shallow ecology. It relieves one symptom and keeps the car-centred way of life. Short-term leasing is acceptable as a stopgap where no alternative exists, but most public money belongs to dense towns, transit and nearby livelihoods: simple in means, rich in ends."
+      fr: "Changer de moteur relève de l'écologie superficielle. Cela soulage un symptôme et préserve un mode de vie centré sur la voiture. Un leasing de court terme est acceptable comme pis-aller là où il n'existe aucune alternative, mais l'essentiel de l'argent public revient aux villes denses, aux transports collectifs et aux activités de proximité : simple dans ses moyens, riche dans ses fins."
   - author: jean-baptiste-fressoz
-    position: 50
+    position: 30
     work: fressoz-2024
     text:
-      en: Energy sources have always been added to one another and have never replaced each other. New reactors cut emissions only if France also decides to close specific fossil uses on a fixed timetable. Without that decision, reactors just add capacity.
-      fr: Les sources d'énergie se sont toujours additionnées sans jamais se remplacer. De nouveaux réacteurs ne réduisent les émissions que si la France décide aussi de fermer des usages fossiles précis selon un calendrier fixé. Sans cette décision, les réacteurs ne font qu'ajouter des capacités.
-  - author: bruno-latour
-    position: 55
-    work: latour-1999
+      en: Energy history shows additions, not substitutions. Subsidised electric cars risk adding a new fleet, new mining and new power demand on top of the fossil system rather than replacing it. Public money would do more by reducing how much households depend on cars.
+      fr: L'histoire de l'énergie montre des additions, pas des substitutions. Des voitures électriques subventionnées risquent d'ajouter une nouvelle flotte, de nouvelles mines et une nouvelle demande électrique au système fossile au lieu de le remplacer. L'argent public servirait mieux à réduire la dépendance des ménages à la voiture.
+  - author: fatima-ouassak
+    position: 30
+    work: ouassak-2023
     text:
-      en: I endorse it only on conditions. Reactors are assemblies of rivers, mines, waste and people. Build them if every one of these gets a spokesperson and France commits to caring for what it makes for millennia, rather than abandoning it.
-      fr: Je la soutiens, mais sous conditions. Les réacteurs sont des assemblages de rivières, de mines, de déchets et de personnes. Qu'on les construise si chacun de ces éléments a un porte-parole et si la France s'engage à prendre soin de ce qu'elle fabrique pendant des millénaires, au lieu de l'abandonner.
+      en: Social leasing treats working-class neighbourhoods as a market for green cars rather than as people who decide their own ecology. Neighbourhoods hemmed in by motorways and polluted air need free transport, open land and clean air, decided by residents, not a lease.
+      fr: Le leasing social traite les quartiers populaires comme un marché pour voitures vertes plutôt que comme des habitants qui décident de leur propre écologie. Des quartiers enclavés par les autoroutes et l'air pollué ont besoin de transports gratuits, de terres ouvertes et d'air pur, décidés par les habitants, pas d'un leasing.
+  - author: pierre-charbonnier
+    position: 45
+    work: charbonnier-2020
+    text:
+      en: "Help for poorer households is just, but social leasing renews a freedom of movement built on cheap energy and material abundance and moves its base to mines and grids. Ecological politics should fund mobility that depends less on abundance: transit, proximity, shared vehicles."
+      fr: "Aider les ménages modestes est juste, mais le leasing social reconduit une liberté de mouvement fondée sur l'énergie bon marché et l'abondance matérielle, et en déplace la base vers les mines et les réseaux. Une politique écologique devrait financer une mobilité moins dépendante de l'abondance : transports collectifs, proximité, véhicules partagés."
   - author: andreas-malm
-    position: 62
+    position: 58
     work: malm-2016
     text:
-      en: I conditionally endorse new reactors. Warming comes from fossil capital, not from any particular technology, so reactors help only if they come with a political decision to shut down coal, oil and gas under public control.
-      fr: "Je soutiens de nouveaux réacteurs, sous condition. Le réchauffement vient du capital fossile et non d'une technique particulière : les réacteurs n'aident que s'ils s'accompagnent d'une décision politique de fermer le charbon, le pétrole et le gaz sous contrôle public."
-  - author: johan-rockstrom
-    position: 65
-    work: rockstrom-2009
+      en: Public money moving working households off fossil fuel beats leaving the transition to the market. But electric cars keep the private car that fossil capital built, and new fleets add to fossil use unless the state deliberately cuts fossil supply and makes the owners pay.
+      fr: De l'argent public qui sort les ménages populaires des énergies fossiles vaut mieux que de laisser la transition au marché. Mais la voiture électrique conserve la voiture individuelle que le capital fossile a construite, et une nouvelle flotte s'ajoute à la consommation fossile si l'État ne réduit pas délibérément l'offre fossile et ne fait pas payer les propriétaires.
+  - author: robert-bullard
+    position: 58
+    work: bullard-1990
     text:
-      en: I endorse it with conditions. Low-carbon power helps keep humanity inside the climate boundary, but only if fossil plants close as reactors open. New reactors also have to be judged against the other boundaries, including freshwater and novel entities.
-      fr: Je la soutiens sous conditions. Une électricité bas carbone aide à maintenir l'humanité dans la limite climatique, mais seulement si les centrales fossiles ferment à mesure que les réacteurs ouvrent. Les nouveaux réacteurs doivent aussi être jugés au regard des autres limites, dont l'eau douce et les entités nouvelles.
-  - author: stewart-brand
-    position: 88
-    work: brand-2009
+      en: Conditional support. Aid aimed at low-income households is fairer than subsidies that reward the affluent. But no community, at home or at mining and scrapping sites abroad, should carry the pollution burden, and public transit for people without cars deserves equal funding.
+      fr: Soutien sous conditions. Une aide destinée aux ménages modestes est plus juste que des subventions qui profitent aux plus aisés. Mais aucune communauté, ici ou sur les sites d'extraction et de démantèlement à l'étranger, ne doit porter la pollution, et les transports publics pour ceux qui n'ont pas de voiture méritent un financement égal.
+  - author: timothy-morton
+    position: 60
+    work: morton-2013
     text:
-      en: Judge reactors by their measured effects on the climate. France's nuclear grid is already low-carbon, so new reactors should be built and fossil plants closed alongside them. Real waste and siting concerns call for careful management, not refusal.
-      fr: "Il faut juger les réacteurs à leurs effets mesurés sur le climat. Le réseau nucléaire français est déjà bas carbone : il faut donc construire de nouveaux réacteurs et fermer en même temps les centrales fossiles. Les vrais problèmes de déchets et d'implantation appellent une gestion attentive, non un refus."
-  - author: ted-nordhaus
-    position: 90
-    work: nordhaus-2015
+      en: Qualified endorsement. Warming is a hyperobject with no clean outside, so turning down imperfect help for poorer households for the sake of purity repeats the fantasy of Nature. Leasing only makes sense if old cars leave the road, not if it adds another fleet.
+      fr: Soutien nuancé. Le réchauffement est un hyperobjet sans dehors propre, et refuser une aide imparfaite aux ménages pauvres au nom de la pureté rejoue le fantasme de la Nature. Le leasing n'a de sens que si les vieilles voitures quittent la route, pas s'il ajoute une flotte de plus.
+  - author: kate-raworth
+    position: 60
+    work: raworth-2017
     text:
-      en: France should build new reactors. Dense, abundant, low-carbon power lets human welfare grow while using less land, and offering investment and prosperity wins more support than a politics of limits.
-      fr: La France devrait construire de nouveaux réacteurs. Une énergie dense, abondante et bas carbone permet au bien-être humain de croître en occupant moins de terres, et promettre investissement et prospérité rallie davantage qu'une politique des limites.
-  - author: james-lovelock
-    position: 92
-    work: lovelock-2006
+      en: Conditional endorsement. Targeted leasing can lift households without alternatives above the social floor on mobility and energy costs. A car-for-car swap strains the ecological ceiling, so it should be a bridge, while most funding goes to public transport, cycling and fewer cars.
+      fr: "Soutien sous conditions. Un leasing ciblé peut hisser les ménages sans alternative au-dessus du plancher social en matière de mobilité et de coût de l'énergie. Remplacer une voiture par une autre met le plafond écologique sous tension : il faut donc en faire une passerelle, et consacrer l'essentiel des fonds aux transports publics, au vélo et à la réduction du nombre de voitures."
+  - author: robyn-eckersley
+    position: 60
+    work: eckersley-2004
     text:
-      en: I endorse it. Warming is the irreversible danger. It is too late for gentle sustainable development, and a planned retreat needs abundant low-carbon power. France has shown that fission works at scale. Its waste is small, stays in one place and can be guarded.
-      fr: Je soutiens la proposition. Le réchauffement est le danger irréversible. L'heure du développement durable en douceur est passée, et une retraite organisée exige une électricité bas carbone abondante. La France a montré que la fission fonctionne à grande échelle. Ses déchets sont peu volumineux, restent sur place et peuvent être surveillés.
+      en: Qualified endorsement by analogy. Public funding through the state is the right instrument, but it is legitimate only if it answers to everyone affected, including distant mining communities and future generations, and if it sits within a wider move away from car dependence.
+      fr: Soutien nuancé, par analogie. Le financement public par l'État est le bon instrument, mais il n'est légitime que s'il répond à tous ceux qu'il affecte, y compris les communautés minières lointaines et les générations futures, et s'il s'inscrit dans une sortie plus large de la dépendance automobile.
   - author: michael-shellenberger
-    position: 95
+    position: 80
     work: shellenberger-2020
     text:
-      en: France should build new reactors. Dense, reliable, low-carbon power drove fossil fuels out of its grid, uses little land, and makes prosperity compatible with nature. The fear of nuclear waste and scarcity politics do more harm than the reactors do.
-      fr: La France devrait construire de nouveaux réacteurs. Une électricité dense, fiable et bas carbone a chassé les fossiles de son réseau, occupe peu de terres et rend la prospérité compatible avec la nature. La peur des déchets nucléaires et la politique de la pénurie font plus de mal que les réacteurs.
+      en: Social leasing gives poorer households cleaner technology without asking them to give up mobility, which fits the view that prosperity and ecology can go together. It works only if a firm zero-carbon grid, built on nuclear power, charges the cars.
+      fr: Le leasing social offre aux ménages pauvres une technologie plus propre sans leur demander de renoncer à la mobilité, ce qui va dans le sens d'une prospérité compatible avec l'écologie. Il ne fonctionne que si un réseau décarboné et pilotable, fondé sur le nucléaire, recharge les voitures.
+  - author: ted-nordhaus
+    position: 85
+    work: nordhaus-2004
+    text:
+      en: Climate policy wins majorities by making working households better off, not by rationing mobility. Social leasing puts cleaner, cheaper-to-run cars in their hands and drives down battery costs. It should be paired with clean firm power, recycling and better mining standards.
+      fr: La politique climatique gagne des majorités en améliorant la vie des ménages modestes, pas en rationnant la mobilité. Le leasing social leur donne des voitures plus propres et moins chères à l'usage, et fait baisser le coût des batteries. Il doit aller de pair avec une électricité propre et pilotable, le recyclage et de meilleures normes minières.
 silent: []

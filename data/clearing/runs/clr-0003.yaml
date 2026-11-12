@@ -5,15 +5,91 @@ runId: clr-0003
 status: published
 date: 2026-11-12
 claim:
-  en: Economic growth can be decoupled from environmental damage fast enough to stay within planetary boundaries.
-  fr: La croissance économique peut être découplée des dégâts environnementaux assez vite pour rester dans les limites planétaires.
+  en: France should build new nuclear reactors.
+  fr: La France devrait construire de nouveaux réacteurs nucléaires.
 question:
-  id: croissance-verte
-  kind: axiom
-  measures: []
+  id: nouveau-nucleaire
+  measures:
+    - id: lfi-2026-nucleaire
+      stance: against
+      party:
+        short: LFI
+        name: La France insoumise
+      programme:
+        title: L'Avenir en commun – Le programme de la Nouvelle France (édition 2027)
+        year: 2026
+        url: https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3/
+      locator: Partie 1, chapitre 3, « Organiser le 100 % d’énergies renouvelables »
+      quote: Planifier la fermeture progressive des centrales nucléaires existantes en ne prolongeant pas au-delà de 60 ans leur durée de vie et arrêter le programme de nouveau nucléaire (EPR2)
+    - id: eco-2026-nucleaire
+      stance: against
+      party:
+        short: Les Écologistes
+        name: Les Écologistes (Europe Écologie Les Verts)
+      programme:
+        title: Pour une prospérité écologique – Le nouveau programme des Écologistes (Projet 2027)
+        year: 2026
+        url: https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
+      locator: I. Garantir un monde habitable, chapitre 1 « Gagner la bataille du climat », proposition 7
+      quote: Planifier la sortie du nucléaire. Mettre fin aux nouveaux programmes EPR-2 et SMR extrêmement dispendieux. Planifier l’arrêt progressif du parc constitué de centrales vieillissantes dont la mise hors service doit être étalée sur une vingtaine d’années.
+    - id: ps-2026-nucleaire
+      stance: partly
+      party:
+        short: PS
+        name: Parti socialiste
+      programme:
+        title: Le Projet socialiste – Vivre libres
+        year: 2026
+        url: https://projet-socialiste.fr/projet/vivre-libres/
+      locator: Vivre libres, chapitre 3, « Produire de l’énergie propre, sûre et bon marché »
+      quote: Ce mix devra s’appuyer sur le parc nucléaire historique, qui sera partiellement renouvelé, ainsi que sur le développement des énergies renouvelables.
+    - id: pcf-2022-mix-energetique
+      stance: partly
+      party:
+        short: PCF
+        name: Parti communiste français
+      programme:
+        title: Fabien Roussel – La France des Jours heureux, le programme (document 8 pages, présidentielle 2022)
+        year: 2022
+        url: https://assets.nationbuilder.com/pcf/pages/13815/attachments/original/1643123394/document_-_exe_8p_programme_stc.pdf?1643123394
+      locator: Objectifs pour l’humain et la planète d’abord, 4 « Pour l’emploi et le climat, je lancerai un grand plan de réindustrialisation de la France » (p. 3 du PDF)
+      quote: Un mix énergétique nucléaire et renouvelable ; un service public avec EDF et Engie renationalisés.
+    - id: ens-2024-nouveaux-reacteurs
+      stance: for
+      party:
+        short: Ensemble
+        name: Renaissance (Ensemble pour la République)
+      programme:
+        title: Ensemble pour la République – Notre projet (législatives 2024)
+        year: 2024
+        url: https://doc.ensemble-2024.fr/programme-legislatives-24.pdf
+      locator: « Ensemble pour protéger l’environnement ! » (p. 10 du PDF)
+      quote: Nous mettrons en chantier 14 nouveaux réacteurs nucléaires pour assurer l’indépendance énergétique de la France et aller vers une économie sans carbone.
+    - id: rn-2024-relance-nucleaire
+      stance: for
+      party:
+        short: RN
+        name: Rassemblement national
+      programme:
+        title: Bardella Premier ministre – Un projet, une méthode (législatives 2024)
+        year: 2024
+        url: https://rassemblementnational.fr/documents/202406-programme.pdf
+      locator: Le besoin de projection, 2 « Refaire de la France un paradis énergétique respectant la trajectoire de l’accord de Paris »
+      quote: Lancer le plan Marie Curie de relance du nucléaire (EPR, SMR, réacteurs à neutrons rapides)
+    - id: lr-2026-nucleaire-80-ans
+      stance: for
+      party:
+        short: LR
+        name: Les Républicains
+      programme:
+        title: "Nos propositions pour la France – Électricité : baisser la facture des Français, c’est possible !"
+        year: 2026
+        url: https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf
+      locator: 01 « L’urgence de consolider nos atouts stratégiques », axe « Conserver une électricité décarbonée en consolidant nos atouts stratégiques » (propositions 1 et 2)
+      quote: en inscrivant les réacteurs existants dans une trajectoire d’exploitation à 80 ans (proposition 1), en assurant un pilotage rigoureux de la construction des nouveaux EPR2 dans le respect des délais et des coûts
 summary:
-  en: The division ran between three Counterpoint agents, who endorsed the claim if societies build nuclear power, dense cities and intensive farming, and twenty-three others, mostly opposed over displaced damage or boundaries beyond carbon. Unexpectedly, the Lovelock agent agreed with them on nuclear power but wanted it for a planned retreat, not growth.
-  fr: La ligne passait entre trois agents de la branche Contrepoint, favorables à condition de bâtir nucléaire, villes denses et agriculture intensive, et vingt-trois autres, opposés pour la plupart au nom des dégâts déplacés ou des autres limites planétaires. Fait inattendu, l'agent Lovelock partageait leur nucléaire, mais pour une retraite planifiée, non pour la croissance.
+  en: The line ran between agents judging reactors by carbon and land saved and agents judging them by who controls them and who bears the mines and waste, with a wide middle awaiting a prior condition. The Anthropocene branch split, with the Lovelock agent at 90 and the Fressoz and Latour agents at 50.
+  fr: "La ligne de partage séparait les agents qui jugeaient les réacteurs au carbone et au sol épargnés de ceux qui les jugeaient à leur contrôle et au poids des mines et des déchets, avec un large centre suspendu à une condition préalable. La branche Anthropocène s'est scindée : l'agent Lovelock à 90, les agents Fressoz et Latour à 50."
 engine:
   name: MiroFish
   commit: 7657031ac01184afe2cb220f5ee3545573b5e843
@@ -34,325 +110,335 @@ settings:
   estimateUsd: 1.99
 plan:
   model: claude-opus-5-5
-  note: The panel sets the three ecomodernist advocates of decoupling against empirical critics, biophysical critics and critics from the Global South, with the planetary boundaries author as the reference point. Two rounds let agents answer each other on evidence, rebound effects and extraction while keeping cost near 2 USD.
+  note: The panel sets the main pro-nuclear voices against technocritical, anti-nuclear, degrowth and extractivism critics, with every branch represented early in the ranking. Two rounds let climate arguments and arguments about risk, democracy and extraction answer each other while keeping cost near 2 USD.
   rounds: 2
   ranked: 26
   trimmed: false
   reasons:
-    jason-hickel: Has published empirical work arguing that absolute decoupling in rich countries is far too slow to meet climate and material targets.
-    ted-nordhaus: Breakthrough Institute co-founder whose work on decoupling makes him the strongest advocate for the claim.
-    johan-rockstrom: Led the definition of planetary boundaries, the yardstick the claim is measured against.
-    giorgos-kallis: Ecological economist who argues that green growth is improbable and that rebound effects undermine efficiency gains.
-    michael-shellenberger: Ecomodernist who argues that nuclear power and intensification can decouple prosperity from environmental impact.
-    kate-raworth: Doughnut economics frames the question as staying under an ecological ceiling and is agnostic about growth.
-    jean-baptiste-fressoz: Historian showing that energy sources have historically added up rather than replaced each other, which challenges the idea of a fast transition.
-    nicholas-georgescu-roegen: His entropy law sets physical limits on any material economy, whatever its efficiency.
-    kohei-saito: Degrowth communism explicitly rejects green growth and green Keynesianism as illusions.
-    stewart-brand: Ecopragmatist who supports nuclear power, cities and genetic engineering as routes to lower impact.
-    andreas-malm: Fossil Capital links the growth dynamics of capital to fossil fuel dependence.
-    joan-martinez-alier: Ecological economist who documents rising material throughput and the distribution conflicts that come with it.
-    eduardo-gudynas: Analyses the extractivism that the minerals of a decoupled economy would require.
-    jacques-ellul: His idea of the technological bluff questions faith in technical fixes.
-    yayo-herrero: Ecofeminist economics stresses biophysical limits and the dependence of the economy on care work.
-    murray-bookchin: Social ecology holds that a grow-or-die market economy cannot be ecological.
-    arne-naess: His distinction between shallow and deep ecology targets technical reform without changes in values.
-    edward-o-wilson: Biologist who brings the biodiversity boundary into the debate through Half-Earth.
-    timothy-morton: Hyperobjects framing questions whether measurable boundaries and managerial fixes can contain the problem.
-    john-bellamy-foster: Metabolic rift theory and his writing on the Jevons paradox both argue against decoupling under capitalism.
-    james-lovelock: Gaia scientist who backed nuclear power yet argued for a sustainable retreat.
-    robyn-eckersley: Studies whether a green state could steer growth within ecological limits.
-    andre-gorz: Early theorist of sufficiency who argued that ecological limits make growth-led capitalism unsustainable.
-    pierre-charbonnier: Links modern freedoms to material abundance, which bears on the political stakes of decoupling.
-    maria-mies: Her subsistence perspective rejects growth as the measure of welfare.
-    maristella-svampa: Her commodities consensus shows how green transitions can deepen raw material exports in the Global South.
+    michael-shellenberger: Leading campaigner for nuclear power and co-author of the Ecomodernist Manifesto.
+    andre-gorz: Wrote against the French nuclear programme as a technology that imposes centralised, technocratic power.
+    james-lovelock: Gaia theorist who publicly backed nuclear power as the answer to global warming.
+    francoise-deaubonne: French ecofeminist and anti-nuclear activist who tied nuclear power to patriarchal domination.
+    jean-baptiste-fressoz: Historian who argues energy sources add up rather than replace each other, which bears on nuclear as a transition tool.
+    william-nordhaus: Climate economist whose carbon pricing framework judges low-carbon sources on cost.
+    murray-bookchin: Opposed nuclear power as centralised and hierarchical, against decentralised municipal energy.
+    hans-jonas: His imperative of responsibility addresses technologies with irreversible, long-term risks such as nuclear waste.
+    michael-lowy: Paris-based ecosocialist who rejects nuclear power within democratic ecological planning.
+    jason-hickel: Degrowth economist who argues for cutting energy use in rich countries rather than expanding supply.
+    malcom-ferdinand: French CNRS researcher on colonial inhabitation, relevant to uranium mining and nuclear tests in former colonies.
+    robyn-eckersley: Theorist of the green state, relevant to state-led energy projects like the French nuclear fleet.
+    timothy-morton: Uses radioactive waste as a central example of a hyperobject outlasting human time.
+    arne-naess: Founder of deep ecology who questioned large energy systems and growth in energy demand.
+    pope-francis: Laudato si condemns the technocratic paradigm while urging rapid decarbonisation.
+    edward-o-wilson: Half-Earth gives a land-use angle where compact energy sources may spare habitat.
+    stewart-brand: Former environmentalist who asked the movement to reverse its opposition to nuclear power.
+    gunther-anders: Philosopher of the nuclear age and the Promethean gap between human power and imagination.
+    jacques-ellul: French critic of the technological system and its self-justifying growth, including nuclear.
+    starhawk: Activist of the anti-nuclear blockades of the 1980s.
+    bruno-latour: French thinker of Gaia and the terrestrial, bearing on how to compose large technical choices.
+    andreas-malm: Analyst of fossil capital who prioritises speed of decarbonisation over energy purity.
+    pascal-bruckner: French essayist who defends progress and attacks anti-nuclear catastrophism.
+    joan-martinez-alier: Documents ecological distribution conflicts, including over uranium mining and waste sites.
+    eduardo-gudynas: Theorist of extractivism, relevant to the uranium supply chain in the Global South.
+    roger-scruton: Conservative view of rooted, local care for the home, relevant to siting and national energy.
 counts:
   turns: 52
-  comments: 60
-  reactions: 65
+  comments: 79
+  reactions: 92
   interviews: 26
   declined: 0
   failed: 0
-  tokensIn: 651005
-  tokensOut: 34836
-  costUsd: 2.28
+  tokensIn: 648878
+  tokensOut: 43672
+  costUsd: 2.48
 positions:
   - branch: technocritique
-    score: 8
+    score: 12
     min: 8
-    max: 8
-    agents: 2
-  - branch: degrowth
-    score: 8
-    min: 5
-    max: 25
+    max: 30
     agents: 4
+  - branch: degrowth
+    score: 35
+    min: 35
+    max: 35
+    agents: 1
   - branch: social-ecology
-    score: 8
-    min: 8
-    max: 8
-    agents: 1
-  - branch: ecosocialism
-    score: 8
-    min: 6
-    max: 10
-    agents: 3
-  - branch: deep-ecology
-    score: 45
-    min: 45
-    max: 45
-    agents: 1
-  - branch: ecosophy
     score: 12
     min: 12
     max: 12
     agents: 1
+  - branch: ecosocialism
+    score: 36
+    min: 22
+    max: 50
+    agents: 2
+  - branch: deep-ecology
+    score: 65
+    min: 65
+    max: 65
+    agents: 1
+  - branch: ecosophy
+    score: 22
+    min: 22
+    max: 22
+    agents: 1
   - branch: anthropocene
-    score: 19
-    min: 8
-    max: 30
-    agents: 4
+    score: 50
+    min: 50
+    max: 90
+    agents: 3
   - branch: political-ecology
-    score: 17
-    min: 8
-    max: 25
+    score: 30
+    min: 25
+    max: 35
     agents: 2
   - branch: decolonial
-    score: 8
-    min: 8
-    max: 8
+    score: 23
+    min: 20
+    max: 25
     agents: 2
   - branch: ecofeminism
-    score: 8
+    score: 10
     min: 8
-    max: 8
+    max: 12
     agents: 2
   - branch: queer-ecology
-    score: 15
-    min: 15
-    max: 15
+    score: 50
+    min: 50
+    max: 50
     agents: 1
   - branch: counterpoint
-    score: 75
-    min: 70
-    max: 80
-    agents: 3
+    score: 90
+    min: 88
+    max: 92
+    agents: 2
+  - branch: market
+    score: 74
+    min: 62
+    max: 85
+    agents: 2
+  - branch: conservative
+    score: 54
+    min: 40
+    max: 68
+    agents: 2
 alliances:
   - title:
-      en: For, through dense energy
-      fr: Pour, par l'énergie dense
+      en: For, on dense low-carbon power
+      fr: Pour une énergie dense et décarbonée
     text:
-      en: Decoupling is achievable if it is built on purpose with nuclear power, dense cities and intensive farming. These agents treated a politics of limits as a losing politics.
-      fr: Le découplage est possible s'il est bâti délibérément par le nucléaire, les villes denses et l'agriculture intensive. Ces agents jugent perdante toute politique des limites.
+      en: Abundant, steady, low-carbon power on little land comes first, and fear of the atom does more harm than the waste. The Lovelock agent breaks from its Anthropocene branch, while still demanding fossil cuts.
+      fr: Une énergie abondante, stable et bas carbone sur peu de terrain prime, et la peur de l'atome nuit davantage que les déchets. L'agent Lovelock rompt avec sa branche Anthropocène, tout en exigeant la baisse des fossiles.
     authors:
-      - ted-nordhaus
       - michael-shellenberger
       - stewart-brand
-  - title:
-      en: Unproven against every boundary
-      fr: Non démontré sur toutes les limites
-    text:
-      en: Decoupling counts only if absolute pressures fall inside every boundary before thresholds or habitat loss prevail. The Raworth agent left the firm refusal of Degrowth for this test.
-      fr: Le découplage ne vaut que si toutes les pressions repassent sous chaque limite avant les seuils de bascule ou la perte d'habitats. L'agent Raworth quitte ici le refus net de la Décroissance.
-    authors:
-      - johan-rockstrom
-      - kate-raworth
-      - edward-o-wilson
       - james-lovelock
+      - pascal-bruckner
   - title:
-      en: Against, on evidence and physics
-      fr: Contre, au nom des faits et de la physique
+      en: Conditional yes, land or price
+      fr: Oui sous condition, sol ou prix
     text:
-      en: Absolute decoupling has never come fast enough, energy sources have piled up rather than replaced one another, and entropy makes growing throughput unavoidable. The Fressoz agent, from Anthropocene, stood here.
-      fr: Le découplage absolu n'a jamais été assez rapide, les énergies se sont empilées sans se remplacer et l'entropie rend la hausse des flux inévitable. L'agent Fressoz, issu de la branche Anthropocène, se range ici.
+      en: "Reactors are accepted only under a condition: protected wild reserves, consent of host towns, or a rising carbon price. The Nordhaus agent stands apart here from the Bruckner agent of its Market liberals branch."
+      fr: "Les réacteurs ne sont admis que sous condition : réserves sauvages protégées, accord des communes d'accueil ou prix du carbone croissant. L'agent Nordhaus se distingue ici de l'agent Bruckner, de sa branche Libéraux."
     authors:
-      - jason-hickel
-      - giorgos-kallis
-      - nicholas-georgescu-roegen
+      - roger-scruton
+      - edward-o-wilson
+      - william-nordhaus
+  - title:
+      en: Undecided until a prior condition
+      fr: Suspendus à une condition préalable
+    text:
+      en: The reactor question comes second, after a deliberate cut in fossil combustion, lower demand or open deliberation. The Malm agent breaks from the Löwy agent of its Ecosocialism branch.
+      fr: La question des réacteurs vient après une baisse délibérée de la combustion fossile, une demande réduite ou une délibération ouverte. L'agent Malm se démarque de l'agent Löwy, de sa branche Écosocialisme.
+    authors:
       - jean-baptiste-fressoz
+      - andreas-malm
+      - bruno-latour
+      - timothy-morton
+      - pope-francis
+      - robyn-eckersley
+      - jason-hickel
   - title:
-      en: Against, as damage moved elsewhere
-      fr: Contre, des dégâts déplacés
+      en: Against, on centralised control
+      fr: Contre le pouvoir centralisé
     text:
-      en: Northern decoupling hides extraction shifted to Southern frontiers and the unpaid work of women and peasants that growth treats as free.
-      fr: Le découplage du Nord masque l'extraction reportée sur les frontières du Sud et le travail non rémunéré des femmes et des paysans, que la croissance tient pour gratuit.
+      en: A reactor fleet binds energy to a centralised, secretive, expert-run apparatus whose waste and risks outrun human control and consent. Sufficiency and local scale must come first.
+      fr: Un parc de réacteurs lie l'énergie à un appareil centralisé, opaque et piloté par des experts, dont les déchets et les risques échappent au contrôle et au consentement. La sobriété et l'échelle locale passent d'abord.
     authors:
+      - andre-gorz
+      - francoise-deaubonne
+      - murray-bookchin
+      - michael-lowy
+      - arne-naess
+      - gunther-anders
+      - jacques-ellul
+      - starhawk
+      - hans-jonas
+  - title:
+      en: Against, on mines abroad
+      fr: Contre, au nom des mines lointaines
+    text:
+      en: The low-carbon footprint is counted only inside France. It leaves out the uranium mines in Niger and Gabon, the tailings and the test atolls, so the costs fall on others.
+      fr: L'empreinte bas carbone n'est comptée qu'en France. Les mines d'uranium du Niger et du Gabon, leurs résidus et les atolls des essais restent hors du compte, aux dépens des autres.
+    authors:
+      - malcom-ferdinand
       - joan-martinez-alier
       - eduardo-gudynas
-      - maristella-svampa
-      - maria-mies
-      - yayo-herrero
-  - title:
-      en: Against, the question is misframed
-      fr: Contre, une question mal posée
-    text:
-      en: Decoupling treats as technical a problem rooted in capital, technique, power or worldview. Within this group the Malm agent clashed with the Morton agent, and the Eckersley and Næss agents with the Bookchin agent.
-      fr: Le découplage traite comme technique un problème qui tient au capital, à la technique, au pouvoir ou à la vision du monde. Dans ce groupe, l'agent Malm s'opposait à l'agent Morton, et les agents Eckersley et Næss à l'agent Bookchin.
-    authors:
-      - kohei-saito
-      - andreas-malm
-      - john-bellamy-foster
-      - murray-bookchin
-      - andre-gorz
-      - jacques-ellul
-      - pierre-charbonnier
-      - robyn-eckersley
-      - arne-naess
-      - timothy-morton
 voices:
-  - author: nicholas-georgescu-roegen
-    position: 5
-    work: georgescu-roegen-1971
-    text:
-      en: The claim fails on physical grounds. Production degrades low-entropy matter and energy into waste that cannot be restored. Efficiency and clean energy only slow the rate, and a growing economy needs growing throughput, so no form of growth can last indefinitely.
-      fr: La thèse échoue pour des raisons physiques. La production dégrade la matière et l'énergie de basse entropie en déchets qu'on ne peut restaurer. L'efficacité et l'énergie propre ne font que ralentir ce rythme, et une économie en croissance exige des flux croissants, si bien qu'aucune forme de croissance ne peut durer indéfiniment.
-  - author: kohei-saito
-    position: 6
-    work: saito-2022
-    text:
-      en: Capital's drive to expand value without limit widens the metabolic rift, and efficiency gains are reinvested into more throughput. Fast absolute decoupling has not happened. Abundance has to come from the commons and free time through degrowth communism.
-      fr: La pulsion du capital à valoriser sans limite élargit la rupture métabolique, et les gains d'efficacité sont réinvestis dans davantage de flux. Aucun découplage absolu rapide ne s'est produit. L'abondance doit venir des communs et du temps libre, par le communisme décroissant.
-  - author: jason-hickel
+  - author: francoise-deaubonne
     position: 8
-    work: hickel-2020b
+    work: eaubonne-1974
     text:
-      en: Absolute decoupling of resource use and emissions has not happened at the speed or scale needed. Where it has occurred, it is too slow to stay within fair carbon budgets. High-income nations should plan to reduce their energy and material throughput rather than count on green growth.
-      fr: Le découplage absolu de l'usage des ressources et des émissions ne s'est pas produit au rythme ni à l'échelle nécessaires. Là où il a eu lieu, il est trop lent pour respecter des budgets carbone équitables. Les pays riches devraient planifier la réduction de leurs flux d'énergie et de matière plutôt que de miser sur la croissance verte.
-  - author: giorgos-kallis
+      en: Opposed. New reactors extend the patriarchal logic of limitless production that exhausts the earth just as it subjugates women. The remedy is less production, less centralized power and control over fertility taken back by those who carry life, not a bigger machine.
+      fr: Contre. Les nouveaux réacteurs prolongent la logique patriarcale de la production illimitée qui épuise la terre comme elle asservit les femmes. Le remède, c'est moins de production, moins de pouvoir centralisé et la maîtrise de la fécondité reprise par celles qui portent la vie, non une machine plus grosse.
+  - author: gunther-anders
     position: 8
-    work: kallis-2018
+    work: anders-1956
     text:
-      en: Evidence shows no absolute decoupling of resource use and emissions at the speed and scale needed, so green growth is a risky bet. Rich economies should instead pursue an equitable downscaling of production and consumption, with limits chosen collectively rather than imposed by scarcity.
-      fr: Les données ne montrent aucun découplage absolu de l'usage des ressources et des émissions au rythme et à l'échelle nécessaires, si bien que la croissance verte est un pari risqué. Les économies riches devraient plutôt viser une réduction équitable de la production et de la consommation, avec des limites choisies collectivement plutôt qu'imposées par la pénurie.
-  - author: jean-baptiste-fressoz
-    position: 8
-    work: fressoz-2024
-    text:
-      en: Decoupling assumes that new energies replace old ones, but the history of energy shows that sources pile up. Coal, oil and wood grew together, each feeding the others. Betting planetary limits on a substitution that has never happened goes against the historical record.
-      fr: Le découplage suppose que les énergies nouvelles remplacent les anciennes, or l'histoire de l'énergie montre qu'elles s'empilent. Le charbon, le pétrole et le bois ont crû ensemble, chacun nourrissant les autres. Parier les limites planétaires sur une substitution qui n'a jamais eu lieu va contre les faits historiques.
-  - author: joan-martinez-alier
-    position: 8
-    work: martinez-alier-2002
-    text:
-      en: Social metabolism keeps growing. Apparent decoupling in rich countries moves extraction and pollution onto southern commodity frontiers, and the ecological distribution conflicts there keep multiplying. Growth fast enough to stay within planetary boundaries has not been observed.
-      fr: Le métabolisme social continue de croître. Le découplage apparent des pays riches reporte l'extraction et la pollution sur les frontières des matières premières du Sud, où les conflits écologico-distributifs ne cessent de se multiplier. Une croissance assez rapide pour rester dans les limites planétaires n'a pas été observée.
-  - author: eduardo-gudynas
-    position: 8
-    work: gudynas-2015
-    text:
-      en: Northern decoupling hides damage moved to Southern mines, oil fields and soy frontiers. Economies that export raw materials in great volume stay tied to the land whoever spends the rent, so the planet as a whole is not decoupling.
-      fr: Le découplage du Nord cache des dégâts déplacés vers les mines, les champs pétroliers et les fronts du soja du Sud. Les économies qui exportent des matières premières en grand volume restent liées au territoire, quel que soit celui qui dépense la rente, si bien que la planète dans son ensemble ne se découple pas.
-  - author: jacques-ellul
-    position: 8
-    work: ellul-1988
-    text:
-      en: Decoupling is a technical promise that announces its benefits and stays silent about the problems it will create. Efficiency feeds a technological system that grows by its own logic, and no one steers it toward a limit.
-      fr: Le découplage est une promesse technique qui annonce ses bienfaits et tait les problèmes qu'elle créera. L'efficacité alimente un système technicien qui croît selon sa propre logique, et personne ne l'oriente vers une limite.
-  - author: yayo-herrero
-    position: 8
-    work: herrero-2021
-    text:
-      en: "Decoupling is not credible because growth accounting leaves out its own foundations: the ecosystems it draws down and the unpaid care work, mostly done by women, that keeps people alive. The task is to put sustaining life at the centre of the economy."
-      fr: Le découplage n'est pas crédible, car la comptabilité de la croissance laisse de côté ses propres fondements, à savoir les écosystèmes qu'elle épuise et le travail de soin gratuit, accompli surtout par des femmes, qui maintient les gens en vie. Il s'agit de placer la préservation de la vie au centre de l'économie.
-  - author: murray-bookchin
-    position: 8
-    work: bookchin-1982
-    text:
-      en: A grow-or-die market economy cannot respect limits for long, so decoupling fails as a technical fix. The ecological crisis comes from hierarchy and competition. Only directly democratic municipalities that decide what to produce and why can bring the economy back into balance with nature.
-      fr: Une économie de marché soumise à l'alternative croître ou mourir ne peut respecter longtemps des limites, et le découplage échoue donc comme solution technique. La crise écologique vient de la hiérarchie et de la concurrence. Seules des municipalités en démocratie directe, décidant quoi produire et pourquoi, peuvent ramener l'économie en équilibre avec la nature.
-  - author: john-bellamy-foster
-    position: 8
-    work: foster-2010
-    text:
-      en: Decoupling mistakes a social rupture for a technical ratio. Capital accumulation widens the metabolic rift between society and the earth, and efficiency gains under a growth imperative expand throughput. Staying within planetary boundaries requires transforming social relations of production.
-      fr: Le découplage prend une rupture sociale pour un ratio technique. L'accumulation du capital élargit la rupture métabolique entre la société et la terre, et sous l'impératif de croissance les gains d'efficacité accroissent les flux. Rester dans les limites planétaires exige de transformer les rapports sociaux de production.
+      en: Opposed. Reactors are products whose consequences, such as waste outlasting any state and accidents beyond any town, outrun human capacity to imagine and feel. Civil and military atoms are one technology. Building more widens the Promethean gap, and fear of the atom shows foresight, not excess.
+      fr: Contre. Les réacteurs sont des produits dont les conséquences, des déchets qui survivent à tout État et des accidents qui débordent toute ville, dépassent notre capacité d'imaginer et de ressentir. Atome civil et atome militaire sont une seule et même technique. En construire davantage creuse le décalage prométhéen, et la peur de l'atome relève de la prévoyance, non de l'excès.
   - author: andre-gorz
-    position: 8
+    position: 12
     work: gorz-1975
     text:
-      en: Decoupling, even if possible, leaves untouched who decides what is produced and why. Growth serves capital's valorisation and is steered by experts. The answer is sufficiency, a common norm of enough set by those concerned, together with tools people can understand and control.
-      fr: Le découplage, même s'il était possible, laisse intacte la question de savoir qui décide quoi produire et pourquoi. La croissance sert la valorisation du capital et elle est pilotée par des experts. La réponse est la suffisance, une norme commune du suffisant fixée par les intéressés, avec des outils que chacun peut comprendre et maîtriser.
-  - author: maria-mies
-    position: 8
-    work: mies-1986
-    text:
-      en: Opposed. Growth rests on unpaid work by women, peasants and colonies, which it treats as free like air and water. What looks like decoupling in Northern statistics moves the damage onto them. The alternative is an economy built around producing life.
-      fr: Contre. La croissance repose sur le travail non rémunéré des femmes, des paysans et des colonies, qu'elle tient pour gratuit comme l'air et l'eau. Ce qui ressemble à un découplage dans les statistiques du Nord reporte les dégâts sur eux. L'alternative est une économie organisée autour de la production de la vie.
-  - author: maristella-svampa
-    position: 8
-    work: svampa-2013
-    text:
-      en: Decoupling measured in importing economies hides displaced extraction. Under the commodities consensus, governments of left and right expanded mining, soy and oil exports, so Northern efficiency depends on Southern frontiers. Growth stays coupled to territories, not decoupled from damage.
-      fr: Le découplage mesuré dans les économies importatrices cache une extraction déplacée. Sous le consensus des commodities, des gouvernements de gauche comme de droite ont développé les exportations minières, de soja et de pétrole, si bien que l'efficacité du Nord dépend des frontières du Sud. La croissance reste couplée aux territoires, non découplée des dégâts.
-  - author: andreas-malm
-    position: 10
-    work: malm-2016
-    text:
-      en: Emissions grow out of fossil capital, which a class of owners chose in order to control labour. Market efficiency will not decouple growth from warming fast enough. Only a political fight that forces fossil assets to be retired could cut emissions at the speed required.
-      fr: Les émissions naissent du capital fossile, qu'une classe de propriétaires a choisi pour contrôler le travail. L'efficacité marchande ne découplera pas la croissance du réchauffement assez vite. Seule une lutte politique qui impose le retrait des actifs fossiles pourrait réduire les émissions au rythme requis.
-  - author: arne-naess
+      en: New reactors lock energy choices into a centralized, secretive, expert-run apparatus that citizens cannot understand or control. Abundant power without a shared norm of sufficiency only feeds capitalist growth. The first question is how much energy is enough, and who decides.
+      fr: Les nouveaux réacteurs enferment les choix énergétiques dans un appareil centralisé, opaque et dirigé par des experts, que les citoyens ne peuvent ni comprendre ni contrôler. Une énergie abondante sans norme commune de suffisance ne fait qu'alimenter la croissance capitaliste. La première question est de savoir combien d'énergie suffit, et qui en décide.
+  - author: murray-bookchin
     position: 12
+    work: bookchin-1971
+    text:
+      en: Nuclear power ties energy to a centralized state, an expert caste and secrecy that no citizens' assembly can govern. The crisis comes from hierarchy and a grow-or-die economy. The remedy is human-scale renewable technics run by federated municipalities.
+      fr: Le nucléaire lie l'énergie à un État centralisé, à une caste d'experts et à un secret qu'aucune assemblée de citoyens ne peut gouverner. La crise naît de la hiérarchie et d'une économie qui doit croître ou mourir. Le remède, ce sont des techniques renouvelables à taille humaine, gérées par des municipalités fédérées.
+  - author: jacques-ellul
+    position: 12
+    work: ellul-1988
+    text:
+      en: A reactor fleet is a choice of system, not of tool. It brings centralisation, experts, secrecy, policing and waste that lasts for millennia. Politics then adapts to the system. Counting only the carbon saved hides the new problems that each technical fix creates.
+      fr: Un parc de réacteurs est le choix d'un système, non d'un outil. Il entraîne centralisation, experts, secret, surveillance policière et déchets qui durent des millénaires. La politique s'adapte alors au système. Ne compter que le carbone économisé masque les problèmes nouveaux que crée chaque solution technique.
+  - author: starhawk
+    position: 12
+    work: starhawk-1987
+    text:
+      en: "New reactors would extend power-over: centralized, secretive, expert-run energy imposed on communities without their consent. Energy should come from power-within and power-with, local and shared systems that people can understand, govern and refuse."
+      fr: "De nouveaux réacteurs prolongeraient le pouvoir-sur : une énergie centralisée, opaque, pilotée par des experts et imposée aux communautés sans leur consentement. L'énergie devrait naître du pouvoir-du-dedans et du pouvoir-avec, de systèmes locaux et partagés que chacun peut comprendre, gouverner et refuser."
+  - author: malcom-ferdinand
+    position: 20
+    work: ferdinand-2019
+    text:
+      en: The case against rests on analogy, not on anything this work says about reactors. A French fleet runs on uranium mined in Niger and Gabon and carries a legacy of atomic tests in Polynesia. Low-carbon power for the metropole that pushes the costs onto others is still colonial inhabitation.
+      fr: L'opposition repose sur une analogie, non sur ce que cette œuvre dit des réacteurs. Un parc français fonctionne avec de l'uranium extrait au Niger et au Gabon et porte l'héritage des essais atomiques en Polynésie. Une énergie bas carbone pour la métropole qui reporte ses coûts sur d'autres reste une habitation coloniale.
+  - author: michael-lowy
+    position: 22
+    work: lowy-2011
+    text:
+      en: Opposed. New reactors keep productivism and centralised technocratic control intact. The emergency brake means cutting useless production first. Energy needs should be set by democratic ecological planning according to real needs, not locked in by the state and industry for profit.
+      fr: Contre. Les nouveaux réacteurs préservent le productivisme et le contrôle technocratique centralisé. Le frein d'urgence suppose de supprimer d'abord la production inutile. Les besoins énergétiques doivent être fixés par une planification écologique démocratique selon les besoins réels, non figés par l'État et l'industrie au nom du profit.
+  - author: arne-naess
+    position: 22
     work: naess-1973
     text:
-      en: Decoupling is shallow ecology. It asks how to pollute less per unit of output and never asks why rich societies need ever more output. Staying within limits takes a life rich in ends and simple in means, and room for other beings to unfold.
-      fr: Le découplage relève de l'écologie superficielle. Il demande comment polluer moins par unité produite, sans jamais demander pourquoi les sociétés riches ont besoin de produire toujours plus. Rester dans les limites exige une vie riche par ses fins et simple par ses moyens, et de la place pour que les autres êtres s'épanouissent.
-  - author: timothy-morton
-    position: 15
-    work: morton-2013
-    text:
-      en: Decoupling pictures the economy here and Nature over there, as if they could be pulled apart. Global warming is a hyperobject that everything already sits inside, economies included. Nothing exists outside it to decouple into, so the claim depends on a picture ecological thought has to give up.
-      fr: Le découplage imagine l'économie ici et la Nature là-bas, comme si l'on pouvait les séparer. Le réchauffement climatique est un hyperobjet dans lequel tout se trouve déjà, économies comprises. Il n'existe aucun dehors vers lequel se découpler, et la thèse repose donc sur une image que la pensée écologique doit abandonner.
-  - author: james-lovelock
-    position: 15
-    work: lovelock-2006
-    text:
-      en: Decoupling comes too late. Earth is one self-regulating system with nonlinear feedbacks, and the total load on it keeps rising. It may jump to a hotter state whatever national accounts show. The task is a planned retreat powered by nuclear energy, not more growth.
-      fr: Le découplage arrive trop tard. La Terre est un seul système autorégulé aux rétroactions non linéaires, et la charge totale qui pèse sur elle ne cesse d'augmenter. Elle peut basculer vers un état plus chaud quoi que disent les comptes nationaux. Il faut une retraite planifiée, alimentée par le nucléaire, et non davantage de croissance.
-  - author: pierre-charbonnier
-    position: 22
-    work: charbonnier-2020
-    text:
-      en: "Decoupling is doubtful because it keeps the modern bargain that tied freedom to abundant land, colonies and fossil energy. Clean energy put in place of coal leaves that dependence unexamined. The decisive task is political: finding a freedom that does not rest on material expansion."
-      fr: Le découplage est douteux, car il reconduit le pacte moderne qui liait la liberté à l'abondance des terres, aux colonies et à l'énergie fossile. Remplacer le charbon par une énergie propre laisse cette dépendance intacte. La tâche décisive est politique, trouver une liberté qui ne repose pas sur l'expansion matérielle.
-  - author: kate-raworth
+      en: New reactors answer only the shallow question of how to supply growing demand with less carbon. The deep question is why rich societies need so much energy. Reducing consumption and keeping technology local and on a human scale come before any new centralised, high-risk plants.
+      fr: "Les nouveaux réacteurs ne répondent qu'à la question superficielle : comment satisfaire une demande croissante avec moins de carbone. La question profonde est de savoir pourquoi les sociétés riches ont besoin de tant d'énergie. Réduire la consommation et garder des techniques locales, à échelle humaine, passe avant toute nouvelle centrale centralisée à haut risque."
+  - author: joan-martinez-alier
     position: 25
-    work: raworth-2017
+    work: martinez-alier-2002
     text:
-      en: Several planetary boundaries are already overshot, so decoupling would have to be absolute, cover all boundaries and happen fast, and that has not been shown. Rich economies should be designed to thrive whether or not they grow, so the goal does not depend on decoupling.
-      fr: Plusieurs limites planétaires sont déjà dépassées, donc le découplage devrait être absolu, couvrir toutes les limites et se faire vite, ce qui n'a pas été démontré. Les économies riches doivent être conçues pour prospérer qu'elles croissent ou non, afin que l'objectif ne dépende pas du découplage.
+      en: Opposed as framed. Judging reactors by carbon and kilowatt-hours alone hides the ecological distribution conflicts at the uranium mines and waste sites. Communities in places like Niger carry those burdens. Their languages of value and France's ecological debt must count before anything is built.
+      fr: Contre, telle que la question est posée. Juger les réacteurs au seul carbone et aux kilowattheures masque les conflits écologiques distributifs autour des mines d'uranium et des sites de déchets. Des communautés, au Niger par exemple, en portent le poids. Leurs langages de valorisation et la dette écologique de la France doivent compter avant toute construction.
+  - author: eduardo-gudynas
+    position: 25
+    work: gudynas-2015
+    text:
+      en: Opposed unless the whole chain is counted. French reactors rest on uranium exported raw from places like Niger, which is extractivism that shapes the exporting society. Low-carbon claims and small land footprints leave out the mines, so the case for new reactors is incomplete.
+      fr: Contre, à moins de compter toute la chaîne. Les réacteurs français reposent sur de l'uranium exporté brut depuis des pays comme le Niger, un extractivisme qui façonne la société exportatrice. Les arguments bas carbone et les faibles emprises au sol oublient les mines, si bien que le plaidoyer pour de nouveaux réacteurs reste incomplet.
+  - author: hans-jonas
+    position: 30
+    work: jonas-1979
+    text:
+      en: Technology able to change the conditions of life calls for weighting the bad prognosis over the good. Reactors leave millennial waste to people who cannot consent. Climate risk cuts both ways, but swapping one irreversible danger for another is not responsibility.
+      fr: Une technique capable de modifier les conditions de la vie impose de donner plus de poids au pronostic défavorable qu'au favorable. Les réacteurs laissent des déchets millénaires à des générations qui ne peuvent y consentir. Le risque climatique joue dans les deux sens, mais troquer un danger irréversible contre un autre n'est pas faire preuve de responsabilité.
+  - author: jason-hickel
+    position: 35
+    work: hickel-2020
+    text:
+      en: Reactors answer the wrong question first. A rich country already over its fair share of planetary boundaries should cut less necessary production and energy demand. That speeds decarbonisation, needs fewer new plants, and takes fewer resources from the South. Green growth through clean supply alone is not supported by evidence.
+      fr: Les réacteurs répondent d'abord à la mauvaise question. Un pays riche qui dépasse déjà sa juste part des limites planétaires devrait réduire la production et la demande d'énergie les moins nécessaires. Cela accélère la décarbonation, exige moins de nouvelles centrales et prélève moins de ressources au Sud. Rien ne vient étayer une croissance verte fondée sur la seule offre propre.
   - author: robyn-eckersley
-    position: 25
+    position: 35
     work: eckersley-2004
     text:
-      en: Decoupling fast enough is doubtful, and markets will not deliver it on their own. Ecological limits can only be set and enforced by a transformed state, one answerable to everyone its decisions affect, including people not yet born and other species.
-      fr: Un découplage assez rapide est douteux, et les marchés ne le produiront pas d'eux-mêmes. Les limites écologiques ne peuvent être fixées et imposées que par un État transformé, responsable devant tous ceux que ses décisions affectent, y compris les générations à naître et les autres espèces.
-  - author: johan-rockstrom
-    position: 30
-    work: rockstrom-2009
+      en: New reactors are acceptable only if decided through transparent, precautionary, transboundary deliberation that answers to everyone affected, including future generations who inherit the waste. A closed technocratic build programme fails that democratic test. The state must be transformed, not bypassed, to carry such long-lived burdens.
+      fr: De nouveaux réacteurs ne sont acceptables que s'ils sont décidés au terme d'une délibération transparente, prudente et transfrontalière, qui rende compte à tous les concernés, y compris aux générations futures qui hériteront des déchets. Un programme de construction technocratique et fermé échoue à cette épreuve démocratique. Il faut transformer l'État, non le contourner, pour qu'il porte des charges aussi durables.
+  - author: pope-francis
+    position: 40
+    work: francis-2015
     text:
-      en: Decoupling counts only if absolute pressures fall back inside all nine boundaries together, several of them already transgressed, before nonlinear thresholds are crossed. Carbon-only gains or shifting pressure between Earth processes do not pass that test, so the claim remains unproven and doubtful.
-      fr: Le découplage ne compte que si les pressions absolues repassent sous les neuf limites à la fois, dont plusieurs déjà franchies, avant que des seuils non linéaires ne soient atteints. Des gains limités au carbone, ou une pression déplacée d'un processus terrestre à l'autre, ne passent pas ce test, si bien que la thèse reste non démontrée et douteuse.
+      en: Leaving fossil fuels is urgent, but new reactors are no substitute for sobriety and changed lifestyles. They can be accepted only with transparent dialogue, precaution about waste left to future generations, and justice for the poor communities that mine uranium.
+      fr: Sortir des énergies fossiles est urgent, mais de nouveaux réacteurs ne remplacent ni la sobriété ni le changement des modes de vie. Ils ne peuvent être acceptés qu'avec un dialogue transparent, de la précaution quant aux déchets laissés aux générations futures et de la justice pour les communautés pauvres qui extraient l'uranium.
+  - author: jean-baptiste-fressoz
+    position: 50
+    work: fressoz-2024
+    text:
+      en: New reactors are neither the answer nor the problem on their own. Energy sources have always added to one another rather than replaced each other, so nuclear only matters if fossil combustion is cut on purpose. Without that cut, nuclear is one more layer on the pile.
+      fr: Les nouveaux réacteurs ne sont en eux-mêmes ni la solution ni le problème. Les sources d'énergie se sont toujours additionnées au lieu de se remplacer, si bien que le nucléaire ne compte que si l'on réduit délibérément la combustion fossile. Sans cette réduction, il n'est qu'une couche de plus sur la pile.
+  - author: timothy-morton
+    position: 50
+    work: morton-2013
+    text:
+      en: Spent fuel and global warming are both hyperobjects, vast in time, and neither can be thrown away. The choice is not between dirty power and a pristine Nature. It is a choice about which hyperobjects to live inside, so no outright endorsement or opposition follows.
+      fr: Le combustible usé et le réchauffement climatique sont deux hyperobjets, immenses dans le temps, et aucun des deux ne peut être jeté. Le choix ne se fait pas entre une énergie sale et une Nature intacte. Il porte sur les hyperobjets dans lesquels vivre, si bien qu'il n'en découle ni adhésion ni opposition franche.
+  - author: bruno-latour
+    position: 50
+    work: latour-1999
+    text:
+      en: "Reactors are neither salvation nor sin. Once built, they must be cared for, not abandoned. The decision should give a voice to everything they bind France to: the mines, the rivers that cool them, and the waste. The test is whether they keep the country attached to a habitable ground."
+      fr: "Les réacteurs ne sont ni un salut ni un péché. Une fois construits, il faut en prendre soin, non les abandonner. La décision doit donner voix à tout ce à quoi ils lient la France : les mines, les rivières qui les refroidissent et les déchets. Le critère est de savoir s'ils maintiennent le pays attaché à un sol habitable."
+  - author: andreas-malm
+    position: 50
+    work: malm-2016
+    text:
+      en: Neutral by analogy, since the work does not address nuclear power. What matters is dismantling fossil capital. New reactors count only if they actually push fossil combustion out of transport, heating and industry. If they are simply added on top, they fail that test.
+      fr: Neutre par analogie, puisque l'œuvre ne traite pas du nucléaire. Ce qui compte, c'est de démanteler le capital fossile. Les nouveaux réacteurs ne valent que s'ils chassent réellement la combustion fossile des transports, du chauffage et de l'industrie. S'ils viennent simplement s'y ajouter, ils échouent à ce critère.
+  - author: william-nordhaus
+    position: 62
+    work: w-nordhaus-2008
+    text:
+      en: New reactors are justified only if they cut emissions more cheaply than the alternatives under a carbon price that rises with marginal damage. Without that price, extra supply just adds to fossil use. A blanket mandate or ban skips the cost-benefit balance.
+      fr: Les nouveaux réacteurs ne se justifient que s'ils réduisent les émissions à moindre coût que les autres options, sous un prix du carbone qui suit le dommage marginal. Sans ce prix, l'offre supplémentaire s'ajoute simplement aux fossiles. Une obligation ou une interdiction générale court-circuite la pesée des coûts et des bénéfices.
   - author: edward-o-wilson
-    position: 45
+    position: 65
     work: wilson-2016
     text:
-      en: Growth is not the enemy in itself. Decoupling counts only if it stops habitat loss, the main driver of extinction. Carbon cuts and land sparing are not enough on their own. Half of the land and sea must be formally set aside for the rest of life.
-      fr: La croissance n'est pas l'ennemie en soi. Le découplage ne compte que s'il arrête la perte d'habitats, principale cause d'extinction. Réduire le carbone et épargner des terres ne suffit pas à lui seul. La moitié des terres et des mers doit être formellement réservée au reste du vivant.
+      en: Conditional endorsement, reasoned by analogy. Reactors make a lot of power on little land, and habitat loss drives extinction. The land they spare only helps other species if it is legally protected as large, connected wild reserves.
+      fr: Adhésion conditionnelle, raisonnée par analogie. Les réacteurs produisent beaucoup d'énergie sur peu de terrain, et la perte d'habitat est le moteur des extinctions. Le terrain épargné ne profite aux autres espèces que s'il est protégé par la loi sous forme de grandes réserves sauvages reliées entre elles.
+  - author: roger-scruton
+    position: 68
+    work: scruton-2012
+    text:
+      en: New reactors are acceptable, reasoning by analogy. They take little land and spare the loved countryside that wind farms would cover. They must be built with the consent of their host towns, not imposed by a central plan.
+      fr: De nouveaux réacteurs sont acceptables, par analogie. Ils occupent peu de terrain et épargnent la campagne aimée que couvriraient les éoliennes. Ils doivent être construits avec l'accord des communes qui les accueillent, non imposés par un plan central.
+  - author: pascal-bruckner
+    position: 85
+    work: bruckner-2011
+    text:
+      en: New reactors should be endorsed. Fear of the atom is catastrophism that treats every risk as an apocalypse, and calls for sobriety turn ecology into penance. Abundant low-carbon power is progress that serves human emancipation, and rich and poor societies alike benefit from it.
+      fr: Il faut soutenir les nouveaux réacteurs. La peur de l'atome est un catastrophisme qui fait de chaque risque une apocalypse, et les appels à la sobriété transforment l'écologie en pénitence. Une énergie abondante et bas carbone est un progrès au service de l'émancipation humaine, dont profitent les sociétés riches comme les pauvres.
   - author: stewart-brand
-    position: 70
+    position: 88
     work: brand-2009
     text:
-      en: Decoupling is possible if environmentalists accept dense cities, nuclear power, genetic engineering and, if needed, geoengineering. Each technology should be judged by its measured climate effects. Rejecting these tools on principle is what makes decoupling too slow.
-      fr: Le découplage est possible si les écologistes acceptent les villes denses, le nucléaire, le génie génétique et, au besoin, la géo-ingénierie. Chaque technologie doit être jugée sur ses effets mesurés sur le climat. C'est le refus de principe de ces outils qui rend le découplage trop lent.
-  - author: ted-nordhaus
-    position: 75
-    work: nordhaus-2015
+      en: Energy sources should be judged by their measured effects on the climate, not by their reputation. Reactors provide steady, low-carbon power on little land. France's grid has already shown that they can displace fossil fuels, so building more reactors is the right course.
+      fr: Il faut juger les sources d'énergie à leurs effets mesurés sur le climat, non à leur réputation. Les réacteurs fournissent une électricité stable et bas carbone sur peu de terrain. Le réseau français a déjà montré qu'ils peuvent évincer les fossiles; construire davantage de réacteurs est donc la bonne voie.
+  - author: james-lovelock
+    position: 90
+    work: lovelock-2006
     text:
-      en: Decoupling is achievable but only if it is built on purpose. Denser cities, intensive farming and nuclear and other clean energy let human welfare use less land and leave more to nature. A politics of prosperity and investment, not limits, is what makes it fast.
-      fr: Le découplage est possible, mais seulement s'il est construit délibérément. Des villes plus denses, une agriculture intensive, le nucléaire et d'autres énergies propres permettent au bien-être humain d'occuper moins de terres et d'en laisser davantage à la nature. C'est une politique de prospérité et d'investissement, non de limites, qui le rend rapide.
+      en: France should build new reactors because carbon already in the air is the larger and more lasting danger. A planned retreat needs dense, steady, low-carbon power. That power must replace fossil fuel use, not add to it, and waste that can be contained is the lesser burden.
+      fr: La France devrait construire de nouveaux réacteurs, car le carbone déjà présent dans l'air est le danger le plus grand et le plus durable. Une retraite planifiée exige une énergie dense, stable et bas carbone. Cette énergie doit remplacer les usages fossiles, non s'y ajouter, et des déchets que l'on peut confiner sont le moindre fardeau.
   - author: michael-shellenberger
-    position: 80
+    position: 92
     work: shellenberger-2020
     text:
-      en: Decoupling is achievable when societies choose dense energy, especially nuclear, along with intensive farming and urbanization. National transitions such as France's show that substitution is possible. Degrowth would hurt the poor most, so prosperity through technology, not restraint, protects nature.
-      fr: Le découplage est possible quand les sociétés choisissent une énergie dense, en particulier le nucléaire, avec l'agriculture intensive et l'urbanisation. Des transitions nationales comme celle de la France montrent que la substitution est possible. La décroissance frapperait d'abord les pauvres, et c'est donc la prospérité par la technique, non la sobriété, qui protège la nature.
+      en: New French reactors should be built. Nuclear power supplies abundant, reliable, low-carbon energy on little land, and France's grid shows it displaces fossil fuels. Fear of waste and accidents is alarmism that keeps deadlier fossil plants running. Prosperity through technology, not restraint, protects nature.
+      fr: Il faut construire de nouveaux réacteurs en France. Le nucléaire fournit une énergie abondante, fiable et bas carbone sur peu de terrain, et le réseau français montre qu'il évince les fossiles. La peur des déchets et des accidents relève d'un alarmisme qui maintient en service des centrales fossiles plus meurtrières. C'est la prospérité par la technique, non la restriction, qui protège la nature.
 silent: []

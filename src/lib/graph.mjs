@@ -83,17 +83,14 @@ export function layoutRing(corpus) {
     const b = pos.get(l.to);
     let d = Math.abs(a.angle - b.angle) % (2 * Math.PI);
     if (d > Math.PI) d = 2 * Math.PI - d;
-    const k = 0.92 - 0.82 * (d / Math.PI); // near ends: shallow; opposite ends: through the centre
+    const k = 0.86 - 0.76 * (d / Math.PI); // near ends: shallow; opposite ends: through the centre
     const c1 = [C + (a.x - C) * k, C + (a.y - C) * k];
     const c2 = [C + (b.x - C) * k, C + (b.y - C) * k];
-    const shorten = (p, q, by) => {
-      const dx = p[0] - q[0];
-      const dy = p[1] - q[1];
-      const len = Math.hypot(dx, dy) || 1;
-      return [p[0] - (dx / len) * by, p[1] - (dy / len) * by];
-    };
-    const start = shorten([a.x, a.y], c1, a.r + (l.type === 'dialogue' ? 8 : 2));
-    const end = shorten([b.x, b.y], c2, b.r + (l.type === 'critiqued' ? 4 : 8));
+    // Threads stop inside the coloured arc of each school, so the arrowheads
+    // sit in the open, just before the arc, never under it or under a leaf.
+    const inner = R - 25;
+    const start = at(a.angle, inner);
+    const end = at(b.angle, inner);
     const curve = `M${round(start[0])} ${round(start[1])}C${round(c1[0])} ${round(c1[1])} ${round(c2[0])} ${round(c2[1])} ${round(end[0])} ${round(end[1])}`;
     if (l.type !== 'critiqued') return { link: l, d: curve };
     // A critique is drawn as a row of small crosses along the same curve.

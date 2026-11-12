@@ -59,8 +59,10 @@ on:
 permissions:
   contents: read
 
+# One queue per claim: different claims run side by side, the same claim never
+# twice at once. Storing retries when two runs finish together.
 concurrency:
-  group: clearing-run
+  group: clearing-run-${{ inputs.claim }}
   cancel-in-progress: false
 
 jobs:
@@ -201,25 +203,30 @@ jobs:
           name: clearing-run
           path: ${{ runner.temp }}/clearing-run
 
-      # Takes the next free number if another run was stored since this one
-      # started (both counted from the same commit).
-      - name: Put the run in the corpus
-        id: store
-        run: node clearing/store.mjs "$RUNNER_TEMP/clearing-run"
+      - name: Check the site builds with the run
+        run: |
+          node clearing/store.mjs "$RUNNER_TEMP/clearing-run"
+          npm run build
+          git checkout -- data && git clean -fdq data
 
-      - name: Check the corpus and build the site
-        run: npm run build
-
-      - name: Commit the run
-        env:
-          RUN_ID: ${{ steps.store.outputs.run_id }}
+      # Takes the next free number if another run was stored meanwhile; if
+      # another run is pushed between our fetch and our push, start again
+      # from the new state of the branch.
+      - name: Put the run in the corpus and commit it
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/clearing/runs
-          git commit -m "Add Clearing run $RUN_ID"
-          git pull --rebase origin "$DEFAULT_BRANCH"
-          git push origin "HEAD:$DEFAULT_BRANCH"
+          for attempt in 1 2 3 4 5 6; do
+            git fetch -q origin "$DEFAULT_BRANCH"
+            git reset -q --hard "origin/$DEFAULT_BRANCH"
+            RUN_ID=$(node clearing/store.mjs "$RUNNER_TEMP/clearing-run" | tail -n 1)
+            npm run validate
+            git add data/clearing/runs
+            git commit -q -m "Add Clearing run $RUN_ID"
+            if git push -q origin "HEAD:$DEFAULT_BRANCH"; then echo "stored as $RUN_ID"; exit 0; fi
+            sleep $((attempt * 10))
+          done
+          echo "::error::could not push the run after six attempts"; exit 1
 
       - name: Rebuild the site
         env:

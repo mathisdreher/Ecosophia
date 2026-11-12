@@ -5,91 +5,15 @@ runId: clr-0004
 status: published
 date: 2026-11-12
 claim:
-  en: France should build new nuclear reactors.
-  fr: La France devrait construire de nouveaux réacteurs nucléaires.
+  en: Capitalism can be reformed to respect ecological limits.
+  fr: Le capitalisme peut être réformé pour respecter les limites écologiques.
 question:
-  id: nouveau-nucleaire
-  measures:
-    - id: lfi-2026-nucleaire
-      stance: against
-      party:
-        short: LFI
-        name: La France insoumise
-      programme:
-        title: L'Avenir en commun – Le programme de la Nouvelle France (édition 2027)
-        year: 2026
-        url: https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3/
-      locator: Partie 1, chapitre 3, « Organiser le 100 % d’énergies renouvelables »
-      quote: Planifier la fermeture progressive des centrales nucléaires existantes en ne prolongeant pas au-delà de 60 ans leur durée de vie et arrêter le programme de nouveau nucléaire (EPR2)
-    - id: eco-2026-nucleaire
-      stance: against
-      party:
-        short: Les Écologistes
-        name: Les Écologistes (Europe Écologie Les Verts)
-      programme:
-        title: Pour une prospérité écologique – Le nouveau programme des Écologistes (Projet 2027)
-        year: 2026
-        url: https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
-      locator: I. Garantir un monde habitable, chapitre 1 « Gagner la bataille du climat », proposition 7
-      quote: Planifier la sortie du nucléaire. Mettre fin aux nouveaux programmes EPR-2 et SMR extrêmement dispendieux. Planifier l’arrêt progressif du parc constitué de centrales vieillissantes dont la mise hors service doit être étalée sur une vingtaine d’années.
-    - id: ps-2026-nucleaire
-      stance: partly
-      party:
-        short: PS
-        name: Parti socialiste
-      programme:
-        title: Le Projet socialiste – Vivre libres
-        year: 2026
-        url: https://projet-socialiste.fr/projet/vivre-libres/
-      locator: Vivre libres, chapitre 3, « Produire de l’énergie propre, sûre et bon marché »
-      quote: Ce mix devra s’appuyer sur le parc nucléaire historique, qui sera partiellement renouvelé, ainsi que sur le développement des énergies renouvelables.
-    - id: pcf-2022-mix-energetique
-      stance: partly
-      party:
-        short: PCF
-        name: Parti communiste français
-      programme:
-        title: Fabien Roussel – La France des Jours heureux, le programme (document 8 pages, présidentielle 2022)
-        year: 2022
-        url: https://assets.nationbuilder.com/pcf/pages/13815/attachments/original/1643123394/document_-_exe_8p_programme_stc.pdf?1643123394
-      locator: Objectifs pour l’humain et la planète d’abord, 4 « Pour l’emploi et le climat, je lancerai un grand plan de réindustrialisation de la France » (p. 3 du PDF)
-      quote: Un mix énergétique nucléaire et renouvelable ; un service public avec EDF et Engie renationalisés.
-    - id: ens-2024-nouveaux-reacteurs
-      stance: for
-      party:
-        short: Ensemble
-        name: Renaissance (Ensemble pour la République)
-      programme:
-        title: Ensemble pour la République – Notre projet (législatives 2024)
-        year: 2024
-        url: https://doc.ensemble-2024.fr/programme-legislatives-24.pdf
-      locator: « Ensemble pour protéger l’environnement ! » (p. 10 du PDF)
-      quote: Nous mettrons en chantier 14 nouveaux réacteurs nucléaires pour assurer l’indépendance énergétique de la France et aller vers une économie sans carbone.
-    - id: rn-2024-relance-nucleaire
-      stance: for
-      party:
-        short: RN
-        name: Rassemblement national
-      programme:
-        title: Bardella Premier ministre – Un projet, une méthode (législatives 2024)
-        year: 2024
-        url: https://rassemblementnational.fr/documents/202406-programme.pdf
-      locator: Le besoin de projection, 2 « Refaire de la France un paradis énergétique respectant la trajectoire de l’accord de Paris »
-      quote: Lancer le plan Marie Curie de relance du nucléaire (EPR, SMR, réacteurs à neutrons rapides)
-    - id: lr-2026-nucleaire-80-ans
-      stance: for
-      party:
-        short: LR
-        name: Les Républicains
-      programme:
-        title: "Nos propositions pour la France – Électricité : baisser la facture des Français, c’est possible !"
-        year: 2026
-        url: https://republicains.fr/wp-content/uploads/2026/05/LR_Electricite_vFF070626.pdf
-      locator: 01 « L’urgence de consolider nos atouts stratégiques », axe « Conserver une électricité décarbonée en consolidant nos atouts stratégiques » (propositions 1 et 2)
-      quote: en inscrivant les réacteurs existants dans une trajectoire d’exploitation à 80 ans (proposition 1), en assurant un pilotage rigoureux de la construction des nouveaux EPR2 dans le respect des délais et des coûts
+  id: capitalisme-reforme
+  kind: axiom
+  measures: []
 summary:
-  en: The line ran between agents judging reactors by carbon and land saved and agents judging them by who controls them and who bears the mines and waste, with a wide middle awaiting a prior condition. The Anthropocene branch split, with the Lovelock agent at 90 and the Fressoz and Latour agents at 50.
-  fr: "La ligne de partage séparait les agents qui jugeaient les réacteurs au carbone et au sol épargnés de ceux qui les jugeaient à leur contrôle et au poids des mines et des déchets, avec un large centre suspendu à une condition préalable. La branche Anthropocène s'est scindée : l'agent Lovelock à 90, les agents Fressoz et Latour à 50."
+  en: "The run split between six agents trusting prices, property rights or clean technology to steer markets and a majority holding that growth and accumulation defeat any reform. The surprise came from Degrowth: the Raworth agent closed at 42, beside the Rockström agent, while the Hickel and Kallis agents stayed at 10 and 12."
+  fr: "Le débat oppose six agents qui misent sur les prix, la propriété ou les technologies propres pour orienter les marchés à une majorité pour qui croissance et accumulation déjouent toute réforme. Surprise côté Décroissance : l'agent Raworth finit à 42, près de l'agent Rockström, quand les agents Hickel et Kallis restent à 10 et 12."
 engine:
   name: MiroFish
   commit: 7657031ac01184afe2cb220f5ee3545573b5e843
@@ -110,335 +34,335 @@ settings:
   estimateUsd: 1.99
 plan:
   model: claude-opus-5-5
-  note: The panel sets the main pro-nuclear voices against technocritical, anti-nuclear, degrowth and extractivism critics, with every branch represented early in the ranking. Two rounds let climate arguments and arguments about risk, democracy and extraction answer each other while keeping cost near 2 USD.
+  note: The ranking sets the main reformist voices (Nordhaus, ecomodernists, Pigou, Anderson, Scruton) against the strongest structural critics (Hickel, Foster, Saito, Bookchin), and covers every branch within the first fifteen. Two rounds let the decoupling and growth-imperative arguments meet directly at about 2 USD.
   rounds: 2
   ranked: 26
   trimmed: false
   reasons:
-    michael-shellenberger: Leading campaigner for nuclear power and co-author of the Ecomodernist Manifesto.
-    andre-gorz: Wrote against the French nuclear programme as a technology that imposes centralised, technocratic power.
-    james-lovelock: Gaia theorist who publicly backed nuclear power as the answer to global warming.
-    francoise-deaubonne: French ecofeminist and anti-nuclear activist who tied nuclear power to patriarchal domination.
-    jean-baptiste-fressoz: Historian who argues energy sources add up rather than replace each other, which bears on nuclear as a transition tool.
-    william-nordhaus: Climate economist whose carbon pricing framework judges low-carbon sources on cost.
-    murray-bookchin: Opposed nuclear power as centralised and hierarchical, against decentralised municipal energy.
-    hans-jonas: His imperative of responsibility addresses technologies with irreversible, long-term risks such as nuclear waste.
-    michael-lowy: Paris-based ecosocialist who rejects nuclear power within democratic ecological planning.
-    jason-hickel: Degrowth economist who argues for cutting energy use in rich countries rather than expanding supply.
-    malcom-ferdinand: French CNRS researcher on colonial inhabitation, relevant to uranium mining and nuclear tests in former colonies.
-    robyn-eckersley: Theorist of the green state, relevant to state-led energy projects like the French nuclear fleet.
-    timothy-morton: Uses radioactive waste as a central example of a hyperobject outlasting human time.
-    arne-naess: Founder of deep ecology who questioned large energy systems and growth in energy demand.
-    pope-francis: Laudato si condemns the technocratic paradigm while urging rapid decarbonisation.
-    edward-o-wilson: Half-Earth gives a land-use angle where compact energy sources may spare habitat.
-    stewart-brand: Former environmentalist who asked the movement to reverse its opposition to nuclear power.
-    gunther-anders: Philosopher of the nuclear age and the Promethean gap between human power and imagination.
-    jacques-ellul: French critic of the technological system and its self-justifying growth, including nuclear.
-    starhawk: Activist of the anti-nuclear blockades of the 1980s.
-    bruno-latour: French thinker of Gaia and the terrestrial, bearing on how to compose large technical choices.
-    andreas-malm: Analyst of fossil capital who prioritises speed of decarbonisation over energy purity.
-    pascal-bruckner: French essayist who defends progress and attacks anti-nuclear catastrophism.
-    joan-martinez-alier: Documents ecological distribution conflicts, including over uranium mining and waste sites.
-    eduardo-gudynas: Theorist of extractivism, relevant to the uranium supply chain in the Global South.
-    roger-scruton: Conservative view of rooted, local care for the home, relevant to siting and national energy.
+    william-nordhaus: Argues a carbon price inside growth models can align markets with climate limits, the core reformist case.
+    jason-hickel: Measures decoupling in rich countries and finds it insufficient under growth imperatives.
+    ted-nordhaus: Defends absolute decoupling through technology within a growing market economy.
+    john-bellamy-foster: His metabolic rift thesis holds that capital accumulation structurally breaks natural cycles.
+    kate-raworth: Doughnut economics sets an ecological ceiling and is agnostic on growth, a middle position on reform.
+    johan-rockstrom: Defined the planetary boundaries that give the claim its measurable ecological limits.
+    andre-gorz: Wrote directly on whether capitalism can absorb ecological constraints and on sufficiency.
+    murray-bookchin: Held that capitalism must grow or die and that ecology requires ending hierarchy.
+    robyn-eckersley: The Green State asks whether a growth-built state can regulate markets toward ecological limits.
+    eduardo-gudynas: Shows how extractivism persists under governments that promised reform, including progressive ones.
+    maria-mies: Argues accumulation rests on unpaid work of women, peasants and nature, which reform does not remove.
+    roger-scruton: Conservative case that markets, property and local attachment can support environmental care.
+    bill-devall: Explicitly contrasted reform environmentalism with deep environmentalism.
+    felix-guattari: Integrated world capitalism describes a system that absorbs and reshapes ecological concerns.
+    timothy-morton: Questions the framing of nature and limits that the reform debate assumes.
+    kohei-saito: Proposes degrowth communism and rejects green capitalism as a contradiction.
+    arthur-cecil-pigou: Originated the tax on external costs, the root of market-based environmental reform.
+    jean-baptiste-fressoz: Historical evidence that energy transitions have added sources rather than replaced them.
+    james-oconnor: Second contradiction theory says capital undermines its own natural conditions, prompting but limiting reform.
+    naomi-klein: Argues climate action is impossible within deregulated capitalism, while engaging policy reform.
+    terry-anderson: Free-market environmentalism holds that property rights protect nature better than regulation.
+    pope-francis: Laudato si condemns the technocratic paradigm and market faith from a religious standpoint.
+    nancy-fraser: Cannibal capitalism describes a system that consumes the natural conditions it does not pay for.
+    joan-martinez-alier: Ecological economics and distribution conflicts show costs shifted to the poor under growth.
+    giorgos-kallis: Develops degrowth as a research programme on why growth economies cannot respect limits.
+    michael-shellenberger: Ecomodernist case for nuclear power and abundance within market societies.
 counts:
   turns: 52
-  comments: 79
-  reactions: 92
+  comments: 76
+  reactions: 65
   interviews: 26
   declined: 0
   failed: 0
-  tokensIn: 648878
-  tokensOut: 43672
-  costUsd: 2.48
+  tokensIn: 642394
+  tokensOut: 36048
+  costUsd: 2.29
 positions:
   - branch: technocritique
-    score: 12
-    min: 8
-    max: 30
-    agents: 4
-  - branch: degrowth
-    score: 35
-    min: 35
-    max: 35
+    score: 10
+    min: 10
+    max: 10
     agents: 1
+  - branch: degrowth
+    score: 12
+    min: 10
+    max: 42
+    agents: 3
   - branch: social-ecology
+    score: 5
+    min: 5
+    max: 5
+    agents: 1
+  - branch: ecosocialism
+    score: 8
+    min: 5
+    max: 15
+    agents: 5
+  - branch: deep-ecology
+    score: 15
+    min: 15
+    max: 15
+    agents: 1
+  - branch: ecosophy
     score: 12
     min: 12
     max: 12
     agents: 1
-  - branch: ecosocialism
-    score: 36
-    min: 22
-    max: 50
-    agents: 2
-  - branch: deep-ecology
-    score: 65
-    min: 65
-    max: 65
-    agents: 1
-  - branch: ecosophy
-    score: 22
-    min: 22
-    max: 22
-    agents: 1
   - branch: anthropocene
-    score: 50
-    min: 50
-    max: 90
-    agents: 3
+    score: 34
+    min: 22
+    max: 45
+    agents: 2
   - branch: political-ecology
-    score: 30
-    min: 25
+    score: 27
+    min: 18
     max: 35
     agents: 2
   - branch: decolonial
-    score: 23
-    min: 20
-    max: 25
-    agents: 2
-  - branch: ecofeminism
-    score: 10
-    min: 8
+    score: 12
+    min: 12
     max: 12
-    agents: 2
+    agents: 1
+  - branch: ecofeminism
+    score: 5
+    min: 5
+    max: 5
+    agents: 1
   - branch: queer-ecology
-    score: 50
-    min: 50
-    max: 50
+    score: 25
+    min: 25
+    max: 25
     agents: 1
   - branch: counterpoint
-    score: 90
-    min: 88
-    max: 92
+    score: 80
+    min: 78
+    max: 82
     agents: 2
   - branch: market
-    score: 74
-    min: 62
-    max: 85
-    agents: 2
+    score: 80
+    min: 80
+    max: 82
+    agents: 3
   - branch: conservative
-    score: 54
-    min: 40
+    score: 47
+    min: 25
     max: 68
     agents: 2
 alliances:
   - title:
-      en: For, on dense low-carbon power
-      fr: Pour une énergie dense et décarbonée
+      en: For, markets corrected or steered
+      fr: Pour, des marchés corrigés ou orientés
     text:
-      en: Abundant, steady, low-carbon power on little land comes first, and fear of the atom does more harm than the waste. The Lovelock agent breaks from its Anthropocene branch, while still demanding fossil cuts.
-      fr: Une énergie abondante, stable et bas carbone sur peu de terrain prime, et la peur de l'atome nuit davantage que les déchets. L'agent Lovelock rompt avec sa branche Anthropocène, tout en exigeant la baisse des fossiles.
+      en: "Damage taxes, completed property rights or cheap clean technology can bring ecological costs into market economies. They split on the tool: the Pigou agent defended taxes against the Anderson agent's property rights."
+      fr: "Taxe sur les dommages, droits de propriété complets ou technologie propre bon marché feraient entrer les coûts écologiques dans le marché. Reste l'outil : l'agent Pigou défend la taxe face aux droits de propriété de l'agent Anderson."
     authors:
-      - michael-shellenberger
-      - stewart-brand
-      - james-lovelock
-      - pascal-bruckner
-  - title:
-      en: Conditional yes, land or price
-      fr: Oui sous condition, sol ou prix
-    text:
-      en: "Reactors are accepted only under a condition: protected wild reserves, consent of host towns, or a rising carbon price. The Nordhaus agent stands apart here from the Bruckner agent of its Market liberals branch."
-      fr: "Les réacteurs ne sont admis que sous condition : réserves sauvages protégées, accord des communes d'accueil ou prix du carbone croissant. L'agent Nordhaus se distingue ici de l'agent Bruckner, de sa branche Libéraux."
-    authors:
-      - roger-scruton
-      - edward-o-wilson
       - william-nordhaus
+      - arthur-cecil-pigou
+      - terry-anderson
+      - roger-scruton
+      - ted-nordhaus
+      - michael-shellenberger
   - title:
-      en: Undecided until a prior condition
-      fr: Suspendus à une condition préalable
+      en: Undecided, judged against boundaries
+      fr: Sans verdict, jugé aux limites planétaires
     text:
-      en: The reactor question comes second, after a deliberate cut in fossil combustion, lower demand or open deliberation. The Malm agent breaks from the Löwy agent of its Ecosocialism branch.
-      fr: La question des réacteurs vient après une baisse délibérée de la combustion fossile, une demande réduite ou une délibération ouverte. L'agent Malm se démarque de l'agent Löwy, de sa branche Écosocialisme.
+      en: Any reform is judged by whether it returns the economy inside planetary boundaries, ends growth dependence or transforms the state. The Raworth agent stands well apart from its Degrowth branch.
+      fr: Toute réforme se juge à sa capacité à ramener l'économie dans les limites planétaires, à sortir de la dépendance à la croissance ou à transformer l'État. L'agent Raworth s'écarte nettement de sa branche Décroissance.
     authors:
-      - jean-baptiste-fressoz
-      - andreas-malm
-      - bruno-latour
-      - timothy-morton
-      - pope-francis
+      - kate-raworth
+      - johan-rockstrom
       - robyn-eckersley
-      - jason-hickel
   - title:
-      en: Against, on centralised control
-      fr: Contre le pouvoir centralisé
+      en: Against, because of accumulation itself
+      fr: Contre, à cause de l'accumulation
     text:
-      en: A reactor fleet binds energy to a centralised, secretive, expert-run apparatus whose waste and risks outrun human control and consent. Sufficiency and local scale must come first.
-      fr: Un parc de réacteurs lie l'énergie à un appareil centralisé, opaque et piloté par des experts, dont les déchets et les risques échappent au contrôle et au consentement. La sobriété et l'échelle locale passent d'abord.
+      en: Profit rests on endless expansion and on unpaid nature, labour and care, so pricing or green reform moves the damage elsewhere rather than ending it.
+      fr: Le profit repose sur une expansion sans fin et sur une nature, un travail et un soin non payés, si bien que la tarification ou la réforme verte déplacent les dégâts sans y mettre fin.
     authors:
-      - andre-gorz
-      - francoise-deaubonne
+      - john-bellamy-foster
+      - kohei-saito
+      - james-oconnor
+      - nancy-fraser
+      - maria-mies
       - murray-bookchin
-      - michael-lowy
-      - arne-naess
-      - gunther-anders
-      - jacques-ellul
-      - starhawk
-      - hans-jonas
+      - andre-gorz
+      - naomi-klein
   - title:
-      en: Against, on mines abroad
-      fr: Contre, au nom des mines lointaines
+      en: Against, on the growth record
+      fr: Contre, au vu de l'histoire de la croissance
     text:
-      en: The low-carbon footprint is counted only inside France. It leaves out the uranium mines in Niger and Gabon, the tailings and the test atolls, so the costs fall on others.
-      fr: L'empreinte bas carbone n'est comptée qu'en France. Les mines d'uranium du Niger et du Gabon, leurs résidus et les atolls des essais restent hors du compte, aux dépens des autres.
+      en: No fast absolute decoupling, no past energy substitution, and extraction pushed onto the South. The Fressoz agent parts from the Rockström agent, its Anthropocene peer, by doubting the claim on history.
+      fr: Pas de découplage absolu rapide, pas de substitution énergétique dans le passé, et une extraction reportée sur le Sud. L'agent Fressoz se sépare de l'agent Rockström, de la même branche Anthropocène, en doutant au nom de l'histoire.
     authors:
-      - malcom-ferdinand
+      - jason-hickel
+      - giorgos-kallis
       - joan-martinez-alier
       - eduardo-gudynas
+      - jean-baptiste-fressoz
+  - title:
+      en: Against, on worldview and desire
+      fr: Contre, au nom du rapport au monde
+    text:
+      en: Prices and decoupling leave untouched the way nature is seen and desire is produced. The Pope Francis agent parts from the Scruton agent, its fellow Conservative, at 25 against 68.
+      fr: Les prix et le découplage laissent intacts le regard porté sur la nature et la production du désir. L'agent Pape François se sépare de l'agent Scruton, de la même branche conservatrice, à 25 contre 68.
+    authors:
+      - bill-devall
+      - felix-guattari
+      - pope-francis
+      - timothy-morton
 voices:
-  - author: francoise-deaubonne
-    position: 8
-    work: eaubonne-1974
+  - author: murray-bookchin
+    position: 5
+    work: bookchin-1982
     text:
-      en: Opposed. New reactors extend the patriarchal logic of limitless production that exhausts the earth just as it subjugates women. The remedy is less production, less centralized power and control over fertility taken back by those who carry life, not a bigger machine.
-      fr: Contre. Les nouveaux réacteurs prolongent la logique patriarcale de la production illimitée qui épuise la terre comme elle asservit les femmes. Le remède, c'est moins de production, moins de pouvoir centralisé et la maîtrise de la fécondité reprise par celles qui portent la vie, non une machine plus grosse.
-  - author: gunther-anders
-    position: 8
-    work: anders-1956
+      en: Capitalism is a grow-or-die economy, and the domination of nature comes from the domination of human by human. Carbon prices and property rights leave both in place. Only dissolving hierarchy through federated citizens' assemblies can bring society into balance with nature.
+      fr: Le capitalisme est une économie de croissance ou de mort, et la domination de la nature naît de la domination de l'homme par l'homme. Prix du carbone et droits de propriété laissent l'une et l'autre en place. Seule la dissolution de la hiérarchie par des assemblées citoyennes fédérées peut rétablir l'équilibre entre la société et la nature.
+  - author: maria-mies
+    position: 5
+    work: mies-1986
     text:
-      en: Opposed. Reactors are products whose consequences, such as waste outlasting any state and accidents beyond any town, outrun human capacity to imagine and feel. Civil and military atoms are one technology. Building more widens the Promethean gap, and fear of the atom shows foresight, not excess.
-      fr: Contre. Les réacteurs sont des produits dont les conséquences, des déchets qui survivent à tout État et des accidents qui débordent toute ville, dépassent notre capacité d'imaginer et de ressentir. Atome civil et atome militaire sont une seule et même technique. En construire davantage creuse le décalage prométhéen, et la peur de l'atome relève de la prévoyance, non de l'excès.
+      en: Opposed. Capital accumulates by treating nature, colonies and women's unpaid work as free resources. Reform cannot remove this appropriation because profit depends on it. Respecting limits requires an economy built around producing life, not commodities.
+      fr: Contre. Le capital accumule en traitant la nature, les colonies et le travail non rémunéré des femmes comme des ressources gratuites. Aucune réforme ne peut supprimer cette appropriation, car le profit en dépend. Respecter les limites exige une économie organisée autour de la production de la vie, et non des marchandises.
+  - author: kohei-saito
+    position: 5
+    work: saito-2022
+    text:
+      en: Capital has to grow, and its growth keeps reopening the metabolic rift between society and nature. Green reforms move the damage to other places or later times. Respecting limits needs degrowth communism, with abundance coming from the commons and free time.
+      fr: Le capital doit croître, et sa croissance ne cesse de rouvrir la rupture métabolique entre la société et la nature. Les réformes vertes déplacent les dégâts vers d'autres lieux ou les reportent à plus tard. Respecter les limites exige un communisme de décroissance, où l'abondance vient des communs et du temps libre.
+  - author: john-bellamy-foster
+    position: 6
+    work: foster-1999
+    text:
+      en: Opposed. The metabolic rift is built into the structure of capitalism, because accumulation rather than natural cycles governs production. Reforms such as pricing or intensification move the rift elsewhere instead of closing it. Respecting limits requires production for use under collective control of the social metabolism.
+      fr: Contre. La rupture métabolique est inscrite dans la structure du capitalisme, car c'est l'accumulation, et non les cycles naturels, qui gouverne la production. Les réformes comme la tarification ou l'intensification déplacent la rupture au lieu de la refermer. Respecter les limites exige une production pour l'usage, sous contrôle collectif du métabolisme social.
+  - author: nancy-fraser
+    position: 8
+    work: fraser-2022
+    text:
+      en: "Capitalism feeds on background conditions it does not pay for: nature, care work, public power and the wealth of colonised peoples. Reforms such as carbon pricing only move the damage from one of these conditions to another. Respecting limits requires changing the system."
+      fr: "Le capitalisme se nourrit de conditions d'arrière-plan qu'il ne paie pas : la nature, le travail de soin, la puissance publique et la richesse des peuples colonisés. Les réformes comme la tarification du carbone ne font que déplacer les dégâts de l'une de ces conditions vers une autre. Respecter les limites exige de changer de système."
+  - author: jason-hickel
+    position: 10
+    work: hickel-2020b
+    text:
+      en: The claim is opposed. Capitalism depends on growth, and no evidence shows GDP decoupling from material use and emissions fast enough to stay within planetary boundaries. Respecting limits requires planned degrowth in the rich North, which is a matter of justice toward the South.
+      fr: La thèse est rejetée. Le capitalisme dépend de la croissance, et rien ne montre que le PIB se découple de l'usage de matières et des émissions assez vite pour rester dans les limites planétaires. Respecter les limites exige une décroissance planifiée dans le Nord riche, ce qui relève de la justice envers le Sud.
   - author: andre-gorz
-    position: 12
+    position: 10
     work: gorz-1975
     text:
-      en: New reactors lock energy choices into a centralized, secretive, expert-run apparatus that citizens cannot understand or control. Abundant power without a shared norm of sufficiency only feeds capitalist growth. The first question is how much energy is enough, and who decides.
-      fr: Les nouveaux réacteurs enferment les choix énergétiques dans un appareil centralisé, opaque et dirigé par des experts, que les citoyens ne peuvent ni comprendre ni contrôler. Une énergie abondante sans norme commune de suffisance ne fait qu'alimenter la croissance capitaliste. La première question est de savoir combien d'énergie suffit, et qui en décide.
-  - author: murray-bookchin
-    position: 12
-    work: bookchin-1971
-    text:
-      en: Nuclear power ties energy to a centralized state, an expert caste and secrecy that no citizens' assembly can govern. The crisis comes from hierarchy and a grow-or-die economy. The remedy is human-scale renewable technics run by federated municipalities.
-      fr: Le nucléaire lie l'énergie à un État centralisé, à une caste d'experts et à un secret qu'aucune assemblée de citoyens ne peut gouverner. La crise naît de la hiérarchie et d'une économie qui doit croître ou mourir. Le remède, ce sont des techniques renouvelables à taille humaine, gérées par des municipalités fédérées.
-  - author: jacques-ellul
-    position: 12
-    work: ellul-1988
-    text:
-      en: A reactor fleet is a choice of system, not of tool. It brings centralisation, experts, secrecy, policing and waste that lasts for millennia. Politics then adapts to the system. Counting only the carbon saved hides the new problems that each technical fix creates.
-      fr: Un parc de réacteurs est le choix d'un système, non d'un outil. Il entraîne centralisation, experts, secret, surveillance policière et déchets qui durent des millénaires. La politique s'adapte alors au système. Ne compter que le carbone économisé masque les problèmes nouveaux que crée chaque solution technique.
-  - author: starhawk
-    position: 12
-    work: starhawk-1987
-    text:
-      en: "New reactors would extend power-over: centralized, secretive, expert-run energy imposed on communities without their consent. Energy should come from power-within and power-with, local and shared systems that people can understand, govern and refuse."
-      fr: "De nouveaux réacteurs prolongeraient le pouvoir-sur : une énergie centralisée, opaque, pilotée par des experts et imposée aux communautés sans leur consentement. L'énergie devrait naître du pouvoir-du-dedans et du pouvoir-avec, de systèmes locaux et partagés que chacun peut comprendre, gouverner et refuser."
-  - author: malcom-ferdinand
-    position: 20
-    work: ferdinand-2019
-    text:
-      en: The case against rests on analogy, not on anything this work says about reactors. A French fleet runs on uranium mined in Niger and Gabon and carries a legacy of atomic tests in Polynesia. Low-carbon power for the metropole that pushes the costs onto others is still colonial inhabitation.
-      fr: L'opposition repose sur une analogie, non sur ce que cette œuvre dit des réacteurs. Un parc français fonctionne avec de l'uranium extrait au Niger et au Gabon et porte l'héritage des essais atomiques en Polynésie. Une énergie bas carbone pour la métropole qui reporte ses coûts sur d'autres reste une habitation coloniale.
-  - author: michael-lowy
-    position: 22
-    work: lowy-2011
-    text:
-      en: Opposed. New reactors keep productivism and centralised technocratic control intact. The emergency brake means cutting useless production first. Energy needs should be set by democratic ecological planning according to real needs, not locked in by the state and industry for profit.
-      fr: Contre. Les nouveaux réacteurs préservent le productivisme et le contrôle technocratique centralisé. Le frein d'urgence suppose de supprimer d'abord la production inutile. Les besoins énergétiques doivent être fixés par une planification écologique démocratique selon les besoins réels, non figés par l'État et l'industrie au nom du profit.
-  - author: arne-naess
-    position: 22
-    work: naess-1973
-    text:
-      en: New reactors answer only the shallow question of how to supply growing demand with less carbon. The deep question is why rich societies need so much energy. Reducing consumption and keeping technology local and on a human scale come before any new centralised, high-risk plants.
-      fr: "Les nouveaux réacteurs ne répondent qu'à la question superficielle : comment satisfaire une demande croissante avec moins de carbone. La question profonde est de savoir pourquoi les sociétés riches ont besoin de tant d'énergie. Réduire la consommation et garder des techniques locales, à échelle humaine, passe avant toute nouvelle centrale centralisée à haut risque."
-  - author: joan-martinez-alier
-    position: 25
-    work: martinez-alier-2002
-    text:
-      en: Opposed as framed. Judging reactors by carbon and kilowatt-hours alone hides the ecological distribution conflicts at the uranium mines and waste sites. Communities in places like Niger carry those burdens. Their languages of value and France's ecological debt must count before anything is built.
-      fr: Contre, telle que la question est posée. Juger les réacteurs au seul carbone et aux kilowattheures masque les conflits écologiques distributifs autour des mines d'uranium et des sites de déchets. Des communautés, au Niger par exemple, en portent le poids. Leurs langages de valorisation et la dette écologique de la France doivent compter avant toute construction.
+      en: Capitalism can absorb ecological constraints only as new scarcity and profit, rationed by price and run by experts. Respecting limits needs a common norm of enough, set by those concerned, and that breaks with production for accumulation.
+      fr: Le capitalisme ne peut intégrer les contraintes écologiques que sous forme de nouvelle rareté et de profit, rationnés par les prix et gérés par des experts. Respecter les limites exige une norme commune du suffisant, fixée par les intéressés, et cela rompt avec la production pour l'accumulation.
   - author: eduardo-gudynas
-    position: 25
+    position: 12
     work: gudynas-2015
     text:
-      en: Opposed unless the whole chain is counted. French reactors rest on uranium exported raw from places like Niger, which is extractivism that shapes the exporting society. Low-carbon claims and small land footprints leave out the mines, so the case for new reactors is incomplete.
-      fr: Contre, à moins de compter toute la chaîne. Les réacteurs français reposent sur de l'uranium exporté brut depuis des pays comme le Niger, un extractivisme qui façonne la société exportatrice. Les arguments bas carbone et les faibles emprises au sol oublient les mines, si bien que le plaidoyer pour de nouveaux réacteurs reste incomplet.
-  - author: hans-jonas
-    position: 30
-    work: jonas-1979
+      en: Opposed. Reform that only changes who captures and spends the rent leaves extractivism intact. Latin America's progressive governments showed this. Northern decoupling can also push extraction onto the South. Respecting limits requires leaving the export-of-raw-materials model of development behind.
+      fr: Contre. Une réforme qui change seulement qui capte et dépense la rente laisse l'extractivisme intact. Les gouvernements progressistes d'Amérique latine l'ont montré. Le découplage au Nord peut aussi reporter l'extraction sur le Sud. Respecter les limites exige de sortir du modèle de développement fondé sur l'exportation de matières premières.
+  - author: felix-guattari
+    position: 12
+    work: guattari-1989
     text:
-      en: Technology able to change the conditions of life calls for weighting the bad prognosis over the good. Reactors leave millennial waste to people who cannot consent. Climate risk cuts both ways, but swapping one irreversible danger for another is not responsibility.
-      fr: Une technique capable de modifier les conditions de la vie impose de donner plus de poids au pronostic défavorable qu'au favorable. Les réacteurs laissent des déchets millénaires à des générations qui ne peuvent y consentir. Le risque climatique joue dans les deux sens, mais troquer un danger irréversible contre un autre n'est pas faire preuve de responsabilité.
-  - author: jason-hickel
-    position: 35
-    work: hickel-2020
+      en: Reform aimed at prices or emissions treats only the environmental register. Integrated world capitalism also produces desires and standardised ways of living, and it wears down social bonds. Without joint change in environmental, social and mental ecology, the damage comes back.
+      fr: Une réforme qui vise les prix ou les émissions ne traite que le registre environnemental. Le capitalisme mondial intégré produit aussi des désirs et des modes de vie standardisés, et il use le lien social. Sans transformation conjointe des écologies environnementale, sociale et mentale, les dégâts reviennent.
+  - author: giorgos-kallis
+    position: 12
+    work: kallis-2018
     text:
-      en: Reactors answer the wrong question first. A rich country already over its fair share of planetary boundaries should cut less necessary production and energy demand. That speeds decarbonisation, needs fewer new plants, and takes fewer resources from the South. Green growth through clean supply alone is not supported by evidence.
-      fr: Les réacteurs répondent d'abord à la mauvaise question. Un pays riche qui dépasse déjà sa juste part des limites planétaires devrait réduire la production et la demande d'énergie les moins nécessaires. Cela accélère la décarbonation, exige moins de nouvelles centrales et prélève moins de ressources au Sud. Rien ne vient étayer une croissance verte fondée sur la seule offre propre.
+      en: Capitalism stays stable only by growing. The evidence shows no absolute decoupling that is fast or large enough. Reform can soften the damage but cannot remove the drive to expand. Respecting limits requires a society that chooses to stop growing and organises its economy around enough.
+      fr: Le capitalisme ne reste stable qu'en croissant. Les faits ne montrent aucun découplage absolu assez rapide ni assez ample. La réforme peut atténuer les dégâts mais pas supprimer la pulsion d'expansion. Respecter les limites exige une société qui choisit d'arrêter de croître et organise son économie autour du suffisant.
+  - author: bill-devall
+    position: 15
+    work: devall-1980
+    text:
+      en: Reforming capitalism is reform environmentalism. It manages nature more efficiently as a resource for people and leaves in place the worldview that turns forests and rivers into inputs. Respecting limits needs a change in that worldview and a life simple in means, rich in ends.
+      fr: Réformer le capitalisme relève de l'environnementalisme réformiste. Il gère plus efficacement la nature comme ressource pour les humains et laisse intacte la vision du monde qui fait des forêts et des rivières des intrants. Respecter les limites exige de changer cette vision et de mener une vie simple dans ses moyens, riche dans ses fins.
+  - author: james-oconnor
+    position: 15
+    work: oconnor-1988
+    text:
+      en: Capital degrades the land, labour and cities it depends on, which raises its own costs. Reform through the state or through pricing turns that contradiction into a political fight over who pays. It moves the contradiction somewhere else and does not resolve it.
+      fr: Le capital dégrade la terre, le travail et les villes dont il dépend, ce qui fait monter ses propres coûts. La réforme par l'État ou par les prix transforme cette contradiction en lutte politique pour savoir qui paie. Elle déplace la contradiction ailleurs sans la résoudre.
+  - author: naomi-klein
+    position: 15
+    work: klein-2014
+    text:
+      en: Deregulated capitalism and the planet are at war, and only one can change. Carbon pricing and minor reforms are not enough. Respecting limits takes public planning, regulation and investment, carried out as a programme of social justice that breaks with growth-first market rules.
+      fr: Le capitalisme dérégulé et la planète sont en guerre, et un seul des deux peut changer. La tarification du carbone et les réformes mineures ne suffisent pas. Respecter les limites exige planification, régulation et investissement publics, menés comme un programme de justice sociale qui rompt avec les règles de marché soumises à la croissance.
+  - author: joan-martinez-alier
+    position: 18
+    work: martinez-alier-2002
+    text:
+      en: Unlikely. A growing economy uses more energy and materials and pushes the extraction frontier onto the poor. Pricing damage in money ignores other languages of value. Reform moves the ecological distribution conflicts elsewhere but does not end them.
+      fr: Peu probable. Une économie en croissance consomme davantage d'énergie et de matières et repousse la frontière d'extraction vers les pauvres. Chiffrer les dommages en argent ignore les autres langages de la valeur. La réforme déplace les conflits de distribution écologique sans y mettre fin.
+  - author: jean-baptiste-fressoz
+    position: 22
+    work: fressoz-2024
+    text:
+      en: Reform of capitalism leans on a coming energy transition, but history records none. Coal, oil and wood grew together, each feeding the others. Green growth that depends on new energy pushing out old energy is a bet against the whole historical record.
+      fr: La réforme du capitalisme s'appuie sur une transition énergétique à venir, mais l'histoire n'en connaît aucune. Le charbon, le pétrole et le bois ont crû ensemble, chacun alimentant les autres. Une croissance verte qui compte sur des énergies nouvelles chassant les anciennes est un pari contre toute l'histoire connue.
+  - author: timothy-morton
+    position: 25
+    work: morton-2007
+    text:
+      en: Reform assumes that limits fence off Nature as a pristine elsewhere that markets can learn to respect. Ecological thought drops that outside, because humans are already inside hyperobjects like global warming. This work does not settle the economic question, but by analogy the claim looks doubtful.
+      fr: La réforme suppose que les limites clôturent une Nature conçue comme un ailleurs intact que les marchés pourraient apprendre à respecter. La pensée écologique abandonne ce dehors, car les humains sont déjà à l'intérieur d'hyperobjets comme le réchauffement climatique. Ce travail ne tranche pas la question économique, mais par analogie la thèse paraît douteuse.
+  - author: pope-francis
+    position: 25
+    work: francis-2015
+    text:
+      en: Reforming markets and prices can't respect limits while the technocratic paradigm and the throwaway culture stay in place. It takes an ecological conversion of goals and ways of living, and repaying the ecological debt to the poor, so the earth and the poor stop paying the bill.
+      fr: Réformer les marchés et les prix ne peut pas faire respecter les limites tant que demeurent le paradigme technocratique et la culture du déchet. Il faut une conversion écologique des fins et des modes de vie, et le remboursement de la dette écologique envers les pauvres, pour que la terre et les pauvres cessent de payer l'addition.
   - author: robyn-eckersley
     position: 35
     work: eckersley-2004
     text:
-      en: New reactors are acceptable only if decided through transparent, precautionary, transboundary deliberation that answers to everyone affected, including future generations who inherit the waste. A closed technocratic build programme fails that democratic test. The state must be transformed, not bypassed, to carry such long-lived burdens.
-      fr: De nouveaux réacteurs ne sont acceptables que s'ils sont décidés au terme d'une délibération transparente, prudente et transfrontalière, qui rende compte à tous les concernés, y compris aux générations futures qui hériteront des déchets. Un programme de construction technocratique et fermé échoue à cette épreuve démocratique. Il faut transformer l'État, non le contourner, pour qu'il porte des charges aussi durables.
-  - author: pope-francis
-    position: 40
-    work: francis-2015
+      en: Capitalism will not reform itself, because the state draws its legitimacy from growth and guards accumulation before ecology. Respecting limits is possible only through a transformed green state that answers to everyone its decisions affect, including future generations and people beyond its borders.
+      fr: Le capitalisme ne se réformera pas de lui-même, car l'État tire sa légitimité de la croissance et protège l'accumulation avant l'écologie. Respecter les limites n'est possible que par un État vert transformé, qui rende des comptes à tous ceux que ses décisions affectent, y compris les générations futures et les populations au-delà de ses frontières.
+  - author: kate-raworth
+    position: 42
+    work: raworth-2017
     text:
-      en: Leaving fossil fuels is urgent, but new reactors are no substitute for sobriety and changed lifestyles. They can be accepted only with transparent dialogue, precaution about waste left to future generations, and justice for the poor communities that mine uranium.
-      fr: Sortir des énergies fossiles est urgent, mais de nouveaux réacteurs ne remplacent ni la sobriété ni le changement des modes de vie. Ils ne peuvent être acceptés qu'avec un dialogue transparent, de la précaution quant aux déchets laissés aux générations futures et de la justice pour les communautés pauvres qui extraient l'uranium.
-  - author: jean-baptiste-fressoz
-    position: 50
-    work: fressoz-2024
+      en: The system's label matters less than whether it meets everyone's needs within planetary boundaries. Economies that depend on growth keep pushing through the ecological ceiling. Reform counts only if it ends that dependence and redesigns the economy to be regenerative and distributive.
+      fr: L'étiquette du système compte moins que sa capacité à répondre aux besoins de tous dans les limites planétaires. Les économies dépendantes de la croissance continuent de percer le plafond écologique. Une réforme ne vaut que si elle met fin à cette dépendance et refonde l'économie pour la rendre régénératrice et redistributive.
+  - author: johan-rockstrom
+    position: 45
+    work: rockstrom-2009
     text:
-      en: New reactors are neither the answer nor the problem on their own. Energy sources have always added to one another rather than replaced each other, so nuclear only matters if fossil combustion is cut on purpose. Without that cut, nuclear is one more layer on the pile.
-      fr: Les nouveaux réacteurs ne sont en eux-mêmes ni la solution ni le problème. Les sources d'énergie se sont toujours additionnées au lieu de se remplacer, si bien que le nucléaire ne compte que si l'on réduit délibérément la combustion fossile. Sans cette réduction, il n'est qu'une couche de plus sur la pile.
-  - author: timothy-morton
-    position: 50
-    work: morton-2013
-    text:
-      en: Spent fuel and global warming are both hyperobjects, vast in time, and neither can be thrown away. The choice is not between dirty power and a pristine Nature. It is a choice about which hyperobjects to live inside, so no outright endorsement or opposition follows.
-      fr: Le combustible usé et le réchauffement climatique sont deux hyperobjets, immenses dans le temps, et aucun des deux ne peut être jeté. Le choix ne se fait pas entre une énergie sale et une Nature intacte. Il porte sur les hyperobjets dans lesquels vivre, si bien qu'il n'en découle ni adhésion ni opposition franche.
-  - author: bruno-latour
-    position: 50
-    work: latour-1999
-    text:
-      en: "Reactors are neither salvation nor sin. Once built, they must be cared for, not abandoned. The decision should give a voice to everything they bind France to: the mines, the rivers that cool them, and the waste. The test is whether they keep the country attached to a habitable ground."
-      fr: "Les réacteurs ne sont ni un salut ni un péché. Une fois construits, il faut en prendre soin, non les abandonner. La décision doit donner voix à tout ce à quoi ils lient la France : les mines, les rivières qui les refroidissent et les déchets. Le critère est de savoir s'ils maintiennent le pays attaché à un sol habitable."
-  - author: andreas-malm
-    position: 50
-    work: malm-2016
-    text:
-      en: Neutral by analogy, since the work does not address nuclear power. What matters is dismantling fossil capital. New reactors count only if they actually push fossil combustion out of transport, heating and industry. If they are simply added on top, they fail that test.
-      fr: Neutre par analogie, puisque l'œuvre ne traite pas du nucléaire. Ce qui compte, c'est de démanteler le capital fossile. Les nouveaux réacteurs ne valent que s'ils chassent réellement la combustion fossile des transports, du chauffage et de l'industrie. S'ils viennent simplement s'y ajouter, ils échouent à ce critère.
-  - author: william-nordhaus
-    position: 62
-    work: w-nordhaus-2008
-    text:
-      en: New reactors are justified only if they cut emissions more cheaply than the alternatives under a carbon price that rises with marginal damage. Without that price, extra supply just adds to fossil use. A blanket mandate or ban skips the cost-benefit balance.
-      fr: Les nouveaux réacteurs ne se justifient que s'ils réduisent les émissions à moindre coût que les autres options, sous un prix du carbone qui suit le dommage marginal. Sans ce prix, l'offre supplémentaire s'ajoute simplement aux fossiles. Une obligation ou une interdiction générale court-circuite la pesée des coûts et des bénéfices.
-  - author: edward-o-wilson
-    position: 65
-    work: wilson-2016
-    text:
-      en: Conditional endorsement, reasoned by analogy. Reactors make a lot of power on little land, and habitat loss drives extinction. The land they spare only helps other species if it is legally protected as large, connected wild reserves.
-      fr: Adhésion conditionnelle, raisonnée par analogie. Les réacteurs produisent beaucoup d'énergie sur peu de terrain, et la perte d'habitat est le moteur des extinctions. Le terrain épargné ne profite aux autres espèces que s'il est protégé par la loi sous forme de grandes réserves sauvages reliées entre elles.
+      en: The planetary boundaries framework does not choose an economic system. Reform counts only if it brings all nine Earth processes back inside the safe operating space quickly. Pricing that treats damage as smooth misses thresholds, and the record so far gives little cause for confidence.
+      fr: Le cadre des limites planétaires ne choisit pas de système économique. Une réforme ne compte que si elle ramène rapidement les neuf processus terrestres dans l'espace de fonctionnement sûr. Une tarification qui traite les dommages comme continus ignore les seuils, et le bilan à ce jour donne peu de raisons d'avoir confiance.
   - author: roger-scruton
     position: 68
     work: scruton-2012
     text:
-      en: New reactors are acceptable, reasoning by analogy. They take little land and spare the loved countryside that wind farms would cover. They must be built with the consent of their host towns, not imposed by a central plan.
-      fr: De nouveaux réacteurs sont acceptables, par analogie. Ils occupent peu de terrain et épargnent la campagne aimée que couvriraient les éoliennes. Ils doivent être construits avec l'accord des communes qui les accueillent, non imposés par un plan central.
-  - author: pascal-bruckner
-    position: 85
-    work: bruckner-2011
+      en: Markets can respect ecological limits when they rest on rooted ownership, local institutions and love of home. The threat to nature comes from global corporations and global plans, which answer to no place. Revolution and technocratic schemes do not remedy that.
+      fr: Les marchés peuvent respecter les limites écologiques lorsqu'ils reposent sur une propriété enracinée, des institutions locales et l'amour du foyer. La menace pour la nature vient des grandes entreprises mondiales et des plans mondiaux, qui ne répondent à aucun lieu. Ni la révolution ni les dispositifs technocratiques n'y remédient.
+  - author: ted-nordhaus
+    position: 78
+    work: nordhaus-2015
     text:
-      en: New reactors should be endorsed. Fear of the atom is catastrophism that treats every risk as an apocalypse, and calls for sobriety turn ecology into penance. Abundant low-carbon power is progress that serves human emancipation, and rich and poor societies alike benefit from it.
-      fr: Il faut soutenir les nouveaux réacteurs. La peur de l'atome est un catastrophisme qui fait de chaque risque une apocalypse, et les appels à la sobriété transforment l'écologie en pénitence. Une énergie abondante et bas carbone est un progrès au service de l'émancipation humaine, dont profitent les sociétés riches comme les pauvres.
-  - author: stewart-brand
-    position: 88
-    work: brand-2009
+      en: Market economies can be steered to leave more room for nature. Public investment in cheap clean energy, higher farm yields and denser cities decouples human welfare from land use. A politics of limits and restraint cannot win majorities or meet the needs of the poor.
+      fr: Les économies de marché peuvent être orientées pour laisser plus de place à la nature. L'investissement public dans une énergie propre bon marché, de meilleurs rendements agricoles et des villes plus denses découple le bien-être humain de l'usage des terres. Une politique des limites et de la retenue ne peut ni gagner de majorités ni répondre aux besoins des pauvres.
+  - author: arthur-cecil-pigou
+    position: 80
+    work: pigou-1920
     text:
-      en: Energy sources should be judged by their measured effects on the climate, not by their reputation. Reactors provide steady, low-carbon power on little land. France's grid has already shown that they can displace fossil fuels, so building more reactors is the right course.
-      fr: Il faut juger les sources d'énergie à leurs effets mesurés sur le climat, non à leur réputation. Les réacteurs fournissent une électricité stable et bas carbone sur peu de terrain. Le réseau français a déjà montré qu'ils peuvent évincer les fossiles; construire davantage de réacteurs est donc la bonne voie.
-  - author: james-lovelock
-    position: 90
-    work: lovelock-2006
+      en: Ecological harm is a gap between private and social cost, not proof that markets must be abolished. A state tax equal to the damage brings the two costs back together. Where harm falls on many people at once, bargaining fails and fiscal correction is needed.
+      fr: Les atteintes écologiques sont un écart entre coût privé et coût social, non la preuve qu'il faut abolir les marchés. Une taxe d'État égale aux dommages rapproche les deux coûts. Lorsque le dommage touche beaucoup de personnes à la fois, la négociation échoue et une correction fiscale s'impose.
+  - author: terry-anderson
+    position: 80
+    work: anderson-1991
     text:
-      en: France should build new reactors because carbon already in the air is the larger and more lasting danger. A planned retreat needs dense, steady, low-carbon power. That power must replace fossil fuel use, not add to it, and waste that can be contained is the lesser burden.
-      fr: La France devrait construire de nouveaux réacteurs, car le carbone déjà présent dans l'air est le danger le plus grand et le plus durable. Une retraite planifiée exige une énergie dense, stable et bas carbone. Cette énergie doit remplacer les usages fossiles, non s'y ajouter, et des déchets que l'on peut confiner sont le moindre fardeau.
+      en: Capitalism can respect ecological limits once property rights are completed. Resources decay where nobody owns them and nobody pays for neglect. Clear, enforceable, tradable rights, including those of local communities, make owners guard scarce resources better than regulators or damage taxes do.
+      fr: Le capitalisme peut respecter les limites écologiques une fois les droits de propriété complétés. Les ressources se dégradent là où personne ne les possède et où personne ne paie pour leur abandon. Des droits clairs, opposables et cessibles, y compris ceux des communautés locales, font des propriétaires de meilleurs gardiens des ressources rares que les régulateurs ou les taxes sur les dommages.
+  - author: william-nordhaus
+    position: 82
+    work: w-nordhaus-2008
+    text:
+      en: Climate damage is an externality that market prices miss. A carbon price that matches the damage and rises along an optimal path brings ecological costs into market decisions. Reform through pricing does this at lower cost than halting growth.
+      fr: Les dommages climatiques sont une externalité que les prix du marché ignorent. Un prix du carbone égal aux dommages, et qui augmente selon une trajectoire optimale, fait entrer les coûts écologiques dans les décisions de marché. La réforme par les prix y parvient à moindre coût que l'arrêt de la croissance.
   - author: michael-shellenberger
-    position: 92
+    position: 82
     work: shellenberger-2020
     text:
-      en: New French reactors should be built. Nuclear power supplies abundant, reliable, low-carbon energy on little land, and France's grid shows it displaces fossil fuels. Fear of waste and accidents is alarmism that keeps deadlier fossil plants running. Prosperity through technology, not restraint, protects nature.
-      fr: Il faut construire de nouveaux réacteurs en France. Le nucléaire fournit une énergie abondante, fiable et bas carbone sur peu de terrain, et le réseau français montre qu'il évince les fossiles. La peur des déchets et des accidents relève d'un alarmisme qui maintient en service des centrales fossiles plus meurtrières. C'est la prospérité par la technique, non la restriction, qui protège la nature.
+      en: Market economies can square prosperity with a thriving planet through technology, not restraint. Nuclear power, intensive farming and urbanization separate human welfare from land use and emissions. The idea of limits misleads, because the goal is decoupling, not an end to growth.
+      fr: Les économies de marché peuvent concilier prospérité et planète florissante par la technologie, non par la retenue. Le nucléaire, l'agriculture intensive et l'urbanisation séparent le bien-être humain de l'usage des terres et des émissions. L'idée de limites égare, car l'objectif est le découplage, non la fin de la croissance.
 silent: []
