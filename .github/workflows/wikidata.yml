@@ -1,6 +1,9 @@
 # Compares the dates and birthplaces entered by hand with Wikidata and writes
 # the differences to the run summary. It changes nothing in the repository:
 # corrections are made in data/authors/*.yaml after a human has looked.
+#
+# Start it from Actions > Check facts against Wikidata > Run workflow. It also
+# runs by itself once a month.
 name: Check facts against Wikidata
 
 on:

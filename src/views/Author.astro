@@ -9,7 +9,7 @@ import Thread from '../components/Thread.astro';
 import { useUi } from '../i18n/ui.mjs';
 import { href } from '../lib/site.mjs';
 import { L, citeHtml, titleHtml, yearLabel, typo } from '../lib/text.mjs';
-import { loadCorpus, lifespan, placeLabel } from '../lib/corpus.mjs';
+import { loadCorpus, loadClearing, lifespan, placeLabel } from '../lib/corpus.mjs';
 import { SITE } from '../site.config.mjs';
 
 const { lang, id } = Astro.props;
@@ -63,6 +63,8 @@ const jsonLd = {
 };
 const reportUrl = `${SITE.repoUrl}/issues/new?template=correction.yml&title=${encodeURIComponent(`${a.name}: `)}&page=${encodeURIComponent(a.name)}`;
 const seedsTitle = t(`author.seeds.${seeds.length}`);
+// Published Clearing runs in which an agent built from this record took part.
+const runs = loadClearing().published.filter((r) => r.voices.some((v) => v.author === a.id));
 ---
 
 <Base lang={lang} view="author" id={id} title={a.name} description={description}>
@@ -227,6 +229,21 @@ const seedsTitle = t(`author.seeds.${seeds.length}`);
           </ol>
         )
       }
+      {
+        runs.length > 0 && (
+          <div class="sim-runs">
+            <span class="eco-mark simulated-ink">{t('common.simulated')}</span>
+            <p class="t-small">{t('author.inClearing')}</p>
+            <ul class="t-small">
+              {runs.map((r) => (
+                <li>
+                  <a class="link" href={href(lang, 'run', r.id)}>{L(r.claim, lang)}</a> <span class="eco-meta">{r.runId}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
       <div class="row gap-6 t-small">
         {SITE.repoPublic && <a class="link" href={reportUrl} rel="noopener">{t('author.report')}</a>}
         <a class="link" href={`${href(lang, 'mycelium')}?focus=${a.id}`}>{t('author.seeMycelium')}</a>
@@ -317,6 +334,18 @@ const seedsTitle = t(`author.seeds.${seeds.length}`);
   }
   .verify {
     text-transform: uppercase;
+  }
+  .sim-runs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    padding: var(--space-3) var(--space-4);
+    border: var(--stroke-thread) dashed var(--lichen-ink);
+    border-radius: var(--radius-md);
+  }
+  .sim-runs ul {
+    margin: 0;
+    padding-left: 18px;
   }
   @media (max-width: 720px) {
     .leaf-page {
