@@ -91,7 +91,7 @@
 
 - id: democracy
   token: branch-democracy
-  name: {en: Ecological democracy, fr: Démocratie écologique}
+  name: {en: Green democracy, fr: Démocratie verte}
   full: {en: Ecological democracy and green populism, fr: Démocratie écologique et populisme vert}
   summary:
     en: "Who decides, and how is a majority built? Deliberative theorists ask which institutions can listen to ecosystems and to the future; Laclau and Mouffe answer that ecology must become a democratic conflict between adversaries, able to build a people rather than a consensus of experts."

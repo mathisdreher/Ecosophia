@@ -60,13 +60,12 @@ const grafts = c.graftBranches;
 
     <div class="note how">
       <b class="label">{t('home.howTitle')}</b>
-      {t('home.how')}
+      {t('home.how')} {t('home.graft')}
     </div>
     {
       grafts.length > 0 && (
         <div class="note graft">
           <span class="grafts">{grafts.map((g) => <BranchChip branch={g} lang={lang} />)}</span>
-          <span>{t('home.graft')}</span>
         </div>
       )
     }
@@ -219,6 +218,11 @@ const grafts = c.graftBranches;
     top: 12px;
     width: 28px;
     border-top: var(--stroke-thread) dashed var(--ink-muted);
+  }
+  .branch :global(.eco-chip) {
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    padding-inline: 8px;
   }
   .grafts {
     display: flex;
