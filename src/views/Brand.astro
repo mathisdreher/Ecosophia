@@ -14,7 +14,9 @@ const c = loadCorpus();
 
 // Inline an SVG so that it takes the ink and moss of the current theme.
 const inline = (file, label) =>
-  fs
+  !fs.existsSync(path.join(process.cwd(), 'public', file))
+    ? ''
+    : fs
     .readFileSync(path.join(process.cwd(), 'public', file), 'utf8')
     .replaceAll('fill="#2a2219"', 'fill="currentColor"')
     .replaceAll('stroke="#2a2219"', 'stroke="currentColor"')
@@ -22,7 +24,7 @@ const inline = (file, label) =>
     .replaceAll('stroke="#3d5a2a"', 'style="stroke:var(--moss)"')
     .replace(/<title>(.*?)<\/title>/, (_, t) => `<title>${label ?? t}</title>`)
     .replace('<svg ', '<svg role="img" ');
-const title = (file) => fs.readFileSync(path.join(process.cwd(), 'public', file), 'utf8').match(/<title>(.*?)<\/title>/)?.[1] ?? '';
+const title = (file) => (fs.existsSync(path.join(process.cwd(), 'public', file)) ? fs.readFileSync(path.join(process.cwd(), 'public', file), 'utf8').match(/<title>(.*?)<\/title>/)?.[1] ?? '' : '');
 
 const logos = [
   { file: 'brand/ecosophia-logo.svg', ground: 'day', en: 'Primary, Day', fr: 'Principal, Jour' },
