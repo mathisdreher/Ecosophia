@@ -1,0 +1,53 @@
+# Voice-over with the Gemini text-to-speech API, from a job file in
+# design/gemini-jobs; MP3 clips and their durations are committed under design/.
+# Uses the GEMINI_API_KEY secret. About 0.002 USD per 10 seconds of speech.
+name: Gemini voice
+
+on:
+  workflow_dispatch:
+    inputs:
+      job:
+        description: "Job file name in design/gemini-jobs, without .json (for example film-voice)"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  speak:
+    name: Speak
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    env:
+      JOB: ${{ inputs.job }}
+    steps:
+      - name: Check the job name
+        run: case "$JOB" in ''|*[!a-z0-9-]*) echo "::error::job must be a file name like film-voice"; exit 1 ;; esac
+      - name: Check out the default branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+      - name: Install ffmpeg
+        run: command -v ffmpeg || (sudo apt-get update -q && sudo apt-get install -y -q ffmpeg)
+      - name: Speak
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: node scripts/gemini-tts.mjs "design/gemini-jobs/$JOB.json"
+      - name: Commit the clips
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add design
+          if git diff --cached --quiet; then echo "Nothing new."; exit 0; fi
+          git commit -m "Gemini voice: $JOB"
+          git pull --rebase origin "$DEFAULT_BRANCH"
+          git push origin "HEAD:$DEFAULT_BRANCH"

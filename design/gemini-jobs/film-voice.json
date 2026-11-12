@@ -1,0 +1,42 @@
+{
+  "title": "Voice-over of the introduction film",
+  "out": "film/audio",
+  "model": "gemini-3.8-flash-tts",
+  "voice": "Charon",
+  "style": {
+    "en": "Read this in a calm, warm, unhurried documentary voice, with natural pauses at punctuation",
+    "fr": "Lis ceci d'une voix de documentaire calme, chaleureuse et posée, en français, avec des pauses naturelles à la ponctuation"
+  },
+  "lines": {
+    "en": [
+      "Ecosophia maps the thinkers of political ecology as one living tree.",
+      "Who read whom, and what they disagreed on.",
+      "Political ecology is not one doctrine. It is a long quarrel over nature, growth, power and justice.",
+      "One hundred and fifty-nine thinkers, fourteen schools, and three opposing camps grafted on for debate.",
+      "Precursors form the roots. The founding texts of the nineteen-sixties and seventies form the trunk. Each school is a branch.",
+      "On the side, ecomodernists, market liberals and conservatives answer the field from outside.",
+      "Every author is a leaf: dates, places, and a few key ideas, each tied to the work it comes from.",
+      "Underground runs the mycelium: who influenced, criticised or answered whom. Every thread has a source.",
+      "The Canopy places each thinker on three axes: the standing of nature, the path of change, and the seat of power.",
+      "In the Clearing, agents built from each author's record debate a claim on a simulated forum.",
+      "Unexpected alliances appear. And it is always labelled as simulated: no agent speaks for a real person.",
+      "A quiz helps you learn as you go: ideas, books, schools and critiques.",
+      "Ecosophia. Roots, branches and mycelium of political ecology. In English and in French."
+    ],
+    "fr": [
+      "Ecosophia cartographie les penseurs de l'écologie politique comme un seul arbre vivant.",
+      "Qui a lu qui, et sur quoi portent les désaccords.",
+      "L'écologie politique n'est pas une doctrine. C'est une longue querelle sur la nature, la croissance, le pouvoir et la justice.",
+      "Cent cinquante-neuf penseurs, quatorze écoles, et trois camps adverses greffés pour le débat.",
+      "Les précurseurs forment les racines. Les textes fondateurs des années soixante et soixante-dix forment le tronc. Chaque école est une branche.",
+      "Sur le côté, écomodernistes, libéraux et conservateurs répondent au champ depuis son dehors.",
+      "Chaque auteur est une feuille : des dates, des lieux, et quelques idées clés, chacune liée à l'œuvre d'où elle vient.",
+      "Sous terre court le mycélium : qui a influencé, critiqué ou répondu à qui. Chaque fil a sa source.",
+      "La Canopée place chaque penseur sur trois axes : le statut de la nature, la voie du changement, et le siège du pouvoir.",
+      "Dans la Clairière, des agents construits à partir des fiches des auteurs débattent d'une affirmation sur un forum simulé.",
+      "Des alliances inattendues apparaissent. Et c'est toujours marqué comme simulé : aucun agent ne parle au nom d'une personne réelle.",
+      "Un quiz aide à apprendre en chemin : des idées, des livres, des écoles et des critiques.",
+      "Ecosophia. Racines, branches et mycélium de l'écologie politique. En français et en anglais."
+    ]
+  }
+}
