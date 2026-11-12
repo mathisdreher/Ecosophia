@@ -227,6 +227,7 @@
   born: 1903
   died: 1993
   place: {city: {en: Mönchengladbach, fr: Mönchengladbach}, country: {en: Germany, fr: Allemagne}, lat: 51.19, lon: 6.44}
+  wikidata: Q57255
   lede:
     en: "German-born philosopher, a student of Heidegger, who fled Nazi Germany and taught in New York. The Imperative of Responsibility argued that a technology able to change the conditions of life itself calls for a new ethics, turned towards future generations."
     fr: "Philosophe né en Allemagne, élève de Heidegger, qui fuit l'Allemagne nazie et enseigne à New York. Le Principe responsabilité soutient qu'une technique capable de changer les conditions mêmes de la vie appelle une éthique nouvelle, tournée vers les générations futures."

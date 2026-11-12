@@ -208,6 +208,7 @@
   also: [ecosocialism]
   born: 1942
   place: {city: {en: Parma, fr: Parme}, country: {en: Italy, fr: Italie}, lat: 44.80, lon: 10.33}
+  wikidata: Q597248
   lede:
     en: "Italian-American philosopher and activist of the Wages for Housework campaign. Caliban and the Witch reads the witch hunts and the enclosures as one process: capitalism began by taking control of the land and of women's bodies."
     fr: "Philosophe et militante italo-américaine de la campagne pour un salaire au travail ménager. Caliban et la sorcière lit les chasses aux sorcières et les enclosures comme un même processus : le capitalisme commence par s'emparer de la terre et du corps des femmes."
@@ -227,6 +228,7 @@
   branch: ecofeminism
   born: 1951
   place: {city: {en: "St. Paul, Minnesota", fr: "Saint Paul (Minnesota)"}, country: {en: United States, fr: États-Unis}, lat: 44.95, lon: -93.09}
+  wikidata: Q272205
   lede:
     en: "American writer, neopagan and activist of non-violent direct action, from the anti-nuclear blockades of the 1980s to the global justice movement. She ties earth-based spirituality to a politics of shared power."
     fr: "Écrivaine américaine, néopaïenne et militante de l'action directe non violente, des blocages antinucléaires des années 1980 au mouvement altermondialiste. Elle lie une spiritualité de la Terre à une politique du pouvoir partagé."

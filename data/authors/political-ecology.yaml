@@ -150,6 +150,7 @@
   born: 1933
   died: 2012
   place: {city: {en: "Los Angeles, California", fr: "Los Angeles (Californie)"}, country: {en: United States, fr: États-Unis}, lat: 34.05, lon: -118.24}
+  wikidata: Q153761
   lede:
     en: "American political economist, Nobel laureate in economics in 2009. From fisheries, forests and irrigation systems around the world, she showed that communities can govern shared resources for centuries, without the market or the state."
     fr: "Politiste et économiste américaine, prix Nobel d'économie en 2009. À partir de pêcheries, de forêts et de systèmes d'irrigation du monde entier, elle montre que des communautés peuvent gouverner des ressources partagées pendant des siècles, sans le marché ni l'État."
@@ -168,6 +169,7 @@
   layer: leaf
   branch: political-ecology
   place: {country: {en: Belgium, fr: Belgique}}
+  wikidata: Q1107767
   lede:
     en: "Belgian geographer at the University of Manchester, a founder of urban political ecology. He argues that consensual climate politics, managed by experts, depoliticises the question by leaving the economic order out of debate."
     fr: "Géographe belge à l'université de Manchester, l'un des fondateurs de l'écologie politique urbaine. Il soutient qu'une politique climatique de consensus, gérée par des experts, dépolitise la question en laissant l'ordre économique hors du débat."
@@ -186,6 +188,7 @@
   layer: leaf
   branch: political-ecology
   place: {country: {en: Australia, fr: Australie}}
+  wikidata: Q4945654
   lede:
     en: "Australian political theorist at the University of Melbourne. The Green State asks whether the state, built for war and growth, can become the guardian of ecological democracy, and answers that it must be transformed rather than bypassed."
     fr: "Théoricienne politique australienne à l'université de Melbourne. The Green State demande si l'État, construit pour la guerre et la croissance, peut devenir le gardien d'une démocratie écologique, et répond qu'il faut le transformer plutôt que le contourner."

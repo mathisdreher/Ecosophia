@@ -118,6 +118,7 @@
   born: 1915
   died: 2003
   place: {city: {en: "Dallas, Texas", fr: "Dallas (Texas)"}, country: {en: United States, fr: États-Unis}, lat: 32.78, lon: -96.80}
+  wikidata: Q592132
   lede:
     en: "American ecologist. His essay of 1968 argued that a resource open to all is ruined by each user's rational choice, and drew from it a case for coercive limits on population; Elinor Ostrom's work on commons answered it."
     fr: "Écologue américain. Son essai de 1968 soutient qu'une ressource ouverte à tous est ruinée par le choix rationnel de chaque usager, et en tire la nécessité de limites contraignantes à la population ; les travaux d'Elinor Ostrom sur les communs lui répondent."
@@ -137,6 +138,7 @@
   born: 1932
   died: 2026
   place: {city: {en: "Philadelphia, Pennsylvania", fr: "Philadelphie (Pennsylvanie)"}, country: {en: United States, fr: États-Unis}, lat: 39.95, lon: -75.17}
+  wikidata: Q377983
   lede:
     en: "American biologist, specialist of butterflies, at Stanford. The Population Bomb, written with Anne Ehrlich, made population growth the centre of the environmental question in 1968; its forecasts of mass famine did not come to pass, and its framing was contested from the start."
     fr: "Biologiste américain, spécialiste des papillons, à Stanford. La Bombe P, écrite avec Anne Ehrlich, fait en 1968 de la croissance démographique le centre de la question environnementale ; ses prévisions de famines massives ne se sont pas réalisées et son cadrage a été contesté dès le départ."
@@ -156,6 +158,7 @@
   born: 1937
   died: 2021
   place: {country: {en: United States, fr: États-Unis}}
+  wikidata: Q112438509
   lede:
     en: "American law professor at the University of Southern California. His article of 1972 asked whether forests, rivers and oceans could be parties to a lawsuit, and became the founding text of the rights of nature."
     fr: "Professeur de droit américain à l'université de Californie du Sud. Son article de 1972 demande si des forêts, des rivières et des océans peuvent être parties à un procès, et devient le texte fondateur des droits de la nature."
@@ -175,6 +178,7 @@
   born: 1911
   died: 1977
   place: {city: {en: Bonn, fr: Bonn}, country: {en: Germany, fr: Allemagne}, lat: 50.74, lon: 7.10}
+  wikidata: Q76526
   lede:
     en: "German-born British economist, for twenty years at the National Coal Board. Small Is Beautiful asked for an economics as if people mattered: production at a human scale, with tools that local communities can make and control."
     fr: "Économiste britannique né en Allemagne, vingt ans au National Coal Board. Small Is Beautiful demande une économie qui compte avec les personnes : une production à échelle humaine, avec des outils que les communautés locales peuvent fabriquer et maîtriser."
@@ -194,6 +198,7 @@
   born: 1904
   died: 2001
   place: {city: {en: Cambrai, fr: Cambrai}, country: {en: France, fr: France}, lat: 50.18, lon: 3.24}
+  wikidata: Q927879
   lede:
     en: "French agronomist of the Third World and author of L'Afrique noire est mal partie. In 1974 he was the first candidate of political ecology in a French presidential election, with a glass of water to announce its coming scarcity."
     fr: "Agronome français, spécialiste du tiers-monde, auteur de L'Afrique noire est mal partie. En 1974, il est le premier candidat de l'écologie politique à une élection présidentielle française, un verre d'eau à la main pour en annoncer la rareté prochaine."

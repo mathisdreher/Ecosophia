@@ -184,6 +184,7 @@
   born: 1926
   died: 1987
   place: {country: {en: France, fr: France}}
+  wikidata: Q439997
   lede:
     en: "French banker who worked for development in Madagascar and elsewhere, then turned against it. La Fin du développement described development as the extension of one economic system to the whole world, and announced its exhaustion."
     fr: "Banquier français qui travaille pour le développement à Madagascar et ailleurs, puis se retourne contre lui. La Fin du développement décrit le développement comme l'extension d'un système économique au monde entier, et en annonce l'épuisement."
@@ -203,6 +204,7 @@
   branch: degrowth
   born: 1970
   place: {country: {en: United Kingdom, fr: Royaume-Uni}}
+  wikidata: Q37424557
   lede:
     en: "British economist, formerly at Oxfam. Doughnut Economics replaces the curve of growth with a ring: a social floor no one should fall below and an ecological ceiling of planetary boundaries. She calls herself agnostic about growth rather than for degrowth."
     fr: "Économiste britannique, passée par Oxfam. La Théorie du donut remplace la courbe de croissance par un anneau : un plancher social sous lequel personne ne doit tomber et un plafond écologique fait des limites planétaires. Elle se dit agnostique sur la croissance plutôt que décroissante."

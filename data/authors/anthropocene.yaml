@@ -205,6 +205,7 @@
   branch: anthropocene
   born: 1977
   place: {country: {en: France, fr: France}}
+  wikidata: Q100234766
   lede:
     en: "French historian of science, technology and the environment at the CNRS. With Christophe Bonneuil he showed that the dangers of industry were known and debated at every step; Sans transition shows that energy sources have added up, never replaced one another."
     fr: "Historien français des sciences, des techniques et de l'environnement au CNRS. Avec Christophe Bonneuil, il montre que les dangers de l'industrie ont été connus et débattus à chaque étape ; Sans transition montre que les énergies se sont additionnées sans jamais se remplacer."
@@ -229,6 +230,7 @@
   branch: anthropocene
   born: 1965
   place: {city: {en: Stockholm, fr: Stockholm}, country: {en: Sweden, fr: Suède}, lat: 59.33, lon: 18.07}
+  wikidata: Q6075610
   lede:
     en: "Swedish Earth system scientist, director of the Potsdam Institute for Climate Impact Research. In 2009 he led the team that defined nine planetary boundaries within which humanity can operate safely."
     fr: "Spécialiste suédois du système Terre, directeur de l'Institut de Potsdam pour la recherche sur les effets du changement climatique. En 2009, il dirige l'équipe qui définit neuf limites planétaires à l'intérieur desquelles l'humanité peut agir en sécurité."
@@ -254,6 +256,7 @@
   branch: anthropocene
   born: 1978
   place: {city: {en: Versailles, fr: Versailles}, country: {en: France, fr: France}, lat: 48.80, lon: 2.13}
+  wikidata: Q24934340
   lede:
     en: "French agronomist and writer. With Raphaël Stevens he coined collapsology, the study of how industrial civilisation might collapse, and argued that preparing for it is a matter of mutual aid and of grief as much as of engineering."
     fr: "Agronome et auteur français. Avec Raphaël Stevens, il forge la collapsologie, l'étude de l'effondrement possible de la civilisation industrielle, et soutient que s'y préparer relève de l'entraide et du deuil autant que de l'ingénierie."
@@ -277,6 +280,7 @@
   branch: anthropocene
   born: 1983
   place: {country: {en: France, fr: France}}
+  wikidata: Q93725925
   lede:
     en: "French philosopher at Sciences Po, trained with Philippe Descola. Abondance et liberté rereads modern political thought from the ground up: the freedoms of the moderns were built on the abundance of land, colonies and coal."
     fr: "Philosophe français à Sciences Po, formé auprès de Philippe Descola. Abondance et liberté relit la pensée politique moderne depuis le sol : les libertés des modernes se sont construites sur l'abondance des terres, des colonies et du charbon."

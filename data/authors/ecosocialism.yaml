@@ -194,6 +194,7 @@
   born: 1936
   died: 2018
   place: {city: {en: "Brooklyn, New York", fr: "Brooklyn (New York)"}, country: {en: United States, fr: États-Unis}, lat: 40.68, lon: -73.94}
+  wikidata: Q6213656
   lede:
     en: "American psychiatrist turned political writer, Green Party candidate and editor of the review Capitalism Nature Socialism. The Enemy of Nature argued that capital, not humanity in general, drives the ecological crisis."
     fr: "Psychiatre américain devenu écrivain politique, candidat du Green Party et rédacteur de la revue Capitalism Nature Socialism. The Enemy of Nature soutient que c'est le capital, et non l'humanité en général, qui conduit la crise écologique."
@@ -240,6 +241,7 @@
   also: [ecofeminism]
   born: 1947
   place: {city: {en: "Baltimore, Maryland", fr: "Baltimore (Maryland)"}, country: {en: United States, fr: États-Unis}, lat: 39.29, lon: -76.61}
+  wikidata: Q267536
   lede:
     en: "American philosopher at the New School, known for her work on justice and recognition. Cannibal Capitalism describes a system that feeds on what it does not pay for: nature, care work, public power and the wealth of the colonised."
     fr: "Philosophe américaine de la New School, connue pour ses travaux sur la justice et la reconnaissance. Le Capitalisme est un cannibalisme décrit un système qui se nourrit de ce qu'il ne paie pas : la nature, le travail du soin, la puissance publique et les richesses des colonisés."

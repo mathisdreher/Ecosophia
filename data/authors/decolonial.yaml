@@ -207,6 +207,7 @@
   layer: leaf
   branch: decolonial
   place: {country: {en: Uruguay, fr: Uruguay}}
+  wikidata: Q42397087
   lede:
     en: "Uruguayan analyst at the Latin American Centre of Social Ecology in Montevideo. He named neo-extractivism: the progressive governments of Latin America kept mining and oil at the centre of their economies and spent the proceeds on social programmes."
     fr: "Analyste uruguayen au Centre latino-américain d'écologie sociale de Montevideo. Il nomme le néo-extractivisme : les gouvernements progressistes d'Amérique latine ont gardé les mines et le pétrole au centre de leurs économies et en ont dépensé les revenus en programmes sociaux."
@@ -233,6 +234,7 @@
   branch: decolonial
   born: 1961
   place: {country: {en: Argentina, fr: Argentine}}
+  wikidata: Q5999391
   lede:
     en: "Argentine sociologist and writer. She described the commodities consensus that bound Latin American governments of left and right to the export of raw materials, and the eco-territorial turn of the struggles that oppose it."
     fr: "Sociologue et écrivaine argentine. Elle décrit le consensus des commodities qui a lié les gouvernements latino-américains, de gauche comme de droite, à l'exportation de matières premières, et le tournant éco-territorial des luttes qui s'y opposent."
@@ -252,6 +254,7 @@
   branch: decolonial
   also: [political-ecology]
   place: {country: {en: United States, fr: États-Unis}}
+  wikidata: Q61951480
   lede:
     en: "American geographer and scholar of ethnic studies, at the University of Oregon. Studying Los Angeles, she argued that environmental racism comes less from deliberate siting decisions than from white privilege built into urban development."
     fr: "Géographe américaine, spécialiste des études ethniques, à l'université de l'Oregon. À partir de Los Angeles, elle soutient que le racisme environnemental tient moins à des décisions d'implantation délibérées qu'au privilège blanc inscrit dans le développement urbain."
