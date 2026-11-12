@@ -1,0 +1,360 @@
+# Clearing run clr-0011. Simulated: nothing below is a statement by any author named.
+# Written by clearing/run.mjs. The transcript and the prompts are in the file next to this one.
+id: clr-0011
+runId: clr-0011
+status: draft
+date: 2026-11-12
+claim:
+  en: A collapse of industrial civilisation within this century is likely, and societies should prepare for it rather than try to prevent it.
+  fr: Un effondrement de la civilisation industrielle au cours de ce siècle est probable, et les sociétés devraient s'y préparer plutôt que chercher à l'empêcher.
+question:
+  id: effondrement
+  kind: axiom
+  measures: []
+summary:
+  en: "The real division in this run was not over whether collapse is likely but over the either-or between preparing and preventing, which even the four agents who leaned towards endorsement rejected. The Collapse branch did not hold together: the Jared Diamond agent closed at 15, against the claim, and the Joseph Tainter agent stayed at 50."
+  fr: "Dans ce débat, la ligne de partage ne portait pas sur la probabilité d'un effondrement mais sur l'alternative entre s'y préparer et l'empêcher, que rejetaient même les quatre agents enclins à soutenir l'énoncé. La branche Effondrement s'est divisée : l'agent Jared Diamond a fini à 15, contre l'énoncé, et l'agent Joseph Tainter à 50."
+engine:
+  name: MiroFish
+  commit: 7657031ac01184afe2cb220f5ee3545573b5e843
+  platform: reddit
+  packages:
+    - camel-oasis==0.2.5
+    - camel-ai==0.2.78
+model:
+  requested: claude-opus-5-5
+  served:
+    - claude-opus-5-5
+  effort: medium
+settings:
+  rounds: 2
+  agents: 24
+  selection: auto
+  budgetUsd: 3
+  estimateUsd: 1.81
+plan:
+  model: claude-opus-5-5
+  note: All 17 branches are covered in the first 19 places, with collapse advocates set against ecomodernist, liberal, socialist, decolonial and care-based critics. Two rounds let the prepare camp and the prevent camp answer each other within the 3 USD budget.
+  rounds: 2
+  ranked: 24
+  trimmed: false
+  reasons:
+    jem-bendell: His Deep Adaptation paper states almost exactly this claim, that climate-driven collapse is likely and adaptation should take priority.
+    pablo-servigne: He coined collapsology and argued that preparing for collapse is a reasonable response.
+    michael-shellenberger: Apocalypse Never attacks climate catastrophism and defends nuclear power and growth as ways to prevent harm.
+    andreas-malm: He calls for militant action against fossil capital and rejects fatalism in favour of fighting to prevent the worst.
+    joseph-tainter: His theory of diminishing returns on complexity gives a historical mechanism for collapse that can be tested against the claim.
+    pascal-bruckner: He reads ecological doom as a secular religion of fear, which goes directly against collapse prophecy.
+    ailton-krenak: Ideas to Postpone the End of the World speaks from an Indigenous people whose world has already ended once.
+    giorgos-kallis: He argues for planned and democratic degrowth, a chosen descent rather than a suffered collapse.
+    jean-baptiste-fressoz: He is a historian who disputes the narrative of energy transition and who also distrusts grand collapse narratives.
+    hans-jonas: His heuristics of fear and imperative of responsibility bear on how we should act under catastrophic risk.
+    yayo-herrero: She is an ecofeminist active in Spanish collapse debates and puts care and the sustaining of life at the centre of any descent.
+    murray-bookchin: Social ecology rejects apocalyptic passivity and insists on political reconstruction through municipalism.
+    joan-martinez-alier: His environmentalism of the poor shows that ecological harm is already unevenly distributed, which challenges a single collapse framing.
+    dominique-bourg: He is a French philosopher who takes collapse risk seriously and asks what institutions could govern the long term.
+    pope-francis: Laudato si' combines alarm about the crisis with a call for conversion and prevention.
+    baptiste-morizot: He frames the crisis as one of sensibility and proposes relations with other living beings rather than a survival plan.
+    edward-o-wilson: Half-Earth is a large preventive conservation project aimed at averting a biological collapse.
+    nicole-seymour: Bad environmentalism questions doom-laden affect and imagines caring for an uncertain future.
+    corine-pelluchon: She grounds ethics in what we live from and brings other animals into the question of what should be preserved.
+    rob-hopkins: Transition Towns plan energy descent in a positive and preventive spirit, between preparation and change.
+    bjorn-lomborg: His cost-benefit approach disputes that collapse is likely and ranks the response by priorities.
+    jared-diamond: Collapse argues that societies choose to fail or succeed, which supports prevention over resignation.
+    ugo-bardi: His Seneca effect and his defence of The Limits to Growth give quantitative support to a rapid decline.
+    bruno-latour: His Gaia and terrestrial politics reframe the question beyond a choice between preparing and preventing.
+counts:
+  turns: 48
+  comments: 73
+  reactions: 78
+  interviews: 24
+  declined: 0
+  failed: 0
+  tokensIn: 577806
+  tokensOut: 32615
+  costUsd: 2.21
+positions:
+  - branch: technocritique
+    score: 22
+    min: 22
+    max: 22
+    agents: 1
+  - branch: degrowth
+    score: 10
+    min: 10
+    max: 10
+    agents: 1
+  - branch: social-ecology
+    score: 12
+    min: 12
+    max: 12
+    agents: 1
+  - branch: ecosocialism
+    score: 8
+    min: 8
+    max: 8
+    agents: 1
+  - branch: deep-ecology
+    score: 12
+    min: 12
+    max: 12
+    agents: 1
+  - branch: ecosophy
+    score: 20
+    min: 20
+    max: 20
+    agents: 1
+  - branch: anthropocene
+    score: 20
+    min: 12
+    max: 60
+    agents: 3
+  - branch: political-ecology
+    score: 12
+    min: 12
+    max: 12
+    agents: 1
+  - branch: decolonial
+    score: 25
+    min: 25
+    max: 25
+    agents: 1
+  - branch: ecofeminism
+    score: 22
+    min: 22
+    max: 22
+    agents: 1
+  - branch: queer-ecology
+    score: 18
+    min: 18
+    max: 18
+    agents: 1
+  - branch: democracy
+    score: 15
+    min: 15
+    max: 15
+    agents: 1
+  - branch: collapse
+    score: 55
+    min: 15
+    max: 70
+    agents: 5
+  - branch: animal
+    score: 12
+    min: 12
+    max: 12
+    agents: 1
+  - branch: counterpoint
+    score: 5
+    min: 5
+    max: 5
+    agents: 1
+  - branch: market
+    score: 5
+    min: 5
+    max: 5
+    agents: 2
+  - branch: conservative
+    score: 15
+    min: 15
+    max: 15
+    agents: 1
+alliances:
+  - title:
+      en: Prepare and prevent at once
+      fr: Se préparer et prévenir à la fois
+    text:
+      en: Collapse or decline this century is likely, but preparing does not replace cutting emissions and material use, and both soften the fall. The Pablo Servigne agent, from the Anthropocene branch, joins three Collapse agents.
+      fr: Un effondrement ou un déclin au cours du siècle est probable, mais se préparer ne remplace pas la baisse des émissions et des flux de matière. L'agent Pablo Servigne, de la branche Anthropocène, rejoint trois agents Effondrement.
+    authors:
+      - jem-bendell
+      - pablo-servigne
+      - ugo-bardi
+      - rob-hopkins
+  - title:
+      en: Against, on faith in progress
+      fr: Contre, par confiance dans le progrès
+    text:
+      en: Collapse forecasts are alarmism that paralyses people and hurts the poor. Growth, abundant energy and innovation make environmental problems serious but manageable.
+      fr: Les prévisions d'effondrement relèvent d'un alarmisme qui paralyse et pénalise les pauvres. Croissance, énergie abondante et innovation rendent les problèmes écologiques sérieux mais maîtrisables.
+    authors:
+      - michael-shellenberger
+      - pascal-bruckner
+      - bjorn-lomborg
+  - title:
+      en: Against, prevention as political duty
+      fr: Contre, prévenir comme devoir politique
+    text:
+      en: The crisis results from choices made by owners, markets and institutions, so it can still be fought, and preparing instead of preventing abandons responsibility. The Jared Diamond agent breaks from the Collapse branch here.
+      fr: La crise découle de choix faits par des propriétaires, des marchés et des institutions, elle peut donc encore être combattue. L'agent Jared Diamond se sépare ici de la branche Effondrement.
+    authors:
+      - andreas-malm
+      - giorgos-kallis
+      - jean-baptiste-fressoz
+      - murray-bookchin
+      - jared-diamond
+      - dominique-bourg
+      - hans-jonas
+      - pope-francis
+      - corine-pelluchon
+      - edward-o-wilson
+      - nicole-seymour
+  - title:
+      en: Against the dilemma itself
+      fr: Contre l'alternative elle-même
+    text:
+      en: Collapse is already under way for some peoples and places, or the frame is wrong, so prepare-or-prevent misses the task. The Joseph Tainter agent, of the Collapse branch, sits here at a neutral 50.
+      fr: L'effondrement a déjà lieu pour certains peuples et territoires, ou le cadre est faux, et l'alternative manque l'essentiel. L'agent Joseph Tainter, de la branche Effondrement, s'y range avec une position neutre à 50.
+    authors:
+      - ailton-krenak
+      - joan-martinez-alier
+      - yayo-herrero
+      - baptiste-morizot
+      - bruno-latour
+      - joseph-tainter
+voices:
+  - author: michael-shellenberger
+    position: 5
+    work: shellenberger-2020
+    text:
+      en: Collapse forecasts are alarmism that mainstream climate science does not support. They breed fatalism and hurt the poor. Climate change is serious but manageable. Abundant clean energy, nuclear above all, and rising prosperity let societies adapt and spare nature.
+      fr: Les prévisions d'effondrement sont un alarmisme que la science climatique dominante ne soutient pas. Elles nourrissent le fatalisme et nuisent aux pauvres. Le changement climatique est sérieux mais maîtrisable. Une énergie propre et abondante, le nucléaire avant tout, et une prospérité croissante permettent aux sociétés de s'adapter et d'épargner la nature.
+  - author: pascal-bruckner
+    position: 5
+    work: bruckner-2011
+    text:
+      en: The claim is opposed. Predicting collapse paralyses people instead of mobilising them and turns ecology into a secular religion of doom and penance. Progress, abundance and human ingenuity remain the best answers to environmental problems, so the effort should go into solving them rather than mourning in advance.
+      fr: "L'énoncé est rejeté. Prédire l'effondrement paralyse au lieu de mobiliser et fait de l'écologie une religion laïque de l'apocalypse et de la pénitence. Le progrès, l'abondance et l'ingéniosité humaine restent les meilleures réponses aux problèmes environnementaux : l'effort doit aller à les résoudre plutôt qu'à porter le deuil par avance."
+  - author: bjorn-lomborg
+    position: 5
+    work: lomborg-2001
+    text:
+      en: Collapse is unlikely. Most measurable welfare and resource indicators have improved over decades, and forecasts of scarcity have repeatedly failed. Problems like climate change are real but manageable. Money does most good when spent on health, nutrition and research into cheap clean energy.
+      fr: L'effondrement est improbable. La plupart des indicateurs mesurables de bien-être et de ressources se sont améliorés depuis des décennies, et les prévisions de pénurie ont échoué à maintes reprises. Des problèmes comme le changement climatique sont réels mais maîtrisables. L'argent est le plus utile dans la santé, la nutrition et la recherche sur une énergie propre bon marché.
+  - author: andreas-malm
+    position: 8
+    work: malm-2016
+    text:
+      en: The claim should be rejected. Warming comes from fossil capital, which a class of owners chose and keeps choosing, so it is not the fate of industrial civilisation. What was chosen can be fought, and preparing for collapse instead of preventing it leaves the pipelines running.
+      fr: L'énoncé doit être rejeté. Le réchauffement vient du capital fossile, qu'une classe de propriétaires a choisi et continue de choisir, il n'est donc pas le destin de la civilisation industrielle. Ce qui a été choisi peut être combattu, et se préparer à l'effondrement au lieu de l'empêcher laisse les oléoducs tourner.
+  - author: giorgos-kallis
+    position: 10
+    work: kallis-2019
+    text:
+      en: Collapse forecasts repeat the Malthusian mistake of treating limits as nature's verdict. Limits are a political choice that free societies can make for themselves. A planned and fair scaling down of production and consumption can raise well-being, so giving up on prevention means giving up on politics.
+      fr: "Les prévisions d'effondrement répètent l'erreur malthusienne qui fait des limites un verdict de la nature. Les limites sont un choix politique que des sociétés libres peuvent se donner. Une réduction planifiée et juste de la production et de la consommation peut accroître le bien-être : renoncer à prévenir, c'est renoncer à la politique."
+  - author: jean-baptiste-fressoz
+    position: 12
+    work: fressoz-2024
+    text:
+      en: "Collapse framing mirrors the transition myth: one clean rupture. Energy history shows accumulation, with sources adding up rather than replacing each other. The danger is continued expansion that was knowingly chosen, and it has to be stopped deliberately, not waited out."
+      fr: "Le cadrage de l'effondrement reflète le mythe de la transition : une rupture nette et unique. L'histoire de l'énergie montre une accumulation, les sources s'additionnant au lieu de se remplacer. Le danger est une expansion continue, choisie en connaissance de cause, qu'il faut arrêter délibérément au lieu de l'attendre."
+  - author: murray-bookchin
+    position: 12
+    work: bookchin-1982
+    text:
+      en: The crisis is not fate but the product of hierarchy and a grow-or-die market. Preparing for collapse leaves those relations in place. Prevention means rebuilding society now through directly democratic, federated municipalities.
+      fr: La crise n'est pas une fatalité mais le produit de la hiérarchie et d'un marché qui doit croître ou mourir. Se préparer à l'effondrement laisse ces rapports en place. Prévenir, c'est reconstruire la société dès maintenant par des municipalités fédérées en démocratie directe.
+  - author: joan-martinez-alier
+    position: 12
+    work: martinez-alier-2002
+    text:
+      en: Collapse is not a single future event. It is already happening, unequally, on mining, dam and plantation frontiers. Preparing instead of preventing abandons the environmentalism of the poor, which resists the growing social metabolism now and sometimes wins.
+      fr: L'effondrement n'est pas un événement futur unique. Il a déjà lieu, de façon inégale, sur les fronts miniers, les barrages et les plantations. Se préparer au lieu de prévenir abandonne l'écologisme des pauvres, qui résiste dès maintenant à la croissance du métabolisme social et gagne parfois.
+  - author: edward-o-wilson
+    position: 12
+    work: wilson-2016
+    text:
+      en: Preparing for collapse instead of preventing it writes off most of the living world. Extinction is the one loss that cannot be undone. Protecting half the planet is still achievable, and any society that survives will depend on the biodiversity it saves.
+      fr: Se préparer à l'effondrement au lieu de l'empêcher revient à faire une croix sur la plus grande part du monde vivant. L'extinction est la seule perte irréversible. Protéger la moitié de la planète reste à portée, et toute société qui survivra dépendra de la biodiversité qu'elle aura sauvée.
+  - author: corine-pelluchon
+    position: 12
+    work: pelluchon-2017
+    text:
+      en: Choosing preparation over prevention turns justice into survival logistics. What humans live from, food, places and other beings, calls for political institutions now. The treatment of animals and ecosystems is a test of justice that belongs in law today, not after an accepted breakdown.
+      fr: Choisir la préparation plutôt que la prévention réduit la justice à une logistique de survie. Ce dont les humains vivent, la nourriture, les lieux, les autres êtres, appelle dès maintenant des institutions politiques. Le traitement des animaux et des écosystèmes est une épreuve de justice qui relève du droit aujourd'hui, et non après un effondrement accepté.
+  - author: dominique-bourg
+    position: 15
+    work: bourg-2010
+    text:
+      en: The claim is opposed. Choosing preparation over prevention is a false choice that excuses institutions. Ecological limits overwhelm representative democracy because it is built around short terms and individual rights. Giving the long term its own institutions, such as a chamber of the future, makes prevention politically possible.
+      fr: L'énoncé est rejeté. Choisir la préparation plutôt que la prévention est un faux choix qui dédouane les institutions. Les limites écologiques débordent la démocratie représentative, bâtie sur le court terme et les droits individuels. Donner au long terme ses propres institutions, comme une chambre du futur, rend la prévention politiquement possible.
+  - author: pope-francis
+    position: 15
+    work: francis-2015
+    text:
+      en: The danger of catastrophe is real, but giving up on preventing it is resignation, and the poor would pay first. Ecological conversion of lifestyles, politics and the technocratic paradigm can still change course, because the cry of the earth and the cry of the poor are one cry.
+      fr: Le danger de catastrophe est réel, mais renoncer à l'empêcher est de la résignation, et les pauvres paieraient les premiers. Une conversion écologique des modes de vie, de la politique et du paradigme technocratique peut encore changer le cap, car la clameur de la terre et la clameur des pauvres ne font qu'une.
+  - author: jared-diamond
+    position: 15
+    work: diamond-2005
+    text:
+      en: Collapse is not fate. The comparative record shows that a society's response to the environmental damage it causes decides the outcome. Giving up prevention to prepare for collapse is itself a choice, and the cases show it is a poor one.
+      fr: L'effondrement n'est pas une fatalité. La comparaison historique montre que la réponse d'une société aux dégâts environnementaux qu'elle cause décide de l'issue. Renoncer à prévenir pour se préparer à l'effondrement est aussi un choix, et les cas étudiés montrent que c'est un mauvais choix.
+  - author: nicole-seymour
+    position: 18
+    work: seymour-2018
+    text:
+      en: Opposes the claim, mainly its mood. Apocalyptic gloom makes people turn away rather than act, and giving up on prevention treats the future as already lost. Care for futures without kinship ties, kept up through irony and irreverence, keeps action going.
+      fr: S'oppose à l'énoncé, surtout à son humeur. La morosité apocalyptique pousse à se détourner plutôt qu'à agir, et renoncer à prévenir traite l'avenir comme déjà perdu. Prendre soin d'avenirs sans lien de parenté, avec ironie et irrévérence, entretient l'action.
+  - author: baptiste-morizot
+    position: 20
+    work: morizot-2020
+    text:
+      en: Choosing between preparing for collapse and preventing it is a false choice, because both keep humans alone on stage. The crisis is one of sensibility. The task is diplomacy with the other living beings of each territory, and that work starts now.
+      fr: Choisir entre se préparer à l'effondrement et l'empêcher est un faux choix, car les deux laissent les humains seuls en scène. La crise est une crise de la sensibilité. La tâche est une diplomatie avec les autres vivants de chaque territoire, et ce travail commence maintenant.
+  - author: bruno-latour
+    position: 20
+    work: latour-2017
+    text:
+      en: The claim treats industrial civilisation as one global object that will stand or fall as a whole. The Earth reacts place by place to what is done to it. So the real choice is not preparing or preventing, but whether politics moves toward the ground it depends on.
+      fr: L'énoncé traite la civilisation industrielle comme un objet global unique qui tiendra ou tombera d'un bloc. La Terre réagit lieu par lieu à ce qu'on lui fait. Le vrai choix n'est donc pas entre se préparer et prévenir, mais de savoir si la politique se tourne vers le sol dont elle dépend.
+  - author: hans-jonas
+    position: 22
+    work: jonas-1979
+    text:
+      en: The threat of collapse should be taken seriously, because the bad forecast deserves priority when the existence of future humanity is at stake. That is a duty to prevent collapse, not to give up on prevention. Preparing instead of preventing abandons responsibility to future generations.
+      fr: La menace d'effondrement doit être prise au sérieux, car le mauvais pronostic doit primer quand l'existence de l'humanité future est en jeu. C'est un devoir de prévenir l'effondrement, non d'y renoncer. Se préparer au lieu de prévenir abandonne la responsabilité envers les générations futures.
+  - author: yayo-herrero
+    position: 22
+    work: herrero-2021
+    text:
+      en: Choosing between preparing and preventing is a false choice. An economy that ignores the ecosystems and the care work it depends on is already failing many people. Putting the sustaining of life at the centre reduces material throughput and also builds the care networks any future needs.
+      fr: Choisir entre se préparer et prévenir est un faux choix. Une économie qui ignore les écosystèmes et le travail de soin dont elle dépend échoue déjà pour beaucoup de gens. Placer le soutien de la vie au centre réduit les flux de matière et construit aussi les réseaux de soin dont tout avenir aura besoin.
+  - author: ailton-krenak
+    position: 25
+    work: krenak-2019
+    text:
+      en: Collapse is not only a future event. The end of the world already came for many peoples through dams, mining and dead rivers. Choosing between preparing and preventing misses the task, which is to postpone the end by telling stories where rivers and mountains are relatives.
+      fr: L'effondrement n'est pas seulement un événement à venir. La fin du monde est déjà arrivée pour bien des peuples, avec les barrages, les mines et les rivières mortes. Choisir entre se préparer et prévenir manque la tâche, qui est de retarder la fin en racontant des histoires où rivières et montagnes sont des parents.
+  - author: joseph-tainter
+    position: 50
+    work: tainter-1988
+    text:
+      en: No date for collapse can be forecast. Collapse arrives when returns on added complexity fall so low that simplification becomes the rational choice. Preparing and preventing both add complexity, so both run into the same diminishing returns. The choice between them is a false one.
+      fr: Aucune date d'effondrement ne peut être prévue. L'effondrement survient quand les rendements d'une complexité supplémentaire tombent si bas que la simplification devient le choix rationnel. Se préparer et prévenir ajoutent tous deux de la complexité et se heurtent donc aux mêmes rendements décroissants. Le choix entre les deux est un faux choix.
+  - author: rob-hopkins
+    position: 55
+    work: hopkins-2008
+    text:
+      en: Energy descent is coming, so communities should prepare now. But preparing and preventing are not opposites. Relocalising food, energy and money cuts emissions and builds resilience at once. Designed well, descent can be a richer life, and it does not have to wait for the state.
+      fr: La descente énergétique arrive, les communautés doivent donc s'y préparer dès maintenant. Mais se préparer et prévenir ne s'opposent pas. Relocaliser l'alimentation, l'énergie et la monnaie réduit les émissions et renforce la résilience en même temps. Bien conçue, la descente peut offrir une vie plus riche, sans attendre l'État.
+  - author: pablo-servigne
+    position: 60
+    work: servigne-2015
+    text:
+      en: Collapse of industrial civilisation is a real possibility to study seriously, building on the Limits to Growth scenarios. But preparing and preventing are not opposites. Mutual aid, collective grief and reducing energy and material use together can soften the fall.
+      fr: L'effondrement de la civilisation industrielle est une possibilité réelle à étudier sérieusement, à partir des scénarios des Limites à la croissance. Mais se préparer et prévenir ne s'opposent pas. Entraide, deuil collectif et baisse de la consommation d'énergie et de matières peuvent ensemble amortir la chute.
+  - author: ugo-bardi
+    position: 60
+    work: bardi-2017
+    text:
+      en: "Decline within this century is likely: depletion and pollution end growth, and the fall is steeper than the rise. Preparing and preventing are not opposites. Using remaining resources to build a smaller system now softens the fall."
+      fr: "Un déclin au cours de ce siècle est probable : l'épuisement et la pollution mettent fin à la croissance, et la chute est plus raide que la montée. Se préparer et prévenir ne s'opposent pas. Utiliser les ressources restantes pour bâtir dès maintenant un système plus petit amortit la chute."
+  - author: jem-bendell
+    position: 70
+    work: bendell-2018
+    text:
+      en: Climate-driven societal collapse is likely and should be faced openly. Preparing for it through resilience, relinquishment and restoration matters. But this need not replace efforts to cut emissions and draw down carbon, which can still reduce the harm.
+      fr: Un effondrement sociétal dû au climat est probable et doit être regardé en face. S'y préparer par la résilience, le renoncement et la restauration compte. Mais cela ne doit pas remplacer la baisse des émissions et le captage du carbone, qui peuvent encore réduire les dégâts.
+silent: []
