@@ -3,7 +3,7 @@
 // warnings list what is still missing.
 import fs from 'node:fs';
 import path from 'node:path';
-import { loadCorpus, loadClearing, loadClaims, loadQuestions, loadPortraits, loadTranscript, LINK_TYPES, LAYERS, WORK_KINDS } from '../src/lib/corpus.mjs';
+import { loadCorpus, loadClearing, loadClaims, loadQuestions, loadPortraits, loadCanopy, CANOPY_AXES, loadTranscript, LINK_TYPES, LAYERS, WORK_KINDS } from '../src/lib/corpus.mjs';
 import { wordCount } from '../src/lib/text.mjs';
 
 const c = loadCorpus();
@@ -131,6 +131,24 @@ for (const t of c.trunk) {
   bilingual(t.text, `trunk ${t.work}.text`);
 }
 
+// Canopy placements
+const placed = new Set();
+for (const p of loadCanopy()) {
+  const pt = `canopy ${p.author} ${p.axis}`;
+  const a = c.authorById[p.author];
+  if (!a) {
+    err(`${pt}: unknown author`);
+    continue;
+  }
+  if (placed.has(`${p.author}|${p.axis}`)) err(`${pt}: placed twice`);
+  placed.add(`${p.author}|${p.axis}`);
+  if (!Number.isInteger(p.score) || p.score < 0 || p.score > 100) err(`${pt}: score must be a whole number from 0 to 100`);
+  const w = c.sources.get(p.source);
+  if (!w) err(`${pt}: unknown work "${p.source}"`);
+  else if (w.authorId !== p.author) err(`${pt}: "${p.source}" is not a work of ${a.name}`);
+  bilingual(p.note, `${pt}.note`);
+}
+
 // Portraits
 for (const [id, p] of loadPortraits()) {
   if (!c.authorById[id]) err(`portrait ${id}: no such author`);
@@ -188,7 +206,11 @@ for (const q of questions) {
   if (questionIds.has(q.id) || claimIds.has(q.id)) err(`${qt}: the id is already used by a question or a claim`);
   questionIds.add(q.id);
   bilingual(q.claim, `${qt}.claim`);
-  if (!(q.measures?.length > 0)) err(`${qt}: no measure`);
+  if (q.kind != null && q.kind !== 'axiom') err(`${qt}: kind must be axiom or absent`);
+  if (q.kind === 'axiom') {
+    if (q.measures?.length) err(`${qt}: an axiom carries no party measure`);
+    if (q.note) bilingual(q.note, `${qt}.note`);
+  } else if (!(q.measures?.length > 0)) err(`${qt}: no measure`);
   for (const m of q.measures ?? []) {
     if (!m.claim) err(`${qt}: unknown measure "${m.id}" (not in claims.yaml)`);
     if (!['for', 'against', 'partly'].includes(m.stance)) err(`${qt}: stance of ${m.id} must be for, against or partly`);

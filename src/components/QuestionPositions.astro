@@ -10,6 +10,7 @@ const order = { against: 0, partly: 1, for: 2 };
 const sorted = [...measures].sort((a, b) => order[a.stance] - order[b.stance]);
 ---
 
+{measures?.length > 0 && (
 <details class="positions" open={open}>
   <summary>
     <span class="eco-mark sourced">{t('common.sourced')}</span>
@@ -33,6 +34,7 @@ const sorted = [...measures].sort((a, b) => order[a.stance] - order[b.stance]);
     }
   </ul>
 </details>
+)}
 
 <style>
   .positions {

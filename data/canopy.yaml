@@ -1,0 +1,154 @@
+# The Canopy: authors placed on three axes, from 0 to 100.
+#
+#   nature  0 anthropocentric (nature matters for humans) .. 100 ecocentric (nature matters in itself)
+#   change  0 reform within existing institutions .......... 100 rupture with them
+#   power   0 the state and its plans ...................... 100 the commune and autonomy
+#
+# Each placement is a reading of one work of the author, with the reason in a
+# sentence. These are first readings by the editors, not measurements: status
+# proposed means not yet reviewed. An author with no placement on an axis is
+# shown hollow at the median of the branch.
+#
+# Format: axis: [score, work id, {en, fr}]
+
+- author: jacques-ellul
+  nature: [40, ellul-1954, {en: "The stake is human freedom under technique, more than the worth of nature itself.", fr: "L'enjeu est la liberté humaine face à la technique, plus que la valeur propre de la nature."}]
+  change: [80, ellul-1977, {en: "The technical system cannot be reformed from inside; only a break with it frees.", fr: "Le système technicien ne se réforme pas de l'intérieur ; seule une rupture libère."}]
+  power: [80, ellul-1988, {en: "Distrusts the state as the great instrument of technique.", fr: "Se méfie de l'État, grand instrument de la technique."}]
+- author: ivan-illich
+  nature: [35, illich-1973, {en: "Convivial tools are judged by what they do to people's autonomy.", fr: "Les outils conviviaux se jugent à ce qu'ils font à l'autonomie des gens."}]
+  change: [75, illich-1973, {en: "Institutions past their threshold must be inverted, not improved.", fr: "Les institutions passées leur seuil doivent être inversées, non améliorées."}]
+  power: [90, illich-1973, {en: "Tools controlled by those who use them, against professional and state monopolies.", fr: "Des outils maîtrisés par ceux qui s'en servent, contre les monopoles professionnels et étatiques."}]
+- author: andre-gorz
+  nature: [30, gorz-1975, {en: "Ecology defends a world people can understand and control.", fr: "L'écologie défend un monde que les gens peuvent comprendre et maîtriser."}]
+  change: [80, gorz-1975, {en: "Ecology is a critique of capitalist production, not a technical adjustment.", fr: "L'écologie est une critique de la production capitaliste, non un ajustement technique."}]
+  power: [75, gorz-1975, {en: "Self-management and convivial tools against expert-run, centralised systems.", fr: "Autogestion et outils conviviaux contre des systèmes centralisés et gérés par des experts."}]
+- author: serge-latouche
+  nature: [45, latouche-2006, {en: "Leaving the religion of growth serves a good life more than nature as such.", fr: "Sortir de la religion de la croissance sert une vie bonne plus que la nature en tant que telle."}]
+  change: [80, latouche-2003, {en: "The imaginary of growth must be undone, not managed.", fr: "L'imaginaire de la croissance doit être défait, non géré."}]
+  power: [75, latouche-2007, {en: "Relocalise production and politics.", fr: "Relocaliser la production et la politique."}]
+- author: giorgos-kallis
+  nature: [35, kallis-2019, {en: "Limits are a collective choice of free people, not a dictate of nature.", fr: "Les limites sont un choix collectif de gens libres, non un diktat de la nature."}]
+  change: [70, kallis-2018, {en: "Degrowth is a change of system, pursued also through policies.", fr: "La décroissance est un changement de système, poursuivi aussi par des politiques publiques."}]
+  power: [60, kallis-2019, {en: "Self-limitation decided democratically, at several scales.", fr: "Une autolimitation décidée démocratiquement, à plusieurs échelles."}]
+- author: kate-raworth
+  nature: [30, raworth-2017, {en: "Planetary boundaries are the ceiling of a space for human needs.", fr: "Les limites planétaires sont le plafond d'un espace pour les besoins humains."}]
+  change: [30, raworth-2017, {en: "Redesign economics and policy within existing institutions.", fr: "Repenser l'économie et les politiques dans les institutions existantes."}]
+  power: [40, raworth-2017, {en: "State, market, commons and households each have a role.", fr: "État, marché, communs et ménages ont chacun un rôle."}]
+- author: murray-bookchin
+  nature: [40, bookchin-1982, {en: "Rejects biocentrism: humans are nature become self-conscious.", fr: "Rejette le biocentrisme : l'humanité est la nature devenue consciente d'elle-même."}]
+  change: [95, bookchin-1982, {en: "Domination of nature ends only with the end of all hierarchy.", fr: "La domination de la nature ne cesse qu'avec la fin de toute hiérarchie."}]
+  power: [100, bookchin-1987b, {en: "Confederated municipal assemblies instead of the nation-state.", fr: "Des assemblées municipales confédérées à la place de l'État-nation."}]
+- author: john-bellamy-foster
+  nature: [40, foster-2000, {en: "Marx's metabolism between society and nature, centred on human production.", fr: "Le métabolisme de Marx entre société et nature, centré sur la production humaine."}]
+  change: [90, foster-2000, {en: "The metabolic rift closes only beyond capitalism.", fr: "La rupture métabolique ne se referme qu'au-delà du capitalisme."}]
+  power: [30, foster-2010, {en: "Socialist planning of production at large scale.", fr: "Une planification socialiste de la production à grande échelle."}]
+- author: andreas-malm
+  nature: [35, malm-2018, {en: "Defends the distinction between society and nature against hybrid theories.", fr: "Défend la distinction entre société et nature contre les théories hybrides."}]
+  change: [90, malm-2021, {en: "Climate action must escalate beyond what institutions allow.", fr: "L'action climatique doit aller au-delà de ce que les institutions permettent."}]
+- author: michael-lowy
+  nature: [45, lowy-2011, {en: "Ecosocialism joins human emancipation and the protection of the living.", fr: "L'écosocialisme joint l'émancipation humaine et la protection du vivant."}]
+  change: [90, lowy-2011, {en: "A radical alternative to capitalist civilisation.", fr: "Une alternative radicale à la civilisation capitaliste."}]
+  power: [45, lowy-2011, {en: "Democratic planning, decided by the people concerned.", fr: "Une planification démocratique, décidée par les gens concernés."}]
+- author: naomi-klein
+  nature: [35, klein-2014, {en: "The climate is a question of justice for people first.", fr: "Le climat est d'abord une question de justice entre les gens."}]
+  change: [65, klein-2014, {en: "Capitalism against the climate: a change of system, carried by movements.", fr: "Le capitalisme contre le climat : un changement de système, porté par les mouvements."}]
+  power: [40, klein-2019, {en: "A Green New Deal carried by the state and pushed by movements.", fr: "Un Green New Deal porté par l'État et poussé par les mouvements."}]
+- author: kohei-saito
+  nature: [40, saito-2022, {en: "Marx's metabolism, read for a degrowth communism.", fr: "Le métabolisme de Marx, relu pour un communisme décroissant."}]
+  change: [90, saito-2022, {en: "Green capitalism is an illusion: degrowth communism is needed.", fr: "Le capitalisme vert est une illusion : il faut un communisme décroissant."}]
+  power: [60, saito-2022, {en: "Commons and associations rather than state ownership alone.", fr: "Des communs et des associations plutôt que la seule propriété d'État."}]
+- author: arne-naess
+  nature: [95, naess-1973, {en: "Biospheric egalitarianism: every living being has value in itself.", fr: "Égalitarisme biosphérique : chaque être vivant a une valeur en soi."}]
+  change: [55, naess-1989, {en: "Deep change in values, sought by non-violent and gradual means.", fr: "Un changement profond des valeurs, recherché par des moyens non violents et graduels."}]
+  power: [70, naess-1973, {en: "Local autonomy and decentralisation.", fr: "Autonomie locale et décentralisation."}]
+- author: aldo-leopold
+  nature: [85, leopold-1949, {en: "The land ethic extends the community to soils, waters, plants and animals.", fr: "L'éthique de la terre étend la communauté aux sols, aux eaux, aux plantes et aux animaux."}]
+  change: [30, leopold-1949, {en: "A change of ethics, spread through landowners and the conservation profession.", fr: "Un changement d'éthique, diffusé par les propriétaires et la profession de la conservation."}]
+- author: baird-callicott
+  nature: [90, callicott-1989, {en: "The biotic community is the measure of right and wrong.", fr: "La communauté biotique est la mesure du juste et de l'injuste."}]
+  change: [30, callicott-1989, {en: "A philosophical reform of ethics, not a political rupture.", fr: "Une réforme philosophique de l'éthique, non une rupture politique."}]
+- author: edward-o-wilson
+  nature: [85, wilson-2016, {en: "Half of the Earth for the rest of life.", fr: "La moitié de la Terre pour le reste du vivant."}]
+  change: [35, wilson-2016, {en: "A vast programme of protected areas within existing states.", fr: "Un vaste programme d'aires protégées dans les États existants."}]
+  power: [30, wilson-2016, {en: "Protection set and enforced by states and international bodies.", fr: "Une protection fixée et appliquée par les États et les instances internationales."}]
+- author: felix-guattari
+  nature: [55, guattari-1989, {en: "Three ecologies, of the environment, of social relations and of the mind.", fr: "Trois écologies : de l'environnement, des rapports sociaux et de la subjectivité."}]
+  change: [85, guattari-1989, {en: "A molecular revolution of subjectivities and social relations.", fr: "Une révolution moléculaire des subjectivités et des rapports sociaux."}]
+  power: [80, guattari-1989, {en: "Singular groups and self-organisation, not the party or the state.", fr: "Des groupes singuliers et l'auto-organisation, non le parti ou l'État."}]
+- author: baptiste-morizot
+  nature: [80, morizot-2020, {en: "Diplomacy with the living: other beings are partners, not resources.", fr: "Diplomatie avec le vivant : les autres êtres sont des partenaires, non des ressources."}]
+  change: [45, morizot-2020, {en: "A change of attention and of practices, more than a revolution.", fr: "Un changement d'attention et de pratiques, plus qu'une révolution."}]
+- author: bruno-latour
+  nature: [65, latour-1999, {en: "A parliament of things gives non-humans a voice.", fr: "Un parlement des choses donne voix aux non-humains."}]
+  change: [55, latour-2017, {en: "Land on the Earth: redraw what one depends on, by describing first.", fr: "Atterrir : redessiner ce dont on dépend, en commençant par le décrire."}]
+  power: [55, latour-2017, {en: "Grievance books and territories of subsistence, alongside institutions.", fr: "Des cahiers de doléances et des territoires de subsistance, aux côtés des institutions."}]
+- author: isabelle-stengers
+  nature: [70, stengers-2009, {en: "Gaia intrudes: an indifferent power, not a nature to protect.", fr: "Gaïa fait intrusion : une puissance indifférente, non une nature à protéger."}]
+  change: [70, stengers-2009, {en: "Resist the coming barbarism rather than trust its managers.", fr: "Résister à la barbarie qui vient plutôt que se fier à ses gestionnaires."}]
+  power: [80, stengers-2009, {en: "Collectives that learn to think and decide for themselves.", fr: "Des collectifs qui apprennent à penser et à décider par eux-mêmes."}]
+- author: donna-haraway
+  nature: [75, haraway-2016, {en: "Making kin across species in the Chthulucene.", fr: "Faire parenté entre espèces dans le Chthulucène."}]
+  change: [65, haraway-2016, {en: "Staying with the trouble rather than seeking a clean break or a fix.", fr: "Rester avec le trouble plutôt que chercher une rupture nette ou une solution."}]
+- author: james-lovelock
+  nature: [75, lovelock-1979, {en: "Gaia: the living Earth as a self-regulating whole.", fr: "Gaïa : la Terre vivante comme un tout qui se régule."}]
+  change: [20, lovelock-2006, {en: "Rely on existing technologies, nuclear power first.", fr: "S'appuyer sur les techniques existantes, d'abord le nucléaire."}]
+  power: [15, lovelock-2006, {en: "A planned retreat led by states, even at the cost of democracy.", fr: "Une retraite planifiée menée par les États, fût-ce aux dépens de la démocratie."}]
+- author: johan-rockstrom
+  nature: [30, rockstrom-2009, {en: "A safe operating space for humanity.", fr: "Un espace de fonctionnement sûr pour l'humanité."}]
+  change: [25, rockstrom-2009, {en: "Science-based targets for existing governments and firms.", fr: "Des objectifs fondés sur la science pour les gouvernements et les entreprises existants."}]
+  power: [20, rockstrom-2009, {en: "Global governance of Earth system boundaries.", fr: "Une gouvernance mondiale des limites du système Terre."}]
+- author: joan-martinez-alier
+  nature: [40, martinez-alier-2002, {en: "The environment as livelihood for the poor, more than wilderness.", fr: "L'environnement comme moyen de subsistance des pauvres, plus que comme nature sauvage."}]
+  change: [65, martinez-alier-2002, {en: "Ecological distribution conflicts drive change from below.", fr: "Les conflits écologiques distributifs font changer les choses par le bas."}]
+  power: [70, martinez-alier-2002, {en: "Local movements and communities as the actors.", fr: "Les mouvements et les communautés locales comme acteurs."}]
+- author: arturo-escobar
+  nature: [75, escobar-2018, {en: "Relational ontologies in which humans and non-humans are entangled.", fr: "Des ontologies relationnelles où humains et non-humains sont liés."}]
+  change: [80, escobar-1995, {en: "Unmake development rather than improve it.", fr: "Défaire le développement plutôt que l'améliorer."}]
+  power: [85, escobar-2018, {en: "Autonomy of communities and their territories.", fr: "L'autonomie des communautés et de leurs territoires."}]
+- author: philippe-descola
+  nature: [70, descola-2005, {en: "Naturalism is one way among four of relating to beings.", fr: "Le naturalisme est une manière parmi quatre de se rapporter aux êtres."}]
+- author: elinor-ostrom
+  nature: [30, ostrom-1990, {en: "Resources governed for the people who depend on them.", fr: "Des ressources gouvernées pour les gens qui en dépendent."}]
+  change: [20, ostrom-1990, {en: "Design principles for institutions, tested in the field.", fr: "Des principes de conception d'institutions, éprouvés sur le terrain."}]
+  power: [85, ostrom-1990, {en: "Self-governed commons, without market or state in charge.", fr: "Des communs autogouvernés, sans que le marché ou l'État décide."}]
+- author: ramachandra-guha
+  nature: [30, guha-1989b, {en: "Against wilderness preservation that removes peasants for the sake of nature.", fr: "Contre une préservation de la nature sauvage qui chasse les paysans au nom de la nature."}]
+  change: [60, guha-1989, {en: "Peasant movements against state forestry.", fr: "Des mouvements paysans contre la foresterie d'État."}]
+  power: [75, guha-1989, {en: "Village communities against the forest department.", fr: "Les communautés villageoises contre l'administration forestière."}]
+- author: malcom-ferdinand
+  nature: [55, ferdinand-2019, {en: "Ecology and the end of colonial inhabiting must go together.", fr: "L'écologie et la fin de l'habiter colonial doivent aller ensemble."}]
+  change: [85, ferdinand-2019, {en: "A break with the colonial way of inhabiting the Earth.", fr: "Une rupture avec la manière coloniale d'habiter la Terre."}]
+- author: alberto-acosta
+  nature: [85, acosta-2012, {en: "Buen vivir with nature as a subject of rights.", fr: "Le buen vivir avec la nature comme sujet de droits."}]
+  change: [70, acosta-2012, {en: "An alternative to development, written into a constitution.", fr: "Une alternative au développement, inscrite dans une constitution."}]
+  power: [50, acosta-2012, {en: "A plurinational state and community autonomy together.", fr: "Un État plurinational et l'autonomie des communautés ensemble."}]
+- author: robin-wall-kimmerer
+  nature: [90, kimmerer-2013, {en: "Plants as teachers and relatives, owed reciprocity.", fr: "Les plantes comme maîtresses et parentes, à qui l'on doit la réciprocité."}]
+  change: [45, kimmerer-2013, {en: "A change of relationship, practised in everyday gestures.", fr: "Un changement de relation, pratiqué dans les gestes quotidiens."}]
+- author: vandana-shiva
+  nature: [80, shiva-1988, {en: "Nature as a living force, against its reduction to raw material.", fr: "La nature comme force vivante, contre sa réduction à une matière première."}]
+  change: [75, shiva-1993, {en: "Refuse the monocultures of the mind, not adjust them.", fr: "Refuser les monocultures de l'esprit, non les ajuster."}]
+  power: [85, shiva-1997, {en: "Seeds and knowledge held by communities, against patents.", fr: "Des semences et des savoirs tenus par les communautés, contre les brevets."}]
+- author: val-plumwood
+  nature: [80, plumwood-1993, {en: "Undo the dualism that sets reason and humanity above nature.", fr: "Défaire le dualisme qui place la raison et l'humanité au-dessus de la nature."}]
+  change: [70, plumwood-2002, {en: "A crisis of reason calls for a different culture, not better management.", fr: "Une crise de la raison appelle une autre culture, non une meilleure gestion."}]
+- author: maria-mies
+  nature: [60, mies-1993, {en: "Women and nature colonised by the same accumulation.", fr: "Les femmes et la nature colonisées par la même accumulation."}]
+  change: [85, mies-1986, {en: "A subsistence perspective against capitalist patriarchy.", fr: "Une perspective de subsistance contre le patriarcat capitaliste."}]
+  power: [85, mies-1999, {en: "Local subsistence economies rather than the state or the market.", fr: "Des économies de subsistance locales plutôt que l'État ou le marché."}]
+- author: francoise-deaubonne
+  nature: [55, eaubonne-1974, {en: "The exhaustion of the earth and the subjection of women share one cause.", fr: "L'épuisement de la terre et la sujétion des femmes ont une même cause."}]
+  change: [95, eaubonne-1974, {en: "Feminism or death: a mutation, not a reform.", fr: "Le féminisme ou la mort : une mutation, non une réforme."}]
+- author: timothy-morton
+  nature: [70, morton-2007, {en: "Drop the idea of Nature to care for all beings, strange ones included.", fr: "Abandonner l'idée de Nature pour prendre soin de tous les êtres, étranges compris."}]
+- author: stewart-brand
+  nature: [25, brand-2009, {en: "Judge technologies by their measured effects for people and climate.", fr: "Juger les techniques à leurs effets mesurés sur les gens et le climat."}]
+  change: [20, brand-2009, {en: "Use the tools that work: cities, nuclear power, genetic engineering.", fr: "Utiliser les outils qui marchent : villes, nucléaire, génie génétique."}]
+- author: ted-nordhaus
+  nature: [25, nordhaus-2015, {en: "Spare nature by intensifying human activity, for human welfare first.", fr: "Épargner la nature en intensifiant l'activité humaine, d'abord pour le bien-être humain."}]
+  change: [10, nordhaus-2004, {en: "Investment and innovation within the existing economy.", fr: "Investissement et innovation dans l'économie existante."}]
+  power: [25, nordhaus-2007, {en: "State-backed innovation and infrastructure.", fr: "Innovation et infrastructures soutenues par l'État."}]
+- author: michael-shellenberger
+  nature: [15, shellenberger-2020, {en: "Human prosperity first; environmental alarmism does harm.", fr: "La prospérité humaine d'abord ; l'alarmisme environnemental fait du tort."}]
+  change: [10, shellenberger-2020, {en: "Keep the existing path of development, with more nuclear power.", fr: "Garder la voie de développement existante, avec plus de nucléaire."}]

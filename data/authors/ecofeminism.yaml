@@ -241,3 +241,22 @@
   works:
     - {id: starhawk-1979, year: 1979, title: "The Spiral Dance: A Rebirth of the Ancient Religion of the Great Goddess"}
     - {id: starhawk-1987, year: 1987, title: "Truth or Dare: Encounters with Power, Authority, and Mystery"}
+
+- id: yayo-herrero
+  name: Yayo Herrero
+  sort: Herrero
+  layer: leaf
+  branch: ecofeminism
+  born: 1965
+  place: {city: {en: Madrid, fr: Madrid}, country: {en: Spain, fr: Espagne}, lat: 40.42, lon: -3.70}
+  lede:
+    en: "Spanish anthropologist, engineer and educator, long a coordinator of Ecologistas en Acción. Her ecofeminism shows an economy that depends on two things it does not count: the ecosystems that sustain it and the care work, mostly done by women, that keeps people alive."
+    fr: "Anthropologue, ingénieure et éducatrice espagnole, longtemps coordinatrice d'Ecologistas en Acción. Son écoféminisme montre une économie qui dépend de deux choses qu'elle ne compte pas : les écosystèmes qui la portent et le travail du soin, surtout fait par des femmes, qui maintient les gens en vie."
+  seeds:
+    - seed: life-at-the-centre
+      text:
+        en: "Put the sustaining of life at the centre of the economy, instead of the accumulation that depends on it unseen."
+        fr: "Placer le soutien de la vie au centre de l'économie, au lieu de l'accumulation qui en dépend sans la voir."
+      source: herrero-2021
+  works:
+    - {id: herrero-2021, year: 2021, title: Ausencias y extravíos}

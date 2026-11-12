@@ -216,3 +216,47 @@
       source: raworth-2017
   works:
     - {id: raworth-2017, year: 2017, title: "Doughnut Economics: Seven Ways to Think Like a 21st-Century Economist"}
+
+- id: carlos-taibo
+  name: Carlos Taibo
+  sort: Taibo
+  layer: leaf
+  branch: degrowth
+  born: 1956
+  place: {city: {en: Madrid, fr: Madrid}, country: {en: Spain, fr: Espagne}, lat: 40.42, lon: -3.70}
+  lede:
+    en: "Spanish political scientist and essayist, professor at the Autonomous University of Madrid, close to the libertarian tradition. He brought degrowth into Spanish debate and later wrote on the possible collapse of industrial society."
+    fr: "Politiste et essayiste espagnol, professeur à l'université autonome de Madrid, proche de la tradition libertaire. Il introduit la décroissance dans le débat espagnol et écrit plus tard sur l'effondrement possible de la société industrielle."
+  seeds:
+    - seed: degrowth
+      text:
+        en: "In the rich countries production and consumption must shrink, and the work freed must go to social and environmental care."
+        fr: "Dans les pays riches, production et consommation doivent diminuer, et le travail libéré doit aller au soin des personnes et de l'environnement."
+      source: taibo-2009
+  works:
+    - {id: taibo-2009, year: 2009, title: En defensa del decrecimiento}
+
+- id: ramon-fernandez-duran
+  name: Ramón Fernández Durán
+  sort: Fernández Durán
+  layer: leaf
+  branch: degrowth
+  born: 1947
+  died: 2011
+  place: {city: {en: Madrid, fr: Madrid}, country: {en: Spain, fr: Espagne}, lat: 40.42, lon: -3.70}
+  lede:
+    en: "Spanish engineer and urbanist, a founder of Ecologistas en Acción. His last books describe global capitalism running into the decline of cheap fossil energy, and a long breakdown of the industrial order over the century."
+    fr: "Ingénieur et urbaniste espagnol, l'un des fondateurs d'Ecologistas en Acción. Ses derniers livres décrivent un capitalisme mondial qui se heurte au déclin de l'énergie fossile bon marché, et un long effondrement de l'ordre industriel au cours du siècle."
+  seeds:
+    - seed: energy-descent
+      text:
+        en: "The end of cheap oil will break global capitalism: the question is how the descent is shared."
+        fr: "La fin du pétrole bon marché brisera le capitalisme mondial : la question est de savoir comment la descente sera partagée."
+      source: fernandez-duran-2011
+  works:
+    - {id: fernandez-duran-2011, year: 2011, title: "La quiebra del capitalismo global: 2000-2030"}
+    - id: fernandez-duran-2014
+      year: 2014
+      title: En la espiral de la energía
+      by: {en: "Fernández Durán and González Reyes", fr: "Fernández Durán et González Reyes"}
+      note: {en: with Luis González Reyes, fr: avec Luis González Reyes}

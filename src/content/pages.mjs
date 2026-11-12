@@ -121,7 +121,7 @@ export function methodPage(lang, s, { repoPublic }) {
           id: 'next',
           h: "Ce qui n'y est pas encore",
           list: [
-            'Les placements de la Canopée, qui demandent chacun un passage cité.',
+            'Les placements de la Canopée pour les autres feuilles, et les pages précises des premières lectures.',
                         "Les lieux de travail et d'exil sur le Terrain.",
             'Les références à la page pour chaque graine et chaque lien.',
             'Les capsules vidéo de quatre-vingt-dix secondes.',
@@ -224,8 +224,8 @@ export function methodPage(lang, s, { repoPublic }) {
         id: 'next',
         h: 'What is not there yet',
         list: [
-          'Canopy placements, each of which needs a cited passage.',
-                    'Places of work and exile on the Terrain.',
+          'Canopy placements for the other leaves, and page references for the first readings.',
+          'Places of work and exile on the Terrain.',
           'Page references for every seed and every link.',
           'The ninety-second video capsules.',
           ...(s.runs > 0 ? [] : ['The first runs of the Clearing.']),
@@ -243,6 +243,8 @@ export function dataPage(lang, s) {
     ['data/branches.yaml, data/roots.yaml', { en: 'Schools and root groups, in the order of the tree.', fr: "Les écoles et les groupes de racines, dans l'ordre de l'arbre." }],
     ['data/trunk.yaml', { en: 'The founding texts.', fr: 'Les textes fondateurs.' }],
     ['data/sources.yaml', { en: 'Secondary sources cited as evidence.', fr: 'Les sources secondaires citées comme preuves.' }],
+    ['data/canopy.yaml', { en: 'Canopy placements: author, axis, score from 0 to 100, the work it rests on and the reason in a sentence.', fr: "Les placements de la Canopée : auteur, axe, score de 0 à 100, l'œuvre sur laquelle il repose et la raison en une phrase." }],
+    ['data/clearing/', { en: 'Party measures quoted with their source, the questions and axioms put to the agents, and the stored runs with their transcripts.', fr: 'Les mesures des partis citées avec leur source, les questions et axiomes soumis aux agents, et les simulations enregistrées avec leur transcription.' }],
     ['design/tokens.json', { en: 'Colour, type, space and stroke tokens of the design system.', fr: "Les jetons de couleur, de typographie, d'espace et de trait du système de design." }],
   ];
   const numbers =

@@ -18,7 +18,9 @@ const { lang } = Astro.props;
 const { t } = useUi(lang);
 const { specimen, published } = loadClearing();
 const latest = published[0] ?? null;
-const questions = loadQuestions();
+const allQuestions = loadQuestions();
+const questions = allQuestions.filter((q) => q.kind !== 'axiom');
+const axioms = allQuestions.filter((q) => q.kind === 'axiom');
 const runsOf = (id) => published.filter((r) => r.question?.id === id || r.claimSource?.id === id);
 const asMeasures = (q) => q.measures.map((m) => ({ stance: m.stance, party: m.claim.party, programme: m.claim.programme, locator: m.claim.locator, quote: m.claim.quote }));
 const run = latest ?? specimen;
@@ -168,6 +170,35 @@ const metaOf = (r) => t('clearing.runMeta', { agents: r.settings.agents, rounds:
                   )}
                 </span>
                 <QuestionPositions measures={asMeasures(q)} lang={lang} />
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+    {
+      axioms.length > 0 && (
+        <div class="below-col wide claims">
+          <div class="below-head">
+            <span class="label humus">{t('clearing.axiomsLabel')}</span>
+            <h2 class="t-heading">{t('clearing.axiomsTitle')}</h2>
+          </div>
+          <p class="text">{t('clearing.axioms')}</p>
+          <ul>
+            {axioms.map((q) => (
+              <li>
+                <span class="text">
+                  {L(q.claim, lang)} <code class="eco-meta">{q.id}</code>
+                  {runsOf(q.id).length > 0 && (
+                    <span class="eco-meta">
+                      {' '}· {t('clearing.claimsRun')}{' '}
+                      {runsOf(q.id).map((r) => (
+                        <a href={href(lang, 'run', r.id)}>{r.runId}</a>
+                      ))}
+                    </span>
+                  )}
+                </span>
+                {q.note && <span class="eco-meta">{L(q.note, lang)}</span>}
               </li>
             ))}
           </ul>

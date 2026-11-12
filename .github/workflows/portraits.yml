@@ -98,6 +98,7 @@ jobs:
           git add public/portraits data/portraits.yaml
           if git diff --cached --quiet; then echo "Nothing new."; exit 0; fi
           git commit -m "Portraits: $(git diff --cached --name-only -- public/portraits | wc -l) image(s)"
+          git pull --rebase origin "$DEFAULT_BRANCH"
           git push origin "HEAD:$DEFAULT_BRANCH"
 
       - name: Rebuild the site

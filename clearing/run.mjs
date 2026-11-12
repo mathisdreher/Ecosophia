@@ -363,6 +363,7 @@ async function main() {
       ? {
           question: {
             id: question.id,
+            ...(question.kind ? { kind: question.kind } : {}),
             measures: question.measures.map((m) => ({ id: m.id, stance: m.stance, party: m.claim.party, programme: m.claim.programme, locator: m.claim.locator, quote: m.claim.quote })),
           },
         }

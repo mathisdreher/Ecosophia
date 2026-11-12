@@ -266,3 +266,164 @@
       source: pulido-2000
   works:
     - {id: pulido-2000, year: 2000, title: "Rethinking Environmental Racism: White Privilege and Urban Development in Southern California", kind: article, in: Annals of the Association of American Geographers, issue: "90 (1)"}
+
+- id: thomas-sankara
+  name: Thomas Sankara
+  sort: Sankara
+  layer: leaf
+  branch: decolonial
+  born: 1949
+  died: 1987
+  place: {city: {en: Yako, fr: Yako}, country: {en: Burkina Faso, fr: Burkina Faso}, lat: 12.96, lon: -2.26}
+  lede:
+    en: "President of Burkina Faso from 1983 until his assassination in 1987. His government planted millions of trees against the advance of the Sahel and fought bushfires and unregulated woodcutting, as part of a politics of self-reliance against debt and dependency."
+    fr: "Président du Burkina Faso de 1983 à son assassinat en 1987. Son gouvernement fait planter des millions d'arbres contre l'avancée du Sahel et combat les feux de brousse et la coupe abusive du bois, dans une politique d'autonomie contre la dette et la dépendance."
+  seeds:
+    - seed: trees-against-the-desert
+      text:
+        en: "Saving the tree is saving the people: the fight against the desert is a fight against hunger and against imperialism."
+        fr: "Sauver l'arbre, c'est sauver le peuple : la lutte contre le désert est une lutte contre la faim et contre l'impérialisme."
+      source: sankara-1986
+  works:
+    - {id: sankara-1986, year: 1986, title: "Sauver l'arbre, l'environnement et la vie tout court", kind: talk, note: {en: "speech at the International Silva Conference, Paris", fr: "discours à la conférence internationale Silva, Paris"}}
+
+- id: ken-saro-wiwa
+  name: Ken Saro-Wiwa
+  sort: Saro-Wiwa
+  layer: leaf
+  branch: decolonial
+  born: 1941
+  died: 1995
+  place: {city: {en: Bori, fr: Bori}, country: {en: Nigeria, fr: Nigeria}, lat: 4.67, lon: 7.37}
+  lede:
+    en: "Nigerian writer and television producer who led the Movement for the Survival of the Ogoni People against the damage done by oil extraction in the Niger Delta. The military regime hanged him with eight other Ogoni leaders in 1995."
+    fr: "Écrivain et producteur de télévision nigérian, à la tête du Mouvement pour la survie du peuple ogoni contre les dégâts de l'extraction pétrolière dans le delta du Niger. Le régime militaire le fait pendre avec huit autres dirigeants ogonis en 1995."
+  seeds:
+    - seed: ecological-war
+      text:
+        en: "Oil extraction waged an ecological war on the Ogoni: their land, water and air were taken without their consent or their share."
+        fr: "L'extraction pétrolière a mené une guerre écologique contre les Ogonis : leurs terres, leurs eaux et leur air leur ont été pris sans leur accord ni leur part."
+      source: saro-wiwa-1992
+  works:
+    - {id: saro-wiwa-1992, year: 1992, title: "Genocide in Nigeria: The Ogoni Tragedy"}
+
+- id: nnimmo-bassey
+  name: Nnimmo Bassey
+  sort: Bassey
+  layer: leaf
+  branch: decolonial
+  born: 1958
+  place: {country: {en: Nigeria, fr: Nigeria}}
+  lede:
+    en: "Nigerian architect, poet and environmental campaigner, founder of the Health of Mother Earth Foundation and former chair of Friends of the Earth International. He describes Africa as the continent that bears the extraction and the heat of a climate it did little to change."
+    fr: "Architecte, poète et militant écologiste nigérian, fondateur de la Health of Mother Earth Foundation et ancien président des Amis de la Terre International. Il décrit l'Afrique comme le continent qui subit l'extraction et la chaleur d'un climat qu'il a peu contribué à changer."
+  seeds:
+    - seed: extractivism
+      text:
+        en: "Africa is cooked twice: by the extraction of its oil and minerals, and by the warming that this extraction feeds."
+        fr: "L'Afrique est cuite deux fois : par l'extraction de son pétrole et de ses minerais, et par le réchauffement que cette extraction nourrit."
+      source: bassey-2012
+  works:
+    - {id: bassey-2012, year: 2012, title: "To Cook a Continent: Destructive Extraction and the Climate Crisis in Africa"}
+
+- id: felwine-sarr
+  name: Felwine Sarr
+  sort: Sarr
+  layer: leaf
+  branch: decolonial
+  also: [degrowth]
+  born: 1972
+  place: {city: {en: Niodior, fr: Niodior}, country: {en: Senegal, fr: Sénégal}, lat: 13.99, lon: -16.76}
+  lede:
+    en: "Senegalese economist, writer and musician. Afrotopia asks Africa to stop measuring itself against a development drawn elsewhere and to set its own ends, drawing on its cultures and its relations to living things."
+    fr: "Économiste, écrivain et musicien sénégalais. Afrotopia invite l'Afrique à cesser de se mesurer à un développement dessiné ailleurs et à fixer ses propres fins, à partir de ses cultures et de ses rapports au vivant."
+  seeds:
+    - seed: afrotopia
+      text:
+        en: "Africa does not have to catch up: it can define its own idea of a good life, which need not be growth."
+        fr: "L'Afrique n'a pas à rattraper : elle peut définir sa propre idée de la vie bonne, qui n'est pas forcément la croissance."
+      source: sarr-2016
+  works:
+    - {id: sarr-2016, year: 2016, title: Afrotopia}
+
+- id: ailton-krenak
+  name: Ailton Krenak
+  sort: Krenak
+  layer: leaf
+  branch: decolonial
+  born: 1953
+  place: {city: {en: "Itabirinha, Minas Gerais", fr: "Itabirinha (Minas Gerais)"}, country: {en: Brazil, fr: Brésil}, lat: -18.57, lon: -41.23}
+  lede:
+    en: "Indigenous leader and writer of the Krenak people of the Doce river valley in Brazil, active in the movement that secured Indigenous rights in the 1988 constitution. His short books question the idea of a humanity set apart from the Earth."
+    fr: "Dirigeant et écrivain autochtone du peuple krenak, de la vallée du rio Doce au Brésil, engagé dans le mouvement qui a fait inscrire les droits autochtones dans la constitution de 1988. Ses courts livres interrogent l'idée d'une humanité séparée de la Terre."
+  seeds:
+    - seed: postponing-the-end
+      text:
+        en: "The end of the world has already come for many peoples; to postpone it, tell more stories in which the river and the mountain are relatives."
+        fr: "La fin du monde est déjà venue pour bien des peuples ; pour la retarder, raconter davantage d'histoires où le fleuve et la montagne sont des parents."
+      source: krenak-2019
+  works:
+    - {id: krenak-2019, year: 2019, title: Ideias para adiar o fim do mundo, tr: {en: "Ideas to Postpone the End of the World, 2020", fr: "Idées pour retarder la fin du monde, 2020"}}
+
+- id: davi-kopenawa
+  name: Davi Kopenawa
+  sort: Kopenawa
+  layer: leaf
+  branch: decolonial
+  also: [anthropocene]
+  place: {country: {en: Brazil, fr: Brésil}}
+  lede:
+    en: "Yanomami shaman and spokesman, who led the campaign that won the demarcation of Yanomami territory in 1992. With the anthropologist Bruce Albert he wrote The Falling Sky, a shaman's account of the world and of the people of merchandise."
+    fr: "Chamane et porte-parole yanomami, qui a conduit la campagne obtenant la démarcation du territoire yanomami en 1992. Avec l'anthropologue Bruce Albert, il écrit La Chute du ciel, récit d'un chamane sur le monde et sur le peuple de la marchandise."
+  seeds:
+    - seed: falling-sky
+      text:
+        en: "The shamans hold up the sky; if the forest is destroyed for metal and merchandise, the sky will fall on everyone."
+        fr: "Les chamanes retiennent le ciel ; si la forêt est détruite pour le métal et la marchandise, le ciel tombera sur tout le monde."
+      source: kopenawa-2010
+  works:
+    - id: kopenawa-2010
+      year: 2010
+      title: "La Chute du ciel : paroles d'un chaman yanomami"
+      by: {en: Kopenawa and Albert, fr: Kopenawa et Albert}
+      note: {en: with Bruce Albert, fr: avec Bruce Albert}
+
+- id: berta-caceres
+  name: Berta Cáceres
+  sort: Cáceres
+  layer: leaf
+  branch: decolonial
+  also: [ecofeminism]
+  born: 1971
+  died: 2016
+  place: {city: {en: La Esperanza, fr: La Esperanza}, country: {en: Honduras, fr: Honduras}, lat: 14.31, lon: -88.18}
+  lede:
+    en: "Lenca leader from Honduras, co-founder of the Civic Council of Popular and Indigenous Organizations of Honduras. She led the campaign against the Agua Zarca dam on the Gualcarque river, received the Goldman Prize in 2015 and was murdered in 2016."
+    fr: "Dirigeante lenca du Honduras, cofondatrice du Conseil civique des organisations populaires et autochtones du Honduras. Elle mène la campagne contre le barrage d'Agua Zarca sur le fleuve Gualcarque, reçoit le prix Goldman en 2015 et est assassinée en 2016."
+  seeds:
+    - seed: guardians-of-rivers
+      text:
+        en: "Rivers are sacred and alive; defending them against dams is defending a people and the planet at once."
+        fr: "Les rivières sont sacrées et vivantes ; les défendre contre les barrages, c'est défendre à la fois un peuple et la planète."
+      source: caceres-2015
+  works:
+    - {id: caceres-2015, year: 2015, title: Goldman Environmental Prize acceptance speech, kind: talk}
+
+- id: fatima-ouassak
+  name: Fatima Ouassak
+  sort: Ouassak
+  layer: leaf
+  branch: decolonial
+  born: 1976
+  lede:
+    en: "French political scientist and activist, co-founder of the Front de mères, a union of parents in working-class neighbourhoods. Pour une écologie pirate argues that the banlieues are not outside ecology but a place from which to rethink it, against an ecology that polices them."
+    fr: "Politologue et militante française, cofondatrice du Front de mères, syndicat de parents des quartiers populaires. Pour une écologie pirate soutient que les banlieues ne sont pas hors de l'écologie mais un lieu d'où la repenser, contre une écologie qui les police."
+  seeds:
+    - seed: pirate-ecology
+      text:
+        en: "The working-class neighbourhoods, kept from land and air, can claim an ecology of freedom instead of being its target."
+        fr: "Les quartiers populaires, privés de terre et d'air, peuvent revendiquer une écologie de la liberté au lieu d'en être la cible."
+      source: ouassak-2023
+  works:
+    - {id: ouassak-2020, year: 2020, title: "La Puissance des mères : pour un nouveau sujet révolutionnaire"}
+    - {id: ouassak-2023, year: 2023, title: "Pour une écologie pirate : et nous serons libres"}

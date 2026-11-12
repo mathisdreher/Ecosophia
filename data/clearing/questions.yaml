@@ -59,3 +59,85 @@
   measures:
     - {id: lfi-2026-vols-interieurs, stance: for}
     - {id: pcf-2022-petites-lignes-transports-gratuits, stance: partly}
+
+- id: leasing-social
+  claim:
+    en: "The state should fund electric cars on social leasing for low- and middle-income households."
+    fr: "L'État devrait financer des voitures électriques en leasing social pour les ménages modestes et des classes moyennes."
+  measures:
+    - {id: ens-2024-leasing-social, stance: for}
+
+# --- Axioms -----------------------------------------------------------------
+# Questions that divide the authors themselves rather than the parties. They
+# carry no party measure. Each one is chosen because the corpus holds agents
+# on both sides of it.
+
+- id: croissance-verte
+  kind: axiom
+  claim:
+    en: "Economic growth can be decoupled from environmental damage fast enough to stay within planetary boundaries."
+    fr: "La croissance économique peut être découplée des dégâts environnementaux assez vite pour rester dans les limites planétaires."
+  note: {en: "Ecomodernists against degrowth; Raworth and Rockström in between.", fr: "Les écomodernistes contre la décroissance ; Raworth et Rockström entre les deux."}
+
+- id: valeur-intrinseque
+  kind: axiom
+  claim:
+    en: "Nature has value in itself, independently of its usefulness to humans."
+    fr: "La nature a une valeur en elle-même, indépendamment de son utilité pour les humains."
+  note: {en: "Deep ecology against social ecology, ecosocialism and the ecomodernists.", fr: "L'écologie profonde contre l'écologie sociale, l'écosocialisme et les écomodernistes."}
+
+- id: moitie-terre
+  kind: axiom
+  claim:
+    en: "Half of the Earth's surface should be set aside as protected areas for other species."
+    fr: "La moitié de la surface de la Terre devrait être réservée aux autres espèces sous forme d'aires protégées."
+  note: {en: "Wilson's Half-Earth against the decolonial critique of conservation that removes people.", fr: "La Moitié de la Terre de Wilson contre la critique décoloniale d'une conservation qui chasse les habitants."}
+
+- id: urgence-democratie
+  kind: axiom
+  claim:
+    en: "The ecological emergency justifies limiting democratic procedures."
+    fr: "L'urgence écologique justifie de limiter les procédures démocratiques."
+  note: {en: "Hardin's mutual coercion and Lovelock's late pessimism against Bookchin, Gorz and Eckersley.", fr: "La coercition mutuelle de Hardin et le pessimisme tardif de Lovelock contre Bookchin, Gorz et Eckersley."}
+
+- id: population
+  kind: axiom
+  claim:
+    en: "Limiting population growth is necessary to solve the ecological crisis."
+    fr: "Limiter la croissance démographique est nécessaire pour résoudre la crise écologique."
+  note: {en: "Ehrlich and Hardin against Commoner, the ecofeminists and the decolonial branch.", fr: "Ehrlich et Hardin contre Commoner, les écoféministes et la branche décoloniale."}
+
+- id: sabotage
+  kind: axiom
+  claim:
+    en: "Damaging fossil fuel infrastructure is a legitimate form of climate action."
+    fr: "Endommager des infrastructures fossiles est une forme légitime d'action climatique."
+  note: {en: "A question Malm put at the centre of the debate; the tradition of non-violence answers.", fr: "Une question que Malm a placée au centre du débat ; la tradition de la non-violence lui répond."}
+
+- id: geoingenierie
+  kind: axiom
+  claim:
+    en: "Research on solar geoengineering should go ahead."
+    fr: "La recherche sur la géo-ingénierie solaire devrait être poursuivie."
+  note: {en: "Brand's ecopragmatism against the technocritics and the precaution of Jonas.", fr: "L'écopragmatisme de Brand contre les technocritiques et la précaution de Jonas."}
+
+- id: capitalisme-reforme
+  kind: axiom
+  claim:
+    en: "Capitalism can be reformed to respect ecological limits."
+    fr: "Le capitalisme peut être réformé pour respecter les limites écologiques."
+  note: {en: "Ecosocialists and degrowth against the ecomodernists; Ostrom asks another question.", fr: "Écosocialistes et décroissants contre les écomodernistes ; Ostrom pose une autre question."}
+
+- id: dette-climatique
+  kind: axiom
+  claim:
+    en: "Rich countries owe a climate debt to the Global South and should pay it."
+    fr: "Les pays riches ont une dette climatique envers les pays du Sud et devraient la payer."
+  note: {en: "Martínez-Alier's ecological debt and the decolonial branch against the language of shared responsibility.", fr: "La dette écologique de Martínez-Alier et la branche décoloniale contre le langage de la responsabilité partagée."}
+
+- id: villes-denses
+  kind: axiom
+  claim:
+    en: "Dense cities are the most ecological way for people to live."
+    fr: "Les villes denses sont la manière la plus écologique d'habiter."
+  note: {en: "Brand's case for cities against Berry's agrarianism and Bookchin's critique of the megalopolis.", fr: "L'éloge des villes par Brand contre l'agrarisme de Berry et la critique de la mégalopole par Bookchin."}

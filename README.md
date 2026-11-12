@@ -16,6 +16,7 @@ The site is bilingual (English and French) and static. Everything runs in GitHub
 | Add or correct an author, a link, a seed | Edit `data/*.yaml`, push. The build refuses broken references | Nothing |
 | Check dates and birthplaces against Wikidata | Actions › **Check facts against Wikidata** (also monthly) | Nothing |
 | Draw the portraits | Actions › **Portraits** | Secret `GEMINI_API_KEY` |
+| Draw logo concepts to choose from | Actions › **Logo concepts** | Secret `GEMINI_API_KEY` |
 | Run a debate in the Clearing | Actions › **Clearing run** | Secret `ANTHROPIC_API_KEY` |
 | Publish, unpublish or delete a run | Actions › **Clearing run status** | Nothing |
 
@@ -29,7 +30,7 @@ A run takes one question, chooses agents among the authors, lets them discuss in
 
 | Input | Default | Meaning |
 |---|---|---|
-| `claim` | | A question id, or one sentence in English or French. Questions: `nouveau-nucleaire`, `eolien-solaire`, `pesticides`, `voitures-thermiques-2035`, `rail-avion` |
+| `claim` | | A question id, or one sentence in English or French. Programme questions: `nouveau-nucleaire`, `eolien-solaire`, `pesticides`, `voitures-thermiques-2035`, `rail-avion`, `leasing-social`. Axioms: `croissance-verte`, `valeur-intrinseque`, `moitie-terre`, `urgence-democratie`, `population`, `sabotage`, `geoingenierie`, `capitalisme-reforme`, `dette-climatique`, `villes-denses` |
 | `agents` | `auto` | `auto`: one Opus call ranks the agents worth hearing on the question (at least one per branch, at most 30) and gives a reason for each. Or `all`, or author and branch ids separated by commas |
 | `rounds` | `auto` | Chosen with the agents (1 to 3), or a number from 1 to 8 |
 | `budget_usd` | `3` | Spending limit. The plan is cut to fit before anything is spent; a manual choice above it is refused; calls stop at 1.5 times it. `0` for no limit |
@@ -50,6 +51,8 @@ A run takes one question, chooses agents among the authors, lets them discuss in
 A sensible routine: draft each question with `auto` and Sonnet, then rerun on Opus the ones worth publishing.
 
 **Questions, not variants.** `data/clearing/claims.yaml` keeps every quoted party measure (LFI, PCF, Les Écologistes, PS, Ensemble, LR, RN), with its exact wording, document and page. `data/clearing/questions.yaml` gathers the measures that answer the same question, so one run covers all the parties. The run page shows each party's measure and stance next to the agents' positions; the agents themselves only see the question, never a party name.
+
+**Axioms.** Besides the programme questions, `questions.yaml` holds ten axioms (`kind: axiom`): claims that no party puts this way but that split the schools themselves, such as green growth, half-Earth, sabotage, geoengineering or dense cities. They are there to make the agents disagree among themselves, not only with the parties. Each carries a note on the fault line it tests.
 
 **What an agent is.** It receives its author's Ecosophia record (summary, seeds, works, sourced threads) and rules: argue from the record, say when the work is silent, never use quotation marks, never speak as the author. It does not read the books, and the model also draws on what it already knows. An author with `agent: false` takes no part; `node clearing/withdraw.mjs <author-id>` removes one from stored runs.
 
@@ -80,10 +83,10 @@ The portraits are illustrations, not documents: the site labels each one as a ge
 | Branch | `/en/branches/<id>/` | The leaves of a school and the threads that cross it |
 | Mycelium | `/en/mycelium/` | The influence graph, with filters and a table of every link and its source |
 | Rings | `/en/rings/` · `/fr/cernes/` | Lifespans and publication dates on one time axis |
-| Terrain | `/en/terrain/` | Birthplaces on a world map and a Europe inset |
+| Terrain | `/en/terrain/` | Birthplaces on a world map and a Europe inset, markers coloured by branch with a filter, and the share of each continent |
 | Clearing | `/en/clearing/` · `/fr/clairiere/` | The latest published run, the questions and the party positions |
 | Clearing run | `/en/clearing/<run>/` · `/fr/clairiere/<run>/` | One run in full, with prompts and transcript |
-| Canopy | `/en/canopy/` · `/fr/canopee/` | In preparation: three axes and the rules of placement |
+| Canopy | `/en/canopy/` · `/fr/canopee/` | Authors on three axes (standing of nature, path of change, seat of power), two plotted at a time, each placement a reading of one cited work |
 | Seeds, Roots, Trunk, Method, Data | `/en/seeds/` and so on | Concepts, precursors, founding texts, how the map is made |
 
 ## The corpus
@@ -98,6 +101,7 @@ data/
   trunk.yaml           the founding texts
   sources.yaml         secondary sources cited as evidence
   portraits.yaml       which portraits are drawn
+  canopy.yaml          Canopy placements: author, axis, score, work, reason
   clearing/            specimen.yaml, claims.yaml, questions.yaml, runs/
 ```
 
@@ -137,6 +141,15 @@ A link:
 ```
 
 The validator (`npm run validate`, run before every build) refuses: an unknown reference, a text missing in one language, a seed or a link without a source, a quotation over twenty-five words or without a citation, more than three seeds, a simulated line in quotation marks, a Clearing run that names a withdrawn agent. It lists as warnings what is still missing: dates, coordinates, Wikidata IDs, authors without any link.
+
+A Canopy placement:
+
+```yaml
+- author: jacques-ellul
+  nature: [40, ellul-1954, {en: "…", fr: "…"}]   # score 0 to 100, a work of the author, the reason
+  change: [80, ellul-1977, {en: "…", fr: "…"}]
+  power: [80, ellul-1988, {en: "…", fr: "…"}]    # an axis left out shows hollow, at the branch median
+```
 
 Facts that could not be confirmed are left empty rather than guessed. The **Check facts against Wikidata** workflow compares dates and birthplaces with Wikidata, and proposes IDs for authors who have none, with their dates, for a human to confirm. It changes nothing by itself.
 
@@ -197,11 +210,14 @@ Ecosophia cartographie les penseuses et penseurs de l'écologie politique comme 
 | Corriger ou ajouter un auteur, un lien, une graine | Modifier `data/*.yaml` et pousser ; la construction refuse les références cassées | Rien |
 | Vérifier dates et lieux avec Wikidata | Actions › **Check facts against Wikidata** (aussi chaque mois) | Rien |
 | Dessiner les portraits | Actions › **Portraits** | Secret `GEMINI_API_KEY` |
+| Dessiner des pistes de logo | Actions › **Logo concepts** | Secret `GEMINI_API_KEY` |
 | Lancer un débat dans la Clairière | Actions › **Clearing run** | Secret `ANTHROPIC_API_KEY` |
 | Publier, dépublier ou supprimer une simulation | Actions › **Clearing run status** | Rien |
 
-**Lancer un débat.** Dans le champ `claim`, saisir l'identifiant d'une question (`nouveau-nucleaire`, `eolien-solaire`, `pesticides`, `voitures-thermiques-2035`, `rail-avion`) ou une affirmation en une phrase. Par défaut, Opus choisit les agents et le nombre de tours, et le plan est réduit pour tenir dans un budget de 3 USD. Coût indicatif : 12 agents sur 2 tours, environ 0,90 USD avec Opus, 0,45 USD avec Sonnet, 0,03 USD avec Haiku. La simulation est enregistrée comme brouillon ; après relecture, Actions › **Clearing run status** la publie.
+**Lancer un débat.** Dans le champ `claim`, saisir l'identifiant d'une question de programme (`nouveau-nucleaire`, `eolien-solaire`, `pesticides`, `voitures-thermiques-2035`, `rail-avion`, `leasing-social`), d'un axiome qui divise les écoles entre elles (`croissance-verte`, `moitie-terre`, `sabotage`, `geoingenierie`, `villes-denses`, etc.) ou une affirmation en une phrase. Par défaut, Opus choisit les agents et le nombre de tours, et le plan est réduit pour tenir dans un budget de 3 USD. Coût indicatif : 12 agents sur 2 tours, environ 0,90 USD avec Opus, 0,45 USD avec Sonnet, 0,03 USD avec Haiku. La simulation est enregistrée comme brouillon ; après relecture, Actions › **Clearing run status** la publie.
 
 **Portraits.** Des dessins au crayon générés avec l'API d'images Gemini, dans un style unique, puis traités de la même façon (recadrage, gris, niveaux, teinte papier). Faute de portrait, un dessin de feuille en tient lieu. Le site présente chaque portrait comme un dessin généré, et non comme une photographie.
+
+**Canopée.** Les auteurs sur trois axes (statut de la nature, voie du changement, siège du pouvoir), deux à la fois. Chaque placement est la lecture d'une œuvre citée, donnée avec sa raison dans `data/canopy.yaml` ; ce sont des premières lectures, à discuter.
 
 **Données.** Les fichiers YAML de `data/` sont la seule source. Chaque texte existe en anglais et en français ; chaque graine et chaque lien porte une source ; un fait non confirmé reste vide plutôt que deviné.

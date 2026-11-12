@@ -253,3 +253,43 @@
       source: fraser-2022
   works:
     - {id: fraser-2022, year: 2022, title: "Cannibal Capitalism: How Our System Is Devouring Democracy, Care, and the Planet and What We Can Do About It"}
+
+- id: manuel-sacristan
+  name: Manuel Sacristán
+  sort: Sacristán
+  layer: leaf
+  branch: ecosocialism
+  born: 1925
+  died: 1985
+  place: {city: {en: Madrid, fr: Madrid}, country: {en: Spain, fr: Espagne}, lat: 40.42, lon: -3.70}
+  lede:
+    en: "Spanish Marxist philosopher and logician, translator of Marx and Gramsci, who taught in Barcelona under and after Franco. In his last years he founded the review mientras tanto and turned Marxism towards ecology, pacifism and feminism."
+    fr: "Philosophe et logicien marxiste espagnol, traducteur de Marx et de Gramsci, qui enseigne à Barcelone sous Franco et après. Dans ses dernières années, il fonde la revue mientras tanto et tourne le marxisme vers l'écologie, le pacifisme et le féminisme."
+  seeds:
+    - seed: anti-productivism
+      text:
+        en: "A socialism worth having gives up the endless growth of the productive forces for a good life within limits."
+        fr: "Un socialisme digne de ce nom renonce à la croissance sans fin des forces productives pour une vie bonne dans des limites."
+      source: sacristan-1987
+  works:
+    - {id: sacristan-1987, year: 1987, title: "Pacifismo, ecología y política alternativa", note: {en: "essays collected after his death", fr: "essais réunis après sa mort"}}
+
+- id: jorge-riechmann
+  name: Jorge Riechmann
+  sort: Riechmann
+  layer: leaf
+  branch: ecosocialism
+  also: [degrowth]
+  born: 1962
+  place: {city: {en: Madrid, fr: Madrid}, country: {en: Spain, fr: Espagne}, lat: 40.42, lon: -3.70}
+  lede:
+    en: "Spanish poet, philosopher and translator, professor at the Autonomous University of Madrid and active in Ecologistas en Acción. His essays argue for an ecosocialism of self-limitation, in which societies choose to want less."
+    fr: "Poète, philosophe et traducteur espagnol, professeur à l'université autonome de Madrid et militant d'Ecologistas en Acción. Ses essais défendent un écosocialisme de l'autolimitation, où les sociétés choisissent de vouloir moins."
+  seeds:
+    - seed: self-limitation
+      text:
+        en: "The decisive ecological virtue is self-containment: setting limits to our own power before nature sets them for us."
+        fr: "La vertu écologique décisive est l'autocontention : poser des limites à notre propre puissance avant que la nature ne les pose pour nous."
+      source: riechmann-2004
+  works:
+    - {id: riechmann-2004, year: 2004, title: "Gente que no quiere viajar a Marte: ensayos sobre ecología, ética y autolimitación"}

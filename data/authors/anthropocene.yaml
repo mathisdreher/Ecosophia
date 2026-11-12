@@ -293,3 +293,24 @@
   works:
     - {id: charbonnier-2015, year: 2015, title: "La Fin du grand partage : nature et société, de Durkheim à Descola"}
     - {id: charbonnier-2020, year: 2020, title: "Abondance et liberté : une histoire environnementale des idées politiques"}
+
+- id: achille-mbembe
+  name: Achille Mbembe
+  sort: Mbembe
+  layer: leaf
+  branch: anthropocene
+  also: [decolonial]
+  born: 1957
+  place: {country: {en: Cameroon, fr: Cameroun}}
+  lede:
+    en: "Cameroonian historian and political theorist, at the University of the Witwatersrand in Johannesburg. In Brutalisme he describes a planetary power that treats bodies, minds and the Earth alike as matter to be broken and extracted."
+    fr: "Historien et théoricien politique camerounais, à l'université du Witwatersrand à Johannesburg. Dans Brutalisme, il décrit une puissance planétaire qui traite les corps, les esprits et la Terre comme une même matière à casser et à extraire."
+  seeds:
+    - seed: brutalism
+      text:
+        en: "Extraction now runs through bodies and the Earth alike: the same force breaks rock and breaks people."
+        fr: "L'extraction traverse désormais les corps comme la Terre : la même force casse la roche et casse les personnes."
+      source: mbembe-2020
+  works:
+    - {id: mbembe-2013, year: 2013, title: Critique de la raison nègre}
+    - {id: mbembe-2020, year: 2020, title: Brutalisme}

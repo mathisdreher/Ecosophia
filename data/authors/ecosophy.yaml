@@ -107,3 +107,23 @@
     - {id: morizot-2016, year: 2016, title: "Les Diplomates : cohabiter avec les loups sur une autre carte du vivant"}
     - {id: morizot-2018, year: 2018, title: Sur la piste animale}
     - {id: morizot-2020, year: 2020, title: Manières d'être vivant}
+
+- id: leonardo-boff
+  name: Leonardo Boff
+  sort: Boff
+  layer: leaf
+  branch: ecosophy
+  also: [decolonial]
+  born: 1938
+  place: {city: {en: "Concórdia, Santa Catarina", fr: "Concórdia (Santa Catarina)"}, country: {en: Brazil, fr: Brésil}, lat: -27.23, lon: -52.03}
+  lede:
+    en: "Brazilian theologian, a founder of liberation theology, silenced by the Vatican in 1985 and later a former Franciscan. In the 1990s he joined the cry of the poor to the cry of the Earth, a theme that later shaped the Church's own teaching on ecology."
+    fr: "Théologien brésilien, l'un des fondateurs de la théologie de la libération, réduit au silence par le Vatican en 1985 puis sorti de l'ordre franciscain. Dans les années 1990, il joint le cri des pauvres au cri de la Terre, un thème qui marquera ensuite l'enseignement de l'Église sur l'écologie."
+  seeds:
+    - seed: cry-of-the-earth
+      text:
+        en: "The same logic that exploits the poor plunders the Earth: liberation must answer both cries together."
+        fr: "La même logique qui exploite les pauvres pille la Terre : la libération doit répondre ensemble aux deux cris."
+      source: boff-1995
+  works:
+    - {id: boff-1995, year: 1995, title: "Ecologia: grito da Terra, grito dos pobres"}

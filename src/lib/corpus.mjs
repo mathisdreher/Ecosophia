@@ -166,6 +166,24 @@ export function portraitOf(author, portraits = loadPortraits()) {
   return { src: exists ? placeholder : null, drawn: false, model: null };
 }
 
+export const CANOPY_AXES = ['nature', 'change', 'power'];
+
+/** Canopy placements (data/canopy.yaml), flattened: {author, axis, score, source, note}. */
+export function loadCanopy() {
+  const file = path.join(DATA, 'canopy.yaml');
+  const list = fs.existsSync(file) ? (readYaml('canopy.yaml') ?? []) : [];
+  const out = [];
+  for (const entry of list) {
+    for (const axis of CANOPY_AXES) {
+      const v = entry[axis];
+      if (!v) continue;
+      const [score, source, note] = v;
+      out.push({ author: entry.author, axis, score, source, note });
+    }
+  }
+  return out;
+}
+
 /** Claims taken from party programmes (data/clearing/claims.yaml). */
 export function loadClaims() {
   const file = path.join(DATA, 'clearing', 'claims.yaml');

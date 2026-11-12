@@ -218,6 +218,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/clearing/runs
           git commit -m "Add Clearing run $RUN_ID"
+          git pull --rebase origin "$DEFAULT_BRANCH"
           git push origin "HEAD:$DEFAULT_BRANCH"
 
       - name: Rebuild the site

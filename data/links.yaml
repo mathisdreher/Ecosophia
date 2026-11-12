@@ -693,3 +693,21 @@
     en: "Collapsology starts from the scenarios of The Limits to Growth."
     fr: "La collapsologie part des scénarios des Limites à la croissance."
   source: servigne-2015
+
+# --- Added to widen the corpus beyond Europe and North America --------------
+- from: eduardo-viveiros-de-castro
+  to: philippe-descola
+  type: dialogue
+  note:
+    en: "Two readings of Amerindian worlds, perspectivism and animism, debated over three decades."
+    fr: "Deux lectures des mondes amérindiens, perspectivisme et animisme, discutées pendant trois décennies."
+  source: viveiros-2009
+
+- from: chico-mendes
+  to: joan-martinez-alier
+  type: influenced
+  note:
+    en: "The struggle of the rubber tappers is one of the founding cases of the environmentalism of the poor."
+    fr: "La lutte des seringueiros est l'un des cas fondateurs de l'écologisme des pauvres."
+  source: martinez-alier-2002
+  status: to-verify

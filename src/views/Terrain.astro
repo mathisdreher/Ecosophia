@@ -1,6 +1,9 @@
 ---
-// Terrain: where the authors were born. Neutral markers (the Terrain layer
-// uses no branch colour); every place is also listed by country below the maps.
+// Terrain: where the authors were born. Each marker is coloured by the
+// branches of the authors born there, with a named legend that doubles as a
+// filter (a branch colour never appears without its name); every place is also
+// listed by country below the maps, and a bar counts the authors by continent
+// so that the corpus's own geography stays visible.
 import Base from '../layouts/Base.astro';
 import AuthorChips from '../components/AuthorChips.astro';
 import { useUi } from '../i18n/ui.mjs';
@@ -29,6 +32,48 @@ for (const a of located) {
 const places = [...placeMap.values()].map((p) => ({ ...p, lat: p.lat / p.authors.length, lon: p.lon / p.authors.length }));
 const cityOf = (p) => L(p.place.city ?? p.place.country, lang);
 const radius = (n) => Math.round(5 * Math.sqrt(n) * 10) / 10;
+
+// Groups: a branch for leaves, the roots, the trunk. Each has a colour token and a name.
+const groupOf = (a) => (a.layer === 'leaf' ? a.branch : a.layer === 'root' ? 'roots' : 'trunk');
+const groups = [
+  ...c.branches.map((b) => ({ id: b.id, token: b.token, name: L(b.name, lang) })),
+  { id: 'roots', token: 'humus', name: t('common.roots') },
+  { id: 'trunk', token: 'ink', name: t('common.trunk') },
+];
+const groupById = Object.fromEntries(groups.map((g) => [g.id, g]));
+for (const g of groups) g.n = located.filter((a) => groupOf(a) === g.id).length;
+
+// Slices of a marker: one per group, in the order of the tree, sized by authors.
+const slices = (p, cx, cy, r) => {
+  const counts = groups.map((g) => ({ g, n: p.authors.filter((a) => groupOf(a) === g.id).length })).filter((x) => x.n > 0);
+  if (counts.length === 1) return [{ g: counts[0].g, d: null }];
+  let angle = -Math.PI / 2;
+  return counts.map(({ g, n }) => {
+    const a0 = angle;
+    const a1 = angle + (2 * Math.PI * n) / p.authors.length;
+    angle = a1;
+    const large = a1 - a0 > Math.PI ? 1 : 0;
+    const pt = (a) => `${(cx + r * Math.cos(a)).toFixed(2)} ${(cy + r * Math.sin(a)).toFixed(2)}`;
+    return { g, d: `M${cx} ${cy} L${pt(a0)} A${r} ${r} 0 ${large} 1 ${pt(a1)} Z` };
+  });
+};
+
+// Continents of birth, from the country of birth (present-day borders).
+const CONTINENT = {
+  Africa: ['Nigeria', 'Cameroon', 'Burkina Faso', 'Senegal', 'Eswatini', 'Kenya', 'South Africa', 'Morocco', 'Algeria', 'Egypt', 'Ghana'],
+  'Latin America': ['Brazil', 'Ecuador', 'Uruguay', 'Argentina', 'Honduras', 'Colombia', 'Peru', 'Mexico', 'Bolivia', 'Chile', 'Cuba', 'Venezuela'],
+  'North America': ['United States', 'Canada'],
+  Asia: ['India', 'Japan', 'China', 'Indonesia', 'Philippines'],
+  Oceania: ['Australia', 'New Zealand'],
+};
+const continentOf = (country) => Object.keys(CONTINENT).find((k) => CONTINENT[k].includes(country)) ?? 'Europe';
+const order = ['Europe', 'North America', 'Latin America', 'Africa', 'Asia', 'Oceania'];
+const withCountry = c.authors.filter((a) => a.place?.country?.en);
+const regions = order
+  .map((id) => ({ id, name: t(`terrain.regions.${id}`), n: withCountry.filter((a) => continentOf(a.place.country.en) === id).length }))
+  .filter((r) => r.n > 0);
+const regionTotal = regions.reduce((s, r) => s + r.n, 0);
+const pctOf = (n) => Math.round((100 * n) / regionTotal);
 
 const world = worldMap();
 const europe = europeMap();
@@ -62,7 +107,28 @@ const countries = [...countryMap]
   </section>
 
   <section class="page-body stack gap-8">
-    <div class="maps">
+    <div class="legend-wrap stack gap-2">
+      <div class="row gap-4 legend-head">
+        <span class="label t-muted">{t('terrain.legend')}</span>
+        <span class="t-small t-muted">{t('terrain.legendNote')}</span>
+      </div>
+      <div class="legend" role="group" aria-label={t('terrain.legend')} data-terrain-legend>
+        <button type="button" class="key all is-on" data-group="" aria-pressed="true">{t('terrain.all')}</button>
+        {
+          groups
+            .filter((g) => g.n > 0)
+            .map((g) => (
+              <button type="button" class="key" data-group={g.id} aria-pressed="false" style={`--chip: var(--${g.token})`}>
+                <span class="dot" aria-hidden="true" />
+                {g.name}
+                <span class="eco-meta">{g.n}</span>
+              </button>
+            ))
+        }
+      </div>
+    </div>
+
+    <div class="maps" data-terrain-maps>
       {
         maps.map((m) => (
           <figure class={`map ${m.id}`}>
@@ -74,10 +140,19 @@ const countries = [...countryMap]
                 const n = p.authors.length;
                 const r = radius(n);
                 const label = `${cityOf(p)}: ${p.authors.map((a) => a.name).join(', ')}`;
+                const parts = slices(p, xy[0], xy[1], r);
+                const ids = [...new Set(p.authors.map(groupOf))].join(' ');
                 return (
-                  <a href={`#place-${p.key}`} class="marker" aria-label={label}>
+                  <a href={`#place-${p.key}`} class="marker" aria-label={label} data-groups={ids}>
                     <title>{label}</title>
                     <circle class="hit" cx={xy[0]} cy={xy[1]} r={Math.max(r + 5, 12)} />
+                    {parts.map((part) =>
+                      part.d ? (
+                        <path class="slice" d={part.d} style={`fill: var(--${part.g.token})`} />
+                      ) : (
+                        <circle class="slice" cx={xy[0]} cy={xy[1]} r={r} style={`fill: var(--${part.g.token})`} />
+                      ),
+                    )}
                     <circle class="disc" cx={xy[0]} cy={xy[1]} r={r} />
                     {n > 1 && (
                       <text x={xy[0]} y={xy[1] + 3.5} text-anchor="middle">
@@ -91,6 +166,24 @@ const countries = [...countryMap]
           </figure>
         ))
       }
+    </div>
+
+    <div class="stack gap-3 regions">
+      <div class="stack gap-1">
+        <h2 class="t-heading">{t('terrain.regionsTitle')}</h2>
+        <p class="t-small t-muted">{t('terrain.regionsNote', { n: regionTotal })}</p>
+      </div>
+      <div class="bar" aria-hidden="true">
+        {regions.map((r) => <span class={`seg r-${r.id.replace(/\s+/g, '-').toLowerCase()}`} style={`flex: ${r.n}`} />)}
+      </div>
+      <ul class="region-list">
+        {regions.map((r) => (
+          <li>
+            <span class={`sw r-${r.id.replace(/\s+/g, '-').toLowerCase()}`} aria-hidden="true" />
+            <b>{r.name}</b> <span class="eco-meta">{r.n} · {pctOf(r.n)} %</span>
+          </li>
+        ))}
+      </ul>
     </div>
 
     <div class="stack gap-4">
@@ -145,7 +238,113 @@ const countries = [...countryMap]
   </section>
 </Base>
 
+<script>
+  const legend = document.querySelector<HTMLElement>('[data-terrain-legend]');
+  const maps = document.querySelector<HTMLElement>('[data-terrain-maps]');
+  if (legend && maps) {
+    const keys = [...legend.querySelectorAll<HTMLButtonElement>('button')];
+    legend.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest('button');
+      if (!btn) return;
+      const id = btn.dataset.group ?? '';
+      for (const k of keys) {
+        const on = k === btn;
+        k.classList.toggle('is-on', on);
+        k.setAttribute('aria-pressed', String(on));
+      }
+      maps.classList.toggle('filtered', id !== '');
+      for (const m of maps.querySelectorAll<SVGElement>('.marker')) {
+        m.classList.toggle('match', id !== '' && (m.dataset.groups ?? '').split(' ').includes(id));
+      }
+    });
+  }
+</script>
+
 <style>
+  .legend-head {
+    align-items: baseline;
+    flex-wrap: wrap;
+  }
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .key {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 30px;
+    padding: 0 var(--space-3);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    background: var(--paper-raised);
+    color: var(--ink);
+    font: 600 13px/1 var(--font-sans);
+    cursor: pointer;
+  }
+  .key .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--chip);
+  }
+  .key.is-on {
+    border-color: var(--ink);
+    box-shadow: inset 0 0 0 1px var(--ink);
+  }
+  .maps.filtered .marker:not(.match) {
+    opacity: 0.15;
+  }
+  .maps.filtered .marker.match .disc {
+    stroke: var(--ink);
+    stroke-width: 2;
+  }
+  .regions {
+    max-width: 900px;
+  }
+  .bar {
+    display: flex;
+    height: 14px;
+    border-radius: 7px;
+    overflow: hidden;
+    gap: 2px;
+  }
+  .region-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-6);
+  }
+  .region-list li {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-2);
+    padding: 0;
+    border: 0;
+  }
+  .sw {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+  }
+  .r-europe {
+    background: var(--ink);
+  }
+  .r-north-america {
+    background: color-mix(in srgb, var(--ink) 65%, var(--paper));
+  }
+  .r-latin-america {
+    background: var(--moss);
+  }
+  .r-africa {
+    background: var(--humus);
+  }
+  .r-asia {
+    background: color-mix(in srgb, var(--moss) 55%, var(--paper));
+  }
+  .r-oceania {
+    background: color-mix(in srgb, var(--humus) 50%, var(--paper));
+  }
   .maps {
     display: grid;
     grid-template-columns: minmax(0, 960fr) minmax(0, 560fr);
@@ -182,19 +381,26 @@ const countries = [...countryMap]
   .marker .hit {
     fill: transparent;
   }
+  .marker .slice {
+    stroke: none;
+  }
   .marker .disc {
-    fill: var(--ink);
+    fill: none;
     stroke: var(--paper);
-    stroke-width: 2;
+    stroke-width: 1.5;
   }
   .marker text {
-    font: 600 10px/1 var(--font-sans);
+    font: 700 10px/1 var(--font-sans);
     fill: var(--paper);
+    stroke: var(--ink);
+    stroke-width: 2.5px;
+    paint-order: stroke;
     pointer-events: none;
   }
   .marker:hover .disc,
   .marker:focus-visible .disc {
-    fill: var(--moss);
+    stroke: var(--ink);
+    stroke-width: 2.5;
   }
   .marker:focus-visible {
     outline: none;

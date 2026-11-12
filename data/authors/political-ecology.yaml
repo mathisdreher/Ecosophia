@@ -200,3 +200,68 @@
       source: eckersley-2004
   works:
     - {id: eckersley-2004, year: 2004, title: "The Green State: Rethinking Democracy and Sovereignty"}
+
+- id: chico-mendes
+  name: Chico Mendes
+  sort: Mendes
+  layer: leaf
+  branch: political-ecology
+  also: [decolonial]
+  born: 1944
+  died: 1988
+  place: {city: {en: "Xapuri, Acre", fr: "Xapuri (Acre)"}, country: {en: Brazil, fr: Brésil}, lat: -10.65, lon: -68.50}
+  lede:
+    en: "Brazilian rubber tapper and union leader in Acre. He organised the empates, blockades in which tappers stood between the chainsaws and the forest, and won the idea of extractive reserves before he was murdered in 1988."
+    fr: "Seringueiro et syndicaliste brésilien de l'Acre. Il organise les empates, blocages où les récolteurs de caoutchouc s'interposent entre les tronçonneuses et la forêt, et fait admettre l'idée de réserves extractivistes avant d'être assassiné en 1988."
+  seeds:
+    - seed: environmentalism-of-the-poor
+      text:
+        en: "Defending the forest was first defending the livelihood of those who live from it, not a cause imported from outside."
+        fr: "Défendre la forêt, c'était d'abord défendre la subsistance de ceux qui en vivent, et non une cause importée du dehors."
+      source: mendes-1989
+  works:
+    - {id: mendes-1989, year: 1989, title: "Fight for the Forest: Chico Mendes in His Own Words", note: {en: "interviews with Tony Gross", fr: "entretiens avec Tony Gross"}}
+
+- id: eduardo-viveiros-de-castro
+  name: Eduardo Viveiros de Castro
+  sort: Viveiros de Castro
+  layer: leaf
+  branch: political-ecology
+  also: [anthropocene]
+  born: 1951
+  place: {city: {en: Rio de Janeiro, fr: Rio de Janeiro}, country: {en: Brazil, fr: Brésil}, lat: -22.91, lon: -43.17}
+  lede:
+    en: "Brazilian anthropologist at the National Museum in Rio de Janeiro. His Amerindian perspectivism reverses the modern scheme: one shared culture, the human, and many natures, as each kind of being sees itself as a person."
+    fr: "Anthropologue brésilien du Musée national de Rio de Janeiro. Son perspectivisme amérindien renverse le schéma moderne : une seule culture partagée, l'humaine, et de multiples natures, chaque espèce d'êtres se voyant elle-même comme une personne."
+  seeds:
+    - seed: perspectivism
+      text:
+        en: "Every kind of being sees itself as human and the others as animals or spirits: one culture, many natures."
+        fr: "Chaque espèce d'êtres se voit comme humaine et voit les autres comme des animaux ou des esprits : une seule culture, plusieurs natures."
+      source: viveiros-2009
+  works:
+    - {id: viveiros-2009, year: 2009, title: Métaphysiques cannibales}
+    - id: viveiros-2014
+      year: 2014
+      title: "Há mundo por vir? Ensaio sobre os medos e os fins"
+      by: {en: Danowski and Viveiros de Castro, fr: Danowski et Viveiros de Castro}
+      note: {en: with Déborah Danowski, fr: avec Déborah Danowski}
+
+- id: enrique-leff
+  name: Enrique Leff
+  sort: Leff
+  layer: leaf
+  branch: political-ecology
+  born: 1946
+  place: {city: {en: Mexico City, fr: Mexico}, country: {en: Mexico, fr: Mexique}, lat: 19.43, lon: -99.13}
+  lede:
+    en: "Mexican environmental sociologist at the National Autonomous University of Mexico, a founder of Latin American political ecology. He argues that the crisis is one of knowledge: economic rationality has to give way to an environmental rationality rooted in places and cultures."
+    fr: "Sociologue mexicain de l'environnement à l'université nationale autonome du Mexique, l'un des fondateurs de l'écologie politique latino-américaine. Il soutient que la crise est une crise du savoir : la rationalité économique doit céder la place à une rationalité environnementale ancrée dans les lieux et les cultures."
+  seeds:
+    - seed: environmental-rationality
+      text:
+        en: "The ecological crisis is a crisis of knowledge: the economy cannot think the conditions of life it destroys."
+        fr: "La crise écologique est une crise du savoir : l'économie ne peut pas penser les conditions de la vie qu'elle détruit."
+      source: leff-1998
+  works:
+    - {id: leff-1998, year: 1998, title: "Saber ambiental: sustentabilidad, racionalidad, complejidad, poder"}

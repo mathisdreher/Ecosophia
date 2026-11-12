@@ -1,0 +1,56 @@
+# Draws logo concepts with the Gemini image API into design/logo-concepts,
+# for a human to choose from. The chosen one is redrawn by hand as SVG.
+# Uses the GEMINI_API_KEY repository secret. About 0.03 USD per concept.
+name: Logo concepts
+
+on:
+  workflow_dispatch:
+    inputs:
+      count:
+        description: "Number of concepts (1 to 6)"
+        default: "6"
+        type: string
+      seed:
+        description: "Sampling seed; change it to get other variants"
+        default: "1912"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  draw:
+    name: Draw concepts
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+    steps:
+      - name: Check out the default branch
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Draw
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          COUNT: ${{ inputs.count }}
+          SEED: ${{ inputs.seed }}
+        run: node scripts/logo-concepts.mjs --count "$COUNT" --seed "$SEED"
+
+      - name: Commit the concepts
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add design/logo-concepts
+          if git diff --cached --quiet; then echo "Nothing new."; exit 0; fi
+          git commit -m "Logo concepts drawn with Gemini"
+          git pull --rebase origin "$DEFAULT_BRANCH"
+          git push origin "HEAD:$DEFAULT_BRANCH"
