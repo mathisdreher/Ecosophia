@@ -63,10 +63,11 @@ Pencil drawings generated with the Gemini image API by `scripts/portraits.mjs`, 
 |---|---|---|
 | `authors` | `missing` | Authors without a portrait, or `all`, or author and branch ids |
 | `limit` | `5` | Draw at most this many; start small to judge the style |
-| `model` | `gemini-3.1-flash-image` | Gemini image model |
+| `model` | `gemini-nano-banana-2.1` | Gemini image model. List price per image at 1K: 0.034 USD (all 109 images: about 3.70 USD); `gemini-3.1-flash-image` 0.067; `gemini-3-pro-image` 0.134 |
+| `seed` | `1912` | Sampling seed, the same for every image |
 | `placeholders` | off | Redraw the two leaf drawings used when there is no portrait |
 
-The series stays uniform in three ways. Every prompt uses one fixed style. Every portrait is drawn with the first leaf placeholder attached as a style reference. And every image goes through the same treatment: 3:2 crop centred on the face, greyscale, levels, paper tint, WebP at 1200 × 800. When the model declines, or an author is marked `portrait: false`, one of the two leaf drawings stands in. `data/portraits.yaml` records which model drew each image and when. The raw images of each run are kept as a workflow artifact for 14 days, for review. To redraw a portrait, delete its line in `data/portraits.yaml` and run the workflow with `missing`.
+The series stays uniform in four ways. Every prompt uses one fixed style. Every portrait is drawn with the first leaf placeholder attached as a style reference. Every request uses the same sampling seed. And every image goes through the same treatment: 3:2 crop centred on the face, greyscale, levels, paper tint, WebP at 1200 × 800. When the model declines, or an author is marked `portrait: false`, one of the two leaf drawings stands in. `data/portraits.yaml` records which model drew each image and when. The raw images of each run are kept as a workflow artifact for 14 days, for review. To redraw a portrait, delete its line in `data/portraits.yaml` and run the workflow with `missing`.
 
 The portraits are illustrations, not documents: the site labels each one as a generated drawing, and the likeness is not guaranteed.
 

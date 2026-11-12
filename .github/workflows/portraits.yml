@@ -17,8 +17,13 @@ on:
         default: "5"
         type: string
       model:
-        description: "Gemini image model"
-        default: gemini-3.1-flash-image
+        description: "Gemini image model. nano-banana-2.1 is about 0.034 USD per image, 3.1-flash 0.067, 3-pro 0.134"
+        type: choice
+        options: [gemini-nano-banana-2.1, gemini-3.1-flash-image, gemini-3-pro-image]
+        default: gemini-nano-banana-2.1
+      seed:
+        description: "Sampling seed, the same for every image (keeps the series close)"
+        default: "1912"
         type: string
       placeholders:
         description: "Redraw the two placeholder images (they are drawn once automatically)"
@@ -63,13 +68,14 @@ jobs:
           AUTHORS: ${{ inputs.authors }}
           LIMIT: ${{ inputs.limit }}
           MODEL: ${{ inputs.model }}
+          SEED: ${{ inputs.seed }}
           PLACEHOLDERS: ${{ inputs.placeholders }}
         run: |
           if [ -z "$GEMINI_API_KEY" ]; then
             echo "::error title=No API key::Add a repository secret named GEMINI_API_KEY (from Google AI Studio) in Settings > Secrets and variables > Actions."
             exit 1
           fi
-          args=(--authors "$AUTHORS" --limit "$LIMIT" --model "$MODEL")
+          args=(--authors "$AUTHORS" --limit "$LIMIT" --model "$MODEL" --seed "$SEED")
           if [ "$PLACEHOLDERS" = "true" ]; then args+=(--placeholders); fi
           node scripts/portraits.mjs "${args[@]}"
 

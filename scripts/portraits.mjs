@@ -7,14 +7,15 @@
 // Options
 //   --authors missing | all | ids and branch ids, comma-separated  (default: missing)
 //   --placeholders    draw the two "no portrait" images first (needed once)
-//   --model           image model (default: gemini-3.1-flash-image)
+//   --model           image model (default: gemini-nano-banana-2.1)
+//   --seed N          sampling seed, the same for every image (default: 1912)
 //   --limit N         stop after N portraits (to try the style on a few)
 //   --dry-run         no call to the API: grey test images, to check the pipeline
 //
-// Homogeneity comes from three things: one fixed style prompt, the first
+// Homogeneity comes from four things: one fixed style prompt, the first
 // placeholder passed to the model as a style reference for every portrait,
-// and the same post-processing for every image (crop, greyscale, levels,
-// paper tint). Faces are drawn by the model from what it knows of public
+// one fixed sampling seed for every request, and the same post-processing
+// for every image (crop, greyscale, levels, paper tint). Faces are drawn by the model from what it knows of public
 // photographs: they are illustrations, labelled as such on the site, and an
 // author marked `portrait: false` always gets a placeholder.
 import fs from 'node:fs';
@@ -32,6 +33,8 @@ const API = 'https://generativelanguage.googleapis.com/v1beta/models';
 const SIZE = { width: 1200, height: 800 };
 const PAPER = '#f3eee3';
 const STYLE_VERSION = 1;
+// List prices per image at 1K, in USD (ai.google.dev/gemini-api/docs/pricing, read 2026-11-12).
+const PRICE = { 'gemini-nano-banana-2.1': 0.0336, 'gemini-3.1-flash-lite-image': 0.0336, 'gemini-3.1-flash-image': 0.067, 'gemini-3-pro-image': 0.134 };
 
 const STYLE = [
   'A graphite pencil drawing on warm off-white paper, in the manner of a careful portrait study for a book of essays.',
@@ -51,7 +54,8 @@ function options() {
     options: {
       authors: { type: 'string', default: 'missing' },
       placeholders: { type: 'boolean', default: false },
-      model: { type: 'string', default: process.env.PORTRAIT_MODEL || 'gemini-3.1-flash-image' },
+      model: { type: 'string', default: process.env.PORTRAIT_MODEL || 'gemini-nano-banana-2.1' },
+      seed: { type: 'string', default: '1912' },
       limit: { type: 'string', default: '0' },
       'dry-run': { type: 'boolean', default: false },
     },
@@ -60,18 +64,18 @@ function options() {
     console.error('portraits: set GEMINI_API_KEY (a Gemini API key from Google AI Studio), or use --dry-run.');
     process.exit(2);
   }
-  return { ...values, limit: Number(values.limit) || 0, dry: values['dry-run'] };
+  return { ...values, limit: Number(values.limit) || 0, seed: Number(values.seed) || 1912, dry: values['dry-run'] };
 }
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /** One image from the Gemini API, or {refused} with the reason. */
-async function draw({ prompt, model, reference }) {
+async function draw({ prompt, model, reference, seed }) {
   const parts = [{ text: prompt }];
   if (reference) parts.unshift({ inlineData: { mimeType: 'image/png', data: reference.toString('base64') } });
   const body = {
     contents: [{ role: 'user', parts }],
-    generationConfig: { responseModalities: ['IMAGE'], imageConfig: { aspectRatio: '3:2' } },
+    generationConfig: { responseModalities: ['IMAGE'], seed, imageConfig: { aspectRatio: '3:2', imageSize: '1K' } },
   };
   for (let attempt = 0; attempt < 5; attempt++) {
     const res = await fetch(`${API}/${encodeURIComponent(model)}:generateContent`, {
@@ -148,7 +152,7 @@ async function main() {
 
   if (opt.placeholders || !fs.existsSync(path.join(OUT, PLACEHOLDERS[0].file))) {
     for (const p of PLACEHOLDERS) {
-      const res = opt.dry ? { image: await testImage('placeholder') } : await draw({ prompt: `${p.subject}\n${STYLE}`, model: opt.model });
+      const res = opt.dry ? { image: await testImage('placeholder') } : await draw({ prompt: `${p.subject}\n${STYLE}`, model: opt.model, seed: opt.seed });
       if (!res.image) throw new Error(`The placeholder ${p.file} was refused (${res.refused}).`);
       fs.writeFileSync(path.join(RAW, p.file.replace('.webp', '.png')), res.image);
       await finish(res.image, p.file);
@@ -169,17 +173,18 @@ async function main() {
     (a.layer !== 'leaf' && spec.includes(a.layer));
   const todo = corpus.authors.filter((a) => a.portrait !== false && pick(a));
   const batch = opt.limit ? todo.slice(0, opt.limit) : todo;
-  console.log(`${batch.length} portrait(s) to draw with ${opt.dry ? 'no model (dry run)' : opt.model}`);
+  const unit = PRICE[opt.model];
+  console.log(`${batch.length} portrait(s) to draw with ${opt.dry ? 'no model (dry run)' : opt.model}${unit && !opt.dry ? `, about ${(batch.length * unit).toFixed(2)} USD at list price` : ''}`);
 
   let drawn = 0;
   let refused = 0;
   for (const a of batch) {
     try {
-      const res = opt.dry ? { image: await testImage(a.name) } : await draw({ prompt: portraitPrompt(a, corpus), model: opt.model, reference });
+      const res = opt.dry ? { image: await testImage(a.name) } : await draw({ prompt: portraitPrompt(a, corpus), model: opt.model, reference, seed: opt.seed });
       if (res.image) {
         fs.writeFileSync(path.join(RAW, `${a.id}.png`), res.image);
         await finish(res.image, `${a.id}.webp`);
-        done.set(a.id, { id: a.id, status: 'drawn', model: opt.dry ? 'dry-run' : opt.model, style: STYLE_VERSION, date: today });
+        done.set(a.id, { id: a.id, status: 'drawn', model: opt.dry ? 'dry-run' : opt.model, seed: opt.seed, style: STYLE_VERSION, date: today });
         drawn++;
         console.log(`drawn: ${a.name}`);
       } else {
@@ -194,7 +199,7 @@ async function main() {
     writeRecord([...done.values()]);
     if (!opt.dry) await sleep(800);
   }
-  const line = `portraits: ${drawn} drawn, ${refused} refused, ${batch.length - drawn - refused} failed`;
+  const line = `portraits: ${drawn} drawn, ${refused} refused, ${batch.length - drawn - refused} failed${unit && !opt.dry ? `, about ${((drawn + refused) * unit).toFixed(2)} USD` : ''}`;
   console.log(line);
   if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `## Portraits\n\n${line}\n`);
   if (drawn + refused === 0 && batch.length > 0) process.exit(1);
