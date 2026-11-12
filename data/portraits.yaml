@@ -20,6 +20,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: alain-de-benoist
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: alberto-acosta
   status: drawn
   model: gemini-nano-banana-2.1
@@ -74,6 +80,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: arthur-cecil-pigou
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: arturo-escobar
   status: drawn
   model: gemini-nano-banana-2.1
@@ -123,6 +135,12 @@
   style: 1
   date: 2026-11-12
 - id: bill-mckibben
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: bjorn-lomborg
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
@@ -201,6 +219,12 @@
   style: 1
   date: 2026-11-12
 - id: eduardo-viveiros-de-castro
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: edward-goldsmith
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
@@ -416,6 +440,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: julian-simon
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: karl-marx
   status: drawn
   model: gemini-nano-banana-2.1
@@ -459,6 +489,12 @@
   style: 1
   date: 2026-11-12
 - id: lewis-mumford
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: luc-ferry
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
@@ -560,6 +596,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: pascal-bruckner
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: patrick-geddes
   status: drawn
   model: gemini-nano-banana-2.1
@@ -591,6 +633,12 @@
   style: 1
   date: 2026-11-12
 - id: pierre-charbonnier
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: pope-francis
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
@@ -644,6 +692,18 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: roger-scruton
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: ronald-coase
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: rudolf-bahro
   status: drawn
   model: gemini-nano-banana-2.1
@@ -692,6 +752,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: terry-anderson
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: thomas-sankara
   status: drawn
   model: gemini-nano-banana-2.1
@@ -735,6 +801,12 @@
   style: 1
   date: 2026-11-12
 - id: william-morris
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: william-nordhaus
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
