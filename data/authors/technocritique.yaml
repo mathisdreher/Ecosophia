@@ -184,6 +184,7 @@
   born: 1902
   died: 1992
   place: {city: {en: "Breslau (now Wrocław)", fr: "Breslau (aujourd'hui Wrocław)"}, country: {en: Poland, fr: Pologne}, lat: 51.11, lon: 17.03}
+  wikidata: Q60884
   lede:
     en: "German-born philosopher, a student of Husserl, exiled in the United States, then settled in Vienna. After Hiroshima he made the bomb and the machines of mass production the centre of his work, and became a leading voice of the anti-nuclear movement."
     fr: "Philosophe né en Allemagne, élève de Husserl, exilé aux États-Unis puis installé à Vienne. Après Hiroshima, il place la bombe et les machines de la production de masse au centre de son œuvre et devient une voix majeure du mouvement antinucléaire."
@@ -203,6 +204,7 @@
   branch: technocritique
   born: 1934
   place: {city: {en: "Henry County, Kentucky", fr: "comté de Henry (Kentucky)"}, country: {en: United States, fr: États-Unis}, lat: 38.45, lon: -85.12}
+  wikidata: Q533505
   lede:
     en: "American farmer, poet, novelist and essayist who has worked the same hillside farm in Kentucky since the 1960s. He reads industrial agriculture as the undoing of land, rural communities and the skills that bound them together."
     fr: "Agriculteur, poète, romancier et essayiste américain, qui cultive la même ferme à flanc de colline au Kentucky depuis les années 1960. Il lit l'agriculture industrielle comme la ruine conjointe des terres, des communautés rurales et des savoir-faire qui les liaient."

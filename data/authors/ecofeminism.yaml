@@ -166,6 +166,7 @@
   born: 1940
   died: 2011
   place: {city: {en: "Ihithe, Nyeri", fr: "Ihithe (Nyeri)"}, country: {en: Kenya, fr: Kenya}, lat: -0.42, lon: 36.95}
+  wikidata: Q46795
   lede:
     en: "Kenyan biologist and politician, the first woman in East and Central Africa to earn a doctorate. In 1977 she founded the Green Belt Movement, through which rural women planted tens of millions of trees, and in 2004 she received the Nobel Peace Prize."
     fr: "Biologiste et femme politique kényane, première femme d'Afrique de l'Est et centrale à obtenir un doctorat. En 1977, elle fonde le Green Belt Movement, par lequel des femmes rurales plantent des dizaines de millions d'arbres, et reçoit en 2004 le prix Nobel de la paix."
@@ -185,6 +186,7 @@
   layer: leaf
   branch: ecofeminism
   also: [ecosocialism]
+  wikidata: Q137996782
   lede:
     en: "Italian environmental historian. Forces of Reproduction reads the Anthropocene from the side of those who care for bodies and land, women, peasants, Indigenous peoples and workers, and makes them the subjects of an ecological politics."
     fr: "Historienne italienne de l'environnement. Forces of Reproduction lit l'Anthropocène du côté de celles et ceux qui prennent soin des corps et des terres, femmes, paysans, peuples autochtones et travailleurs, et en fait les sujets d'une politique écologique."

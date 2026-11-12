@@ -109,6 +109,7 @@
   born: 1913
   died: 2008
   place: {city: {en: "Basse-Pointe, Martinique", fr: "Basse-Pointe (Martinique)"}, country: {en: France, fr: France}, lat: 14.87, lon: -61.12}
+  wikidata: Q223955
   lede:
     en: "Martinican poet, playwright and politician, co-founder of the négritude movement and mayor of Fort-de-France for over half a century. His Discourse on Colonialism describes colonisation as a machine that turns people and lands into things."
     fr: "Poète, dramaturge et homme politique martiniquais, cofondateur du mouvement de la négritude et maire de Fort-de-France pendant plus d'un demi-siècle. Son Discours sur le colonialisme décrit la colonisation comme une machine qui change les peuples et les terres en choses."
@@ -129,6 +130,7 @@
   also: [degrowth]
   born: 1948
   place: {city: {en: Quito, fr: Quito}, country: {en: Ecuador, fr: Équateur}, lat: -0.18, lon: -78.47}
+  wikidata: Q1754093
   lede:
     en: "Ecuadorian economist and politician. As president of the Constituent Assembly of 2007 and 2008, he helped write the first constitution to grant rights to nature, and he has since defended buen vivir as an alternative to development rather than a kind of it."
     fr: "Économiste et homme politique équatorien. Président de l'Assemblée constituante de 2007 et 2008, il contribue à la première constitution qui reconnaît des droits à la nature, et défend depuis le buen vivir comme une alternative au développement plutôt qu'une variante de celui-ci."
@@ -153,6 +155,7 @@
   branch: decolonial
   born: 1953
   place: {country: {en: United States, fr: États-Unis}}
+  wikidata: Q7352852
   lede:
     en: "American botanist and writer, an enrolled member of the Citizen Potawatomi Nation, who taught at the State University of New York College of Environmental Science and Forestry. Braiding Sweetgrass sets the knowledge of plant science beside Indigenous teachings on reciprocity."
     fr: "Botaniste et écrivaine américaine, membre de la Citizen Potawatomi Nation, enseignante à la faculté des sciences de l'environnement et de la forêt de l'université d'État de New York. Tresser les herbes sacrées place le savoir botanique à côté des enseignements autochtones sur la réciprocité."
@@ -179,6 +182,7 @@
   also: [anthropocene]
   born: 1956
   place: {city: {en: "Calcutta (now Kolkata)", fr: "Calcutta (aujourd'hui Kolkata)"}, country: {en: India, fr: Inde}, lat: 22.57, lon: 88.36}
+  wikidata: Q336125
   lede:
     en: "Indian novelist and essayist. The Great Derangement asks why modern fiction cannot tell climate change; The Nutmeg's Curse traces the crisis to the colonial conquest that treated land and its peoples as inert resources."
     fr: "Romancier et essayiste indien. Le Grand Dérangement demande pourquoi la fiction moderne ne sait pas raconter le changement climatique ; La Malédiction de la muscade fait remonter la crise à la conquête coloniale, qui traitait les terres et leurs peuples comme des ressources inertes."

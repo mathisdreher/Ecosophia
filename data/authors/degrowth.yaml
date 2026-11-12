@@ -152,6 +152,7 @@
   born: 1922
   died: 1997
   place: {city: {en: "Constantinople (now Istanbul)", fr: "Constantinople (aujourd'hui Istanbul)"}, country: {en: Turkey, fr: Turquie}, lat: 41.01, lon: 28.98}
+  wikidata: Q158030
   lede:
     en: "Greek-French philosopher, economist and psychoanalyst, co-founder of the review Socialisme ou Barbarie. He held that every society creates its own meanings, and that unlimited growth is one of them: an imaginary, not a law of nature, which a free society can unmake."
     fr: "Philosophe, économiste et psychanalyste gréco-français, cofondateur de la revue Socialisme ou Barbarie. Pour lui, chaque société crée ses propres significations, et la croissance illimitée en est une : un imaginaire et non une loi de la nature, qu'une société libre peut défaire."

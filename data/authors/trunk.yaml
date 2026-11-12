@@ -59,6 +59,7 @@
   born: 1917
   died: 2012
   place: {city: {en: "Brooklyn, New York", fr: "Brooklyn (New York)"}, country: {en: United States, fr: États-Unis}, lat: 40.68, lon: -73.94}
+  wikidata: Q2306796
   lede:
     en: "American biologist and campaigner against atmospheric nuclear tests. The Closing Circle blamed post-war production technologies, rather than population, for pollution; he ran for the presidency of the United States in 1980 for the Citizens Party."
     fr: "Biologiste américain, militant contre les essais nucléaires atmosphériques. L'Encerclement impute la pollution aux techniques de production d'après-guerre plutôt qu'à la population ; il se présente à la présidence des États-Unis en 1980 pour le Citizens Party."
@@ -78,6 +79,7 @@
   born: 1910
   died: 1993
   place: {city: {en: Liverpool, fr: Liverpool}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 53.41, lon: -2.98}
+  wikidata: Q505520
   lede:
     en: "British-born American economist, Quaker and peace researcher. His essay of 1966 contrasted the open cowboy economy of the past with the closed spaceship economy of a finite Earth, where throughput is a cost to be cut, not a measure of success."
     fr: "Économiste américain né en Angleterre, quaker et chercheur sur la paix. Son essai de 1966 oppose l'économie ouverte du cow-boy à l'économie fermée du vaisseau spatial qu'impose une Terre finie, où le flux de matière est un coût à réduire et non une mesure du succès."

@@ -184,6 +184,7 @@
   branch: anthropocene
   born: 1960
   place: {city: {en: "Palo Alto, California", fr: "Palo Alto (Californie)"}, country: {en: United States, fr: États-Unis}, lat: 37.44, lon: -122.14}
+  wikidata: Q503815
   lede:
     en: "American writer and organiser. The End of Nature was one of the first books on global warming for a general public; in 2008 he co-founded 350.org, which built the campaigns against the Keystone XL pipeline and for divestment from fossil fuels."
     fr: "Écrivain et militant américain. La Nature assassinée est l'un des premiers livres sur le réchauffement climatique écrits pour le grand public ; en 2008, il cofonde 350.org, à l'origine des campagnes contre l'oléoduc Keystone XL et pour le désinvestissement des énergies fossiles."

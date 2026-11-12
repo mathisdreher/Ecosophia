@@ -46,6 +46,7 @@
   born: 1938
   died: 2016
   place: {country: {en: United States, fr: États-Unis}}
+  wikidata: Q97219073
   lede:
     en: "American philosopher at Sierra College, California. With Arne Næss he wrote the eight-point platform of deep ecology in 1984, and with Bill Devall the book that carried the movement to North America."
     fr: "Philosophe américain au Sierra College, en Californie. Il rédige avec Arne Næss, en 1984, la plateforme en huit points de l'écologie profonde et, avec Bill Devall, le livre qui porte le mouvement en Amérique du Nord."
@@ -130,6 +131,7 @@
   branch: deep-ecology
   born: 1941
   place: {country: {en: United States, fr: États-Unis}}
+  wikidata: Q3180977
   lede:
     en: "American philosopher who taught one of the first university courses in environmental ethics. He made Aldo Leopold's land ethic into a philosophical position: the community of life, not the single organism, is what counts morally."
     fr: "Philosophe américain qui donne l'un des premiers cours universitaires d'éthique environnementale. Il fait de l'éthique de la terre d'Aldo Leopold une position philosophique : c'est la communauté du vivant, et non l'organisme isolé, qui compte moralement."
@@ -150,6 +152,7 @@
   born: 1929
   died: 2021
   place: {city: {en: "Birmingham, Alabama", fr: "Birmingham (Alabama)"}, country: {en: United States, fr: États-Unis}, lat: 33.52, lon: -86.81}
+  wikidata: Q211029
   lede:
     en: "American biologist, specialist of ants and founder of sociobiology. He popularised the word biodiversity and, late in life, proposed setting aside half of the Earth's surface for the rest of life."
     fr: "Biologiste américain, spécialiste des fourmis et fondateur de la sociobiologie. Il popularise le mot biodiversité et propose, à la fin de sa vie, de réserver la moitié de la surface de la Terre au reste du vivant."

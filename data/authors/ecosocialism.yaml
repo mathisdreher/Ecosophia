@@ -146,6 +146,7 @@
   born: 1935
   died: 1997
   place: {city: {en: "Bad Flinsberg (now Świeradów-Zdrój)", fr: "Bad Flinsberg (aujourd'hui Świeradów-Zdrój)"}, country: {en: Poland, fr: Pologne}, lat: 50.91, lon: 15.33}
+  wikidata: Q66288
   lede:
     en: "East German Marxist dissident. Die Alternative, his critique of actually existing socialism, cost him prison in 1977; expelled to the West, he joined the German Greens, then left them in 1985 for a more radical break with industrial civilisation."
     fr: "Dissident marxiste est-allemand. Die Alternative, sa critique du socialisme réellement existant, lui vaut la prison en 1977 ; expulsé à l'Ouest, il rejoint les Verts allemands puis les quitte en 1985 pour une rupture plus radicale avec la civilisation industrielle."
@@ -166,6 +167,7 @@
   branch: ecosocialism
   born: 1970
   place: {city: {en: Montreal, fr: Montréal}, country: {en: Canada, fr: Canada}, lat: 45.50, lon: -73.57}
+  wikidata: Q236606
   lede:
     en: "Canadian journalist and essayist, author of No Logo and The Shock Doctrine. This Changes Everything argues that the climate crisis cannot be solved within deregulated capitalism and that the response to it can be a programme of social justice."
     fr: "Journaliste et essayiste canadienne, autrice de No Logo et de La Stratégie du choc. Tout peut changer soutient que la crise climatique ne se résout pas dans un capitalisme dérégulé, et que la réponse peut en être un programme de justice sociale."
