@@ -1,0 +1,22 @@
+{
+  "title": "Voice-over of the LinkedIn film on MiroFish",
+  "out": "film/linkedin-audio",
+  "model": "gemini-3.8-flash-tts",
+  "voice": "Charon",
+  "lines": {
+    "en": [
+      "What if you could ask thirty thinkers the same question, and watch them argue?",
+      "MiroFish is an open-source swarm intelligence engine. It builds a small society of AI agents, each with a persona and a memory.",
+      "Then it lets them loose on a simulated social network, built on OASIS from CAMEL-AI. They post, reply, like and dislike. You read what emerges.",
+      "I used it for Ecosophia, a map of one hundred and fifty-nine thinkers of political ecology.",
+      "Each agent gets one author's record: key ideas, books, and quarrels. Claude chooses the panel and the number of rounds, within a budget.",
+      "After the debate, every agent states a position from zero to one hundred. Schools take sides, and unexpected alliances appear.",
+      "On new nuclear, market liberals land at seventy-four, ecofeminists at ten. On factory farming, twenty-three agents out of twenty-four agree, then split over meat itself.",
+      "Each debate costs about two dollars, and every word is labelled as simulated.",
+      "Now imagine it elsewhere. Test a new flexibility product on simulated industrial sites, grid operators and aggregators.",
+      "Rehearse a public consultation before a battery project. Pre-test a message. Prepare a negotiation with every stakeholder in the room.",
+      "It is a mirror, not an oracle. But a fast, cheap mirror is already a lot.",
+      "So, what would you put in the room?"
+    ]
+  }
+}
