@@ -1,121 +1,113 @@
 ---
-// The Clearing: simulated debates between author-agents. Nothing here is ever
-// set as a quotation. The page shows the latest published run; until there is
-// one, it shows a hand-written specimen and says so.
+// The Clearing, light: what it is, one card per published debate with where
+// the schools stood at a glance, and the questions still on the table. Each
+// debate in full (positions, alliances, voices, transcript) lives on its own
+// page. Nothing here is ever set as a quotation.
 import Base from '../layouts/Base.astro';
-import RunBoard from '../components/RunBoard.astro';
-import VoiceCard from '../components/VoiceCard.astro';
-import ClaimSource from '../components/ClaimSource.astro';
 import QuestionPositions from '../components/QuestionPositions.astro';
 import { useUi } from '../i18n/ui.mjs';
 import { href } from '../lib/site.mjs';
-import { L } from '../lib/text.mjs';
-import { loadClearing, loadQuestions, runMeasures } from '../lib/corpus.mjs';
-import { spreadVoices, runDate } from '../lib/clearing.mjs';
+import { L, typo } from '../lib/text.mjs';
+import { loadClearing, loadQuestions, loadCorpus } from '../lib/corpus.mjs';
+import { runDate } from '../lib/clearing.mjs';
 import { SITE } from '../site.config.mjs';
 
 const { lang } = Astro.props;
 const { t } = useUi(lang);
-const { specimen, published } = loadClearing();
-const latest = published[0] ?? null;
+const T = (en, fr) => typo(lang === 'fr' ? fr : en, lang);
+const c = loadCorpus();
+const { published } = loadClearing();
 const allQuestions = loadQuestions();
+const runsOf = (id) => published.filter((r) => r.question?.id === id || r.claimSource?.id === id);
+const asMeasures = (q) => q.measures.filter((m) => m.claim).map((m) => ({ stance: m.stance, party: m.claim.party, programme: m.claim.programme, locator: m.claim.locator, quote: m.claim.quote }));
 const questions = allQuestions.filter((q) => q.kind !== 'axiom');
 const axioms = allQuestions.filter((q) => q.kind === 'axiom');
-const runsOf = (id) => published.filter((r) => r.question?.id === id || r.claimSource?.id === id);
-const asMeasures = (q) => q.measures.map((m) => ({ stance: m.stance, party: m.claim.party, programme: m.claim.programme, locator: m.claim.locator, quote: m.claim.quote }));
-const run = latest ?? specimen;
-const voices = latest ? spreadVoices(latest.voices, 6) : run.voices;
 const metaOf = (r) => t('clearing.runMeta', { agents: r.settings.agents, rounds: r.settings.rounds, comments: r.counts.comments, date: runDate(r, lang) });
+const strip = (r) =>
+  [...r.positions]
+    .sort((a, b) => a.score - b.score)
+    .map((p) => ({ ...p, b: c.branchById[p.branch] }))
+    .filter((p) => p.b);
+const proposeUrl = `${SITE.repoUrl}/issues/new?template=clearing.yml&title=${encodeURIComponent(lang === 'fr' ? 'Clairière : ' : 'Clearing: ')}`;
 ---
 
 <Base lang={lang} view="clearing" title={t('clearing.title')} description={t('clearing.lede')}>
-  <section class="intro">
-    <div class="pitch">
-      <span class="eco-mark simulated">{t('common.simulated')}</span>
-      <h1 class="t-display">{t('clearing.title')}</h1>
-      <p class="t-lede">{t('clearing.lede')}</p>
-    </div>
+  <section class="intro wrap">
+    <span class="eco-mark simulated">{t('common.simulated')}</span>
+    <h1 class="t-display">{t('clearing.title')}</h1>
+    <p class="t-lede">{T('Agents built from each author’s record debate a claim. The schools take positions, unexpected alliances appear. A simulation, never a statement by a real author.', 'Des agents construits à partir de la fiche de chaque auteur débattent d’une affirmation. Les écoles prennent position, des alliances inattendues apparaissent. Une simulation, jamais la parole d’un auteur réel.')}</p>
+    {SITE.repoPublic && <a class="link t-small" href={proposeUrl} rel="noopener">{T('Propose a claim', 'Proposer une affirmation')}</a>}
+  </section>
+
+  <section class="wrap debates">
+    <h2 class="t-heading">{T('Published debates', 'Débats publiés')}</h2>
     {
-      SITE.repoPublic ? (
-        <form class="claim" action={`${SITE.repoUrl}/issues/new`} method="get" target="_blank" rel="noopener">
-          <label class="label" for="claim">{t('clearing.formLabel')}</label>
-          <textarea id="claim" name="claim" rows="3">{L(run.claim, lang)}</textarea>
-          <input type="hidden" name="template" value="clearing.yml" />
-          <input type="hidden" name="title" value={lang === 'fr' ? 'Clairière : ' : 'Clearing: '} />
-          <div class="row gap-4">
-            <button class="eco-btn" type="submit">{t('clearing.propose')}</button>
-            <span class="eco-meta">{t('clearing.proposeNote')}</span>
-          </div>
-        </form>
+      published.length === 0 ? (
+        <p class="t-small t-muted">{t('clearing.specimenTitle')}</p>
       ) : (
-        <div class="claim">
-          <span class="label">{t('clearing.formLabel')}</span>
-          <p class="claim-text">{L(run.claim, lang)}</p>
-          <span class="eco-meta">
-            {t('clearing.proposeClosed')} {t('clearing.proposeNote')}
-          </span>
-        </div>
-      )
-    }
-  </section>
-
-  <section class="wrap">
-    {
-      latest ? (
-        <div class="latest stack gap-2">
-          <span class="label lichen-ink">
-            {t('clearing.latest')} · {latest.runId}
-          </span>
-          <h2 class="t-title claim-line">{L(latest.claim, lang)}</h2>
-          <p class="t-lede summary">{L(latest.summary, lang)}</p>
-          <span class="eco-meta">{metaOf(latest)}</span>
-          {latest.claimSource && <ClaimSource source={latest.claimSource} lang={lang} />}
-          {latest.question && <QuestionPositions measures={runMeasures(latest, allQuestions)} lang={lang} />}
-        </div>
-      ) : (
-        <div class="notice lichen">
-          <b class="label">{t('clearing.specimenTitle')}</b>
-          <p class="t-small">{t('clearing.specimen')}</p>
-        </div>
-      )
-    }
-  </section>
-
-  <section class="wrap run-wrap">
-    <RunBoard run={run} lang={lang} mark={latest ? 'simulated' : 'specimen'} />
-  </section>
-
-  <section class="voices wrap">
-    <h2 class="t-heading">{t(latest ? 'clearing.voicesRun' : 'clearing.voicesTitle')}</h2>
-    <div class="voice-grid">
-      {voices.map((v) => <VoiceCard voice={v} run={run} lang={lang} />)}
-    </div>
-    {
-      latest && (
-        <a class="eco-btn read" href={href(lang, 'run', latest.id)}>
-          {t('clearing.readRun')}
-        </a>
-      )
-    }
-  </section>
-
-  {
-    published.length > 1 && (
-      <section class="wrap runs">
-        <h2 class="t-heading">{t('clearing.allRuns')}</h2>
-        <ul>
+        <ul class="cards">
           {published.map((r) => (
-            <li>
-              <a class="strong-link" href={href(lang, 'run', r.id)}>{L(r.claim, lang)}</a>
-              <span class="eco-meta">
-                {r.runId} · {metaOf(r)}
-              </span>
+            <li class="card">
+              <a class="card-link" href={href(lang, 'run', r.id)}>
+                <span class="eco-meta">
+                  {r.runId} · {r.question?.kind === 'axiom' ? T('Axiom', 'Axiome') : r.question ? T('Programme question', 'Question de programme') : T('Claim', 'Affirmation')}
+                </span>
+                <h3 class="t-heading claim">{L(r.claim, lang)}</h3>
+              </a>
+              <div class="strip" role="img" aria-label={T('Where the schools stood, from against (left) to for (right)', 'Où se sont placées les écoles, de contre (à gauche) à pour (à droite)')}>
+                <span class="axis" aria-hidden="true"></span>
+                {strip(r).map((p) => (
+                  <span class="dot" style={`left: ${p.score}%; --chip: var(--${p.b.token})`} title={`${L(p.b.name, lang)} · ${p.score}`}></span>
+                ))}
+                <span class="end left eco-meta">{t('clearing.oppose')}</span>
+                <span class="end right eco-meta">{t('clearing.endorse')}</span>
+              </div>
+              <p class="t-small summary">{L(r.summary, lang)}</p>
+              <div class="foot">
+                <span class="eco-meta">{metaOf(r)}</span>
+                <a class="eco-btn" href={href(lang, 'run', r.id)}>{T('Read the debate', 'Lire le débat')}</a>
+              </div>
             </li>
           ))}
         </ul>
-      </section>
-    )
-  }
+      )
+    }
+  </section>
+
+  <section class="wrap table">
+    <h2 class="t-heading">{T('On the table', 'Sur la table')}</h2>
+    <p class="t-small t-muted note">{T('Programme questions gather the measures of the French parties; the agents never see a party name. Axioms are claims that split the schools among themselves.', 'Les questions de programme rassemblent les mesures des partis français ; les agents ne voient jamais le nom d’un parti. Les axiomes sont des affirmations qui divisent les écoles entre elles.')}</p>
+    <div class="cols">
+      {[
+        [T('Programme questions', 'Questions de programme'), questions],
+        [T('Axioms', 'Axiomes'), axioms],
+      ].map(([title, list]) => (
+        <div>
+          <h3 class="label">{title}</h3>
+          <ul class="qs">
+            {list.map((q) => (
+              <li>
+                <span class="q">{L(q.claim, lang)}</span>
+                <span class="eco-meta">
+                  {runsOf(q.id).length > 0
+                    ? runsOf(q.id).map((r) => <a href={href(lang, 'run', r.id)}>{T('debated', 'débattu')} · {r.runId}</a>)
+                    : T('not debated yet', 'pas encore débattu')}
+                  {' · '}<code>{q.id}</code>
+                </span>
+                {q.measures?.length > 0 && (
+                  <details>
+                    <summary class="t-small">{T(`What the parties say (${q.measures.length})`, `Ce que disent les partis (${q.measures.length})`)}</summary>
+                    <QuestionPositions measures={asMeasures(q)} lang={lang} />
+                  </details>
+                )}
+                {q.note && <span class="t-small t-muted">{L(q.note, lang)}</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
 
   <div class="below-grid" slot="below">
     <div class="below-col">
@@ -147,181 +139,135 @@ const metaOf = (r) => t('clearing.runMeta', { agents: r.settings.agents, rounds:
       <p class="text">{t('clearing.reproduce')}</p>
       <a class="link t-small" href={href(lang, 'method', undefined, 'simulated')}>{t('clearing.readMethod')}</a>
     </div>
-    {
-      questions.length > 0 && (
-        <div class="below-col wide claims">
-          <div class="below-head">
-            <span class="label humus">{t('clearing.claimsLabel')}</span>
-            <h2 class="t-heading">{t('clearing.questionsTitle')}</h2>
-          </div>
-          <p class="text">{t('clearing.questions')}</p>
-          <ul>
-            {questions.map((q) => (
-              <li>
-                <span class="text">
-                  {L(q.claim, lang)} <code class="eco-meta">{q.id}</code>
-                  {runsOf(q.id).length > 0 && (
-                    <span class="eco-meta">
-                      {' '}· {t('clearing.claimsRun')}{' '}
-                      {runsOf(q.id).map((r) => (
-                        <a href={href(lang, 'run', r.id)}>{r.runId}</a>
-                      ))}
-                    </span>
-                  )}
-                </span>
-                <QuestionPositions measures={asMeasures(q)} lang={lang} />
-              </li>
-            ))}
-          </ul>
-        </div>
-      )
-    }
-    {
-      axioms.length > 0 && (
-        <div class="below-col wide claims">
-          <div class="below-head">
-            <span class="label humus">{t('clearing.axiomsLabel')}</span>
-            <h2 class="t-heading">{t('clearing.axiomsTitle')}</h2>
-          </div>
-          <p class="text">{t('clearing.axioms')}</p>
-          <ul>
-            {axioms.map((q) => (
-              <li>
-                <span class="text">
-                  {L(q.claim, lang)} <code class="eco-meta">{q.id}</code>
-                  {runsOf(q.id).length > 0 && (
-                    <span class="eco-meta">
-                      {' '}· {t('clearing.claimsRun')}{' '}
-                      {runsOf(q.id).map((r) => (
-                        <a href={href(lang, 'run', r.id)}>{r.runId}</a>
-                      ))}
-                    </span>
-                  )}
-                </span>
-                {q.note && <span class="eco-meta">{L(q.note, lang)}</span>}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )
-    }
   </div>
 </Base>
 
 <style>
   .intro {
     display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-8) 80px;
-    align-items: flex-start;
-    padding: 72px var(--gutter) var(--space-8);
-  }
-  .pitch {
-    flex: 1 1 440px;
-    max-width: 600px;
-    display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--space-4);
+    gap: var(--space-3);
+    padding-top: 56px;
+    padding-bottom: var(--space-8);
+    max-width: 760px;
   }
-  .claim {
-    flex: 1 1 480px;
-    max-width: 640px;
+  .debates,
+  .table {
+    padding-bottom: 56px;
+  }
+  .cards {
+    list-style: none;
+    margin: var(--space-4) 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(420px, 100%), 1fr));
+    gap: var(--space-6);
+  }
+  .card {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
     padding: var(--space-6);
-    background: var(--paper-raised);
-    border: 1px solid var(--line);
+    border: var(--stroke-thread) dashed var(--lichen-ink);
     border-radius: var(--radius-md);
+    background: var(--paper-raised);
   }
-  textarea,
-  .claim-text {
-    box-sizing: border-box;
-    width: 100%;
-    padding: var(--space-3);
-    border: 1px solid var(--line);
-    border-radius: var(--radius-sm);
-    background: var(--paper);
-    color: var(--ink);
-    font: 400 22px/30px var(--font-display);
-    resize: vertical;
+  .card-link {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
   }
-  .latest {
-    max-width: 860px;
-    padding-top: var(--space-8);
+  .card-link:hover .claim {
+    text-decoration: underline;
   }
-  .lichen-ink {
-    color: var(--lichen-ink);
-  }
-  .claim-line {
+  .claim {
+    margin: 0;
     text-wrap: balance;
   }
+  .strip {
+    position: relative;
+    height: 44px;
+    margin: var(--space-2) 6px 0;
+  }
+  .axis {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 12px;
+    border-top: 1px solid var(--line);
+  }
+  .axis::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: -6px;
+    height: 12px;
+    border-left: 1px dashed var(--line);
+  }
+  .dot {
+    position: absolute;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    margin-left: -6px;
+    border-radius: 50%;
+    background: var(--chip);
+    border: 2px solid var(--paper-raised);
+  }
+  .end {
+    position: absolute;
+    top: 24px;
+  }
+  .end.left {
+    left: 0;
+  }
+  .end.right {
+    right: 0;
+  }
   .summary {
-    max-width: var(--measure);
+    margin: 0;
+    color: var(--ink-muted);
   }
-  .run-wrap {
-    padding-block: var(--space-8) 56px;
-  }
-  .voices {
+  .foot {
+    margin-top: auto;
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-bottom: 72px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
   }
-  .voice-grid {
+  .note {
+    max-width: 70ch;
+  }
+  .cols {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-4);
   }
-  .read {
-    align-self: flex-start;
-  }
-  .runs {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-4);
-    padding-bottom: 72px;
-  }
-  .runs ul {
+  .qs {
     list-style: none;
-    margin: 0;
+    margin: var(--space-3) 0 0;
     padding: 0;
-    max-width: var(--measure);
   }
-  .runs li {
+  .qs li {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: var(--space-1);
     padding: var(--space-3) 0;
     border-top: 1px solid var(--line);
   }
-  .claims {
-    grid-column: 1 / -1;
-    max-width: 900px;
+  .q {
+    font: 500 17px/24px var(--font-sans);
   }
-  .claims ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  details summary {
+    cursor: pointer;
+    color: var(--moss);
   }
-  .claims li {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: var(--space-3) 0;
-    border-top: 1px solid var(--line);
-  }
-  .claims code {
-    font: inherit;
-  }
-  .below-col .text {
-    font-size: 15px;
-    line-height: 23px;
-  }
-  @media (max-width: 720px) {
-    .intro {
-      padding-top: var(--space-12);
-    }
+  details[open] summary {
+    margin-bottom: var(--space-2);
   }
 </style>
