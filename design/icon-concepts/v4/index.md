@@ -1,0 +1,12 @@
+# Icon set, fourth round: emblems for ecological democracy and collapse
+
+Model: gemini-3-pro-image, seed 2028. Row 1 detailed, row 2 bold, row 3 alternates. Style references: the second-round sheets.
+
+Brief common to all: A sheet of twelve icons in a regular grid of four columns and three rows, each icon centred in its own cell with generous space, no labels, no text, no numbers, no frames. Bark brown #2a2219 lines with moss green #3d5a2a accents, flat, on plain warm off-white #f3eee3. No gradient, no shadow, no 3D.
+
+## 1. democracy-collapse
+
+![democracy-collapse](1-democracy-collapse.png)
+
+First row: these four icons in exactly the same detailed botanical line style as the first attached sheet: 1 an agora: a circle of seats around a small sprouting leaf (ecological democracy); 2 the Seneca curve: a slow rising slope then a sudden cliff, with a leaf falling down the cliff (collapse); 3 a small town with a wind turbine, a garden and a bicycle (transition); 4 a bell-shaped peak curve over a single oil drop (peak oil). Second row: the same four icons, in the same order, in exactly the simple bold style of the second attached sheet, readable at 24 pixels. Third row: four alternatives, detailed style: an amphitheatre seen from above with a tree at its centre; a broken classical column with ivy; a raised hand holding a leaf; an hourglass whose sand feeds a sprout.
+
