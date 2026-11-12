@@ -8,6 +8,7 @@
   branch: animal
   born: 1946
   place: {city: {en: Melbourne, fr: Melbourne}, country: {en: Australia, fr: Australie}, lat: -37.81, lon: 144.96}
+  wikidata: Q211539
   lede:
     en: "Australian philosopher. Animal Liberation applies utilitarian equality to every being that can suffer and names speciesism, the prejudice that discounts the interests of other species. Ecocentrists answer that he cares for individuals, not for ecosystems."
     fr: "Philosophe australien. La Libération animale applique l'égalité utilitariste à tout être capable de souffrir et nomme le spécisme, le préjugé qui néglige les intérêts des autres espèces. Les écocentristes lui répondent qu'il se soucie des individus, non des écosystèmes."
@@ -28,6 +29,7 @@
   born: 1938
   died: 2017
   place: {city: {en: Pittsburgh, fr: Pittsburgh}, country: {en: United States, fr: États-Unis}, lat: 40.44, lon: -79.99}
+  wikidata: Q314146
   lede:
     en: "American philosopher. Against Singer's utilitarianism, The Case for Animal Rights holds that every subject of a life has inherent value and rights that no sum of benefits can override: abolish, do not reform, the use of animals."
     fr: "Philosophe américain. Contre l'utilitarisme de Singer, Les Droits des animaux soutient que tout sujet d'une vie a une valeur inhérente et des droits qu'aucune somme d'avantages ne peut outrepasser : abolir l'usage des animaux, non le réformer."
@@ -48,6 +50,7 @@
   also: [ecofeminism]
   born: 1951
   place: {country: {en: United States, fr: États-Unis}}
+  wikidata: Q1044179
   lede:
     en: "American feminist writer. The Sexual Politics of Meat links the butchering of animals and the objectification of women: in both, a living being becomes an absent referent, a piece to be consumed."
     fr: "Essayiste féministe américaine. La Politique sexuelle de la viande relie l'abattage des animaux et l'objectivation des femmes : dans les deux cas, un être vivant devient un référent absent, un morceau à consommer."
@@ -67,6 +70,7 @@
   branch: animal
   born: 1962
   place: {city: {en: "London, Ontario", fr: "London (Ontario)"}, country: {en: Canada, fr: Canada}, lat: 42.98, lon: -81.25}
+  wikidata: Q523005
   lede:
     en: "Canadian political philosopher. With Sue Donaldson, Zoopolis moves animal ethics into political theory: domesticated animals as co-citizens, wild animals as sovereign communities, animals of the city as denizens."
     fr: "Philosophe politique canadien. Avec Sue Donaldson, Zoopolis fait passer l'éthique animale dans la théorie politique : les animaux domestiques comme concitoyens, les animaux sauvages comme communautés souveraines, ceux des villes comme résidents."
@@ -90,6 +94,7 @@
   branch: animal
   born: 1967
   place: {country: {en: France, fr: France}}
+  wikidata: Q2997292
   lede:
     en: "French philosopher. Les Nourritures grounds ethics in what we live from, food, places and other beings; the Manifeste animaliste makes the animal cause a political and democratic project rather than a private morality."
     fr: "Philosophe française. Les Nourritures fonde l'éthique sur ce dont nous vivons, la nourriture, les lieux, les autres êtres ; le Manifeste animaliste fait de la cause animale un projet politique et démocratique plutôt qu'une morale privée."
@@ -110,6 +115,7 @@
   branch: animal
   born: 1934
   place: {city: {en: Paris, fr: Paris}, country: {en: France, fr: France}}
+  wikidata: Q274715
   lede:
     en: "French philosopher. Le Silence des bêtes reads the whole history of philosophy from the side of the animals it excluded, and refuses both the denial of their suffering and its translation into a utilitarian sum."
     fr: "Philosophe française. Le Silence des bêtes relit toute l'histoire de la philosophie du côté des animaux qu'elle a exclus, et refuse à la fois le déni de leur souffrance et sa conversion en somme utilitariste."
@@ -129,6 +135,7 @@
   branch: animal
   born: 1962
   place: {country: {en: France, fr: France}}
+  wikidata: Q3073947
   lede:
     en: "French philosopher. L'Humanité carnivore asks why humans keep eating animals when they no longer need to, and answers that eating meat is a cultural choice to affirm the human by sacrificing the animal."
     fr: "Philosophe française. L'Humanité carnivore demande pourquoi les humains continuent de manger des animaux alors qu'ils n'en ont plus besoin, et répond que manger de la viande est un choix culturel pour affirmer l'humain en sacrifiant l'animal."
@@ -149,6 +156,7 @@
   also: [anthropocene]
   born: 1959
   place: {city: {en: Anderlecht, fr: Anderlecht}, country: {en: Belgium, fr: Belgique}, lat: 50.84, lon: 4.31}
+  wikidata: Q3559975
   lede:
     en: "Belgian philosopher and psychologist. Que diraient les animaux, si… asks what animals would answer if scientists asked them the right questions, and shows how much of what we know about them depends on how we look."
     fr: "Philosophe et psychologue belge. Que diraient les animaux, si… demande ce que répondraient les animaux si les scientifiques leur posaient les bonnes questions, et montre combien ce que nous savons d'eux dépend de notre façon de regarder."

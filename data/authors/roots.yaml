@@ -447,6 +447,7 @@
   born: 1748
   died: 1832
   place: {city: {en: London, fr: Londres}, country: {en: United Kingdom, fr: Royaume-Uni}, lat: 51.51, lon: -0.13}
+  wikidata: Q60887
   lede:
     en: "English philosopher, founder of utilitarianism. A footnote of his Introduction to the Principles of Morals and Legislation sets the question every later animal ethics starts from: not whether animals can reason or talk, but whether they can suffer."
     fr: "Philosophe anglais, fondateur de l'utilitarisme. Une note de son Introduction aux principes de morale et de législation pose la question dont part toute l'éthique animale ultérieure : non pas si les animaux peuvent raisonner ou parler, mais s'ils peuvent souffrir."
