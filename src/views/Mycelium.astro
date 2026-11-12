@@ -84,8 +84,11 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
       <div class="scroller">
         <svg class="graph" viewBox={`0 0 ${size} ${size}`} role="group" aria-label={t('mycelium.graphLabel')}>
           <defs>
-            <marker id="myc-head" orient="auto" markerWidth="7" markerHeight="7" refX="2" refY="3.5" markerUnits="userSpaceOnUse">
-              <path d="M0 0.5 L7 3.5 L0 6.5 Z"></path>
+            <marker id="myc-head" orient="auto-start-reverse" markerWidth="8" markerHeight="8" refX="1" refY="4" markerUnits="userSpaceOnUse">
+              <path class="mk" d="M0 0.5 L8 4 L0 7.5 Z"></path>
+            </marker>
+            <marker id="myc-bar" orient="auto" markerWidth="4" markerHeight="12" refX="2" refY="6" markerUnits="userSpaceOnUse">
+              <path class="mk-bar" d="M2 0.5 V11.5"></path>
             </marker>
             {arcs.map((g) => <path id={`myc-arc-${g.id}`} d={g.text} />)}
           </defs>
@@ -110,7 +113,8 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
                   data-from={e.link.from}
                   data-to={e.link.to}
                   data-type={e.link.type}
-                  marker-end={e.link.type === 'dialogue' ? undefined : 'url(#myc-head)'}
+                  marker-start={e.link.type === 'dialogue' ? 'url(#myc-head)' : undefined}
+                  marker-end={e.link.type === 'critiqued' ? 'url(#myc-bar)' : 'url(#myc-head)'}
                 />
               ))
             }
@@ -426,10 +430,10 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
     opacity: 0.2;
   }
   .edge.critiqued {
-    stroke-dasharray: 4 4;
+    stroke-dasharray: 5 3;
   }
   .edge.dialogue {
-    stroke-dasharray: 1 4;
+    stroke-dasharray: 1.5 3.5;
   }
   .node .disc {
     fill: var(--chip);
@@ -481,8 +485,13 @@ const sub = t('mycelium.sub', { n: c.authors.length, m: c.sourcedLinks.length })
   .graph.has-selection .node.is-near text {
     font-weight: 600;
   }
-  #myc-head path {
+  .mk {
     fill: var(--ink);
+  }
+  .mk-bar {
+    stroke: var(--ink);
+    stroke-width: 2.4;
+    stroke-linecap: round;
   }
   .is-hidden {
     display: none;

@@ -92,8 +92,8 @@ export function layoutRing(corpus) {
       const len = Math.hypot(dx, dy) || 1;
       return [p[0] - (dx / len) * by, p[1] - (dy / len) * by];
     };
-    const start = shorten([a.x, a.y], c1, a.r + 2);
-    const end = shorten([b.x, b.y], c2, b.r + (l.type === 'dialogue' ? 2 : 7));
+    const start = shorten([a.x, a.y], c1, a.r + (l.type === 'dialogue' ? 8 : 2));
+    const end = shorten([b.x, b.y], c2, b.r + (l.type === 'critiqued' ? 4 : 8));
     return {
       link: l,
       d: `M${round(start[0])} ${round(start[1])}C${round(c1[0])} ${round(c1[1])} ${round(c2[0])} ${round(c2[1])} ${round(end[0])} ${round(end[1])}`,
