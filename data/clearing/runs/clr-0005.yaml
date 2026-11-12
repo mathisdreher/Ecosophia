@@ -1,0 +1,352 @@
+# Clearing run clr-0005. Simulated: nothing below is a statement by any author named.
+# Written by clearing/run.mjs. The transcript and the prompts are in the file next to this one.
+id: clr-0005
+runId: clr-0005
+status: draft
+date: 2026-11-12
+claim:
+  en: Damaging fossil fuel infrastructure is a legitimate form of climate action.
+  fr: Endommager des infrastructures fossiles est une forme légitime d'action climatique.
+question:
+  id: sabotage
+  kind: axiom
+  measures: []
+summary:
+  en: The line ran less between endorsing and opposing than between open action led by those who bear the harm and secret damage by a few, a test most endorsing agents also accepted. That test split Ecofeminism, Decolonial and Political ecology from within, and put 30 points between the two Ecosocialism agents.
+  fr: La ligne passait moins entre partisans et adversaires qu'entre l'action ouverte des populations touchées et la dégradation secrète commise par quelques-uns, critère admis par la plupart des agents favorables. Ce critère a divisé de l'intérieur les branches Écoféminisme, Décolonial et Écologie politique, et séparé de trente points les deux agents de l'Écosocialisme.
+engine:
+  name: MiroFish
+  commit: 7657031ac01184afe2cb220f5ee3545573b5e843
+  platform: reddit
+  packages:
+    - camel-oasis==0.2.5
+    - camel-ai==0.2.78
+model:
+  requested: claude-opus-5-5
+  served:
+    - claude-opus-5-5
+  effort: medium
+settings:
+  rounds: 2
+  agents: 24
+  selection: auto
+  budgetUsd: 3
+  estimateUsd: 1.81
+plan:
+  model: claude-opus-5-5
+  note: Every one of the 14 branches is covered in the first 14 places, so cuts from the end keep every branch. The panel sets advocates of sabotage against nonviolent organisers, defenders of law and markets, and voices from extraction zones. Two rounds let them answer each other on legitimacy, effectiveness and violence at about 1.8 USD.
+  rounds: 2
+  ranked: 24
+  trimmed: false
+  reasons:
+    andreas-malm: Author of How to Blow Up a Pipeline, the central argument for sabotage of fossil infrastructure.
+    bill-mckibben: Co-founder of 350.org, which built a mass climate movement on strictly nonviolent tactics.
+    michael-shellenberger: Ecomodernist who attacks climate alarmism and would reject sabotage as harmful to energy access.
+    arne-naess: Founder of deep ecology who drew on Gandhian nonviolence in environmental action.
+    ken-saro-wiwa: Led the Ogoni movement against oil infrastructure damage in the Niger Delta through nonviolent mobilisation.
+    francoise-deaubonne: Ecofeminist who defended direct action, including sabotage, against nuclear installations.
+    roger-scruton: Conservative philosopher who grounds ecology in law, institutions and local attachment.
+    william-nordhaus: Argues for carbon pricing through policy, a market path that is the opposite of sabotage.
+    jacques-ellul: Wrote a Christian critique of violence, including violence used for just causes.
+    murray-bookchin: Social ecologist who favoured democratic municipal power over isolated direct action.
+    joan-martinez-alier: Documents ecological distribution conflicts, including resistance to fossil projects worldwide.
+    giorgos-kallis: Degrowth researcher who writes on movements against extraction and on self-limitation.
+    nicole-seymour: Theorist of bad environmentalism who questions moral purity and sanctioned forms of activism.
+    bill-devall: Brought deep ecology into North American activism, where monkeywrenching was openly debated.
+    naomi-klein: Named Blockadia, the grassroots physical resistance to fossil fuel projects.
+    starhawk: Activist of nonviolent direct action and blockades with a clear stance on tactics.
+    chico-mendes: Organised the empates, nonviolent physical blockades against forest destruction.
+    pascal-bruckner: Reads political ecology as apocalyptic fanaticism, a frame he would apply to sabotage.
+    robyn-eckersley: Theorist of the green state who weighs state legitimacy against ecological duty.
+    hans-jonas: His ethics of responsibility toward future generations bears on the case for emergency action.
+    pope-francis: Laudato si condemns the fossil technocratic paradigm while speaking from a tradition of peace.
+    nnimmo-bassey: Campaigner against oil extractivism in Africa, speaking for communities harmed by fossil infrastructure.
+    erik-swyngedouw: Argues that consensual climate politics depoliticises the question and that dissent must be restored.
+    luc-ferry: Humanist critic of radical ecology who defends liberal democratic legitimacy.
+counts:
+  turns: 48
+  comments: 69
+  reactions: 74
+  interviews: 24
+  declined: 0
+  failed: 0
+  tokensIn: 586972
+  tokensOut: 44886
+  costUsd: 2.35
+positions:
+  - branch: technocritique
+    score: 21
+    min: 20
+    max: 22
+    agents: 2
+  - branch: degrowth
+    score: 58
+    min: 58
+    max: 58
+    agents: 1
+  - branch: social-ecology
+    score: 35
+    min: 35
+    max: 35
+    agents: 1
+  - branch: ecosocialism
+    score: 70
+    min: 55
+    max: 85
+    agents: 2
+  - branch: deep-ecology
+    score: 60
+    min: 60
+    max: 60
+    agents: 1
+  - branch: ecosophy
+    score: 22
+    min: 22
+    max: 22
+    agents: 1
+  - branch: anthropocene
+    score: 30
+    min: 30
+    max: 30
+    agents: 1
+  - branch: political-ecology
+    score: 51
+    min: 25
+    max: 68
+    agents: 4
+  - branch: decolonial
+    score: 48
+    min: 35
+    max: 60
+    agents: 2
+  - branch: ecofeminism
+    score: 59
+    min: 45
+    max: 72
+    agents: 2
+  - branch: queer-ecology
+    score: 45
+    min: 45
+    max: 45
+    agents: 1
+  - branch: counterpoint
+    score: 5
+    min: 5
+    max: 5
+    agents: 1
+  - branch: market
+    score: 12
+    min: 8
+    max: 12
+    agents: 3
+  - branch: conservative
+    score: 17
+    min: 12
+    max: 22
+    agents: 2
+alliances:
+  - title:
+      en: For, as rupture with fossil power
+      fr: Pour, comme rupture avec le fossile
+    text:
+      en: These agents treat damage as a break with an order that polite protest and expert consensus leave intact. The d'Eaubonne agent parts from the Starhawk agent of the same Ecofeminism branch.
+      fr: Ces agents voient dans la dégradation une rupture avec un ordre que la protestation polie et le consensus des experts laissent intact. L'agent d'Eaubonne se sépare de l'agent Starhawk, de la même branche Écoféminisme.
+    authors:
+      - andreas-malm
+      - francoise-deaubonne
+      - erik-swyngedouw
+  - title:
+      en: Judged by who bears the harm
+      fr: Jugée selon qui subit le dommage
+    text:
+      en: Extraction already harms the poor through spills, flares and lost land, so legitimacy belongs to affected communities. The Saro-Wiwa agent, fearing repression, stays at 35, well below the Bassey agent of the same Decolonial branch.
+      fr: "L'extraction frappe déjà les pauvres par les fuites, le torchage et les terres perdues : la légitimité revient aux communautés touchées. L'agent Saro-Wiwa, craignant la répression, reste à 35, loin de l'agent Bassey, de la même branche Décolonial."
+    authors:
+      - joan-martinez-alier
+      - nnimmo-bassey
+      - ken-saro-wiwa
+      - chico-mendes
+  - title:
+      en: Yes to open action, not secrecy
+      fr: Oui à l'action ouverte, non au secret
+    text:
+      en: "Means shape ends: blockades and open acts build breadth and shared power, while secret damage by a few breeds hierarchy and shrinks the movement. The Klein agent parts from the Malm agent, same Ecosocialism branch."
+      fr: "Les moyens façonnent les fins : blocages et actes ouverts élargissent le mouvement, tandis que la dégradation secrète par quelques-uns engendre la hiérarchie. L'agent Klein se sépare ici de l'agent Malm, de la même branche Écosocialisme."
+    authors:
+      - arne-naess
+      - bill-devall
+      - starhawk
+      - murray-bookchin
+      - naomi-klein
+      - giorgos-kallis
+      - bill-mckibben
+      - nicole-seymour
+  - title:
+      en: Against, effects cannot be controlled
+      fr: Contre, des effets incontrôlables
+    text:
+      en: Sabotage trusts in mastering its consequences, while escalation, repression and the system's own countermeasures make it a gamble. The Pope Francis agent stands on this ground rather than on the Scruton agent's appeal to law.
+      fr: Le sabotage suppose qu'on maîtrise ses suites; escalade, répression et parades du système en font un pari sur l'avenir. L'agent Pape François se tient sur ce terrain plutôt que sur l'appel à la loi de l'agent Scruton.
+    authors:
+      - hans-jonas
+      - jacques-ellul
+      - pope-francis
+  - title:
+      en: Against, for law, price, abundance
+      fr: "Contre : loi, prix carbone, abondance"
+    text:
+      en: Protection must come through law, democratic deliberation, a carbon price or more abundant energy, never through a self-appointed few. The Eckersley agent breaks from the endorsing agents of its Political ecology branch.
+      fr: La protection doit passer par la loi, la délibération démocratique, un prix du carbone ou une énergie plus abondante, jamais par une poignée autoproclamée. L'agent Eckersley s'écarte des agents favorables de sa branche, Écologie politique.
+    authors:
+      - michael-shellenberger
+      - pascal-bruckner
+      - william-nordhaus
+      - luc-ferry
+      - roger-scruton
+      - robyn-eckersley
+voices:
+  - author: michael-shellenberger
+    position: 5
+    work: shellenberger-2020
+    text:
+      en: Damaging fossil fuel infrastructure is not legitimate climate action. It makes energy scarcer and costlier, and the poor pay first. It feeds on apocalyptic fear. Emissions fall when cleaner, denser energy such as nuclear replaces fossil fuels, not when supply is destroyed.
+      fr: Endommager des infrastructures fossiles n'est pas une action climatique légitime. Cela rend l'énergie plus rare et plus chère, et les pauvres paient en premier. Cela se nourrit de la peur de l'apocalypse. Les émissions baissent quand une énergie plus propre et plus dense, comme le nucléaire, remplace les fossiles, non quand on détruit l'offre.
+  - author: pascal-bruckner
+    position: 8
+    work: bruckner-2011
+    text:
+      en: Sabotage follows from catastrophism. Once collapse is preached as imminent, any means seems justified, and ecology becomes a morality of penance that punishes ordinary people through scarce, costly energy. Progress and abundance, not fanaticism, reduce emissions.
+      fr: Le sabotage découle du catastrophisme. Dès lors qu'on prêche l'effondrement imminent, tous les moyens semblent justifiés, et l'écologie devient une morale de pénitence qui punit les gens ordinaires par une énergie rare et chère. Le progrès et l'abondance, non le fanatisme, font baisser les émissions.
+  - author: roger-scruton
+    position: 12
+    work: scruton-2012
+    text:
+      en: Sabotage replaces law and consent with the will of a self-appointed few, and the resentment it breeds weakens the love of home that sustains lasting stewardship. Open defence of a place by the people who live there has some standing, but distant wrecking does not.
+      fr: Le sabotage remplace la loi et le consentement par la volonté d'une poignée autoproclamée, et le ressentiment qu'il engendre affaiblit l'amour du foyer sur lequel repose une protection durable. La défense ouverte d'un lieu par ceux qui y vivent a une certaine légitimité, la destruction menée de loin n'en a aucune.
+  - author: william-nordhaus
+    position: 12
+    work: w-nordhaus-2008
+    text:
+      en: Sabotage works like an arbitrary tax on a few emitters, set by whoever does the wrecking and unrelated to the damage carbon does. A carbon price that covers every emission and rises along an optimal path cuts emissions lastingly. Disruption only moves them elsewhere.
+      fr: Le sabotage agit comme une taxe arbitraire sur quelques émetteurs, fixée par celui qui détruit et sans rapport avec les dommages du carbone. Un prix du carbone qui couvre toutes les émissions et suit une trajectoire de hausse optimale les réduit durablement. La perturbation ne fait que les déplacer.
+  - author: luc-ferry
+    position: 12
+    work: ferry-1992
+    text:
+      en: "Opposed, by analogy from humanist ecology: nature has value for free human beings, not rights against them. Sabotage puts the conviction of a few in place of democratic deliberation, so environmental protection must come through law and persuasion."
+      fr: "Opposition, par analogie avec l'écologie humaniste : la nature a de la valeur pour des êtres humains libres, non des droits contre eux. Le sabotage substitue la conviction de quelques-uns à la délibération démocratique; la protection de l'environnement doit donc passer par la loi et la persuasion."
+  - author: jacques-ellul
+    position: 20
+    work: ellul-1977
+    text:
+      en: Sabotage hits one link in a technological system that repairs itself and responds with more surveillance and security technique. Choosing a means for its efficiency stays inside the logic it opposes. Refusing what the system demands in daily life goes further.
+      fr: Le sabotage frappe un maillon d'un système technicien qui se répare lui-même et répond par davantage de surveillance et de technique sécuritaire. Choisir un moyen pour son efficacité, c'est rester dans la logique qu'on combat. Refuser au quotidien ce que le système exige va plus loin.
+  - author: arne-naess
+    position: 22
+    work: naess-1974
+    text:
+      en: Open, nonviolent direct action that puts bodies in the way and accepts the penalty is legitimate. Secret sabotage is not, because means and ends cannot be separated. Hidden damage hardens conflict, treats opponents as enemies, and leaves the worldview behind the pipeline untouched.
+      fr: L'action directe ouverte et non violente, qui met les corps en travers et accepte la sanction, est légitime. Le sabotage secret ne l'est pas, car les moyens et les fins sont inséparables. La dégradation cachée durcit le conflit, fait des adversaires des ennemis et laisse intacte la vision du monde qui porte l'oléoduc.
+  - author: hans-jonas
+    position: 22
+    work: jonas-1979
+    text:
+      en: The threat to human life on Earth makes the urgency real, but responsibility puts the worst case first. Sabotage has uncertain effects and can escalate, so it gambles with the future it claims to protect. Restraint through collective policy has priority.
+      fr: La menace qui pèse sur la vie humaine sur Terre rend l'urgence réelle, mais la responsabilité fait passer le pire en premier. Le sabotage a des effets incertains et peut dégénérer; il joue donc avec l'avenir qu'il prétend protéger. La retenue par une politique collective a la priorité.
+  - author: pope-francis
+    position: 22
+    work: francis-2015
+    text:
+      en: The urgency is real and the poor bear the harm of extraction. Secret damage to infrastructure still fails as a method. It rarely brings ecological conversion, it puts its costs and the repression that follows on the vulnerable, and it trusts too much in control. Open, community-led resistance and dialogue are better.
+      fr: L'urgence est réelle et les pauvres subissent les dommages de l'extraction. La dégradation secrète d'infrastructures échoue pourtant comme méthode. Elle produit rarement une conversion écologique, fait porter ses coûts et la répression qui suit aux plus vulnérables, et se fie trop à la maîtrise. La résistance ouverte menée par les communautés et le dialogue valent mieux.
+  - author: robyn-eckersley
+    position: 25
+    work: eckersley-2004
+    text:
+      en: Opposed as a strategy, though the grievance is granted. Ecological legitimacy comes from decisions answerable to all affected, including future generations. Sabotage goes around the state instead of transforming it. Affected communities defending their own land have stronger standing than distant saboteurs do.
+      fr: Opposition en tant que stratégie, le grief étant reconnu. La légitimité écologique vient de décisions qui répondent devant tous ceux qu'elles affectent, générations futures comprises. Le sabotage contourne l'État au lieu de le transformer. Les communautés touchées qui défendent leur propre terre ont plus de légitimité que des saboteurs lointains.
+  - author: bill-mckibben
+    position: 30
+    work: mckibben-2010
+    text:
+      en: The urgency is real, since the planet has already changed. But the industry loses its power when it loses public consent. Mass, open campaigns like the Keystone XL fight and divestment drain that consent. Sabotage narrows the movement when breadth matters most.
+      fr: L'urgence est réelle, puisque la planète a déjà changé. Mais l'industrie perd son pouvoir quand elle perd l'adhésion du public. Les campagnes massives et ouvertes, comme la lutte contre Keystone XL et le désinvestissement, tarissent cette adhésion. Le sabotage rétrécit le mouvement au moment où son ampleur compte le plus.
+  - author: ken-saro-wiwa
+    position: 35
+    work: saro-wiwa-1992
+    text:
+      en: Oil extraction is itself ecological war on peoples whose land, water and air were taken without consent. The legitimate answer is open, nonviolent mass organizing for rights and resource control, because sabotage gives repressive regimes a pretext and the villages pay for it.
+      fr: L'extraction pétrolière est en elle-même une guerre écologique contre des peuples dont la terre, l'eau et l'air ont été pris sans leur consentement. La réponse légitime est une organisation de masse, ouverte et non violente, pour les droits et le contrôle des ressources, car le sabotage fournit un prétexte aux régimes répressifs et ce sont les villages qui paient.
+  - author: murray-bookchin
+    position: 35
+    work: bookchin-1982
+    text:
+      en: Qualified opposition. Ecological damage is rooted in social hierarchy, so secret sabotage by small groups misses the root and builds no power from below. Direct action becomes legitimate when citizens' assemblies decide it openly, as one step toward municipal power that replaces fossil rule.
+      fr: Opposition nuancée. La destruction écologique s'enracine dans la hiérarchie sociale; le sabotage secret de petits groupes manque donc la racine et ne construit aucun pouvoir par en bas. L'action directe devient légitime quand des assemblées de citoyens la décident ouvertement, comme une étape vers un pouvoir municipal qui remplace la domination fossile.
+  - author: chico-mendes
+    position: 40
+    work: mendes-1989
+    text:
+      en: Collective, open blockades by people defending their own livelihood are legitimate. Secret damage to machines by a few people turns potential allies among poor workers into enemies and invites repression. Legitimacy comes from mass action led by the community whose life is at stake.
+      fr: Les blocages collectifs et ouverts de gens qui défendent leur propre subsistance sont légitimes. La dégradation secrète de machines par quelques personnes fait des ennemis d'alliés possibles parmi les travailleurs pauvres et appelle la répression. La légitimité vient d'une action de masse menée par la communauté dont la vie est en jeu.
+  - author: nicole-seymour
+    position: 45
+    work: seymour-2018
+    text:
+      en: The work does not address sabotage, so this is reasoning by analogy. Legitimacy is the wrong test. Ecological action should be judged by whether it widens who cares. Solemn, heroic sabotage risks repeating the movement's gloom and sanctimony.
+      fr: L'œuvre ne traite pas du sabotage, il s'agit donc d'un raisonnement par analogie. La légitimité n'est pas le bon critère. L'action écologique doit se juger à sa capacité d'élargir le cercle de ceux qui se soucient. Un sabotage solennel et héroïque risque de reproduire la morosité et la componction du mouvement.
+  - author: starhawk
+    position: 45
+    work: starhawk-1987
+    text:
+      en: Open, collective direct action against fossil infrastructure, such as blockades, is legitimate because it builds shared power. Secret sabotage by a few tends to reproduce power-over, through hierarchy and closed decisions, so it is not clearly legitimate.
+      fr: L'action directe ouverte et collective contre les infrastructures fossiles, comme les blocages, est légitime parce qu'elle construit un pouvoir partagé. Le sabotage secret mené par quelques-uns tend à reproduire le pouvoir-sur, par la hiérarchie et les décisions fermées; sa légitimité n'a donc rien d'évident.
+  - author: naomi-klein
+    position: 55
+    work: klein-2014
+    text:
+      en: Blocking mines, pipelines and wells with bodies, lawsuits and Indigenous rights claims is legitimate resistance, because markets and governments have failed. The work says little about damaging property. Legitimacy comes from a broad movement that wins a just transition, not from secret sabotage.
+      fr: Bloquer mines, oléoducs et puits avec des corps, des procès et des revendications de droits autochtones est une résistance légitime, car les marchés et les gouvernements ont échoué. L'œuvre dit peu de chose de la dégradation des biens. La légitimité vient d'un large mouvement qui obtient une transition juste, non d'un sabotage secret.
+  - author: giorgos-kallis
+    position: 58
+    work: kallis-2019
+    text:
+      en: Damage to fossil infrastructure can be legitimate if it belongs to a broad movement building democratic, collective self-limitation of extraction. It cannot replace that choice. Lasting limits are set by a free society, not forced on it by a few.
+      fr: Endommager des infrastructures fossiles peut être légitime si cela s'inscrit dans un large mouvement qui construit une autolimitation démocratique et collective de l'extraction. Cela ne peut pas remplacer ce choix. Les limites durables sont fixées par une société libre, non imposées par quelques-uns.
+  - author: bill-devall
+    position: 60
+    work: devall-1985
+    text:
+      en: Open, nonviolent damage to machines that destroy living places can be defended, as long as no person is harmed and the penalty is accepted. Sabotage alone remains a reform tactic, because the real target is the worldview that treats nature as a resource.
+      fr: La dégradation ouverte et non violente de machines qui détruisent des lieux vivants peut se défendre, tant que personne n'est blessé et que la sanction est acceptée. Le sabotage seul reste une tactique réformiste, car la vraie cible est la vision du monde qui traite la nature en ressource.
+  - author: nnimmo-bassey
+    position: 60
+    work: bassey-2012
+    text:
+      en: The infrastructure of extraction already damages Africa twice, through spills and flares on the ground and through the warming it feeds. Legitimacy should be judged by who bears the harm. Action led by affected communities carries more weight than sabotage by distant actors.
+      fr: Les infrastructures d'extraction frappent déjà l'Afrique deux fois, par les fuites et le torchage sur le terrain et par le réchauffement qu'elles alimentent. La légitimité doit se juger selon qui subit le dommage. L'action menée par les communautés touchées pèse plus qu'un sabotage commis par des acteurs lointains.
+  - author: joan-martinez-alier
+    position: 62
+    work: martinez-alier-2002
+    text:
+      en: Resistance to extraction by affected communities is an ecological distribution conflict and a form of environmentalism, not a crime against the climate. Legitimacy depends on who bears the harm and who decides. The record does not address covert sabotage, so it is judged only by analogy.
+      fr: La résistance des communautés touchées à l'extraction est un conflit de distribution écologique et une forme d'écologisme, non un crime contre le climat. La légitimité dépend de qui subit le dommage et de qui décide. Le corpus ne traite pas du sabotage clandestin, qui n'est donc jugé que par analogie.
+  - author: erik-swyngedouw
+    position: 68
+    work: swyngedouw-2010
+    text:
+      en: Consensual, expert-managed climate policy leaves the economic order beyond debate. Acts that break this consensus can reopen the choice between different worlds, so they can be legitimate as political antagonism rather than management. The 2010 work does not address sabotage directly.
+      fr: Une politique climatique consensuelle et gérée par les experts soustrait l'ordre économique au débat. Les actes qui brisent ce consensus peuvent rouvrir le choix entre des mondes différents; ils peuvent donc être légitimes comme antagonisme politique plutôt que comme gestion. L'ouvrage de 2010 ne traite pas directement du sabotage.
+  - author: francoise-deaubonne
+    position: 72
+    work: eaubonne-1974
+    text:
+      en: Fossil infrastructure belongs to the same patriarchal power that seized the fertility of women and of the earth, so striking it is legitimate defence of life. It is only legitimate when women lead it and it serves a full change of the system, not property damage alone.
+      fr: Les infrastructures fossiles relèvent du même pouvoir patriarcal qui s'est emparé de la fécondité des femmes et de la terre; les frapper est donc une défense légitime du vivant. Cette action n'est légitime que si les femmes la mènent et qu'elle sert un changement complet du système, pas la seule dégradation des biens.
+  - author: andreas-malm
+    position: 85
+    work: malm-2021
+    text:
+      en: Damaging fossil fuel machinery is legitimate as long as no person is harmed. Most movements that won had a militant flank that damaged property. Ruling sabotage out on principle leaves fossil capital free to ignore polite protest while emissions keep rising.
+      fr: Endommager les machines fossiles est légitime tant que personne n'est blessé. La plupart des mouvements victorieux ont eu une aile radicale qui s'en prenait aux biens. Exclure le sabotage par principe laisse le capital fossile libre d'ignorer la protestation polie pendant que les émissions continuent de grimper.
+silent: []
