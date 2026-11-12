@@ -109,16 +109,45 @@ export function toAnthropic(body) {
   return request;
 }
 
+const isToolBlock = (b) => b.type === 'tool_use' || b.type === 'tool_result';
+
+/**
+ * The closing interview arrives without tool definitions, while the agent's
+ * history holds the tool calls of earlier rounds. The API needs the
+ * definitions of every tool the history mentions, so the tools this agent was
+ * given are sent again (which also keeps its cached context valid). If they
+ * are not known, the calls and results in the history become plain notes.
+ */
+export function withKnownTools(request, tools) {
+  if (request.tools || !request.messages.some((m) => m.content.some(isToolBlock))) return request;
+  if (tools) return { ...request, tools };
+  return {
+    ...request,
+    messages: request.messages.map((m) => ({
+      ...m,
+      content: m.content.map((b) =>
+        b.type === 'tool_use'
+          ? { type: 'text', text: `[earlier action: ${b.name} ${JSON.stringify(b.input)}]` }
+          : b.type === 'tool_result'
+            ? { type: 'text', text: `[earlier result: ${textOf(b.content)}]` }
+            : b,
+      ),
+    })),
+  };
+}
+
 const FINISH = { tool_use: 'tool_calls', max_tokens: 'length', model_context_window_exceeded: 'length' };
 
-/** Anthropic message -> OpenAI chat-completions response. */
-export function toOpenAI(message, requestedModel) {
+/** Anthropic message -> OpenAI chat-completions response. `textOnly` drops tool calls (interviews). */
+export function toOpenAI(message, requestedModel, { textOnly = false } = {}) {
   const refused = message.stop_reason === 'refusal';
   const blocks = refused ? [] : (message.content ?? []);
   const text = blocks.filter((b) => b.type === 'text').map((b) => b.text).join('').trim();
-  const toolCalls = blocks
-    .filter((b) => b.type === 'tool_use' && b.input && typeof b.input === 'object')
-    .map((b) => ({ id: b.id, type: 'function', function: { name: b.name, arguments: JSON.stringify(b.input) } }));
+  const toolCalls = textOnly
+    ? []
+    : blocks
+        .filter((b) => b.type === 'tool_use' && b.input && typeof b.input === 'object')
+        .map((b) => ({ id: b.id, type: 'function', function: { name: b.name, arguments: JSON.stringify(b.input) } }));
   const u = message.usage ?? {};
   const prompt = (u.input_tokens ?? 0) + (u.cache_creation_input_tokens ?? 0) + (u.cache_read_input_tokens ?? 0);
   const completion = u.output_tokens ?? 0;
@@ -172,6 +201,7 @@ export async function startBridge({
   const client = mock ? null : new Anthropic({ maxRetries: 6 });
   const run = limiter(concurrency);
   const prompts = new Map();
+  const toolsOf = new Map();
   const stats = {
     mock,
     model,
@@ -187,22 +217,27 @@ export async function startBridge({
   const log = (entry) => {
     if (logFile) fs.appendFileSync(logFile, `${JSON.stringify(entry)}\n`);
   };
+  const count = (u = {}) => {
+    stats.tokens.input += u.input_tokens ?? 0;
+    stats.tokens.output += u.output_tokens ?? 0;
+    stats.tokens.cacheRead += u.cache_read_input_tokens ?? 0;
+    stats.tokens.cacheWrite += u.cache_creation_input_tokens ?? 0;
+  };
 
   async function complete(body) {
-    const request = toAnthropic(body);
-    const kind = request.tools ? 'action' : 'interview';
-    const agent = agentNameOf(request.system);
-    if (request.system && !prompts.has(agent)) prompts.set(agent, request.system);
+    const asked = toAnthropic(body);
+    const kind = asked.tools ? 'action' : 'interview';
+    const agent = agentNameOf(asked.system);
+    if (asked.system && !prompts.has(agent)) prompts.set(agent, asked.system);
+    if (asked.tools) toolsOf.set(agent, asked.tools);
+    const request = withKnownTools(asked, toolsOf.get(agent));
     const started = Date.now();
 
-    let message;
-    if (mock) {
-      message = mockAnswer(request, { agent, model });
-    } else {
-      // On a decline, `fallbacks: "default"` lets the API retry the request on
-      // the model's default substitute inside the same call. Models without
-      // one simply run alone.
-      message = await client.beta.messages.create({
+    const send = (extra = {}) =>
+      client.beta.messages.create({
+        // On a decline, `fallbacks: "default"` lets the API retry the request
+        // on the model's default substitute inside the same call. Models
+        // without one simply run alone.
         model,
         max_tokens: maxTokens,
         betas: ['server-side-fallback-2026-07-01'],
@@ -215,20 +250,30 @@ export async function startBridge({
         ...(request.system ? { system: request.system } : {}),
         messages: request.messages,
         ...(request.tools ? { tools: request.tools } : {}),
+        ...extra,
       });
+
+    let message;
+    if (mock) {
+      message = mockAnswer(request, { agent, model, kind });
+    } else {
+      message = await send();
+      // An interview is answered in words. If the model reached for a tool
+      // instead, ask again with tools switched off.
+      if (kind === 'interview' && message.stop_reason === 'tool_use') {
+        count(message.usage);
+        message = await send({ tool_choice: { type: 'none' } });
+      }
     }
 
     const u = message.usage ?? {};
     stats.calls++;
     stats[kind === 'action' ? 'actions' : 'interviews']++;
-    stats.tokens.input += u.input_tokens ?? 0;
-    stats.tokens.output += u.output_tokens ?? 0;
-    stats.tokens.cacheRead += u.cache_read_input_tokens ?? 0;
-    stats.tokens.cacheWrite += u.cache_creation_input_tokens ?? 0;
+    count(u);
     stats.servedBy[message.model] = (stats.servedBy[message.model] ?? 0) + 1;
     if (message.stop_reason === 'refusal') stats.refusals++;
 
-    const out = toOpenAI(message, model);
+    const out = toOpenAI(message, model, { textOnly: kind === 'interview' });
     log({
       at: new Date().toISOString(),
       kind,

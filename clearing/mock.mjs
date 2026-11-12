@@ -24,11 +24,11 @@ const message = (model, content, stop) => ({
 const toolUse = (name, input) => ({ type: 'tool_use', id: `toolu_mock_${crypto.randomUUID().slice(0, 12)}`, name, input });
 
 /** One agent turn or one closing interview. */
-export function mockAnswer(request, { agent, model }) {
+export function mockAnswer(request, { agent, model, kind }) {
   const seen = lastUserText(request);
   const h = hash(agent);
 
-  if (!request.tools) {
+  if (kind === 'interview') {
     const position = h % 101;
     const side = position < 40 ? 'opposes' : position > 60 ? 'endorses' : 'neither endorses nor opposes';
     const work = request.system.match(/\{([a-z0-9-]+-\d{4}[a-z]?)\}/)?.[1] ?? null;

@@ -9,7 +9,7 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
-import { toAnthropic, toOpenAI, startBridge } from '../bridge.mjs';
+import { toAnthropic, toOpenAI, withKnownTools, startBridge } from '../bridge.mjs';
 import { parseStance, unquote } from '../reading.mjs';
 import { selectAgents, persona } from '../seed.mjs';
 import { loadCorpus } from '../../src/lib/corpus.mjs';
@@ -49,6 +49,27 @@ test('the bridge repairs a history the engine has trimmed', () => {
   assert.deepEqual(out.messages.map((m) => m.role), ['user', 'assistant', 'user']);
   assert.ok(out.messages.every((m) => m.content.every((b) => b.type === 'text')), 'unpaired calls and results become notes');
   assert.equal(out.tools, undefined);
+});
+
+test('an interview after tool calls is sent with the tools the agent was given', () => {
+  const history = [
+    { role: 'system', content: 'Your name is x_agent.\nYour have profile: P.' },
+    { role: 'user', content: 'feed' },
+    { role: 'assistant', content: '', tool_calls: [{ id: 'toolu_1', type: 'function', function: { name: 'do_nothing', arguments: '{}' } }] },
+    { role: 'tool', tool_call_id: 'toolu_1', content: '{"success": true}' },
+    { role: 'user', content: 'Where do you stand?' },
+  ];
+  const tools = [{ name: 'do_nothing', description: '', input_schema: { type: 'object', properties: {} } }];
+  const interview = toAnthropic({ messages: history });
+  assert.equal(interview.tools, undefined);
+  assert.equal(withKnownTools(interview, tools).tools, tools, 'known tools are declared again');
+  const flat = withKnownTools(interview, undefined);
+  assert.equal(flat.tools, undefined);
+  assert.ok(flat.messages.every((m) => m.content.every((b) => b.type === 'text')), 'unknown tools: the history becomes notes');
+  const plain = toAnthropic({ messages: [history[0], history[4]] });
+  assert.equal(withKnownTools(plain, tools), plain, 'a history without tool calls is left alone');
+  const stray = toOpenAI({ stop_reason: 'tool_use', content: [{ type: 'tool_use', id: 't', name: 'do_nothing', input: {} }], usage: {} }, 'm', { textOnly: true });
+  assert.equal(stray.choices[0].message.tool_calls, undefined);
 });
 
 test('the bridge turns a Claude answer into an OpenAI answer', () => {
