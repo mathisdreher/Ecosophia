@@ -80,4 +80,12 @@ if (fs.existsSync(path.join(SRC, 'icons/v3d-1.svg'))) {
     }
   });
 }
+// Fourth round: the emblems of ecological democracy (the agora) and collapse
+// (the Seneca cliff); row 1 detailed, row 2 small.
+if (fs.existsSync(path.join(SRC, 'icons/v4-1.svg'))) {
+  for (const [id, detailed, small] of [['democracy', 1, 5], ['collapse', 2, 6]]) {
+    write(`glyphs/branches/${id}.svg`, titled(cell('v4', detailed), id));
+    write(`glyphs/branches/small/${id}.svg`, titled(cell('v4', small), id));
+  }
+}
 console.log('brand installed');
