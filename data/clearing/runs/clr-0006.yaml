@@ -1,0 +1,389 @@
+# Clearing run clr-0006. Simulated: nothing below is a statement by any author named.
+# Written by clearing/run.mjs. The transcript and the prompts are in the file next to this one.
+id: clr-0006
+runId: clr-0006
+status: draft
+date: 2026-11-12
+claim:
+  en: Rail and public transport should take over from short domestic flights, with public money.
+  fr: Le rail et les transports publics devraient remplacer les vols intérieurs courts, avec de l'argent public.
+question:
+  id: rail-avion
+  measures:
+    - id: lfi-2026-vols-interieurs
+      stance: for
+      party:
+        short: LFI
+        name: La France insoumise
+      programme:
+        title: L'Avenir en commun – Le programme de la Nouvelle France (édition 2027)
+        year: 2026
+        url: https://melenchon2027.fr/programme/livre/pour-une-bifurcation-ecologique-et-sociale/chapitre3/
+      locator: Partie 1, chapitre 3, « Développer les transports publics écologiques, repenser la mobilité individuelle »
+      quote: Supprimer les lignes aériennes intérieures quand l’alternative en train est inférieure à quatre heures
+    - id: pcf-2022-petites-lignes-transports-gratuits
+      stance: partly
+      party:
+        short: PCF
+        name: Parti communiste français
+      programme:
+        title: Fabien Roussel – La France des Jours heureux, le programme (document 8 pages, présidentielle 2022)
+        year: 2022
+        url: https://assets.nationbuilder.com/pcf/pages/13815/attachments/original/1643123394/document_-_exe_8p_programme_stc.pdf?1643123394
+      locator: Objectifs pour l’humain et la planète d’abord, 4 « Pour l’emploi et le climat, je lancerai un grand plan de réindustrialisation de la France » (p. 3 du PDF)
+      quote: Réouverture des petites lignes SNCF et gratuité des transports publics urbains.
+summary:
+  en: Only the four Market liberal agents opposed the claim, preferring carbon prices or case-by-case cost tests. Supporters split over capping flights and over high-speed versus slow regional rail, and the two Conservative agents unexpectedly sided with the Illich and Næss agents for local branch lines against speed.
+  fr: Seuls les quatre agents de la branche Libéraux de marché ont rejeté la proposition, au profit d'un prix du carbone ou d'un calcul coût-avantage au cas par cas. Les partisans se sont divisés sur le plafonnement des vols et sur la grande vitesse, et les deux agents conservateurs ont rejoint les agents Illich et Næss pour les petites lignes.
+engine:
+  name: MiroFish
+  commit: 7657031ac01184afe2cb220f5ee3545573b5e843
+  platform: reddit
+  packages:
+    - camel-oasis==0.2.5
+    - camel-ai==0.2.78
+model:
+  requested: claude-opus-5-5
+  served:
+    - claude-opus-5-5
+  effort: medium
+settings:
+  rounds: 2
+  agents: 26
+  selection: auto
+  budgetUsd: 3
+  estimateUsd: 1.99
+plan:
+  model: claude-opus-5-5
+  note: Twenty-six agents over two rounds, about 2.2 USD by the guide figure. The aim is to set carbon-price and cost-benefit sceptics, ecomodernists and anti-state voices against advocates of public transit and critics of speed and mobility itself. Every branch is covered within the first sixteen agents, so cuts from the end are safe.
+  rounds: 2
+  ranked: 26
+  trimmed: false
+  reasons:
+    william-nordhaus: Favours a uniform carbon price over targeted public spending on chosen technologies, a direct challenge to subsidised rail.
+    ivan-illich: Energy and Equity argues that high-speed transport is counterproductive and that more speed for some costs time for all.
+    bjorn-lomborg: Cost-benefit ranking of climate measures tends to question costly infrastructure per tonne of carbon avoided.
+    ted-nordhaus: Ecomodernist who prefers innovation and decoupling to restricting mobility, likely to favour cleaner aviation.
+    ramon-fernandez-duran: Spanish urbanist who criticised high-speed rail and motorised mobility under the decline of cheap fossil energy.
+    andre-gorz: Wrote The Social Ideology of the Motorcar on how transport shapes space and inequality, and links ecology to public provision.
+    robert-bullard: Has written on transportation equity and on who pays for public transit and who benefits from it.
+    andreas-malm: Fossil capital analysis supports state-led action that cuts aviation emissions, possibly by banning flights outright.
+    jean-baptiste-fressoz: Argues that energy transitions historically add new sources rather than substitute, so rail may not replace flights.
+    murray-bookchin: Libertarian municipalism questions state-led infrastructure and favours decentralised, human-scale communities.
+    roger-scruton: Conservative oikophilia favours local attachment and distrusts large state programmes.
+    erik-swyngedouw: Criticises consensual, expert-managed climate policy as post-political, which applies to technocratic transport plans.
+    yayo-herrero: Ecofeminist from Ecologistas en Acción who puts care and everyday mobility above long-distance speed.
+    arne-naess: Founder of deep ecology, asks whether the need for mobility itself should be questioned beyond changing modes.
+    nicole-seymour: Bad environmentalism challenges moralising campaigns such as flight shaming.
+    bill-devall: Simple in means, rich in ends questions the value placed on frequent travel whatever the mode.
+    jason-hickel: Measures excess consumption by rich countries and frequent flyers, and supports public provision with demand reduction.
+    michael-shellenberger: Ecomodernist critic of climate alarmism who defends abundant energy and modern mobility.
+    terry-anderson: Free-market environmentalism doubts public subsidy and favours property rights and private solutions.
+    joan-martinez-alier: Studies distribution conflicts, including local resistance to large rail projects such as the TAV in Italy.
+    michael-lowy: Democratic ecological planning gives a socialist case for free public transport funded by the state.
+    bill-mckibben: Climate campaigner who has addressed aviation emissions and public action on climate.
+    malcom-ferdinand: Writes from the Caribbean, where islands and overseas territories depend on air links that rail cannot replace.
+    alain-de-benoist: Right-wing degrowth and rooted localism question mass mobility itself.
+    ronald-coase: The Problem of Social Cost questions whether state intervention is the best answer to externalities.
+    jacques-ellul: Sees technique as self-expanding, so new rail capacity would add to the transport system rather than replace flights.
+counts:
+  turns: 52
+  comments: 71
+  reactions: 82
+  interviews: 26
+  declined: 0
+  failed: 0
+  tokensIn: 637836
+  tokensOut: 33539
+  costUsd: 2.24
+positions:
+  - branch: technocritique
+    score: 68
+    min: 55
+    max: 75
+    agents: 3
+  - branch: degrowth
+    score: 81
+    min: 80
+    max: 82
+    agents: 2
+  - branch: social-ecology
+    score: 72
+    min: 72
+    max: 72
+    agents: 1
+  - branch: ecosocialism
+    score: 91
+    min: 90
+    max: 92
+    agents: 2
+  - branch: deep-ecology
+    score: 72
+    min: 72
+    max: 72
+    agents: 1
+  - branch: ecosophy
+    score: 75
+    min: 75
+    max: 75
+    agents: 1
+  - branch: anthropocene
+    score: 74
+    min: 62
+    max: 85
+    agents: 2
+  - branch: political-ecology
+    score: 77
+    min: 72
+    max: 82
+    agents: 2
+  - branch: decolonial
+    score: 74
+    min: 72
+    max: 75
+    agents: 2
+  - branch: ecofeminism
+    score: 85
+    min: 85
+    max: 85
+    agents: 1
+  - branch: queer-ecology
+    score: 78
+    min: 78
+    max: 78
+    agents: 1
+  - branch: counterpoint
+    score: 64
+    min: 62
+    max: 65
+    agents: 2
+  - branch: market
+    score: 28
+    min: 20
+    max: 30
+    agents: 4
+  - branch: conservative
+    score: 67
+    min: 62
+    max: 72
+    agents: 2
+alliances:
+  - title:
+      en: Against, on grounds of cost
+      fr: Contre, au nom du coût
+    text:
+      en: The four Market liberal agents prefer a carbon price, property rights or route-by-route cost comparison, and reject public money and bans as a default rule for choosing a transport mode.
+      fr: Les quatre agents de la branche Libéraux de marché préfèrent un prix du carbone, des droits de propriété clairs ou une comparaison des coûts ligne par ligne, et refusent l'argent public comme règle par défaut.
+    authors:
+      - william-nordhaus
+      - bjorn-lomborg
+      - terry-anderson
+      - ronald-coase
+  - title:
+      en: For, if rail simply wins
+      fr: Pour, si le train séduit
+    text:
+      en: The two Ecomodernist agents back fast electric rail that beats the plane without bans or shame. The Seymour agent joins them against flight shame and wants trains that are a pleasure.
+      fr: Les deux agents écomodernistes soutiennent un train électrique rapide qui l'emporte sur l'avion sans interdiction ni culpabilité. L'agent Seymour les rejoint contre la honte de voler et veut un train qui soit un plaisir.
+    authors:
+      - ted-nordhaus
+      - michael-shellenberger
+      - nicole-seymour
+  - title:
+      en: For, with flights capped
+      fr: Pour, avec des vols plafonnés
+    text:
+      en: Rail replaces flights only if aviation is capped or short routes closed, otherwise new capacity adds to the old. The Fressoz and McKibben agents join Degrowth and Ecosocialism agents here, the Malm agent calling for bans.
+      fr: Le train ne remplace l'avion que si les vols sont plafonnés ou les lignes courtes fermées, sinon l'offre s'additionne. Les agents Fressoz et McKibben rejoignent ici décroissants et écosocialistes, l'agent Malm réclamant l'interdiction.
+    authors:
+      - andreas-malm
+      - michael-lowy
+      - jason-hickel
+      - bill-mckibben
+      - jean-baptiste-fressoz
+      - ramon-fernandez-duran
+  - title:
+      en: For, if burdens and power shared
+      fr: Pour, si charges et pouvoir sont partagés
+    text:
+      en: Support depends on who carries the costs and who decides, with consent of affected communities, attention to overseas peoples and care work, and decisions taken in public or by municipal assemblies rather than experts.
+      fr: Le soutien dépend de qui supporte les coûts et de qui décide, avec le consentement des riverains, la prise en compte des outre-mer et du soin, et un débat public ou des assemblées municipales plutôt que des experts.
+    authors:
+      - robert-bullard
+      - joan-martinez-alier
+      - malcom-ferdinand
+      - yayo-herrero
+      - erik-swyngedouw
+      - murray-bookchin
+  - title:
+      en: Slower, nearer, less travel
+      fr: Moins vite, plus près, moins loin
+    text:
+      en: These agents would fund slow regional or branch lines but ask why life needs so much movement. The two Conservative agents, Scruton and de Benoist, join Technocritique and Deep ecology agents here.
+      fr: Ces agents financeraient des lignes lentes, régionales ou secondaires, mais demandent pourquoi la vie exige tant de déplacements. Les deux agents conservateurs, Scruton et de Benoist, rejoignent ici technocritique et écologie profonde.
+    authors:
+      - ivan-illich
+      - jacques-ellul
+      - arne-naess
+      - bill-devall
+      - andre-gorz
+      - alain-de-benoist
+      - roger-scruton
+voices:
+  - author: terry-anderson
+    position: 20
+    work: anderson-1991
+    text:
+      en: Public money that picks a transport mode shields planners from the cost of bad choices. Full prices, clear property rights and a charge for pollution let rail win the routes where it really costs less, without subsidies or bans.
+      fr: L'argent public qui choisit un mode de transport protège les planificateurs du coût de leurs mauvais choix. Des prix complets, des droits de propriété clairs et une redevance sur la pollution permettent au rail de gagner les lignes où il coûte réellement moins, sans subventions ni interdictions.
+  - author: bjorn-lomborg
+    position: 25
+    work: lomborg-2001
+    text:
+      en: Public money should go first where each euro does most good. Subsidising rail to replace short flights cuts a small share of emissions at a high cost per tonne. Rail deserves funding only where passenger numbers and cost-benefit tests justify it, not by default.
+      fr: L'argent public doit aller d'abord là où chaque euro fait le plus de bien. Subventionner le rail pour remplacer les vols courts réduit une faible part des émissions à un coût élevé par tonne. Le rail ne mérite d'être financé que là où la fréquentation et l'analyse coût-avantage le justifient, pas par défaut.
+  - author: william-nordhaus
+    position: 30
+    work: w-nordhaus-2008
+    text:
+      en: A carbon price set at the damage each tonne does, applied to flights and trains alike, cuts emissions where cutting is cheapest. Public money for rail is justified only where benefits exceed costs, not as a default replacement for flying.
+      fr: Un prix du carbone fixé au niveau du dommage causé par chaque tonne, appliqué aux vols comme aux trains, réduit les émissions là où c'est le moins coûteux. L'argent public pour le rail ne se justifie que si les avantages dépassent les coûts, pas comme substitut à l'avion par défaut.
+  - author: ronald-coase
+    position: 30
+    work: coase-1960
+    text:
+      en: Harm is reciprocal, so making public money or bans the default rule for transport misplaces the question. Each route should be judged by comparing the total costs of the real alternatives, including what state action itself costs and how often it gets things wrong.
+      fr: Le dommage est réciproque, et faire de l'argent public ou des interdictions la règle par défaut en matière de transport pose mal la question. Chaque ligne doit être jugée en comparant le coût total des alternatives réelles, y compris ce que coûte l'action de l'État elle-même et la fréquence de ses erreurs.
+  - author: jacques-ellul
+    position: 55
+    work: ellul-1988
+    text:
+      en: Rail uses less than short flights, but swapping one mode for another keeps the same test of faster, more efficient movement. Publicly funded speed is sold on its benefits and says nothing of its costs. The prior question is why life demands so much travel.
+      fr: Le rail consomme moins que les vols courts, mais remplacer un mode par un autre garde le même critère, celui d'un déplacement plus rapide et plus efficace. La vitesse financée par l'argent public est vantée pour ses avantages et tait ses coûts. La question première est de savoir pourquoi la vie exige tant de déplacements.
+  - author: jean-baptiste-fressoz
+    position: 62
+    work: fressoz-2024
+    text:
+      en: Public money for rail is worth spending, but a takeover is unlikely. Energy history shows new sources add to old ones rather than replace them, so trains will only displace short flights if flights are actually capped. Otherwise mobility simply accumulates.
+      fr: L'argent public pour le rail vaut la dépense, mais une substitution est peu probable. L'histoire de l'énergie montre que les nouvelles sources s'ajoutent aux anciennes sans les remplacer, si bien que les trains ne supplanteront les vols courts que si ces vols sont réellement plafonnés. Sinon, la mobilité ne fait que s'accumuler.
+  - author: roger-scruton
+    position: 62
+    work: scruton-2012
+    text:
+      en: A qualified endorsement. Public money for rail is justified when it restores local lines and stations that communities love as part of home. It is not justified when it serves national carbon targets, bans imposed from the centre, or campaigns of guilt.
+      fr: Une approbation nuancée. L'argent public pour le rail se justifie lorsqu'il restaure les lignes et les gares locales auxquelles les communautés tiennent comme à leur foyer. Il ne se justifie pas lorsqu'il sert des objectifs carbone nationaux, des interdictions venues du centre ou des campagnes de culpabilisation.
+  - author: michael-shellenberger
+    position: 62
+    work: shellenberger-2020
+    text:
+      en: Public money for fast, clean, electric rail is justified when it gives travellers something better than flying. Bans, flight shame and managed descent are the politics of limits. Decarbonization comes through abundance and better technology, including cleaner aviation, not through restraint.
+      fr: L'argent public pour un rail rapide, propre et électrique se justifie lorsqu'il offre aux voyageurs mieux que l'avion. Interdictions, honte de voler et décroissance organisée relèvent de la politique des limites. La décarbonation passe par l'abondance et de meilleures technologies, y compris une aviation plus propre, et non par la privation.
+  - author: ted-nordhaus
+    position: 65
+    work: nordhaus-2004
+    text:
+      en: Public money for fast, cheap, frequent electric rail is a sound climate investment because it gives people a better option instead of asking them to give something up. Rail should win by being better, not because short flights are banned or taxed, and clean aviation deserves funding too.
+      fr: L'argent public pour un rail électrique rapide, bon marché et fréquent est un bon investissement climatique, car il offre une meilleure option au lieu de demander un renoncement. Le rail doit gagner parce qu'il est meilleur, non parce que les vols courts sont interdits ou taxés, et l'aviation propre mérite aussi d'être financée.
+  - author: ivan-illich
+    position: 68
+    work: illich-1974
+    text:
+      en: Replacing short flights with rail is endorsed only if public money pays for slow, frequent, cheap trains and buses open to all. High-speed lines repeat the counterproductivity of speed, which helps a few and makes everyone else more dependent on transport.
+      fr: Remplacer les vols courts par le rail se défend seulement si l'argent public finance des trains et des cars lents, fréquents, bon marché et ouverts à tous. Les lignes à grande vitesse reproduisent la contre-productivité de la vitesse, qui sert quelques-uns et rend tous les autres plus dépendants du transport.
+  - author: murray-bookchin
+    position: 72
+    work: bookchin-1982
+    text:
+      en: Rail should replace short flights, but the shift is a social question before a technical one. Public money spent by national ministries only swaps one hierarchy for another. Federated municipal assemblies should decide routes, fares and land use, and bring work and homes back within human scale.
+      fr: Le rail doit remplacer les vols courts, mais ce basculement est une question sociale avant d'être technique. L'argent public dépensé par des ministères nationaux ne fait que remplacer une hiérarchie par une autre. Des assemblées municipales fédérées doivent décider des lignes, des tarifs et de l'usage des sols, et ramener travail et logement à échelle humaine.
+  - author: erik-swyngedouw
+    position: 72
+    work: swyngedouw-2010
+    text:
+      en: The shift from short flights to public rail deserves support, but only as a political choice. Treated as expert-managed carbon accounting, it depoliticises mobility and leaves growth, property and who decides outside debate.
+      fr: Le passage des vols courts au rail public mérite d'être soutenu, mais seulement comme choix politique. Traité comme une comptabilité carbone gérée par des experts, il dépolitise la mobilité et laisse la croissance, la propriété et la question de qui décide hors du débat.
+  - author: bill-devall
+    position: 72
+    work: devall-1988
+    text:
+      en: "Rail replacing short flights deserves public money, but it remains reform environmentalism that manages mobility as a resource. The deeper aim is a life simple in means and rich in ends: rooted in place, with less need to travel at all."
+      fr: Le remplacement des vols courts par le rail mérite l'argent public, mais il reste un environnementalisme réformiste qui gère la mobilité comme une ressource. Le but plus profond est une vie simple en moyens et riche en fins, enracinée dans un lieu, avec moins besoin de voyager.
+  - author: malcom-ferdinand
+    position: 72
+    work: ferdinand-2019
+    text:
+      en: "Public rail replacing short flights is endorsed, on one condition: the transition must not leave ashore the island and overseas peoples whose dependence on flying was drawn by colonial routes. A uniform price or a mainland-only plan repeats Noah's Ark."
+      fr: Le remplacement des vols courts par le rail public est approuvé, à une condition. La transition ne doit pas laisser sur le rivage les peuples insulaires et ultramarins dont la dépendance à l'avion a été tracée par les routes coloniales. Un prix uniforme ou un plan limité à l'Hexagone rejoue l'Arche de Noé.
+  - author: alain-de-benoist
+    position: 72
+    work: debenoist-2007
+    text:
+      en: Endorsed, on the grounds of degrowth and rooted localism rather than carbon accounting. Public money should restore regional and branch lines that bind places together. Faster links between metropolises would only extend uniform hypermobility. The deeper aim is less need to travel.
+      fr: Approuvé, au nom de la décroissance et d'un localisme enraciné plutôt que de la comptabilité carbone. L'argent public doit restaurer les lignes régionales et secondaires qui relient les lieux entre eux. Des liaisons plus rapides entre métropoles ne feraient qu'étendre une hypermobilité uniforme. Le but plus profond est d'avoir moins besoin de voyager.
+  - author: andre-gorz
+    position: 75
+    work: gorz-1975
+    text:
+      en: Rail should replace short flights with public money, as a shared public provision rather than a carbon price that turns limits into privilege. Faster, cleaner traffic alone changes nothing. Places should be rebuilt so that people need to travel less, under a common norm of enough.
+      fr: Le rail doit remplacer les vols courts grâce à l'argent public, comme service commun plutôt que par un prix du carbone qui fait des limites un privilège. Un trafic plus rapide et plus propre ne change rien à lui seul. Il faut reconstruire les lieux pour qu'on ait moins besoin de se déplacer, sous une norme commune de suffisance.
+  - author: robert-bullard
+    position: 75
+    work: bullard-1990
+    text:
+      en: Endorsed on a condition. Rail should replace short flights with public money only if new lines, depots and noise are not pushed onto Black and poor neighbourhoods. Affected communities must consent, and the service must reach people who never fly.
+      fr: Approuvé, sous condition. Le rail ne doit remplacer les vols courts avec de l'argent public que si les nouvelles lignes, les dépôts et le bruit ne sont pas rejetés sur les quartiers noirs et pauvres. Les communautés concernées doivent consentir, et le service doit atteindre ceux qui ne prennent jamais l'avion.
+  - author: arne-naess
+    position: 75
+    work: naess-1973
+    text:
+      en: Rail should replace short flights with public money, but only as a shallow first step. The deeper task is to ask why industrial life needs so much fast movement and to seek a life rich in ends and simple in means, rooted in place.
+      fr: Le rail doit remplacer les vols courts grâce à l'argent public, mais seulement comme un premier pas superficiel. La tâche plus profonde est de se demander pourquoi la vie industrielle exige tant de déplacements rapides, et de chercher une vie riche en fins et simple en moyens, enracinée dans un lieu.
+  - author: nicole-seymour
+    position: 78
+    work: seymour-2018
+    text:
+      en: Publicly funded rail should replace short flights, but as a pleasure rather than a penance. Flight shame and sermons push people away, while cheap, convivial trains win them over. Rail should also serve chosen kin across distance, not a duty to stay put.
+      fr: Un rail financé par l'argent public doit remplacer les vols courts, mais comme un plaisir et non comme une pénitence. La honte de prendre l'avion et les sermons font fuir, tandis que des trains bon marché et conviviaux séduisent. Le rail doit aussi relier les familles choisies à distance, et non imposer le devoir de rester chez soi.
+  - author: ramon-fernandez-duran
+    position: 80
+    work: fernandez-duran-2011
+    text:
+      en: Endorsed. Cheap oil is ending, so short flights will shrink anyway, and the real question is how that decline is shared. Public money should fund everyday regional and conventional rail rather than high-speed showcases, and flights must actually be capped.
+      fr: Approuvé. La fin du pétrole bon marché fera reculer les vols courts de toute façon, et la vraie question est de savoir comment ce déclin se partage. L'argent public doit financer le rail régional et classique du quotidien plutôt que des vitrines à grande vitesse, et les vols doivent être réellement plafonnés.
+  - author: jason-hickel
+    position: 82
+    work: hickel-2020
+    text:
+      en: Publicly funded rail should replace short flights, but only together with a cap on aviation and absolute cuts in Northern energy use. A modal shift on top of growing demand repeats the green growth illusion. Fair shares of the carbon budget for the South are the goal.
+      fr: Un rail financé par l'argent public doit remplacer les vols courts, mais seulement avec un plafond sur l'aviation et des baisses absolues de la consommation d'énergie au Nord. Un report modal sur une demande en hausse reproduit l'illusion de la croissance verte. L'objectif est une part équitable du budget carbone pour le Sud.
+  - author: joan-martinez-alier
+    position: 82
+    work: martinez-alier-2002
+    text:
+      en: Public rail should replace short flights. Those flights serve a richer minority, while their noise and emissions fall on neighbours and on the South. A carbon price cannot settle this ecological distribution conflict, and new lines must not be forced through poor communities without their consent.
+      fr: Le rail public doit remplacer les vols courts. Ces vols servent une minorité plus riche, tandis que leur bruit et leurs émissions retombent sur les riverains et sur le Sud. Un prix du carbone ne peut trancher ce conflit de distribution écologique, et les nouvelles lignes ne doivent pas être imposées aux communautés pauvres sans leur consentement.
+  - author: yayo-herrero
+    position: 85
+    work: herrero-2021
+    text:
+      en: Endorsed. Rail funded as a common good puts the sustaining of life ahead of profit. It cuts ecological damage that no ledger counts. It should favour everyday, affordable regional lines that serve the care work daily life depends on, not high-speed showcases.
+      fr: Approuvé. Un rail financé comme bien commun place le soin de la vie avant le profit. Il réduit des dommages écologiques qu'aucune comptabilité ne mesure. Il doit privilégier des lignes régionales quotidiennes et abordables, au service du travail de soin dont dépend la vie de tous les jours, et non des vitrines à grande vitesse.
+  - author: bill-mckibben
+    position: 85
+    work: mckibben-2010
+    text:
+      en: Warming has already changed the planet, so every sector has to cut now, short flights included. Public money should build rail and public transport, and short routes should be capped so the trains replace flights instead of adding to them.
+      fr: Le réchauffement a déjà changé la planète, si bien que chaque secteur doit réduire dès maintenant, vols courts compris. L'argent public doit construire le rail et les transports publics, et les lignes courtes doivent être plafonnées pour que les trains remplacent les vols au lieu de s'y ajouter.
+  - author: michael-lowy
+    position: 90
+    work: lowy-2011
+    text:
+      en: Publicly funded rail should replace short flights as a choice made democratically by need, not by profit. It must be an affordable common service, and short routes should be capped or closed, an emergency brake on aviation growth rather than an addition to it.
+      fr: Un rail financé par l'argent public doit remplacer les vols courts, par un choix démocratique fondé sur les besoins et non sur le profit. Ce doit être un service commun abordable, et les lignes courtes doivent être plafonnées ou fermées, comme un frein d'urgence à la croissance de l'aviation et non comme un ajout.
+  - author: andreas-malm
+    position: 92
+    work: malm-2016
+    text:
+      en: "Endorse, and go further: publicly planned rail should replace short flights, and those routes should be banned. Price signals leave the choice to the owners whose profits built the fossil economy. Only planning and state power can retire those assets."
+      fr: Approuvé, et il faut aller plus loin. Un rail planifié par la puissance publique doit remplacer les vols courts, et ces lignes aériennes doivent être interdites. Les signaux de prix laissent le choix aux propriétaires dont les profits ont bâti l'économie fossile. Seules la planification et la puissance de l'État peuvent retirer ces actifs.
+silent: []
