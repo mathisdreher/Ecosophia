@@ -56,6 +56,9 @@ for (const file of fs.existsSync(RUNS) ? fs.readdirSync(RUNS).filter((f) => f.en
     })
     .filter(Boolean);
   run.settings.agents = run.voices.length + run.silent.length;
+  if (typeof run.settings.selection === 'string') {
+    run.settings.selection = run.settings.selection.split(/[\s,]+/).filter((token) => token && token !== id).join(',') || 'all';
+  }
   run.withdrawn = (run.withdrawn ?? 0) + 1;
   fs.writeFileSync(yamlFile, `${header ? `${header}\n` : ''}${YAML.stringify(run, { lineWidth: 0 })}`);
 
