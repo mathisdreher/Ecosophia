@@ -1,0 +1,411 @@
+# Clearing run clr-0009. Simulated: nothing below is a statement by any author named.
+# Written by clearing/run.mjs. The transcript and the prompts are in the file next to this one.
+id: clr-0009
+runId: clr-0009
+status: draft
+date: 2026-11-12
+claim:
+  en: France should set binding targets to reduce the use of synthetic pesticides.
+  fr: La France devrait se fixer des objectifs contraignants de réduction des pesticides de synthèse.
+question:
+  id: pesticides
+  measures:
+    - id: eco-2026-pesticides
+      stance: for
+      party:
+        short: Les Écologistes
+        name: Les Écologistes (Europe Écologie Les Verts)
+      programme:
+        title: Pour une prospérité écologique – Le nouveau programme des Écologistes (Projet 2027)
+        year: 2026
+        url: https://lesecologistes.fr/document/3N4JsAEmq6vsx42IITGNZa/vdef-programme-1.pdf
+      locator: I. Garantir un monde habitable, chapitre 5 « Restaurer la biodiversité terrestre », proposition 1
+      quote: Planifier une sortie progressive des pesticides de synthèse et des engrais azotés à l’horizon 2050.
+    - id: ps-2026-glyphosate
+      stance: for
+      party:
+        short: PS
+        name: Parti socialiste
+      programme:
+        title: Le Projet socialiste – Vivre avec la nature
+        year: 2026
+        url: https://projet-socialiste.fr/projet/vivre-avec-la-nature/
+      locator: Vivre avec la nature, chapitre 14, « Une agriculture durable »
+      quote: Réduire l’usage des engrais et des pesticides de synthèse et interdire les produits les plus toxiques dont le glyphosate.
+    - id: ens-2024-pesticides
+      stance: for
+      party:
+        short: Ensemble
+        name: Renaissance (Ensemble pour la République)
+      programme:
+        title: Ensemble pour la République – Notre projet (législatives 2024)
+        year: 2024
+        url: https://doc.ensemble-2024.fr/programme-legislatives-24.pdf
+      locator: « Ensemble pour protéger l’environnement ! » (p. 10 du PDF)
+      quote: Nous continuerons à réduire l’usage des pesticides de 50 % d’ici 2030, après avoir réduit l’usage des plus dangereux de 98 % depuis 2017.
+    - id: lr-2026-phytosanitaires
+      stance: against
+      party:
+        short: LR
+        name: Les Républicains
+      programme:
+        title: Nos propositions pour la France – Réarmer notre agriculture
+        year: 2026
+        url: https://republicains.fr/wp-content/uploads/2026/03/LR_Agriculture.pdf
+      locator: Proposition 1 « Rompre avec un cadre juridique devenu hostile à l’agriculture », « Assumer une stratégie d’innovation agronomique fondée sur la science, l’évaluation et les résultats »
+      quote: Sur les produits phytosanitaires, cela implique d’abandonner les trajectoires arbitraires, telles que l’objectif uniforme de réduction de 50 % fixé par la stratégie Ecophyto 2030, au profit d’une logique d’autorisation au cas par cas, fondée sur l’analyse scientifique des risques et des bénéfices.
+summary:
+  en: "The line ran less between endorsing and opposing than between agents measuring cuts by volume and those preferring harm per unit of food, land farmed or a price per substance. Unexpectedly, the Conservatives split: the Roger Scruton agent, at 30, sided with the Terry L. Anderson agent, while the Pope Francis agent endorsed at 85."
+  fr: "La ligne de partage a moins opposé le pour et le contre que la mesure en volume au dommage par unité de nourriture, à la surface cultivée ou au prix par substance. Fait inattendu, les Conservateurs se sont scindés : l'agent Roger Scruton, à 30, a rejoint l'agent Terry L. Anderson, l'agent Pape François approuvant à 85."
+engine:
+  name: MiroFish
+  commit: 7657031ac01184afe2cb220f5ee3545573b5e843
+  platform: reddit
+  packages:
+    - camel-oasis==0.2.5
+    - camel-ai==0.2.78
+model:
+  requested: claude-opus-5-5
+  served:
+    - claude-opus-5-5
+  effort: medium
+settings:
+  rounds: 2
+  agents: 26
+  selection: auto
+  budgetUsd: 3
+  estimateUsd: 1.99
+plan:
+  model: claude-opus-5-5
+  note: Twenty-six agents cover all fourteen branches, with ranking that puts the authors who work on agriculture and pesticides and the defenders of market or local alternatives first. Two rounds let supporters of state targets, advocates of taxes or property rights, and localist critics answer one another, while the cost stays near the 3 USD budget.
+  rounds: 2
+  ranked: 26
+  trimmed: false
+  reasons:
+    vandana-shiva: Founder of Navdanya whose work attacks chemical monocultures and the agrochemical industry directly.
+    malcom-ferdinand: Studies chlordecone poisoning in the French Antilles, a French pesticide case.
+    arthur-cecil-pigou: Proposes a tax on external costs, a market alternative to quantity targets.
+    ted-nordhaus: Ecomodernist who defends intensive high-yield farming to spare land.
+    wendell-berry: Farmer and critic of industrial agriculture who favours small farms over rules from above.
+    elinor-ostrom: Showed that local self-governance can outperform uniform state mandates.
+    roger-scruton: Conservative who locates environmental care in local attachment, not in central targets.
+    murray-bookchin: Social ecologist suspicious of the state, who favours municipal control of agriculture.
+    jean-baptiste-fressoz: French historian showing that industrial dangers were known and regulated poorly over time.
+    michael-lowy: French ecosocialist who argues for democratic ecological planning with binding limits.
+    baptiste-morizot: French philosopher of relations with living beings, including insects and soils in farmland.
+    edward-o-wilson: Biologist of insects and biodiversity loss, which pesticides drive.
+    serge-latouche: French degrowth theorist who critiques productivist agriculture.
+    catriona-sandilands: Queer ecology scholar who questions how democracy and the state frame nature.
+    bjorn-lomborg: Argues for cost-benefit ranking of environmental measures before binding commitments.
+    robyn-eckersley: Theorist of the green state, the central question in binding national targets.
+    terry-anderson: Free-market environmentalist who prefers property rights to regulation.
+    john-bellamy-foster: His metabolic rift theory starts from soil fertility and industrial agriculture.
+    erik-swyngedouw: Criticises technocratic target-setting as post-political management.
+    james-lovelock: Invented the detector that traced pesticides in the environment.
+    michael-shellenberger: Ecomodernist who attacks environmental alarmism and defends agricultural intensification.
+    maria-mies: Her subsistence perspective centres peasant farming against agro-industrial accumulation.
+    luc-ferry: French humanist critic of political ecology's constraints on modern society.
+    pope-francis: Laudato si condemns the technocratic paradigm and addresses agrochemical harm.
+    jacques-ellul: Sees technique as self-expanding, which raises doubt that targets can restrain it.
+    robert-bullard: Environmental justice scholar who documents unequal exposure to toxic substances.
+counts:
+  turns: 52
+  comments: 73
+  reactions: 73
+  interviews: 26
+  declined: 0
+  failed: 0
+  tokensIn: 650943
+  tokensOut: 41166
+  costUsd: 2.42
+positions:
+  - branch: technocritique
+    score: 70
+    min: 62
+    max: 78
+    agents: 2
+  - branch: degrowth
+    score: 80
+    min: 80
+    max: 80
+    agents: 1
+  - branch: social-ecology
+    score: 62
+    min: 62
+    max: 62
+    agents: 1
+  - branch: ecosocialism
+    score: 84
+    min: 82
+    max: 85
+    agents: 2
+  - branch: deep-ecology
+    score: 85
+    min: 85
+    max: 85
+    agents: 1
+  - branch: ecosophy
+    score: 80
+    min: 80
+    max: 80
+    agents: 1
+  - branch: anthropocene
+    score: 75
+    min: 65
+    max: 85
+    agents: 2
+  - branch: political-ecology
+    score: 70
+    min: 65
+    max: 88
+    agents: 3
+  - branch: decolonial
+    score: 85
+    min: 85
+    max: 85
+    agents: 2
+  - branch: ecofeminism
+    score: 85
+    min: 82
+    max: 88
+    agents: 2
+  - branch: queer-ecology
+    score: 78
+    min: 78
+    max: 78
+    agents: 1
+  - branch: counterpoint
+    score: 25
+    min: 25
+    max: 25
+    agents: 2
+  - branch: market
+    score: 40
+    min: 20
+    max: 70
+    agents: 4
+  - branch: conservative
+    score: 58
+    min: 30
+    max: 85
+    agents: 2
+alliances:
+  - title:
+      en: Against volume, for sparing land
+      fr: Contre le volume, pour épargner les terres
+    text:
+      en: Volume cuts risk lower yields and more land farmed, so targets should be judged by harm per unit of food and total land. The James Lovelock agent shares this ground, unlike its Anthropocene branch.
+      fr: Réduire les volumes ferait baisser les rendements et étendre les cultures. Mieux vaut juger au dommage par unité de nourriture et à la surface totale. L'agent James Lovelock s'y range, à l'écart de sa branche Anthropocène.
+    authors:
+      - ted-nordhaus
+      - michael-shellenberger
+      - james-lovelock
+  - title:
+      en: Price or rights, not quotas
+      fr: Le prix ou le droit, pas le quota
+    text:
+      en: Harm should be charged to the polluter through a tax per substance or enforceable rights for those harmed, not a flat national number. The Arthur Cecil Pigou agent still endorses the aim.
+      fr: Le dommage doit peser sur le pollueur, par une taxe par substance ou des droits opposables aux victimes, plutôt que par un chiffre national uniforme. L'agent Arthur Cecil Pigou approuve pourtant l'objectif.
+    authors:
+      - arthur-cecil-pigou
+      - bjorn-lomborg
+      - terry-anderson
+  - title:
+      en: Rules made close to the land
+      fr: Des règles faites au plus près du terrain
+    text:
+      en: Durable reduction comes from those who share the soil and water, through watershed groups, assemblies or farming families. The Roger Scruton agent opposes on this ground, apart from its Conservatives branch.
+      fr: Une réduction durable vient de ceux qui partagent le sol et l'eau, qu'il s'agisse de groupes de bassin versant, d'assemblées ou de familles paysannes. L'agent Roger Scruton s'oppose sur ce terrain, à l'écart de sa branche Conservateurs.
+    authors:
+      - elinor-ostrom
+      - murray-bookchin
+      - roger-scruton
+  - title:
+      en: A brake on a system to change
+      fr: Un frein sur un système à changer
+    text:
+      en: Binding targets are necessary but treat a symptom of monoculture, accumulation or the technical system. Without changing how farming is organised, cuts will be evaded or met by new substitutes.
+      fr: Les objectifs contraignants sont nécessaires mais ne soignent qu'un symptôme de la monoculture, de l'accumulation ou du système technique. Sans réorganiser l'agriculture, les réductions seront contournées ou compensées par de nouveaux substituts.
+    authors:
+      - john-bellamy-foster
+      - michael-lowy
+      - vandana-shiva
+      - maria-mies
+      - wendell-berry
+      - serge-latouche
+      - jacques-ellul
+      - erik-swyngedouw
+      - catriona-sandilands
+      - jean-baptiste-fressoz
+  - title:
+      en: Binding law to protect the exposed
+      fr: La loi pour protéger les exposés
+    text:
+      en: Prevention by law shields farmworkers, overseas territories, pollinators and future generations better than damages or pledges. The Luc Ferry agent joins on humanist grounds, apart from its Market liberals branch.
+      fr: La loi préventive protège mieux ouvriers agricoles, outre-mer, pollinisateurs et générations futures que les procès ou les engagements volontaires. L'agent Luc Ferry s'y joint par humanisme, à rebours de sa branche Libéraux de marché.
+    authors:
+      - malcom-ferdinand
+      - robert-bullard
+      - pope-francis
+      - robyn-eckersley
+      - edward-o-wilson
+      - baptiste-morizot
+      - luc-ferry
+voices:
+  - author: bjorn-lomborg
+    position: 20
+    work: lomborg-2001
+    text:
+      en: Binding volume targets misplace priorities. Residue risks are small, and cuts that raise food prices can cost more health than they protect. Rules or taxes per substance, set by measured harm against cost, do more good for each euro spent.
+      fr: Des objectifs de volume contraignants se trompent de priorités. Les risques liés aux résidus sont faibles, et des réductions qui font monter les prix alimentaires peuvent coûter plus de santé qu'elles n'en protègent. Des règles ou des taxes par substance, fixées selon le dommage mesuré rapporté au coût, font plus de bien pour chaque euro dépensé.
+  - author: terry-anderson
+    position: 20
+    work: anderson-1991
+    text:
+      en: Binding national targets on pesticide use are the wrong tool. Clear, enforceable rights for beekeepers, water users and neighbours make farmers pay for the harm they cause. Use then falls where the damage is real, without a regulator guessing one national number.
+      fr: Des objectifs nationaux contraignants sur l'usage des pesticides sont le mauvais outil. Des droits clairs et opposables pour les apiculteurs, les usagers de l'eau et les voisins font payer aux agriculteurs les dommages qu'ils causent. L'usage baisse alors là où le dommage est réel, sans qu'un régulateur ait à deviner un chiffre national.
+  - author: ted-nordhaus
+    position: 25
+    work: nordhaus-2015
+    text:
+      en: Binding cuts in input volume risk lower yields and more land under the plough. Policy should target harm per unit of food and total land farmed, and fund precision application, crop breeding and safer chemistry instead of rationing inputs.
+      fr: Des réductions contraignantes du volume d'intrants risquent de faire baisser les rendements et d'étendre les terres labourées. Les politiques devraient viser le dommage par unité de nourriture et la surface cultivée totale, et financer l'application de précision, la sélection variétale et une chimie plus sûre plutôt que de rationner les intrants.
+  - author: michael-shellenberger
+    position: 25
+    work: shellenberger-2020
+    text:
+      en: Binding cuts in pesticide volume risk lower yields and more land under the plough, the bigger threat to nature. Policy should target harm per unit of food, through safer molecules, precision application and engineered crops that need fewer treatments.
+      fr: Des réductions contraignantes du volume de pesticides risquent de faire baisser les rendements et d'étendre les terres labourées, la plus grande menace pour la nature. Les politiques devraient viser le dommage par unité de nourriture, par des molécules plus sûres, l'application de précision et des cultures modifiées qui demandent moins de traitements.
+  - author: roger-scruton
+    position: 30
+    work: scruton-2012
+    text:
+      en: The aim of cutting pesticides is sound, but binding national targets are the wrong way to get there. Soil and water are best guarded by those who love the land as home, through farming families, local institutions and the duty not to harm a neighbour, rather than through central quotas.
+      fr: Le but de réduire les pesticides est juste, mais des objectifs nationaux contraignants ne sont pas le bon moyen d'y parvenir. Le sol et l'eau sont mieux gardés par ceux qui aiment la terre comme leur foyer, par les familles paysannes, les institutions locales et le devoir de ne pas nuire à son voisin, plutôt que par des quotas centraux.
+  - author: arthur-cecil-pigou
+    position: 60
+    work: pigou-1920
+    text:
+      en: Cutting pesticide use is justified because runoff and drift put costs on third parties that farmers do not pay. A tax equal to that harm, scaled to each substance, is a better tool than a flat national target, because it lets each farm cut back where doing so costs least.
+      fr: Réduire l'usage des pesticides est justifié, car le ruissellement et la dérive imposent à des tiers des coûts que les agriculteurs ne paient pas. Une taxe égale à ce dommage, modulée selon chaque substance, vaut mieux qu'un objectif national uniforme, car elle laisse chaque exploitation réduire là où cela coûte le moins.
+  - author: murray-bookchin
+    position: 62
+    work: bookchin-1962
+    text:
+      en: Cutting synthetic pesticides is right, but a target set by the national state treats a symptom. The poisons serve agribusiness and monoculture, and hierarchy sits at the root of both. Lasting reduction needs diverse regional agriculture run by municipal assemblies, not quotas brokered by ministries.
+      fr: Réduire les pesticides de synthèse est juste, mais un objectif fixé par l'État national traite un symptôme. Les poisons servent l'agrobusiness et la monoculture, et la hiérarchie est à la racine des deux. Une réduction durable exige une agriculture régionale diversifiée gérée par des assemblées municipales, et non des quotas négociés par les ministères.
+  - author: jacques-ellul
+    position: 62
+    work: ellul-1988
+    text:
+      en: The aim deserves endorsement, but a numerical target is itself a technique. It will likely be met by new technical substitutes, each announced for its benefits and silent on its costs. Lasting reduction requires questioning the technical system of yields, debt and markets.
+      fr: L'objectif mérite d'être approuvé, mais un chiffre cible est lui-même une technique. Il sera sans doute atteint par de nouveaux substituts techniques, chacun annoncé pour ses bienfaits et muet sur ses coûts. Une réduction durable exige de remettre en question le système technique des rendements, de la dette et des marchés.
+  - author: elinor-ostrom
+    position: 65
+    work: ostrom-1990
+    text:
+      en: Pesticide harm falls on shared resources, so a binding national target is justified. Durable reduction depends on nested governance, with watersheds and farmer groups making, monitoring and enforcing their own rules for how to meet it, rather than on central quotas alone.
+      fr: Les dommages des pesticides pèsent sur des ressources partagées, ce qui justifie un objectif national contraignant. Une réduction durable dépend d'une gouvernance emboîtée, où bassins versants et groupements d'agriculteurs élaborent, surveillent et font respecter leurs propres règles pour l'atteindre, plutôt que de seuls quotas centraux.
+  - author: james-lovelock
+    position: 65
+    work: lovelock-2006
+    text:
+      en: Qualified endorsement. Pesticides that thin soil life and insects weaken the living machinery that keeps the planet habitable. But a cap that lowers yields and pushes farmland into natural ecosystems would trade a smaller harm for a larger one. Targets should therefore be set against total land use.
+      fr: Approbation nuancée. Les pesticides qui appauvrissent la vie du sol et les insectes affaiblissent la machinerie vivante qui maintient la planète habitable. Mais un plafond qui fait baisser les rendements et pousse les cultures sur les écosystèmes naturels échangerait un moindre mal contre un plus grand. Les objectifs doivent donc être fixés au regard de la surface totale cultivée.
+  - author: erik-swyngedouw
+    position: 70
+    work: swyngedouw-2010
+    text:
+      en: Binding targets deserve support only if they reopen the political choice over which agriculture and for whom. Reduced to a managerial indicator, a tax or an expert cost-benefit rule, they leave the agro-industrial order outside debate and depoliticise the question.
+      fr: Les objectifs contraignants ne méritent d'être soutenus que s'ils rouvrent le choix politique sur l'agriculture à mener, et pour qui. Réduits à un indicateur de gestion, à une taxe ou à une règle coût-bénéfice d'experts, ils laissent l'ordre agro-industriel hors du débat et dépolitisent la question.
+  - author: luc-ferry
+    position: 70
+    work: ferry-1992
+    text:
+      en: "Binding pesticide targets are justified when a democracy sets them for human reasons: health, clean water, pollinators and fertile farmland. They should not rest on rights given to nature. Soil and insects have value for people, and they hold no claims against them."
+      fr: "Des objectifs contraignants sur les pesticides sont justifiés lorsqu'une démocratie les fixe pour des raisons humaines : la santé, l'eau potable, les pollinisateurs et la fertilité des terres agricoles. Ils ne doivent pas reposer sur des droits accordés à la nature. Le sol et les insectes ont de la valeur pour les hommes, mais n'ont aucune créance sur eux."
+  - author: wendell-berry
+    position: 78
+    work: berry-1977
+    text:
+      en: Binding targets are justified, because pesticide dependence comes from farming that treats land as a factory. They only work alongside smaller, diverse farms with livestock and enough people on the land. Without that support, farmers carry the burden alone.
+      fr: Les objectifs contraignants sont justifiés, car la dépendance aux pesticides vient d'une agriculture qui traite la terre comme une usine. Ils ne fonctionnent qu'accompagnés de fermes plus petites et diversifiées, avec de l'élevage et assez de monde sur les terres. Sans ce soutien, les agriculteurs portent seuls le fardeau.
+  - author: catriona-sandilands
+    position: 78
+    work: sandilands-2010
+    text:
+      en: Binding targets are worth backing because pesticides poison workers, soils and species. They should not rest on fears about intersex bodies or a natural sexual order. A cap is useful when it keeps open the democratic contest over which agriculture, and for whom.
+      fr: Les objectifs contraignants méritent d'être soutenus, car les pesticides empoisonnent les travailleurs, les sols et les espèces. Ils ne doivent pas reposer sur la peur des corps intersexes ou d'un ordre sexuel naturel. Un plafond est utile lorsqu'il garde ouverte la dispute démocratique sur le choix de l'agriculture, et sur ceux qu'elle doit servir.
+  - author: baptiste-morizot
+    position: 80
+    work: morizot-2016
+    text:
+      en: Binding targets are endorsed, by analogy, as a blunt but necessary shift away from treating fields as war zones against insects, weeds and soil life. They push farming toward a diplomacy of cohabitation with the living beings that share the territory.
+      fr: Les objectifs contraignants sont approuvés, par analogie, comme un virage brutal mais nécessaire, loin d'une agriculture qui traite les champs en zones de guerre contre les insectes, les adventices et la vie du sol. Ils poussent l'agriculture vers une diplomatie de cohabitation avec les vivants qui partagent le territoire.
+  - author: serge-latouche
+    position: 80
+    work: latouche-2007
+    text:
+      en: Binding targets put reduce and relocalise into practice in farming, so they deserve support. They only last if the belief in ever-higher yields is undone and demand is rethought through sufficiency. Otherwise quotas get worked around or simply bring in new techniques.
+      fr: Les objectifs contraignants mettent en pratique, dans l'agriculture, réduire et relocaliser, et méritent donc d'être soutenus. Ils ne dureront que si l'on défait la croyance en des rendements toujours plus élevés et si l'on repense la demande à partir de la sobriété. Sinon, les quotas sont contournés ou ne font qu'introduire de nouvelles techniques.
+  - author: john-bellamy-foster
+    position: 82
+    work: foster-1999
+    text:
+      en: Binding targets are endorsed, but they treat a symptom. Synthetic pesticides patch a metabolic rift that capitalist agriculture opened between town and country. Cuts last only if farming returns nutrients to the soil through mixed farming and puts soil fertility ahead of profit.
+      fr: Les objectifs contraignants sont approuvés, mais ils traitent un symptôme. Les pesticides de synthèse colmatent une rupture métabolique que l'agriculture capitaliste a ouverte entre la ville et la campagne. Les réductions ne dureront que si l'agriculture rend ses nutriments au sol par la polyculture-élevage et place la fertilité des sols avant le profit.
+  - author: maria-mies
+    position: 82
+    work: mies-1999
+    text:
+      en: Binding cuts to synthetic pesticides are warranted, but only alongside reorganising farming around the production of life. Cheap food rests on costs pushed onto soils, farmworkers, colonies and women's unpaid care, and targets alone leave that accumulation intact.
+      fr: Des réductions contraignantes des pesticides de synthèse se justifient, mais seulement si l'on réorganise en même temps l'agriculture autour de la production de la vie. La nourriture bon marché repose sur des coûts reportés sur les sols, les ouvriers agricoles, les colonies et le travail de soin gratuit des femmes, et des objectifs seuls laissent cette accumulation intacte.
+  - author: malcom-ferdinand
+    position: 85
+    work: ferdinand-2019
+    text:
+      en: Binding targets are endorsed, but they must bind the overseas territories first, where chlordecone poisoned land and bodies for export bananas. Lowering doses is not enough. The plantation's export monoculture has to be undone, or the poison simply moves to whoever has the least power.
+      fr: Les objectifs contraignants sont approuvés, mais ils doivent d'abord s'imposer aux territoires d'outre-mer, où le chlordécone a empoisonné les terres et les corps pour la banane d'exportation. Baisser les doses ne suffit pas. Il faut défaire la monoculture d'exportation de la plantation, sinon le poison se déplace simplement vers ceux qui ont le moins de pouvoir.
+  - author: jean-baptiste-fressoz
+    position: 85
+    work: fressoz-2024
+    text:
+      en: "Binding targets are endorsed, by analogy from energy history: new techniques add to old ones instead of replacing them, so substitutes and efficiency gains will not cut synthetic pesticide use without a cap on the total. Known harms leave no excuse for delay."
+      fr: Les objectifs contraignants sont approuvés, par analogie avec l'histoire de l'énergie. Les nouvelles techniques s'ajoutent aux anciennes au lieu de les remplacer, si bien que substituts et gains d'efficacité ne réduiront pas l'usage des pesticides de synthèse sans plafond sur le total. Des dommages connus ne laissent aucune excuse au retard.
+  - author: michael-lowy
+    position: 85
+    work: lowy-2011
+    text:
+      en: Binding targets are endorsed as a necessary emergency brake but not a sufficient one. Pesticide dependence comes from agro-industrial accumulation, so cuts last only if democratic ecological planning decides production by need rather than profit, without market taxes or productivist yield logic.
+      fr: Les objectifs contraignants sont approuvés comme un frein d'urgence nécessaire mais insuffisant. La dépendance aux pesticides vient de l'accumulation agro-industrielle, et les réductions ne dureront que si une planification écologique démocratique décide de la production selon les besoins et non le profit, sans taxes de marché ni logique productiviste de rendement.
+  - author: edward-o-wilson
+    position: 85
+    work: wilson-2016
+    text:
+      en: Binding cuts in synthetic pesticides are needed to stop the collapse of insects, pollinators and soil life. Sparing land for nature fails if the farmland around reserves stays poisoned, so pesticide limits and large protected habitats must go together.
+      fr: Des réductions contraignantes des pesticides de synthèse sont nécessaires pour arrêter l'effondrement des insectes, des pollinisateurs et de la vie du sol. Épargner des terres pour la nature échoue si les terres agricoles autour des réserves restent empoisonnées. Limites aux pesticides et grands habitats protégés doivent donc aller ensemble.
+  - author: pope-francis
+    position: 85
+    work: francis-2015
+    text:
+      en: Binding targets are endorsed because the cry of the earth and the cry of the poor are one cry. Pesticides harm soil, water and pollinators, and farm workers first. A technocratic fix is no substitute for limits, and local communities should shape how the targets are met.
+      fr: Les objectifs contraignants sont approuvés, car la clameur de la terre et la clameur des pauvres ne font qu'une. Les pesticides nuisent au sol, à l'eau et aux pollinisateurs, et d'abord aux travailleurs agricoles. Une solution technocratique ne remplace pas des limites, et les communautés locales doivent décider de la manière d'atteindre les objectifs.
+  - author: robert-bullard
+    position: 85
+    work: bullard-1990
+    text:
+      en: Binding targets are endorsed, by analogy from waste siting. Exposure falls on farmworkers, fenceline residents and overseas territories like the Antilles. Prevention by law protects the weakest better than lawsuits for damages afterwards. Cuts must be tracked by where they happen so the remaining burden is not concentrated.
+      fr: Les objectifs contraignants sont approuvés, par analogie avec l'implantation des sites de déchets. L'exposition retombe sur les ouvriers agricoles, les riverains des parcelles et les territoires d'outre-mer comme les Antilles. La prévention par la loi protège mieux les plus faibles que les procès en réparation après coup. Les réductions doivent être suivies selon leur localisation, pour que la charge restante ne se concentre pas.
+  - author: vandana-shiva
+    position: 88
+    work: shiva-1993
+    text:
+      en: Binding targets are endorsed, because synthetic pesticides are part of a monoculture system that wiped out diversity first. Cuts last only if diverse fields, farmer-saved seed and local knowledge come back, and if patented traits are not allowed to take the chemicals' place.
+      fr: Les objectifs contraignants sont approuvés, car les pesticides de synthèse font partie d'un système de monoculture qui a d'abord détruit la diversité. Les réductions ne dureront que si reviennent les champs diversifiés, les semences paysannes et les savoirs locaux, et si les caractères brevetés ne prennent pas la place des produits chimiques.
+  - author: robyn-eckersley
+    position: 88
+    work: eckersley-2004
+    text:
+      en: Binding targets are endorsed. A green state must answer to everyone its decisions affect, including soil life, farmworkers, downstream communities and future generations. Voluntary pledges and damage claims leave these interests unrepresented, so binding law should make the state a guardian of ecological limits.
+      fr: Les objectifs contraignants sont approuvés. Un État vert doit répondre devant tous ceux que ses décisions affectent, y compris la vie du sol, les ouvriers agricoles, les populations en aval et les générations futures. Les engagements volontaires et les recours en réparation laissent ces intérêts sans représentation, et la loi doit faire de l'État le gardien des limites écologiques.
+silent: []
