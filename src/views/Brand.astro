@@ -38,7 +38,7 @@ const marks = [
   { file: 'brand/ecosophia-app-icon-moss.svg', ground: 'plain', en: 'App icon, moss', fr: 'Icône, mousse' },
   { file: 'brand/ecosophia-app-icon-night.svg', ground: 'plain', en: 'App icon, night', fr: 'Icône, nuit' },
 ];
-const glyphs = ['leaf', 'branch', 'trunk', 'root', 'seed', 'hypha', 'ring', 'canopy', 'terrain', 'clearing', 'sourced', 'simulated', 'work', 'programme', 'axiom', 'portrait', 'search', 'download'];
+const glyphs = ['leaf', 'branch', 'trunk', 'root', 'seed', 'hypha', 'ring', 'canopy', 'terrain', 'clearing', 'work', 'simulated', 'sourced', 'programme', 'axiom', 'portrait', 'search', 'download'];
 const core = [
   ['paper', 'Paper', 'Papier'],
   ['paper-raised', 'Raised paper', 'Papier levé'],
@@ -62,7 +62,7 @@ const core = [
   <section class="page-body brand-body">
     <div>
       <h2 class="t-heading">{T('Logo', 'Logo')}</h2>
-      <p class="t-small t-muted rule">{T('The rooted wordmark: Fraunces outlines, a ground line, roots from the p joined by moss threads (the mycelium), two sprouts. Use it from 120 px wide. Keep clear space of one x-height on every side. Never recolour outside bark, cream and moss, never stretch, never redraw the letters in another face.', 'Le logotype enraciné : Fraunces vectorisé, une ligne de sol, des racines issues du p reliées par des fils de mousse (le mycélium), deux pousses. À partir de 120 px de large. Laisser une hauteur d’x de marge de chaque côté. Jamais d’autre couleur que l’écorce, la crème et la mousse, jamais déformé, jamais redessiné dans un autre caractère.')}</p>
+      <p class="t-small t-muted rule">{T('The rooted wordmark: the name on its ground line, the p running through it into a branching root system with moss tips, and veined leaves on the E, the h and the a. Drawn with Gemini from a first concept, then vectorised in two inks. Use it from 120 px wide, with clear space of one x-height on every side. Never recolour outside bark, cream and moss, never stretch, never redraw the letters.', 'Le logotype enraciné : le nom sur sa ligne de sol, le p qui la traverse et se ramifie en racines aux pointes de mousse, des feuilles nervurées sur le E, le h et le a. Dessiné avec Gemini à partir d’un premier concept, puis vectorisé en deux encres. À partir de 120 px de large, avec une hauteur d’x de marge de chaque côté. Jamais d’autre couleur que l’écorce, la crème et la mousse, jamais déformé, jamais redessiné.')}</p>
       <div class="grid logos">
         {logos.map((x) => (
           <figure class:list={['tile', x.ground]}>
@@ -79,7 +79,7 @@ const core = [
       <div class="grid marks">
         {marks.map((x) => (
           <figure class:list={['tile', x.ground]}>
-            <div class="art" set:html={inline(x.file, 'Ecosophia')} />
+            {x.ground === 'plain' ? <div class="art"><img src={withBase(`/${x.file}`)} alt="" width="96" height="96" /></div> : <div class="art" set:html={inline(x.file, 'Ecosophia')} />}
             <figcaption><span>{T(x.en, x.fr)}</span> <a class="link" href={withBase(`/${x.file}`)} download>SVG</a></figcaption>
           </figure>
         ))}
@@ -92,7 +92,7 @@ const core = [
 
     <div>
       <h2 class="t-heading">{T('Glyphs', 'Pictogrammes')}</h2>
-      <p class="t-small t-muted rule">{T('One family for the concepts of the site: 24 px grid, 1.75 stroke, round caps, one ink. Interface chrome (search, download) is drawn the same way; no third-party icon set, no emoji.', 'Une seule famille pour les notions du site : grille de 24 px, trait de 1,75, extrémités rondes, une encre. Les icônes d’interface (recherche, téléchargement) sont dessinées de même ; pas de jeu d’icônes tiers, pas d’emoji.')}</p>
+      <p class="t-small t-muted rule">{T('One family for the concepts of the site, drawn with Gemini in the botanical line of the logo, bark with moss accents, then vectorised. No third-party icon set, no emoji.', 'Une seule famille pour les notions du site, dessinée avec Gemini dans le trait botanique du logo, écorce et touches de mousse, puis vectorisée. Pas de jeu d’icônes tiers, pas d’emoji.')}</p>
       <ul class="glyphs">
         {glyphs.map((g) => (
           <li>
@@ -105,7 +105,7 @@ const core = [
 
     <div>
       <h2 class="t-heading">{T('Branch emblems', 'Emblèmes des branches')}</h2>
-      <p class="t-small t-muted rule">{T('Eleven pigments cannot be told apart by colour alone. Each branch also has an emblem drawn like the glyphs, shown with its colour and its name, never alone.', 'Onze pigments ne se distinguent pas à la seule couleur. Chaque branche a aussi un emblème dessiné comme les pictogrammes, montré avec sa couleur et son nom, jamais seul.')}</p>
+      <p class="t-small t-muted rule">{T('The pigments of the branches cannot be told apart by colour alone, so each branch also has an emblem: a detailed drawing for headers, a bolder one below 40 px. Always shown with the branch name.', 'Les pigments des branches ne se distinguent pas à la seule couleur : chaque branche a donc aussi un emblème, un dessin détaillé pour les en-têtes et un plus épuré sous 40 px. Toujours montré avec le nom de la branche.')}</p>
       <ul class="glyphs emblems">
         {c.branches.map((b) => (
           <li style={`--chip: var(--${b.token})`}>
@@ -241,12 +241,11 @@ const core = [
     color: var(--ink);
   }
   .g :global(svg) {
-    width: 40px;
-    height: 40px;
+    width: 56px;
+    height: 56px;
     display: block;
   }
   .emblems li {
-    color: var(--chip);
     border-top: 3px solid var(--chip);
   }
   .emblems li .t-small {

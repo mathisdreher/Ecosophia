@@ -41,9 +41,10 @@ BRANCHES = {
     'conservative': ('Conservatives: the home and its tree', P('M4 11 12 4.5 20 11v9H4z') + P('M12 20v-4.5') + P('M12 15.5c-1.9 0-3.1-1.3-3.1-2.8s1.3-2.6 3.1-2.6 3.1 1.1 3.1 2.6-1.2 2.8-3.1 2.8z')),
     'counterpoint': ('Ecomodernists: the reply', P('M4 9h13M13.5 5.5 17 9l-3.5 3.5') + P('M20 15H7M10.5 11.5 7 15l3.5 3.5')),
 }
-(ROOT / 'public/glyphs/branches').mkdir(parents=True, exist_ok=True)
+OUT = ROOT / 'design/previous-logo/glyphs-handdrawn'  # superseded by scripts/brand-install.mjs
+(OUT / 'branches').mkdir(parents=True, exist_ok=True)
 for k, (t, b) in GLYPHS.items():
-    (ROOT / f'public/glyphs/{k}.svg').write_text(svg(t, b))
+    (OUT / f'{k}.svg').write_text(svg(t, b))
 for k, (t, b) in BRANCHES.items():
-    (ROOT / f'public/glyphs/branches/{k}.svg').write_text(svg(t, b))
+    (OUT / f'branches/{k}.svg').write_text(svg(t, b))
 print(len(GLYPHS), 'glyphs,', len(BRANCHES), 'branch emblems')

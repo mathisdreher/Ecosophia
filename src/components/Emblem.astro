@@ -1,17 +1,23 @@
 ---
-// A branch emblem (public/glyphs/branches), inlined in the branch colour.
-// Decorative: the branch name is always next to it.
+// A branch emblem, drawn with Gemini in bark and moss (public/glyphs/branches;
+// the small set, bolder, below 40 px). Decorative: the branch name is always
+// next to it.
 import fs from 'node:fs';
 import path from 'node:path';
 
 const { branch, size = 32 } = Astro.props;
-const file = path.join(process.cwd(), 'public/glyphs/branches', `${branch}.svg`);
+const dir = path.join(process.cwd(), 'public/glyphs/branches');
+const small = path.join(dir, 'small', `${branch}.svg`);
+const file = size < 40 && fs.existsSync(small) ? small : path.join(dir, `${branch}.svg`);
 const svg = fs.existsSync(file)
   ? fs
       .readFileSync(file, 'utf8')
-      .replaceAll('#2a2219', 'currentColor')
+      .replaceAll('fill="#2a2219"', 'fill="currentColor"')
+      .replaceAll('stroke="#2a2219"', 'stroke="currentColor"')
+      .replaceAll('fill="#3d5a2a"', 'style="fill:var(--moss)"')
       .replace(/<title>.*?<\/title>/, '')
-      .replace('<svg ', `<svg aria-hidden="true" focusable="false" class="emblem" style="width:${size}px;height:${size}px;color:var(--chip, var(--ink));flex:none" `)
+      .replace(/width="[\d.]+" height="[\d.]+"/, '')
+      .replace('<svg ', `<svg aria-hidden="true" focusable="false" class="emblem" style="width:${size}px;height:${size}px;color:var(--ink);flex:none" `)
   : '';
 ---
 

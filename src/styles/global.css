@@ -189,7 +189,7 @@ a:hover {
 .site-logo {
   display: flex;
   position: relative;
-  margin-bottom: -37px;
+  margin-bottom: -52px;
   color: var(--ink);
 }
 .site-logo:hover {
@@ -197,8 +197,8 @@ a:hover {
 }
 .site-logo svg {
   display: block;
-  width: 210px;
-  height: 84px;
+  width: 180px;
+  height: 99px;
 }
 .header-tools {
   margin-left: auto;
@@ -372,7 +372,7 @@ a:hover {
   .eco-tabs.main {
     order: 3;
     flex: 1 0 100%;
-    margin-top: 42px;
+    margin-top: 56px;
   }
   .search input {
     width: 220px;
@@ -383,11 +383,11 @@ a:hover {
     padding-top: var(--space-2);
   }
   .site-logo {
-    margin-bottom: -28px;
+    margin-bottom: -40px;
   }
   .site-logo svg {
-    width: 160px;
-    height: 64px;
+    width: 140px;
+    height: 77px;
   }
   .header-tools {
     margin-bottom: 0;

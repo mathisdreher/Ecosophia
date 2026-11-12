@@ -9,7 +9,8 @@ from the E and the i. Run: python3 scripts/brand-logo.py
 import re, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-BRAND = ROOT / 'public' / 'brand'
+BRAND = ROOT / 'design' / 'previous-logo' / 'handdrawn'  # superseded by the Gemini drawing, see scripts/brand-install.mjs
+BRAND.mkdir(parents=True, exist_ok=True)
 # The outlined Fraunces wordmark, kept from the first lockup.
 src = (ROOT / 'design' / 'wordmark-source.svg').read_text()
 WORD = re.search(r'<path d="(M74\.08[^"]+)"', src).group(1)
@@ -94,5 +95,5 @@ files = {
 }
 for name, svg in files.items():
     (BRAND / name).write_text(svg)
-(ROOT / 'public' / 'favicon.svg').write_text(mark(INK, MOSS).replace('<title>Ecosophia mark</title>', '<title>Ecosophia</title><style>@media (prefers-color-scheme: dark){path[fill="#2a2219"],path[stroke="#2a2219"]{fill:#ece6d8;stroke:#ece6d8}path[fill="#2a2219"]{stroke:none}}</style>'))
+(BRAND / 'favicon.svg').write_text(mark(INK, MOSS).replace('<title>Ecosophia mark</title>', '<title>Ecosophia</title><style>@media (prefers-color-scheme: dark){path[fill="#2a2219"],path[stroke="#2a2219"]{fill:#ece6d8;stroke:#ece6d8}path[fill="#2a2219"]{stroke:none}}</style>'))
 print('\n'.join(files))

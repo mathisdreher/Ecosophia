@@ -80,7 +80,7 @@ Two themes ship: Day (linen paper, bark ink) and Night forest (deep green-black 
 
 ## Logo
 
-The logo is the rooted wordmark: "Ecosophia" in outlined Fraunces stands on the ground line, the p runs through it, and roots grow from the p. Their tips are joined by fine moss threads, the mycelium. Two moss sprouts rise from the E and the i. It was chosen from six concepts drawn with an image model (`design/logo-concepts/`) and redrawn by hand as vector: `scripts/brand-logo.py` builds every file below from one drawing. The site shows the whole family at `/en/brand/`.
+The logo is the rooted wordmark: "Ecosophia" in a warm serif on its ground line, the p running through the line into a branching root system whose tips turn moss, and veined moss leaves on the E, the h and the a. It was drawn with Gemini (`design/logo-concepts/v2/1-refined.png`, from the first-round concept 4), vectorised in two inks, bark and moss, and installed with `scripts/brand-install.mjs`. The E mark comes from the same round. The hand-drawn first version is kept in `design/previous-logo/`. The site shows the whole family at `/en/brand/`.
 
 | File | Use |
 |---|---|
@@ -166,13 +166,9 @@ Name cards use `CapsuleLowerThird`. Titles never cover a face or a map node.
 
 ## Iconography
 
-One family of glyphs, in `public/glyphs`, drawn by `scripts/brand-glyphs.py` on a 24 px grid at `stroke-glyph` (1.75) with round caps and joins, single ink (`#2a2219`, recoloured with `currentColor` when inlined).
+Glyphs and branch emblems are drawn with Gemini as sheets of twelve, so the style holds across a set (`design/icon-concepts/`, jobs in `design/gemini-jobs/`), then vectorised in bark and moss by `scripts/brand-install.mjs` into `public/glyphs`. Two levels: detailed drawings for headers and the brand page, and a bolder set (`public/glyphs/branches/small/`) used below 40 px. When inlined, bark becomes `currentColor` and moss `var(--moss)`, so they follow the theme.
 
-- Concepts of the tree: leaf, branch, trunk, root, seed, hypha, ring.
-- Views and marks: canopy, terrain, clearing, sourced (a page), simulated (a dashed speech bubble), work, programme, axiom, portrait.
-- Interface: search, download. Other chrome (close, menu) is drawn the same way. No third-party icon set, no emoji.
-
-**Branch emblems** (`public/glyphs/branches/<branch>.svg`) let a reader tell the eleven schools and the Counterpoint graft apart without relying on colour: ecosophy the three ecologies, deep ecology the mountain, social ecology the assembly, ecosocialism the metabolic rift, degrowth the snail, ecofeminism care and the seed, political ecology the contour map, decolonial the south-up compass, Anthropocene the strata, technocritique the gear and the leaf, queer ecology the fungus, counterpoint the reply. An emblem is drawn in its branch colour and always shown with the branch name, never alone.
+**Branch emblems** let a reader tell the schools apart without relying on colour: ecosophy the three ecologies, deep ecology the mountain, social ecology the assembly, ecosocialism the metabolic rift, degrowth the snail, ecofeminism care and the seed, political ecology the contour map, decolonial the south-up compass, Anthropocene the strata, technocritique the gear and the leaf, queer ecology the fungus, ecomodernists the reply, market liberals the price tag, conservatives the home and its tree. An emblem is always shown with the branch name, never alone. No third-party icon set, no emoji.
 
 ## Don't
 
