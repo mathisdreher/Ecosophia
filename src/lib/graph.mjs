@@ -74,7 +74,7 @@ export function layoutRing(corpus) {
       // The label needs room even for a group of two or three leaves.
       // The group name sits outside the ring, beyond the names of its leaves;
       // neighbouring names alternate between two radii so they never overlap.
-      text: arcPath(mid - Math.max((a1 - a0) / 2, 0.26), mid + Math.max((a1 - a0) / 2, 0.26), (bottom ? R + 134 : R + 122) + (gi % 2) * 14, bottom),
+      text: arcPath(mid - Math.max((a1 - a0) / 2, 0.26), mid + Math.max((a1 - a0) / 2, 0.26), (bottom ? R + 134 : R + 122) + (gi % 2) * 20, bottom),
     });
     angle += GAP * step;
   }

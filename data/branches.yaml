@@ -99,7 +99,7 @@
 
 - id: collapse
   token: branch-collapse
-  name: {en: Collapse and transition, fr: Effondrement et transition}
+  name: {en: Collapse, fr: Effondrement}
   full: {en: Collapse studies, peak oil and transition, fr: Collapsologie, pic pétrolier et transition}
   summary:
     en: "From Hubbert's curve and The Limits to Growth: cheap energy is ending, complex societies fall faster than they rise, and the choice is between preparing, adapting and rebuilding locally, or suffering the descent. Critics call it fatalism; its authors call it lucidity."
