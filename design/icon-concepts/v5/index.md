@@ -1,0 +1,12 @@
+# Icon set, fifth round: better emblems for the weaker schools, and animal ethics
+
+Model: gemini-3-pro-image, seed 2029. Row 1 detailed, row 2 the same in bold, row 3 detailed and bold of the last two. Style references: the second-round sheets.
+
+Brief common to all: A sheet of twelve icons in a regular grid of four columns and three rows, each icon centred in its own cell with generous space, no labels, no text, no letters, no numbers, no frames. Bark brown #2a2219 lines with moss green #3d5a2a accents, flat, on plain warm off-white #f3eee3. No gradient, no shadow, no 3D.
+
+## 1. schools
+
+![schools](1-schools.png)
+
+First row, in exactly the detailed botanical line style of the first attached sheet: (1) ecomodernism: a nuclear cooling tower and a dense city skyline with a leaf growing between them; (2) political ecology: a landscape seen from above with a mine, a village and a river, crossed by a boundary line; (3) decolonial ecology: a globe shown with the south at the top, a seed sprouting from the southern hemisphere; (4) social ecology: three small houses around a large tree, as a village commune. Second row: the same four icons, in the same order, in exactly the simple bold style of the second attached sheet, readable at 24 pixels. Third row: (9) ecosocialism, detailed: a factory chimney cracked open with a sprout and a wheat ear growing through the crack; (10) animal ethics, detailed: the profile of a cow, a fox and a bird nested together inside a heart-shaped leaf; (11) ecosocialism in the bold style; (12) animal ethics in the bold style.
+
