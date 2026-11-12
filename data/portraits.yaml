@@ -2,6 +2,18 @@
 # written by scripts/portraits.mjs. status: drawn (public/portraits/<id>.webp)
 # or refused (the model returned no image; the site shows a placeholder).
 # To redraw one, delete its line and run the Portraits workflow again.
+- id: achille-mbembe
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: ailton-krenak
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: aime-cesaire
   status: drawn
   model: gemini-nano-banana-2.1
@@ -98,6 +110,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: berta-caceres
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: bill-devall
   status: drawn
   model: gemini-nano-banana-2.1
@@ -116,6 +134,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: carlos-taibo
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: carolyn-merchant
   status: drawn
   model: gemini-nano-banana-2.1
@@ -128,6 +152,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: chico-mendes
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: christopher-stone
   status: drawn
   model: gemini-nano-banana-2.1
@@ -135,6 +165,12 @@
   style: 1
   date: 2026-11-12
 - id: cornelius-castoriadis
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: davi-kopenawa
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
@@ -164,6 +200,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: eduardo-viveiros-de-castro
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: edward-o-wilson
   status: drawn
   model: gemini-nano-banana-2.1
@@ -177,6 +219,12 @@
   style: 1
   date: 2026-11-12
 - id: elisee-reclus
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: enrique-leff
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
@@ -200,7 +248,19 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: fatima-ouassak
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: felix-guattari
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: felwine-sarr
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
@@ -356,6 +416,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: jorge-riechmann
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: karl-marx
   status: drawn
   model: gemini-nano-banana-2.1
@@ -363,6 +429,12 @@
   style: 1
   date: 2026-11-12
 - id: kate-raworth
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: ken-saro-wiwa
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
@@ -386,6 +458,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: leonardo-boff
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: lewis-mumford
   status: drawn
   model: gemini-nano-banana-2.1
@@ -399,6 +477,12 @@
   style: 1
   date: 2026-11-12
 - id: malcom-ferdinand
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: manuel-sacristan
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
@@ -470,6 +554,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: nnimmo-bassey
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: pablo-servigne
   status: drawn
   model: gemini-nano-banana-2.1
@@ -519,6 +609,12 @@
   style: 1
   date: 2026-11-12
 - id: ramachandra-guha
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: ramon-fernandez-duran
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
@@ -602,6 +698,12 @@
   seed: 1912
   style: 1
   date: 2026-11-12
+- id: thomas-sankara
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
 - id: timothy-morton
   status: drawn
   model: gemini-nano-banana-2.1
@@ -639,6 +741,12 @@
   style: 1
   date: 2026-11-12
 - id: william-morris
+  status: drawn
+  model: gemini-nano-banana-2.1
+  seed: 1912
+  style: 1
+  date: 2026-11-12
+- id: yayo-herrero
   status: drawn
   model: gemini-nano-banana-2.1
   seed: 1912
