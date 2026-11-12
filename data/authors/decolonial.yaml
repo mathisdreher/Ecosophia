@@ -425,6 +425,7 @@
   branch: decolonial
   born: 1976
   wikidata: Q75223030
+  portrait: false           # the generated drawing put a headscarf on her from her name alone; placeholder until a faithful one exists
   lede:
     en: "French political scientist and activist, co-founder of the Front de mères, a union of parents in working-class neighbourhoods. Pour une écologie pirate argues that the banlieues are not outside ecology but a place from which to rethink it, against an ecology that polices them."
     fr: "Politologue et militante française, cofondatrice du Front de mères, syndicat de parents des quartiers populaires. Pour une écologie pirate soutient que les banlieues ne sont pas hors de l'écologie mais un lieu d'où la repenser, contre une écologie qui les police."

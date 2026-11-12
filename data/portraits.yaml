@@ -248,12 +248,6 @@
   seed: 1912
   style: 1
   date: 2026-11-12
-- id: fatima-ouassak
-  status: drawn
-  model: gemini-nano-banana-2.1
-  seed: 1912
-  style: 1
-  date: 2026-11-12
 - id: felix-guattari
   status: drawn
   model: gemini-nano-banana-2.1
